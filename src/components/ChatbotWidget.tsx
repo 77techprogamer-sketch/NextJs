@@ -14,11 +14,11 @@ const ChatbotWidget = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full p-4">
       <h2 className="text-2xl font-semibold mb-4 text-gray-800 text-center">
-        Have questions? Chat with our Assistant!
+        Got a question? Let's talk!
       </h2>
       <Button size="lg" onClick={openChatbot}>
         <MessageSquare className="mr-2 h-5 w-5" />
-        Open Assistant
+        Start a Quick Chat
       </Button>
     </div>
   );
