@@ -13,7 +13,6 @@ const Footer = () => {
             <li>Hari Kotian</li>
             <li>Call or Whatsapp on -- 9986634506</li>
             <li>info@insurancesupport.com</li>
-            <li>+1 (555) 123-4567</li>
           </ul>
         </div>
         <div className="text-center">
