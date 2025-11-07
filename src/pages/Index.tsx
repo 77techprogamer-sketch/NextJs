@@ -1,7 +1,7 @@
 "use client";
 
 import { MadeWithDyad } from "@/components/made-with-dyad";
-import ChatbotWidget from "@/components/ChatbotWidget";
+// ChatbotWidget import removed as it's now in App.tsx
 
 const Index = () => {
   return (
@@ -13,7 +13,7 @@ const Index = () => {
         </p>
       </div>
       <MadeWithDyad />
-      <ChatbotWidget />
+      {/* ChatbotWidget removed from here */}
     </div>
   );
 };
