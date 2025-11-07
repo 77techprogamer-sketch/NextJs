@@ -12,7 +12,6 @@ const Footer = () => {
           <ul className="text-sm space-y-1">
             <li>Hari Kotian</li>
             <li>Call or Whatsapp on -- 9986634506</li>
-            <li>info@insurancesupport.com</li>
           </ul>
         </div>
         <div className="text-center">
