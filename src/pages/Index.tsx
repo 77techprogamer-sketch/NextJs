@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { MadeWithDyad } from "@/components/made-with-dyad";
+import Footer from "@/components/Footer"; // Import the new Footer component
 
 const insuranceOneLiners = [
   "Life insurance secures your loved ones' future, offering peace of mind.",
@@ -19,14 +19,14 @@ const Index = () => {
   }, []); // Empty dependency array ensures this runs only once on mount
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 relative">
-      <div className="text-center">
+    <div className="min-h-screen flex flex-col items-center justify-between bg-gray-100 relative">
+      <div className="flex-grow flex flex-col items-center justify-center text-center p-4">
         <h1 className="text-4xl font-bold mb-4">Welcome to Insurance Support</h1>
         <p className="text-xl text-gray-600">
           {currentOneLiner}
         </p>
       </div>
-      <MadeWithDyad />
+      <Footer /> {/* Render the Footer component here */}
     </div>
   );
 };
