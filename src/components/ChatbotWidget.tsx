@@ -1,30 +1,25 @@
 "use client";
 
 import React from "react";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
+import { MessageSquare } from "lucide-react";
 
 const CHATBOT_URL = "https://udify.app/chatbot/iJnNXRIZHxwYL4iP";
 
 const ChatbotWidget = () => {
-  const isMobile = useIsMobile();
-
-  // Determine dimensions based on mobile state
-  const iframeWidth = isMobile ? "100%" : "600px"; // 600px wide on desktop
-  const iframeHeight = isMobile ? "70vh" : "700px"; // 700px tall on desktop
+  const openChatbot = () => {
+    window.open(CHATBOT_URL, "_blank", "noopener,noreferrer");
+  };
 
   return (
-    <div className={`flex flex-col items-center justify-center w-full p-4 ${isMobile ? "" : "max-w-3xl mx-auto"}`}>
-      <h2 className="text-2xl font-semibold mb-4 text-gray-800">Chat with our AI Assistant</h2>
-      <div className="border rounded-lg overflow-hidden shadow-lg bg-white" style={{ width: iframeWidth, height: iframeHeight }}>
-        <iframe
-          src={CHATBOT_URL}
-          width="100%"
-          height="100%"
-          frameBorder="0"
-          title="Udify Chatbot"
-          className="border-none"
-        ></iframe>
-      </div>
+    <div className="flex flex-col items-center justify-center w-full p-4">
+      <h2 className="text-2xl font-semibold mb-4 text-gray-800 text-center">
+        Have questions? Chat with our AI Assistant!
+      </h2>
+      <Button size="lg" onClick={openChatbot}>
+        <MessageSquare className="mr-2 h-5 w-5" />
+        Open AI Assistant
+      </Button>
     </div>
   );
 };
