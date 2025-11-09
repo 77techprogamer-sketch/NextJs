@@ -53,7 +53,7 @@ const QuoteForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-lg mx-auto my-8">
+    <Card className="w-full max-w-lg my-8">
       <CardHeader>
         <CardTitle>Request an Insurance Quote</CardTitle>
       </CardHeader>

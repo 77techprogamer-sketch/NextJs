@@ -22,14 +22,20 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-between relative h-full">
-      <div className="flex-grow flex flex-col items-center justify-center text-center p-4 w-full">
-        <h1 className="text-4xl font-bold mb-4 text-gray-800">Welcome to Insurance Support</h1>
-        <p className="text-xl text-gray-600 mb-8">
-          {currentOneLiner}
-        </p>
-        <QuoteForm />
-        <ChatbotWidget />
+    <div className="flex flex-col justify-between relative min-h-screen">
+      <div className="flex-grow container mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="text-center md:text-left">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4 text-gray-800">Welcome to Insurance Support</h1>
+            <p className="text-xl text-gray-600 mb-8">
+              {currentOneLiner}
+            </p>
+            <ChatbotWidget />
+          </div>
+          <div className="w-full">
+            <QuoteForm />
+          </div>
+        </div>
       </div>
       <Footer />
       <VisitorCounter />
