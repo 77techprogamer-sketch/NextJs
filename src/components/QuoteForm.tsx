@@ -14,6 +14,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { showSuccess, showError } from "@/utils/toast";
@@ -23,7 +30,9 @@ const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
   phone: z.string().optional(),
   age: z.coerce.number().min(18, { message: "You must be at least 18 years old." }).optional(),
-  insurance_type: z.string().optional(),
+  insurance_type: z.enum(["Life Insurance", "Term Insurance", "Health Insurance", "Motor Insurance"], {
+    required_error: "Please select an insurance type.",
+  }),
   vehicle_number: z.string().optional(),
 });
 
@@ -35,13 +44,18 @@ const QuoteForm = () => {
       email: "",
       phone: "",
       age: undefined,
-      insurance_type: "",
       vehicle_number: "",
     },
   });
 
+  const insuranceType = form.watch("insurance_type");
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    const { error } = await supabase.from("customers").insert([values]);
+    const submissionData = {
+      ...values,
+      vehicle_number: values.insurance_type === 'Motor Insurance' ? values.vehicle_number : null,
+    };
+    const { error } = await supabase.from("customers").insert([submissionData]);
 
     if (error) {
       showError("Failed to submit quote request. Please try again.");
@@ -118,27 +132,39 @@ const QuoteForm = () => {
               name="insurance_type"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Insurance Type (Optional)</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g., Auto, Health, Life" {...field} />
-                  </FormControl>
+                  <FormLabel>Insurance Type</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormControl>
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select an insurance type" />
+                      </SelectTrigger>
+                    </FormControl>
+                    <SelectContent>
+                      <SelectItem value="Life Insurance">Life Insurance</SelectItem>
+                      <SelectItem value="Term Insurance">Term Insurance</SelectItem>
+                      <SelectItem value="Health Insurance">Health Insurance</SelectItem>
+                      <SelectItem value="Motor Insurance">Motor Insurance</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="vehicle_number"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Vehicle Number (Optional)</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g., ABC-1234" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+            {insuranceType === 'Motor Insurance' && (
+              <FormField
+                control={form.control}
+                name="vehicle_number"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Vehicle Number</FormLabel>
+                    <FormControl>
+                      <Input placeholder="e.g., ABC-1234" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
             <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? "Submitting..." : "Get a Quote"}
             </Button>
