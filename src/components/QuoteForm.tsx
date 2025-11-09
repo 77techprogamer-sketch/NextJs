@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { showSuccess, showError } from "@/utils/toast";
 
@@ -53,9 +53,10 @@ const QuoteForm = () => {
   };
 
   return (
-    <Card className="w-full max-w-lg my-8">
+    <Card className="w-full max-w-md shadow-xl">
       <CardHeader>
-        <CardTitle>Request an Insurance Quote</CardTitle>
+        <CardTitle>Get a Free Insurance Quote</CardTitle>
+        <CardDescription>Fill out the form below and we'll get back to you shortly.</CardDescription>
       </CardHeader>
       <CardContent>
         <Form {...form}>

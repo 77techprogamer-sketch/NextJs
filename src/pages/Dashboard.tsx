@@ -64,8 +64,7 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="container mx-auto py-10 px-4">
         <main>
           <Card>
             <CardHeader>
@@ -108,7 +107,6 @@ const Dashboard = () => {
             </CardContent>
           </Card>
         </main>
-      </div>
     </div>
   );
 };
