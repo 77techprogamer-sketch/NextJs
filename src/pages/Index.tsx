@@ -2,8 +2,9 @@
 
 import React, { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
-import ChatbotWidget from "@/components/ChatbotWidget"; // Import the ChatbotWidget
+import ChatbotWidget from "@/components/ChatbotWidget";
 import VisitorCounter from "@/components/VisitorCounter";
+import QuoteForm from "@/components/QuoteForm";
 
 const insuranceOneLiners = [
   "Life insurance secures your loved ones' future, offering peace of mind.",
@@ -22,12 +23,13 @@ const Index = () => {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-between bg-gray-100 relative">
-      <div className="flex-grow flex flex-col items-center justify-center text-center p-4">
+      <div className="flex-grow flex flex-col items-center justify-center text-center p-4 w-full">
         <h1 className="text-4xl font-bold mb-4 text-gray-800">Welcome to Insurance Support</h1>
         <p className="text-xl text-gray-600 mb-8">
           {currentOneLiner}
         </p>
-        <ChatbotWidget /> {/* Render the ChatbotWidget here */}
+        <QuoteForm />
+        <ChatbotWidget />
       </div>
       <Footer />
       <VisitorCounter />
