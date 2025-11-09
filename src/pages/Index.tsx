@@ -22,7 +22,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-between bg-gray-100 relative">
+    <div className="flex flex-col items-center justify-between relative h-full">
       <div className="flex-grow flex flex-col items-center justify-center text-center p-4 w-full">
         <h1 className="text-4xl font-bold mb-4 text-gray-800">Welcome to Insurance Support</h1>
         <p className="text-xl text-gray-600 mb-8">
