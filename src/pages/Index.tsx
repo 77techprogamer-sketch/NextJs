@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import ChatbotWidget from "@/components/ChatbotWidget"; // Import the ChatbotWidget
+import VisitorCounter from "@/components/VisitorCounter";
 
 const insuranceOneLiners = [
   "Life insurance secures your loved ones' future, offering peace of mind.",
@@ -29,6 +30,7 @@ const Index = () => {
         <ChatbotWidget /> {/* Render the ChatbotWidget here */}
       </div>
       <Footer />
+      <VisitorCounter />
     </div>
   );
 };
