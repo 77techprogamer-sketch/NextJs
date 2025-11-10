@@ -106,7 +106,7 @@ const QuoteForm = () => {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone Number (Optional)</FormLabel>
+                  <FormLabel>Phone Number</FormLabel>
                   <FormControl>
                     <Input placeholder="123-456-7890" {...field} />
                   </FormControl>
@@ -119,7 +119,7 @@ const QuoteForm = () => {
               name="age"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Age (Optional)</FormLabel>
+                  <FormLabel>Age</FormLabel>
                   <FormControl>
                     <Input type="number" placeholder="25" {...field} />
                   </FormControl>
