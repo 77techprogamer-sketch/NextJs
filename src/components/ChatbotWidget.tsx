@@ -4,7 +4,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { MessageSquare } from "lucide-react";
 
-const CHATBOT_URL = "https://udify.app/chatbot/iJnNXRIZHxwYL4iP";
+const CHATBOT_URL = "https://udify.app/chat/uHzY4hhQTioH4pFK";
 
 const ChatbotWidget = () => {
   const openChatbot = () => {
