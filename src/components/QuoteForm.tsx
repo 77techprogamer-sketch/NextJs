@@ -28,7 +28,9 @@ import { showSuccess, showError } from "@/utils/toast";
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().optional(),
+  phone: z.string().optional().refine(val => !val || /^\d{10}$/.test(val), {
+    message: "Please enter a valid 10-digit phone number.",
+  }),
   age: z.coerce.number().min(18, { message: "You must be at least 18 years old." }).optional(),
   insurance_type: z.enum(["Life Insurance", "Term Insurance", "Health Insurance", "Motor Insurance"], {
     required_error: "Please select an insurance type.",
@@ -108,7 +110,7 @@ const QuoteForm = () => {
                 <FormItem>
                   <FormLabel>Phone Number</FormLabel>
                   <FormControl>
-                    <Input placeholder="123-456-7890" {...field} />
+                    <Input placeholder="9876543210" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
