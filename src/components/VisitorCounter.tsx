@@ -3,9 +3,11 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Eye } from 'lucide-react';
+import { formatDistanceToNow } from 'date-fns';
 
 const VisitorCounter = () => {
   const [count, setCount] = useState<number | null>(null);
+  const [lastVisit, setLastVisit] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchIpAndCount = async () => {
@@ -23,8 +25,6 @@ const VisitorCounter = () => {
           .from('visitors')
           .insert({ ip_address: ip });
 
-        // A '23505' error code means the IP already exists, which is expected.
-        // We only log other, unexpected errors.
         if (insertError && insertError.code !== '23505') {
             console.error('Error logging visitor:', insertError.message);
         }
@@ -39,6 +39,21 @@ const VisitorCounter = () => {
         } else {
           setCount(count);
         }
+
+        // 4. Get the last visit timestamp
+        const { data: lastVisitorData, error: lastVisitorError } = await supabase
+          .from('visitors')
+          .select('created_at')
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .single();
+
+        if (lastVisitorError) {
+          console.error('Error fetching last visit:', lastVisitorError.message);
+        } else if (lastVisitorData) {
+          setLastVisit(formatDistanceToNow(new Date(lastVisitorData.created_at), { addSuffix: true }));
+        }
+
       } catch (error) {
         console.error('An error occurred in the visitor counter:', error);
       }
@@ -48,13 +63,16 @@ const VisitorCounter = () => {
   }, []);
 
   if (count === null) {
-    return null; // Don't render anything until the count is fetched
+    return null; // Don't render anything until the data is fetched
   }
 
   return (
     <div className="fixed bottom-4 right-4 text-xs text-gray-500 bg-gray-100 bg-opacity-75 p-2 rounded-md flex items-center shadow-sm">
-       <Eye className="h-4 w-4 mr-1" />
-      <span>{count} unique visitors</span>
+       <Eye className="h-4 w-4 mr-2" />
+      <div className="flex flex-col items-end">
+        <span>{count} unique visitors</span>
+        {lastVisit && <span className="text-gray-400">Last visit {lastVisit}</span>}
+      </div>
     </div>
   );
 };
