@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Footer from "@/components/Footer";
 import ChatbotWidget from "@/components/ChatbotWidget";
 import VisitorCounter from "@/components/VisitorCounter";
@@ -13,13 +13,13 @@ const insuranceOneLiners = [
   "Motor insurance safeguards your vehicle against damages and liabilities on the road.",
 ];
 
-const Index = () => {
-  const [currentOneLiner, setCurrentOneLiner] = useState("");
+const getRandomOneLiner = () => {
+  const randomIndex = Math.floor(Math.random() * insuranceOneLiners.length);
+  return insuranceOneLiners[randomIndex];
+};
 
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * insuranceOneLiners.length);
-    setCurrentOneLiner(insuranceOneLiners[randomIndex]);
-  }, []);
+const Index = () => {
+  const [currentOneLiner] = useState(getRandomOneLiner());
 
   return (
     <div className="flex flex-col min-h-full">
