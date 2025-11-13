@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
-import { Eye, Users, UserCheck } from 'lucide-react';
+import { Eye, Users } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 
 const VisitorCounter = () => {
@@ -89,10 +89,6 @@ const VisitorCounter = () => {
       <div className="flex items-center" title="Visitors currently online">
         <Users className="h-4 w-4 mr-2 text-blue-500" />
         <span>{onlineCount} currently online</span>
-      </div>
-      <div className="flex items-center text-green-600 dark:text-green-500" title="Expert is available for chat">
-        <UserCheck className="h-4 w-4 mr-2" />
-        <span>Expert available</span>
       </div>
     </div>
   );

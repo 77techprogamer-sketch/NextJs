@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { MessageSquare } from "lucide-react";
+import { MessageSquare, UserCheck } from "lucide-react";
 
 const CHATBOT_URL = "https://udify.app/chat/uHzY4hhQTioH4pFK";
 
@@ -20,6 +20,10 @@ const ChatbotWidget = () => {
         <MessageSquare className="mr-2 h-5 w-5" />
         Chat with an Expert
       </Button>
+      <div className="flex items-center text-green-600 dark:text-green-500 mt-3" title="Expert is available for chat">
+        <UserCheck className="h-4 w-4 mr-2" />
+        <span className="text-sm font-medium">Expert available</span>
+      </div>
     </div>
   );
 };
