@@ -29,29 +29,17 @@ const VisitorCounter = () => {
             console.error('Error logging visitor:', insertError.message);
         }
 
-        // 3. Get the total count of unique visitors
-        const { count, error: countError } = await supabase
-          .from('visitors')
-          .select('*', { count: 'exact', head: true });
+        // 3. Get visitor stats using the secure RPC function
+        const { data, error } = await supabase.rpc('get_visitor_stats');
 
-        if (countError) {
-          console.error('Error fetching visitor count:', countError.message);
-        } else {
-          setCount(count);
-        }
-
-        // 4. Get the last visit timestamp
-        const { data: lastVisitorData, error: lastVisitorError } = await supabase
-          .from('visitors')
-          .select('created_at')
-          .order('created_at', { ascending: false })
-          .limit(1)
-          .single();
-
-        if (lastVisitorError) {
-          console.error('Error fetching last visit:', lastVisitorError.message);
-        } else if (lastVisitorData) {
-          setLastVisit(formatDistanceToNow(new Date(lastVisitorData.created_at), { addSuffix: true }));
+        if (error) {
+          console.error('Error fetching visitor stats:', error.message);
+        } else if (data && data.length > 0) {
+          const stats = data[0];
+          setCount(stats.total_visitors);
+          if (stats.last_visit) {
+            setLastVisit(formatDistanceToNow(new Date(stats.last_visit), { addSuffix: true }));
+          }
         }
 
       } catch (error) {
