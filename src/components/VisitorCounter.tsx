@@ -20,12 +20,15 @@ const VisitorCounter = () => {
         }
         const { ip } = await ipResponse.json();
 
-        const { error: insertError } = await supabase
-          .from('visitors')
-          .insert({ ip_address: ip });
+        // Invoke the Edge Function to log the visitor IP
+        const { data: edgeFunctionData, error: edgeFunctionError } = await supabase.functions.invoke('log-visitor', {
+          body: { ip_address: ip },
+        });
 
-        if (insertError && insertError.code !== '23505') { // '23505' is unique_violation
-            console.error('Error logging visitor:', insertError.message);
+        if (edgeFunctionError) {
+          console.error('Error invoking log-visitor Edge Function:', edgeFunctionError.message);
+        } else {
+          console.log('Visitor logged via Edge Function:', edgeFunctionData);
         }
 
         const { data, error } = await supabase.rpc('get_visitor_stats');
