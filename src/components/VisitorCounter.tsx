@@ -6,7 +6,8 @@ import { Eye, Users } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 
 const VisitorCounter = () => {
-  const [count, setCount] = useState<number | null>(null);
+  const [totalVisits, setTotalVisits] = useState<number | null>(null);
+  const [uniqueVisitors, setUniqueVisitors] = useState<number | null>(null);
   const [lastVisit, setLastVisit] = useState<string | null>(null);
   const [onlineCount, setOnlineCount] = useState<number>(0);
 
@@ -21,14 +22,14 @@ const VisitorCounter = () => {
         const { ip } = await ipResponse.json();
 
         // Directly insert the visitor IP using the standard Supabase client
-        // This will respect the RLS policy allowing anonymous inserts
+        // This will respect the RLS policy allowing anonymous inserts and the new trigger
         const { error: insertError } = await supabase
           .from('visitors')
           .insert({ ip_address: ip });
 
-        if (insertError && insertError.code !== '23505') { // '23505' is unique_violation
+        if (insertError) {
           console.error('Error inserting visitor IP:', insertError.message);
-        } else if (!insertError) {
+        } else {
           console.log('Visitor logged successfully');
         }
 
@@ -38,7 +39,8 @@ const VisitorCounter = () => {
           console.error('Error fetching visitor stats:', error.message);
         } else if (data && data.length > 0) {
           const stats = data[0];
-          setCount(stats.total_visitors);
+          setTotalVisits(stats.total_visits);
+          setUniqueVisitors(stats.unique_visitors);
           if (stats.last_visit) {
             setLastVisit(formatDistanceToNow(new Date(stats.last_visit), { addSuffix: true }));
           }
@@ -77,21 +79,25 @@ const VisitorCounter = () => {
     };
   }, []);
 
-  if (count === null) {
+  if (totalVisits === null || uniqueVisitors === null) {
     return null;
   }
 
   return (
     <div className="fixed bottom-4 right-4 text-xs text-gray-500 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-3 rounded-lg flex flex-col items-end shadow-lg space-y-2 border">
-      <div className="flex items-center" title="Unique visitors">
+      <div className="flex items-center" title="Total visits">
         <Eye className="h-4 w-4 mr-2" />
         <div className="flex flex-col items-end">
-          <span>{count} unique visitors</span>
+          <span>{totalVisits} total visits</span>
           {lastVisit && <span className="text-gray-400">Last visit {lastVisit}</span>}
         </div>
       </div>
-      <div className="flex items-center" title="Visitors currently online">
+      <div className="flex items-center" title="Unique visitors">
         <Users className="h-4 w-4 mr-2 text-blue-500" />
+        <span>{uniqueVisitors} unique visitors</span>
+      </div>
+      <div className="flex items-center" title="Visitors currently online">
+        <Users className="h-4 w-4 mr-2 text-green-500" />
         <span>{onlineCount} currently online</span>
       </div>
     </div>
