@@ -11,12 +11,6 @@ const Footer = () => {
           <span className="font-bold text-lg px-4">
             🎉 GST rates have been slashed and removed on select plans! 🎉
           </span>
-          <span className="font-bold text-lg px-4">
-            🎉 GST rates have been slashed and removed on select plans! 🎉
-          </span>
-          <span className="font-bold text-lg px-4">
-            🎉 GST rates have been slashed and removed on select plans! 🎉
-          </span>
         </div>
       </div>
       <div className="container mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center">
