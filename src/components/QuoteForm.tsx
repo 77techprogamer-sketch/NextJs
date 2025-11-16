@@ -24,6 +24,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { showSuccess, showError } from "@/utils/toast";
+import { useSession } from "@/integrations/supabase/SessionContextProvider"; // Import useSession
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -39,6 +40,7 @@ const formSchema = z.object({
 });
 
 const QuoteForm = () => {
+  const { user } = useSession(); // Get the current user from the session
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,6 +58,7 @@ const QuoteForm = () => {
     const submissionData = {
       ...values,
       vehicle_number: values.insurance_type === 'Motor Insurance' ? values.vehicle_number : null,
+      user_id: user?.id || null, // Include user_id if available
     };
     const { error } = await supabase.from("customers").insert([submissionData]);
 
