@@ -4,12 +4,15 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Eye, Users } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
+import { useIsMobile } from '@/hooks/use-mobile'; // Import the useIsMobile hook
+import { cn } from '@/lib/utils'; // Import cn for conditional class merging
 
 const VisitorCounter = () => {
   const [totalVisits, setTotalVisits] = useState<number | null>(null);
   const [uniqueVisitors, setUniqueVisitors] = useState<number | null>(null);
   const [lastVisit, setLastVisit] = useState<string | null>(null);
   const [onlineCount, setOnlineCount] = useState<number>(0);
+  const isMobile = useIsMobile(); // Use the hook to detect mobile
 
   useEffect(() => {
     const fetchIpAndCount = async () => {
@@ -83,8 +86,13 @@ const VisitorCounter = () => {
     return null;
   }
 
+  const containerClasses = cn(
+    "fixed text-gray-500 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg flex flex-col items-end shadow-lg border",
+    isMobile ? "bottom-2 right-2 p-2 space-y-1 text-xs" : "bottom-4 right-4 p-3 space-y-2 text-xs"
+  );
+
   return (
-    <div className="fixed bottom-4 right-4 text-xs text-gray-500 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-3 rounded-lg flex flex-col items-end shadow-lg space-y-2 border">
+    <div className={containerClasses}>
       <div className="flex items-center" title="Total visits">
         <Eye className="h-4 w-4 mr-2" />
         <div className="flex flex-col items-end">
