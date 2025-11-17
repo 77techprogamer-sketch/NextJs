@@ -100,10 +100,7 @@ const VisitorCounter = () => {
           {lastVisit && <span className="text-gray-400">Last visit {lastVisit}</span>}
         </div>
       </div>
-      <div className="flex items-center" title="Unique visitors">
-        <Users className="h-4 w-4 mr-2 text-blue-500" />
-        <span>{uniqueVisitors} unique visitors</span>
-      </div>
+      {/* Removed Unique visitors display */}
       <div className="flex items-center" title="Visitors currently online">
         <Users className="h-4 w-4 mr-2 text-green-500" />
         <span>{onlineCount} currently online</span>
