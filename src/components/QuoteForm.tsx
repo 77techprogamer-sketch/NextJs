@@ -66,7 +66,7 @@ const QuoteForm = () => {
       showError("Failed to submit quote request. Please try again.");
       console.error("Error inserting data:", error);
     } else {
-      showSuccess("Your quote request has been submitted successfully!");
+      showSuccess("Your quote request has been submitted successfully!, Our advisor will reach out to you shortly");
       form.reset();
     }
   };
