@@ -170,7 +170,11 @@ const QuoteForm = () => {
                 )}
               />
             )}
-            <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+            <Button
+              type="submit"
+              className="w-full transition-transform duration-200 hover:scale-[1.02]"
+              disabled={form.formState.isSubmitting}
+            >
               {form.formState.isSubmitting ? "Submitting..." : "Get a Quote"}
             </Button>
           </form>

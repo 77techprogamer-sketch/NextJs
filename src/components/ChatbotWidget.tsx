@@ -16,7 +16,11 @@ const ChatbotWidget = () => {
       <p className="text-lg font-semibold mb-4 text-foreground">
         Have questions? We're here to help.
       </p>
-      <Button size="lg" onClick={openChatbot} className="shadow-lg">
+      <Button
+        size="lg"
+        onClick={openChatbot}
+        className="shadow-lg transition-transform duration-200 hover:scale-105"
+      >
         <MessageSquare className="mr-2 h-5 w-5" />
         Chat with an Expert
       </Button>

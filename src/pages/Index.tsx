@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "@/components/Footer";
 import ChatbotWidget from "@/components/ChatbotWidget";
 import VisitorCounter from "@/components/VisitorCounter";
@@ -13,13 +13,20 @@ const insuranceOneLiners = [
   "Motor insurance safeguards your vehicle against damages and liabilities on the road.",
 ];
 
-const getRandomOneLiner = () => {
-  const randomIndex = Math.floor(Math.random() * insuranceOneLiners.length);
-  return insuranceOneLiners[randomIndex];
-};
-
 const Index = () => {
-  const [currentOneLiner] = useState(getRandomOneLiner());
+  const [currentOneLiner, setCurrentOneLiner] = useState(insuranceOneLiners[0]);
+  const [oneLinerIndex, setOneLinerIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOneLinerIndex((prevIndex) => (prevIndex + 1) % insuranceOneLiners.length);
+    }, 5000); // Change every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    setCurrentOneLiner(insuranceOneLiners[oneLinerIndex]);
+  }, [oneLinerIndex]);
 
   return (
     <div className="flex flex-col min-h-full">
@@ -30,7 +37,7 @@ const Index = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-6">
                 Your Trusted Partner in Insurance
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl transition-opacity duration-1000 ease-in-out">
                 {currentOneLiner}
               </p>
               <ChatbotWidget />
