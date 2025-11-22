@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { showSuccess, showError } from "@/utils/toast"; // Import toast utilities
 
 interface SocialShareButtonsProps {
   url: string;
@@ -22,6 +23,16 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
     window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank', 'noopener,noreferrer');
   };
 
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+      showSuccess("Link copied to clipboard! You can now paste it on Instagram.");
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+      showError("Failed to copy link. Please try again.");
+    }
+  };
+
   return (
     <div className="flex space-x-3 mt-6 justify-center md:justify-start">
       <Button variant="outline" size="icon" onClick={shareOnFacebook} aria-label="Share on Facebook">
@@ -32,6 +43,9 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
       </Button>
       <Button variant="outline" size="icon" onClick={shareOnLinkedIn} aria-label="Share on LinkedIn">
         <Linkedin className="h-5 w-5" />
+      </Button>
+      <Button variant="outline" size="icon" onClick={copyToClipboard} aria-label="Copy link for Instagram">
+        <Instagram className="h-5 w-5" />
       </Button>
     </div>
   );
