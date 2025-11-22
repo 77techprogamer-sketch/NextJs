@@ -57,6 +57,7 @@ const VisitorCounter = () => {
           console.error('Failed to fetch geo information');
         } else {
           const geoData = await geoResponse.json();
+          console.log('Raw Geo Data from ip-api.com:', geoData); // Added client-side logging
           if (geoData.status === 'success') {
             visitorIsp = geoData.isp || null;
             visitorCity = geoData.city || null;
