@@ -14,6 +14,9 @@ serve(async (req) => {
   try {
     const { ip_address, isp, city, region, country } = await req.json();
 
+    // Log the incoming data for debugging
+    console.log('Received visitor data:', { ip_address, isp, city, region, country });
+
     if (!ip_address) {
       return new Response(JSON.stringify({ error: 'IP address is required' }), {
         status: 400,
@@ -35,7 +38,7 @@ serve(async (req) => {
       .gte('created_at', new Date(Date.now() - 60 * 1000).toISOString()); // Last 60 seconds
 
     if (fetchError) {
-      console.error('Error fetching recent visits:', fetchError.message);
+      console.error('Error fetching recent visits for rate limit:', fetchError.message);
       return new Response(JSON.stringify({ error: 'Failed to check rate limit' }), {
         status: 500,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -44,6 +47,7 @@ serve(async (req) => {
 
     if (recentVisits && recentVisits.length > 0) {
       // If there's any visit in the last 60 seconds, consider it rate-limited
+      console.warn('Rate limit exceeded for IP:', ip_address);
       return new Response(JSON.stringify({ message: 'Rate limit exceeded for this IP address.' }), {
         status: 429, // Too Many Requests
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
