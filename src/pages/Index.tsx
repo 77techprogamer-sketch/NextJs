@@ -45,7 +45,7 @@ const Index = () => {
                 {currentOneLiner}
               </p>
               <ChatbotWidget />
-              <p className="text-base text-muted-foreground mt-4 mb-1 font-bold">Share it if you like the service.</p> {/* Added font-bold */}
+              <p className="text-base text-muted-foreground mt-4 mb-1 font-bold">Share! if you like our Service.</p> {/* Updated text */}
               <SocialShareButtons url={currentUrl} title={pageTitle} /> {/* Add social share buttons */}
             </div>
             <div className="w-full flex justify-center md:justify-end">
