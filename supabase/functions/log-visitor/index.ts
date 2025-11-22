@@ -21,10 +21,10 @@ serve(async (req) => {
       });
     }
 
-    // Create a Supabase client with the service role key to bypass RLS
+    // Create a Supabase client using the anon key, respecting RLS
     const supabaseClient = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
-      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+      Deno.env.get('SUPABASE_ANON_KEY') ?? '' // Use ANON_KEY instead of SERVICE_ROLE_KEY
     );
 
     // Implement rate limiting: Check for recent visits from the same IP
