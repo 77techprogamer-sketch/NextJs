@@ -18,6 +18,9 @@ const VisitorCounter = () => {
     const fetchIpAndCount = async () => {
       let visitorIp: string | null = null;
       let visitorIsp: string | null = null;
+      let visitorCity: string | null = null;
+      let visitorRegion: string | null = null;
+      let visitorCountry: string | null = null;
 
       try {
         // Fetch IP address
@@ -29,28 +32,37 @@ const VisitorCounter = () => {
         const { ip } = await ipResponse.json();
         visitorIp = ip;
 
-        // Fetch ISP information using the IP address
-        const ispResponse = await fetch(`http://ip-api.com/json/${ip}`);
-        if (!ispResponse.ok) {
-          console.error('Failed to fetch ISP information');
+        // Fetch ISP and location information using the IP address
+        const geoResponse = await fetch(`http://ip-api.com/json/${ip}`);
+        if (!geoResponse.ok) {
+          console.error('Failed to fetch geo information');
         } else {
-          const ispData = await ispResponse.json();
-          if (ispData.status === 'success' && ispData.isp) {
-            visitorIsp = ispData.isp;
+          const geoData = await geoResponse.json();
+          if (geoData.status === 'success') {
+            visitorIsp = geoData.isp || null;
+            visitorCity = geoData.city || null;
+            visitorRegion = geoData.regionName || null;
+            visitorCountry = geoData.country || null;
           } else {
-            console.warn('ISP data not found or API call unsuccessful:', ispData);
+            console.warn('Geo data not found or API call unsuccessful:', geoData);
           }
         }
 
-        // Insert the visitor IP and ISP using the standard Supabase client
+        // Insert the visitor IP, ISP, and location using the standard Supabase client
         const { error: insertError } = await supabase
           .from('visitors')
-          .insert({ ip_address: visitorIp, isp: visitorIsp });
+          .insert({ 
+            ip_address: visitorIp, 
+            isp: visitorIsp,
+            city: visitorCity,
+            region: visitorRegion,
+            country: visitorCountry,
+          });
 
         if (insertError) {
           console.error('Error inserting visitor data:', insertError.message);
         } else {
-          console.log('Visitor logged successfully with IP and ISP');
+          console.log('Visitor logged successfully with IP, ISP, and location');
         }
 
         // Fetch updated visitor stats
