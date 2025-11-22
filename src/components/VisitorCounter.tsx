@@ -4,38 +4,56 @@ import React, { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Eye, Users } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
-import { useIsMobile } from '@/hooks/use-mobile'; // Import the useIsMobile hook
-import { cn } from '@/lib/utils'; // Import cn for conditional class merging
+import { useIsMobile } from '@/hooks/use-mobile';
+import { cn } from '@/lib/utils';
 
 const VisitorCounter = () => {
   const [totalVisits, setTotalVisits] = useState<number | null>(null);
   const [uniqueVisitors, setUniqueVisitors] = useState<number | null>(null);
   const [lastVisit, setLastVisit] = useState<string | null>(null);
   const [onlineCount, setOnlineCount] = useState<number>(0);
-  const isMobile = useIsMobile(); // Use the hook to detect mobile
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const fetchIpAndCount = async () => {
+      let visitorIp: string | null = null;
+      let visitorIsp: string | null = null;
+
       try {
+        // Fetch IP address
         const ipResponse = await fetch('https://api.ipify.org?format=json');
         if (!ipResponse.ok) {
           console.error('Failed to fetch IP address');
           return;
         }
         const { ip } = await ipResponse.json();
+        visitorIp = ip;
 
-        // Directly insert the visitor IP using the standard Supabase client
-        // This will respect the RLS policy allowing anonymous inserts and the new trigger
-        const { error: insertError } = await supabase
-          .from('visitors')
-          .insert({ ip_address: ip });
-
-        if (insertError) {
-          console.error('Error inserting visitor IP:', insertError.message);
+        // Fetch ISP information using the IP address
+        const ispResponse = await fetch(`http://ip-api.com/json/${ip}`);
+        if (!ispResponse.ok) {
+          console.error('Failed to fetch ISP information');
         } else {
-          console.log('Visitor logged successfully');
+          const ispData = await ispResponse.json();
+          if (ispData.status === 'success' && ispData.isp) {
+            visitorIsp = ispData.isp;
+          } else {
+            console.warn('ISP data not found or API call unsuccessful:', ispData);
+          }
         }
 
+        // Insert the visitor IP and ISP using the standard Supabase client
+        const { error: insertError } = await supabase
+          .from('visitors')
+          .insert({ ip_address: visitorIp, isp: visitorIsp });
+
+        if (insertError) {
+          console.error('Error inserting visitor data:', insertError.message);
+        } else {
+          console.log('Visitor logged successfully with IP and ISP');
+        }
+
+        // Fetch updated visitor stats
         const { data, error } = await supabase.rpc('get_visitor_stats');
 
         if (error) {
@@ -100,7 +118,6 @@ const VisitorCounter = () => {
           {lastVisit && <span className="text-gray-400">Last visit {lastVisit}</span>}
         </div>
       </div>
-      {/* Removed Unique visitors display */}
       <div className="flex items-center" title="Visitors currently online">
         <Users className="h-4 w-4 mr-2 text-green-500" />
         <span>{onlineCount} currently online</span>
