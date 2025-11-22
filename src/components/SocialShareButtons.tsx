@@ -34,7 +34,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
   };
 
   return (
-    <div className="flex space-x-3 mt-6 justify-center md:justify-start">
+    <div className="flex space-x-3 mt-3 justify-center md:justify-start"> {/* Changed mt-6 to mt-3 */}
       <Button variant="outline" size="icon" onClick={shareOnFacebook} aria-label="Share on Facebook">
         <Facebook className="h-5 w-5" />
       </Button>
