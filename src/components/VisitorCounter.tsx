@@ -6,6 +6,7 @@ import { Eye, Users } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
+import { showError } from '@/utils/toast'; // Import showError for user feedback
 
 const VisitorCounter = () => {
   const [totalVisits, setTotalVisits] = useState<number | null>(null);
@@ -15,7 +16,7 @@ const VisitorCounter = () => {
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const fetchIpAndCount = async () => {
+    const logVisitorAndFetchStats = async () => {
       let visitorIp: string | null = null;
       let visitorIsp: string | null = null;
       let visitorCity: string | null = null;
@@ -48,21 +49,27 @@ const VisitorCounter = () => {
           }
         }
 
-        // Insert the visitor IP, ISP, and location using the standard Supabase client
-        const { error: insertError } = await supabase
-          .from('visitors')
-          .insert({ 
+        // Call the Edge Function to log the visitor
+        const { data: edgeFunctionData, error: edgeFunctionError } = await supabase.functions.invoke('log-visitor', {
+          body: { 
             ip_address: visitorIp, 
             isp: visitorIsp,
             city: visitorCity,
             region: visitorRegion,
             country: visitorCountry,
-          });
+          },
+        });
 
-        if (insertError) {
-          console.error('Error inserting visitor data:', insertError.message);
+        if (edgeFunctionError) {
+          console.error('Error calling Edge Function:', edgeFunctionError.message);
+          // Optionally show a toast for rate limiting or other errors
+          if (edgeFunctionError.status === 429) {
+            // showError("You're visiting too frequently. Please wait a moment.");
+          } else {
+            // showError("Failed to log visitor. Please try again.");
+          }
         } else {
-          console.log('Visitor logged successfully with IP, ISP, and location');
+          console.log('Visitor logged successfully via Edge Function:', edgeFunctionData);
         }
 
         // Fetch updated visitor stats
@@ -80,10 +87,11 @@ const VisitorCounter = () => {
         }
       } catch (error) {
         console.error('An error occurred in the visitor counter:', error);
+        // showError("An unexpected error occurred.");
       }
     };
 
-    fetchIpAndCount();
+    logVisitorAndFetchStats();
 
     // Realtime Presence for live visitor count
     const presenceKey = Math.random().toString(36).substring(7);
