@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import ChatbotWidget from "@/components/ChatbotWidget";
 import VisitorCounter from "@/components/VisitorCounter";
 import QuoteForm from "@/components/QuoteForm";
+import SocialShareButtons from "@/components/SocialShareButtons"; // Import the new component
 
 const insuranceOneLiners = [
   "Life insurance secures your loved ones' future, offering peace of mind.",
@@ -28,6 +29,9 @@ const Index = () => {
     setCurrentOneLiner(insuranceOneLiners[oneLinerIndex]);
   }, [oneLinerIndex]);
 
+  const currentUrl = window.location.href;
+  const pageTitle = "Insurance Support - Your Trusted Partner";
+
   return (
     <div className="flex flex-col min-h-full">
       <main className="flex-1">
@@ -41,6 +45,7 @@ const Index = () => {
                 {currentOneLiner}
               </p>
               <ChatbotWidget />
+              <SocialShareButtons url={currentUrl} title={pageTitle} /> {/* Add social share buttons */}
             </div>
             <div className="w-full flex justify-center md:justify-end">
               <QuoteForm />
