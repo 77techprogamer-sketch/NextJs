@@ -26,7 +26,6 @@ import React, { useEffect, useState } from 'react';
             const ipResponse = await fetch('https://api.ipify.org?format=json');
             if (!ipResponse.ok) {
               console.error('Failed to fetch IP address');
-              showError("Failed to get your IP address."); // Enabled error toast
               return;
             }
             const { ip } = await ipResponse.json();
@@ -36,7 +35,6 @@ import React, { useEffect, useState } from 'react';
             const geoResponse = await fetch(`https://ip-api.com/json/${ip}`); // Changed to HTTPS
             if (!geoResponse.ok) {
               console.error('Failed to fetch geo information');
-              showError("Failed to get your location information."); // Enabled error toast
             } else {
               const geoData = await geoResponse.json();
               if (geoData.status === 'success') {
@@ -64,9 +62,9 @@ import React, { useEffect, useState } from 'react';
               console.error('Error calling Edge Function:', edgeFunctionError.message);
               // Optionally show a toast for rate limiting or other errors
               if (edgeFunctionError.status === 429) {
-                // showError("You're visiting too frequently. Please wait a moment."); // Keep this commented if you don't want to alert users about rate limits
+                // showError("You're visiting too frequently. Please wait a moment.");
               } else {
-                showError("Failed to log visitor. Please try again."); // Enabled error toast
+                // showError("Failed to log visitor. Please try again.");
               }
             } else {
               console.log('Visitor logged successfully via Edge Function:', edgeFunctionData);
@@ -77,7 +75,6 @@ import React, { useEffect, useState } from 'react';
 
             if (error) {
               console.error('Error fetching visitor stats:', error.message);
-              showError("Failed to fetch visitor statistics."); // Enabled error toast
             } else if (data && data.length > 0) {
               const stats = data[0];
               setTotalVisits(stats.total_visits);
@@ -88,7 +85,7 @@ import React, { useEffect, useState } from 'react';
             }
           } catch (error) {
             console.error('An error occurred in the visitor counter:', error);
-            showError("An unexpected error occurred."); // Enabled error toast
+            // showError("An unexpected error occurred.");
           }
         };
 
