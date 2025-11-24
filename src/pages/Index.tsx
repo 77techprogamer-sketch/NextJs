@@ -39,7 +39,7 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-6">
-                Your Trusted Partner in Insurance
+                Insurance Support: Your Trusted Partner
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl transition-opacity duration-1000 ease-in-out">
                 {currentOneLiner}
