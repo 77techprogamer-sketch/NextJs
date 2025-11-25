@@ -70,9 +70,14 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
     vehicle_usage: z.enum(["Private Use", "Commercial Use"], {
       invalid_type_error: "Please select vehicle usage.",
     }).optional(),
+    source_location: z.string().optional(),
+    destination_location: z.string().optional(),
+    visit_duration: z.string().optional(),
+    purpose_of_visit: z.string().optional(),
+    number_of_people: z.coerce.number().min(1, { message: "Must be at least 1 person." }).optional(),
   }).superRefine((data, ctx) => {
     // Conditional validation for Motor Insurance specific fields
-    if (insuranceType === 'Motor Insurance') { // Now directly using the prop
+    if (insuranceType === 'Motor Insurance') {
       if (!data.vehicle_type) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
@@ -88,6 +93,45 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
         });
       }
     }
+
+    // Conditional validation for Travel Insurance specific fields
+    if (insuranceType === 'Travel Insurance') {
+      if (!data.source_location) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Source location is required for Travel Insurance.",
+          path: ['source_location'],
+        });
+      }
+      if (!data.destination_location) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Destination location is required for Travel Insurance.",
+          path: ['destination_location'],
+        });
+      }
+      if (!data.visit_duration) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Duration of visit is required for Travel Insurance.",
+          path: ['visit_duration'],
+        });
+      }
+      if (!data.purpose_of_visit) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Purpose of visit is required for Travel Insurance.",
+          path: ['purpose_of_visit'],
+        });
+      }
+      if (!data.number_of_people) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Number of people is required for Travel Insurance.",
+          path: ['number_of_people'],
+        });
+      }
+    }
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -100,8 +144,13 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
       vehicle_number: "",
       vehicle_type: undefined,
       vehicle_usage: undefined,
+      source_location: "",
+      destination_location: "",
+      visit_duration: "",
+      purpose_of_visit: "",
+      number_of_people: undefined,
     },
-    // No need for context: { insuranceType } here anymore as schema directly uses the prop
+    context: { insuranceType },
   });
 
   // Reset form when modal opens or insuranceType changes
@@ -115,6 +164,11 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
         vehicle_number: "",
         vehicle_type: undefined,
         vehicle_usage: undefined,
+        source_location: "",
+        destination_location: "",
+        visit_duration: "",
+        purpose_of_visit: "",
+        number_of_people: undefined,
       });
     }
   }, [isOpen, insuranceType, form]);
@@ -123,9 +177,16 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
     const submissionData = {
       ...values,
       insurance_type: insuranceType,
+      // Conditionally set motor insurance fields to null if not motor insurance
       vehicle_number: insuranceType === 'Motor Insurance' ? values.vehicle_number : null,
       vehicle_type: insuranceType === 'Motor Insurance' ? values.vehicle_type : null,
       vehicle_usage: insuranceType === 'Motor Insurance' ? values.vehicle_usage : null,
+      // Conditionally set travel insurance fields to null if not travel insurance
+      source_location: insuranceType === 'Travel Insurance' ? values.source_location : null,
+      destination_location: insuranceType === 'Travel Insurance' ? values.destination_location : null,
+      visit_duration: insuranceType === 'Travel Insurance' ? values.visit_duration : null,
+      purpose_of_visit: insuranceType === 'Travel Insurance' ? values.purpose_of_visit : null,
+      number_of_people: insuranceType === 'Travel Insurance' ? values.number_of_people : null,
       user_id: user?.id || null,
     };
 
@@ -285,6 +346,77 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
                 />
               </>
             )}
+
+            {insuranceType === 'Travel Insurance' && (
+              <>
+                <FormField
+                  control={form.control}
+                  name="source_location"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Source Location</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., Mumbai" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="destination_location"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Destination Location</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., Paris" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="visit_duration"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Duration of Visit</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., 7 days, 2 weeks" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="purpose_of_visit"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Purpose of Visit</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., Leisure, Business" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="number_of_people"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Number of People</FormLabel>
+                      <FormControl>
+                        <Input type="number" placeholder="e.g., 2" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </>
+            )}
+
             <Button
               type="submit"
               className="w-full transition-transform duration-200 hover:scale-[1.02]"
