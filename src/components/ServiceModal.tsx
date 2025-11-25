@@ -75,6 +75,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
     visit_duration: z.string().optional(),
     purpose_of_visit: z.string().optional(),
     number_of_people: z.coerce.number().min(1, { message: "Must be at least 1 person." }).optional(),
+    type_of_property: z.string().optional(),
+    intended_sum_insured: z.string().optional(),
   }).superRefine((data, ctx) => {
     // Conditional validation for Motor Insurance specific fields
     if (insuranceType === 'Motor Insurance') {
@@ -132,6 +134,24 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
         });
       }
     }
+
+    // Conditional validation for Fire Insurance specific fields
+    if (insuranceType === 'Fire Insurance') {
+      if (!data.type_of_property) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Type of property is required for Fire Insurance.",
+          path: ['type_of_property'],
+        });
+      }
+      if (!data.intended_sum_insured) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Intended sum insured is required for Fire Insurance.",
+          path: ['intended_sum_insured'],
+        });
+      }
+    }
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -149,6 +169,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
       visit_duration: "",
       purpose_of_visit: "",
       number_of_people: undefined,
+      type_of_property: "",
+      intended_sum_insured: "",
     },
     context: { insuranceType },
   });
@@ -169,6 +191,8 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
         visit_duration: "",
         purpose_of_visit: "",
         number_of_people: undefined,
+        type_of_property: "",
+        intended_sum_insured: "",
       });
     }
   }, [isOpen, insuranceType, form]);
@@ -187,6 +211,9 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
       visit_duration: insuranceType === 'Travel Insurance' ? values.visit_duration : null,
       purpose_of_visit: insuranceType === 'Travel Insurance' ? values.purpose_of_visit : null,
       number_of_people: insuranceType === 'Travel Insurance' ? values.number_of_people : null,
+      // Conditionally set fire insurance fields to null if not fire insurance
+      type_of_property: insuranceType === 'Fire Insurance' ? values.type_of_property : null,
+      intended_sum_insured: insuranceType === 'Fire Insurance' ? values.intended_sum_insured : null,
       user_id: user?.id || null,
     };
 
@@ -409,6 +436,37 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
                       <FormLabel>Number of People</FormLabel>
                       <FormControl>
                         <Input type="number" placeholder="e.g., 2" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </>
+            )}
+
+            {insuranceType === 'Fire Insurance' && (
+              <>
+                <FormField
+                  control={form.control}
+                  name="type_of_property"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Type of Property</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., Residential, Commercial" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="intended_sum_insured"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Intended Sum Insured</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., 50 Lakhs, 1 Crore" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>

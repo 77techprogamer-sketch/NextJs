@@ -60,6 +60,8 @@ const formSchema = z.object({
   visit_duration: z.string().optional(),
   purpose_of_visit: z.string().optional(),
   number_of_people: z.coerce.number().min(1, { message: "Must be at least 1 person." }).optional(),
+  type_of_property: z.string().optional(),
+  intended_sum_insured: z.string().optional(),
 }).superRefine((data, ctx) => {
   if (data.insurance_type === 'Motor Insurance') {
     if (!data.vehicle_type) {
@@ -115,6 +117,23 @@ const formSchema = z.object({
       });
     }
   }
+
+  if (data.insurance_type === 'Fire Insurance') {
+    if (!data.type_of_property) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Type of property is required for Fire Insurance.",
+        path: ['type_of_property'],
+      });
+    }
+    if (!data.intended_sum_insured) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Intended sum insured is required for Fire Insurance.",
+        path: ['intended_sum_insured'],
+      });
+    }
+  }
 });
 
 const QuoteForm = () => {
@@ -137,6 +156,8 @@ const QuoteForm = () => {
       visit_duration: "",
       purpose_of_visit: "",
       number_of_people: undefined,
+      type_of_property: "",
+      intended_sum_insured: "",
     },
   });
 
@@ -155,6 +176,9 @@ const QuoteForm = () => {
       visit_duration: values.insurance_type === 'Travel Insurance' ? values.visit_duration : null,
       purpose_of_visit: values.insurance_type === 'Travel Insurance' ? values.purpose_of_visit : null,
       number_of_people: values.insurance_type === 'Travel Insurance' ? values.number_of_people : null,
+      // Conditionally set fire insurance fields to null if not fire insurance
+      type_of_property: values.insurance_type === 'Fire Insurance' ? values.type_of_property : null,
+      intended_sum_insured: values.insurance_type === 'Fire Insurance' ? values.intended_sum_insured : null,
       user_id: user?.id || null,
     };
     const { error } = await supabase.from("customers").insert([submissionData]);
@@ -399,6 +423,37 @@ const QuoteForm = () => {
                       <FormLabel>Number of People</FormLabel>
                       <FormControl>
                         <Input type="number" placeholder="e.g., 2" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </>
+            )}
+
+            {insuranceType === 'Fire Insurance' && (
+              <>
+                <FormField
+                  control={form.control}
+                  name="type_of_property"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Type of Property</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., Residential, Commercial" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="intended_sum_insured"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Intended Sum Insured</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., 50 Lakhs, 1 Crore" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
