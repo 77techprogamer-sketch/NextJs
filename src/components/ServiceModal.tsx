@@ -48,46 +48,47 @@ interface ServiceModalProps {
   insuranceType: string;
 }
 
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  phone: z.string().optional().refine(val => !val || /^\d{10}$/.test(val), {
-    message: "Please enter a valid 10-digit phone number.",
-  }),
-  age: z.coerce.number().min(18, { message: "You must be at least 18 years old." }).optional(),
-  vehicle_number: z.string().optional().refine(val => !val || /^[a-zA-Z0-9]*$/.test(val), {
-    message: "Vehicle number must be alphanumeric.",
-  }),
-  vehicle_type: z.enum(["Motorbike/Scooter", "Car"], {
-    invalid_type_error: "Please select a vehicle type.",
-  }).optional(),
-  vehicle_usage: z.enum(["Private Use", "Commercial Use"], {
-    invalid_type_error: "Please select vehicle usage.",
-  }).optional(),
-}).superRefine((data, ctx) => {
-  // Conditional validation for Motor Insurance specific fields
-  if (ctx.parent.insuranceType === 'Motor Insurance') {
-    if (!data.vehicle_type) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Vehicle type is required for Motor Insurance.",
-        path: ['vehicle_type'],
-      });
-    }
-    if (!data.vehicle_usage) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Vehicle usage is required for Motor Insurance.",
-        path: ['vehicle_usage'],
-      });
-    }
-  }
-});
-
 const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceType }) => {
   const { user } = useSession();
   const [showOldModelConfirmation, setShowOldModelConfirmation] = useState(false);
   const [tempFormData, setTempFormData] = useState<z.infer<typeof formSchema> | null>(null);
+
+  // Define formSchema inside the component to access insuranceType prop
+  const formSchema = z.object({
+    name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+    email: z.string().email({ message: "Please enter a valid email address." }),
+    phone: z.string().optional().refine(val => !val || /^\d{10}$/.test(val), {
+      message: "Please enter a valid 10-digit phone number.",
+    }),
+    age: z.coerce.number().min(18, { message: "You must be at least 18 years old." }).optional(),
+    vehicle_number: z.string().optional().refine(val => !val || /^[a-zA-Z0-9]*$/.test(val), {
+      message: "Vehicle number must be alphanumeric.",
+    }),
+    vehicle_type: z.enum(["Motorbike/Scooter", "Car"], {
+      invalid_type_error: "Please select a vehicle type.",
+    }).optional(),
+    vehicle_usage: z.enum(["Private Use", "Commercial Use"], {
+      invalid_type_error: "Please select vehicle usage.",
+    }).optional(),
+  }).superRefine((data, ctx) => {
+    // Conditional validation for Motor Insurance specific fields
+    if (insuranceType === 'Motor Insurance') { // Now directly using the prop
+      if (!data.vehicle_type) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Vehicle type is required for Motor Insurance.",
+          path: ['vehicle_type'],
+        });
+      }
+      if (!data.vehicle_usage) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          message: "Vehicle usage is required for Motor Insurance.",
+          path: ['vehicle_usage'],
+        });
+      }
+    }
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -100,7 +101,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
       vehicle_type: undefined,
       vehicle_usage: undefined,
     },
-    context: { insuranceType }, // Pass insuranceType to the schema context for validation
+    // No need for context: { insuranceType } here anymore as schema directly uses the prop
   });
 
   // Reset form when modal opens or insuranceType changes
