@@ -21,6 +21,13 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { supabase } from "@/integrations/supabase/client";
 import { showSuccess, showError } from "@/utils/toast";
 import { useSession } from "@/integrations/supabase/SessionContextProvider";
@@ -38,6 +45,31 @@ const formSchema = z.object({
     message: "Please enter a valid 10-digit phone number.",
   }),
   age: z.coerce.number().min(18, { message: "You must be at least 18 years old." }).optional(),
+  vehicle_number: z.string().optional(),
+  vehicle_type: z.enum(["Motorbike/Scooter", "Car"], {
+    invalid_type_error: "Please select a vehicle type.",
+  }).optional(),
+  vehicle_usage: z.enum(["Private Use", "Commercial Use"], {
+    invalid_type_error: "Please select vehicle usage.",
+  }).optional(),
+}).superRefine((data, ctx) => {
+  // Conditional validation for Motor Insurance specific fields
+  if (ctx.parent.insuranceType === 'Motor Insurance') {
+    if (!data.vehicle_type) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Vehicle type is required for Motor Insurance.",
+        path: ['vehicle_type'],
+      });
+    }
+    if (!data.vehicle_usage) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Vehicle usage is required for Motor Insurance.",
+        path: ['vehicle_usage'],
+      });
+    }
+  }
 });
 
 const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceType }) => {
@@ -49,13 +81,35 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
       email: "",
       phone: "",
       age: undefined,
+      vehicle_number: "",
+      vehicle_type: undefined,
+      vehicle_usage: undefined,
     },
+    context: { insuranceType }, // Pass insuranceType to the schema context for validation
   });
+
+  // Reset form when modal opens or insuranceType changes
+  React.useEffect(() => {
+    if (isOpen) {
+      form.reset({
+        name: "",
+        email: "",
+        phone: "",
+        age: undefined,
+        vehicle_number: "",
+        vehicle_type: undefined,
+        vehicle_usage: undefined,
+      });
+    }
+  }, [isOpen, insuranceType, form]);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     const submissionData = {
       ...values,
       insurance_type: insuranceType,
+      vehicle_number: insuranceType === 'Motor Insurance' ? values.vehicle_number : null,
+      vehicle_type: insuranceType === 'Motor Insurance' ? values.vehicle_type : null,
+      vehicle_usage: insuranceType === 'Motor Insurance' ? values.vehicle_usage : null,
       user_id: user?.id || null,
     };
 
@@ -134,6 +188,65 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
                 </FormItem>
               )}
             />
+            {insuranceType === 'Motor Insurance' && (
+              <>
+                <FormField
+                  control={form.control}
+                  name="vehicle_type"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Vehicle Type</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select vehicle type" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Motorbike/Scooter">Motorbike/Scooter</SelectItem>
+                          <SelectItem value="Car">Car</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="vehicle_usage"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Vehicle Usage</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select vehicle usage" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Private Use">Private Use</SelectItem>
+                          <SelectItem value="Commercial Use">Commercial Use</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="vehicle_number"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Vehicle Number</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., ABC-1234" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </>
+            )}
             <Button
               type="submit"
               className="w-full transition-transform duration-200 hover:scale-[1.02]"

@@ -37,6 +37,29 @@ const formSchema = z.object({
     required_error: "Please select an insurance type.",
   }),
   vehicle_number: z.string().optional(),
+  vehicle_type: z.enum(["Motorbike/Scooter", "Car"], {
+    invalid_type_error: "Please select a vehicle type.",
+  }).optional(),
+  vehicle_usage: z.enum(["Private Use", "Commercial Use"], {
+    invalid_type_error: "Please select vehicle usage.",
+  }).optional(),
+}).superRefine((data, ctx) => {
+  if (data.insurance_type === 'Motor Insurance') {
+    if (!data.vehicle_type) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Vehicle type is required for Motor Insurance.",
+        path: ['vehicle_type'],
+      });
+    }
+    if (!data.vehicle_usage) {
+      ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Vehicle usage is required for Motor Insurance.",
+        path: ['vehicle_usage'],
+      });
+    }
+  }
 });
 
 const QuoteForm = () => {
@@ -49,6 +72,8 @@ const QuoteForm = () => {
       phone: "",
       age: undefined,
       vehicle_number: "",
+      vehicle_type: undefined,
+      vehicle_usage: undefined,
     },
   });
 
@@ -58,6 +83,8 @@ const QuoteForm = () => {
     const submissionData = {
       ...values,
       vehicle_number: values.insurance_type === 'Motor Insurance' ? values.vehicle_number : null,
+      vehicle_type: values.insurance_type === 'Motor Insurance' ? values.vehicle_type : null,
+      vehicle_usage: values.insurance_type === 'Motor Insurance' ? values.vehicle_usage : null,
       user_id: user?.id || null, // Include user_id if available
     };
     const { error } = await supabase.from("customers").insert([submissionData]);
@@ -156,19 +183,63 @@ const QuoteForm = () => {
               )}
             />
             {insuranceType === 'Motor Insurance' && (
-              <FormField
-                control={form.control}
-                name="vehicle_number"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Vehicle Number</FormLabel>
-                    <FormControl>
-                      <Input placeholder="e.g., ABC-1234" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+              <>
+                <FormField
+                  control={form.control}
+                  name="vehicle_type"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Vehicle Type</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select vehicle type" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Motorbike/Scooter">Motorbike/Scooter</SelectItem>
+                          <SelectItem value="Car">Car</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="vehicle_usage"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Vehicle Usage</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder="Select vehicle usage" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          <SelectItem value="Private Use">Private Use</SelectItem>
+                          <SelectItem value="Commercial Use">Commercial Use</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="vehicle_number"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Vehicle Number</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g., ABC-1234" {...field} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </>
             )}
             <Button
               type="submit"
