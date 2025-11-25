@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -24,7 +24,17 @@ import {
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
 import { showSuccess, showError } from "@/utils/toast";
-import { useSession } from "@/integrations/supabase/SessionContextProvider"; // Import useSession
+import { useSession } from "@/integrations/supabase/SessionContextProvider";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -36,7 +46,9 @@ const formSchema = z.object({
   insurance_type: z.enum(["Life Insurance", "Term Insurance", "Health Insurance", "Motor Insurance"], {
     required_error: "Please select an insurance type.",
   }),
-  vehicle_number: z.string().optional(),
+  vehicle_number: z.string().optional().refine(val => !val || /^[a-zA-Z0-9]*$/.test(val), {
+    message: "Vehicle number must be alphanumeric.",
+  }),
   vehicle_type: z.enum(["Motorbike/Scooter", "Car"], {
     invalid_type_error: "Please select a vehicle type.",
   }).optional(),
@@ -63,7 +75,10 @@ const formSchema = z.object({
 });
 
 const QuoteForm = () => {
-  const { user } = useSession(); // Get the current user from the session
+  const { user } = useSession();
+  const [showOldModelConfirmation, setShowOldModelConfirmation] = useState(false);
+  const [tempFormData, setTempFormData] = useState<z.infer<typeof formSchema> | null>(null);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -79,13 +94,13 @@ const QuoteForm = () => {
 
   const insuranceType = form.watch("insurance_type");
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const submitQuote = async (values: z.infer<typeof formSchema>) => {
     const submissionData = {
       ...values,
       vehicle_number: values.insurance_type === 'Motor Insurance' ? values.vehicle_number : null,
       vehicle_type: values.insurance_type === 'Motor Insurance' ? values.vehicle_type : null,
       vehicle_usage: values.insurance_type === 'Motor Insurance' ? values.vehicle_usage : null,
-      user_id: user?.id || null, // Include user_id if available
+      user_id: user?.id || null,
     };
     const { error } = await supabase.from("customers").insert([submissionData]);
 
@@ -93,8 +108,30 @@ const QuoteForm = () => {
       showError("Failed to submit quote request. Please try again.");
       console.error("Error inserting data:", error);
     } else {
-      showSuccess("Your quote request has been submitted successfully!, Our advisor will reach out to you shortly");
+      showSuccess("Your quote request has been submitted successfully! Our advisor will reach out to you shortly");
       form.reset();
+    }
+    setTempFormData(null);
+    setShowOldModelConfirmation(false);
+  };
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    if (
+      values.insurance_type === 'Motor Insurance' &&
+      values.vehicle_number &&
+      values.vehicle_number.length > 0 &&
+      values.vehicle_number.length < 10
+    ) {
+      setTempFormData(values);
+      setShowOldModelConfirmation(true);
+    } else {
+      await submitQuote(values);
+    }
+  };
+
+  const handleOldModelConfirm = async () => {
+    if (tempFormData) {
+      await submitQuote(tempFormData);
     }
   };
 
@@ -251,6 +288,21 @@ const QuoteForm = () => {
           </form>
         </Form>
       </CardContent>
+
+      <AlertDialog open={showOldModelConfirmation} onOpenChange={setShowOldModelConfirmation}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Confirm Vehicle Model</AlertDialogTitle>
+            <AlertDialogDescription>
+              The vehicle number you entered is less than 10 characters. Is this an old model vehicle?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel onClick={() => setShowOldModelConfirmation(false)}>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleOldModelConfirm}>Yes, Old Model</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </Card>
   );
 };
