@@ -52,8 +52,87 @@ const Index = () => {
   const currentUrl = window.location.href;
   const pageTitle = "Insurance Support - Your Trusted Partner";
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Insurance Support by Hari Kotian",
+    "image": "https://insurance-support.vercel.app/placeholder.svg", // Replace with a more specific image if available
+    "url": "https://insurance-support.vercel.app/",
+    "telephone": "+919986634506",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Your Street Address (if applicable)", // Update with actual address
+      "addressLocality": "Your City (if applicable)", // Update with actual city
+      "addressRegion": "Your Region (if applicable)", // Update with actual region
+      "postalCode": "Your Postal Code (if applicable)", // Update with actual postal code
+      "addressCountry": "IN"
+    },
+    "description": "Your trusted partner for comprehensive insurance solutions including life, health, term, motor, home, travel, and fire insurance. Get expert advice and free quotes.",
+    "openingHours": "Mo-Fr 09:00-18:00", // Update with actual opening hours
+    "priceRange": "$$", // Update with actual price range if applicable
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Insurance Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Health Insurance"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Life Insurance"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Term Insurance"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Motor Insurance"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Home Insurance"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Travel Insurance"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Fire Insurance"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <div className="flex flex-col min-h-full">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <main className="flex-1">
         <section className="container mx-auto px-4 py-12 md:py-20 lg:py-24">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
