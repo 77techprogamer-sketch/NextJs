@@ -218,27 +218,42 @@ const Index = () => {
               <CardTitle className="mb-2">Life Insurance</CardTitle>
               <CardDescription className="text-center">Secure your family's financial future with our flexible life insurance plans.</CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleServiceCardClick('Health')}
+            >
               <Shield className="text-green-500 h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Health Insurance</CardTitle>
               <CardDescription className="text-center">Comprehensive health coverage for you and your loved ones.</CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleServiceCardClick('Motor')}
+            >
               <Car className="text-blue-500 h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Motor Insurance</CardTitle>
               <CardDescription className="text-center">Protect your vehicle against accidents, theft, and damages.</CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleServiceCardClick('Home')}
+            >
               <Home className="text-yellow-500 h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Home Insurance</CardTitle>
               <CardDescription className="text-center">Safeguard your home and belongings from unforeseen events.</CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleServiceCardClick('Travel')}
+            >
               <Plane className="text-indigo-500 h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Travel Insurance</CardTitle>
               <CardDescription className="text-center">Enjoy worry-free journeys with our extensive travel insurance.</CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleServiceCardClick('Fire')}
+            >
               <FireExtinguisher className="text-orange-500 h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Fire Insurance</CardTitle>
               <CardDescription className="text-center">Protect your property from fire and related perils.</CardDescription>
