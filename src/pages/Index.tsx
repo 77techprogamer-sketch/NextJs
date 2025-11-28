@@ -84,6 +84,8 @@ const Index = () => {
     }
   }, []);
 
+  const currentYear = new Date().getFullYear();
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
@@ -101,7 +103,7 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold mb-4">Secure Your Future Today!</h2>
           <p className="text-xl mb-8">Fill out the form below to get a personalized insurance quote tailored to your needs.</p>
-          <div className="max-w-3xl mx-auto bg-white text-gray-800 p-8 rounded-lg shadow-xl">
+          <div className="max-w-3xl mx-auto bg-card text-card-foreground p-8 rounded-lg shadow-xl">
             <h3 className="text-2xl font-semibold mb-6">Request a Free Quote</h3>
             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <Input id="name" placeholder="Your Name" value={quoteData.name} onChange={handleChange} required />
@@ -251,7 +253,7 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 mt-auto">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2024 Insurance Support. All rights reserved.</p>
+          <p>&copy; 2004 - {currentYear} Insurance Support. All rights reserved.</p>
           <div className="flex justify-center space-x-4 mt-4">
             <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
             <Link to="/terms" className="hover:underline">Terms of Service</Link>
