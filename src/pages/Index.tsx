@@ -4,89 +4,25 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
-import { showSuccess, showError } from '@/utils/toast'; // Import from your utility file
+import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin } from 'lucide-react';
+import ServiceCard from '@/components/ServiceCard';
+import ServiceModal from '@/components/ServiceModal';
+import ChatbotWidget from '@/components/ChatbotWidget';
+import SocialShareButtons from '@/components/SocialShareButtons';
+import VisitorCounter from '@/components/VisitorCounter';
 
 const Index = () => {
-  const [quoteData, setQuoteData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    age: '',
-    insurance_type: '',
-    vehicle_type: '',
-    vehicle_number: '',
-    vehicle_usage: '',
-    source_location: '',
-    destination_location: '',
-    visit_duration: '',
-    purpose_of_visit: '',
-    number_of_people: '',
-    type_of_property: '',
-    intended_sum_insured: '',
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { id, value } = e.target;
-    setQuoteData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const { data: { user } } = await supabase.auth.getUser();
-
-    const { data, error } = await supabase
-      .from('customers')
-      .insert([
-        {
-          ...quoteData,
-          user_id: user?.id,
-        },
-      ]);
-
-    if (error) {
-      showError('Error submitting quote: ' + error.message); // Use showError
-    } else {
-      showSuccess('Quote submitted successfully!'); // Use showSuccess
-      setQuoteData({
-        name: '',
-        email: '',
-        phone: '',
-        age: '',
-        insurance_type: '',
-        vehicle_type: '',
-        vehicle_number: '',
-        vehicle_usage: '',
-        source_location: '',
-        destination_location: '',
-        visit_duration: '',
-        purpose_of_visit: '',
-        number_of_people: '',
-        type_of_property: '',
-        intended_sum_insured: '',
-      });
-    }
-  };
-
-  const handleScrollToQuoteForm = () => {
-    const quoteFormSection = document.getElementById('quote-form');
-    if (quoteFormSection) {
-      quoteFormSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
 
   const handleServiceCardClick = (insuranceType: string) => {
-    setQuoteData((prevData) => ({
-      ...prevData,
-      insurance_type: insuranceType,
-    }));
-    handleScrollToQuoteForm();
+    setSelectedInsuranceType(insuranceType);
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedInsuranceType('');
   };
 
   useEffect(() => {
@@ -100,6 +36,8 @@ const Index = () => {
   }, []);
 
   const currentYear = new Date().getFullYear();
+  const currentUrl = "https://insurance-support.vercel.app/"; // Replace with dynamic URL if needed
+  const shareTitle = "Insurance Support - Get Free Quotes for Life, Health, Motor & More";
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -109,74 +47,11 @@ const Index = () => {
         <div className="relative z-10 text-white space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
           <p className="text-base md:text-xl max-w-2xl mx-auto">Get free quotes for life, health, term, motor, home, travel, and fire insurance. Chat with expert advisors and secure your future with the best plans.</p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={handleScrollToQuoteForm}>Get a Free Quote</Button>
-        </div>
-      </section>
-
-      {/* Quote Form Section */}
-      <section id="quote-form" className="py-12 sm:py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center animate-fade-in-up">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Secure Your Future Today!</h2>
-          <p className="text-base sm:text-xl mb-6 sm:mb-8">Fill out the form below to get a personalized insurance quote tailored to your needs.</p>
-          <div className="max-w-3xl mx-auto bg-card text-card-foreground p-6 sm:p-8 rounded-lg shadow-xl">
-            <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Request a Free Quote</h3>
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-              <Input id="name" placeholder="Your Name" value={quoteData.name} onChange={handleChange} required />
-              <Input id="email" type="email" placeholder="Your Email" value={quoteData.email} onChange={handleChange} required />
-              <Input id="phone" type="tel" placeholder="Your Phone Number" value={quoteData.phone} onChange={handleChange} />
-              
-              {['Life', 'Health', 'Term', 'Travel'].includes(quoteData.insurance_type) && (
-                <Input id="age" type="number" placeholder="Your Age" value={quoteData.age} onChange={handleChange} />
-              )}
-
-              <select id="insurance_type" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" value={quoteData.insurance_type} onChange={handleChange}>
-                <option value="">Select Insurance Type</option>
-                <option value="Life">Life Insurance</option>
-                <option value="Health">Health Insurance</option>
-                <option value="Motor">Motor Insurance</option>
-                <option value="Home">Home Insurance</option>
-                <option value="Travel">Travel Insurance</option>
-                <option value="Fire">Fire Insurance</option>
-                <option value="Term">Term Insurance</option>
-              </select>
-
-              {quoteData.insurance_type === 'Motor' && (
-                <>
-                  <Input id="vehicle_type" placeholder="Vehicle Type (e.g., Car, Bike)" value={quoteData.vehicle_type} onChange={handleChange} />
-                  <Input id="vehicle_number" placeholder="Vehicle Number" value={quoteData.vehicle_number} onChange={handleChange} />
-                  <Input id="vehicle_usage" placeholder="Vehicle Usage (e.g., Personal, Commercial)" value={quoteData.vehicle_usage} onChange={handleChange} />
-                </>
-              )}
-
-              {quoteData.insurance_type === 'Travel' && (
-                <>
-                  <Input id="source_location" placeholder="Source Location" value={quoteData.source_location} onChange={handleChange} />
-                  <Input id="destination_location" placeholder="Destination Location" value={quoteData.destination_location} onChange={handleChange} />
-                  <Input id="visit_duration" placeholder="Visit Duration" value={quoteData.visit_duration} onChange={handleChange} />
-                  <Input id="purpose_of_visit" placeholder="Purpose of Visit" value={quoteData.purpose_of_visit} onChange={handleChange} />
-                  <Input id="number_of_people" type="number" placeholder="Number of People" value={quoteData.number_of_people} onChange={handleChange} />
-                </>
-              )}
-
-              {quoteData.insurance_type === 'Home' && (
-                <>
-                  <Input id="type_of_property" placeholder="Type of Property (e.g., Apartment, Villa)" value={quoteData.type_of_property} onChange={handleChange} />
-                  <Input id="intended_sum_insured" placeholder="Intended Sum Insured" value={quoteData.intended_sum_insured} onChange={handleChange} />
-                </>
-              )}
-
-              {quoteData.insurance_type === 'Fire' && (
-                <>
-                  <Input id="type_of_property" placeholder="Type of Property (e.g., Commercial, Residential)" value={quoteData.type_of_property} onChange={handleChange} />
-                  <Input id="intended_sum_insured" placeholder="Intended Sum Insured" value={quoteData.intended_sum_insured} onChange={handleChange} />
-                </>
-              )}
-
-              <div className="md:col-span-2">
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-3">Submit Quote Request</Button>
-              </div>
-            </form>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
+            <ChatbotWidget />
           </div>
+          <SocialShareButtons url={currentUrl} title={shareTitle} />
         </div>
       </section>
 
@@ -210,54 +85,12 @@ const Index = () => {
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">Our Services Offered</h2>
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12">We provide a wide array of insurance solutions tailored to protect what matters most to you.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <Card 
-              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => handleServiceCardClick('Life')}
-            >
-              <Heart className="text-red-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Life Insurance</CardTitle>
-              <CardDescription className="text-center text-sm sm:text-base">Secure your family's financial future with our flexible life insurance plans.</CardDescription>
-            </Card>
-            <Card 
-              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => handleServiceCardClick('Health')}
-            >
-              <Shield className="text-green-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Health Insurance</CardTitle>
-              <CardDescription className="text-center text-sm sm:text-base">Comprehensive health coverage for you and your loved ones.</CardDescription>
-            </Card>
-            <Card 
-              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => handleServiceCardClick('Motor')}
-            >
-              <Car className="text-blue-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Motor Insurance</CardTitle>
-              <CardDescription className="text-center text-sm sm:text-base">Protect your vehicle against accidents, theft, and damages.</CardDescription>
-            </Card>
-            <Card 
-              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => handleServiceCardClick('Home')}
-            >
-              <Home className="text-yellow-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Home Insurance</CardTitle>
-              <CardDescription className="text-center text-sm sm:text-base">Safeguard your home and belongings from unforeseen events.</CardDescription>
-            </Card>
-            <Card 
-              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => handleServiceCardClick('Travel')}
-            >
-              <Plane className="text-indigo-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Travel Insurance</CardTitle>
-              <CardDescription className="text-center text-sm sm:text-base">Enjoy worry-free journeys with our extensive travel insurance.</CardDescription>
-            </Card>
-            <Card 
-              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-              onClick={() => handleServiceCardClick('Fire')}
-            >
-              <FireExtinguisher className="text-orange-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Fire Insurance</CardTitle>
-              <CardDescription className="text-center text-sm sm:text-base">Protect your property from fire and related perils.</CardDescription>
-            </Card>
+            <ServiceCard title="Life Insurance" icon={Heart} onClick={() => handleServiceCardClick('Life Insurance')} />
+            <ServiceCard title="Health Insurance" icon={Shield} onClick={() => handleServiceCardClick('Health Insurance')} />
+            <ServiceCard title="Motor Insurance" icon={Car} onClick={() => handleServiceCardClick('Motor Insurance')} />
+            <ServiceCard title="Home Insurance" icon={Home} onClick={() => handleServiceCardClick('Home Insurance')} />
+            <ServiceCard title="Travel Insurance" icon={Plane} onClick={() => handleServiceCardClick('Travel Insurance')} />
+            <ServiceCard title="Fire Insurance" icon={FireExtinguisher} onClick={() => handleServiceCardClick('Fire Insurance')} />
           </div>
         </div>
       </section>
@@ -300,6 +133,13 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      <ServiceModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        insuranceType={selectedInsuranceType}
+      />
+      <VisitorCounter />
     </div>
   );
 };
