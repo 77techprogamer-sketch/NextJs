@@ -81,6 +81,14 @@ const Index = () => {
     }
   };
 
+  const handleServiceCardClick = (insuranceType: string) => {
+    setQuoteData((prevData) => ({
+      ...prevData,
+      insurance_type: insuranceType,
+    }));
+    handleScrollToQuoteForm();
+  };
+
   useEffect(() => {
     const hash = window.location.hash;
     if (hash === '#services') {
@@ -202,7 +210,10 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Our Services Offered</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">We provide a wide array of insurance solutions tailored to protect what matters most to you.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card 
+              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              onClick={() => handleServiceCardClick('Life')}
+            >
               <Heart className="text-red-500 h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Life Insurance</CardTitle>
               <CardDescription className="text-center">Secure your family's financial future with our flexible life insurance plans.</CardDescription>
