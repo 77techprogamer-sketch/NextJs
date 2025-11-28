@@ -107,20 +107,20 @@ const Index = () => {
       <section className="relative w-full h-[60vh] bg-cover bg-center flex items-center justify-center text-center p-4" style={{ backgroundImage: 'url(/placeholder.svg)' }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white space-y-4">
-          <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto">Get free quotes for life, health, term, motor, home, travel, and fire insurance. Chat with expert advisors and secure your future with the best plans.</p>
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
+          <p className="text-base md:text-xl max-w-2xl mx-auto">Get free quotes for life, health, term, motor, home, travel, and fire insurance. Chat with expert advisors and secure your future with the best plans.</p>
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={handleScrollToQuoteForm}>Get a Free Quote</Button>
         </div>
       </section>
 
       {/* Quote Form Section */}
-      <section id="quote-form" className="py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center animate-fade-in-up">
+      <section id="quote-form" className="py-12 sm:py-16 bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center animate-fade-in-up">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold mb-4">Secure Your Future Today!</h2>
-          <p className="text-xl mb-8">Fill out the form below to get a personalized insurance quote tailored to your needs.</p>
-          <div className="max-w-3xl mx-auto bg-card text-card-foreground p-8 rounded-lg shadow-xl">
-            <h3 className="text-2xl font-semibold mb-6">Request a Free Quote</h3>
-            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Secure Your Future Today!</h2>
+          <p className="text-base sm:text-xl mb-6 sm:mb-8">Fill out the form below to get a personalized insurance quote tailored to your needs.</p>
+          <div className="max-w-3xl mx-auto bg-card text-card-foreground p-6 sm:p-8 rounded-lg shadow-xl">
+            <h3 className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6">Request a Free Quote</h3>
+            <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
               <Input id="name" placeholder="Your Name" value={quoteData.name} onChange={handleChange} required />
               <Input id="email" type="email" placeholder="Your Email" value={quoteData.email} onChange={handleChange} required />
               <Input id="phone" type="tel" placeholder="Your Phone Number" value={quoteData.phone} onChange={handleChange} />
@@ -181,110 +181,110 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900">
+      <section className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Why Choose Us?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <CheckCircle className="text-primary h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Expert Guidance</CardTitle>
-              <CardDescription className="text-center">Our experienced advisors help you find the best plans.</CardDescription>
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">Why Choose Us?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <CheckCircle className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Expert Guidance</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Our experienced advisors help you find the best plans.</CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Shield className="text-primary h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Comprehensive Coverage</CardTitle>
-              <CardDescription className="text-center">Wide range of insurance products to meet all your needs.</CardDescription>
+            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Shield className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Comprehensive Coverage</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Wide range of insurance products to meet all your needs.</CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Heart className="text-primary h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Customer Satisfaction</CardTitle>
-              <CardDescription className="text-center">Dedicated support to ensure your peace of mind.</CardDescription>
+            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Heart className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Customer Satisfaction</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Dedicated support to ensure your peace of mind.</CardDescription>
             </Card>
           </div>
         </div>
       </section>
 
       {/* Services Section (Target for scroll) */}
-      <section id="services" className="py-16 bg-white dark:bg-gray-800">
+      <section id="services" className="py-12 sm:py-16 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Our Services Offered</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">We provide a wide array of insurance solutions tailored to protect what matters most to you.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">Our Services Offered</h2>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12">We provide a wide array of insurance solutions tailored to protect what matters most to you.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <Card 
-              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleServiceCardClick('Life')}
             >
-              <Heart className="text-red-500 h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Life Insurance</CardTitle>
-              <CardDescription className="text-center">Secure your family's financial future with our flexible life insurance plans.</CardDescription>
+              <Heart className="text-red-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Life Insurance</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Secure your family's financial future with our flexible life insurance plans.</CardDescription>
             </Card>
             <Card 
-              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleServiceCardClick('Health')}
             >
-              <Shield className="text-green-500 h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Health Insurance</CardTitle>
-              <CardDescription className="text-center">Comprehensive health coverage for you and your loved ones.</CardDescription>
+              <Shield className="text-green-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Health Insurance</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Comprehensive health coverage for you and your loved ones.</CardDescription>
             </Card>
             <Card 
-              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleServiceCardClick('Motor')}
             >
-              <Car className="text-blue-500 h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Motor Insurance</CardTitle>
-              <CardDescription className="text-center">Protect your vehicle against accidents, theft, and damages.</CardDescription>
+              <Car className="text-blue-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Motor Insurance</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Protect your vehicle against accidents, theft, and damages.</CardDescription>
             </Card>
             <Card 
-              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleServiceCardClick('Home')}
             >
-              <Home className="text-yellow-500 h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Home Insurance</CardTitle>
-              <CardDescription className="text-center">Safeguard your home and belongings from unforeseen events.</CardDescription>
+              <Home className="text-yellow-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Home Insurance</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Safeguard your home and belongings from unforeseen events.</CardDescription>
             </Card>
             <Card 
-              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleServiceCardClick('Travel')}
             >
-              <Plane className="text-indigo-500 h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Travel Insurance</CardTitle>
-              <CardDescription className="text-center">Enjoy worry-free journeys with our extensive travel insurance.</CardDescription>
+              <Plane className="text-indigo-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Travel Insurance</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Enjoy worry-free journeys with our extensive travel insurance.</CardDescription>
             </Card>
             <Card 
-              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               onClick={() => handleServiceCardClick('Fire')}
             >
-              <FireExtinguisher className="text-orange-500 h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Fire Insurance</CardTitle>
-              <CardDescription className="text-center">Protect your property from fire and related perils.</CardDescription>
+              <FireExtinguisher className="text-orange-500 h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Fire Insurance</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Protect your property from fire and related perils.</CardDescription>
             </Card>
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 bg-gray-100 dark:bg-gray-900">
+      <section className="py-12 sm:py-16 bg-gray-100 dark:bg-gray-900">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Get in Touch</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">Have questions? Our team is ready to assist you.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">Get in Touch</h2>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12">Have questions? Our team is ready to assist you.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-2xl mx-auto">
             <a 
               href="tel:+919986634506" 
-              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
+              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
             >
-              <Phone className="text-primary h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Call Us</CardTitle>
-              <CardDescription className="text-center">+91-9986634506</CardDescription>
+              <Phone className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Call Us</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">+91-9986634506</CardDescription>
             </a>
             <a 
               href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
+              className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
             >
-              <MapPin className="text-primary h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Visit Us</CardTitle>
-              <CardDescription className="text-center">Bangalore Office</CardDescription>
+              <MapPin className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Visit Us</CardTitle>
+              <CardDescription className="text-center text-sm sm:text-base">Bangalore Office</CardDescription>
             </a>
           </div>
         </div>
@@ -293,10 +293,10 @@ const Index = () => {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8 mt-auto">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2004 - {currentYear} Insurance Support. All rights reserved.</p>
-          <div className="flex justify-center space-x-4 mt-4">
-            <Link to="/privacy" className="hover:underline">Privacy Policy</Link>
-            <Link to="/terms" className="hover:underline">Terms of Service</Link>
+          <p className="text-sm sm:text-base">&copy; 2004 - {currentYear} Insurance Support. All rights reserved.</p>
+          <div className="flex justify-center space-x-3 sm:space-x-4 mt-3 sm:mt-4">
+            <Link to="/privacy" className="hover:underline text-sm sm:text-base">Privacy Policy</Link>
+            <Link to="/terms" className="hover:underline text-sm sm:text-base">Terms of Service</Link>
           </div>
         </div>
       </footer>
