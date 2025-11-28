@@ -147,8 +147,13 @@ const Index = () => {
               <p className="text-base text-muted-foreground mt-4 mb-1 font-bold">Share! if you like our Service.</p>
               <SocialShareButtons url={currentUrl} title={pageTitle} />
             </div>
-            <div className="w-full flex justify-center md:justify-end">
-              <QuoteForm />
+            <div className="w-full flex flex-col items-center md:items-end">
+              <p className="text-lg text-muted-foreground mb-4 text-center md:text-right animate-in fade-in-0 slide-in-from-bottom-2 duration-700 delay-300">
+                Ready to secure your future? Get a personalized quote now!
+              </p>
+              <div className="w-full max-w-md animate-in fade-in-0 slide-in-from-bottom-4 duration-1000 delay-400">
+                <QuoteForm />
+              </div>
             </div>
           </div>
         </section>
