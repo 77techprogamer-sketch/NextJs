@@ -230,17 +230,22 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Get in Touch</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">Have questions? Our team is ready to assist you.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"> {/* Adjusted grid to 2 columns and added max-width for better centering */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
             <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Phone className="text-primary h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Call Us</CardTitle>
               <CardDescription className="text-center">+91-9986634506</CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <a 
+              href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
+            >
               <MapPin className="text-primary h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Visit Us</CardTitle>
               <CardDescription className="text-center">123 Insurance St, Suite 100, City, Country</CardDescription>
-            </Card>
+            </a>
           </div>
         </div>
       </section>
