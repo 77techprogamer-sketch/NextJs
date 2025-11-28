@@ -231,11 +231,14 @@ const Index = () => {
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Get in Touch</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">Have questions? Our team is ready to assist you.</p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <a 
+              href="tel:+919986634506" 
+              className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
+            >
               <Phone className="text-primary h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Call Us</CardTitle>
               <CardDescription className="text-center">+91-9986634506</CardDescription>
-            </Card>
+            </a>
             <a 
               href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" 
               target="_blank" 
