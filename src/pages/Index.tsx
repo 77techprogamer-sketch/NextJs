@@ -116,7 +116,11 @@ const Index = () => {
               <Input id="name" placeholder="Your Name" value={quoteData.name} onChange={handleChange} required />
               <Input id="email" type="email" placeholder="Your Email" value={quoteData.email} onChange={handleChange} required />
               <Input id="phone" type="tel" placeholder="Your Phone Number" value={quoteData.phone} onChange={handleChange} />
-              <Input id="age" type="number" placeholder="Your Age" value={quoteData.age} onChange={handleChange} />
+              
+              {['Life', 'Health', 'Term', 'Travel'].includes(quoteData.insurance_type) && (
+                <Input id="age" type="number" placeholder="Your Age" value={quoteData.age} onChange={handleChange} />
+              )}
+
               <select id="insurance_type" className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50" value={quoteData.insurance_type} onChange={handleChange}>
                 <option value="">Select Insurance Type</option>
                 <option value="Life">Life Insurance</option>
