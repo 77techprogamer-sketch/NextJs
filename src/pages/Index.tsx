@@ -230,12 +230,7 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-gray-800 dark:text-white mb-8">Get in Touch</h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-12">Have questions? Our team is ready to assist you.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Mail className="text-primary h-12 w-12 mb-4" />
-              <CardTitle className="mb-2">Email Us</CardTitle>
-              <CardDescription className="text-center">info@insurancesupport.com</CardDescription>
-            </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"> {/* Adjusted grid to 2 columns and added max-width for better centering */}
             <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Phone className="text-primary h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Call Us</CardTitle>
