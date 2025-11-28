@@ -144,7 +144,7 @@ const VisitorCounter = () => {
   }
 
   const containerClasses = cn(
-    "fixed text-gray-500 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-lg flex flex-col items-end shadow-lg border",
+    "fixed text-muted-foreground bg-background/80 backdrop-blur-sm rounded-lg flex flex-col items-end shadow-lg border",
     isMobile ? "bottom-2 right-2 p-2 space-y-1 text-xs" : "bottom-4 right-4 p-3 space-y-2 text-xs"
   );
 
@@ -154,7 +154,7 @@ const VisitorCounter = () => {
         <Eye className="h-4 w-4 mr-2" />
         <div className="flex flex-col items-end">
           <span>{totalVisits} total visits</span>
-          {lastVisit && <span className="text-gray-400">Last visit {lastVisit}</span>}
+          {lastVisit && <span className="text-muted-foreground/70">Last visit {lastVisit}</span>}
         </div>
       </div>
       <div className="flex items-center" title="Visitors currently online">
