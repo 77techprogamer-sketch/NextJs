@@ -247,7 +247,7 @@ const Index = () => {
             >
               <MapPin className="text-primary h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Visit Us</CardTitle>
-              <CardDescription className="text-center">123 Insurance St, Suite 100, City, Country</CardDescription>
+              <CardDescription className="text-center">Bangalore Office</CardDescription>
             </a>
           </div>
         </div>
