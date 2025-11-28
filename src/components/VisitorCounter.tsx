@@ -144,7 +144,7 @@ const VisitorCounter = () => {
   }
 
   const containerClasses = cn(
-    "fixed text-muted-foreground bg-background/80 backdrop-blur-sm rounded-lg flex flex-col items-end shadow-lg border",
+    "fixed text-muted-foreground bg-background/80 backdrop-blur-sm rounded-lg flex flex-col items-end shadow-lg border animate-in fade-in-0 duration-700",
     isMobile ? "bottom-2 right-2 p-2 space-y-1 text-xs" : "bottom-4 right-4 p-3 space-y-2 text-xs"
   );
 

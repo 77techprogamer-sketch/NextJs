@@ -137,10 +137,10 @@ const Index = () => {
         <section className="container mx-auto px-4 py-12 md:py-20 lg:py-24">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="flex flex-col items-center md:items-start text-center md:text-left">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-foreground mb-6 animate-in fade-in-0 slide-in-from-top-2 duration-700">
                 Insurance Support: Your Trusted Partner
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl transition-opacity duration-1000 ease-in-out">
+              <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-xl transition-opacity duration-1000 ease-in-out animate-in fade-in-0 slide-in-from-top-4 duration-1000 delay-100">
                 {currentOneLiner}
               </p>
               <ChatbotWidget />
