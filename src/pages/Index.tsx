@@ -74,6 +74,13 @@ const Index = () => {
     }
   };
 
+  const handleScrollToQuoteForm = () => {
+    const quoteFormSection = document.getElementById('quote-form');
+    if (quoteFormSection) {
+      quoteFormSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   useEffect(() => {
     const hash = window.location.hash;
     if (hash === '#services') {
@@ -94,7 +101,7 @@ const Index = () => {
         <div className="relative z-10 text-white space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto">Get free quotes for life, health, term, motor, home, travel, and fire insurance. Chat with expert advisors and secure your future with the best plans.</p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3">Get a Free Quote</Button>
+          <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={handleScrollToQuoteForm}>Get a Free Quote</Button>
         </div>
       </section>
 
