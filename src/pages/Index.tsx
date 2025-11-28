@@ -239,7 +239,7 @@ const Index = () => {
             <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <Phone className="text-primary h-12 w-12 mb-4" />
               <CardTitle className="mb-2">Call Us</CardTitle>
-              <CardDescription className="text-center">+1 (555) 123-4567</CardDescription>
+              <CardDescription className="text-center">+91-9986634506</CardDescription>
             </Card>
             <Card className="flex flex-col items-center p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
               <MapPin className="text-primary h-12 w-12 mb-4" />
