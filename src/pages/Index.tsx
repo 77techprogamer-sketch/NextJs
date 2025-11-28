@@ -8,7 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
-import { toast } from 'react-hot-toast';
+import { showSuccess, showError } from '@/utils/toast'; // Import from your utility file
 
 const Index = () => {
   const [quoteData, setQuoteData] = useState({
@@ -51,9 +51,9 @@ const Index = () => {
       ]);
 
     if (error) {
-      toast.error('Error submitting quote: ' + error.message);
+      showError('Error submitting quote: ' + error.message); // Use showError
     } else {
-      toast.success('Quote submitted successfully!');
+      showSuccess('Quote submitted successfully!'); // Use showSuccess
       setQuoteData({
         name: '',
         email: '',
