@@ -134,12 +134,12 @@ const Index = () => {
         </div>
       </footer>
 
-      {/* <ServiceModal
+      <ServiceModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         insuranceType={selectedInsuranceType}
       />
-      <VisitorCounter /> */}
+      <VisitorCounter />
     </div>
   );
 };
