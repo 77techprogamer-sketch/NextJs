@@ -12,7 +12,7 @@ const ChatbotWidget = () => {
   };
 
   return (
-    <div className="flex flex-col items-center md:items-start w-full">
+    <div className="flex flex-col items-center md:items-center w-full"> {/* Changed md:items-start to md:items-center */}
       <p className="text-lg font-semibold mb-4 text-foreground">
         Have questions? We're here to help.
       </p>
