@@ -123,23 +123,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 mt-auto">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm sm:text-base">&copy; 2004 - {currentYear} Insurance Support. All rights reserved.</p>
-          <div className="flex justify-center space-x-3 sm:space-x-4 mt-3 sm:mt-4">
-            <Link to="/privacy" className="hover:underline text-sm sm:text-base">Privacy Policy</Link>
-            <Link to="/terms" className="hover:underline text-sm sm:text-base">Terms of Service</Link>
-          </div>
-        </div>
-      </footer>
-
-      {/* <ServiceModal
+      <ServiceModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         insuranceType={selectedInsuranceType}
       />
-      <VisitorCounter /> */}
+      <VisitorCounter />
     </div>
   );
 };
