@@ -64,7 +64,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     return error === '';
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | React.TextareaHTMLAttributes<HTMLTextAreaElement>>) => {
     const { id, value } = e.target;
     setFormData(prev => ({ ...prev, [id]: value }));
     validateField(id, value);
@@ -151,7 +151,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     <Card className="w-full max-w-md mx-auto">
       <CardHeader>
         <CardTitle>Get a Quote for {insuranceType}</CardTitle>
-        <p className="text-sm text-muted-foreground">Step {step} of 5</p>
+        {/* Removed: <p className="text-sm text-muted-foreground">Step {step} of 5</p> */}
       </CardHeader>
       <CardContent className="space-y-4">
         {step === 1 && (
