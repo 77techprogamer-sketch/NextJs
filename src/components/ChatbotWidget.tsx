@@ -12,8 +12,7 @@ const ChatbotWidget = () => {
   };
 
   return (
-    <div className="flex flex-col items-end"> {/* Removed 'w-full' and the 'p' tag */}
-      {/* Removed: <p className="text-lg font-semibold mb-4 text-foreground">Have questions? We're here to help.</p> */}
+    <div className="flex flex-col items-start"> {/* Changed items-end to items-start */}
       <Button
         size="lg"
         onClick={openChatbot}
