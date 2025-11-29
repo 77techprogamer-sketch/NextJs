@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 import ServiceModal from '@/components/ServiceModal';
-import ChatbotWidget from '@/components/ChatbotWidget';
+import ChatbotWidget from '@/components/ChatbotWidget'; // This import is present
 import SocialShareButtons from '@/components/SocialShareButtons';
 import VisitorCounter from '@/components/VisitorCounter';
 
@@ -49,7 +49,7 @@ const Index = () => {
           <p className="text-base md:text-xl max-w-2xl mx-auto">Get free quotes for life, health, term, motor, home, travel, and fire insurance. Chat with expert advisors and secure your future with the best plans.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
-            <ChatbotWidget />
+            <ChatbotWidget /> {/* This component is rendered here */}
           </div>
           <SocialShareButtons url={currentUrl} title={shareTitle} />
         </div>
