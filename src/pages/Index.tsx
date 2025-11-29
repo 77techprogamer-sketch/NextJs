@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageCircle } from 'lucide-react'; // Added MessageCircle
+import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageCircle, Whatsapp } from 'lucide-react'; // Added Whatsapp
 import ServiceCard from '@/components/ServiceCard';
 import ServiceModal from '@/components/ServiceModal';
 import ChatbotWidget from '@/components/ChatbotWidget';
@@ -153,7 +153,7 @@ const Index = () => {
               rel="noopener noreferrer" 
               className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
             >
-              <MessageCircle className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
+              <Whatsapp className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" /> {/* Changed to Whatsapp icon */}
               <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">WhatsApp Us</CardTitle>
               <CardDescription className="text-center text-sm sm:text-base">+91-9986634506</CardDescription>
             </a>
