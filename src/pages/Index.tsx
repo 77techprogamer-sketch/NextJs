@@ -17,7 +17,7 @@ const Index = () => {
   const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
   const [backgroundImage, setBackgroundImage] = useState('/placeholder.svg'); // Default placeholder
-  const [greeting, setGreeting] = useState('Your Trusted Partner for Comprehensive Insurance');
+  // const [greeting, setGreeting] = useState('Your Trusted Partner for Comprehensive Insurance'); // Removed greeting state
 
   const oneLiners = [
     "Secure your family's future with our comprehensive life insurance plans.",
@@ -36,26 +36,21 @@ const Index = () => {
     const randomIndex = Math.floor(Math.random() * oneLiners.length);
     setDynamicOneLiner(oneLiners[randomIndex]);
 
-    // Determine time of day for background and greeting
+    // Determine time of day for background
     const currentHour = new Date().getHours();
-    let newGreeting = '';
     let newBackgroundImage = '';
 
     if (currentHour >= 5 && currentHour < 12) {
-      newGreeting = 'Good Morning!';
       newBackgroundImage = '/morning-bg.jpg'; // Placeholder for morning image
     } else if (currentHour >= 12 && currentHour < 17) {
-      newGreeting = 'Good Afternoon!';
       newBackgroundImage = '/afternoon-bg.jpg'; // Placeholder for afternoon image
     } else if (currentHour >= 17 && currentHour < 21) {
-      newGreeting = 'Good Evening!';
       newBackgroundImage = '/evening-bg.jpg'; // Placeholder for evening image
     } else {
-      newGreeting = 'Good Night!';
       newBackgroundImage = '/night-bg.jpg'; // Placeholder for night image
     }
 
-    setGreeting(newGreeting + ' Your Trusted Partner for Comprehensive Insurance');
+    // setGreeting(newGreeting + ' Your Trusted Partner for Comprehensive Insurance'); // Removed greeting logic
     setBackgroundImage(newBackgroundImage);
 
     const hash = window.location.hash;
@@ -87,8 +82,8 @@ const Index = () => {
       <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white space-y-4 w-full">
-          <div className="flex justify-between items-start w-full">
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-left">{greeting}</h1>
+          <div className="flex justify-end items-start w-full"> {/* Changed justify-between to justify-end */}
+            {/* Removed: <h1 className="text-3xl md:text-5xl font-bold leading-tight text-left">{greeting}</h1> */}
             <DateTimeDisplay /> {/* Include the DateTimeDisplay component here */}
           </div>
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
