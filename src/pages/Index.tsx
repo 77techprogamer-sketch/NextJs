@@ -14,18 +14,25 @@ import VisitorCounter from '@/components/VisitorCounter';
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
+  const [dynamicOneLiner, setDynamicOneLiner] = useState('');
 
-  const handleServiceCardClick = (insuranceType: string) => {
-    setSelectedInsuranceType(insuranceType);
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedInsuranceType('');
-  };
+  const oneLiners = [
+    "Secure your family's future with our comprehensive life insurance plans.",
+    "Protect your well-being with tailored health insurance solutions.",
+    "Affordable term insurance for peace of mind, today and tomorrow.",
+    "Drive with confidence, knowing your vehicle is fully covered.",
+    "Safeguard your business and home from unforeseen events.",
+    "Explore the world worry-free with our reliable travel insurance.",
+    "Your peace of mind is our priority. Get insured today!",
+    "Find the perfect coverage for every aspect of your life.",
+    "Expert advice and personalized plans for all your insurance needs."
+  ];
 
   useEffect(() => {
+    // Select a random one-liner on component mount
+    const randomIndex = Math.floor(Math.random() * oneLiners.length);
+    setDynamicOneLiner(oneLiners[randomIndex]);
+
     const hash = window.location.hash;
     if (hash === '#services') {
       const servicesSection = document.getElementById('services');
@@ -33,7 +40,7 @@ const Index = () => {
         servicesSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, []);
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   const currentYear = new Date().getFullYear();
   const currentUrl = "https://insurance-support.vercel.app/"; // Replace with dynamic URL if needed
@@ -46,8 +53,8 @@ const Index = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
-          <p className="text-base md:text-xl max-w-2xl mx-auto">Get free quotes for life, health, term, motor, home, travel, and fire insurance. Chat with expert advisors and secure your future with the best plans.</p>
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4"> {/* Changed justify-center to justify-between */}
+          <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p> {/* Dynamic one-liner here */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
             <ChatbotWidget />
           </div>
