@@ -34,17 +34,17 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
   };
 
   return (
-    <div className="flex space-x-3 mt-3 justify-center md:justify-start bg-white p-2 rounded-lg shadow-md"> {/* Added bg-white, p-2, rounded-lg, shadow-md for prominence */}
-      <Button variant="default" size="icon" onClick={shareOnFacebook} aria-label="Share on Facebook"> {/* Changed variant to 'default' */}
+    <div className="flex space-x-3 mt-3 justify-center md:justify-start"> {/* Removed bg-white, p-2, rounded-lg, shadow-md */}
+      <Button variant="default" size="icon" onClick={shareOnFacebook} aria-label="Share on Facebook">
         <Facebook className="h-5 w-5" />
       </Button>
-      <Button variant="default" size="icon" onClick={shareOnTwitter} aria-label="Share on X (Twitter)"> {/* Changed variant to 'default' */}
+      <Button variant="default" size="icon" onClick={shareOnTwitter} aria-label="Share on X (Twitter)">
         <Twitter className="h-5 w-5" />
       </Button>
-      <Button variant="default" size="icon" onClick={shareOnLinkedIn} aria-label="Share on LinkedIn"> {/* Changed variant to 'default' */}
+      <Button variant="default" size="icon" onClick={shareOnLinkedIn} aria-label="Share on LinkedIn">
         <Linkedin className="h-5 w-5" />
       </Button>
-      <Button variant="default" size="icon" onClick={copyToClipboard} aria-label="Copy link for Instagram"> {/* Changed variant to 'default' */}
+      <Button variant="default" size="icon" onClick={copyToClipboard} aria-label="Copy link for Instagram">
         <Instagram className="h-5 w-5" />
       </Button>
     </div>
