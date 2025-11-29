@@ -42,7 +42,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full h-[60vh] bg-cover bg-center flex items-center justify-center text-center p-4" style={{ backgroundImage: 'url(/placeholder.svg)' }}>
+      <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: 'url(/placeholder.svg)' }}> {/* Changed items-center to items-end */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
