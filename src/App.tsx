@@ -3,8 +3,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Index from "./pages/Index";
-import PrivacyPolicy from "./pages/PrivacyPolicy"; // Import the new PrivacyPolicy component
-import TermsOfService from "./pages/TermsOfService"; // Import the new TermsOfService component
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import NotFound from "./pages/NotFound"; // Import the NotFound component
 import { Toaster } from "./components/ui/sonner";
 
 function App() {
@@ -13,8 +14,9 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} /> {/* New route for Privacy Policy */}
-          <Route path="/terms" element={<TermsOfService />} />   {/* New route for Terms of Service */}
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="*" element={<NotFound />} /> {/* Fallback route for any unmatched paths */}
         </Routes>
         <Toaster />
       </Layout>
