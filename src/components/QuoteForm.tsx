@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -24,10 +24,24 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     gender: '',
     phone: '',
     sumAssured: '',
+    healthMembersOption: '', // New field for health insurance
+    memberDetails: [] as { relationship: string; name: string; age: string; dob: string }[], // New field for health insurance
   });
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
-  const validateField = (fieldName: string, value: string) => {
+  const isHealthInsurance = insuranceType === 'Health Insurance';
+
+  // Define total steps dynamically
+  const totalSteps = useMemo(() => {
+    let baseSteps = 5; // Name, Age/DOB, Gender, Phone, Sum Assured
+    if (isHealthInsurance) {
+      baseSteps += 1; // Add step for healthMembersOption
+      // Additional steps for memberDetails are handled dynamically within a single step
+    }
+    return baseSteps;
+  }, [isHealthInsurance]);
+
+  const validateField = (fieldName: string, value: string, index?: number) => {
     let error = '';
     switch (fieldName) {
       case 'name':
@@ -57,22 +71,59 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           }
         }
         break;
+      case 'healthMembersOption':
+        if (isHealthInsurance && !value) error = 'Please select members for cover.';
+        break;
+      case 'memberAge':
+      case 'memberDob':
+        if (index !== undefined) {
+          const member = formData.memberDetails[index];
+          if (!member.age && !member.dob) error = `Age or Date of Birth for ${member.relationship} is required.`;
+        }
+        break;
       default:
         break;
     }
-    setErrors(prev => ({ ...prev, [fieldName]: error }));
+    if (index !== undefined) {
+      setErrors(prev => ({ ...prev, [`${fieldName}-${index}`]: error }));
+    } else {
+      setErrors(prev => ({ ...prev, [fieldName]: error }));
+    }
     return error === '';
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | React.TextareaHTMLAttributes<HTMLTextAreaElement>>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, index?: number) => {
     const { id, value } = e.target;
-    setFormData(prev => ({ ...prev, [id]: value }));
-    validateField(id, value);
+    if (index !== undefined) {
+      const updatedMembers = [...formData.memberDetails];
+      updatedMembers[index] = { ...updatedMembers[index], [id]: value };
+      setFormData(prev => ({ ...prev, memberDetails: updatedMembers }));
+      validateField(id, value, index);
+    } else {
+      setFormData(prev => ({ ...prev, [id]: value }));
+      validateField(id, value);
+    }
   };
 
-  const handleRadioChange = (value: string) => {
-    setFormData(prev => ({ ...prev, gender: value }));
-    validateField('gender', value);
+  const handleRadioChange = (id: string, value: string) => {
+    if (id === 'gender') {
+      setFormData(prev => ({ ...prev, gender: value }));
+      validateField('gender', value);
+    } else if (id === 'healthMembersOption') {
+      setFormData(prev => ({ ...prev, healthMembersOption: value }));
+      validateField('healthMembersOption', value);
+
+      // Initialize memberDetails based on selection
+      let newMemberDetails: { relationship: string; name: string; age: string; dob: string }[] = [];
+      if (value === 'Self with Wife and 1 kid') {
+        newMemberDetails = [{ relationship: 'Wife', name: 'Wife', age: '', dob: '' }, { relationship: 'Kid 1', name: 'Kid 1', age: '', dob: '' }];
+      } else if (value === 'Self with Wife and 2 kids') {
+        newMemberDetails = [{ relationship: 'Wife', name: 'Wife', age: '', dob: '' }, { relationship: 'Kid 1', name: 'Kid 1', age: '', dob: '' }, { relationship: 'Kid 2', name: 'Kid 2', age: '', dob: '' }];
+      } else if (value === 'Self with Parents') {
+        newMemberDetails = [{ relationship: 'Father', name: 'Father', age: '', dob: '' }, { relationship: 'Mother', name: 'Mother', age: '', dob: '' }];
+      }
+      setFormData(prev => ({ ...prev, memberDetails: newMemberDetails }));
+    }
   };
 
   const handleNext = () => {
@@ -86,9 +137,16 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       if (!isValid) currentErrors.age = currentErrors.dob = 'Age or Date of Birth is required.';
     } else if (step === 3) {
       isValid = validateField('gender', formData.gender);
-    } else if (step === 4) {
+    } else if (isHealthInsurance && step === 4) { // Health specific step
+      isValid = validateField('healthMembersOption', formData.healthMembersOption);
+    } else if (isHealthInsurance && step === 5 && formData.healthMembersOption !== 'Self') { // Member details step
+      formData.memberDetails.forEach((member, index) => {
+        const memberValid = validateField('memberAge', member.age, index) || validateField('memberDob', member.dob, index);
+        if (!memberValid) isValid = false;
+      });
+    } else if (step === (isHealthInsurance ? (formData.healthMembersOption !== 'Self' ? 6 : 5) : 4)) { // Phone step
       isValid = validateField('phone', formData.phone);
-    } else if (step === 5) {
+    } else if (step === (isHealthInsurance ? (formData.healthMembersOption !== 'Self' ? 7 : 6) : 5)) { // Sum Assured step
       isValid = validateField('sumAssured', formData.sumAssured);
     }
 
@@ -115,16 +173,25 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
 
     try {
       const { data: { user } } = await supabase.auth.getUser();
-      const payload = {
+      const payload: any = {
         name: formData.name,
         age: formData.age ? parseInt(formData.age, 10) : null,
-        // dob: formData.dob, // Supabase table doesn't have DOB, using age for now
         gender: formData.gender,
         phone: formData.phone,
         insurance_type: insuranceType,
-        intended_sum_insured: formData.sumAssured.replace(/,/g, ''), // Store as number string or convert to int if column type allows
-        user_id: user?.id || null, // Link to user if logged in
+        intended_sum_insured: formData.sumAssured.replace(/,/g, ''),
+        user_id: user?.id || null,
       };
+
+      if (isHealthInsurance) {
+        payload.number_of_people = formData.healthMembersOption;
+        payload.member_details = formData.memberDetails.map(m => ({
+          relationship: m.relationship,
+          name: m.name,
+          age: m.age ? parseInt(m.age, 10) : null,
+          dob: m.dob,
+        }));
+      }
 
       const { error } = await supabase.from('customers').insert([payload]);
 
@@ -144,17 +211,14 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   const formatSumAssured = (value: string) => {
     const num = parseInt(value.replace(/,/g, ''), 10);
     if (isNaN(num)) return value;
-    return num.toLocaleString('en-IN'); // Format with Indian locale for lakhs/crores
+    return num.toLocaleString('en-IN');
   };
 
-  return (
-    <Card className="w-full max-w-md mx-auto">
-      <CardHeader>
-        <CardTitle>Get a Quote for {insuranceType}</CardTitle>
-        {/* Removed: <p className="text-sm text-muted-foreground">Step {step} of 5</p> */}
-      </CardHeader>
-      <CardContent className="space-y-4">
-        {step === 1 && (
+  // Dynamic step rendering logic
+  const renderStepContent = () => {
+    switch (step) {
+      case 1:
+        return (
           <div>
             <Label htmlFor="name">Your Full Name</Label>
             <Input
@@ -166,9 +230,9 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             />
             {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
           </div>
-        )}
-
-        {step === 2 && (
+        );
+      case 2:
+        return (
           <div>
             <Label htmlFor="age">Your Age or Date of Birth</Label>
             <Input
@@ -189,12 +253,12 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             />
             {(errors.age || errors.dob) && <p className="text-red-500 text-sm mt-1">{errors.age || errors.dob}</p>}
           </div>
-        )}
-
-        {step === 3 && (
+        );
+      case 3:
+        return (
           <div>
             <Label>Your Gender</Label>
-            <RadioGroup value={formData.gender} onValueChange={handleRadioChange} className="flex space-x-4 mt-2">
+            <RadioGroup value={formData.gender} onValueChange={(val) => handleRadioChange('gender', val)} className="flex space-x-4 mt-2">
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="male" id="gender-male" />
                 <Label htmlFor="gender-male">Male</Label>
@@ -210,9 +274,66 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             </RadioGroup>
             {errors.gender && <p className="text-red-500 text-sm mt-1">{errors.gender}</p>}
           </div>
-        )}
-
-        {step === 4 && (
+        );
+      case 4:
+        if (isHealthInsurance) {
+          return (
+            <div>
+              <Label>How many members for Health Insurance?</Label>
+              <RadioGroup value={formData.healthMembersOption} onValueChange={(val) => handleRadioChange('healthMembersOption', val)} className="flex flex-col space-y-2 mt-2">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="Self" id="members-self" />
+                  <Label htmlFor="members-self">Self</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="Self with Wife and 1 kid" id="members-wife-1kid" />
+                  <Label htmlFor="members-wife-1kid">Self with Wife and 1 kid</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="Self with Wife and 2 kids" id="members-wife-2kids" />
+                  <Label htmlFor="members-wife-2kids">Self with Wife and 2 kids</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="Self with Parents" id="members-parents" />
+                  <Label htmlFor="members-parents">Self with Parents</Label>
+                </div>
+              </RadioGroup>
+              {errors.healthMembersOption && <p className="text-red-500 text-sm mt-1">{errors.healthMembersOption}</p>}
+            </div>
+          );
+        }
+        // Fall through to phone if not health insurance
+      case (isHealthInsurance ? 5 : 4): // Phone step
+        if (isHealthInsurance && formData.healthMembersOption !== 'Self' && step === 5) {
+          return (
+            <div className="space-y-4">
+              <p className="font-semibold">Please provide details for:</p>
+              {formData.memberDetails.map((member, index) => (
+                <div key={index} className="border p-3 rounded-md">
+                  <Label className="font-medium">{member.relationship}</Label>
+                  <Input
+                    id="age"
+                    type="number"
+                    value={member.age}
+                    onChange={(e) => handleChange(e, index)}
+                    placeholder={`Age of ${member.relationship}`}
+                    className={errors[`memberAge-${index}`] ? 'border-red-500' : ''}
+                  />
+                  <p className="text-sm text-muted-foreground mt-2 mb-2">OR</p>
+                  <Input
+                    id="dob"
+                    type="date"
+                    value={member.dob}
+                    onChange={(e) => handleChange(e, index)}
+                    className={errors[`memberDob-${index}`] ? 'border-red-500' : ''}
+                  />
+                  {(errors[`memberAge-${index}`] || errors[`memberDob-${index}`]) && <p className="text-red-500 text-sm mt-1">{errors[`memberAge-${index}`] || errors[`memberDob-${index}`]}</p>}
+                </div>
+              ))}
+            </div>
+          );
+        }
+        return (
           <div>
             <Label htmlFor="phone">Mobile Number</Label>
             <Input
@@ -226,17 +347,17 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             />
             {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
           </div>
-        )}
-
-        {step === 5 && (
+        );
+      case (isHealthInsurance ? (formData.healthMembersOption !== 'Self' ? 6 : 5) : 5): // Sum Assured step
+        return (
           <div>
             <Label htmlFor="sumAssured">Sum Assured (in multiples of 1,00,000)</Label>
             <Input
               id="sumAssured"
-              type="text" // Use text to allow custom formatting
+              type="text"
               value={formatSumAssured(formData.sumAssured)}
               onChange={(e) => {
-                const rawValue = e.target.value.replace(/,/g, ''); // Remove commas for internal storage
+                const rawValue = e.target.value.replace(/,/g, '');
                 setFormData(prev => ({ ...prev, sumAssured: rawValue }));
                 validateField('sumAssured', rawValue);
               }}
@@ -245,14 +366,49 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             />
             {errors.sumAssured && <p className="text-red-500 text-sm mt-1">{errors.sumAssured}</p>}
           </div>
-        )}
+        );
+      default:
+        return null;
+    }
+  };
+
+  // Determine current step for navigation
+  const currentStepIndex = useMemo(() => {
+    let current = step;
+    if (isHealthInsurance) {
+      if (step > 3 && formData.healthMembersOption === 'Self') {
+        current += 1; // Skip member details step if only self
+      }
+    }
+    return current;
+  }, [step, isHealthInsurance, formData.healthMembersOption]);
+
+  const maxStep = useMemo(() => {
+    let max = 5; // Base steps
+    if (isHealthInsurance) {
+      max += 1; // Add healthMembersOption step
+      if (formData.healthMembersOption !== 'Self') {
+        max += 1; // Add memberDetails step
+      }
+    }
+    return max;
+  }, [isHealthInsurance, formData.healthMembersOption]);
+
+
+  return (
+    <Card className="w-full max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle>Get a Quote for {insuranceType}</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        {renderStepContent()}
       </CardContent>
       <CardFooter className="flex justify-between">
         <Button variant="outline" onClick={onClose}>Cancel</Button>
         {step > 1 && (
           <Button variant="outline" onClick={handleBack}>Back</Button>
         )}
-        {step < 5 ? (
+        {currentStepIndex < maxStep ? (
           <Button onClick={handleNext}>Next</Button>
         ) : (
           <Button onClick={handleSubmit}>Submit Quote</Button>
