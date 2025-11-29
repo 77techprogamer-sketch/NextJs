@@ -10,7 +10,7 @@ import ServiceModal from '@/components/ServiceModal';
 import ChatbotWidget from '@/components/ChatbotWidget';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import VisitorCounter from '@/components/VisitorCounter';
-// import DateTimeDisplay from '@/components/DateTimeDisplay'; // Removed the import
+import DateTimeDisplay from '@/components/DateTimeDisplay'; // Import the DateTimeDisplay component
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -89,7 +89,7 @@ const Index = () => {
         <div className="relative z-10 text-white space-y-4 w-full">
           <div className="flex justify-between items-start w-full">
             <h1 className="text-3xl md:text-5xl font-bold leading-tight text-left">{greeting}</h1>
-            {/* Removed: <DateTimeDisplay /> */}
+            <DateTimeDisplay /> {/* Include the DateTimeDisplay component here */}
           </div>
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
