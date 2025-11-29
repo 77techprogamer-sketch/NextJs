@@ -2,7 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 
-const DateTimeDisplay = () => {
+interface DateTimeDisplayProps {
+  className?: string;
+}
+
+const DateTimeDisplay: React.FC<DateTimeDisplayProps> = ({ className }) => {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
@@ -29,7 +33,7 @@ const DateTimeDisplay = () => {
   });
 
   return (
-    <div className="text-sm text-muted-foreground flex flex-col items-end">
+    <div className={`text-sm text-muted-foreground flex flex-col items-end ${className}`}>
       <span>{formattedDate}</span>
       <span>{formattedTime}</span>
     </div>

@@ -81,10 +81,8 @@ const Index = () => {
       <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white space-y-4 w-full">
-          <div className="flex justify-between items-start w-full"> {/* Changed justify-end to justify-between to accommodate both */}
-            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-left">Your Trusted Partner for Comprehensive Insurance</h1> {/* Restored main heading */}
-            <DateTimeDisplay /> {/* Include the DateTimeDisplay component here */}
-          </div>
+          <DateTimeDisplay className="absolute top-0 right-0" /> {/* Positioned absolutely */}
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1> {/* Removed text-left */}
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
