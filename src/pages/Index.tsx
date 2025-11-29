@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react'; // Added useCallback
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -45,6 +45,16 @@ const Index = () => {
   const currentYear = new Date().getFullYear();
   const currentUrl = "https://insurance-support.vercel.app/"; // Replace with dynamic URL if needed
   const shareTitle = "Insurance Support - Get Free Quotes for Life, Health, Motor & More";
+
+  const handleServiceCardClick = useCallback((insuranceType: string) => {
+    setSelectedInsuranceType(insuranceType);
+    setIsModalOpen(true);
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setIsModalOpen(false);
+    setSelectedInsuranceType('');
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen">
