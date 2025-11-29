@@ -49,9 +49,9 @@ const Index = () => {
           <p className="text-base md:text-xl max-w-2xl mx-auto">Get free quotes for life, health, term, motor, home, travel, and fire insurance. Chat with expert advisors and secure your future with the best plans.</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
-            <ChatbotWidget />
+            {/* <ChatbotWidget /> */}
           </div>
-          <SocialShareButtons url={currentUrl} title={shareTitle} />
+          {/* <SocialShareButtons url={currentUrl} title={shareTitle} /> */}
         </div>
       </section>
 
@@ -123,12 +123,12 @@ const Index = () => {
         </div>
       </section>
 
-      <ServiceModal
+      {/* <ServiceModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         insuranceType={selectedInsuranceType}
       />
-      <VisitorCounter />
+      <VisitorCounter /> */}
     </div>
   );
 };
