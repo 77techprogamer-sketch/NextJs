@@ -85,7 +85,7 @@ const Index = () => {
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1> {/* Removed text-left */}
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button> {/* Removed px-8 py-3 */}
             <ChatbotWidget />
           </div>
           <SocialShareButtons url={currentUrl} title={shareTitle} />
