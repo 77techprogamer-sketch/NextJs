@@ -16,7 +16,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon: Icon, onClick })
       className="flex flex-col items-center text-center p-4 cursor-pointer hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-105"
       onClick={onClick}
     >
-      <CardHeader className="pb-2">
+      <CardHeader className="pb-2 flex flex-col items-center"> {/* Added flex flex-col items-center */}
         <Icon className="h-10 w-10 text-primary mb-2" />
         <CardTitle className="text-lg font-semibold">{title}</CardTitle>
       </CardHeader>
