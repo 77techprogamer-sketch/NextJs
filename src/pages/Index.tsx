@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, useCallback } from 'react'; // Added useCallback
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -72,7 +72,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Services Section (Target for scroll) */}
+      <section id="services" className="py-12 sm:py-16 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">Our Services Offered</h2>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12">We provide a wide array of insurance solutions tailored to protect what matters most to you.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <ServiceCard title="Life Insurance" icon={Heart} onClick={() => handleServiceCardClick('Life Insurance')} />
+            <ServiceCard title="Health Insurance" icon={Shield} onClick={() => handleServiceCardClick('Health Insurance')} />
+            <ServiceCard title="Term Insurance" icon={FileText} onClick={() => handleServiceCardClick('Term Insurance')} />
+            <ServiceCard title="Motor (Private/Commercial Vehicles) Insurance" icon={Car} onClick={() => handleServiceCardClick('Motor Insurance')} />
+            <ServiceCard title="SME (Fire and Home) Insurance" icon={Building} onClick={() => handleServiceCardClick('Fire Insurance')} />
+            <ServiceCard title="Travel Insurance" icon={Plane} onClick={() => handleServiceCardClick('Travel Insurance')} />
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section - Moved here */}
       <section className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">Why Choose Us?</h2>
@@ -92,22 +108,6 @@ const Index = () => {
               <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">Customer Satisfaction</CardTitle>
               <CardDescription className="text-center text-sm sm:text-base">Dedicated support to ensure your peace of mind.</CardDescription>
             </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section (Target for scroll) */}
-      <section id="services" className="py-12 sm:py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">Our Services Offered</h2>
-          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12">We provide a wide array of insurance solutions tailored to protect what matters most to you.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <ServiceCard title="Life Insurance" icon={Heart} onClick={() => handleServiceCardClick('Life Insurance')} />
-            <ServiceCard title="Health Insurance" icon={Shield} onClick={() => handleServiceCardClick('Health Insurance')} />
-            <ServiceCard title="Term Insurance" icon={FileText} onClick={() => handleServiceCardClick('Term Insurance')} />
-            <ServiceCard title="Motor (Private/Commercial Vehicles) Insurance" icon={Car} onClick={() => handleServiceCardClick('Motor Insurance')} />
-            <ServiceCard title="SME (Fire and Home) Insurance" icon={Building} onClick={() => handleServiceCardClick('Fire Insurance')} />
-            <ServiceCard title="Travel Insurance" icon={Plane} onClick={() => handleServiceCardClick('Travel Insurance')} />
           </div>
         </div>
       </section>
