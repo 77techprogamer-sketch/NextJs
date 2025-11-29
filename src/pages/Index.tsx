@@ -15,6 +15,8 @@ const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
+  const [backgroundImage, setBackgroundImage] = useState('/placeholder.svg'); // Default placeholder
+  const [greeting, setGreeting] = useState('Your Trusted Partner for Comprehensive Insurance');
 
   const oneLiners = [
     "Secure your family's future with our comprehensive life insurance plans.",
@@ -32,6 +34,28 @@ const Index = () => {
     // Select a random one-liner on component mount
     const randomIndex = Math.floor(Math.random() * oneLiners.length);
     setDynamicOneLiner(oneLiners[randomIndex]);
+
+    // Determine time of day for background and greeting
+    const currentHour = new Date().getHours();
+    let newGreeting = '';
+    let newBackgroundImage = '';
+
+    if (currentHour >= 5 && currentHour < 12) {
+      newGreeting = 'Good Morning!';
+      newBackgroundImage = '/morning-bg.jpg'; // Placeholder for morning image
+    } else if (currentHour >= 12 && currentHour < 17) {
+      newGreeting = 'Good Afternoon!';
+      newBackgroundImage = '/afternoon-bg.jpg'; // Placeholder for afternoon image
+    } else if (currentHour >= 17 && currentHour < 21) {
+      newGreeting = 'Good Evening!';
+      newBackgroundImage = '/evening-bg.jpg'; // Placeholder for evening image
+    } else {
+      newGreeting = 'Good Night!';
+      newBackgroundImage = '/night-bg.jpg'; // Placeholder for night image
+    }
+
+    setGreeting(newGreeting + ' Your Trusted Partner for Comprehensive Insurance');
+    setBackgroundImage(newBackgroundImage);
 
     const hash = window.location.hash;
     if (hash === '#services') {
@@ -59,10 +83,10 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: 'url(/placeholder.svg)' }}>
+      <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white space-y-4">
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">{greeting}</h1> {/* Dynamic greeting here */}
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p> {/* Dynamic one-liner here */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
