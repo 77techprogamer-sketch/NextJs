@@ -3,7 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeToggle } from './theme-toggle';
-import DateTimeDisplay from './DateTimeDisplay'; // Import the new DateTimeDisplay component
+// import DateTimeDisplay from './DateTimeDisplay'; // Removed the import
 
 const Header = () => {
   const handleScrollToServices = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -29,7 +29,7 @@ const Header = () => {
             Services Offered
           </Link>
           <ThemeToggle />
-          <DateTimeDisplay /> {/* Include the DateTimeDisplay component here */}
+          {/* Removed: <DateTimeDisplay /> */}
         </nav>
       </div>
     </header>

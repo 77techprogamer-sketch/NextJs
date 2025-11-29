@@ -10,6 +10,7 @@ import ServiceModal from '@/components/ServiceModal';
 import ChatbotWidget from '@/components/ChatbotWidget';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import VisitorCounter from '@/components/VisitorCounter';
+import DateTimeDisplay from '@/components/DateTimeDisplay'; // Import the DateTimeDisplay component
 
 const Index = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -85,8 +86,11 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-white space-y-4">
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">{greeting}</h1> {/* Dynamic greeting here */}
+        <div className="relative z-10 text-white space-y-4 w-full"> {/* Added w-full to allow justify-between */}
+          <div className="flex justify-between items-start w-full"> {/* Container for greeting and DateTimeDisplay */}
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-left">{greeting}</h1> {/* Dynamic greeting here */}
+            <DateTimeDisplay /> {/* Include the DateTimeDisplay component here */}
+          </div>
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p> {/* Dynamic one-liner here */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
