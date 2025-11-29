@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } => 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -47,7 +47,7 @@ const Index = () => {
         <div className="relative z-10 text-white space-y-4">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
           <p className="text-base md:text-xl max-w-2xl mx-auto">Get free quotes for life, health, term, motor, home, travel, and fire insurance. Chat with expert advisors and secure your future with the best plans.</p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center justify-end gap-4"> {/* Changed justify-center to justify-end */}
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-3" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
             <ChatbotWidget />
           </div>
