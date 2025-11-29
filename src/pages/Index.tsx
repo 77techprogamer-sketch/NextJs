@@ -137,7 +137,7 @@ const Index = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">Get in Touch</h2>
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12">Have questions? Our team is ready to assist you.</p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-2xl mx-auto"> {/* Changed to lg:grid-cols-3 */}
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 max-w-2xl mx-auto"> {/* Changed to flex flex-wrap justify-center */}
             <a 
               href="tel:+919986634506" 
               className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
