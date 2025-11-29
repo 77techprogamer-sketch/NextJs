@@ -17,7 +17,7 @@ const Index = () => {
   const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
   const [backgroundImage, setBackgroundImage] = useState('/placeholder.svg'); // Default placeholder
-  // const [greeting, setGreeting] = useState('Your Trusted Partner for Comprehensive Insurance'); // Removed greeting state
+  // Removed: const [greeting, setGreeting] = useState('Your Trusted Partner for Comprehensive Insurance');
 
   const oneLiners = [
     "Secure your family's future with our comprehensive life insurance plans.",
@@ -50,7 +50,6 @@ const Index = () => {
       newBackgroundImage = '/night-bg.jpg'; // Placeholder for night image
     }
 
-    // setGreeting(newGreeting + ' Your Trusted Partner for Comprehensive Insurance'); // Removed greeting logic
     setBackgroundImage(newBackgroundImage);
 
     const hash = window.location.hash;
@@ -82,8 +81,8 @@ const Index = () => {
       <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white space-y-4 w-full">
-          <div className="flex justify-end items-start w-full"> {/* Changed justify-between to justify-end */}
-            {/* Removed: <h1 className="text-3xl md:text-5xl font-bold leading-tight text-left">{greeting}</h1> */}
+          <div className="flex justify-between items-start w-full"> {/* Changed justify-end to justify-between to accommodate both */}
+            <h1 className="text-3xl md:text-5xl font-bold leading-tight text-left">Your Trusted Partner for Comprehensive Insurance</h1> {/* Restored main heading */}
             <DateTimeDisplay /> {/* Include the DateTimeDisplay component here */}
           </div>
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
