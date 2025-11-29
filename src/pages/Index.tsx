@@ -123,12 +123,12 @@ const Index = () => {
         </div>
       </section>
 
-      {/* <ServiceModal
+      <ServiceModal
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         insuranceType={selectedInsuranceType}
       />
-      <VisitorCounter /> */}
+      <VisitorCounter />
     </div>
   );
 };
