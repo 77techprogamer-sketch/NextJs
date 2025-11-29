@@ -12,7 +12,7 @@ const ChatbotWidget = () => {
   };
 
   return (
-    <div className="flex flex-col items-start"> {/* Changed items-end to items-start */}
+    <div className="flex flex-col items-end"> {/* Changed items-start to items-end for right alignment */}
       <Button
         size="lg"
         onClick={openChatbot}
