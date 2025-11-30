@@ -3,6 +3,7 @@
 import React from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'; // Removed DialogDescription
 import QuoteForm from './QuoteForm'; // Import the new QuoteForm component
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 interface ServiceModalProps {
   isOpen: boolean;
@@ -11,6 +12,7 @@ interface ServiceModalProps {
 }
 
 const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceType }) => {
+  const { t } = useTranslation(); // Initialize useTranslation
   const handleQuoteSuccess = () => {
     onClose(); // Close the modal on successful submission
   };

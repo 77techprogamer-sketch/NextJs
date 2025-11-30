@@ -71,5 +71,21 @@
   "unexpected_error_submission": "An unexpected error occurred during submission.",
   "correct_form_errors": "Please correct the errors in the form.",
   "gst_rates_slashed": "🎉 GST rates have been slashed and removed on select plans! 🎉",
-  "insurance_support_contact": "Contact: Hari Kotian | 9986634506"
+  "insurance_support_contact": "Contact: Hari Kotian | 9986634506",
+  "privacy_policy_intro": "Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.",
+  "information_we_collect": "Information We Collect",
+  "information_we_collect_description": "We collect personal information that you voluntarily provide to us when you register on the website, express an interest in obtaining information about us or our products and services, when you participate in activities on the website, or otherwise when you contact us.",
+  "how_we_use_your_information": "How We Use Your Information",
+  "how_we_use_your_information_description": "We use personal information collected via our website for a variety of business purposes described below. We process your personal information for these purposes in reliance on our legitimate business interests, in order to enter into or perform a contract with you, with your consent, and/or for compliance with our legal obligations.",
+  "disclosure_of_your_information": "Disclosure of Your Information",
+  "disclosure_of_your_information_description": "We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.",
+  "privacy_contact_us": "For any questions or concerns regarding your privacy, please contact us.",
+  "terms_of_service_intro": "Welcome to Insurance Support. These Terms of Service govern your use of our website and services. By accessing or using our website, you agree to be bound by these terms.",
+  "acceptance_of_terms": "Acceptance of Terms",
+  "acceptance_of_terms_description": "By using our services, you agree to comply with and be legally bound by these Terms of Service. If you do not agree to these terms, you may not access or use our services.",
+  "use_of_services": "Use of Services",
+  "use_of_services_description": "You agree to use our services only for lawful purposes and in a way that does not infringe the rights of, restrict or inhibit anyone else's use and enjoyment of the website. Prohibited behavior includes harassing or causing distress or inconvenience to any other user, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within our website.",
+  "intellectual_property": "Intellectual Property",
+  "intellectual_property_description": "All content on this website, including text, graphics, logos, images, and software, is the property of Insurance Support or its content suppliers and protected by international copyright laws.",
+  "terms_of_service_reservation": "We reserve the right to modify or terminate our services for any reason, without notice, at any time."
 }
