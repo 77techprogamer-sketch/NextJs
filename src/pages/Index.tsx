@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageCircle } from 'lucide-react'; // Added MessageCircle
+import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 import ServiceModal from '@/components/ServiceModal';
 import ChatbotWidget from '@/components/ChatbotWidget';
@@ -80,9 +80,9 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-white space-y-4 w-full">
+        <div className="relative z-10 text-white space-y-4 w-full text-center"> {/* Added text-center here */}
           <DateTimeDisplay className="absolute top-0 right-0" /> {/* Positioned absolutely */}
-          <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1> {/* Removed text-left */}
+          <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
