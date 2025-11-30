@@ -193,9 +193,9 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
         </div>
 
-        {/* Age or Date of Birth */}
+        {/* Age */}
         <div>
-          <Label htmlFor="age">Your Age or Date of Birth</Label>
+          <Label htmlFor="age">Age</Label> {/* Changed label */}
           <Input
             id="age"
             type="number"
@@ -206,6 +206,8 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             className={errors.age ? 'border-red-500' : ''}
           />
           <p className="text-sm text-muted-foreground mt-2 mb-2">OR</p>
+          {/* Date of Birth */}
+          <Label htmlFor="dob">Date of Birth</Label> {/* Added new label */}
           <Input
             id="dob"
             type="date"
