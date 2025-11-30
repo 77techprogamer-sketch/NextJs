@@ -80,17 +80,18 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] bg-cover bg-center flex items-center justify-center p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-white w-full h-full flex flex-col justify-between items-center text-center"> {/* Modified this div */}
+        <div className="relative z-10 text-white w-full h-full flex flex-col justify-between items-center text-center">
           <DateTimeDisplay className="absolute top-0 right-0" /> {/* Positioned absolutely */}
           <div className="space-y-4"> {/* New wrapper for main content */}
             <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
             <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
-              <ChatbotWidget />
-            </div>
           </div>
-          <SocialShareButtons url={currentUrl} title={shareTitle} /> {/* This will be pushed to the bottom */}
+          {/* Combined container for buttons and social share buttons */}
+          <div className="flex flex-col sm:flex-row items-center justify-between w-full p-4">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
+            <SocialShareButtons url={currentUrl} title={shareTitle} /> {/* Social share buttons in the middle */}
+            <ChatbotWidget /> {/* Chatbot widget on the right */}
+          </div>
         </div>
       </section>
 
