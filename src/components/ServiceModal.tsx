@@ -20,9 +20,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
           <DialogTitle>Get Your {insuranceType} Quote</DialogTitle>
-          <DialogDescription>
-            Please provide your details to get a personalized insurance quote.
-          </DialogDescription>
+          {/* Removed DialogDescription */}
         </DialogHeader>
         <QuoteForm insuranceType={insuranceType} onClose={onClose} onSuccess={handleQuoteSuccess} />
       </DialogContent>
