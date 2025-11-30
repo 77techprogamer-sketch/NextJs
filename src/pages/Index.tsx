@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building } from 'lucide-react';
+import { MessageCircle } from 'lucide-react'; // Separated MessageCircle import
 import ServiceCard from '@/components/ServiceCard';
 import ServiceModal from '@/components/ServiceModal';
 import ChatbotWidget from '@/components/ChatbotWidget';
@@ -80,7 +81,7 @@ const Index = () => {
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] bg-cover bg-center flex items-end justify-center text-center p-4" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative z-10 text-white space-y-4 w-full text-center"> {/* Added text-center here */}
+        <div className="relative z-10 text-white space-y-4 w-full">
           <DateTimeDisplay className="absolute top-0 right-0" /> {/* Positioned absolutely */}
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">Your Trusted Partner for Comprehensive Insurance</h1>
           <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
