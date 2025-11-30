@@ -20,6 +20,7 @@ const Index = () => {
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
   const [backgroundImage, setBackgroundImage] = useState('/placeholder.svg');
 
+  // Define oneLiners inside useEffect or useMemo to react to i18n.language changes
   const oneLiners = [
     t("secure_family_future"),
     t("protect_wellbeing"),
@@ -61,7 +62,7 @@ const Index = () => {
   }, [oneLiners, i18n.language]); // Added i18n.language to dependency array
 
   const currentUrl = "https://insurance-support.vercel.app/";
-  const shareTitle = t("insurance_support_share_title"); // Using translation key
+  const shareTitle = t("hero_title"); // Using translation key for share title
 
   const handleServiceCardClick = useCallback((insuranceType: string) => {
     setSelectedInsuranceType(insuranceType);
