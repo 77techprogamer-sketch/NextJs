@@ -16,7 +16,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
   };
 
   const shareOnTwitter = () => {
-    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank', 'noopener,noreferrer');
   };
 
   const shareOnLinkedIn = () => {
@@ -34,7 +34,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
   };
 
   return (
-    <div className="flex space-x-3 mt-3 justify-center md:justify-start"> {/* Removed bg-white, p-2, rounded-lg, shadow-md */}
+    <div className="flex space-x-3 mt-3 justify-center"> {/* Removed md:justify-start to keep it centered */}
       <Button variant="default" size="icon" onClick={shareOnFacebook} aria-label="Share on Facebook">
         <Facebook className="h-5 w-5" />
       </Button>
