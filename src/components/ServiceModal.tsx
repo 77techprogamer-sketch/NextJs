@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'; // Removed DialogDescription
 import QuoteForm from './QuoteForm'; // Import the new QuoteForm component
 
 interface ServiceModalProps {
@@ -19,8 +19,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Get Your {insuranceType} Quote</DialogTitle>
-          {/* Removed DialogDescription */}
+          {/* Removed DialogTitle */}
         </DialogHeader>
         <QuoteForm insuranceType={insuranceType} onClose={onClose} onSuccess={handleQuoteSuccess} />
       </DialogContent>
