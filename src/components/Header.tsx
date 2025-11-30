@@ -3,6 +3,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeToggle } from './theme-toggle';
+import LanguageSwitcher from './LanguageSwitcher'; // Import LanguageSwitcher
 // import DateTimeDisplay from './DateTimeDisplay'; // Removed the import
 
 const Header = () => {
@@ -28,6 +29,7 @@ const Header = () => {
           >
             Services Offered
           </Link>
+          <LanguageSwitcher /> {/* Include LanguageSwitcher here */}
           <ThemeToggle />
           {/* Removed: <DateTimeDisplay /> */}
         </nav>
