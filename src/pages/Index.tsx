@@ -14,7 +14,7 @@ import DateTimeDisplay from '@/components/DateTimeDisplay';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 const Index = () => {
-  const { t } = useTranslation(); // Initialize useTranslation
+  const { t, i18n } = useTranslation(); // Initialize useTranslation and get i18n instance
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
@@ -58,7 +58,7 @@ const Index = () => {
         servicesSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, [oneLiners]); // Added oneLiners to dependency array
+  }, [oneLiners, i18n.language]); // Added i18n.language to dependency array
 
   const currentUrl = "https://insurance-support.vercel.app/";
   const shareTitle = t("insurance_support_share_title"); // Using translation key
