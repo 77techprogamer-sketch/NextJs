@@ -33,7 +33,7 @@ const DateTimeDisplay: React.FC<DateTimeDisplayProps> = ({ className }) => {
   });
 
   return (
-    <div className={`text-sm text-muted-foreground flex flex-col items-end ${className}`}>
+    <div className={`text-sm text-white font-bold flex flex-col items-end ${className}`}> {/* Changed text-muted-foreground to text-white and added font-bold */}
       <span>{formattedDate}</span>
       <span>{formattedTime}</span>
     </div>
