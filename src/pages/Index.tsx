@@ -78,7 +78,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="relative w-full min-h-[40vh] bg-cover bg-center flex items-start justify-center">
+      <section className="relative w-full min-h-[40vh] bg-cover bg-center flex items-start justify-center"> {/* Changed items-end to items-start */}
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white w-full h-full flex flex-col justify-between items-center text-center p-4">
           <DateTimeDisplay className="absolute top-4 right-4" /> {/* Adjusted top-0 right-0 to top-4 right-4 */}
@@ -87,7 +87,7 @@ const Index = () => {
             <p className="text-base md:text-xl max-w-2xl mx-auto">{dynamicOneLiner}</p>
           </div>
           {/* Combined container for buttons and social share buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-between w-full mt-12"> {/* Added mt-12 for space */}
+          <div className="flex flex-col sm:flex-row items-center justify-between w-full">
             <Button size="lg" className="bg-primary hover:bg-primary/90 text-white text-lg" onClick={() => handleServiceCardClick('General Inquiry')}>Get a Free Quote</Button>
             <SocialShareButtons url={currentUrl} title={shareTitle} /> {/* Social share buttons in the middle */}
             <ChatbotWidget /> {/* Chatbot widget on the right */}
