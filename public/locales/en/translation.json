@@ -88,5 +88,6 @@
   "intellectual_property": "Intellectual Property",
   "intellectual_property_description": "All content on this website, including text, graphics, logos, images, and software, is the property of Insurance Support or its content suppliers and protected by international copyright laws.",
   "terms_of_service_reservation": "We reserve the right to modify or terminate our services for any reason, without notice, at any time.",
-  "select_language": "Select Language"
+  "select_language": "Select Language",
+  "test_message": "This is a test message."
 }
