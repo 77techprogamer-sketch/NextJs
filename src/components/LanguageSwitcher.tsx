@@ -1,18 +1,27 @@
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Globe } from 'lucide-react';
 
 const LanguageSwitcher = () => {
-  const { i18n, t } = useTranslation(); // Get t function here
+  const { i18n, t } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  useEffect(() => {
+    // Update state when language changes
+    const handleLanguageChange = () => {
+      setCurrentLanguage(i18n.language);
+    };
+
+    // Listen for language change events
+    i18n.on('languageChanged', handleLanguageChange);
+    
+    return () => {
+      i18n.off('languageChanged', handleLanguageChange);
+    };
+  }, [i18n]);
 
   const languages = [
     { code: 'en', name: 'English' },
@@ -29,13 +38,14 @@ const LanguageSwitcher = () => {
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
+    setCurrentLanguage(lng);
   };
 
   return (
-    <Select onValueChange={changeLanguage} defaultValue={i18n.language}>
+    <Select onValueChange={changeLanguage} value={currentLanguage}>
       <SelectTrigger className="w-[180px]">
         <Globe className="mr-2 h-4 w-4" />
-        <SelectValue placeholder={t("select_language")} /> {/* Translated placeholder */}
+        <SelectValue placeholder={t("select_language")} />
       </SelectTrigger>
       <SelectContent>
         {languages.map((lang) => (

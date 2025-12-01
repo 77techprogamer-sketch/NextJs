@@ -18,9 +18,12 @@ i18n
       loadPath: '/locales/{{lng}}/translation.json',
     },
     interpolation: {
-      escapeValue: false, // react already escapes by default
+      escapeValue: false,
     },
-    supportedLngs: ['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'], // Indian languages + English
+    supportedLngs: ['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'],
+    react: {
+      useSuspense: false,
+    }
   }, (err, t) => {
     if (err) return console.error('i18next initialization failed:', err);
     console.log('i18next initialized successfully. Current language:', i18n.language);
