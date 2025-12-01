@@ -15,7 +15,7 @@ const ChatbotWidget = () => {
   };
 
   return (
-    <div className="flex flex-col items-end">
+    <div className="flex flex-col items-center"> {/* Changed items-end to items-center */}
       <Button
         size="lg"
         onClick={openChatbot}
