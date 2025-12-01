@@ -1,24 +1,20 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
 
 const GeoBlocker = () => {
-  const [isBlocked, setIsBlocked] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const router = useRouter();
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const checkLocation = async () => {
       try {
-        // Using a free IP geolocation service
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
         
         if (data.country_code === 'PK') {
-          setIsBlocked(true);
-          // Redirect to a blocked page or show a message
-          router.push('/blocked');
+          navigate('/blocked'); // Redirect using react-router-dom
         }
       } catch (error) {
         console.error('Error checking location:', error);
@@ -29,7 +25,7 @@ const GeoBlocker = () => {
     };
 
     checkLocation();
-  }, [router]);
+  }, [navigate]); // Add navigate to dependency array
 
   if (isLoading) {
     return (
@@ -42,26 +38,7 @@ const GeoBlocker = () => {
     );
   }
 
-  if (isBlocked) {
-    return (
-      <div className="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex items-center justify-center">
-        <div className="text-center p-6 max-w-md">
-          <h1 className="text-2xl font-bold text-red-600 mb-4">Access Restricted</h1>
-          <p className="text-gray-700 dark:text-gray-300 mb-6">
-            Sorry, access to this website from Pakistan is currently restricted.
-          </p>
-          <button 
-            onClick={() => window.location.href = 'https://www.google.com'}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
-          >
-            Go to Google
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  return null;
+  return null; // Render nothing if not blocked and not loading
 };
 
 export default GeoBlocker;
