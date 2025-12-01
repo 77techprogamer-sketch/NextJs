@@ -86,7 +86,8 @@ const Index = () => {
               {dynamicOneLiner}
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full mt-4 mb-4">
+          {/* Main action buttons/widgets container - now always flex-col */}
+          <div className="flex flex-col items-center justify-center gap-4 w-full mt-4 mb-4">
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg w-full sm:w-auto"
@@ -94,10 +95,9 @@ const Index = () => {
             >
               {t("get_a_free_quote")}
             </Button>
-            <div className="flex items-center justify-center gap-3">
-              <SocialShareButtons url={currentUrl} title={shareTitle} />
-              <ChatbotWidget />
-            </div>
+            {/* SocialShareButtons and ChatbotWidget are now separate blocks */}
+            <SocialShareButtons url={currentUrl} title={shareTitle} />
+            <ChatbotWidget />
           </div>
         </div>
       </section>
