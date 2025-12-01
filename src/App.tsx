@@ -26,9 +26,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Toaster />
-        <div className="fixed bottom-0 left-0 p-2 bg-gray-800 text-white text-xs">
-          {t("test_message")}
-        </div>
+        {/* Removed the temporary test message div */}
       </Layout>
     </Router>
   );
