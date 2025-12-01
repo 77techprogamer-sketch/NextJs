@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { cn } from '@/lib/utils'; // Import cn utility
 
 interface DateTimeDisplayProps {
   className?: string;
@@ -33,7 +34,10 @@ const DateTimeDisplay: React.FC<DateTimeDisplayProps> = ({ className }) => {
   });
 
   return (
-    <div className={`text-sm text-white font-bold flex flex-col items-end ${className}`}> {/* Changed text-muted-foreground to text-white and added font-bold */}
+    <div className={cn(
+      "text-white font-bold flex flex-col items-end text-xs sm:text-sm", // Base responsive text size
+      className
+    )}>
       <span>{formattedDate}</span>
       <span>{formattedTime}</span>
     </div>

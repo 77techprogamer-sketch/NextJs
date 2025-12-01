@@ -76,7 +76,8 @@ const Index = () => {
       <section className="relative w-full min-h-[60vh] bg-cover bg-center flex items-start justify-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white w-full h-full flex flex-col justify-between items-center text-center p-4 pt-16 pb-8">
-          <DateTimeDisplay className="absolute top-4 right-4 hidden sm:block" />
+          {/* Single DateTimeDisplay positioned top-right for all screen sizes */}
+          <DateTimeDisplay className="absolute top-4 right-4" /> 
           <div className="space-y-4 mt-8 mb-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight px-2">
               {t("hero_title")}
@@ -98,7 +99,6 @@ const Index = () => {
               <ChatbotWidget />
             </div>
           </div>
-          <DateTimeDisplay className="sm:hidden mt-4 text-xs" />
         </div>
       </section>
 
