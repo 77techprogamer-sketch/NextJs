@@ -20,7 +20,7 @@ i18n
     interpolation: {
       escapeValue: false, // react already escapes by default
     },
-    supportedLngs: ['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'], // Indian languages + English, excluding Urdu
+    supportedLngs: ['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'], // Indian languages + English
   }, (err, t) => {
     if (err) return console.error('i18next initialization failed:', err);
     console.log('i18next initialized successfully. Current language:', i18n.language);
