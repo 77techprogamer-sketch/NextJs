@@ -11,6 +11,7 @@ import SocialShareButtons from '@/components/SocialShareButtons';
 import VisitorCounter from '@/components/VisitorCounter';
 import DateTimeDisplay from '@/components/DateTimeDisplay';
 import { useTranslation } from 'react-i18next';
+import { Helmet } from 'react-helmet-async'; // Import Helmet
 
 const Index = () => {
   const { t, i18n } = useTranslation();
@@ -72,6 +73,10 @@ const Index = () => {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <Helmet>
+        <title>{t("home_page_title")}</title>
+        <meta name="description" content={t("home_page_meta_description")} />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative w-full min-h-[60vh] bg-cover bg-center flex items-start justify-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
         <div className="absolute inset-0 bg-black opacity-50"></div>

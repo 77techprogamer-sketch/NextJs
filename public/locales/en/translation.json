@@ -86,8 +86,7 @@
   "use_of_services": "Use of Services",
   "use_of_services_description": "You agree to use our services only for lawful purposes and in a way that does not infringe the rights of, restrict or inhibit anyone else's use and enjoyment of the website. Prohibited behavior includes harassing or causing distress or inconvenience to any other user, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within our website.",
   "intellectual_property": "Intellectual Property",
-  "intellectual_property_description": "All content on this website, including text, graphics, logos, images, and software, is the property of Insurance Support or its content suppliers and protected by international copyright laws.",
-  "terms_of_service_reservation": "We reserve the right to modify or terminate our services for any reason, without notice, at any time.",
+  "intellectual_of_service_reservation": "We reserve the right to modify or terminate our services for any reason, without notice, at any time.",
   "select_language": "Select Language",
   "test_message": "This is a test message.",
   "secure_family_future": "Secure your family's future with our comprehensive insurance plans",
@@ -98,5 +97,15 @@
   "explore_world_worry_free": "Explore the world worry-free with our travel insurance",
   "peace_of_mind_priority": "Your peace of mind is our priority",
   "find_perfect_coverage": "Find the perfect coverage for your unique needs",
-  "expert_advice_personalized_plans": "Expert advice for personalized insurance plans"
+  "expert_advice_personalized_plans": "Expert advice for personalized insurance plans",
+  "home_page_title": "Insurance Support - Get Free Quotes for Life, Health, Motor & More",
+  "home_page_meta_description": "Your trusted partner for comprehensive insurance solutions. Get free quotes for life, health, motor, home, travel, and fire insurance. Chat with experts.",
+  "privacy_policy_page_title": "Privacy Policy - Insurance Support",
+  "privacy_policy_meta_description": "Read the privacy policy of Insurance Support. Learn how we collect, use, and protect your personal information.",
+  "terms_of_service_page_title": "Terms of Service - Insurance Support",
+  "terms_of_service_meta_description": "Review the terms and conditions for using Insurance Support's website and services.",
+  "not_found_page_title": "Page Not Found - Insurance Support",
+  "not_found_meta_description": "The page you are looking for does not exist. Return to the home page of Insurance Support.",
+  "blocked_page_title": "Access Restricted - Insurance Support",
+  "blocked_page_meta_description": "Access to Insurance Support is restricted from your current location due to regulatory requirements."
 }

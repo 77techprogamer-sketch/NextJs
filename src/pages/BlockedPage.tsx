@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
+import { Helmet } from 'react-helmet-async'; // Import Helmet
 
 export default function BlockedPage() {
   useEffect(() => {
@@ -10,6 +11,10 @@ export default function BlockedPage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 flex items-center justify-center p-4">
+      <Helmet>
+        <title>{t("blocked_page_title")}</title>
+        <meta name="description" content={t("blocked_page_meta_description")} />
+      </Helmet>
       <div className="max-w-md w-full text-center">
         <div className="bg-red-100 dark:bg-red-900/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
           <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-red-600 dark:text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">

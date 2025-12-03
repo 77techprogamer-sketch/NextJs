@@ -2,12 +2,17 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { Helmet } from 'react-helmet-async'; // Import Helmet
 
 const TermsOfService = () => {
   const { t } = useTranslation(); // Initialize useTranslation
 
   return (
     <div className="container mx-auto px-4 py-12 min-h-screen">
+      <Helmet>
+        <title>{t("terms_of_service_page_title")}</title>
+        <meta name="description" content={t("terms_of_service_meta_description")} />
+      </Helmet>
       <h1 className="text-3xl font-bold mb-6">{t("terms_of_service")}</h1>
       <p className="mb-4">
         {t("terms_of_service_intro")}
