@@ -20,6 +20,10 @@
     <!-- Favicon -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
+    <!-- Preload the most likely LCP image (hero background) for faster loading -->
+    <!-- IMPORTANT: Ensure your actual background images (e.g., /morning-bg.jpg) are highly optimized (compressed, correct dimensions, modern formats like WebP) -->
+    <link rel="preload" as="image" href="/morning-bg.jpg">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://insurance-support.vercel.app/" />
