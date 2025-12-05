@@ -3,7 +3,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare } from 'lucide-react';
+import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare, Wallet, TrendingUp } from 'lucide-react'; // Added Wallet and TrendingUp icons
 import ServiceCard from '@/components/ServiceCard';
 import ServiceModal from '@/components/ServiceModal';
 import ChatbotWidget from '@/components/ChatbotWidget';
@@ -146,6 +146,16 @@ const Index = () => {
               title={t("travel_insurance")} 
               icon={Plane} 
               onClick={() => handleServiceCardClick('Travel Insurance')} 
+            />
+            <ServiceCard 
+              title={t("pension_plans")} 
+              icon={Wallet} 
+              onClick={() => handleServiceCardClick('Pension Plans')} 
+            />
+            <ServiceCard 
+              title={t("ulip_plans")} 
+              icon={TrendingUp} 
+              onClick={() => handleServiceCardClick('ULIP Plans')} 
             />
           </div>
         </div>
