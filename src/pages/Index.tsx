@@ -12,13 +12,14 @@ import VisitorCounter from '@/components/VisitorCounter';
 import DateTimeDisplay from '@/components/DateTimeDisplay';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async'; // Import Helmet
+import { cn } from '@/lib/utils'; // Import cn utility for class management
 
 const Index = () => {
   const { t, i18n } = useTranslation();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
-  const [backgroundImage, setBackgroundImage] = useState('/placeholder.svg');
+  const [currentBackgroundClass, setCurrentBackgroundClass] = useState('hero-morning-bg'); // State for CSS class
 
   const oneLiners = [
     t("secure_family_future"),
@@ -36,18 +37,23 @@ const Index = () => {
     const randomIndex = Math.floor(Math.random() * oneLiners.length);
     setDynamicOneLiner(oneLiners[randomIndex]);
 
-    const currentHour = new Date().getHours();
-    let newBackgroundImage = '';
-    if (currentHour >= 5 && currentHour < 12) {
-      newBackgroundImage = '/morning-bg.jpg';
-    } else if (currentHour >= 12 && currentHour < 17) {
-      newBackgroundImage = '/afternoon-bg.jpg';
-    } else if (currentHour >= 17 && currentHour < 21) {
-      newBackgroundImage = '/evening-bg.jpg';
-    } else {
-      newBackgroundImage = '/night-bg.jpg';
-    }
-    setBackgroundImage(newBackgroundImage);
+    const updateBackgroundClass = () => {
+      const currentHour = new Date().getHours();
+      let newBackgroundClass = '';
+      if (currentHour >= 5 && currentHour < 12) {
+        newBackgroundClass = 'hero-morning-bg';
+      } else if (currentHour >= 12 && currentHour < 17) {
+        newBackgroundClass = 'hero-afternoon-bg';
+      } else if (currentHour >= 17 && currentHour < 21) {
+        newBackgroundClass = 'hero-evening-bg';
+      } else {
+        newBackgroundClass = 'hero-night-bg';
+      }
+      setCurrentBackgroundClass(newBackgroundClass);
+    };
+
+    updateBackgroundClass(); // Set initial background class
+    const intervalId = setInterval(updateBackgroundClass, 60 * 60 * 1000); // Update every hour
 
     const hash = window.location.hash;
     if (hash === '#services') {
@@ -56,6 +62,8 @@ const Index = () => {
         servicesSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
+
+    return () => clearInterval(intervalId); // Cleanup interval
   }, [oneLiners, i18n.language]);
 
   const currentUrl = "https://insurance-support.vercel.app/";
@@ -78,7 +86,7 @@ const Index = () => {
         <meta name="description" content={t("home_page_meta_description")} />
       </Helmet>
       {/* Hero Section */}
-      <section className="relative w-full min-h-[60vh] bg-cover bg-center flex items-start justify-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <section className={cn("relative w-full hero-section", currentBackgroundClass)}>
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white w-full h-full flex flex-col justify-between items-center text-center p-4 pt-16 pb-8">
           {/* DateTimeDisplay positioned at the top right of the hero section */}

@@ -92,3 +92,30 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Hero Section Backgrounds for LCP optimization */
+.hero-section {
+  background-size: cover;
+  background-position: center;
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: background-image 0.5s ease-in-out; /* Smooth transition for background change */
+}
+
+.hero-morning-bg {
+  background-image: url('/morning-bg.jpg');
+}
+
+.hero-afternoon-bg {
+  background-image: url('/afternoon-bg.jpg');
+}
+
+.hero-evening-bg {
+  background-image: url('/evening-bg.jpg');
+}
+
+.hero-night-bg {
+  background-image: url('/night-bg.jpg');
+}
