@@ -20,9 +20,12 @@
     <!-- Favicon -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
-    <!-- Preload the most likely LCP image (hero background) for faster loading -->
-    <!-- IMPORTANT: Ensure your actual background images (e.g., /morning-bg.jpg) are highly optimized (compressed, correct dimensions, modern formats like WebP) -->
+    <!-- Preload all potential LCP background images for faster loading -->
+    <!-- IMPORTANT: Ensure your actual background images are highly optimized (compressed, correct dimensions, modern formats like WebP) -->
     <link rel="preload" as="image" href="/morning-bg.jpg">
+    <link rel="preload" as="image" href="/afternoon-bg.jpg">
+    <link rel="preload" as="image" href="/evening-bg.jpg">
+    <link rel="preload" as="image" href="/night-bg.jpg">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
