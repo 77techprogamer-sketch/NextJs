@@ -31,6 +31,13 @@ const Header = () => {
           >
             {t("services_offered_link")}
           </Link>
+          <a 
+            href="https://insurancesupportindia.blogspot.com" 
+            className="text-foreground hover:text-primary transition-colors text-sm sm:text-base"
+            aria-label={t("blogs_link")}
+          >
+            {t("blogs_link")}
+          </a>
           <LanguageSwitcher />
           <ThemeToggle />
         </nav>
