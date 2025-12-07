@@ -33,10 +33,12 @@ const Header = () => {
           </Link>
           <a 
             href="https://insurancesupportindia.blogspot.com" 
+            target="_blank" // Opens in a new tab
+            rel="noopener noreferrer" // Security best practice for target="_blank"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base"
-            aria-label={t("blogs_link")}
+            aria-label={t("articles_link")}
           >
-            {t("blogs_link")}
+            {t("articles_link")}
           </a>
           <LanguageSwitcher />
           <ThemeToggle />
