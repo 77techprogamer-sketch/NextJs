@@ -1,9 +1,9 @@
 "use client";
 
 import React from 'react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'; // Removed DialogDescription
-import QuoteForm from './QuoteForm'; // Import the new QuoteForm component
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import QuoteForm from './QuoteForm';
+import { useTranslation } from 'react-i18next';
 
 interface ServiceModalProps {
   isOpen: boolean;
@@ -12,14 +12,14 @@ interface ServiceModalProps {
 }
 
 const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceType }) => {
-  const { t } = useTranslation(); // Initialize useTranslation
+  const { t } = useTranslation();
   const handleQuoteSuccess = () => {
-    onClose(); // Close the modal on successful submission
+    onClose();
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="sm:max-w-[425px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           {/* Removed DialogTitle */}
         </DialogHeader>
