@@ -1,32 +1,36 @@
 "use client";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import React, { lazy, Suspense } from "react"; // Import lazy and Suspense
 import Layout from "./components/Layout";
-import Index from "./pages/Index";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
-import TermsOfService from "./pages/TermsOfService";
-import NotFound from "./pages/NotFound";
-import BlockedPage from "./pages/BlockedPage"; // Import the new BlockedPage
-import GeoBlocker from "./components/GeoBlocker"; // Import GeoBlocker
+import GeoBlocker from "./components/GeoBlocker";
 import { Toaster } from "./components/ui/sonner";
 import { useTranslation } from 'react-i18next';
+
+// Lazy load page components
+const Index = lazy(() => import("./pages/Index"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const BlockedPage = lazy(() => import("./pages/BlockedPage"));
 
 function App() {
   const { t } = useTranslation();
 
   return (
     <Router>
-      <GeoBlocker /> {/* Place GeoBlocker here to run on all routes */}
+      <GeoBlocker />
       <Layout>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/privacy" element={<PrivacyPolicy />} />
-          <Route path="/terms" element={<TermsOfService />} />
-          <Route path="/blocked" element={<BlockedPage />} /> {/* Route for blocked users */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <Suspense fallback={<div>Loading page...</div>}> {/* Add Suspense for lazy-loaded routes */}
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/blocked" element={<BlockedPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
         <Toaster />
-        {/* Removed the temporary test message div */}
       </Layout>
     </Router>
   );
