@@ -12,6 +12,18 @@ const PrivacyPolicy = () => {
       <Helmet>
         <title>{t("privacy_policy_page_title")}</title>
         <meta name="description" content={t("privacy_policy_meta_description")} />
+        <link rel="canonical" href="https://insurance-support.vercel.app/privacy" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${t("privacy_policy_page_title")}",
+              "description": "${t("privacy_policy_meta_description")}",
+              "url": "https://insurance-support.vercel.app/privacy"
+            }
+          `}
+        </script>
       </Helmet>
       <h1 className="text-3xl font-bold mb-6">{t("privacy_policy")}</h1>
       <p className="mb-4">

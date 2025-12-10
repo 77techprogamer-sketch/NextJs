@@ -91,7 +91,8 @@
   "use_of_services": "Use of Services",
   "use_of_services_description": "You agree to use our services only for lawful purposes and in a way that does not infringe the rights of, restrict or inhibit anyone else's use and enjoyment of the website. Prohibited behavior includes harassing or causing distress or inconvenience to any other user, transmitting obscene or offensive content, or disrupting the normal flow of dialogue within our website.",
   "intellectual_property": "Intellectual Property",
-  "intellectual_of_service_reservation": "We reserve the right to modify or terminate our services for any reason, without notice, at any time.",
+  "intellectual_property_description": "All content on this website, including text, graphics, logos, images, and software, is the property of Insurance Support or its content suppliers and protected by international copyright laws.",
+  "terms_of_service_reservation": "We reserve the right to modify or terminate our services for any reason, without notice, at any time.",
   "select_language": "Select Language",
   "test_message": "This is a test message.",
   "secure_family_future": "Secure your family's future with our comprehensive insurance plans",
@@ -112,5 +113,11 @@
   "not_found_page_title": "Page Not Found - Insurance Support",
   "not_found_meta_description": "The page you are looking for does not exist. Return to the home page of Insurance Support.",
   "blocked_page_title": "Access Restricted - Insurance Support",
-  "blocked_page_meta_description": "Access to Insurance Support is restricted from your current location due to regulatory requirements."
+  "blocked_page_meta_description": "Access to Insurance Support is restricted from your current location due to regulatory requirements.",
+  "access_restricted": "Access Restricted",
+  "access_restricted_description": "Sorry, access to this website from your location has been restricted. This restriction is in place due to regulatory or business requirements.",
+  "note": "Note",
+  "access_restricted_note": "If you believe this restriction is in error, please contact our support team for assistance.",
+  "go_to_google": "Go to Google",
+  "contact_support": "Contact Support"
 }

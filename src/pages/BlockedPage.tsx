@@ -3,8 +3,11 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; // Import Link for navigation
 import { Helmet } from 'react-helmet-async'; // Import Helmet
+import { useTranslation } from 'react-i18next'; // Import useTranslation
 
 export default function BlockedPage() {
+  const { t } = useTranslation(); // Initialize useTranslation
+
   useEffect(() => {
     console.log('Blocked access from restricted country');
   }, []);
@@ -14,6 +17,18 @@ export default function BlockedPage() {
       <Helmet>
         <title>{t("blocked_page_title")}</title>
         <meta name="description" content={t("blocked_page_meta_description")} />
+        <link rel="canonical" href="https://insurance-support.vercel.app/blocked" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${t("blocked_page_title")}",
+              "description": "${t("blocked_page_meta_description")}",
+              "url": "https://insurance-support.vercel.app/blocked"
+            }
+          `}
+        </script>
       </Helmet>
       <div className="max-w-md w-full text-center">
         <div className="bg-red-100 dark:bg-red-900/20 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-6">
@@ -23,18 +38,16 @@ export default function BlockedPage() {
         </div>
         
         <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          Access Restricted
+          {t("access_restricted")}
         </h1>
         
         <p className="text-gray-700 dark:text-gray-300 mb-6">
-          Sorry, access to this website from your location has been restricted. 
-          This restriction is in place due to regulatory or business requirements.
+          {t("access_restricted_description")}
         </p>
         
         <div className="bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg p-4 mb-6">
           <p className="text-sm text-yellow-800 dark:text-yellow-200">
-            <strong>Note:</strong> If you believe this restriction is in error, 
-            please contact our support team for assistance.
+            <strong>{t("note")}:</strong> {t("access_restricted_note")}
           </p>
         </div>
         
@@ -43,14 +56,14 @@ export default function BlockedPage() {
             href="https://www.google.com" 
             className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
-            Go to Google
+            {t("go_to_google")}
           </a>
           
           <a
             href="mailto:support@insurance-support.vercel.app?subject=Access%20Restriction%20Inquiry"
             className="px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
           >
-            Contact Support
+            {t("contact_support")}
           </a>
         </div>
       </div>

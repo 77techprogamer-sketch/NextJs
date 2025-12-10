@@ -19,6 +19,18 @@ const NotFound = () => {
       <Helmet>
         <title>{t("not_found_page_title")}</title>
         <meta name="description" content={t("not_found_meta_description")} />
+        <link rel="canonical" href="https://insurance-support.vercel.app/404" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${t("not_found_page_title")}",
+              "description": "${t("not_found_meta_description")}",
+              "url": "https://insurance-support.vercel.app/404"
+            }
+          `}
+        </script>
       </Helmet>
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">404</h1>

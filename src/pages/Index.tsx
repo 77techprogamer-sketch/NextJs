@@ -84,6 +84,18 @@ const Index = () => {
       <Helmet>
         <title>{t("home_page_title")}</title>
         <meta name="description" content={t("home_page_meta_description")} />
+        <link rel="canonical" href="https://insurance-support.vercel.app/" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${t("home_page_title")}",
+              "description": "${t("home_page_meta_description")}",
+              "url": "https://insurance-support.vercel.app/"
+            }
+          `}
+        </script>
       </Helmet>
       {/* Hero Section */}
       <section className={cn("relative w-full hero-section", currentBackgroundClass)}>

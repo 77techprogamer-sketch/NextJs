@@ -12,6 +12,18 @@ const TermsOfService = () => {
       <Helmet>
         <title>{t("terms_of_service_page_title")}</title>
         <meta name="description" content={t("terms_of_service_meta_description")} />
+        <link rel="canonical" href="https://insurance-support.vercel.app/terms" />
+        <script type="application/ld+json">
+          {`
+            {
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              "name": "${t("terms_of_service_page_title")}",
+              "description": "${t("terms_of_service_meta_description")}",
+              "url": "https://insurance-support.vercel.app/terms"
+            }
+          `}
+        </script>
       </Helmet>
       <h1 className="text-3xl font-bold mb-6">{t("terms_of_service")}</h1>
       <p className="mb-4">

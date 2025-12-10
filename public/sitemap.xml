@@ -6,4 +6,29 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/privacy</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/terms</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Blocked and Not Found pages are typically not indexed, but included for completeness if they have unique content -->
+  <url>
+    <loc>https://insurance-support.vercel.app/blocked</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.1</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/404</loc>
+    <lastmod>2024-08-01</lastmod>
+    <changefreq>never</changefreq>
+    <priority>0.1</priority>
+  </url>
 </urlset>
