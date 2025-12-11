@@ -3,19 +3,39 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ThemeToggle } from './theme-toggle';
-import LanguageSwitcher from './LanguageSwitcher'; // Import LanguageSwitcher
-import { useTranslation } from 'react-i18next'; // Import useTranslation
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"; // Import shadcn dropdown components
+import { ChevronDown } from 'lucide-react'; // Import an icon for the dropdown
 
 const Header = () => {
-  const { t } = useTranslation(); // Initialize useTranslation
+  const { t } = useTranslation();
 
-  const handleScrollToServices = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleScrollToServices = (e: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
       servicesSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const serviceKeys = [
+    "life_insurance",
+    "health_insurance",
+    "term_insurance",
+    "motor_insurance",
+    "sme_insurance",
+    "travel_insurance",
+    "pension_plans",
+    "ulip_plans",
+    "wedding_insurance",
+    "cyber_insurance",
+  ];
 
   return (
     <header className="w-full bg-background shadow-sm sticky top-0 z-10 border-b">
@@ -24,17 +44,36 @@ const Header = () => {
           {t("insurance_support")}
         </Link>
         <nav className="flex items-center gap-4">
-          <Link 
-            to="/#services" 
-            onClick={handleScrollToServices} 
-            className="text-foreground hover:text-primary transition-colors text-sm sm:text-base"
-          >
-            {t("services_offered_link")}
-          </Link>
-          <a 
-            href="https://insurancesupportindia.blogspot.com" 
-            target="_blank" // Opens in a new tab
-            rel="noopener noreferrer" // Security best practice for target="_blank"
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                onClick={handleScrollToServices} // Trigger scroll when dropdown button is clicked
+                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label={t("services_offered_link")}
+              >
+                {t("services_offered_link")}
+                <ChevronDown className="h-4 w-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56">
+              {serviceKeys.map((key) => (
+                <DropdownMenuItem key={key} asChild>
+                  <a
+                    href="/#services" // Link to the services section
+                    onClick={handleScrollToServices} // Scroll to services when an item is clicked
+                    className="cursor-pointer"
+                  >
+                    {t(key)}
+                  </a>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <a
+            href="https://insurancesupportindia.blogspot.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base"
             aria-label={t("articles_link")}
           >
