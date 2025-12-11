@@ -12,10 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"; // Import shadcn dropdown components
 import { ChevronDown } from 'lucide-react'; // Import an icon for the dropdown
+import { slugify } from '@/utils/slugify'; // Import the slugify utility
 
 const Header = () => {
   const { t } = useTranslation();
 
+  // This function is now only for the main "Services Offered" button to scroll to the section
   const handleScrollToServices = (e: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const servicesSection = document.getElementById('services');
@@ -47,7 +49,9 @@ const Header = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
-                onClick={handleScrollToServices} // Trigger scroll when dropdown button is clicked
+                // The main dropdown trigger still scrolls to services section on the home page
+                // If on a service detail page, it will navigate to home and then scroll
+                onClick={handleScrollToServices} 
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("services_offered_link")}
               >
@@ -58,13 +62,12 @@ const Header = () => {
             <DropdownMenuContent align="start" className="w-56">
               {serviceKeys.map((key) => (
                 <DropdownMenuItem key={key} asChild>
-                  <a
-                    href="/#services" // Link to the services section
-                    onClick={handleScrollToServices} // Scroll to services when an item is clicked
+                  <Link
+                    to={`/services/${slugify(key)}`} // Link to individual service page
                     className="cursor-pointer"
                   >
                     {t(key)}
-                  </a>
+                  </Link>
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>

@@ -13,6 +13,7 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const BlockedPage = lazy(() => import("./pages/BlockedPage"));
+const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage")); // Lazy load ServiceDetailPage
 
 function App() {
   const { t } = useTranslation();
@@ -27,6 +28,7 @@ function App() {
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/blocked" element={<BlockedPage />} />
+            <Route path="/services/:serviceType" element={<ServiceDetailPage />} /> {/* New dynamic route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

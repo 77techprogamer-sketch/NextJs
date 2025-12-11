@@ -119,5 +119,52 @@
   "note": "Note",
   "access_restricted_note": "If you believe this restriction is in error, please contact our support team for assistance.",
   "go_to_google": "Go to Google",
-  "contact_support": "Contact Support"
+  "contact_support": "Contact Support",
+  "back_to_home": "Back to Home",
+  "service_not_found": "Service Not Found",
+  "service_not_found_description": "The insurance service you are looking for could not be found. Please check the URL or return to the home page.",
+  "service_not_found_page_title": "Service Not Found - Insurance Support",
+  "service_not_found_meta_description": "The requested insurance service page was not found on Insurance Support.",
+  "get_a_free_quote_for_service": "Get a Free Quote for {{service}}",
+  "service_quote_cta": "Interested in this service? Fill out our quick form to get a personalized quote.",
+
+  "life_insurance_long_description": "Life insurance provides financial protection for your loved ones in the event of your untimely demise. It ensures that your family can maintain their lifestyle, cover outstanding debts, and achieve future financial goals even when you're no longer there. We offer various types of life insurance, including term life, whole life, and universal life, tailored to your specific needs and budget.",
+  "life_insurance_page_title": "Life Insurance - Secure Your Family's Future | Insurance Support",
+  "life_insurance_meta_description": "Explore comprehensive life insurance plans from Insurance Support. Protect your family's financial future with term, whole, and universal life insurance options.",
+
+  "health_insurance_long_description": "Health insurance is crucial for covering medical expenses, including hospital stays, doctor visits, prescription drugs, and preventive care. It safeguards your savings from unexpected health crises and ensures you receive the best possible medical treatment without financial strain. Our plans offer extensive coverage, cashless facilities, and a wide network of hospitals.",
+  "health_insurance_page_title": "Health Insurance - Protect Your Wellbeing | Insurance Support",
+  "health_insurance_meta_description": "Find the best health insurance plans at Insurance Support. Get comprehensive coverage for medical expenses, hospitalizations, and preventive care.",
+
+  "term_insurance_long_description": "Term insurance is a pure protection plan that provides a large sum assured to your beneficiaries if you pass away during the policy term. It's the most affordable form of life insurance, designed to offer maximum coverage at a minimal premium. It's ideal for individuals looking to secure their family's financial future for a specific period.",
+  "term_insurance_page_title": "Term Insurance - Affordable Financial Security | Insurance Support",
+  "term_insurance_meta_description": "Secure your family's financial future with affordable term insurance plans from Insurance Support. Get maximum coverage at minimal premiums.",
+
+  "motor_insurance_long_description": "Motor insurance is mandatory for all vehicles and protects you against financial losses arising from accidents, theft, or damage to your vehicle. It also covers third-party liabilities. We offer comprehensive plans for private cars, two-wheelers, and commercial vehicles, ensuring you drive with peace of mind.",
+  "motor_insurance_page_title": "Motor Insurance - Drive with Confidence | Insurance Support",
+  "motor_insurance_meta_description": "Get comprehensive motor insurance for cars, bikes, and commercial vehicles at Insurance Support. Protect against accidents, theft, and third-party liabilities.",
+
+  "sme_insurance_long_description": "SME (Small and Medium Enterprise) insurance, including fire and home insurance, protects your business assets and property from various risks. Fire insurance covers damages due to fire, lightning, and explosions, while home insurance protects your residential property and its contents. These policies are vital for business continuity and personal asset protection.",
+  "sme_insurance_page_title": "SME & Home Insurance - Safeguard Your Business & Property | Insurance Support",
+  "sme_insurance_meta_description": "Comprehensive SME, fire, and home insurance plans from Insurance Support. Protect your business assets and residential property from various risks.",
+
+  "travel_insurance_long_description": "Travel insurance provides financial protection against unforeseen events during your trips, such as medical emergencies, trip cancellations, lost luggage, or personal accidents. Whether you're traveling domestically or internationally, our travel insurance plans ensure a worry-free journey, covering single trips or multiple journeys.",
+  "travel_insurance_page_title": "Travel Insurance - Explore Worry-Free | Insurance Support",
+  "travel_insurance_meta_description": "Travel with peace of mind with comprehensive travel insurance from Insurance Support. Coverage for medical emergencies, trip cancellations, and lost luggage.",
+
+  "pension_plans_long_description": "Pension plans are designed to provide a steady income stream after retirement, ensuring financial independence in your golden years. These plans help you build a retirement corpus through regular savings and investments, allowing you to maintain your lifestyle and meet post-retirement expenses comfortably.",
+  "pension_plans_page_title": "Pension Plans - Secure Your Retirement | Insurance Support",
+  "pension_plans_meta_description": "Plan for a financially secure retirement with pension plans from Insurance Support. Build a corpus for a steady income post-retirement.",
+
+  "ulip_plans_long_description": "ULIPs (Unit Linked Insurance Plans) offer the dual benefit of life insurance coverage and investment opportunities. A portion of your premium goes towards life cover, while the rest is invested in market-linked funds. This allows you to grow your wealth while also providing financial protection for your family.",
+  "ulip_plans_page_title": "ULIP Plans - Insurance & Investment Combined | Insurance Support",
+  "ulip_plans_meta_description": "Discover ULIP plans at Insurance Support, combining life insurance with market-linked investment opportunities for wealth growth and protection.",
+
+  "wedding_insurance_long_description": "Wedding and honeymoon insurance protects your significant investment in your special day from unforeseen circumstances. It can cover losses due to venue cancellation, vendor no-shows, extreme weather, or even medical emergencies during your honeymoon, ensuring your dream wedding isn't ruined by unexpected events.",
+  "wedding_insurance_page_title": "Wedding & Honeymoon Insurance - Protect Your Special Day | Insurance Support",
+  "wedding_insurance_meta_description": "Safeguard your wedding and honeymoon with insurance plans from Insurance Support. Coverage for cancellations, vendor issues, and travel emergencies.",
+
+  "cyber_insurance_long_description": "Cyber insurance protects individuals and businesses from financial losses and damages resulting from cyberattacks, data breaches, and online fraud. In an increasingly digital world, it covers expenses like data recovery, legal fees, and liability costs, providing essential protection against evolving cyber threats.",
+  "cyber_insurance_page_title": "Cyber Insurance - Essential Digital Protection | Insurance Support",
+  "cyber_insurance_meta_description": "Get essential cyber insurance from Insurance Support to protect against cyberattacks, data breaches, and online fraud for individuals and businesses."
 }
