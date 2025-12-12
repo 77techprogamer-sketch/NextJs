@@ -18,6 +18,7 @@ export default function BlockedPage() {
         <title>{t("blocked_page_title")}</title>
         <meta name="description" content={t("blocked_page_meta_description")} />
         <link rel="canonical" href="https://insurance-support.vercel.app/blocked" />
+        <meta name="robots" content="noindex, nofollow" /> {/* Added noindex, nofollow */}
         <script type="application/ld+json">
           {`
             {
