@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 const Index = lazy(() => import("./pages/Index"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+// const NotFound = lazy(() => import("./pages/NotFound")); // Removed
 const BlockedPage = lazy(() => import("./pages/BlockedPage"));
 const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage")); // Lazy load ServiceDetailPage
 
@@ -29,7 +29,7 @@ function App() {
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/blocked" element={<BlockedPage />} />
             <Route path="/services/:serviceType" element={<ServiceDetailPage />} /> {/* New dynamic route */}
-            <Route path="*" element={<NotFound />} />
+            {/* <Route path="*" element={<NotFound />} /> */} {/* Removed: Vercel will handle 404s */}
           </Routes>
         </Suspense>
         <Toaster />
