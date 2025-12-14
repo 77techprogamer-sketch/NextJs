@@ -195,7 +195,7 @@ const ServiceDetailPage = () => {
         </div>
       </section>
 
-      {latestBlogPost && (
+      {latestBlogPost ? (
         <section className="mb-12">
           <h2 className="text-3xl font-bold mb-6 text-center">{t("latest_blog_post")}</h2>
           <Card className="max-w-2xl mx-auto">
@@ -217,6 +217,10 @@ const ServiceDetailPage = () => {
               </a>
             </CardContent>
           </Card>
+        </section>
+      ) : (
+        <section className="mb-12 text-center text-muted-foreground">
+          <p>{t("no_blog_posts_found")}</p>
         </section>
       )}
     </div>
