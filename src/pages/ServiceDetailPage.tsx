@@ -200,7 +200,7 @@ const ServiceDetailPage = () => {
             <CardContent>
               {/* Display the summary content */}
               <div 
-                className="text-muted-foreground mb-4 prose dark:prose-invert max-w-none" 
+                className="text-muted-foreground mb-4 prose dark:prose-invert max-w-none prose-img:max-w-full prose-img:h-auto prose-table:w-full prose-table:overflow-x-auto" 
                 dangerouslySetInnerHTML={{ __html: latestBlogPost.summary }} 
               />
               <a
