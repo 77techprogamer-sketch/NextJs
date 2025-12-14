@@ -103,15 +103,11 @@ const ServiceDetailPage = () => {
 
   useEffect(() => {
     if (serviceType) {
-      const getBlogPost = async () => {
-        const posts = await fetchBlogPosts(serviceType);
-        if (posts.length > 0) {
-          setLatestBlogPost(posts[0]); // Get the latest post
-        } else {
-          setLatestBlogPost(null);
-        }
+      const getLatestBlogPost = async () => { // Renamed function for clarity
+        const post = await fetchBlogPosts(serviceType); // Now expects a single post or null
+        setLatestBlogPost(post);
       };
-      getBlogPost();
+      getLatestBlogPost();
     }
   }, [serviceType]);
 
