@@ -20,7 +20,6 @@ const NotFound = () => {
         <title>{t("not_found_page_title")}</title>
         <meta name="description" content={t("not_found_meta_description")} />
         <link rel="canonical" href="https://insurance-support.vercel.app/404" />
-        <meta name="robots" content="noindex, nofollow" /> {/* Added noindex, nofollow */}
         <script type="application/ld+json">
           {`
             {

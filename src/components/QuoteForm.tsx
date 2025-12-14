@@ -18,7 +18,6 @@ import { cn } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
-import { useSession } from '@/integrations/supabase/SessionContextProvider'; // Import useSession
 
 interface QuoteFormProps {
   insuranceType: string;
@@ -30,7 +29,6 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   const { t } = useTranslation();
   const [showMemberDetails, setShowMemberDetails] = useState(false);
   const [selectedMembers, setSelectedMembers] = useState<string[]>([]);
-  const { user } = useSession(); // Get user from session context
 
   const formSchema = z.object({
     fullName: z.string().min(1, { message: t("name_required") }),
@@ -96,8 +94,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             gender: values.gender,
             phone: values.mobileNumber,
             insurance_type: insuranceType,
-            intended_sum_insured: values.sumAssured?.toString() || null, // Convert to string
-            user_id: user?.id || null, // Pass user_id if authenticated, otherwise null
+            intended_sum_insured: values.sumAssured,
             // Add other fields as necessary
           },
         ]);

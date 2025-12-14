@@ -3,7 +3,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { Helmet } from 'react-helmet-async'; // Import Helmet
-import { Link } from 'react-router-dom'; // Import Link
 
 const TermsOfService = () => {
   const { t } = useTranslation(); // Initialize useTranslation
@@ -45,15 +44,6 @@ const TermsOfService = () => {
       <p className="mb-4">
         {t("terms_of_service_reservation")}
       </p>
-
-      <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700 flex flex-wrap gap-4 justify-center">
-        <Link to="/" className="text-primary hover:underline">
-          {t("return_to_home")}
-        </Link>
-        <Link to="/privacy" className="text-primary hover:underline">
-          {t("privacy_policy")}
-        </Link>
-      </div>
     </div>
   );
 };
