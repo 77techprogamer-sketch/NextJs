@@ -12,26 +12,32 @@ serve(async (req) => {
 
   try {
     const blogspotRssUrl = "https://insurancesupportindia.blogspot.com/feeds/posts/default?alt=rss";
+    console.log('Attempting to fetch RSS feed from:', blogspotRssUrl);
     const response = await fetch(blogspotRssUrl);
 
     if (!response.ok) {
+      console.error(`Failed to fetch RSS feed: ${response.status} ${response.statusText}`);
       throw new Error(`Failed to fetch RSS feed: ${response.statusText}`);
     }
 
     const xmlText = await response.text();
+    console.log('Successfully fetched RSS feed. Parsing XML...');
 
-    // Simple XML parsing for title, link, and pubDate
     const items = xmlText.match(/<item>[\s\S]*?<\/item>/g) || [];
+    console.log(`Found ${items.length} RSS items.`);
+
     const blogPosts = items.map(item => {
       const titleMatch = item.match(/<title>(.*?)<\/title>/);
-      const linkMatch = item.match(/<link.*?href=['"](.*?)['"].*?\/>/); // Extract link from <link rel='alternate' type='text/html' href='...' />
+      // More specific regex to find the actual post link (rel='alternate')
+      const linkMatch = item.match(/<link\s+rel=['"]alternate['"]\s+type=['"]text\/html['"]\s+href=['"](.*?)['"]/);
       const pubDateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
 
-      return {
-        title: titleMatch ? titleMatch[1].replace("<![CDATA[", "").replace("]]>", "") : "No Title",
-        url: linkMatch ? linkMatch[1] : "#",
-        date: pubDateMatch ? new Date(pubDateMatch[1]).toISOString() : new Date().toISOString(),
-      };
+      const title = titleMatch ? titleMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "No Title";
+      const url = linkMatch ? linkMatch[1] : "#";
+      const date = pubDateMatch ? new Date(pubDateMatch[1]).toISOString() : new Date().toISOString();
+
+      console.log(`Parsed post: Title="${title}", URL="${url}", Date="${date}"`);
+      return { title, url, date };
     });
 
     return new Response(JSON.stringify(blogPosts), {
