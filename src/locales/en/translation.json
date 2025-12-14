@@ -172,6 +172,8 @@
     "latest_blog_post": "Latest Blog Post",
     "read_more": "Read More",
     "read_more_about_service": "Read more about {{service}} on our blog.",
-    "no_blog_posts_found": "No relevant blog posts found for this service yet."
+    "no_blog_posts_found": "No relevant blog posts found for this service yet.",
+    "hero_title": "Your Trusted Partner for Insurance Solutions",
+    "hero_subtitle": "Comprehensive insurance solutions for your peace of mind."
   }
 }
