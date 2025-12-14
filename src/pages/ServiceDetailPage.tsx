@@ -104,11 +104,11 @@ const ServiceDetailPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to top on page load
     const getLatestBlogPost = async () => {
-      const post = await fetchBlogPosts(); // Call without serviceTypeSlug
+      const post = await fetchBlogPosts(serviceType); // Pass serviceType to fetchBlogPosts
       setLatestBlogPost(post);
     };
     getLatestBlogPost();
-  }, [serviceType]); // Keep serviceType in dependency array for re-fetch on route change
+  }, [serviceType]); // Add serviceType to dependency array
 
   if (!service) {
     return (
