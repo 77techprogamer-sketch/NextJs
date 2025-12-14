@@ -4,9 +4,10 @@ interface BlogPost {
   title: string;
   url: string;
   date: string;
+  summary: string; // Added summary field
 }
 
-export const fetchBlogPosts = async (): Promise<BlogPost | null> => { // Changed return type to single BlogPost or null
+export const fetchBlogPosts = async (): Promise<BlogPost | null> => {
   try {
     const { data, error } = await supabase.functions.invoke('fetch-blog-posts');
 

@@ -157,11 +157,6 @@
     "self": "Self",
     "self_wife_1kid": "Self with Wife and 1 kid",
     "self_wife_2kids": "Self with Wife and 2 kids",
-    "self_parents": "Self with Parents",
-    "provide_member_details": "Please provide details for each member:",
-    "wife": "Wife",
-    "kid_1": "Kid 1",
-    "kid_2": "Kid 2",
     "father": "Father",
     "mother": "Mother",
     "cancel": "Cancel",
@@ -172,6 +167,8 @@
     "latest_blog_post": "Latest Blog Post",
     "read_more": "Read More",
     "read_more_about_blog_post": "Read more on our blog.",
-    "no_blog_posts_available": "No blog posts are available at the moment."
+    "no_blog_posts_available": "No blog posts are available at the moment.",
+    "hero_title": "Your Trusted Partner for Insurance Solutions",
+    "hero_subtitle": "Comprehensive insurance solutions for your peace of mind."
   }
 }

@@ -96,7 +96,7 @@ const ServiceDetailPage = () => {
   const { serviceType } = useParams<{ serviceType: string }>();
   const { t } = useTranslation();
   const [isQuoteDialogOpen, setIsQuoteDialogOpen] = useState(false);
-  const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string } | null>(null);
+  const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null); // Updated type
 
   const serviceKey = Object.keys(serviceDetails).find(key => slugify(key) === serviceType);
   const service = serviceKey ? serviceDetails[serviceKey] : null;
@@ -198,7 +198,11 @@ const ServiceDetailPage = () => {
               <CardTitle className="text-2xl font-semibold">{latestBlogPost.title}</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-muted-foreground mb-4">{t("read_more_about_blog_post")}</p>
+              {/* Display the summary content */}
+              <div 
+                className="text-muted-foreground mb-4 prose dark:prose-invert max-w-none" 
+                dangerouslySetInnerHTML={{ __html: latestBlogPost.summary }} 
+              />
               <a
                 href={latestBlogPost.url}
                 target="_blank"
