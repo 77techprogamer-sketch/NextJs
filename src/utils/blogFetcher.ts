@@ -1,36 +1,48 @@
-import { supabase } from '@/integrations/supabase/client';
+"use client";
+
+import { JSDOM } from 'jsdom';
 
 interface BlogPost {
   title: string;
   url: string;
-  date: string;
-  summary: string; // Added summary field
+  summary: string;
 }
+
+// Utility function to decode HTML entities
+const decodeHtmlEntities = (html: string): string => {
+  const doc = new JSDOM().window.document;
+  const div = doc.createElement('div');
+  div.innerHTML = html;
+  return div.textContent || '';
+};
 
 export const fetchBlogPosts = async (): Promise<BlogPost | null> => {
   try {
-    const { data, error } = await supabase.functions.invoke('fetch-blog-posts');
-
-    if (error) {
-      console.error('Error invoking Edge Function:', error.message);
-      return null;
+    const response = await fetch('/api/fetch-blog-posts');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
+    const data = await response.json();
 
-    if (!data || !Array.isArray(data) || data.length === 0) {
-      console.warn('No blog posts or invalid data received from Edge Function.');
-      return null;
+    if (data && data.posts && data.posts.length > 0) {
+      // Sort posts by date to ensure we get the latest one
+      const sortedPosts = data.posts.sort((a: any, b: any) => {
+        const dateA = new Date(a.pubDate);
+        const dateB = new Date(b.pubDate);
+        return dateB.getTime() - dateA.getTime(); // Descending order
+      });
+
+      const latestPost = sortedPosts[0];
+
+      return {
+        title: latestPost.title,
+        url: latestPost.link,
+        summary: decodeHtmlEntities(latestPost.description), // Decode HTML entities here
+      };
     }
-
-    const allPosts: BlogPost[] = data;
-
-    // Sort all posts by date to get the absolute latest
-    const sortedPosts = allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-
-    // Return only the single latest post
-    return sortedPosts[0];
-
+    return null;
   } catch (error) {
-    console.error('An error occurred fetching blog posts:', error);
+    console.error("Failed to fetch blog posts:", error);
     return null;
   }
 };
