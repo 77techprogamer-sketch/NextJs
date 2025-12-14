@@ -1,20 +1,11 @@
 "use client";
 
-import { JSDOM } from 'jsdom';
 
 interface BlogPost {
   title: string;
   url: string;
   summary: string;
 }
-
-// Utility function to decode HTML entities
-const decodeHtmlEntities = (html: string): string => {
-  const doc = new JSDOM().window.document;
-  const div = doc.createElement('div');
-  div.innerHTML = html;
-  return div.textContent || '';
-};
 
 export const fetchBlogPosts = async (): Promise<BlogPost | null> => {
   try {
@@ -37,7 +28,7 @@ export const fetchBlogPosts = async (): Promise<BlogPost | null> => {
       return {
         title: latestPost.title,
         url: latestPost.link,
-        summary: decodeHtmlEntities(latestPost.description), // Decode HTML entities here
+        summary: latestPost.description, // Expecting already decoded HTML from Edge Function
       };
     }
     return null;

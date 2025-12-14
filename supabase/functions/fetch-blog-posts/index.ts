@@ -1,8 +1,16 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
+import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts"; // Import DOMParser for Deno
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+};
+
+// Utility function to decode HTML entities using Deno's DOMParser
+const decodeHtmlEntities = (html: string): string => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, 'text/html');
+  return doc?.documentElement?.textContent || '';
 };
 
 serve(async (req) => {
@@ -35,13 +43,14 @@ serve(async (req) => {
       const title = titleMatch ? titleMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "No Title";
       const url = linkMatch ? linkMatch[1] : "#";
       const date = pubDateMatch ? new Date(pubDateMatch[1]).toISOString() : new Date().toISOString();
-      const summary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "No summary available.";
+      const rawSummary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "No summary available.";
+      const summary = decodeHtmlEntities(rawSummary); // Decode HTML entities here
 
       console.log(`Parsed post: Title="${title}", URL="${url}", Date="${date}", Summary length=${summary.length}`);
-      return { title, url, date, summary }; // Include summary
+      return { title, url, date, description: summary }; // Use 'description' to match RSS structure
     });
 
-    return new Response(JSON.stringify(blogPosts), {
+    return new Response(JSON.stringify({ posts: blogPosts }), { // Wrap in 'posts' object
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
