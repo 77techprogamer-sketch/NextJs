@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import QuoteForm from '@/components/QuoteForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Import Card components
+import { Skeleton } from '@/components/ui/skeleton'; // Import Skeleton component
 import { fetchBlogPosts } from '@/utils/blogFetcher'; // Import the blog fetcher utility
 
 interface ServiceDetail {
@@ -44,49 +45,49 @@ const serviceDetails: Record<string, ServiceDetail> = {
   motor_insurance: {
     titleKey: "motor_insurance",
     descriptionKey: "motor_insurance_description",
-    metaDescriptionKey: "motor_insurance_meta_description",
+    metaDescriptionKey: "motor-insurance_meta_description",
     image: "/motor-insurance.jpg",
     features: ["own_damage_cover", "third_party_liability", "personal_accident_cover"],
   },
   sme_insurance: {
     titleKey: "sme_insurance",
     descriptionKey: "sme_insurance_description",
-    metaDescriptionKey: "sme_insurance_meta_description",
+    metaDescriptionKey: "sme-insurance_meta_description",
     image: "/sme-insurance.jpg",
     features: ["business_interruption", "property_damage", "liability_cover"],
   },
   travel_insurance: {
     titleKey: "travel_insurance",
     descriptionKey: "travel_insurance_description",
-    metaDescriptionKey: "travel_insurance_meta_description",
+    metaDescriptionKey: "travel-insurance_meta_description",
     image: "/travel-insurance.jpg",
     features: ["medical_emergencies", "trip_cancellation", "baggage_loss"],
   },
   pension_plans: {
     titleKey: "pension_plans",
     descriptionKey: "pension_plans_description",
-    metaDescriptionKey: "pension_plans_meta_description",
+    metaDescriptionKey: "pension-plans_meta_description",
     image: "/pension-plans.jpg",
     features: ["retirement_income", "annuity_options", "financial_independence"],
   },
   ulip_plans: {
     titleKey: "ulip_plans",
     descriptionKey: "ulip_plans_description",
-    metaDescriptionKey: "ulip_plans_meta_description",
+    metaDescriptionKey: "ulip-plans_meta_description",
     image: "/ulip-plans.jpg",
     features: ["investment_growth", "life_cover", "fund_switching"],
   },
   wedding_insurance: {
     titleKey: "wedding_insurance",
     descriptionKey: "wedding_insurance_description",
-    metaDescriptionKey: "wedding_insurance_meta_description",
+    metaDescriptionKey: "wedding-insurance_meta_description",
     image: "/wedding-insurance.jpg",
     features: ["cancellation_cover", "damage_to_property", "public_liability"],
   },
   cyber_insurance: {
     titleKey: "cyber_insurance",
     descriptionKey: "cyber_insurance_description",
-    metaDescriptionKey: "cyber_insurance_meta_description",
+    metaDescriptionKey: "cyber-insurance_meta_description",
     image: "/cyber-insurance.jpg",
     features: ["data_breach_costs", "cyber_extortion", "legal_expenses"],
   },
@@ -96,7 +97,8 @@ const ServiceDetailPage = () => {
   const { serviceType } = useParams<{ serviceType: string }>();
   const { t } = useTranslation();
   const [isQuoteDialogOpen, setIsQuoteDialogOpen] = useState(false);
-  const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null); // Updated type
+  const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
+  const [loadingBlog, setLoadingBlog] = useState(true); // New state for blog loading
 
   const serviceKey = Object.keys(serviceDetails).find(key => slugify(key) === serviceType);
   const service = serviceKey ? serviceDetails[serviceKey] : null;
@@ -104,11 +106,13 @@ const ServiceDetailPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // Scroll to top on page load
     const getLatestBlogPost = async () => {
-      const post = await fetchBlogPosts(); // Call without serviceTypeSlug
+      setLoadingBlog(true); // Set loading to true before fetching
+      const post = await fetchBlogPosts(serviceType); // Pass serviceType to fetchBlogPosts
       setLatestBlogPost(post);
+      setLoadingBlog(false); // Set loading to false after fetching
     };
     getLatestBlogPost();
-  }, [serviceType]); // Keep serviceType in dependency array for re-fetch on route change
+  }, [serviceType]); // Add serviceType to dependency array
 
   if (!service) {
     return (
@@ -190,7 +194,20 @@ const ServiceDetailPage = () => {
         </div>
       </section>
 
-      {latestBlogPost ? (
+      {loadingBlog ? ( // Display skeleton while loading
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold mb-6 text-center">{t("latest_blog_post")}</h2>
+          <Card className="max-w-2xl mx-auto p-6">
+            <div className="space-y-4">
+              <Skeleton className="h-6 w-3/4" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-2/3" />
+              <Skeleton className="h-10 w-32 mt-4" />
+            </div>
+          </Card>
+        </section>
+      ) : latestBlogPost ? (
         <section className="mb-12">
           <h2 className="text-3xl font-bold mb-6 text-center">{t("latest_blog_post")}</h2>
           <Card className="max-w-2xl mx-auto">
@@ -200,7 +217,7 @@ const ServiceDetailPage = () => {
             <CardContent>
               {/* Display the summary content */}
               <div 
-                className="text-muted-foreground mb-4 prose dark:prose-invert max-w-none" 
+                className="text-muted-foreground mb-4 prose dark:prose-invert max-w-none prose-img:max-w-full prose-img:h-auto prose-table:w-full prose-table:overflow-x-auto max-h-[400px] overflow-y-auto" 
                 dangerouslySetInnerHTML={{ __html: latestBlogPost.summary }} 
               />
               <a
