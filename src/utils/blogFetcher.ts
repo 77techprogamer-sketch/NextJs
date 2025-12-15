@@ -1,36 +1,36 @@
-"use client";
-
+import { supabase } from '@/integrations/supabase/client';
 
 interface BlogPost {
   title: string;
   url: string;
-  summary: string;
+  date: string;
+  summary: string; // Added summary field
 }
 
-export const fetchBlogPosts = async (serviceTypeSlug?: string): Promise<BlogPost | null> => {
+export const fetchBlogPosts = async (): Promise<BlogPost | null> => {
   try {
-    let url = 'https://idzvdeemgxhwlkyphnel.supabase.co/functions/v1/fetch-blog-posts';
-    if (serviceTypeSlug) {
-      url += `?serviceType=${encodeURIComponent(serviceTypeSlug)}`;
+    const { data, error } = await supabase.functions.invoke('fetch-blog-posts');
+
+    if (error) {
+      console.error('Error invoking Edge Function:', error.message);
+      return null;
     }
 
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+    if (!data || !Array.isArray(data) || data.length === 0) {
+      console.warn('No blog posts or invalid data received from Edge Function.');
+      return null;
     }
-    const data = await response.json();
 
-    // Expecting a single 'post' object from the Edge Function
-    if (data && data.post) {
-      return {
-        title: data.post.title,
-        url: data.post.url,
-        summary: data.post.description, // Expecting already decoded HTML from Edge Function
-      };
-    }
-    return null;
+    const allPosts: BlogPost[] = data;
+
+    // Sort all posts by date to get the absolute latest
+    const sortedPosts = allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    // Return only the single latest post
+    return sortedPosts[0];
+
   } catch (error) {
-    console.error("Failed to fetch blog posts:", error);
+    console.error('An error occurred fetching blog posts:', error);
     return null;
   }
 };
