@@ -15,16 +15,16 @@ const decodeHtmlEntities = (html: string): string => {
 
 // Mapping of service slugs to keywords for filtering blog posts
 const serviceKeywords: Record<string, string[]> = {
-  "life-insurance": ["life insurance", "life cover", "जीवन बीमा", "आयुर्विमा", "வாழ்வு காப்பீடு", "ಜೀವನ ವಿಮೆ", "జీవిత బీమా", "ജീവിത ഇൻഷുറൻസ്", "ਜੀਵਨ ਬੀਮਾ"],
+  "life-insurance": ["life insurance", "life cover", "जीवन बीमा", "आयुर्विमा", "வாழ்வு காப்பீடு", "ಜೀವನ ವಿಮೆ", "జీవిత బీమా", "ജീവിത ഇൻഷುറൻസ്", "ਜੀਵਨ ਬੀਮਾ"],
   "health-insurance": ["health insurance", "medical", "आरोग्य विमा", "सுகாதார காப்பீடு", "ಆರೋಗ್ಯ ವಿಮೆ", "ఆరోగ్య బీమా", "ആരോഗ്യ ഇൻഷുറൻസ്", "ਸਿਹਤ ਬੀਮਾ"],
   "term-insurance": ["term insurance", "pure protection", "टर्म बीमा", "கால காப்பீடு", "ಅವಧಿ ವಿಮೆ", "టర్మ్ బీమా", "ടേം ഇൻഷുറൻസ്", "ਟਰਮ ਬੀਮਾ"],
   "motor-insurance": ["motor insurance", "car insurance", "vehicle", "मोटर बीमा", "மோட்டார் காப்பீடு", "ಮೋಟಾರ್ ವಿಮೆ", "మోటార్ బీమా", "മോട്ടോർ ഇൻഷുറൻസ്", "ਮੋਟਰ ਬੀਮਾ"],
-  "sme-insurance": ["sme insurance", "fire insurance", "home insurance", "business insurance", "એસએમઇ", "अग्नि", "गृह", "એસએમઇ", "நெருப்பு", "வீடு", "ಎಸ್ಎಂಇ", "ಅಗ್ನಿ", "ಗೃಹ", "ఎస్ఎంఈ", "అగ్ని", "గృహ", "എസ്എംഇ", "ഫയർ", "ഹോം", "ਐਸਐਮਈ", "ਫਾਇਰ", "ਹੋਮ"],
-  "travel-insurance": ["travel insurance", "trip", "journey", "प्रवास विमा", "பயண காப்பீடு", "ಪ್ರವಾಸ ವಿಮೆ", "ప్రయాణ బీమా", "യാത്രാ ഇൻഷുറൻസ്", "ਯਾਤਰਾ ਬੀਮਾ"],
+  "sme-insurance": ["sme insurance", "fire insurance", "home insurance", "business insurance", "એસએમઇ", "अग्नि", "गृह", "એસએમઇ", "நெருப்பு", "வீடு", "ಎಸ್ಎಂಇ", "ಅಗ್ನಿ", "ಗೃಹ", "ఎస్ఎంఈ", "ಅಗ್ನಿ", "ಗೃಹ", "എസ്എംഇ", "ഫയർ", "ഹോം", "ਐਸਐਮਈ", "ਫਾਇਰ", "ਹੋਮ"],
+  "travel-insurance": ["travel insurance", "trip", "journey", "प्रवास विमा", "பயண காப்பீடு", "ಪ್ರವಾಸ ವಿಮೆ", "ప్రయాణ బీಮಾ", "യാത്രാ ഇൻഷുറൻസ്", "ਯਾਤਰਾ ਬੀਮਾ"],
   "pension-plans": ["pension plans", "retirement", "income", "पेन्शन योजना", "ஓய்வூதிய திட்டங்கள்", "ಪಿಂಚಣಿ ಯೋಜನೆಗಳು", "పెన్షన్ ప్రణాళికలు", "പെൻഷൻ പദ്ധതികൾ", "ਪੈਨਸ਼ਨ ਯੋਜਨਾਵਾਂ"],
   "ulip-plans": ["ulip plans", "investment", "market-linked", "यूलिप", "யூலிப்", "ಯುಲಿಪ್", "యూలిప్", "യൂലിപ്", "ਯੂਲਿਪ"],
-  "wedding-insurance": ["wedding insurance", "honeymoon", "marriage", "विवाह विमा", "திருமணம்", "தேனிலவு", "ವಿವಾಹ", "ಹನಿಮೂನ್", "వివాహ", "హనీమూన్", "വിവാഹ", "ഹണിമൂൺ", "ਵਿਆਹ", "ਹਨੀਮੂਨ"],
-  "cyber-insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "சைபர் காப்பீடு", "ಸೈಬರ್ ವಿಮೆ", "సైబర్ బీమా", "സൈബർ ഇൻഷുറൻസ്", "ਸਾਈਬਰ ਬੀਮਾ"],
+  "wedding-insurance": ["wedding insurance", "honeymoon", "marriage", "विवाह विमा", "திருமணம்", "தேனிலவு", "ವಿವಾಹ", "ಹನಿಮೂನ್", "వివాహ", "ಹనీమూన్", "വിവാഹ", "ഹണിമൂൺ", "ਵਿਆਹ", "ਹਨੀਮੂਨ"],
+  "cyber-insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "சைபர் காப்பீடு", "ಸೈಬರ್ ವಿಮೆ", "సైబర్ బీమా", "സൈബർ ഇൻഷುറൻസ്", "ਸਾਈਬਰ ਬੀਮਾ"],
 };
 
 serve(async (req) => {
