@@ -12,6 +12,7 @@ import QuoteForm from '@/components/QuoteForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Import Card components
 import { Skeleton } from '@/components/ui/skeleton'; // Import Skeleton component
 import { fetchBlogPosts } from '@/utils/blogFetcher'; // Import the blog fetcher utility
+import { formatLabel } from '@/utils/formatText';
 
 interface ServiceDetail {
   titleKey: string;
@@ -169,7 +170,7 @@ const ServiceDetailPage = () => {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle>{t("get_a_quote_for", { type: t(service.titleKey) })}</DialogTitle>
+                <DialogTitle>{t("get_a_quote_for", { type: formatLabel(t(service.titleKey)) })}</DialogTitle>
               </DialogHeader>
               <QuoteForm
                 insuranceType={serviceKey}

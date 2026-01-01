@@ -18,6 +18,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { FORM_CONFIGS, DEFAULT_FORM_CONFIG } from '@/config/forms';
+import { formatLabel } from '@/utils/formatText';
 
 interface QuoteFormProps {
   insuranceType: string;
@@ -120,7 +121,13 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 p-4">
-        <h3 className="text-lg font-semibold text-center mb-4">{t("quote_form_title", { type: config === DEFAULT_FORM_CONFIG ? insuranceType : t(insuranceType) })}</h3>
+        <h3 className="text-lg font-semibold text-center mb-4">
+          {t("quote_form_title", {
+            type: config === DEFAULT_FORM_CONFIG
+              ? formatLabel(insuranceType)
+              : t(insuranceType)
+          })}
+        </h3>
 
         {config.fields.map((field) => (
           <FormField

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu"; // Import shadcn dropdown components
 import { ChevronDown } from 'lucide-react'; // Import an icon for the dropdown
 import { slugify } from '@/utils/slugify'; // Import the slugify utility
+import { formatLabel } from '@/utils/formatText';
 
 const Header = () => {
   const { t } = useTranslation();
@@ -51,7 +52,7 @@ const Header = () => {
               <button
                 // The main dropdown trigger still scrolls to services section on the home page
                 // If on a service detail page, it will navigate to home and then scroll
-                onClick={handleScrollToServices} 
+                onClick={handleScrollToServices}
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("services_offered_link")}
               >
@@ -66,7 +67,7 @@ const Header = () => {
                     to={`/services/${slugify(key)}`} // Link to individual service page
                     className="cursor-pointer"
                   >
-                    {t(key)}
+                    {formatLabel(t(key))}
                   </Link>
                 </DropdownMenuItem>
               ))}
