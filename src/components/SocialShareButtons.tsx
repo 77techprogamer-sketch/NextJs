@@ -40,13 +40,31 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
 
   return (
     <div className="flex space-x-3 mt-3 justify-center"> {/* Removed md:justify-start to keep it centered */}
-      <Button variant="default" size="icon" onClick={shareOnFacebook} aria-label="Share on Facebook">
+      <Button
+        variant="default"
+        size="icon"
+        onClick={shareOnFacebook}
+        aria-label="Share on Facebook"
+        className="bg-[#1877F2] hover:bg-[#166fe5] text-white border-0"
+      >
         <Facebook className="h-5 w-5" />
       </Button>
-      <Button variant="default" size="icon" onClick={shareOnTwitter} aria-label="Share on X (Twitter)">
+      <Button
+        variant="default"
+        size="icon"
+        onClick={shareOnTwitter}
+        aria-label="Share on X (Twitter)"
+        className="bg-[#000000] hover:bg-[#333333] text-white border-0"
+      >
         <Twitter className="h-5 w-5" />
       </Button>
-      <Button variant="default" size="icon" onClick={shareOnLinkedIn} aria-label="Share on LinkedIn">
+      <Button
+        variant="default"
+        size="icon"
+        onClick={shareOnLinkedIn}
+        aria-label="Share on LinkedIn"
+        className="bg-[#0077B5] hover:bg-[#006399] text-white border-0"
+      >
         <Linkedin className="h-5 w-5" />
       </Button>
       <Button
@@ -54,11 +72,17 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
         size="icon"
         onClick={shareOnWhatsApp}
         aria-label="Share on WhatsApp"
-        className="bg-[#25D366] hover:bg-[#128C7E] text-white"
+        className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0"
       >
         <MessageCircle className="h-5 w-5" />
       </Button>
-      <Button variant="default" size="icon" onClick={copyToClipboard} aria-label="Copy link for Instagram">
+      <Button
+        variant="default"
+        size="icon"
+        onClick={copyToClipboard}
+        aria-label="Copy link for Instagram"
+        className="bg-[#E4405F] hover:bg-[#d62d4a] text-white border-0"
+      >
         <Instagram className="h-5 w-5" />
       </Button>
     </div>
