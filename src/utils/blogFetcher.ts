@@ -4,7 +4,8 @@ interface BlogPost {
   title: string;
   url: string;
   date: string;
-  summary: string; // Added summary field
+  summary: string;
+  debug?: any; // Optional debug info
 }
 
 export const fetchBlogPosts = async (serviceType?: string): Promise<BlogPost | null> => {

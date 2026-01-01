@@ -18,7 +18,6 @@ const unescapeHtmlEntities = (html: string): string => {
 
 /**
  * STRICT SERVICE KEYWORDS
- * We use two-word specific terms to ensure accuracy.
  */
 const serviceKeywords: Record<string, string[]> = {
   "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "death benefit", "policyholder", "whole life"],
@@ -33,7 +32,9 @@ const serviceKeywords: Record<string, string[]> = {
   "cyber_insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "digital protection", "cyber security"],
 };
 
-// Helper to convert service keys to potential hashtags
+// Generic categories to ignore during matching to prevent false positives
+const IGNORED_CATEGORIES = ["insurance", "india", "blog", "posts", "news", "updates", "general"];
+
 const getServiceHashtags = (serviceType: string): string[] => {
   const normalized = serviceType.replace(/-/g, '_');
   const words = normalized.split('_');
@@ -55,7 +56,7 @@ serve(async (req) => {
         const body = await req.json();
         serviceTypeSlug = body.serviceType || body.serviceTypeSlug;
       } catch (e) {
-        // Fallback for body read
+        // Fallback
       }
     }
 
@@ -84,12 +85,13 @@ serve(async (req) => {
       const date = pubDateMatch ? new Date(pubDateMatch[1]).toISOString() : new Date().toISOString();
       const rawSummary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "";
 
-      // Remove common footer/link to avoid false positives (e.g. matching 'insurance-support' as a keyword)
       const cleanSummary = rawSummary.split('https://insurance-support.vercel.app')[0];
       const description = unescapeHtmlEntities(cleanSummary);
 
       const hashtags = (description.match(/#(\w+)/g) || []).map(h => h.toLowerCase());
-      const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g)).map(m => m[1].toLowerCase());
+      const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g))
+        .map(m => m[1].toLowerCase())
+        .filter(c => !IGNORED_CATEGORIES.includes(c)); // Filter out generic categories
 
       return { title, url: postUrl, date, description, categories, hashtags };
     });
@@ -122,13 +124,20 @@ serve(async (req) => {
         });
 
         // 3. Category Match - 8 points
-        if (post.categories.some(c => targetHashtags.some(th => th.includes(c)) || keywords.some(k => k.includes(c)))) {
+        // FIXED LOGIC: Corrected directionality. 
+        // We check if the post Category includes the Keyword (e.g. Cat "Health Insurance" includes KW "Health")
+        // OR if the Keyword includes the Category (BUT only if Category is not generic, handled by filter above)
+        // Actually, safest is: Does the Category contains any of our SERVICE KEYWORDS?
+        // e.g. Cat="Health Insurance Tips" -> contains "health insurance"? YES.
+        if (post.categories.some(c =>
+          targetHashtags.some(th => th.includes(c)) ||
+          keywords.some(k => c.includes(k))
+        )) {
           score += 8;
           matchReasons.push(`category`);
         }
 
         // 4. Description Whole Word Keyword Match - 3 points
-        // We use a stricter regex for description to avoid partial matches like "health" inside "healthcare"
         keywords.forEach(k => {
           const regex = new RegExp(`\\b${k}\\b`, 'i');
           if (regex.test(descLower.substring(0, 1500))) {
@@ -142,7 +151,7 @@ serve(async (req) => {
         return scoredPost;
       });
 
-      // Stricter Threshold: 8 points (Requires at least one title match or multiple hits)
+      // Strict Threshold: 8 points
       const matches = scoredPosts.filter(p => p.score >= 8);
 
       if (matches.length > 0) {
@@ -150,10 +159,10 @@ serve(async (req) => {
         resultPost = matches[0];
         console.log(`[MATCH] for ${normalizedType}: "${resultPost.title}" Score=${resultPost.score}`);
       } else {
-        console.log(`[NO_MATCH] for ${normalizedType}. Best score was ${Math.max(...scoredPosts.map(p => p.score), 0)}`);
+        console.log(`[NO_MATCH] for ${normalizedType}. Best score: ${Math.max(...scoredPosts.map(p => p.score), 0)}`);
       }
     } else {
-      // Home page: just return latest
+      // Home page
       resultPost = blogPosts.length > 0 ? blogPosts[0] : null;
       console.log(`[FALLBACK] Home page latest selected: "${resultPost?.title}"`);
     }
