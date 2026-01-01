@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import { Home } from 'lucide-react';
 import { slugify } from '@/utils/slugify';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -146,6 +147,15 @@ const ServiceDetailPage = () => {
           `}
         </script>
       </Helmet>
+
+      <div className="mb-8">
+        <Button variant="ghost" asChild className="gap-2 -ml-2 text-muted-foreground hover:text-foreground">
+          <Link to="/">
+            <Home className="h-4 w-4" />
+            {t("back_to_home")}
+          </Link>
+        </Button>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
         <div>
