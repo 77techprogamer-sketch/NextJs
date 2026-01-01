@@ -7,7 +7,7 @@ interface BlogPost {
   summary: string; // Added summary field
 }
 
-export const fetchBlogPosts = async (): Promise<BlogPost | null> => {
+export const fetchBlogPosts = async (serviceType?: string): Promise<BlogPost | null> => {
   try {
     const { data, error } = await supabase.functions.invoke('fetch-blog-posts');
 

@@ -112,7 +112,7 @@ const Index = () => {
               size="lg"
               className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg w-full sm:w-auto"
               onClick={() => {
-                setSelectedInsuranceType('General Inquiry');
+                setSelectedInsuranceType('general_inquiry');
                 setIsModalOpen(true);
               }}
             >

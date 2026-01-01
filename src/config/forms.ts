@@ -12,12 +12,18 @@ export interface FormFieldConfig {
     required?: boolean;
 }
 
+export interface ChatbotContext {
+    initialQuery?: string;
+    inputs?: Record<string, string>;
+}
+
 export interface InsuranceFormConfig {
     fields: FormFieldConfig[];
+    chatbotContext?: ChatbotContext;
 }
 
 export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
-    "General Inquiry": {
+    general_inquiry: {
         fields: [
             {
                 name: "fullName",
@@ -34,8 +40,11 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
                 required: true,
             },
         ],
+        chatbotContext: {
+            initialQuery: "I have a general inquiry about your insurance services. Can you help me?",
+        },
     },
-    "Health Insurance": {
+    health_insurance: {
         fields: [
             {
                 name: "fullName",
@@ -71,8 +80,38 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
                 required: true,
             },
         ],
+        chatbotContext: {
+            initialQuery: "I'm looking for Health Insurance options and cover for my family. What do you recommend?",
+        },
     },
-    // Default fallback or more types can be added here
+    life_insurance: {
+        fields: [
+            {
+                name: "fullName",
+                labelKey: "your_full_name",
+                type: "text",
+                placeholderKey: "your_full_name",
+                required: true,
+            },
+            {
+                name: "mobileNumber",
+                labelKey: "mobile_number",
+                type: "text",
+                placeholderKey: "9876543210",
+                required: true,
+            },
+            {
+                name: "sumAssured",
+                labelKey: "sum_assured",
+                type: "number",
+                placeholderKey: "1,00,00,000",
+                required: true,
+            },
+        ],
+        chatbotContext: {
+            initialQuery: "I want to learn more about Life Insurance and how to secure my family's future.",
+        },
+    },
 };
 
 export const DEFAULT_FORM_CONFIG: InsuranceFormConfig = {

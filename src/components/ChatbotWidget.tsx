@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, X, UserCheck } from "lucide-react";
+import { MessageSquare, UserCheck } from "lucide-react";
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -11,17 +12,40 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
+import { FORM_CONFIGS } from "@/config/forms";
 
-const CHATBOT_URL = "https://udify.app/chat/uHzY4hhQTioH4pFK";
+const BASE_CHATBOT_URL = "https://udify.app/chat/uHzY4hhQTioH4pFK";
 
 const ChatbotWidget = () => {
   const { t } = useTranslation();
+  const location = useLocation();
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+
+  const chatbotUrl = useMemo(() => {
+    const url = new URL(BASE_CHATBOT_URL);
+
+    // Detect service from URL path (e.g., /services/health_insurance)
+    const serviceMatch = location.pathname.match(/\/services\/([^/]+)/);
+    const serviceKey = serviceMatch ? serviceMatch[1] : null;
+
+    let context = FORM_CONFIGS[serviceKey || ""]?.chatbotContext;
+
+    // Fallback to general inquiry if on home page
+    if (!context && location.pathname === '/') {
+      context = FORM_CONFIGS["general_inquiry"]?.chatbotContext;
+    }
+
+    if (context?.initialQuery) {
+      url.searchParams.set("query", context.initialQuery);
+    }
+
+    return url.toString();
+  }, [location.pathname]);
 
   return (
     <>
       {/* Floating Action Button */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none">
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none group">
         {/* Availability Badge */}
         <div className={cn(
           "bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border shadow-xl px-4 py-2 rounded-full flex items-center gap-2 transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 pointer-events-auto",
@@ -67,7 +91,8 @@ const ChatbotWidget = () => {
           </DialogHeader>
           <div className="flex-grow bg-white dark:bg-gray-950 relative">
             <iframe
-              src={CHATBOT_URL}
+              key={chatbotUrl} // Force reload on context change
+              src={chatbotUrl}
               width="100%"
               height="100%"
               className="border-none"

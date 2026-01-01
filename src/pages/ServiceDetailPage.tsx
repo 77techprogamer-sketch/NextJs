@@ -162,7 +162,7 @@ const ServiceDetailPage = () => {
                 <DialogTitle>{t("get_a_quote_for", { type: t(service.titleKey) })}</DialogTitle>
               </DialogHeader>
               <QuoteForm
-                insuranceType={t(service.titleKey)}
+                insuranceType={serviceKey}
                 onClose={() => setIsQuoteDialogOpen(false)}
                 onSuccess={handleQuoteSuccess}
               />
@@ -216,9 +216,9 @@ const ServiceDetailPage = () => {
             </CardHeader>
             <CardContent>
               {/* Display the summary content */}
-              <div 
-                className="text-muted-foreground mb-4 prose dark:prose-invert max-w-none prose-img:max-w-full prose-img:h-auto prose-table:w-full prose-table:overflow-x-auto max-h-[400px] overflow-y-auto" 
-                dangerouslySetInnerHTML={{ __html: latestBlogPost.summary }} 
+              <div
+                className="text-muted-foreground mb-4 prose dark:prose-invert max-w-none prose-img:max-w-full prose-img:h-auto prose-table:w-full prose-table:overflow-x-auto max-h-[400px] overflow-y-auto"
+                dangerouslySetInnerHTML={{ __html: latestBlogPost.summary }}
               />
               <a
                 href={latestBlogPost.url}
