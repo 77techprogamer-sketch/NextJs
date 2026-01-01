@@ -23,7 +23,7 @@ const serviceKeywords: Record<string, string[]> = {
   "sme-insurance": ["sme insurance", "fire insurance", "home insurance", "business insurance", "એસએમઇ", "अग्नि", "गृह", "એસએમઇ", "நெருப்பு", "வீடு", "ಎಸ್ಎಂಇ", "ಅಗ್ನಿ", "ಗೃಹ", "ఎస్ఎంఈ", "ಅಗ್ನಿ", "ಗೃಹ", "എസ്എംഇ", "ഫയർ", "ഹോം", "ਐਸਐਮਈ", "ਫਾਇਰ", "ਹੋਮ"],
   "travel-insurance": ["travel insurance", "trip", "journey", "प्रवास विमा", "பயண காப்பீடு", "ಪ್ರವಾಸ ವಿಮೆ", "ప్రయాణ బీಮಾ", "യാത്രാ ഇൻഷുറൻസ്", "ਯਾਤਰਾ ਬੀਮਾ"],
   "pension-plans": ["pension plans", "retirement", "income", "पेन्शन योजना", "ஓய்வூதிய திட்டங்கள்", "ಪಿಂಚಣಿ ಯೋಜನೆಗಳು", "పెన్షన్ ప్రణాళికలు", "പെൻഷൻ പദ്ധതികൾ", "ਪੈਨਸ਼ਨ ਯੋਜਨਾਵਾਂ"],
-  "ulip-plans": ["ulip plans", "investment", "market-linked", "यूलिप", "யூலிப்", "ಯುಲಿಪ್", "యూలిప్", "യൂലിപ്", "ਯੂਲਿਪ"],
+  "ulip_plans": ["ulip plans", "investment", "market-linked", "यूलिप", "யூலிப்", "ಯುಲಿಪ್", "యూలిప్", "യൂലിപ്", "ਯੂਲਿਪ"],
   "wedding-insurance": ["wedding insurance", "honeymoon", "marriage", "विवाह विमा", "திருமணம்", "தேனிலவு", "ವಿವಾಹ", "ಹನಿಮೂನ್", "వివాహ", "హనీమూన్", "വിവാഹ", "ഹണിമൂൺ", "ਵਿਆਹ", "ਹਨੀਮੂਨ"],
   "cyber-insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "சைபர் காப்பீடு", "ಸೈಬರ್ ವಿಮೆ", "సైబర్ బీమా", "സൈബർ ഇൻഷುറൻസ്", "ਸਾਈਬਰ ਬੀਮਾ"],
 };
