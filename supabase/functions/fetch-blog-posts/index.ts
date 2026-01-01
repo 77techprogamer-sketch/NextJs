@@ -29,6 +29,13 @@ const serviceKeywords: Record<string, string[]> = {
   "cyber_insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "digital protection"],
 };
 
+// Helper to convert service keys to potential hashtags
+const getServiceHashtags = (serviceType: string): string[] => {
+  const words = serviceType.split('_');
+  const hashtag = '#' + words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
+  return [hashtag.toLowerCase()];
+};
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response(null, { headers: corsHeaders });
@@ -62,11 +69,12 @@ serve(async (req) => {
     const blogPosts = items.map(item => {
       const titleMatch = item.match(/<title>(.*?)<\/title>/);
       const linkMatch = item.match(/<link\s+rel=['"]alternate['"]\s+type=['"]text\/html['"]\s+href=['"](.*?)['"]/);
-      // If alternate link not found, try simple link tag
       const simpleLinkMatch = item.match(/<link>(.*?)<\/link>/);
       const pubDateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
       const descriptionMatch = item.match(/<description>([\s\S]*?)<\/description>/);
-      const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g)).map(m => m[1]);
+
+      // Extract categories from RSS if present
+      const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g)).map(m => m[1].toLowerCase());
 
       const title = titleMatch ? titleMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "Untitled";
       const url = linkMatch ? linkMatch[1] : (simpleLinkMatch ? simpleLinkMatch[1] : "#");
@@ -74,43 +82,58 @@ serve(async (req) => {
       const rawSummary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "";
       const description = unescapeHtmlEntities(rawSummary);
 
-      return { title, url, date, description, categories };
+      // Extract hashtags from description
+      const hashtags = (description.match(/#(\w+)/g) || []).map(h => h.toLowerCase());
+
+      return { title, url, date, description, categories, hashtags };
     });
 
-    let filteredPosts = blogPosts;
+    let resultPost = null;
 
     if (serviceTypeSlug && serviceKeywords[serviceTypeSlug]) {
       const keywords = serviceKeywords[serviceTypeSlug].map(k => k.toLowerCase());
-      filteredPosts = blogPosts.filter(post => {
+      const targetHashtags = getServiceHashtags(serviceTypeSlug);
+
+      const scoredPosts = blogPosts.map(post => {
+        let score = 0;
         const titleLower = post.title.toLowerCase();
-        const descriptionLower = post.description.toLowerCase();
-        const catsLower = post.categories.join(" ").toLowerCase();
+        const descLower = post.description.toLowerCase();
 
-        return keywords.some(keyword =>
-          titleLower.includes(keyword) ||
-          descriptionLower.includes(keyword) ||
-          catsLower.includes(keyword)
-        );
+        // 1. Hashtag Match (High confidence) - 10 points
+        if (post.hashtags.some(h => targetHashtags.includes(h))) score += 10;
+
+        // 2. Category Match (High confidence) - 8 points
+        if (post.categories.some(c => targetHashtags.some(th => th.includes(c)) || keywords.some(k => k.includes(c)))) score += 8;
+
+        // 3. Title Keyword Match - 6 points per first unique keyword found
+        if (keywords.some(k => titleLower.includes(k))) score += 6;
+
+        // 4. Description/Body Match (Lower confidence) - 2 points
+        // Only check first 500 chars to avoid "mentions in passing"
+        const snippet = descLower.substring(0, 500);
+        if (keywords.some(k => snippet.includes(k))) score += 2;
+
+        return { ...post, score };
       });
-      console.log(`Filtered to ${filteredPosts.length} posts for ${serviceTypeSlug}`);
-    }
 
-    // Sort by date latest first
-    filteredPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+      // Filter by threshold (min 5 points for specific service pages)
+      const matches = scoredPosts.filter(p => p.score >= 5);
 
-    // If we have filtered posts, pick the latest. 
-    // If we have no matches for a specific category, we return the absolute latest post 
-    // so the section isn't empty on the home page, but for specific services, 
-    // maybe we should return null if no match found to avoid "wrong" articles?
-    // Let's decide: if serviceTypeSlug is provided but NO matches, return null.
-    // That way "wrong" articles won't show.
-
-    let resultPost = null;
-    if (serviceTypeSlug) {
-      resultPost = filteredPosts.length > 0 ? filteredPosts[0] : null;
+      if (matches.length > 0) {
+        // Sort by score (desc) then date (desc)
+        matches.sort((a, b) => {
+          if (b.score !== a.score) return b.score - a.score;
+          return new Date(b.date).getTime() - new Date(a.date).getTime();
+        });
+        resultPost = matches[0];
+        console.log(`Found optimal match for ${serviceTypeSlug}: "${resultPost.title}" (Score: ${resultPost.score})`);
+      } else {
+        console.log(`No high-confidence matches for ${serviceTypeSlug}. Threshold not met.`);
+      }
     } else {
       // Home page: just return absolute latest
       resultPost = blogPosts.length > 0 ? blogPosts[0] : null;
+      console.log(`Requested latest post for Home page: "${resultPost?.title}"`);
     }
 
     return new Response(JSON.stringify({ post: resultPost }), {
