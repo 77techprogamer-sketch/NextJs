@@ -12,12 +12,22 @@ serve(async (req) => {
   }
 
   try {
-    const { ip_address, isp, city, region, country } = await req.json();
+    let { ip_address, isp, city, region, country } = await req.json();
+
+    // Fallback to request headers if IP is not provided by client
+    if (!ip_address) {
+      const forwardedFor = req.headers.get('x-forwarded-for');
+      if (forwardedFor) {
+        ip_address = forwardedFor.split(',')[0].trim();
+        console.log('Using IP from x-forwarded-for:', ip_address);
+      }
+    }
 
     // Log the incoming data for debugging
     console.log('Received visitor data:', { ip_address, isp, city, region, country });
 
     if (!ip_address) {
+      console.warn('No IP address found in body or headers');
       return new Response(JSON.stringify({ error: 'IP address is required' }), {
         status: 400,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },

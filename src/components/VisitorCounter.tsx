@@ -42,36 +42,39 @@ const VisitorCounter = () => {
       let visitorCountry: string | null = null;
 
       try {
-        // Fetch IP address
-        const ipResponse = await fetch('https://api.ipify.org?format=json');
-        if (!ipResponse.ok) {
-          console.error('Failed to fetch IP address');
-          return;
+        // Fetch IP address - Attempt but don't fail hard
+        try {
+          const ipResponse = await fetch('https://api.ipify.org?format=json');
+          if (ipResponse.ok) {
+            const { ip } = await ipResponse.json();
+            visitorIp = ip;
+          }
+        } catch (e) {
+          console.warn('Could not fetch IP from client side:', e);
         }
-        const { ip } = await ipResponse.json();
-        visitorIp = ip;
 
         // Fetch ISP and location information using the IP address
-        const geoResponse = await fetch(`https://ip-api.com/json/${ip}`);
-        if (!geoResponse.ok) {
-          console.error('Failed to fetch geo information');
-        } else {
-          const geoData = await geoResponse.json();
-          console.log('Raw Geo Data from ip-api.com:', geoData); // Added client-side logging
-          if (geoData.status === 'success') {
-            visitorIsp = geoData.isp || null;
-            visitorCity = geoData.city || null;
-            visitorRegion = geoData.regionName || null;
-            visitorCountry = geoData.country || null;
-          } else {
-            console.warn('Geo data not found or API call unsuccessful:', geoData);
+        if (visitorIp) {
+          try {
+            const geoResponse = await fetch(`https://ip-api.com/json/${visitorIp}`);
+            if (geoResponse.ok) {
+              const geoData = await geoResponse.json();
+              if (geoData.status === 'success') {
+                visitorIsp = geoData.isp || null;
+                visitorCity = geoData.city || null;
+                visitorRegion = geoData.regionName || null;
+                visitorCountry = geoData.country || null;
+              }
+            }
+          } catch (e) {
+            console.warn('Could not fetch Geo data:', e);
           }
         }
 
         // Call the Edge Function to log the visitor
         const { data: edgeFunctionData, error: edgeFunctionError } = await supabase.functions.invoke('log-visitor', {
-          body: { 
-            ip_address: visitorIp, 
+          body: {
+            ip_address: visitorIp,
             isp: visitorIsp,
             city: visitorCity,
             region: visitorRegion,
