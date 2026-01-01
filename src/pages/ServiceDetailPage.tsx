@@ -110,6 +110,7 @@ const ServiceDetailPage = () => {
     const getLatestBlogPost = async () => {
       setLoadingBlog(true); // Set loading to true before fetching
       const post = await fetchBlogPosts(serviceKey); // Pass serviceKey to fetchBlogPosts
+      console.log(`[BlogFetcher] Result for ${serviceKey}:`, post);
       setLatestBlogPost(post);
       setLoadingBlog(false); // Set loading to false after fetching
     };

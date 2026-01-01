@@ -29,7 +29,8 @@ export const fetchBlogPosts = async (serviceType?: string): Promise<BlogPost | n
         title: data.post.title,
         url: data.post.url,
         date: data.post.date,
-        summary: data.post.description
+        summary: data.post.description,
+        debug: data.debug // Capture the debug info
       };
     }
 

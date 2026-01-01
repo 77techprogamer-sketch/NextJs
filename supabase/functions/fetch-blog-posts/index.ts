@@ -16,22 +16,25 @@ const unescapeHtmlEntities = (html: string): string => {
   }
 };
 
+/**
+ * STRICT SERVICE KEYWORDS
+ * We use two-word specific terms to ensure accuracy.
+ */
 const serviceKeywords: Record<string, string[]> = {
-  "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "death benefit", "policyholder", "death claim"],
-  "health_insurance": ["health insurance", "medical", "hospital", "आरोग्य विमा", "mediclaim", "insurance plan"],
-  "term_insurance": ["term insurance", "pure protection", "टर्म बीमा", "income replacement", "term plan"],
-  "motor_insurance": ["motor insurance", "car insurance", "vehicle", "मोटर बीमा", "two wheeler", "bike insurance"],
-  "sme_insurance": ["sme insurance", "fire insurance", "home insurance", "business insurance", "shopkeeper", "commercial"],
-  "travel_insurance": ["travel insurance", "trip", "journey", "प्रवास विमा", "international travel", "overseas"],
-  "pension_plans": ["pension plans", "retirement", "annuity", "पेन्शन योजना", "old age", "pension scheme"],
-  "ulip_plans": ["ulip plans", "investment", "market-linked", "यूलिप", "wealth", "unit linked"],
-  "wedding_insurance": ["wedding insurance", "honeymoon", "marriage", "विवाह विमा", "event insurance"],
-  "cyber_insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "digital protection"],
+  "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "death benefit", "policyholder", "whole life"],
+  "health_insurance": ["health insurance", "medical insurance", "mediclaim", "hospitalization", "आरोग्य विमा", "medical cover", "base plan", "top up plan"],
+  "term_insurance": ["term insurance", "pure protection", "टर्म बीमा", "income replacement", "term plan", "death protection"],
+  "motor_insurance": ["motor insurance", "car insurance", "vehicle insurance", "मोटर बीमा", "two wheeler", "bike insurance", "third party insurance"],
+  "sme_insurance": ["sme insurance", "fire insurance", "business insurance", "shopkeeper insurance", "commercial insurance", "workforce insurance"],
+  "travel_insurance": ["travel insurance", "trip insurance", "journey insurance", "प्रवास विमा", "international travel", "overseas travel"],
+  "pension_plans": ["pension plans", "retirement plans", "annuity", "पेन्शन योजना", "old age income", "pension scheme"],
+  "ulip_plans": ["ulip plans", "unit linked", "market linked", "यूलिप", "investment insurance"],
+  "wedding_insurance": ["wedding insurance", "marriage insurance", "विवाह विमा", "event cancellation"],
+  "cyber_insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "digital protection", "cyber security"],
 };
 
 // Helper to convert service keys to potential hashtags
 const getServiceHashtags = (serviceType: string): string[] => {
-  // Normalize to underscore first
   const normalized = serviceType.replace(/-/g, '_');
   const words = normalized.split('_');
   const hashtag = '#' + words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
@@ -44,7 +47,6 @@ serve(async (req) => {
   }
 
   try {
-    // 1. Get serviceType from URL or Body
     const url = new URL(req.url);
     let serviceTypeSlug = url.searchParams.get('serviceType');
 
@@ -53,13 +55,12 @@ serve(async (req) => {
         const body = await req.json();
         serviceTypeSlug = body.serviceType || body.serviceTypeSlug;
       } catch (e) {
-        // Body might not be JSON or might be empty
+        // Fallback for body read
       }
     }
 
-    // NORMALIZE: Convert health-insurance to health_insurance to match map keys
     const normalizedType = serviceTypeSlug ? serviceTypeSlug.toLowerCase().replace(/-/g, '_') : null;
-    console.log(`Input: ${serviceTypeSlug} -> Normalized: ${normalizedType}`);
+    console.log(`[REQUEST] slug=${serviceTypeSlug} -> normalized=${normalizedType}`);
 
     const blogspotRssUrl = "https://insurancesupportindia.blogspot.com/feeds/posts/default?alt=rss";
     const response = await fetch(blogspotRssUrl);
@@ -77,20 +78,24 @@ serve(async (req) => {
       const simpleLinkMatch = item.match(/<link>(.*?)<\/link>/);
       const pubDateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
       const descriptionMatch = item.match(/<description>([\s\S]*?)<\/description>/);
-      const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g)).map(m => m[1].toLowerCase());
 
       const title = titleMatch ? titleMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "Untitled";
-      const url = linkMatch ? linkMatch[1] : (simpleLinkMatch ? simpleLinkMatch[1] : "#");
+      const postUrl = linkMatch ? linkMatch[1] : (simpleLinkMatch ? simpleLinkMatch[1] : "#");
       const date = pubDateMatch ? new Date(pubDateMatch[1]).toISOString() : new Date().toISOString();
       const rawSummary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "";
-      const description = unescapeHtmlEntities(rawSummary);
-      const hashtags = (description.match(/#(\w+)/g) || []).map(h => h.toLowerCase());
 
-      return { title, url, date, description, categories, hashtags };
+      // Remove common footer/link to avoid false positives (e.g. matching 'insurance-support' as a keyword)
+      const cleanSummary = rawSummary.split('https://insurance-support.vercel.app')[0];
+      const description = unescapeHtmlEntities(cleanSummary);
+
+      const hashtags = (description.match(/#(\w+)/g) || []).map(h => h.toLowerCase());
+      const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g)).map(m => m[1].toLowerCase());
+
+      return { title, url: postUrl, date, description, categories, hashtags };
     });
 
     let resultPost = null;
-    let debugInfo = { received: serviceTypeSlug, normalized: normalizedType, matchType: 'none', score: 0 };
+    const scores: any[] = [];
 
     if (normalizedType && serviceKeywords[normalizedType]) {
       const keywords = serviceKeywords[normalizedType].map(k => k.toLowerCase());
@@ -100,47 +105,72 @@ serve(async (req) => {
         let score = 0;
         const titleLower = post.title.toLowerCase();
         const descLower = post.description.toLowerCase();
-        const catsLower = post.categories.join(" ");
+        const matchReasons: string[] = [];
 
-        // Match Reasons
-        if (post.hashtags.some(h => targetHashtags.includes(h))) score += 12; // Higher priority for hashtags
-        if (post.categories.some(c => targetHashtags.some(th => th.includes(c)) || keywords.some(k => k.includes(c)))) score += 10;
-        if (keywords.some(k => titleLower.includes(k))) score += 8;
+        // 1. Hashtag Exact Match - 15 points
+        if (post.hashtags.some(h => targetHashtags.includes(h))) {
+          score += 15;
+          matchReasons.push(`hashtag:${targetHashtags}`);
+        }
 
-        // Body match - only if keywords are very specific or common in description
-        const keywordMatchesInBody = keywords.filter(k => descLower.substring(0, 1000).includes(k)).length;
-        score += keywordMatchesInBody * 2;
+        // 2. Title Keyword Match - 10 points per unique keyword
+        keywords.forEach(k => {
+          if (titleLower.includes(k)) {
+            score += 10;
+            matchReasons.push(`title_kw:${k}`);
+          }
+        });
 
-        return { ...post, score };
+        // 3. Category Match - 8 points
+        if (post.categories.some(c => targetHashtags.some(th => th.includes(c)) || keywords.some(k => k.includes(c)))) {
+          score += 8;
+          matchReasons.push(`category`);
+        }
+
+        // 4. Description Whole Word Keyword Match - 3 points
+        // We use a stricter regex for description to avoid partial matches like "health" inside "healthcare"
+        keywords.forEach(k => {
+          const regex = new RegExp(`\\b${k}\\b`, 'i');
+          if (regex.test(descLower.substring(0, 1500))) {
+            score += 3;
+            matchReasons.push(`desc_kw:${k}`);
+          }
+        });
+
+        const scoredPost = { ...post, score, matchReasons };
+        scores.push({ title: post.title, score, reasons: matchReasons });
+        return scoredPost;
       });
 
-      // Filter by threshold (min 6 points for specific service pages)
-      const matches = scoredPosts.filter(p => p.score >= 6);
+      // Stricter Threshold: 8 points (Requires at least one title match or multiple hits)
+      const matches = scoredPosts.filter(p => p.score >= 8);
 
       if (matches.length > 0) {
-        matches.sort((a, b) => {
-          if (b.score !== a.score) return b.score - a.score;
-          return new Date(b.date).getTime() - new Date(a.date).getTime();
-        });
+        matches.sort((a, b) => b.score - a.score || new Date(b.date).getTime() - new Date(a.date).getTime());
         resultPost = matches[0];
-        debugInfo.matchType = 'filtered';
-        debugInfo.score = resultPost.score;
+        console.log(`[MATCH] for ${normalizedType}: "${resultPost.title}" Score=${resultPost.score}`);
       } else {
-        debugInfo.matchType = 'no-threshold';
+        console.log(`[NO_MATCH] for ${normalizedType}. Best score was ${Math.max(...scoredPosts.map(p => p.score), 0)}`);
       }
     } else {
-      // Home page or unknown service: just return absolute latest
+      // Home page: just return latest
       resultPost = blogPosts.length > 0 ? blogPosts[0] : null;
-      debugInfo.matchType = 'latest-fallback';
+      console.log(`[FALLBACK] Home page latest selected: "${resultPost?.title}"`);
     }
 
-    return new Response(JSON.stringify({ post: resultPost, debug: debugInfo }), {
+    return new Response(JSON.stringify({
+      post: resultPost,
+      debug: {
+        service: normalizedType,
+        all_scores: scores.sort((a, b) => b.score - a.score).slice(0, 3)
+      }
+    }), {
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
 
   } catch (error) {
-    console.error('Edge Function error:', error.message);
+    console.error('[ERROR]', error.message);
     return new Response(JSON.stringify({ error: error.message }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
