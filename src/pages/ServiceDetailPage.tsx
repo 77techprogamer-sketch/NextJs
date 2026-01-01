@@ -114,7 +114,7 @@ const ServiceDetailPage = () => {
       setLoadingBlog(false); // Set loading to false after fetching
     };
     getLatestBlogPost();
-  }, [serviceType]); // Add serviceType to dependency array
+  }, [serviceType, serviceKey]); // Add serviceType and serviceKey to dependency array
 
   if (!service) {
     return (

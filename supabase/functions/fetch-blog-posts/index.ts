@@ -16,16 +16,16 @@ const unescapeHtmlEntities = (html: string): string => {
 
 // Mapping of service slugs to keywords for filtering blog posts
 const serviceKeywords: Record<string, string[]> = {
-  "life-insurance": ["life insurance", "life cover", "जीवन बीमा", "आयुर्विमा", "வாழ்வு காப்பீடு", "ಜೀವನ ವಿಮೆ", "జీవిత బీమా", "ജീവിത ഇൻഷുറൻസ്", "ਜੀਵਨ ਬੀਮਾ"],
-  "health-insurance": ["health insurance", "medical", "आरोग्य विमा", "सுகாதார காப்பீடு", "ಆರೋಗ್ಯ ವಿಮೆ", "ఆరోగ్య బీమా", "ആരോഗ്യ ഇൻഷുറൻസ്", "ਸਿਹਤ ਬੀਮਾ"],
-  "term-insurance": ["term insurance", "pure protection", "टर्म बीमा", "கால காப்பீடு", "ಅವಧಿ ವಿಮೆ", "టర్మ్ బీమా", "ടേം ഇൻഷുറൻസ്", "ਟਰਮ ਬੀਮਾ"],
-  "motor-insurance": ["motor insurance", "car insurance", "vehicle", "मोटर बीमा", "மோட்டார் காப்பீடு", "ಮೋಟಾರ್ ವಿಮೆ", "మోటార్ బీమా", "മോട്ടോർ ഇൻഷുറൻസ്", "ਮੋਟਰ ਬੀਮਾ"],
-  "sme-insurance": ["sme insurance", "fire insurance", "home insurance", "business insurance", "એસએમઇ", "अग्नि", "गृह", "એસએમઇ", "நெருப்பு", "வீடு", "ಎಸ್ಎಂಇ", "ಅಗ್ನಿ", "ಗೃಹ", "ఎస్ఎంఈ", "ಅಗ್ನಿ", "ಗೃಹ", "എസ്എംഇ", "ഫയർ", "ഹോം", "ਐਸਐਮਈ", "ਫਾਇਰ", "ਹੋਮ"],
-  "travel-insurance": ["travel insurance", "trip", "journey", "प्रवास विमा", "பயண காப்பீடு", "ಪ್ರವಾಸ ವಿಮೆ", "ప్రయాణ బీಮಾ", "യാത്രാ ഇൻഷുറൻസ്", "ਯਾਤਰਾ ਬੀਮਾ"],
-  "pension-plans": ["pension plans", "retirement", "income", "पेन्शन योजना", "ஓய்வூதிய திட்டங்கள்", "ಪಿಂಚಣಿ ಯೋಜನೆಗಳು", "పెన్షన్ ప్రణాళికలు", "പെൻഷൻ പദ്ധതികൾ", "ਪੈਨਸ਼ਨ ਯੋਜਨਾਵਾਂ"],
-  "ulip_plans": ["ulip plans", "investment", "market-linked", "यूलिप", "யூலிப்", "ಯುಲಿಪ್", "యూలిప్", "യൂലിപ്", "ਯੂਲਿਪ"],
-  "wedding-insurance": ["wedding insurance", "honeymoon", "marriage", "विवाह विमा", "திருமணம்", "தேனிலவு", "ವಿವಾಹ", "ಹನಿಮೂನ್", "వివాహ", "హనీమూన్", "വിവാഹ", "ഹണിമൂൺ", "ਵਿਆਹ", "ਹਨੀਮੂਨ"],
-  "cyber-insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "சைபர் காப்பீடு", "ಸೈಬರ್ ವಿಮೆ", "సైబర్ బీమా", "സൈബർ ഇൻഷುറൻസ്", "ਸਾਈਬਰ ਬੀਮਾ"],
+  "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "आयुर्विमा", "வாழ்வு காப்பீடு", "ಜೀವನ ವಿಮೆ", "జీవిత ಬೀಮಾ", "ജീవిత ഇൻഷുറನ್ಸ್", "ਜੀਵਨ ਬੀਮਾ"],
+  "health_insurance": ["health insurance", "medical", "आरोग्य विमा", "சுகாதார காப்பீடு", "ಆರೋಗ್ಯ ವಿಮೆ", "ಆರೋಗ್ಯ ಬೀಮಾ", "ಆರೋಗ್ಯ ಇನ್ಷುರನ್ಸ್", "ਸਿਹਤ ಬೀಮಾ"],
+  "term_insurance": ["term insurance", "pure protection", "टर्म बीमा", "கால காப்பீடு", "ಅವಧಿ ವಿಮೆ", "ಟರ್ಮ್ ಬೀಮಾ", "ಟೇಂ ಇನ್ಷುರನ್ಸ್", "ਟਰਮ ਬੀਮಾ"],
+  "motor_insurance": ["motor insurance", "car insurance", "vehicle", "मोटर बीमा", "மோட்டார் காப்பீடு", "ಮೋಟಾರ್ ವಿಮೆ", "ಮೋಟಾರ್ ಬೀಮಾ", "ಮೋಟಾರ್ ಇನ್ಷುರನ್ಸ್", "ਮੋਟਰ ਬੀਮಾ"],
+  "sme_insurance": ["sme insurance", "fire insurance", "home insurance", "business insurance", "એસએમઇ", "अग्નિ", "गृह", "ನೆರುಪ್ಪು", "ವೀಡು", "ಡೆವಿನ್", "ಎನ್", "ಎಸ್ಎಂಇ", "ಅಣ್ಣಿ", "ಗೃಹ", "ఎస్ఎంఈ", "అగ్ని", "ಗೃಹ", "ఎస్ఎంఇ", "ഫയർ", "ഹോം", "ਐસએਮਈ", "ਫਾਇਰ", "ഹੋਮ"],
+  "travel_insurance": ["travel insurance", "trip", "journey", "प्रवास विमा", "பயண காப்பீடு", "ಪ್ರವಾಸ ವಿಮೆ", "ಪ್ರಯಾಣ ಬೀಮಾ", "യാത്ರಾ ഇൻഷುറൻസ്", "ਯಾਤರಾ ਬೀਮಾ"],
+  "pension_plans": ["pension plans", "retirement", "income", "पेन्शन योजना", "ஓய்வೂதிய திட்டங்கள்", "ಪಿಂಚಣಿ ಯೋಜನೆಗಳು", "పెన్షన్ ప్రణాಳಿಕలు", "పెన్షన్ പദ്ധതികൾ", "ਪੈਨਸ਼ਨ ਯೋಜನಾವਾਂ"],
+  "ulip_plans": ["ulip plans", "investment", "market-linked", "यूलिप", "யூلیப்", "ಯುಲಿಪ್", "యూలిప్", "ಯೂಲಿప్", "ਯੂਲਿਪ"],
+  "wedding_insurance": ["wedding insurance", "honeymoon", "marriage", "विवाह विमा", "திருமணம்", "தேனிலவு", "ವಿವಾಹ", "ಹನಿಮೂನ್", "ವಿವಾಹ", "ಹನೀಮೂನ್", "ವಿವಾಹ", "ಹಣಿಮೂನ್", "ವ್ಯಾಹ", "ਹਨੀਮೂਨ"],
+  "cyber_insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "சைபர் காப்பீடு", "ಸೈಬರ್ ವಿಮೆ", "సైబర్ ಬೀಮಾ", "సైబర్ ഇൻಷುರನ್ಸ್", "ਸਾਈਬਰ ਬੀਮಾ"],
 };
 
 serve(async (req) => {
