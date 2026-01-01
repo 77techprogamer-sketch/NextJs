@@ -9,25 +9,42 @@ interface BlogPost {
 
 export const fetchBlogPosts = async (serviceType?: string): Promise<BlogPost | null> => {
   try {
-    const { data, error } = await supabase.functions.invoke('fetch-blog-posts');
+    const { data, error } = await supabase.functions.invoke('fetch-blog-posts', {
+      body: { serviceType }
+    });
 
     if (error) {
       console.error('Error invoking Edge Function:', error.message);
       return null;
     }
 
-    if (!data || !Array.isArray(data) || data.length === 0) {
-      console.warn('No blog posts or invalid data received from Edge Function.');
+    if (!data) {
+      console.warn('No data received from Edge Function.');
       return null;
     }
 
-    const allPosts: BlogPost[] = data;
+    // Handle single post response format: { post: { title, url, date, description } }
+    if (data.post) {
+      return {
+        title: data.post.title,
+        url: data.post.url,
+        date: data.post.date,
+        summary: data.post.description
+      };
+    }
 
-    // Sort all posts by date to get the absolute latest
-    const sortedPosts = allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    // Fallback if data is an array (legacy or unexpected)
+    if (Array.isArray(data) && data.length > 0) {
+      const first = data[0];
+      return {
+        title: first.title,
+        url: first.url,
+        date: first.date,
+        summary: first.description || first.summary
+      };
+    }
 
-    // Return only the single latest post
-    return sortedPosts[0];
+    return null;
 
   } catch (error) {
     console.error('An error occurred fetching blog posts:', error);

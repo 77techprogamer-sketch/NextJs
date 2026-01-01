@@ -35,7 +35,17 @@ serve(async (req) => {
 
   try {
     const url = new URL(req.url);
-    const serviceTypeSlug = url.searchParams.get('serviceType');
+    let serviceTypeSlug = url.searchParams.get('serviceType');
+
+    // If not in URL, try to check the request body (for invoke calls)
+    if (!serviceTypeSlug) {
+      try {
+        const body = await req.json();
+        serviceTypeSlug = body.serviceType || body.serviceTypeSlug;
+      } catch (e) {
+        // Body might not be JSON or might be empty, ignore
+      }
+    }
 
     const blogspotRssUrl = "https://insurancesupportindia.blogspot.com/feeds/posts/default?alt=rss";
     console.log('Attempting to fetch RSS feed from:', blogspotRssUrl);

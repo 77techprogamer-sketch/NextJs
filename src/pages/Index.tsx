@@ -9,6 +9,8 @@ import ServiceModal from '@/components/ServiceModal';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import VisitorCounter from '@/components/VisitorCounter';
 import DateTimeDisplay from '@/components/DateTimeDisplay';
+import { fetchBlogPosts } from '@/utils/blogFetcher';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { Helmet } from 'react-helmet-async'; // Import Helmet
 import { cn } from '@/lib/utils'; // Import cn utility for class management
@@ -20,6 +22,8 @@ const Index = () => {
   const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
   const [currentBackgroundClass, setCurrentBackgroundClass] = useState('hero-morning-bg'); // State for CSS class
+  const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
+  const [loadingBlog, setLoadingBlog] = useState(true);
 
   useEffect(() => {
     const oneLinersList = [
@@ -62,6 +66,14 @@ const Index = () => {
         servicesSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
+
+    const getLatestBlogPost = async () => {
+      setLoadingBlog(true);
+      const post = await fetchBlogPosts();
+      setLatestBlogPost(post);
+      setLoadingBlog(false);
+    };
+    getLatestBlogPost();
 
     return () => clearInterval(intervalId); // Cleanup interval
   }, [t, i18n.language]);
@@ -185,6 +197,54 @@ const Index = () => {
               href={`/services/${slugify('cyber_insurance')}`}
             />
           </div>
+        </div>
+      </section>
+
+      {/* Blog Section */}
+      <section className="py-12 sm:py-16 bg-white dark:bg-gray-800">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-8 sm:mb-12 text-center">
+            {t("latest_blog_post")}
+          </h2>
+
+          {loadingBlog ? (
+            <Card className="max-w-2xl mx-auto p-6">
+              <div className="space-y-4">
+                <Skeleton className="h-6 w-3/4" />
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-2/3" />
+                <Skeleton className="h-10 w-32 mt-4" />
+              </div>
+            </Card>
+          ) : latestBlogPost ? (
+            <Card className="max-w-2xl mx-auto overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700">
+              <CardHeader className="bg-primary/5 dark:bg-primary/10">
+                <CardTitle className="text-xl sm:text-2xl font-bold line-clamp-2">
+                  {latestBlogPost.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div
+                  className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-4 prose dark:prose-invert max-w-none text-sm sm:text-base"
+                  dangerouslySetInnerHTML={{ __html: latestBlogPost.summary }}
+                />
+                <Button
+                  asChild
+                  className="w-full sm:w-auto hover:scale-105 transition-transform"
+                >
+                  <a href={latestBlogPost.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    {t("read_full_article")}
+                    <FileText className="h-4 w-4" />
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          ) : (
+            <p className="text-center text-gray-500 dark:text-gray-400">
+              {t("no_blog_posts_available")}
+            </p>
+          )}
         </div>
       </section>
 
