@@ -109,7 +109,7 @@ const ServiceDetailPage = () => {
     window.scrollTo(0, 0); // Scroll to top on page load
     const getLatestBlogPost = async () => {
       setLoadingBlog(true); // Set loading to true before fetching
-      const post = await fetchBlogPosts(serviceType); // Pass serviceType to fetchBlogPosts
+      const post = await fetchBlogPosts(serviceKey); // Pass serviceKey to fetchBlogPosts
       setLatestBlogPost(post);
       setLoadingBlog(false); // Set loading to false after fetching
     };
