@@ -17,21 +17,23 @@ const unescapeHtmlEntities = (html: string): string => {
 };
 
 const serviceKeywords: Record<string, string[]> = {
-  "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "death benefit", "policyholder"],
-  "health_insurance": ["health insurance", "medical", "hospital", "आरोग्य विमा", "mediclaim"],
-  "term_insurance": ["term insurance", "pure protection", "टर्म बीमा", "income replacement"],
-  "motor_insurance": ["motor insurance", "car insurance", "vehicle", "मोटर बीमा", "two wheeler"],
-  "sme_insurance": ["sme insurance", "fire insurance", "home insurance", "business insurance", "shopkeeper"],
-  "travel_insurance": ["travel insurance", "trip", "journey", "प्रवास विमा", "international travel"],
-  "pension_plans": ["pension plans", "retirement", "annuity", "पेन्शन योजना", "old age"],
-  "ulip_plans": ["ulip plans", "investment", "market-linked", "यूलिप", "wealth"],
+  "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "death benefit", "policyholder", "death claim"],
+  "health_insurance": ["health insurance", "medical", "hospital", "आरोग्य विमा", "mediclaim", "insurance plan"],
+  "term_insurance": ["term insurance", "pure protection", "टर्म बीमा", "income replacement", "term plan"],
+  "motor_insurance": ["motor insurance", "car insurance", "vehicle", "मोटर बीमा", "two wheeler", "bike insurance"],
+  "sme_insurance": ["sme insurance", "fire insurance", "home insurance", "business insurance", "shopkeeper", "commercial"],
+  "travel_insurance": ["travel insurance", "trip", "journey", "प्रवास विमा", "international travel", "overseas"],
+  "pension_plans": ["pension plans", "retirement", "annuity", "पेन्शन योजना", "old age", "pension scheme"],
+  "ulip_plans": ["ulip plans", "investment", "market-linked", "यूलिप", "wealth", "unit linked"],
   "wedding_insurance": ["wedding insurance", "honeymoon", "marriage", "विवाह विमा", "event insurance"],
   "cyber_insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "digital protection"],
 };
 
 // Helper to convert service keys to potential hashtags
 const getServiceHashtags = (serviceType: string): string[] => {
-  const words = serviceType.split('_');
+  // Normalize to underscore first
+  const normalized = serviceType.replace(/-/g, '_');
+  const words = normalized.split('_');
   const hashtag = '#' + words.map(w => w.charAt(0).toUpperCase() + w.slice(1)).join('');
   return [hashtag.toLowerCase()];
 };
@@ -42,6 +44,7 @@ serve(async (req) => {
   }
 
   try {
+    // 1. Get serviceType from URL or Body
     const url = new URL(req.url);
     let serviceTypeSlug = url.searchParams.get('serviceType');
 
@@ -54,7 +57,9 @@ serve(async (req) => {
       }
     }
 
-    console.log(`Analyzing request for serviceType: ${serviceTypeSlug}`);
+    // NORMALIZE: Convert health-insurance to health_insurance to match map keys
+    const normalizedType = serviceTypeSlug ? serviceTypeSlug.toLowerCase().replace(/-/g, '_') : null;
+    console.log(`Input: ${serviceTypeSlug} -> Normalized: ${normalizedType}`);
 
     const blogspotRssUrl = "https://insurancesupportindia.blogspot.com/feeds/posts/default?alt=rss";
     const response = await fetch(blogspotRssUrl);
@@ -72,8 +77,6 @@ serve(async (req) => {
       const simpleLinkMatch = item.match(/<link>(.*?)<\/link>/);
       const pubDateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
       const descriptionMatch = item.match(/<description>([\s\S]*?)<\/description>/);
-
-      // Extract categories from RSS if present
       const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g)).map(m => m[1].toLowerCase());
 
       const title = titleMatch ? titleMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "Untitled";
@@ -81,62 +84,57 @@ serve(async (req) => {
       const date = pubDateMatch ? new Date(pubDateMatch[1]).toISOString() : new Date().toISOString();
       const rawSummary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "";
       const description = unescapeHtmlEntities(rawSummary);
-
-      // Extract hashtags from description
       const hashtags = (description.match(/#(\w+)/g) || []).map(h => h.toLowerCase());
 
       return { title, url, date, description, categories, hashtags };
     });
 
     let resultPost = null;
+    let debugInfo = { received: serviceTypeSlug, normalized: normalizedType, matchType: 'none', score: 0 };
 
-    if (serviceTypeSlug && serviceKeywords[serviceTypeSlug]) {
-      const keywords = serviceKeywords[serviceTypeSlug].map(k => k.toLowerCase());
-      const targetHashtags = getServiceHashtags(serviceTypeSlug);
+    if (normalizedType && serviceKeywords[normalizedType]) {
+      const keywords = serviceKeywords[normalizedType].map(k => k.toLowerCase());
+      const targetHashtags = getServiceHashtags(normalizedType);
 
       const scoredPosts = blogPosts.map(post => {
         let score = 0;
         const titleLower = post.title.toLowerCase();
         const descLower = post.description.toLowerCase();
+        const catsLower = post.categories.join(" ");
 
-        // 1. Hashtag Match (High confidence) - 10 points
-        if (post.hashtags.some(h => targetHashtags.includes(h))) score += 10;
+        // Match Reasons
+        if (post.hashtags.some(h => targetHashtags.includes(h))) score += 12; // Higher priority for hashtags
+        if (post.categories.some(c => targetHashtags.some(th => th.includes(c)) || keywords.some(k => k.includes(c)))) score += 10;
+        if (keywords.some(k => titleLower.includes(k))) score += 8;
 
-        // 2. Category Match (High confidence) - 8 points
-        if (post.categories.some(c => targetHashtags.some(th => th.includes(c)) || keywords.some(k => k.includes(c)))) score += 8;
-
-        // 3. Title Keyword Match - 6 points per first unique keyword found
-        if (keywords.some(k => titleLower.includes(k))) score += 6;
-
-        // 4. Description/Body Match (Lower confidence) - 2 points
-        // Only check first 500 chars to avoid "mentions in passing"
-        const snippet = descLower.substring(0, 500);
-        if (keywords.some(k => snippet.includes(k))) score += 2;
+        // Body match - only if keywords are very specific or common in description
+        const keywordMatchesInBody = keywords.filter(k => descLower.substring(0, 1000).includes(k)).length;
+        score += keywordMatchesInBody * 2;
 
         return { ...post, score };
       });
 
-      // Filter by threshold (min 5 points for specific service pages)
-      const matches = scoredPosts.filter(p => p.score >= 5);
+      // Filter by threshold (min 6 points for specific service pages)
+      const matches = scoredPosts.filter(p => p.score >= 6);
 
       if (matches.length > 0) {
-        // Sort by score (desc) then date (desc)
         matches.sort((a, b) => {
           if (b.score !== a.score) return b.score - a.score;
           return new Date(b.date).getTime() - new Date(a.date).getTime();
         });
         resultPost = matches[0];
-        console.log(`Found optimal match for ${serviceTypeSlug}: "${resultPost.title}" (Score: ${resultPost.score})`);
+        debugInfo.matchType = 'filtered';
+        debugInfo.score = resultPost.score;
       } else {
-        console.log(`No high-confidence matches for ${serviceTypeSlug}. Threshold not met.`);
+        debugInfo.matchType = 'no-threshold';
       }
     } else {
-      // Home page: just return absolute latest
+      // Home page or unknown service: just return absolute latest
       resultPost = blogPosts.length > 0 ? blogPosts[0] : null;
-      console.log(`Requested latest post for Home page: "${resultPost?.title}"`);
+      debugInfo.matchType = 'latest-fallback';
     }
 
-    return new Response(JSON.stringify({ post: resultPost }), {
+    return new Response(JSON.stringify({ post: resultPost, debug: debugInfo }), {
       status: 200,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });

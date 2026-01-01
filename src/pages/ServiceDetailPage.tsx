@@ -102,7 +102,7 @@ const ServiceDetailPage = () => {
   const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
   const [loadingBlog, setLoadingBlog] = useState(true); // New state for blog loading
 
-  const serviceKey = Object.keys(serviceDetails).find(key => slugify(key) === serviceType);
+  const serviceKey = Object.keys(serviceDetails).find(key => slugify(key) === slugify(serviceType || ""));
   const service = serviceKey ? serviceDetails[serviceKey] : null;
 
   useEffect(() => {
