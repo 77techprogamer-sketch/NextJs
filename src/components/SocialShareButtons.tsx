@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { showSuccess, showError } from "@/utils/toast"; // Import toast utilities
 
 interface SocialShareButtonsProps {
@@ -16,11 +16,16 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
   };
 
   const shareOnTwitter = () => {
-    window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank', 'noopener,noreferrer');
+    window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank', 'noopener,noreferrer');
   };
 
   const shareOnLinkedIn = () => {
     window.open(`https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`, '_blank', 'noopener,noreferrer');
+  };
+
+  const shareOnWhatsApp = () => {
+    const text = `${title} - ${url}`;
+    window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   };
 
   const copyToClipboard = async () => {
@@ -43,6 +48,15 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
       </Button>
       <Button variant="default" size="icon" onClick={shareOnLinkedIn} aria-label="Share on LinkedIn">
         <Linkedin className="h-5 w-5" />
+      </Button>
+      <Button
+        variant="default"
+        size="icon"
+        onClick={shareOnWhatsApp}
+        aria-label="Share on WhatsApp"
+        className="bg-[#25D366] hover:bg-[#128C7E] text-white"
+      >
+        <MessageCircle className="h-5 w-5" />
       </Button>
       <Button variant="default" size="icon" onClick={copyToClipboard} aria-label="Copy link for Instagram">
         <Instagram className="h-5 w-5" />
