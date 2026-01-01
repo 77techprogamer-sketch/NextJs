@@ -12,7 +12,9 @@ serve(async (req) => {
   }
 
   try {
-    let { ip_address, isp, city, region, country } = await req.json();
+    const body = await req.json();
+    let ip_address = body.ip_address;
+    const { isp, city, region, country } = body;
 
     // Fallback to request headers if IP is not provided by client
     if (!ip_address) {
@@ -67,8 +69,8 @@ serve(async (req) => {
     // Insert the visitor data
     const { error: insertError } = await supabaseClient
       .from('visitors')
-      .insert({ 
-        ip_address, 
+      .insert({
+        ip_address,
         isp,
         city,
         region,

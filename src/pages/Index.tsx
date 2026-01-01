@@ -6,13 +6,13 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare, Wallet, TrendingUp, HeartHandshake, ShieldCheck } from 'lucide-react'; // Added HeartHandshake and ShieldCheck icons
 import ServiceCard from '@/components/ServiceCard';
 import ServiceModal from '@/components/ServiceModal';
-import ChatbotWidget from '@/components/ChatbotWidget';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import VisitorCounter from '@/components/VisitorCounter';
 import DateTimeDisplay from '@/components/DateTimeDisplay';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { Helmet } from 'react-helmet-async'; // Import Helmet
 import { cn } from '@/lib/utils'; // Import cn utility for class management
+import { slugify } from '@/utils/slugify';
 
 const Index = () => {
   const { t, i18n } = useTranslation(); // Initialize useTranslation
@@ -21,21 +21,21 @@ const Index = () => {
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
   const [currentBackgroundClass, setCurrentBackgroundClass] = useState('hero-morning-bg'); // State for CSS class
 
-  const oneLiners = [
-    t("secure_family_future"),
-    t("protect_wellbeing"),
-    t("affordable_term_insurance"),
-    t("drive_with_confidence"),
-    t("safeguard_business_home"),
-    t("explore_world_worry_free"),
-    t("peace_of_mind_priority"),
-    t("find_perfect_coverage"),
-    t("expert_advice_personalized_plans")
-  ];
-
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * oneLiners.length);
-    setDynamicOneLiner(oneLiners[randomIndex]);
+    const oneLinersList = [
+      t("secure_family_future"),
+      t("protect_wellbeing"),
+      t("affordable_term_insurance"),
+      t("drive_with_confidence"),
+      t("safeguard_business_home"),
+      t("explore_world_worry_free"),
+      t("peace_of_mind_priority"),
+      t("find_perfect_coverage"),
+      t("expert_advice_personalized_plans")
+    ];
+
+    const randomIndex = Math.floor(Math.random() * oneLinersList.length);
+    setDynamicOneLiner(oneLinersList[randomIndex]);
 
     const updateBackgroundClass = () => {
       const currentHour = new Date().getHours();
@@ -64,15 +64,10 @@ const Index = () => {
     }
 
     return () => clearInterval(intervalId); // Cleanup interval
-  }, [oneLiners, i18n.language]);
+  }, [t, i18n.language]);
 
   const currentUrl = "https://insurance-support.vercel.app/";
   const shareTitle = t("hero_title");
-
-  const handleServiceCardClick = useCallback((insuranceType: string) => {
-    setSelectedInsuranceType(insuranceType);
-    setIsModalOpen(true);
-  }, []);
 
   const handleCloseModal = useCallback(() => {
     setIsModalOpen(false);
@@ -102,7 +97,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white w-full h-full flex flex-col justify-between items-center text-center p-4 pt-16 pb-8">
           {/* DateTimeDisplay positioned at the top right of the hero section */}
-          <DateTimeDisplay className="absolute top-4 right-4" /> 
+          <DateTimeDisplay className="absolute top-4 right-4" />
           <div className="space-y-4 mt-8 mb-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight px-2">
               {t("hero_title")}
@@ -113,16 +108,18 @@ const Index = () => {
           </div>
           {/* Main action buttons/widgets container - now always flex-col */}
           <div className="flex flex-col items-center justify-center gap-4 w-full mt-4 mb-4">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg w-full sm:w-auto"
-              onClick={() => handleServiceCardClick('General Inquiry')}
+              onClick={() => {
+                setSelectedInsuranceType('General Inquiry');
+                setIsModalOpen(true);
+              }}
             >
               {t("get_a_free_quote")}
             </Button>
-            {/* SocialShareButtons and ChatbotWidget are now separate blocks */}
+            {/* SocialShareButtons is now separate blocks */}
             <SocialShareButtons url={currentUrl} title={shareTitle} />
-            <ChatbotWidget />
           </div>
         </div>
       </section>
@@ -137,55 +134,55 @@ const Index = () => {
             {t("services_description")}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <ServiceCard 
-              title={t("life_insurance")} 
-              icon={Heart} 
-              onClick={() => handleServiceCardClick('Life Insurance')} 
+            <ServiceCard
+              title={t("life_insurance")}
+              icon={Heart}
+              href={`/services/${slugify('life_insurance')}`}
             />
-            <ServiceCard 
-              title={t("health_insurance")} 
-              icon={Shield} 
-              onClick={() => handleServiceCardClick('Health Insurance')} 
+            <ServiceCard
+              title={t("health_insurance")}
+              icon={Shield}
+              href={`/services/${slugify('health_insurance')}`}
             />
-            <ServiceCard 
-              title={t("term_insurance")} 
-              icon={FileText} 
-              onClick={() => handleServiceCardClick('Term Insurance')} 
+            <ServiceCard
+              title={t("term_insurance")}
+              icon={FileText}
+              href={`/services/${slugify('term_insurance')}`}
             />
-            <ServiceCard 
-              title={t("motor_insurance")} 
-              icon={Car} 
-              onClick={() => handleServiceCardClick('Motor Insurance')} 
+            <ServiceCard
+              title={t("motor_insurance")}
+              icon={Car}
+              href={`/services/${slugify('motor_insurance')}`}
             />
-            <ServiceCard 
-              title={t("sme_insurance")} 
-              icon={Building} 
-              onClick={() => handleServiceCardClick('Fire Insurance')} 
+            <ServiceCard
+              title={t("sme_insurance")}
+              icon={Building}
+              href={`/services/${slugify('sme_insurance')}`}
             />
-            <ServiceCard 
-              title={t("travel_insurance")} 
-              icon={Plane} 
-              onClick={() => handleServiceCardClick('Travel Insurance')} 
+            <ServiceCard
+              title={t("travel_insurance")}
+              icon={Plane}
+              href={`/services/${slugify('travel_insurance')}`}
             />
-            <ServiceCard 
-              title={t("pension_plans")} 
-              icon={Wallet} 
-              onClick={() => handleServiceCardClick('Pension Plans')} 
+            <ServiceCard
+              title={t("pension_plans")}
+              icon={Wallet}
+              href={`/services/${slugify('pension_plans')}`}
             />
-            <ServiceCard 
-              title={t("ulip_plans")} 
-              icon={TrendingUp} 
-              onClick={() => handleServiceCardClick('ULIP Plans')} 
+            <ServiceCard
+              title={t("ulip_plans")}
+              icon={TrendingUp}
+              href={`/services/${slugify('ulip_plans')}`}
             />
-            <ServiceCard 
-              title={t("wedding_insurance")} 
-              icon={HeartHandshake} 
-              onClick={() => handleServiceCardClick('Wedding Insurance')} 
+            <ServiceCard
+              title={t("wedding_insurance")}
+              icon={HeartHandshake}
+              href={`/services/${slugify('wedding_insurance')}`}
             />
-            <ServiceCard 
-              title={t("cyber_insurance")} 
-              icon={ShieldCheck} 
-              onClick={() => handleServiceCardClick('Cyber Insurance')} 
+            <ServiceCard
+              title={t("cyber_insurance")}
+              icon={ShieldCheck}
+              href={`/services/${slugify('cyber_insurance')}`}
             />
           </div>
         </div>
@@ -239,8 +236,8 @@ const Index = () => {
             {t("contact_description")}
           </p>
           <div className="flex flex-wrap justify-center gap-6 sm:gap-8 max-w-2xl mx-auto">
-            <a 
-              href="tel:+919986634506" 
+            <a
+              href="tel:+919986634506"
               className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
             >
               <Phone className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
@@ -251,10 +248,10 @@ const Index = () => {
                 +91-9986634506
               </CardDescription>
             </a>
-            <a 
-              href="https://wa.me/919986634506" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://wa.me/919986634506"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
             >
               <MessageSquare className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
@@ -265,10 +262,10 @@ const Index = () => {
                 +91-9986634506
               </CardDescription>
             </a>
-            <a 
-              href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground"
             >
               <MapPin className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
@@ -283,10 +280,10 @@ const Index = () => {
         </div>
       </section>
 
-      <ServiceModal 
-        isOpen={isModalOpen} 
-        onClose={handleCloseModal} 
-        insuranceType={selectedInsuranceType} 
+      <ServiceModal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        insuranceType={selectedInsuranceType}
       />
       <VisitorCounter />
     </div>

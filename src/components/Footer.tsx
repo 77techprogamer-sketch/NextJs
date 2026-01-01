@@ -1,9 +1,7 @@
 "use client";
 
 import React from "react";
-import { MadeWithDyad } from "@/components/made-with-dyad";
-import { useTranslation } from 'react-i18next'; // Import useTranslation
-
+import { useTranslation } from 'react-i18next';
 const Footer = () => {
   const { t } = useTranslation(); // Initialize useTranslation
 
@@ -17,12 +15,9 @@ const Footer = () => {
         </div>
       </div>
       <div className="container mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center">
-        <div className="text-center sm:text-left mb-4 sm:mb-0">
+        <div className="text-center sm:text-left">
           <p className="text-sm font-semibold">{t("insurance_support")}</p>
           <p className="text-xs">{t("insurance_support_contact")}</p>
-        </div>
-        <div className="text-center">
-          <MadeWithDyad />
         </div>
       </div>
     </footer>

@@ -2,32 +2,93 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://insurance-support.vercel.app/</loc>
-    <lastmod>2024-08-01</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://insurance-support.vercel.app/privacy</loc>
-    <lastmod>2024-08-01</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.5</priority>
   </url>
   <url>
     <loc>https://insurance-support.vercel.app/terms</loc>
-    <lastmod>2024-08-01</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <!-- Service Pages -->
+  <url>
+    <loc>https://insurance-support.vercel.app/services/life-insurance</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-  <!-- Blocked and Not Found pages are typically not indexed, but included for completeness if they have unique content -->
+  <url>
+    <loc>https://insurance-support.vercel.app/services/health-insurance</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/services/term-insurance</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/services/motor-insurance</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/services/sme-insurance</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/services/travel-insurance</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/services/pension-plans</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/services/ulip-plans</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/services/wedding-insurance</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://insurance-support.vercel.app/services/cyber-insurance</loc>
+    <lastmod>2026-01-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Blocked and Not Found pages -->
   <url>
     <loc>https://insurance-support.vercel.app/blocked</loc>
-    <lastmod>2024-08-01</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.1</priority>
   </url>
   <url>
     <loc>https://insurance-support.vercel.app/404</loc>
-    <lastmod>2024-08-01</lastmod>
+    <lastmod>2026-01-01</lastmod>
     <changefreq>never</changefreq>
     <priority>0.1</priority>
   </url>

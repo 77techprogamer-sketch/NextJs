@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -9,7 +9,6 @@ import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Checkbox } from '@/components/ui/checkbox';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { CalendarIcon } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
@@ -18,6 +17,7 @@ import { cn } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { FORM_CONFIGS, DEFAULT_FORM_CONFIG } from '@/config/forms';
 
 interface QuoteFormProps {
   insuranceType: string;
@@ -27,65 +27,59 @@ interface QuoteFormProps {
 
 const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess }) => {
   const { t } = useTranslation();
-  const [showMemberDetails, setShowMemberDetails] = useState(false);
   const [selectedMembers, setSelectedMembers] = useState<string[]>([]);
 
-  const formSchema = z.object({
+  const config = FORM_CONFIGS[insuranceType] || DEFAULT_FORM_CONFIG;
+
+  // Build schema dynamically based on config
+  const schemaShape: Record<string, z.ZodTypeAny> = {
     fullName: z.string().min(1, { message: t("name_required") }),
-    age: z.union([z.number().min(1, "Age must be positive").max(120, "Age seems too high").optional(), z.literal(null)]),
+    mobileNumber: z.string().regex(/^\d{10}$/, { message: t("phone_digits_error") }),
+    age: z.union([z.number().min(1).max(120).optional(), z.literal(null)]),
     dateOfBirth: z.date().optional(),
     gender: z.enum(['Male', 'Female', 'Other'], { message: t("gender_required") }),
-    mobileNumber: z.string().regex(/^\d{10}$/, { message: t("phone_digits_error") }),
-    sumAssured: z.union([
-      z.number().min(100000, { message: t("sum_assured_error") }).multipleOf(100000, { message: t("sum_assured_error") }).optional(),
-      z.literal(null)
-    ]),
-    healthMembers: z.string().optional(),
-    memberDetails: z.record(z.string(), z.object({
-      age: z.number().min(1, "Age must be positive").max(120, "Age seems too high").optional(),
+  };
+
+  config.fields.forEach(field => {
+    if (!schemaShape[field.name]) {
+      if (field.type === 'number') {
+        schemaShape[field.name] = z.union([z.number().optional(), z.literal(null)]);
+      } else {
+        schemaShape[field.name] = z.string().optional();
+      }
+    }
+  });
+
+  // Special handling for Health Insurance members details
+  if (insuranceType === 'Health Insurance') {
+    schemaShape.memberDetails = z.record(z.string(), z.object({
+      age: z.number().min(1).max(120).optional(),
       dateOfBirth: z.date().optional(),
-      gender: z.enum(['Male', 'Female', 'Other'], { message: t("gender_required") }).optional(),
-    })).optional(),
-  }).refine((data) => data.age !== undefined || data.dateOfBirth !== undefined, {
+      gender: z.enum(['Male', 'Female', 'Other']).optional(),
+    })).optional();
+  }
+
+  const formSchema = z.object(schemaShape).refine((data) => data.age !== undefined || data.dateOfBirth !== undefined, {
     message: t("age_dob_required"),
     path: ["age"],
-  }).refine((data) => {
-    if (insuranceType !== 'General Inquiry') {
-      return data.sumAssured !== undefined && data.sumAssured !== null;
-    }
-    return true;
-  }, {
-    message: t("sum_assured_required"),
-    path: ["sumAssured"],
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: '',
+      mobileNumber: '',
       age: undefined,
       dateOfBirth: undefined,
-      gender: undefined,
-      mobileNumber: '',
-      sumAssured: undefined,
-      healthMembers: undefined,
+      gender: 'Male',
       memberDetails: {},
-    },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any,
   });
-
-  useEffect(() => {
-    if (insuranceType === 'Health Insurance') {
-      setShowMemberDetails(true);
-    } else {
-      setShowMemberDetails(false);
-      form.setValue('healthMembers', undefined);
-      form.setValue('memberDetails', {});
-    }
-  }, [insuranceType, form]);
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const { data, error } = await supabase
+      const { error } = await supabase
         .from('customers')
         .insert([
           {
@@ -95,13 +89,11 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             phone: values.mobileNumber,
             insurance_type: insuranceType,
             intended_sum_insured: values.sumAssured,
-            // Add other fields as necessary
+            metadata: values,
           },
         ]);
 
-      if (error) {
-        throw error;
-      }
+      if (error) throw error;
 
       toast.success(t("quote_submitted_successfully"));
       onSuccess();
@@ -122,7 +114,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       newSelectedMembers = ['father', 'mother'];
     }
     setSelectedMembers(newSelectedMembers);
-    form.setValue('memberDetails', {}); // Reset member details when selection changes
+    form.setValue('memberDetails', {});
   };
 
   return (
@@ -130,149 +122,129 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 p-4">
         <h3 className="text-lg font-semibold text-center mb-4">{t("quote_form_title", { type: insuranceType })}</h3>
 
-        <FormField
-          control={form.control}
-          name="fullName"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("your_full_name")}</FormLabel>
-              <FormControl>
-                <Input placeholder={t("your_full_name")} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <div className="flex items-center space-x-2">
+        {config.fields.map((field) => (
           <FormField
+            key={field.name}
             control={form.control}
-            name="age"
-            render={({ field }) => (
-              <FormItem className="flex-1">
-                <FormLabel>{t("age")}</FormLabel>
+            name={field.name}
+            render={({ field: formField }) => (
+              <FormItem>
+                <FormLabel>{t(field.labelKey)}</FormLabel>
                 <FormControl>
-                  <Input
-                    type="number"
-                    placeholder={t("age")}
-                    {...field}
-                    onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
-                    value={field.value === undefined ? '' : field.value}
-                    disabled={!!form.watch('dateOfBirth')}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <span className="text-muted-foreground">{t("or")}</span>
-          <FormField
-            control={form.control}
-            name="dateOfBirth"
-            render={({ field }) => (
-              <FormItem className="flex-1">
-                <FormLabel>{t("date_of_birth")}</FormLabel>
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <FormControl>
-                      <Button
-                        variant={"outline"}
-                        className={cn(
-                          "w-full pl-3 text-left font-normal",
-                          !field.value && "text-muted-foreground"
-                        )}
-                        disabled={form.watch('age') !== undefined && form.watch('age') !== null}
-                      >
-                        {field.value ? format(field.value, "PPP") : <span>{t("date_of_birth")}</span>}
-                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                      </Button>
-                    </FormControl>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-auto p-0" align="start">
-                    <Calendar
-                      mode="single"
-                      selected={field.value}
-                      onSelect={field.onChange}
-                      disabled={(date) =>
-                        date > new Date() || date < new Date("1900-01-01")
-                      }
-                      initialFocus
+                  {field.type === 'select' ? (
+                    <Select onValueChange={field.name === 'healthMembers' ? handleHealthMembersChange : formField.onChange} defaultValue={formField.value}>
+                      <SelectTrigger>
+                        <SelectValue placeholder={field.placeholderKey ? t(field.placeholderKey) : ""} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {field.options?.map(opt => (
+                          <SelectItem key={opt.value} value={opt.value}>{t(opt.labelKey)}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  ) : field.type === 'radio' ? (
+                    <RadioGroup onValueChange={formField.onChange} defaultValue={formField.value} className="flex flex-col space-y-1">
+                      {field.options?.map(opt => (
+                        <FormItem key={opt.value} className="flex items-center space-x-3 space-y-0">
+                          <FormControl><RadioGroupItem value={opt.value} /></FormControl>
+                          <FormLabel className="font-normal">{t(opt.labelKey)}</FormLabel>
+                        </FormItem>
+                      ))}
+                    </RadioGroup>
+                  ) : (
+                    <Input
+                      type={field.type}
+                      placeholder={field.placeholderKey ? t(field.placeholderKey) : ""}
+                      {...formField}
+                      onChange={(e) => {
+                        const val = field.type === 'number' ? (e.target.value ? parseInt(e.target.value) : undefined) : e.target.value;
+                        formField.onChange(val);
+                      }}
+                      value={formField.value ?? ""}
                     />
-                  </PopoverContent>
-                </Popover>
+                  )}
+                </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-        </div>
+        ))}
 
-        <FormField
-          control={form.control}
-          name="gender"
-          render={({ field }) => (
-            <FormItem className="space-y-3">
-              <FormLabel>{t("your_gender")}</FormLabel>
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                  className="flex flex-col space-y-1"
-                >
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="Male" />
-                    </FormControl>
-                    <FormLabel className="font-normal">{t("male")}</FormLabel>
-                  </FormItem>
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="Female" />
-                    </FormControl>
-                    <FormLabel className="font-normal">{t("female")}</FormLabel>
-                  </FormItem>
-                  <FormItem className="flex items-center space-x-3 space-y-0">
-                    <FormControl>
-                      <RadioGroupItem value="Other" />
-                    </FormControl>
-                    <FormLabel className="font-normal">{t("other")}</FormLabel>
-                  </FormItem>
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
+        {!config.fields.find(f => f.name === 'age') && (
+          <div className="flex items-center space-x-2">
+            <FormField
+              control={form.control}
+              name="age"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormLabel>{t("age")}</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder={t("age")}
+                      {...field}
+                      onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                      value={field.value ?? ""}
+                      disabled={!!form.watch('dateOfBirth')}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <span className="text-muted-foreground self-end pb-2">{t("or")}</span>
+            <FormField
+              control={form.control}
+              name="dateOfBirth"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormLabel>{t("date_of_birth")}</FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={"outline"}
+                          className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}
+                          disabled={form.watch('age') !== undefined && form.watch('age') !== null}
+                        >
+                          {field.value ? format(field.value, "PPP") : <span>{t("date_of_birth")}</span>}
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar mode="single" selected={field.value} onSelect={field.onChange} disabled={(date) => date > new Date() || date < new Date("1900-01-01")} initialFocus />
+                    </PopoverContent>
+                  </Popover>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        )}
 
-        <FormField
-          control={form.control}
-          name="mobileNumber"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("mobile_number")}</FormLabel>
-              <FormControl>
-                <Input type="tel" placeholder="9876543210" {...field} maxLength={10} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* Conditional rendering for Sum Assured */}
-        {insuranceType !== 'General Inquiry' && (
+        {!config.fields.find(f => f.name === 'gender') && (
           <FormField
             control={form.control}
-            name="sumAssured"
+            name="gender"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t("sum_assured")}</FormLabel>
+              <FormItem className="space-y-3">
+                <FormLabel>{t("your_gender")}</FormLabel>
                 <FormControl>
-                  <Input
-                    type="number"
-                    placeholder="5,00,000"
-                    {...field}
-                    onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
-                    value={field.value === undefined ? '' : field.value}
-                  />
+                  <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-col space-y-1">
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl><RadioGroupItem value="Male" /></FormControl>
+                      <FormLabel className="font-normal">{t("male")}</FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl><RadioGroupItem value="Female" /></FormControl>
+                      <FormLabel className="font-normal">{t("female")}</FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl><RadioGroupItem value="Other" /></FormControl>
+                      <FormLabel className="font-normal">{t("other")}</FormLabel>
+                    </FormItem>
+                  </RadioGroup>
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -280,141 +252,49 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           />
         )}
 
-        {showMemberDetails && (
-          <FormField
-            control={form.control}
-            name="healthMembers"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{t("health_members_option")}</FormLabel>
-                <Select onValueChange={handleHealthMembersChange} defaultValue={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder={t("select_members_for_cover")} />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    <SelectItem value="Self">{t("self")}</SelectItem>
-                    <SelectItem value="Self with Wife and 1 kid">{t("self_wife_1kid")}</SelectItem>
-                    <SelectItem value="Self with Wife and 2 kids">{t("self_wife_2kids")}</SelectItem>
-                    <SelectItem value="Self with Parents">{t("self_parents")}</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        )}
-
-        {showMemberDetails && selectedMembers.length > 0 && (
+        {insuranceType === 'Health Insurance' && selectedMembers.length > 0 && (
           <div className="space-y-4">
             <p className="font-semibold">{t("provide_member_details")}</p>
-            {selectedMembers.map((member, index) => (
+            {selectedMembers.map((member) => (
               <div key={member} className="border p-3 rounded-md space-y-2">
                 <h4 className="font-medium capitalize">{t(member)}</h4>
-                <FormField
-                  control={form.control}
-                  name={`memberDetails.${member}.age`}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("age")}</FormLabel>
-                      <FormControl>
-                        <Input
-                          type="number"
-                          placeholder={t("age")}
-                          {...field}
-                          onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
-                          value={field.value === undefined ? '' : field.value}
-                          disabled={!!form.watch(`memberDetails.${member}.dateOfBirth`)}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`memberDetails.${member}.dateOfBirth`}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{t("date_of_birth")}</FormLabel>
-                      <Popover>
-                        <PopoverTrigger asChild>
-                          <FormControl>
-                            <Button
-                              variant={"outline"}
-                              className={cn(
-                                "w-full pl-3 text-left font-normal",
-                                !field.value && "text-muted-foreground"
-                              )}
-                              disabled={form.watch(`memberDetails.${member}.age`) !== undefined && form.watch(`memberDetails.${member}.age`) !== null}
-                            >
-                              {field.value ? format(field.value, "PPP") : <span>{t("date_of_birth")}</span>}
-                              <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
-                            </Button>
-                          </FormControl>
-                        </PopoverTrigger>
-                        <PopoverContent className="w-auto p-0" align="start">
-                          <Calendar
-                            mode="single"
-                            selected={field.value}
-                            onSelect={field.onChange}
-                            disabled={(date) =>
-                              date > new Date() || date < new Date("1900-01-01")
-                            }
-                            initialFocus
-                          />
-                        </PopoverContent>
-                      </Popover>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                <FormField
-                  control={form.control}
-                  name={`memberDetails.${member}.gender`}
-                  render={({ field }) => (
-                    <FormItem className="space-y-3">
-                      <FormLabel>{t("your_gender")}</FormLabel>
-                      <FormControl>
-                        <RadioGroup
-                          onValueChange={field.onChange}
-                          defaultValue={field.value}
-                          className="flex flex-col space-y-1"
-                        >
-                          <FormItem className="flex items-center space-x-3 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value="Male" />
-                            </FormControl>
-                            <FormLabel className="font-normal">{t("male")}</FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-3 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value="Female" />
-                            </FormControl>
-                            <FormLabel className="font-normal">{t("female")}</FormLabel>
-                          </FormItem>
-                          <FormItem className="flex items-center space-x-3 space-y-0">
-                            <FormControl>
-                              <RadioGroupItem value="Other" />
-                            </FormControl>
-                            <FormLabel className="font-normal">{t("other")}</FormLabel>
-                          </FormItem>
-                        </RadioGroup>
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+                <div className="flex gap-2">
+                  <FormField
+                    control={form.control}
+                    name={`memberDetails.${member}.age`}
+                    render={({ field }) => (
+                      <FormItem className="flex-1">
+                        <FormControl>
+                          <Input type="number" placeholder={t("age")} {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} value={field.value ?? ""} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name={`memberDetails.${member}.gender`}
+                    render={({ field }) => (
+                      <FormItem className="flex-1">
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <SelectTrigger><SelectValue placeholder={t("gender")} /></SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Male">{t("male")}</SelectItem>
+                            <SelectItem value="Female">{t("female")}</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
               </div>
             ))}
           </div>
         )}
 
-        <div className="flex justify-end gap-2">
-          <Button type="button" variant="outline" onClick={onClose}>
-            {t("cancel")}
-          </Button>
+        <div className="flex justify-end gap-2 pt-4">
+          <Button type="button" variant="outline" onClick={onClose}>{t("cancel")}</Button>
           <Button type="submit">{t("submit_quote")}</Button>
         </div>
       </form>
