@@ -97,7 +97,7 @@ serve(async (req) => {
     });
 
     let resultPost = null;
-    const scores: any[] = [];
+    const scores: { title: string; score: number; reasons: string[] }[] = [];
 
     if (normalizedType && serviceKeywords[normalizedType]) {
       const keywords = serviceKeywords[normalizedType].map(k => k.toLowerCase());

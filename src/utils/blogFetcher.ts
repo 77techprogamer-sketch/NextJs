@@ -5,7 +5,7 @@ interface BlogPost {
   url: string;
   date: string;
   summary: string;
-  debug?: any; // Optional debug info
+  debug?: unknown; // Optional debug info
 }
 
 export const fetchBlogPosts = async (serviceType?: string): Promise<BlogPost | null> => {
