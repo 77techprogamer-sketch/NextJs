@@ -56,18 +56,18 @@ const VisitorCounter = () => {
         // Fetch ISP and location information using the IP address
         if (visitorIp) {
           try {
-            const geoResponse = await fetch(`https://ip-api.com/json/${visitorIp}`);
+            const geoResponse = await fetch(`https://ipapi.co/${visitorIp}/json/`);
             if (geoResponse.ok) {
               const geoData = await geoResponse.json();
-              if (geoData.status === 'success') {
-                visitorIsp = geoData.isp || null;
+              if (!geoData.error) {
+                visitorIsp = geoData.org || null;
                 visitorCity = geoData.city || null;
-                visitorRegion = geoData.regionName || null;
-                visitorCountry = geoData.country || null;
+                visitorRegion = geoData.region || null;
+                visitorCountry = geoData.country_name || null;
               }
             }
           } catch (e) {
-            console.warn('Could not fetch Geo data:', e);
+            console.warn('Could not fetch Geo data from ipapi.co:', e);
           }
         }
 

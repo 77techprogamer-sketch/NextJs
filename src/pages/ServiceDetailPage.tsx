@@ -228,10 +228,9 @@ const ServiceDetailPage = () => {
             </CardHeader>
             <CardContent>
               {/* Display the summary content */}
-              <div
-                className="text-muted-foreground mb-4 prose dark:prose-invert max-w-none prose-img:max-w-full prose-img:h-auto prose-table:w-full prose-table:overflow-x-auto max-h-[400px] overflow-y-auto"
-                dangerouslySetInnerHTML={{ __html: latestBlogPost.summary }}
-              />
+              <div className="text-muted-foreground mb-4 line-clamp-4 max-w-none text-sm sm:text-base">
+                {latestBlogPost.summary}
+              </div>
               <a
                 href={latestBlogPost.url}
                 target="_blank"
