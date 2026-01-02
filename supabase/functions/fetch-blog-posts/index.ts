@@ -6,11 +6,13 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-const unescapeHtmlEntities = (html: string): string => {
+const stripHtmlTags = (html: string): string => {
   try {
     const parser = new DOMParser();
     const doc = parser.parseFromString(`<body>${html}</body>`, 'text/html');
-    return doc ? doc.body.innerHTML : html;
+    // Use textContent to strip tags, then unescape any remaining entities if needed (DOMParser textContent handles most)
+    // Actually, textContent will contain the text node values.
+    return doc ? (doc.body.textContent || "") : html;
   } catch (e) {
     return html;
   }
@@ -86,7 +88,7 @@ serve(async (req) => {
       const rawSummary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "";
 
       const cleanSummary = rawSummary.split('https://insurance-support.vercel.app')[0];
-      const description = unescapeHtmlEntities(cleanSummary);
+      const description = stripHtmlTags(cleanSummary);
 
       const hashtags = (description.match(/#(\w+)/g) || []).map(h => h.toLowerCase());
       const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g))
@@ -179,8 +181,8 @@ serve(async (req) => {
     });
 
   } catch (error) {
-    console.error('[ERROR]', error.message);
-    return new Response(JSON.stringify({ error: error.message }), {
+    console.error('[ERROR]', (error as Error).message);
+    return new Response(JSON.stringify({ error: (error as Error).message }), {
       status: 500,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
