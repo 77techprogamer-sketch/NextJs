@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from 'react-i18next'; // Import useTranslation
-import { formatLabel } from '@/utils/formatText';
+import { formatLabel, normalizeUIValue } from '@/utils/formatText';
 
 interface ServiceCardProps {
   title: string;
@@ -23,7 +23,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon: Icon, href }) =>
       >
         <CardHeader className="pb-2 flex flex-col items-center">
           <Icon className="h-10 w-10 text-primary mb-2" />
-          <CardTitle className="text-lg font-semibold">{title}</CardTitle>
+          <CardTitle className="text-lg font-semibold">{normalizeUIValue(title)}</CardTitle>
         </CardHeader>
         <CardContent className="text-sm text-muted-foreground">
           {t("click_to_get_quote", { type: formatLabel(title).toLowerCase() })}

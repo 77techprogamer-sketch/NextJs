@@ -12,7 +12,7 @@ import QuoteForm from '@/components/QuoteForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Import Card components
 import { Skeleton } from '@/components/ui/skeleton'; // Import Skeleton component
 import { fetchBlogPosts } from '@/utils/blogFetcher'; // Import the blog fetcher utility
-import { formatLabel } from '@/utils/formatText';
+import { formatLabel, normalizeUIValue } from '@/utils/formatText';
 
 interface ServiceDetail {
   titleKey: string;
@@ -134,7 +134,7 @@ const ServiceDetailPage = () => {
   return (
     <div className="container mx-auto px-4 py-12">
       <Helmet>
-        <title>{t(service.titleKey)} - {t("insurance_support")}</title>
+        <title>{normalizeUIValue(t(service.titleKey))} - {t("insurance_support")}</title>
         <meta name="description" content={t(service.metaDescriptionKey)} />
         <link rel="canonical" href={`https://insurance-support.vercel.app/services/${serviceType}`} />
         <script type="application/ld+json">
@@ -142,7 +142,7 @@ const ServiceDetailPage = () => {
             {
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "name": "${t(service.titleKey)}",
+              "name": "${normalizeUIValue(t(service.titleKey))}",
               "description": "${t(service.metaDescriptionKey)}",
               "url": "https://insurance-support.vercel.app/services/${serviceType}"
             }
@@ -161,7 +161,7 @@ const ServiceDetailPage = () => {
 
       <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
         <div>
-          <h1 className="text-4xl font-bold mb-4">{t(service.titleKey)}</h1>
+          <h1 className="text-4xl font-bold mb-4">{normalizeUIValue(t(service.titleKey))}</h1>
           <p className="text-lg text-muted-foreground mb-6">{t(service.descriptionKey)}</p>
           <Dialog open={isQuoteDialogOpen} onOpenChange={setIsQuoteDialogOpen}>
             <DialogTrigger asChild>

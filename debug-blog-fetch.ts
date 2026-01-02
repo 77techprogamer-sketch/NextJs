@@ -1,16 +1,20 @@
 
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
 
-const unescapeHtmlEntities = (html: string): string => {
+const stripHtmlTags = (html: string): string => {
     try {
         const parser = new DOMParser();
-        const doc = parser.parseFromString(`<body>${html}</body>`, 'text/html');
-        return doc ? doc.body.innerHTML : html;
+        // First pass: Decode HTML entities.
+        const decodedDoc = parser.parseFromString(`<body>${html}</body>`, 'text/html');
+        const decodedText = decodedDoc ? (decodedDoc.body.textContent || "") : html;
+
+        // Second pass: Strip actual HTML tags.
+        const cleanDoc = parser.parseFromString(`<body>${decodedText}</body>`, 'text/html');
+        return cleanDoc ? (cleanDoc.body.textContent || "") : decodedText;
     } catch (e) {
         return html;
     }
 };
-
 const serviceKeywords: Record<string, string[]> = {
     "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "death benefit", "policyholder", "whole life"],
     "health_insurance": ["health insurance", "medical insurance", "mediclaim", "hospitalization", "आरोग्य विमा", "medical cover", "base plan", "top up plan"],
@@ -49,15 +53,16 @@ async function runDebug() {
             .map(m => m[1].toLowerCase())
             .filter(c => !IGNORED_CATEGORIES.includes(c));
 
-        const rawSummary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "";
+        const rawSummary = descriptionMatch ? descriptionMatch[1].replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "").trim() : "";
         const cleanSummary = rawSummary.split('https://insurance-support.vercel.app')[0];
-        const description = unescapeHtmlEntities(cleanSummary);
+        const description = stripHtmlTags(cleanSummary);
         const hashtags = (description.match(/#(\w+)/g) || []).map(h => h.toLowerCase());
 
         return {
             title: titleMatch ? titleMatch[1] : "Untitled",
             categories,
             hashtags,
+            description,
             descriptionSnippet: description.substring(0, 100).replace(/\n/g, ' ')
         };
     });
@@ -101,6 +106,16 @@ async function runDebug() {
                 score += 8;
                 reasons.push(`category_match`);
             }
+
+            // 4. Description Whole Word Keyword Match - 3 points
+            const descLower = post.description.toLowerCase();
+            keywords.forEach(k => {
+                const regex = new RegExp(`\\b${k}\\b`, 'i');
+                if (regex.test(descLower.substring(0, 1500))) {
+                    score += 3;
+                    reasons.push(`desc_kw:${k}`);
+                }
+            });
 
             return { title: post.title, score, reasons, categories: post.categories };
         });

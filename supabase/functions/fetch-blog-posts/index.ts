@@ -90,7 +90,7 @@ serve(async (req) => {
       const title = titleMatch ? titleMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "Untitled";
       const postUrl = linkMatch ? linkMatch[1] : (simpleLinkMatch ? simpleLinkMatch[1] : "#");
       const date = pubDateMatch ? new Date(pubDateMatch[1]).toISOString() : new Date().toISOString();
-      const rawSummary = descriptionMatch ? descriptionMatch[1].replace("<![CDATA[", "").replace("]]>", "").trim() : "";
+      const rawSummary = descriptionMatch ? descriptionMatch[1].replace(/<!\[CDATA\[/g, "").replace(/\]\]>/g, "").trim() : "";
 
       const cleanSummary = rawSummary.split('https://insurance-support.vercel.app')[0];
       const description = stripHtmlTags(cleanSummary);

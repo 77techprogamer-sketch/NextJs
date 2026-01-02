@@ -18,7 +18,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { FORM_CONFIGS, DEFAULT_FORM_CONFIG } from '@/config/forms';
-import { formatLabel } from '@/utils/formatText';
+import { formatLabel, normalizeUIValue } from '@/utils/formatText';
 
 interface QuoteFormProps {
   insuranceType: string;
@@ -125,7 +125,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           {t("quote_form_title", {
             type: config === DEFAULT_FORM_CONFIG
               ? formatLabel(insuranceType)
-              : t(insuranceType)
+              : normalizeUIValue(t(insuranceType))
           })}
         </h3>
 
