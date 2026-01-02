@@ -147,15 +147,15 @@ const VisitorCounter = () => {
   }
 
   const containerClasses = cn(
-    "fixed text-muted-foreground bg-background/80 backdrop-blur-sm rounded-lg flex flex-col items-end shadow-lg border animate-in fade-in-0 duration-700",
-    isMobile ? "bottom-2 right-2 p-2 space-y-1 text-xs" : "bottom-4 right-4 p-3 space-y-2 text-xs"
+    "fixed text-muted-foreground bg-background/80 backdrop-blur-sm rounded-lg flex flex-col items-start shadow-lg border animate-in fade-in-0 duration-700",
+    isMobile ? "bottom-2 left-2 p-2 space-y-1 text-xs" : "bottom-4 left-4 p-3 space-y-2 text-xs"
   );
 
   return (
     <div className={containerClasses}>
       <div className="flex items-center" title="Total visits">
         <Eye className="h-4 w-4 mr-2" />
-        <div className="flex flex-col items-end">
+        <div className="flex flex-col items-start">
           <span>{totalVisits} total visits</span>
           {lastVisit && <span className="text-muted-foreground/70">Last visit {lastVisit}</span>}
         </div>
