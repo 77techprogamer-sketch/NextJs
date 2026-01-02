@@ -9,10 +9,15 @@ const corsHeaders = {
 const stripHtmlTags = (html: string): string => {
   try {
     const parser = new DOMParser();
-    const doc = parser.parseFromString(`<body>${html}</body>`, 'text/html');
-    // Use textContent to strip tags, then unescape any remaining entities if needed (DOMParser textContent handles most)
-    // Actually, textContent will contain the text node values.
-    return doc ? (doc.body.textContent || "") : html;
+    // First pass: Decode HTML entities.
+    // If input is "&lt;b&gt;Text&lt;/b&gt;", this converts it to "<b>Text</b>"
+    const decodedDoc = parser.parseFromString(`<body>${html}</body>`, 'text/html');
+    const decodedText = decodedDoc ? (decodedDoc.body.textContent || "") : html;
+
+    // Second pass: Strip actual HTML tags.
+    // If input was "<b>Text</b>", this converts it to "Text"
+    const cleanDoc = parser.parseFromString(`<body>${decodedText}</body>`, 'text/html');
+    return cleanDoc ? (cleanDoc.body.textContent || "") : decodedText;
   } catch (e) {
     return html;
   }
