@@ -30,7 +30,7 @@ const serviceKeywords: Record<string, string[]> = {
   "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "death benefit", "policyholder", "whole life"],
   "health_insurance": ["health insurance", "medical insurance", "mediclaim", "hospitalization", "आरोग्य विमा", "medical cover", "base plan", "top up plan"],
   "term_insurance": ["term insurance", "pure protection", "टर्म बीमा", "income replacement", "term plan", "death protection"],
-  "motor_insurance": ["motor insurance", "car insurance", "vehicle insurance", "मोटर बीमा", "two wheeler", "bike insurance", "third party insurance"],
+  "motor_insurance": ["motor insurance", "car insurance", "vehicle insurance", "मोटर बीमा", "two wheeler", "bike insurance", "third party insurance", "four wheeler", "auto insurance", "comprehensive car", "motor cover"],
   "sme_insurance": ["sme insurance", "fire insurance", "business insurance", "shopkeeper insurance", "commercial insurance", "workforce insurance"],
   "travel_insurance": ["travel insurance", "trip insurance", "journey insurance", "प्रवास विमा", "international travel", "overseas travel"],
   "pension_plans": ["pension plans", "retirement plans", "annuity", "पेन्शन योजना", "old age income", "pension scheme"],
@@ -61,14 +61,16 @@ serve(async (req) => {
     if (!serviceTypeSlug) {
       try {
         const body = await req.json();
+        console.log('[REQUEST_BODY]', JSON.stringify(body));
         serviceTypeSlug = body.serviceType || body.serviceTypeSlug;
       } catch (e) {
-        // Fallback
+        console.log('[REQUEST_BODY_PARSE_ERROR]', (e as Error).message);
       }
     }
 
     const normalizedType = serviceTypeSlug ? serviceTypeSlug.toLowerCase().replace(/-/g, '_') : null;
     console.log(`[REQUEST] slug=${serviceTypeSlug} -> normalized=${normalizedType}`);
+    console.log(`[KEYWORDS_AVAILABLE] ${normalizedType ? (serviceKeywords[normalizedType] ? 'YES' : 'NO - MISSING!') : 'NO SERVICE TYPE'}`);
 
     const blogspotRssUrl = "https://insurancesupportindia.blogspot.com/feeds/posts/default?alt=rss";
     const response = await fetch(blogspotRssUrl);
@@ -158,15 +160,16 @@ serve(async (req) => {
         return scoredPost;
       });
 
-      // Strict Threshold: 8 points
-      const matches = scoredPosts.filter(p => p.score >= 8);
+      // Lowered Threshold: 5 points (more lenient matching)
+      const matches = scoredPosts.filter(p => p.score >= 5);
 
       if (matches.length > 0) {
         matches.sort((a, b) => b.score - a.score || new Date(b.date).getTime() - new Date(a.date).getTime());
         resultPost = matches[0];
         console.log(`[MATCH] for ${normalizedType}: "${resultPost.title}" Score=${resultPost.score}`);
       } else {
-        console.log(`[NO_MATCH] for ${normalizedType}. Best score: ${Math.max(...scoredPosts.map(p => p.score), 0)}`);
+        console.log(`[NO_MATCH] for ${normalizedType}. Best score: ${Math.max(...scoredPosts.map(p => p.score), 0)}. Returning null instead of fallback.`);
+        resultPost = null; // Explicitly set to null instead of falling through to latest post
       }
     } else {
       // Home page
