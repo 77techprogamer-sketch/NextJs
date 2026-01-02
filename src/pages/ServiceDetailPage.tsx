@@ -181,6 +181,13 @@ const ServiceDetailPage = () => {
             </DialogContent>
           </Dialog>
         </div>
+        <div className="relative">
+          <img
+            src={service.image}
+            alt={`${normalizeUIValue(t(service.titleKey))} Infographic`}
+            className="w-full h-auto rounded-lg shadow-2xl"
+          />
+        </div>
         <div className="flex justify-center">
           <img
             src={service.image}
