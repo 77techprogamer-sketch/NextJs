@@ -9,6 +9,7 @@ interface BlogPost {
 }
 
 // Client-side helper to ensure no HTML tags leak through
+// Last Updated: 2026-01-02 22:06 (Deployment Trigger)
 // Uses a robust strategy: textarea for decoding -> Regex for stripping
 const stripHtmlTags = (html: string): string => {
   if (!html) return "";
