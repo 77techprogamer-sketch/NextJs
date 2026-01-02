@@ -48,14 +48,14 @@ const ChatbotWidget = () => {
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none group">
         {/* Availability Badge */}
         <div className={cn(
-          "bg-primary dark:bg-primary border-primary shadow-xl px-4 py-2 rounded-full flex items-center gap-2 transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 pointer-events-auto",
+          "backdrop-blur-md bg-white/10 dark:bg-black/40 border border-white/20 shadow-2xl px-4 py-2 rounded-full flex items-center gap-2 transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 pointer-events-auto",
           "animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-forwards"
         )}>
           <div className="relative">
-            <UserCheck className="h-4 w-4 text-white" />
-            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 bg-green-400 rounded-full animate-ping"></span>
+            <UserCheck className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
+            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 bg-emerald-500 rounded-full animate-ping"></span>
           </div>
-          <span className="text-xs font-bold text-white uppercase tracking-wider">
+          <span className="text-xs font-bold text-gray-800 dark:text-gray-100 uppercase tracking-wider drop-shadow-sm">
             {t("expert_available")}
           </span>
         </div>
@@ -65,13 +65,13 @@ const ChatbotWidget = () => {
           size="icon"
           onClick={() => setIsChatbotOpen(true)}
           className={cn(
-            "h-16 w-16 rounded-full shadow-[0_0_20px_rgba(var(--primary),0.5)] transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto bg-primary hover:bg-primary/90 text-white border-4 border-white dark:border-gray-900",
+            "h-16 w-16 rounded-full shadow-[0_0_30px_rgba(var(--primary),0.6)] transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto bg-gradient-to-br from-primary via-primary/90 to-purple-600 text-white border-4 border-white/50 dark:border-white/10 backdrop-blur-sm",
             "animate-bounce [animation-duration:2000ms] infinite",
-            "hover:animate-none group-hover:animate-none"
+            "hover:animate-none group-hover:animate-none active:shadow-[0_0_15px_rgba(var(--primary),0.4)]"
           )}
         >
           <div className="relative">
-            <MessageSquare className="h-7 w-7" />
+            <MessageSquare className="h-7 w-7 drop-shadow-md" />
             <span className="absolute -top-1 -right-1 flex h-4 w-4">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
               <span className="relative inline-flex rounded-full h-4 w-4 bg-white/20"></span>
@@ -81,8 +81,8 @@ const ChatbotWidget = () => {
       </div>
 
       <Dialog open={isChatbotOpen} onOpenChange={setIsChatbotOpen}>
-        <DialogContent className="sm:max-w-[425px] md:max-w-[700px] lg:max-w-[900px] h-[85vh] p-0 flex flex-col gap-0 overflow-hidden border-none shadow-2xl">
-          <DialogHeader className="p-4 bg-primary text-white flex flex-row items-center justify-between space-y-0">
+        <DialogContent className="sm:max-w-[425px] md:max-w-[700px] lg:max-w-[900px] h-[85vh] p-0 flex flex-col gap-0 overflow-hidden border-none shadow-2xl animate-in zoom-in-95 fade-in-0 slide-in-from-bottom-5 duration-300">
+          <DialogHeader className="p-4 bg-gradient-to-r from-primary to-purple-600 text-white flex flex-row items-center justify-between space-y-0">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 p-2 rounded-lg">
                 <MessageSquare className="h-5 w-5" />
