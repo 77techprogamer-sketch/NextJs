@@ -120,7 +120,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 p-4">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6 bg-white dark:bg-gray-950 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 animate-in slide-in-from-bottom-5 duration-700 ease-out">
         <h3 className="text-lg font-semibold text-center mb-4">
           {t("quote_form_title", {
             type: config === DEFAULT_FORM_CONFIG
@@ -150,11 +150,17 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                       </SelectContent>
                     </Select>
                   ) : field.type === 'radio' ? (
-                    <RadioGroup onValueChange={formField.onChange} defaultValue={formField.value} className="flex flex-col space-y-1">
+                    <RadioGroup onValueChange={formField.onChange} defaultValue={formField.value} className="grid grid-cols-2 gap-4">
                       {field.options?.map(opt => (
-                        <FormItem key={opt.value} className="flex items-center space-x-3 space-y-0">
-                          <FormControl><RadioGroupItem value={opt.value} /></FormControl>
-                          <FormLabel className="font-normal">{t(opt.labelKey)}</FormLabel>
+                        <FormItem key={opt.value}>
+                          <FormControl>
+                            <div className="relative">
+                              <RadioGroupItem value={opt.value} className="peer sr-only" />
+                              <FormLabel className="flex flex-col items-center justify-center p-4 rounded-xl border-2 border-muted bg-popover hover:bg-accent peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
+                                {t(opt.labelKey)}
+                              </FormLabel>
+                            </div>
+                          </FormControl>
                         </FormItem>
                       ))}
                     </RadioGroup>
@@ -163,6 +169,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                       type={field.type}
                       placeholder={field.placeholderKey ? t(field.placeholderKey) : ""}
                       {...formField}
+                      className="h-11 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:shadow-[0_0_10px_rgba(var(--primary),0.2)]"
                       onChange={(e) => {
                         const val = field.type === 'number' ? (e.target.value ? parseInt(e.target.value) : undefined) : e.target.value;
                         formField.onChange(val);
@@ -238,19 +245,19 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               <FormItem className="space-y-3">
                 <FormLabel>{t("your_gender")}</FormLabel>
                 <FormControl>
-                  <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-col space-y-1">
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl><RadioGroupItem value="Male" /></FormControl>
-                      <FormLabel className="font-normal">{t("male")}</FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl><RadioGroupItem value="Female" /></FormControl>
-                      <FormLabel className="font-normal">{t("female")}</FormLabel>
-                    </FormItem>
-                    <FormItem className="flex items-center space-x-3 space-y-0">
-                      <FormControl><RadioGroupItem value="Other" /></FormControl>
-                      <FormLabel className="font-normal">{t("other")}</FormLabel>
-                    </FormItem>
+                  <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="grid grid-cols-3 gap-3">
+                    {["Male", "Female", "Other"].map((gender) => (
+                      <FormItem key={gender}>
+                        <FormControl>
+                          <div className="relative">
+                            <RadioGroupItem value={gender} className="peer sr-only" />
+                            <FormLabel className="flex flex-col items-center justify-center p-3 rounded-lg border-2 border-muted bg-popover hover:bg-accent peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 text-sm font-medium">
+                              {t(gender.toLowerCase())}
+                            </FormLabel>
+                          </div>
+                        </FormControl>
+                      </FormItem>
+                    ))}
                   </RadioGroup>
                 </FormControl>
                 <FormMessage />
@@ -300,9 +307,9 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           </div>
         )}
 
-        <div className="flex justify-end gap-2 pt-4">
-          <Button type="button" variant="outline" onClick={onClose}>{t("cancel")}</Button>
-          <Button type="submit">{t("submit_quote")}</Button>
+        <div className="flex justify-end gap-3 pt-6">
+          <Button type="button" variant="outline" onClick={onClose} className="hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">{t("cancel")}</Button>
+          <Button type="submit" className="bg-gradient-to-r from-primary to-purple-600 hover:to-purple-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">{t("submit_quote")}</Button>
         </div>
       </form>
     </Form>
