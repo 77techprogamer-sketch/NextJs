@@ -52,7 +52,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   });
 
   // Special handling for Health Insurance members details
-  if (insuranceType === 'Health Insurance') {
+  if (insuranceType === 'health_insurance') {
     schemaShape.memberDetails = z.record(z.string(), z.object({
       age: z.number().min(1).max(120).optional(),
       dateOfBirth: z.date().optional(),
@@ -266,7 +266,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           />
         )}
 
-        {insuranceType === 'Health Insurance' && selectedMembers.length > 0 && (
+        {insuranceType === 'health_insurance' && selectedMembers.length > 0 && (
           <div className="space-y-4">
             <p className="font-semibold">{t("provide_member_details")}</p>
             {selectedMembers.map((member) => (

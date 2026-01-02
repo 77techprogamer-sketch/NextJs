@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils'; // Import cn utility
+import { useTranslation } from 'react-i18next';
 
 interface DateTimeDisplayProps {
   className?: string;
 }
 
 const DateTimeDisplay: React.FC<DateTimeDisplayProps> = ({ className }) => {
+  const { i18n } = useTranslation();
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
 
   useEffect(() => {
@@ -20,13 +22,13 @@ const DateTimeDisplay: React.FC<DateTimeDisplayProps> = ({ className }) => {
     };
   }, []);
 
-  const formattedDate = currentDateTime.toLocaleDateString('en-IN', {
+  const formattedDate = currentDateTime.toLocaleDateString(i18n.language, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',
   });
 
-  const formattedTime = currentDateTime.toLocaleTimeString('en-IN', {
+  const formattedTime = currentDateTime.toLocaleTimeString(i18n.language, {
     hour: '2-digit',
     minute: '2-digit',
     second: '2-digit',

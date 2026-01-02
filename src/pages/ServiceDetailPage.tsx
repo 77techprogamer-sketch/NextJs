@@ -25,70 +25,70 @@ interface ServiceDetail {
 const serviceDetails: Record<string, ServiceDetail> = {
   life_insurance: {
     titleKey: "life_insurance",
-    descriptionKey: "life_insurance_description",
+    descriptionKey: "life_insurance_long_description",
     metaDescriptionKey: "life_insurance_meta_description",
     image: "/life-insurance.jpg",
     features: ["financial_security", "tax_benefits", "wealth_creation"],
   },
   health_insurance: {
     titleKey: "health_insurance",
-    descriptionKey: "health_insurance_description",
+    descriptionKey: "health_insurance_long_description",
     metaDescriptionKey: "health_insurance_meta_description",
     image: "/health-insurance.jpg",
     features: ["medical_expenses", "cashless_hospitalization", "pre_post_hospitalization"],
   },
   term_insurance: {
     titleKey: "term_insurance",
-    descriptionKey: "term_insurance_description",
+    descriptionKey: "term_insurance_long_description",
     metaDescriptionKey: "term_insurance_meta_description",
     image: "/term-insurance.jpg",
     features: ["high_cover_low_premium", "pure_protection", "income_replacement"],
   },
   motor_insurance: {
     titleKey: "motor_insurance",
-    descriptionKey: "motor_insurance_description",
+    descriptionKey: "motor_insurance_long_description",
     metaDescriptionKey: "motor-insurance_meta_description",
     image: "/motor-insurance.jpg",
     features: ["own_damage_cover", "third_party_liability", "personal_accident_cover"],
   },
   sme_insurance: {
     titleKey: "sme_insurance",
-    descriptionKey: "sme_insurance_description",
+    descriptionKey: "sme_insurance_long_description",
     metaDescriptionKey: "sme-insurance_meta_description",
     image: "/sme-insurance.jpg",
     features: ["business_interruption", "property_damage", "liability_cover"],
   },
   travel_insurance: {
     titleKey: "travel_insurance",
-    descriptionKey: "travel_insurance_description",
+    descriptionKey: "travel_insurance_long_description",
     metaDescriptionKey: "travel-insurance_meta_description",
     image: "/travel-insurance.jpg",
     features: ["medical_emergencies", "trip_cancellation", "baggage_loss"],
   },
   pension_plans: {
     titleKey: "pension_plans",
-    descriptionKey: "pension_plans_description",
+    descriptionKey: "pension_plans_long_description",
     metaDescriptionKey: "pension-plans_meta_description",
     image: "/pension-plans.jpg",
     features: ["retirement_income", "annuity_options", "financial_independence"],
   },
   ulip_plans: {
     titleKey: "ulip_plans",
-    descriptionKey: "ulip_plans_description",
+    descriptionKey: "ulip_plans_long_description",
     metaDescriptionKey: "ulip-plans_meta_description",
     image: "/ulip-plans.jpg",
     features: ["investment_growth", "life_cover", "fund_switching"],
   },
   wedding_insurance: {
     titleKey: "wedding_insurance",
-    descriptionKey: "wedding_insurance_description",
+    descriptionKey: "wedding_insurance_long_description",
     metaDescriptionKey: "wedding-insurance_meta_description",
     image: "/wedding-insurance.jpg",
     features: ["cancellation_cover", "damage_to_property", "public_liability"],
   },
   cyber_insurance: {
     titleKey: "cyber_insurance",
-    descriptionKey: "cyber_insurance_description",
+    descriptionKey: "cyber_insurance_long_description",
     metaDescriptionKey: "cyber-insurance_meta_description",
     image: "/cyber-insurance.jpg",
     features: ["data_breach_costs", "cyber_extortion", "legal_expenses"],
@@ -166,12 +166,12 @@ const ServiceDetailPage = () => {
           <Dialog open={isQuoteDialogOpen} onOpenChange={setIsQuoteDialogOpen}>
             <DialogTrigger asChild>
               <Button size="lg" className="w-full sm:w-auto">
-                {t("get_a_quote")}
+                {t("get_a_free_quote")}
               </Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle>{t("get_a_quote_for", { type: formatLabel(t(service.titleKey)) })}</DialogTitle>
+                <DialogTitle>{t("get_a_free_quote_for_service", { service: formatLabel(t(service.titleKey)) })}</DialogTitle>
               </DialogHeader>
               <QuoteForm
                 insuranceType={serviceKey}

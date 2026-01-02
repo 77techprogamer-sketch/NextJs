@@ -333,7 +333,7 @@ const Index = () => {
                 {t("visit_us")}
               </CardTitle>
               <CardDescription className="text-center text-sm sm:text-base">
-                Bangalore Office
+                {t("bangalore_office")}
               </CardDescription>
             </a>
           </div>

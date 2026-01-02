@@ -4,6 +4,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Facebook, Twitter, Linkedin, Instagram, MessageCircle } from "lucide-react";
 import { showSuccess, showError } from "@/utils/toast"; // Import toast utilities
+import { useTranslation } from 'react-i18next';
 
 interface SocialShareButtonsProps {
   url: string;
@@ -11,6 +12,7 @@ interface SocialShareButtonsProps {
 }
 
 const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) => {
+  const { t } = useTranslation();
   const shareOnFacebook = () => {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank', 'noopener,noreferrer');
   };
@@ -31,10 +33,10 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
   const copyToClipboard = async () => {
     try {
       await navigator.clipboard.writeText(url);
-      showSuccess("Link copied to clipboard! You can now paste it on Instagram.");
+      showSuccess(t("link_copied"));
     } catch (err) {
       console.error('Failed to copy: ', err);
-      showError("Failed to copy link. Please try again.");
+      showError(t("failed_to_copy"));
     }
   };
 
@@ -44,7 +46,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
         variant="default"
         size="icon"
         onClick={shareOnFacebook}
-        aria-label="Share on Facebook"
+        aria-label={t("share_on_facebook")}
         className="bg-[#1877F2] hover:bg-[#166fe5] text-white border-0"
       >
         <Facebook className="h-5 w-5" />
@@ -53,7 +55,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
         variant="default"
         size="icon"
         onClick={shareOnTwitter}
-        aria-label="Share on X (Twitter)"
+        aria-label={t("share_on_twitter")}
         className="bg-[#000000] hover:bg-[#333333] text-white border-0"
       >
         <Twitter className="h-5 w-5" />
@@ -62,7 +64,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
         variant="default"
         size="icon"
         onClick={shareOnLinkedIn}
-        aria-label="Share on LinkedIn"
+        aria-label={t("share_on_linkedin")}
         className="bg-[#0077B5] hover:bg-[#006399] text-white border-0"
       >
         <Linkedin className="h-5 w-5" />
@@ -71,7 +73,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
         variant="default"
         size="icon"
         onClick={shareOnWhatsApp}
-        aria-label="Share on WhatsApp"
+        aria-label={t("share_on_whatsapp")}
         className="bg-[#25D366] hover:bg-[#128C7E] text-white border-0"
       >
         <MessageCircle className="h-5 w-5" />
@@ -80,7 +82,7 @@ const SocialShareButtons: React.FC<SocialShareButtonsProps> = ({ url, title }) =
         variant="default"
         size="icon"
         onClick={copyToClipboard}
-        aria-label="Copy link for Instagram"
+        aria-label={t("copy_link_instagram")}
         className="bg-[#E4405F] hover:bg-[#d62d4a] text-white border-0"
       >
         <Instagram className="h-5 w-5" />
