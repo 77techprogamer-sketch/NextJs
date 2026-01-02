@@ -225,10 +225,9 @@ const Index = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent className="pt-6">
-                <div
-                  className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-4 prose dark:prose-invert max-w-none text-sm sm:text-base"
-                  dangerouslySetInnerHTML={{ __html: latestBlogPost.summary }}
-                />
+                <div className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-4 max-w-none text-sm sm:text-base">
+                  {latestBlogPost.summary}
+                </div>
                 <Button
                   asChild
                   className="w-full sm:w-auto hover:scale-105 transition-transform"

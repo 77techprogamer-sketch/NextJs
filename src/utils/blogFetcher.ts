@@ -12,23 +12,37 @@ interface BlogPost {
 // Uses a robust strategy: textarea for decoding -> Regex for stripping
 const stripHtmlTags = (html: string): string => {
   if (!html) return "";
-  const original = html;
   try {
     // 1. Decode HTML entities using a textarea (standard browser trick)
+    // We do it twice to handle double-encoded entities like &amp;lt;b&amp;gt;
     const txt = document.createElement("textarea");
     txt.innerHTML = html;
-    const decoded = txt.value;
+    let decoded = txt.value;
 
-    // 2. Strip tags using regex
+    // Second pass for double encoding (rare but happens in some RSS feeds)
+    if (decoded.includes('&')) {
+      txt.innerHTML = decoded;
+      decoded = txt.value;
+    }
+
+    // 2. Aggressive strip tags using regex
+    // The regex /<[^>]*>?/gm handles most tags, even unclosed ones at the end
     const stripped = decoded.replace(/<[^>]*>?/gm, '');
-    const final = stripped.trim();
 
-    console.log('[HTML_CLEANER] In:', original.substring(0, 20), '... | Decoded:', decoded.substring(0, 20), '... | Out:', final.substring(0, 20), '...');
+    // 3. Final cleanup of common entities that regex might miss or that remain after stripping
+    const final = stripped
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&amp;/g, '&')
+      .replace(/&quot;/g, '"')
+      .replace(/&lt;/g, '<')
+      .replace(/&gt;/g, '>')
+      .trim();
+
     return final;
   } catch (e) {
     console.warn("Failed to strip HTML tags client-side:", e);
-    // Fallback: simple regex strip on original
-    return html.replace(/<[^>]*>?/gm, '');
+    // Fallback: simple aggressive regex strip on original
+    return html.replace(/<[^>]*>?/gm, '').replace(/&lt;[^&]*&gt;/gm, '').trim();
   }
 };
 
