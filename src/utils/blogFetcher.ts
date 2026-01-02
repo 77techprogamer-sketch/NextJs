@@ -9,25 +9,26 @@ interface BlogPost {
 }
 
 // Client-side helper to ensure no HTML tags leak through
-// Uses a Double-Pass strategy: Decode -> Strip
+// Uses a robust strategy: textarea for decoding -> Regex for stripping
 const stripHtmlTags = (html: string): string => {
   if (!html) return "";
+  const original = html;
   try {
-    const parser = new DOMParser();
-    // First pass: Decode HTML entities.
-    // If input is "&lt;b&gt;Text&lt;/b&gt;", this converts it to "<b>Text</b>"
-    const decodedDoc = parser.parseFromString(`<body>${html}</body>`, 'text/html');
-    const decodedText = decodedDoc ? (decodedDoc.body.textContent || "") : html;
+    // 1. Decode HTML entities using a textarea (standard browser trick)
+    const txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    const decoded = txt.value;
 
-    // Second pass: Strip actual HTML tags.
-    // If input was "<b>Text</b>", this converts it to "Text"
-    const cleanDoc = parser.parseFromString(`<body>${decodedText}</body>`, 'text/html');
-    const finalText = cleanDoc ? (cleanDoc.body.textContent || "") : decodedText;
+    // 2. Strip tags using regex
+    const stripped = decoded.replace(/<[^>]*>?/gm, '');
+    const final = stripped.trim();
 
-    return finalText.trim();
+    console.log('[HTML_CLEANER] In:', original.substring(0, 20), '... | Decoded:', decoded.substring(0, 20), '... | Out:', final.substring(0, 20), '...');
+    return final;
   } catch (e) {
     console.warn("Failed to strip HTML tags client-side:", e);
-    return html;
+    // Fallback: simple regex strip on original
+    return html.replace(/<[^>]*>?/gm, '');
   }
 };
 
