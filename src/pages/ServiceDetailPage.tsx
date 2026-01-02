@@ -188,13 +188,6 @@ const ServiceDetailPage = () => {
             className="w-full h-auto rounded-lg shadow-2xl"
           />
         </div>
-        <div className="flex justify-center">
-          <img
-            src={service.image}
-            alt={t(service.titleKey)}
-            className="rounded-lg shadow-lg max-h-80 object-cover w-full md:w-auto"
-          />
-        </div>
       </div>
 
       <section className="mb-12">
