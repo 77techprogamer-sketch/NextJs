@@ -38,11 +38,14 @@ const stripHtmlTags = (html: string): string => {
       .replace(/&gt;/g, '>')
       .trim();
 
+    console.log('[HTML_CLEANER] Decoded:', decoded.substring(0, 50), '... | Final:', final.substring(0, 50), '...');
     return final;
   } catch (e) {
     console.warn("Failed to strip HTML tags client-side:", e);
     // Fallback: simple aggressive regex strip on original
-    return html.replace(/<[^>]*>?/gm, '').replace(/&lt;[^&]*&gt;/gm, '').trim();
+    const fallback = html.replace(/<[^>]*>?/gm, '').replace(/&lt;[^&]*&gt;/gm, '').trim();
+    console.log('[HTML_CLEANER] Fallback used:', fallback.substring(0, 50));
+    return fallback;
   }
 };
 
