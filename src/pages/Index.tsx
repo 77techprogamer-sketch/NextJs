@@ -6,7 +6,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare, Wallet, TrendingUp, HeartHandshake, ShieldCheck } from 'lucide-react'; // Added HeartHandshake and ShieldCheck icons
 import ServiceCard from '@/components/ServiceCard';
 import ServiceModal from '@/components/ServiceModal';
+import Testimonials from '@/components/Testimonials';
 import SocialShareButtons from '@/components/SocialShareButtons';
+
 import VisitorCounter from '@/components/VisitorCounter';
 import DateTimeDisplay from '@/components/DateTimeDisplay';
 import { fetchBlogPosts } from '@/utils/blogFetcher';
@@ -339,7 +341,11 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Customer Testimonials Section */}
+      <Testimonials />
+
       <ServiceModal
+
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         insuranceType={selectedInsuranceType}
