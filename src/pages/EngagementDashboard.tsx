@@ -14,6 +14,10 @@ const EngagementDashboard = () => {
     const [visitorStats, setVisitorStats] = useState<any>(null);
     const [leads, setLeads] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -67,12 +71,60 @@ const EngagementDashboard = () => {
         value: leadsByType[key]
     }));
 
+    const handleLogin = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (password === "88$3p27") {
+            setIsAuthenticated(true);
+            setError("");
+        } else {
+            setError("Incorrect password. Please try again.");
+        }
+    };
+
+    if (!isAuthenticated) {
+        return (
+            <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
+                <Card className="w-full max-w-md border-none shadow-2xl bg-white/80 backdrop-blur-xl">
+                    <CardHeader className="space-y-1 text-center">
+                        <div className="mx-auto bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                            <Clock className="h-6 w-6 text-blue-600" />
+                        </div>
+                        <CardTitle className="text-2xl font-bold tracking-tight">Engagement Dashboard</CardTitle>
+                        <p className="text-sm text-muted-foreground">Enter the access code to view analytics</p>
+                    </CardHeader>
+                    <CardContent>
+                        <form onSubmit={handleLogin} className="space-y-4">
+                            <div className="space-y-2">
+                                <input
+                                    type="password"
+                                    placeholder="Enter password"
+                                    className={`w-full px-4 py-3 rounded-xl border ${error ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-center text-lg`}
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    autoFocus
+                                />
+                                {error && <p className="text-red-500 text-xs text-center font-medium">{error}</p>}
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-all shadow-lg shadow-blue-500/25 active:scale-[0.98]"
+                            >
+                                Access Dashboard
+                            </button>
+                        </form>
+                    </CardContent>
+                </Card>
+            </div>
+        );
+    }
+
     const mainStats = [
         { label: 'Total Visits', value: visitorStats?.total_visits || 0, icon: Eye, color: 'text-blue-500' },
         { label: 'Unique Visitors', value: visitorStats?.unique_visitors || 0, icon: Users, color: 'text-green-500' },
         { label: 'Total Leads', value: leads.length, icon: TrendingUp, color: 'text-purple-500' },
         { label: 'Conversion Rate', value: `${((leads.length / (visitorStats?.total_visits || 1)) * 100).toFixed(2)}%`, icon: Clock, color: 'text-orange-500' },
     ];
+
 
     return (
         <div className="container mx-auto p-6 space-y-8 animate-in fade-in duration-700">
