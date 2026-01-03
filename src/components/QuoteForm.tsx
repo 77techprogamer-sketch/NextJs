@@ -90,7 +90,6 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             phone: values.mobileNumber,
             insurance_type: insuranceType,
             intended_sum_insured: values.sumAssured,
-            metadata: values,
           },
         ]);
 
