@@ -27,8 +27,8 @@ function App() {
         <Suspense fallback={<div>Loading page...</div>}> {/* Add Suspense for lazy-loaded routes */}
           <Routes>
             <Route path="/" element={<Index />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/blocked" element={<BlockedPage />} />
             <Route path="/engagement" element={<EngagementDashboard />} />
             <Route path="/support" element={<SupportPage />} />
