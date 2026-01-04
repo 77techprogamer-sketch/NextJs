@@ -109,8 +109,35 @@ const SupportPage = () => {
                 </div>
             </section>
 
+            {/* FAQ Section */}
+            <section className="py-16">
+                <div className="container mx-auto px-4 max-w-4xl">
+                    <h2 className="text-3xl font-bold text-center mb-12">{t("frequently_asked_questions")}</h2>
+
+                    <div className="space-y-12">
+                        {faqCategories.map((category, catIndex) => (
+                            <div key={catIndex} className="space-y-4">
+                                <h3 className="text-xl font-bold border-b pb-2 text-primary">{category.title}</h3>
+                                <Accordion type="single" collapsible className="w-full">
+                                    {category.items.map((item, index) => (
+                                        <AccordionItem key={index} value={`item-${catIndex}-${index}`}>
+                                            <AccordionTrigger className="text-left font-semibold">
+                                                {item.q}
+                                            </AccordionTrigger>
+                                            <AccordionContent className="text-muted-foreground leading-relaxed">
+                                                {item.a}
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
             {/* Contact Options */}
-            <section className="py-16 bg-muted/30">
+            <section className="py-16 bg-muted/30 border-t">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <Card className="hover:shadow-lg transition-shadow">
@@ -156,33 +183,6 @@ const SupportPage = () => {
                                 </Button>
                             </CardContent>
                         </Card>
-                    </div>
-                </div>
-            </section>
-
-            {/* FAQ Section */}
-            <section className="py-16">
-                <div className="container mx-auto px-4 max-w-4xl">
-                    <h2 className="text-3xl font-bold text-center mb-12">{t("frequently_asked_questions")}</h2>
-
-                    <div className="space-y-12">
-                        {faqCategories.map((category, catIndex) => (
-                            <div key={catIndex} className="space-y-4">
-                                <h3 className="text-xl font-bold border-b pb-2 text-primary">{category.title}</h3>
-                                <Accordion type="single" collapsible className="w-full">
-                                    {category.items.map((item, index) => (
-                                        <AccordionItem key={index} value={`item-${catIndex}-${index}`}>
-                                            <AccordionTrigger className="text-left font-semibold">
-                                                {item.q}
-                                            </AccordionTrigger>
-                                            <AccordionContent className="text-muted-foreground leading-relaxed">
-                                                {item.a}
-                                            </AccordionContent>
-                                        </AccordionItem>
-                                    ))}
-                                </Accordion>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </section>
