@@ -3,7 +3,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare, Wallet, TrendingUp, HeartHandshake, ShieldCheck } from 'lucide-react'; // Added HeartHandshake and ShieldCheck icons
+import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare, Wallet, TrendingUp, HeartHandshake, ShieldCheck, Award, Briefcase, Users, Star } from 'lucide-react'; // Added professional icons
 import ServiceCard from '@/components/ServiceCard';
 import ServiceModal from '@/components/ServiceModal';
 import Testimonials from '@/components/Testimonials';
@@ -124,7 +124,7 @@ const Index = () => {
           <div className="flex flex-col items-center justify-center gap-4 w-full mt-4 mb-4">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-white text-base sm:text-lg w-full sm:w-auto"
+              className="bg-accent hover:bg-accent/90 text-white text-base sm:text-lg w-full sm:w-auto font-semibold px-8 py-6 rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.3)]"
               onClick={() => {
                 setSelectedInsuranceType('general_inquiry');
                 setIsModalOpen(true);
@@ -134,6 +134,16 @@ const Index = () => {
             </Button>
             {/* SocialShareButtons is now separate blocks */}
             <SocialShareButtons url={currentUrl} title={shareTitle} />
+          </div>
+          <div className="mt-6 flex items-center gap-6 text-gray-300 text-xs sm:text-sm border-t border-white/20 pt-6">
+            <div className="flex items-center gap-2">
+              <Award className="h-5 w-5 text-accent" />
+              <span>25+ Years Experience</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-5 w-5 text-accent" />
+              <span>Expert Claims Support</span>
+            </div>
           </div>
         </div>
       </section>
@@ -198,6 +208,69 @@ const Index = () => {
               icon={ShieldCheck}
               href={`/services/${slugify('cyber_insurance')}`}
             />
+          </div>
+        </div>
+      </section>
+
+      {/* Expertise & Veteran Advantage Section */}
+      <section className="py-16 sm:py-24 bg-primary text-primary-foreground overflow-hidden relative">
+        <div className="absolute top-0 left-0 w-full h-1 bg-accent/30"></div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/20 border border-accent/30 rounded-full text-accent text-sm font-semibold mb-2">
+                <Star className="h-4 w-4 fill-accent" />
+                <span>The Veteran Advantage</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                Strategic Protection Built on <span className="text-accent">Two Decades</span> of Insight
+              </h2>
+              <p className="text-lg text-primary-foreground/80 max-w-xl">
+                In the complex world of insurance, experience isn't just a number—it's your greatest asset. We provide elite advisory services that go beyond simple policies, focusing on long-term risk management and legacy protection.
+              </p>
+              <div className="grid grid-cols-2 gap-6 pt-4">
+                <div className="space-y-2">
+                  <div className="text-3xl sm:text-4xl font-bold text-accent">15k+</div>
+                  <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold">Portfolios Managed</div>
+                </div>
+                <div className="space-y-2">
+                  <div className="text-3xl sm:text-4xl font-bold text-accent">98%</div>
+                  <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold">Claims Settled</div>
+                </div>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square bg-accent/10 rounded-2xl border border-white/10 p-8 flex flex-col justify-center gap-8 relative overflow-hidden">
+                <div className="absolute -right-20 -bottom-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl"></div>
+                <div className="flex gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                    <Briefcase className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-1">Strategic Advisory</h3>
+                    <p className="text-primary-foreground/70 text-sm">Tailored risk assessment and portfolio optimization for high-value assets and business interests.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                    <Users className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-1">Legacy Planning</h3>
+                    <p className="text-primary-foreground/70 text-sm">Ensuring your family's future is secure with sophisticated life and estate protection strategies.</p>
+                  </div>
+                </div>
+                <div className="flex gap-4">
+                  <div className="h-12 w-12 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
+                    <ShieldCheck className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-1">Unrivaled Claims Support</h3>
+                    <p className="text-primary-foreground/70 text-sm">Veteran-led coordination during critical moments, standing by you when it matters most.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

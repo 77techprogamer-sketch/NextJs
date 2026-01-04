@@ -3,6 +3,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ShieldCheck, Award } from 'lucide-react';
 const Footer = () => {
   const { t } = useTranslation(); // Initialize useTranslation
 
@@ -15,12 +16,44 @@ const Footer = () => {
           </span>
         </div>
       </div>
-      <div className="container mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center">
-        <div className="text-center sm:text-left">
-          <Link to="/support" className="text-sm font-semibold hover:text-primary transition-colors">
-            {t("insurance_support")} {t("support")}
-          </Link>
-          <p className="text-xs">{t("insurance_support_contact")}</p>
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold text-foreground">{t("insurance_support")}</span>
+            </div>
+            <p className="text-sm leading-relaxed max-w-xs transition-colors">
+              Providing strategic insurance advisory and risk management solutions with over 25 years of industry excellence.
+            </p>
+            <div className="flex items-center gap-2 text-primary font-semibold">
+              <Award className="h-5 w-5 text-accent" />
+              <span>Veteran-Led Institution</span>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/support" className="hover:text-primary transition-colors">{t("support")}</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-primary transition-colors">{t("privacy_policy")}</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-primary transition-colors">{t("terms_of_service")}</Link></li>
+            </ul>
+          </div>
+          <div className="text-center sm:text-left">
+            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Headquarters</h4>
+            <p className="text-sm mb-2">{t("bangalore_office")}</p>
+            <p className="text-xs font-medium uppercase tracking-tighter opacity-70">Established 1998</p>
+          </div>
+        </div>
+        <div className="pt-8 border-t border-muted-foreground/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs">&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
+          <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-primary/60">
+            <span>Legacy</span>
+            <span className="h-1 w-1 bg-accent rounded-full"></span>
+            <span>Trust</span>
+            <span className="h-1 w-1 bg-accent rounded-full"></span>
+            <span>Excellence</span>
+          </div>
         </div>
       </div>
     </footer>

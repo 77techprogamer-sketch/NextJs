@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"; // Import shadcn dropdown components
-import { ChevronDown } from 'lucide-react'; // Import an icon for the dropdown
+import { ChevronDown, ShieldCheck } from 'lucide-react'; // Import icons
 import { slugify } from '@/utils/slugify'; // Import the slugify utility
 import { formatLabel } from '@/utils/formatText';
 
@@ -43,8 +43,13 @@ const Header = () => {
   return (
     <header className="w-full bg-background shadow-sm sticky top-0 z-10 border-b">
       <div className="container mx-auto px-4 h-16 flex justify-between items-center">
-        <Link to="/" className="text-xl sm:text-2xl font-bold text-foreground" aria-label={t("insurance_support")}>
-          {t("insurance_support")}
+        <Link to="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")}>
+          <div className="h-8 w-8 bg-primary rounded flex items-center justify-center group-hover:bg-accent transition-colors">
+            <ShieldCheck className="h-5 w-5 text-white" />
+          </div>
+          <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors">
+            {t("insurance_support")}
+          </span>
         </Link>
         <nav className="flex items-center gap-4">
           <DropdownMenu>
