@@ -11,10 +11,77 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 const SupportPage = () => {
     const { t } = useTranslation();
 
-    const faqItems = [
-        { q: t("faq_renewal_q"), a: t("faq_renewal_a") },
-        { q: t("faq_claim_q"), a: t("faq_claim_a") },
-        { q: t("faq_support_q"), a: t("faq_support_a") },
+    const faqCategories = [
+        {
+            title: t("life_insurance"),
+            items: [
+                { q: t("faq_life_q1"), a: t("faq_life_a1") },
+                { q: t("faq_life_q2"), a: t("faq_life_a2") },
+            ]
+        },
+        {
+            title: t("health_insurance"),
+            items: [
+                { q: t("faq_health_q1"), a: t("faq_health_a1") },
+                { q: t("faq_health_q2"), a: t("faq_health_a2") },
+            ]
+        },
+        {
+            title: t("term_insurance"),
+            items: [
+                { q: t("faq_term_q1"), a: t("faq_term_a1") },
+                { q: t("faq_term_q2"), a: t("faq_term_a2") },
+            ]
+        },
+        {
+            title: t("motor_insurance"),
+            items: [
+                { q: t("faq_motor_q1"), a: t("faq_motor_a1") },
+                { q: t("faq_motor_q2"), a: t("faq_motor_a2") },
+            ]
+        },
+        {
+            title: t("travel_insurance"),
+            items: [
+                { q: t("faq_travel_q1"), a: t("faq_travel_a1") },
+                { q: t("faq_travel_q2"), a: t("faq_travel_a2") },
+            ]
+        },
+        {
+            title: t("sme_insurance"),
+            items: [
+                { q: t("faq_sme_q1"), a: t("faq_sme_a1") },
+                { q: t("faq_sme_q2"), a: t("faq_sme_a2") },
+            ]
+        },
+        {
+            title: t("pension_plans"),
+            items: [
+                { q: t("faq_pension_q1"), a: t("faq_pension_a1") },
+                { q: t("faq_pension_q2"), a: t("faq_pension_a2") },
+            ]
+        },
+        {
+            title: t("ulip_plans"),
+            items: [
+                { q: t("faq_ulip_q1"), a: t("faq_ulip_a1") },
+                { q: t("faq_ulip_q2"), a: t("faq_ulip_a2") },
+            ]
+        },
+        {
+            title: t("wedding_insurance"),
+            items: [
+                { q: t("faq_wedding_q1"), a: t("faq_wedding_a1") },
+                { q: t("faq_wedding_q2"), a: t("faq_wedding_a2") },
+            ]
+        },
+        {
+            title: t("cyber_insurance"),
+            items: [
+                { q: t("faq_cyber_q1"), a: t("faq_cyber_a1") },
+                { q: t("faq_cyber_q2"), a: t("faq_cyber_a2") },
+            ]
+        },
     ];
 
     return (
@@ -23,24 +90,6 @@ const SupportPage = () => {
                 <title>{t("support_page_title")}</title>
                 <meta name="description" content={t("support_meta_description")} />
                 <link rel="canonical" href="https://insurance-support.vercel.app/support" />
-                <script type="application/ld+json">
-                    {`
-            {
-              "@context": "https://schema.org",
-              "@type": "FAQPage",
-              "mainEntity": [
-                ${faqItems.map(item => `{
-                  "@type": "Question",
-                  "name": "${item.q}",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "${item.a}"
-                  }
-                }`).join(',')}
-              ]
-            }
-          `}
-                </script>
             </Helmet>
 
             {/* Hero Section */}
@@ -89,10 +138,10 @@ const SupportPage = () => {
                         <Card className="hover:shadow-lg transition-shadow">
                             <CardContent className="pt-6 flex flex-col items-center text-center">
                                 <Mail className="h-10 w-10 text-primary mb-4" />
-                                <h3 className="font-bold text-lg mb-2">Email Support</h3>
+                                <h3 className="font-bold text-lg mb-2">{t("email_support")}</h3>
                                 <p className="text-muted-foreground mb-4">support@insurance-support.com</p>
                                 <Button asChild variant="outline" className="w-full">
-                                    <a href="mailto:support@insurance-support.com">Send Email</a>
+                                    <a href="mailto:support@insurance-support.com">{t("send_email")}</a>
                                 </Button>
                             </CardContent>
                         </Card>
@@ -103,7 +152,7 @@ const SupportPage = () => {
                                 <h3 className="font-bold text-lg mb-2">{t("our_location")}</h3>
                                 <p className="text-muted-foreground mb-4">{t("bangalore_office")}</p>
                                 <Button asChild variant="ghost" className="w-full">
-                                    <a href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" target="_blank" rel="noopener noreferrer">View Map</a>
+                                    <a href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" target="_blank" rel="noopener noreferrer">{t("view_map")}</a>
                                 </Button>
                             </CardContent>
                         </Card>
@@ -113,20 +162,28 @@ const SupportPage = () => {
 
             {/* FAQ Section */}
             <section className="py-16">
-                <div className="container mx-auto px-4 max-w-3xl">
+                <div className="container mx-auto px-4 max-w-4xl">
                     <h2 className="text-3xl font-bold text-center mb-12">{t("frequently_asked_questions")}</h2>
-                    <Accordion type="single" collapsible className="w-full">
-                        {faqItems.map((item, index) => (
-                            <AccordionItem key={index} value={`item-${index}`}>
-                                <AccordionTrigger className="text-left font-semibold">
-                                    {item.q}
-                                </AccordionTrigger>
-                                <AccordionContent className="text-muted-foreground leading-relaxed">
-                                    {item.a}
-                                </AccordionContent>
-                            </AccordionItem>
+
+                    <div className="space-y-12">
+                        {faqCategories.map((category, catIndex) => (
+                            <div key={catIndex} className="space-y-4">
+                                <h3 className="text-xl font-bold border-b pb-2 text-primary">{category.title}</h3>
+                                <Accordion type="single" collapsible className="w-full">
+                                    {category.items.map((item, index) => (
+                                        <AccordionItem key={index} value={`item-${catIndex}-${index}`}>
+                                            <AccordionTrigger className="text-left font-semibold">
+                                                {item.q}
+                                            </AccordionTrigger>
+                                            <AccordionContent className="text-muted-foreground leading-relaxed">
+                                                {item.a}
+                                            </AccordionContent>
+                                        </AccordionItem>
+                                    ))}
+                                </Accordion>
+                            </div>
                         ))}
-                    </Accordion>
+                    </div>
                 </div>
             </section>
 
@@ -144,5 +201,6 @@ const SupportPage = () => {
         </div>
     );
 };
+
 
 export default SupportPage;
