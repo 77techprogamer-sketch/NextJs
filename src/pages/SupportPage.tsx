@@ -7,6 +7,7 @@ import { Phone, MessageSquare, MapPin, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import SocialShareButtons from '@/components/SocialShareButtons';
 
 const SupportPage = () => {
     const { t } = useTranslation();
@@ -105,6 +106,10 @@ const SupportPage = () => {
                         <span className="inline-block bg-white/20 text-white px-4 py-1 rounded-full text-sm font-medium">
                             {t("india_support_tag")}
                         </span>
+                    </div>
+                    <div className="mt-8 flex flex-col items-center gap-2">
+                        <p className="text-xs uppercase tracking-[0.2em] font-bold opacity-60">Share Expertise</p>
+                        <SocialShareButtons url="https://insurance-support.vercel.app/support" title={t("support_page_title")} />
                     </div>
                 </div>
             </section>

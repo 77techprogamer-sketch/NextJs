@@ -13,6 +13,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton'; // Import Skeleton component
 import { fetchBlogPosts } from '@/utils/blogFetcher'; // Import the blog fetcher utility
 import { formatLabel, normalizeUIValue } from '@/utils/formatText';
+import SocialShareButtons from '@/components/SocialShareButtons';
 
 interface ServiceDetail {
   titleKey: string;
@@ -180,6 +181,10 @@ const ServiceDetailPage = () => {
               />
             </DialogContent>
           </Dialog>
+          <div className="mt-6 flex flex-col items-center sm:items-start gap-4">
+            <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">{t("share_on_facebook")}</p>
+            <SocialShareButtons url={`https://insurance-support.vercel.app/services/${serviceType}`} title={normalizeUIValue(t(service.titleKey))} />
+          </div>
         </div>
         <div className="relative">
           <img
