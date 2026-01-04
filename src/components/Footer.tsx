@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 const Footer = () => {
   const { t } = useTranslation(); // Initialize useTranslation
@@ -16,7 +17,9 @@ const Footer = () => {
       </div>
       <div className="container mx-auto px-4 py-6 flex flex-col sm:flex-row justify-between items-center">
         <div className="text-center sm:text-left">
-          <p className="text-sm font-semibold">{t("insurance_support")}</p>
+          <Link to="/support" className="text-sm font-semibold hover:text-primary transition-colors">
+            {t("insurance_support")} {t("support")}
+          </Link>
           <p className="text-xs">{t("insurance_support_contact")}</p>
         </div>
       </div>

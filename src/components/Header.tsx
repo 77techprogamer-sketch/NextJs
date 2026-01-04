@@ -74,6 +74,12 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          <Link
+            to="/support"
+            className="text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
+          >
+            {t("support")}
+          </Link>
           <a
             href="https://insurancesupportindia.blogspot.com"
             target="_blank"

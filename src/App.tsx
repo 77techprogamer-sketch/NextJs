@@ -15,6 +15,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const BlockedPage = lazy(() => import("./pages/BlockedPage"));
 const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage")); // Lazy load ServiceDetailPage
 const EngagementDashboard = lazy(() => import("./pages/EngagementDashboard"));
+const SupportPage = lazy(() => import("./pages/SupportPage"));
 
 function App() {
   const { t } = useTranslation();
@@ -30,6 +31,7 @@ function App() {
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/blocked" element={<BlockedPage />} />
             <Route path="/engagement" element={<EngagementDashboard />} />
+            <Route path="/support" element={<SupportPage />} />
             <Route path="/services/:serviceType" element={<ServiceDetailPage />} /> {/* New dynamic route */}
             <Route path="*" element={<NotFound />} />
           </Routes>
