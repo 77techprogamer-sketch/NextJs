@@ -228,7 +228,7 @@ export const authGoogleProviderObject = z.object({
   external_google_secret: z
     .string()
     .regex(
-      /^[a-z0-9.\/_-]*$/i,
+      /^[a-z0-9./_-]*$/i,
       'Google OAuth Client Secrets usually contain letters, numbers, dots, dashes, and underscores.'
     )
     .optional(),

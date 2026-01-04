@@ -12,7 +12,7 @@ import {
   type AuthGeneralSettingsSchema,
   authGoogleProviderSchema,
   authPhoneProviderSchema,
-} from '../../lib/schemas/auth'
+} from '@/lib/auth'
 import { AlertTriangle, ChevronRight, Mail, Phone, User } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 import { z } from 'zod'
@@ -123,25 +123,25 @@ export function AuthManager({ projectRef }: { projectRef: string }) {
     description: string
     schema: z.ZodObject<any> | z.ZodEffects<z.ZodObject<any>>
   }[] = [
-    {
-      icon: <Mail className="h-4 w-4 text-muted-foreground" />,
-      name: 'Email',
-      description: 'Sign in with email and password',
-      schema: authEmailProviderSchema,
-    },
-    {
-      icon: <Phone className="h-4 w-4 text-muted-foreground" />,
-      name: 'Phone',
-      description: 'Sign in with phone number',
-      schema: authPhoneProviderSchema,
-    },
-    {
-      icon: <User className="h-4 w-4 text-muted-foreground" />,
-      name: 'Google',
-      description: 'Sign in with Google',
-      schema: authGoogleProviderSchema,
-    },
-  ]
+      {
+        icon: <Mail className="h-4 w-4 text-muted-foreground" />,
+        name: 'Email',
+        description: 'Sign in with email and password',
+        schema: authEmailProviderSchema,
+      },
+      {
+        icon: <Phone className="h-4 w-4 text-muted-foreground" />,
+        name: 'Phone',
+        description: 'Sign in with phone number',
+        schema: authPhoneProviderSchema,
+      },
+      {
+        icon: <User className="h-4 w-4 text-muted-foreground" />,
+        name: 'Google',
+        description: 'Sign in with Google',
+        schema: authGoogleProviderSchema,
+      },
+    ]
 
   const handleProviderClick = useCallback(
     (provider: { name: string; schema: z.ZodObject<any> | z.ZodEffects<z.ZodObject<any>> }) => {

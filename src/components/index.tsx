@@ -44,7 +44,7 @@ import {
 } from '@/components/ui/hover-card'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { LogoSupabase } from '@/components/logo-supabase'
-import Link from 'next/link'
+import { Link } from 'react-router-dom'
 
 const queryClient = new QueryClient()
 
@@ -174,15 +174,16 @@ function DialogView({ projectRef, isMobile }: { projectRef: string; isMobile?: b
         <footer className="p-0 text-sm text-muted-foreground flex items-center gap-3 -m-3 border-t">
           <HoverCard>
             <HoverCardTrigger asChild>
-              <Link
+              <a
                 href={`https://supabase.com/dashboard/project/${projectRef}`}
                 target="_blank"
+                rel="noreferrer"
                 className="flex items-center px-4 w-full rounded-none text-sm py-4 h-auto justify-start gap-3 text-sm text-left hover:bg-accent"
               >
                 <LogoSupabase size={16} />
                 <span className="flex-1">Open in Supabase</span>
                 <ExternalLink className="ml-2 h-4 w-4 text-muted-foreground/50" />
-              </Link>
+              </a>
             </HoverCardTrigger>
             <HoverCardContent
               sideOffset={8}
@@ -261,7 +262,7 @@ export default function SupabaseManagerDialog({
 }) {
   const content = (
     <SheetNavigationProvider
-      onStackEmpty={() => {}}
+      onStackEmpty={() => { }}
       initialStack={[
         {
           title: 'Database',

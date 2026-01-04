@@ -112,11 +112,12 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
           acc[key] = false // Default optional booleans to false
           break
         case 'ZodEnum':
-        case 'enum':
+        case 'enum': {
           // For enums, use the first enum value as default
           const enumValues = getZodDef(baseType).values || []
           acc[key] = enumValues.length > 0 ? enumValues[0] : ''
           break
+        }
         case 'ZodNumber':
         case 'number':
           acc[key] = 0 // Default optional numbers to 0
@@ -295,7 +296,7 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
                 </FormItem>
               )
             case 'ZodEnum':
-            case 'enum':
+            case 'enum': {
               const options = getZodDef(baseType).values
               const optionLabels = typeof labelConfig === 'object' ? labelConfig.options : undefined
               return (
@@ -333,6 +334,7 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
                   </div>
                 </FormItem>
               )
+            }
             case 'ZodArray':
             case 'array':
               return (

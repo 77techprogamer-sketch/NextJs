@@ -24,7 +24,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { useGetLogs } from '@/hooks/use-logs'
-import { LogsTableName, genDefaultQuery } from '../../lib/logs'
+import { LogsTableName, genDefaultQuery } from '@/lib/logs'
 import { cn } from '@/lib/utils'
 import { Check, ChevronsUpDown, Logs, Terminal } from 'lucide-react'
 import { useMemo, useState } from 'react'
