@@ -138,11 +138,11 @@ const Index = () => {
           <div className="mt-6 flex items-center gap-6 text-gray-300 text-xs sm:text-sm border-t border-white/20 pt-6">
             <div className="flex items-center gap-2">
               <Award className="h-5 w-5 text-accent" />
-              <span>25+ Years Experience</span>
+              <span>{t("years_experience")}</span>
             </div>
             <div className="flex items-center gap-2">
               <ShieldCheck className="h-5 w-5 text-accent" />
-              <span>Expert Claims Support</span>
+              <span>{t("expert_claims_support")}</span>
             </div>
           </div>
         </div>
@@ -220,22 +220,22 @@ const Index = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/20 border border-accent/30 rounded-full text-accent text-sm font-semibold mb-2">
                 <Star className="h-4 w-4 fill-accent" />
-                <span>The Veteran Advantage</span>
+                <span>{t("veteran_advantage")}</span>
               </div>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-                Strategic Protection Built on <span className="text-accent">Two Decades</span> of Insight
+                {t("strategic_protection_title_start")} <span className="text-accent">{t("strategic_protection_title_highlight")}</span> {t("strategic_protection_title_end")}
               </h2>
               <p className="text-lg text-primary-foreground/80 max-w-xl">
-                In the complex world of insurance, experience isn't just a number—it's your greatest asset. We provide elite advisory services that go beyond simple policies, focusing on long-term risk management and legacy protection.
+                {t("strategic_experience_description")}
               </p>
               <div className="grid grid-cols-2 gap-6 pt-4">
                 <div className="space-y-2">
                   <div className="text-3xl sm:text-4xl font-bold text-accent">15k+</div>
-                  <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold">Portfolios Managed</div>
+                  <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold">{t("portfolios_managed")}</div>
                 </div>
                 <div className="space-y-2">
                   <div className="text-3xl sm:text-4xl font-bold text-accent">98%</div>
-                  <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold">Claims Settled</div>
+                  <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold">{t("claims_settled_stat")}</div>
                 </div>
               </div>
             </div>
@@ -247,8 +247,8 @@ const Index = () => {
                     <Briefcase className="h-6 w-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-1">Strategic Advisory</h3>
-                    <p className="text-primary-foreground/70 text-sm">Tailored risk assessment and portfolio optimization for high-value assets and business interests.</p>
+                    <h3 className="text-xl font-bold mb-1">{t("strategic_advisory")}</h3>
+                    <p className="text-primary-foreground/70 text-sm">{t("strategic_advisory_desc")}</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -256,8 +256,8 @@ const Index = () => {
                     <Users className="h-6 w-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-1">Legacy Planning</h3>
-                    <p className="text-primary-foreground/70 text-sm">Ensuring your family's future is secure with sophisticated life and estate protection strategies.</p>
+                    <h3 className="text-xl font-bold mb-1">{t("legacy_planning")}</h3>
+                    <p className="text-primary-foreground/70 text-sm">{t("legacy_planning_desc")}</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -265,8 +265,8 @@ const Index = () => {
                     <ShieldCheck className="h-6 w-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-1">Unrivaled Claims Support</h3>
-                    <p className="text-primary-foreground/70 text-sm">Veteran-led coordination during critical moments, standing by you when it matters most.</p>
+                    <h3 className="text-xl font-bold mb-1">{t("unrivaled_claims_support")}</h3>
+                    <p className="text-primary-foreground/70 text-sm">{t("unrivaled_claims_support_desc")}</p>
                   </div>
                 </div>
               </div>
