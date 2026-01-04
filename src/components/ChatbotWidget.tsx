@@ -48,15 +48,20 @@ const ChatbotWidget = () => {
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none group">
         {/* Availability Badge */}
         <div className={cn(
-          "backdrop-blur-md bg-white/10 dark:bg-black/40 border border-white/20 shadow-2xl px-4 py-2 rounded-full flex items-center gap-2 transition-all duration-300 transform translate-y-2 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 pointer-events-auto",
+          "backdrop-blur-md bg-white/20 dark:bg-black/40 border border-white/30 shadow-2xl px-4 py-2 rounded-2xl flex flex-col items-start gap-1 transition-all duration-300 pointer-events-auto",
           "animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-forwards"
         )}>
-          <div className="relative">
-            <UserCheck className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
-            <span className="absolute -top-0.5 -right-0.5 h-2 w-2 bg-emerald-500 rounded-full animate-ping"></span>
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <UserCheck className="h-4 w-4 text-emerald-500 dark:text-emerald-400" />
+              <span className="absolute -top-0.5 -right-0.5 h-2 w-2 bg-emerald-500 rounded-full animate-ping"></span>
+            </div>
+            <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-tighter">
+              {t("chatbot_24_7")}
+            </span>
           </div>
-          <span className="text-xs font-bold text-gray-800 dark:text-gray-100 uppercase tracking-wider drop-shadow-sm">
-            {t("expert_available")}
+          <span className="text-[11px] font-bold text-gray-800 dark:text-gray-100 leading-none">
+            {t("immediate_response")}
           </span>
         </div>
 

@@ -3,7 +3,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
-import { Phone, MessageSquare, MapPin, Mail, ChevronDown } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -139,7 +139,7 @@ const SupportPage = () => {
             {/* Contact Options */}
             <section className="py-16 bg-muted/30 border-t">
                 <div className="container mx-auto px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <Card className="hover:shadow-lg transition-shadow">
                             <CardContent className="pt-6 flex flex-col items-center text-center">
                                 <Phone className="h-10 w-10 text-primary mb-4" />
@@ -151,24 +151,19 @@ const SupportPage = () => {
                             </CardContent>
                         </Card>
 
-                        <Card className="hover:shadow-lg transition-shadow">
+                        <Card className="hover:shadow-lg transition-shadow border-primary/20 bg-primary/5">
                             <CardContent className="pt-6 flex flex-col items-center text-center">
-                                <MessageSquare className="h-10 w-10 text-primary mb-4" />
+                                <div className="flex items-center gap-2 mb-4">
+                                    <MessageSquare className="h-10 w-10 text-primary" />
+                                    <span className="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full animate-pulse">
+                                        24/7
+                                    </span>
+                                </div>
                                 <h3 className="font-bold text-lg mb-2">{t("whatsapp_us")}</h3>
-                                <p className="text-muted-foreground mb-4">+91-9986634506</p>
-                                <Button asChild className="w-full">
+                                <p className="text-muted-foreground mb-1">+91-9986634506</p>
+                                <p className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 mb-4">{t("immediate_response")}</p>
+                                <Button asChild className="w-full shadow-lg hover:shadow-primary/30">
                                     <a href="https://wa.me/919986634506" target="_blank" rel="noopener noreferrer">{t("chat_now")}</a>
-                                </Button>
-                            </CardContent>
-                        </Card>
-
-                        <Card className="hover:shadow-lg transition-shadow">
-                            <CardContent className="pt-6 flex flex-col items-center text-center">
-                                <Mail className="h-10 w-10 text-primary mb-4" />
-                                <h3 className="font-bold text-lg mb-2">{t("email_support")}</h3>
-                                <div className="h-6 mb-4" /> {/* Spacer to maintain card alignment */}
-                                <Button asChild variant="outline" className="w-full">
-                                    <a href="mailto:hari.sahyadri@gmail.com">{t("send_email")}</a>
                                 </Button>
                             </CardContent>
                         </Card>
