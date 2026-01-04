@@ -97,7 +97,7 @@ const SupportPage = () => {
             <section className="bg-primary text-primary-foreground py-16 sm:py-24">
                 <div className="container mx-auto px-4 text-center">
                     <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-                        {t("insurance_support")} & Customer Care
+                        {t("insurance_support")} & {t("customer_care")}
                     </h1>
                     <p className="text-lg sm:text-xl max-w-2xl mx-auto opacity-90">
                         {t("customer_support_description")}
@@ -108,7 +108,7 @@ const SupportPage = () => {
                         </span>
                     </div>
                     <div className="mt-8 flex flex-col items-center gap-2">
-                        <p className="text-xs uppercase tracking-[0.2em] font-bold opacity-60">Share Expertise</p>
+                        <p className="text-xs uppercase tracking-[0.2em] font-bold opacity-60">{t("share_expertise")}</p>
                         <SocialShareButtons url="https://insurance-support.vercel.app/support" title={t("support_page_title")} />
                     </div>
                 </div>
