@@ -139,9 +139,9 @@ const SupportPage = () => {
                             <CardContent className="pt-6 flex flex-col items-center text-center">
                                 <Mail className="h-10 w-10 text-primary mb-4" />
                                 <h3 className="font-bold text-lg mb-2">{t("email_support")}</h3>
-                                <p className="text-muted-foreground mb-4">support@insurance-support.com</p>
+                                <div className="h-6 mb-4" /> {/* Spacer to maintain card alignment */}
                                 <Button asChild variant="outline" className="w-full">
-                                    <a href="mailto:support@insurance-support.com">{t("send_email")}</a>
+                                    <a href="mailto:hari.sahyadri@gmail.com">{t("send_email")}</a>
                                 </Button>
                             </CardContent>
                         </Card>
