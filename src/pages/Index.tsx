@@ -98,10 +98,43 @@ const Index = () => {
           {`
             {
               "@context": "https://schema.org",
-              "@type": "WebPage",
-              "name": "${t("home_page_title")}",
+              "@type": "InsuranceAgency",
+              "name": "Insurance Support",
               "description": "${t("home_page_meta_description")}",
-              "url": "https://insurance-support.vercel.app/"
+              "url": "https://insurance-support.vercel.app/",
+              "telephone": "+919986634506",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+919986634506",
+                "contactType": "customer service",
+                "areaServed": "IN",
+                "availableLanguage": ["en", "hi", "kn", "ta", "te"]
+              },
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Bangalore",
+                "addressRegion": "Karnataka",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "12.9716",
+                "longitude": "77.5946"
+              },
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday"
+                ],
+                "opens": "09:00",
+                "closes": "18:00"
+              },
+              "priceRange": "$$"
             }
           `}
         </script>

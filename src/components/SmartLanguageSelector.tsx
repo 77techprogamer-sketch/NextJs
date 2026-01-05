@@ -67,7 +67,14 @@ const SmartLanguageSelector = () => {
                 if (!response.ok) throw new Error('IP API failed');
 
                 const data = await response.json();
-                const region = data.region; // e.g., "Maharashtra"
+                const { region, country_code } = data; // e.g., "Maharashtra", "IN"
+
+                // 2.5 Refinement: If outside India, do not prompt (stick to English default)
+                if (country_code !== 'IN') {
+                    // Optional: If we want to strictly FORCE English even if they are already on another lang, do it here.
+                    // For now, we just ensure we don't prompt them to switch to a regional lang.
+                    return;
+                }
 
                 if (!region) return;
 
