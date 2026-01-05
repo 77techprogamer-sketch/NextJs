@@ -3,6 +3,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { Helmet } from 'react-helmet-async'; // Import Helmet
+import { Button } from '@/components/ui/button';
 
 const PrivacyPolicy = () => {
   const { t } = useTranslation(); // Initialize useTranslation
@@ -65,10 +66,15 @@ const PrivacyPolicy = () => {
         </div>
       </section>
 
-      <footer className="mt-12 pt-8 border-t border-muted">
+      <footer className="mt-12 pt-8 border-t border-muted flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="font-semibold text-primary">
           {t("privacy_contact_us")}
         </p>
+        <Button asChild>
+          <a href="mailto:hari.sahyadri@gmail.com">
+            {t("send_email")}
+          </a>
+        </Button>
       </footer>
     </div>
   );
