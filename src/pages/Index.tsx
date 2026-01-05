@@ -5,18 +5,18 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare, Wallet, TrendingUp, HeartHandshake, ShieldCheck, Award, Briefcase, Users, Star } from 'lucide-react'; // Added professional icons
 import ServiceCard from '@/components/ServiceCard';
-import ServiceModal from '@/components/ServiceModal';
-import Testimonials from '@/components/Testimonials';
-import SocialShareButtons from '@/components/SocialShareButtons';
-
-import VisitorCounter from '@/components/VisitorCounter';
-import DateTimeDisplay from '@/components/DateTimeDisplay';
-import { fetchBlogPosts } from '@/utils/blogFetcher';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { Helmet } from 'react-helmet-async'; // Import Helmet
 import { cn } from '@/lib/utils'; // Import cn utility for class management
 import { slugify } from '@/utils/slugify';
+import SocialShareButtons from '@/components/SocialShareButtons';
+import { fetchBlogPosts } from '@/utils/blogFetcher';
+
+const ServiceModal = React.lazy(() => import('@/components/ServiceModal'));
+const Testimonials = React.lazy(() => import('@/components/Testimonials'));
+const VisitorCounter = React.lazy(() => import('@/components/VisitorCounter'));
+const DateTimeDisplay = React.lazy(() => import('@/components/DateTimeDisplay'));
 
 const Index = () => {
   const { t, i18n } = useTranslation(); // Initialize useTranslation
@@ -111,7 +111,9 @@ const Index = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="relative z-10 text-white w-full h-full flex flex-col justify-between items-center text-center p-4 pt-16 pb-8">
           {/* DateTimeDisplay positioned at the top right of the hero section */}
-          <DateTimeDisplay className="absolute top-4 right-4" />
+          <React.Suspense fallback={<div className="h-6 w-24 bg-white/10 rounded animate-pulse absolute top-4 right-4" />}>
+            <DateTimeDisplay className="absolute top-4 right-4" />
+          </React.Suspense>
           <div className="space-y-4 mt-8 mb-6">
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight px-2">
               {t("hero_title")}
@@ -415,15 +417,21 @@ const Index = () => {
       </section>
 
       {/* Customer Testimonials Section */}
-      <Testimonials />
+      <React.Suspense fallback={<div className="py-12 text-center text-muted-foreground">Loading testimonials...</div>}>
+        <Testimonials />
+      </React.Suspense>
 
-      <ServiceModal
+      <React.Suspense fallback={null}>
+        <ServiceModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          insuranceType={selectedInsuranceType}
+        />
+      </React.Suspense>
 
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        insuranceType={selectedInsuranceType}
-      />
-      <VisitorCounter />
+      <React.Suspense fallback={null}>
+        <VisitorCounter />
+      </React.Suspense>
     </div>
   );
 };

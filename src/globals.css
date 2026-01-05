@@ -13,7 +13,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 47.4% 11.2%;
 
-    --primary: 215 50% 23%; /* Deep Expert Navy */
+    --primary: 215 50% 23%;
+    /* Deep Expert Navy */
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -22,7 +23,8 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 45 100% 42%; /* Heritage Gold */
+    --accent: 45 100% 42%;
+    /* Heritage Gold */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -54,7 +56,8 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 100% 30%; /* Lighter LIC Blue for dark mode */
+    --primary: 210 100% 30%;
+    /* Lighter LIC Blue for dark mode */
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -72,7 +75,8 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 210 100% 30%; /* Lighter LIC Blue for dark mode */
+    --sidebar-background: 210 100% 30%;
+    /* Lighter LIC Blue for dark mode */
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 210 100% 40%;
     --sidebar-primary-foreground: 210 40% 98%;
@@ -101,21 +105,26 @@
   display: flex;
   align-items: flex-start;
   justify-content: center;
-  /* Removed: transition: background-image 0.5s ease-in-out; */ /* Smooth transition for background change */
+  /* Removed: transition: background-image 0.5s ease-in-out; */
+  /* Smooth transition for background change */
 }
 
 .hero-morning-bg {
-  background-image: url('/morning-bg.jpg');
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  /* Deep Navy to Blue */
 }
 
 .hero-afternoon-bg {
-  background-image: url('/afternoon-bg.jpg');
+  background: linear-gradient(135deg, #1e40af 0%, #60a5fa 100%);
+  /* Blue to Light Blue */
 }
 
 .hero-evening-bg {
-  background-image: url('/evening-bg.jpg');
+  background: linear-gradient(135deg, #1e3a8a 0%, #4338ca 100%);
+  /* Navy to Indigo */
 }
 
 .hero-night-bg {
-  background-image: url('/night-bg.jpg');
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+  /* Dark Slate to Navy */
 }
