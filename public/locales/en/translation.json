@@ -313,5 +313,9 @@
   "legacy_planning": "Legacy Planning",
   "legacy_planning_desc": "Ensuring your family's future is secure with sophisticated life and estate protection strategies.",
   "unrivaled_claims_support": "Unrivaled Claims Support",
-  "unrivaled_claims_support_desc": "Veteran-led coordination during critical moments, standing by you when it matters most."
+  "unrivaled_claims_support_desc": "Veteran-led coordination during critical moments, standing by you when it matters most.",
+  "language_prompt_title": "Welcome",
+  "language_prompt_description": "We detected you are in {{region}}. Would you like to switch to {{language}}?",
+  "language_prompt_confirm": "Yes, Switch to {{language}}",
+  "language_prompt_dismiss": "No, Keep English"
 }

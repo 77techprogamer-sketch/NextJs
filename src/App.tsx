@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { lazy, Suspense } from "react"; // Import lazy and Suspense
 import Layout from "./components/Layout";
 import GeoBlocker from "./components/GeoBlocker";
+import SmartLanguageSelector from "./components/SmartLanguageSelector"; // Import SmartLanguageSelector
 import { Toaster } from "./components/ui/sonner";
 import { useTranslation } from 'react-i18next';
 
@@ -17,28 +18,41 @@ const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage")); // La
 const EngagementDashboard = lazy(() => import("./pages/EngagementDashboard"));
 const SupportPage = lazy(() => import("./pages/SupportPage"));
 
+import { LocalizationProvider } from '@mui/x-date-pickers'; // Added for DatePicker
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'; // Added for DatePicker
+
 function App() {
   const { t } = useTranslation();
 
+  // Simple wrapper for LocalizationProvider to avoid adding another file
+  const DateLocalizationProvider = ({ children }: { children: React.ReactNode }) => (
+    <LocalizationProvider dateAdapter={AdapterDateFns}>
+      {children}
+    </LocalizationProvider>
+  );
+
   return (
     <Router>
-      <GeoBlocker />
-      <Layout>
-        <Suspense fallback={<div>Loading page...</div>}> {/* Add Suspense for lazy-loaded routes */}
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-of-service" element={<TermsOfService />} />
-            <Route path="/blocked" element={<BlockedPage />} />
-            <Route path="/engagement" element={<EngagementDashboard />} />
-            <Route path="/support" element={<SupportPage />} />
-            <Route path="/services/:serviceType" element={<ServiceDetailPage />} /> {/* New dynamic route */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </Suspense>
+      <DateLocalizationProvider>
+        <SmartLanguageSelector /> {/* Add SmartLanguageSelector */}
+        <GeoBlocker />
+        <Layout>
+          <Suspense fallback={<div>Loading page...</div>}> {/* Add Suspense for lazy-loaded routes */}
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="/terms-of-service" element={<TermsOfService />} />
+              <Route path="/blocked" element={<BlockedPage />} />
+              <Route path="/engagement" element={<EngagementDashboard />} />
+              <Route path="/support" element={<SupportPage />} />
+              <Route path="/services/:serviceType" element={<ServiceDetailPage />} /> {/* New dynamic route */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
 
-        <Toaster />
-      </Layout>
+          <Toaster />
+        </Layout>
+      </DateLocalizationProvider>
     </Router>
   );
 }
