@@ -1,223 +1,173 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Home } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { notFound } from "next/navigation"
+import Link from "next/link"
+import { Metadata } from "next"
+import { Button } from "@/components/ui/button"
+import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, CheckCircle2 } from "lucide-react"
 
-interface ServiceDetail {
-    title: string
-    description: string
-    metaDescription: string
-    image: string
-    features: Array<{ title: string; description: string }>
+// Define all services data statically
+const servicesData = {
+    "life-insurance": {
+        title: "Life Insurance",
+        description: "Secure your family's financial future with our comprehensive life insurance plans.",
+        icon: Shield,
+        features: ["Family Protection", "Tax Benefits (80C)", "Wealth Creation", "Loan Collateral"],
+        content: "Life insurance is a contract between an insurance policy holder and an insurer or assurer, where the insurer promises to pay a designated beneficiary a sum of money upon the death of an insured person."
+    },
+    "health-insurance": {
+        title: "Health Insurance",
+        description: "Get access to the best medical care without financial stress.",
+        icon: Heart,
+        features: ["Cashless Hospitalization", "Pre/Post Hospitalization", "Ambulance Cover", "Tax Benefits (80D)"],
+        content: "Health insurance covers the whole or a part of the risk of a person incurring medical expenses. It provides financial protection against unexpected medical costs."
+    },
+    "motor-insurance": {
+        title: "Motor Insurance",
+        description: "Mandatory protection for your vehicle against accidents and theft.",
+        icon: Car,
+        features: ["Third Party Liability", "Own Damage Cover", "Personal Accident Cover", "No Claim Bonus"],
+        content: "Motor insurance provides protection against physical damage or bodily injury resulting from traffic collisions and against liability that could also arise from incidents in a vehicle."
+    },
+    "term-insurance": {
+        title: "Term Insurance",
+        description: "High life cover at affordable premiums for pure risk protection.",
+        icon: Home,
+        features: ["High Coverage/Low Premium", "Critical Illness Riders", "Accidental Death Benefit", "Tax Savings"],
+        content: "Term insurance is a type of life insurance policy that provides coverage for a certain period of time or a specified \"term\" of years."
+    },
+    "sme-insurance": {
+        title: "SME Insurance",
+        description: "Tailored insurance solutions for small and medium enterprises.",
+        icon: Briefcase,
+        features: ["Property Protection", "Employee Benefits", "Liability Coverage", "Business Interruption"],
+        content: "SME Insurance protects small businesses against risks such as property damage, legal liability, and employee-related risks."
+    },
+    "travel-insurance": {
+        title: "Travel Insurance",
+        description: "Complete protection for your domestic and international trips.",
+        icon: Plane,
+        features: ["Medical Emergencies", "Trip Cancellation", "Lost Baggage", "Flight Delays"],
+        content: "Travel insurance is an insurance product for covering unforeseen losses incurred while buzzing, either internationally or domestically."
+    },
+    "pension-plans": {
+        title: "Pension Plans",
+        description: "Build a retirement corpus for a stress-free retired life.",
+        icon: Coins,
+        features: ["Regular Income", "Inflation Protection", "Tax Efficient", "Spouse Coverage"],
+        content: "Pension plans are retirement plans that require an employer to make contributions into a pool of funds set aside for a worker's future benefit."
+    },
+    "ulip-plans": {
+        title: "ULIP Plans",
+        description: "Unit Linked Insurance Plans for investment plus insurance.",
+        icon: UserCheck,
+        features: ["Market Linked Returns", "Life Cover", "Tax Free Withdrawal", "Fund Switching"],
+        content: "A Unit Linked Insurance Plan (ULIP) is a product offered by insurance companies that, unlike a pure insurance policy, gives investors both insurance and investment under a single integrated plan."
+    },
+    "wedding-insurance": {
+        title: "Wedding Insurance",
+        description: "Insure your big day against cancellations and mishaps.",
+        icon: Heart,
+        features: ["Event Cancellation", "Public Liability", "Property Damage", "Personal Accident"],
+        content: "Wedding insurance protects a couple's investment in their wedding, covering losses from cancellation, postponement, or damaged property."
+    },
+    "cyber-insurance": {
+        title: "Cyber Insurance",
+        description: "Protection against digital threats and cyber attacks.",
+        icon: Lock,
+        features: ["Data Breach Cover", "Cyber Extortion", "Identity Theft", "Legal Costs"],
+        content: "Cyber insurance is a specialty insurance product intended to protect businesses and individuals from Internet-based risks, and more generally from risks relating to information technology infrastructure and activities."
+    }
 }
 
-const serviceDetails: Record<string, ServiceDetail> = {
-    'life-insurance': {
-        title: 'Life Insurance',
-        description: 'Secure your family\'s financial future with comprehensive life insurance coverage. Protect your loved ones from financial uncertainties.',
-        metaDescription: 'Get comprehensive life insurance coverage in Bangalore. Protect your family\'s financial future with expert advice and competitive rates.',
-        image: '/life-insurance.png',
-        features: [
-            { title: 'Financial Security', description: 'Ensure your family\'s financial stability' },
-            { title: 'Tax Benefits', description: 'Save on taxes under Section 80C' },
-            { title: 'Wealth Creation', description: 'Build long-term wealth for your family' },
-        ],
-    },
-    'health-insurance': {
-        title: 'Health Insurance',
-        description: 'Comprehensive health coverage for you and your family. Access to cashless hospitalization and quality healthcare.',
-        metaDescription: 'Best health insurance plans in Bangalore. Cashless hospitalization, comprehensive coverage, and expert support for your medical needs.',
-        image: '/health-insurance.png',
-        features: [
-            { title: 'Medical Expenses', description: 'Coverage for hospitalization and treatment' },
-            { title: 'Cashless Hospitalization', description: 'Network hospitals across India' },
-            { title: 'Pre/Post Hospitalization', description: 'Complete care coverage' },
-        ],
-    },
-    'term-insurance': {
-        title: 'Term Insurance',
-        description: 'Pure protection at affordable premiums. High coverage for your family\'s security with minimal cost.',
-        metaDescription: 'Affordable term insurance plans in Bangalore. High coverage, low premiums, and pure protection for your loved ones.',
-        image: '/term-insurance.png',
-        features: [
-            { title: 'High Cover Low Premium', description: 'Maximum protection at minimum cost' },
-            { title: 'Pure Protection', description: 'No investment component' },
-            { title: 'Income Replacement', description: 'Replace your income for your family' },
-        ],
-    },
-    'motor-insurance': {
-        title: 'Motor Insurance',
-        description: 'Comprehensive coverage for your vehicle. Protect against damages, theft, and third-party liabilities.',
-        metaDescription: 'Motor insurance for cars and bikes in Bangalore. Comprehensive coverage, cashless claims, and instant policy issuance.',
-        image: '/motor-insurance.png',
-        features: [
-            { title: 'Own Damage Cover', description: 'Protection for your vehicle' },
-            { title: 'Third Party Liability', description: 'Legal requirement coverage' },
-            { title: 'Personal Accident Cover', description: 'Coverage for driver and passengers' },
-        ],
-    },
-    'sme-insurance': {
-        title: 'SME Insurance',
-        description: 'Comprehensive insurance solutions for small and medium enterprises. Protect your business from unforeseen risks.',
-        metaDescription: 'SME insurance solutions in Bangalore. Protect your business with comprehensive coverage for property, liability, and business interruption.',
-        image: '/sme-insurance.png',
-        features: [
-            { title: 'Business Interruption', description: 'Coverage for income loss' },
-            { title: 'Property Damage', description: 'Protection for business assets' },
-            { title: 'Liability Cover', description: 'Third-party liability protection' },
-        ],
-    },
-    'travel-insurance': {
-        title: 'Travel Insurance',
-        description: 'Travel worry-free with comprehensive travel insurance. Medical emergencies, trip cancellations, and baggage protection.',
-        metaDescription: 'Travel insurance for domestic and international trips. Medical emergencies, trip cancellation, and baggage loss coverage.',
-        image: '/travel-insurance.png',
-        features: [
-            { title: 'Medical Emergencies', description: 'Coverage abroad' },
-            { title: 'Trip Cancellation', description: 'Refund for cancellations' },
-            { title: 'Baggage Loss', description: 'Protection for your belongings' },
-        ],
-    },
-    'pension-plans': {
-        title: 'Pension Plans',
-        description: 'Plan your retirement with comprehensive pension solutions. Secure regular income for your golden years.',
-        metaDescription: 'Pension and retirement plans in Bangalore. Secure your retirement with regular income and financial independence.',
-        image: '/pension-plans.png',
-        features: [
-            { title: 'Retirement Income', description: 'Regular income after retirement' },
-            { title: 'Annuity Options', description: 'Flexible payout options' },
-            { title: 'Financial Independence', description: 'Live independently' },
-        ],
-    },
-    'ulip-plans': {
-        title: 'ULIP Plans',
-        description: 'Unit Linked Insurance Plans combining investment and insurance. Build wealth while staying protected.',
-        metaDescription: 'ULIP investment plans in Bangalore. Combine insurance protection with market-linked investment growth.',
-        image: '/ulip-plans.png',
-        features: [
-            { title: 'Investment Growth', description: 'Market-linked returns' },
-            { title: 'Life Cover', description: 'Insurance protection' },
-            { title: 'Fund Switching', description: 'Flexible investment options' },
-        ],
-    },
-    'wedding-insurance': {
-        title: 'Wedding Insurance',
-        description: 'Protect your special day from unforeseen circumstances. Coverage for cancellations, damages, and liabilities.',
-        metaDescription: 'Wedding insurance coverage in Bangalore. Protect your special day from cancellations, damages, and unexpected events.',
-        image: '/wedding-insurance.png',
-        features: [
-            { title: 'Cancellation Cover', description: 'Refund for cancellations' },
-            { title: 'Damage to Property', description: 'Protection for venue and items' },
-            { title: 'Public Liability', description: 'Third-party coverage' },
-        ],
-    },
-    'cyber-insurance': {
-        title: 'Cyber Insurance',
-        description: 'Protect your business from cyber threats and data breaches. Comprehensive coverage for digital risks.',
-        metaDescription: 'Cyber insurance for businesses in Bangalore. Protection against data breaches, cyber attacks, and digital risks.',
-        image: '/cyber-insurance.png',
-        features: [
-            { title: 'Data Breach Costs', description: 'Recovery expenses coverage' },
-            { title: 'Cyber Extortion', description: 'Protection from ransomware' },
-            { title: 'Legal Expenses', description: 'Legal cost coverage' },
-        ],
-    },
-}
+type ServiceType = keyof typeof servicesData
 
-// Generate static paths for all service pages at build time
-export async function generateStaticParams() {
-    return Object.keys(serviceDetails).map((serviceType) => ({
-        serviceType,
+// SSG: Generate params for all 10 services
+export function generateStaticParams() {
+    return Object.keys(servicesData).map((serviceType) => ({
+        serviceType: serviceType,
     }))
 }
 
-// Generate metadata for each service page
-export async function generateMetadata(
-    { params }: { params: Promise<{ serviceType: string }> }
-): Promise<Metadata> {
-    const { serviceType } = await params
-    const service = serviceDetails[serviceType]
-
-    if (!service) {
-        return {}
-    }
+// Meta: Generate SEO tags for each service
+export function generateMetadata({ params }: { params: { serviceType: string } }): Metadata {
+    const service = servicesData[params.serviceType as ServiceType]
+    if (!service) return {}
 
     return {
-        title: service.title,
-        description: service.metaDescription,
-        alternates: {
-            canonical: `/services/${serviceType}`,
-        },
-        openGraph: {
-            title: `${service.title} - Insurance Support`,
-            description: service.metaDescription,
-            url: `/services/${serviceType}`,
-            images: [service.image],
-        },
+        title: `${service.title} Quotes | Insurance Support`,
+        description: service.description,
     }
 }
 
-export default async function ServicePage(
-    { params }: { params: Promise<{ serviceType: string }> }
-) {
-    const { serviceType } = await params
-    const service = serviceDetails[serviceType]
+export default function ServicePage({ params }: { params: { serviceType: string } }) {
+    const service = servicesData[params.serviceType as ServiceType]
 
     if (!service) {
         notFound()
     }
 
+    const Icon = service.icon
+
     return (
-        <div className="container mx-auto px-4 py-12">
-            <div className="mb-8">
-                <Link href="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground">
-                    <Home className="h-4 w-4" />
-                    Back to Home
-                </Link>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 items-center mb-12">
-                <div>
-                    <h1 className="text-4xl font-bold mb-4">{service.title}</h1>
-                    <p className="text-lg text-muted-foreground mb-6">{service.description}</p>
-                    <Link href="/support">
-                        <Button size="lg" className="w-full sm:w-auto">
-                            Get a Free Quote
-                        </Button>
+        <div className="container px-4 py-12 mx-auto">
+            <div className="max-w-4xl mx-auto">
+                <div className="mb-8">
+                    <Link href="/" className="text-sm text-muted-foreground hover:text-primary mb-4 block">
+                        ← Back to Home
                     </Link>
+                    <div className="flex items-center gap-4 mb-6">
+                        <div className="p-3 bg-primary/10 rounded-lg text-primary">
+                            <Icon className="w-8 h-8" />
+                        </div>
+                        <h1 className="text-4xl font-bold">{service.title}</h1>
+                    </div>
+                    <p className="text-xl text-muted-foreground leading-relaxed">
+                        {service.description}
+                    </p>
                 </div>
-                <div className="relative aspect-video w-full">
-                    <Image
-                        src={service.image}
-                        alt={`${service.title} Infographic`}
-                        fill
-                        className="object-cover rounded-lg shadow-2xl"
-                        priority
-                    />
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div className="md:col-span-2 space-y-8">
+                        <section className="bg-card border rounded-lg p-6 shadow-sm">
+                            <h2 className="text-2xl font-semibold mb-4">About {service.title}</h2>
+                            <p className="text-muted-foreground leading-loose">
+                                {service.content}
+                                <br /><br />
+                                At Insurance Support, we help you navigate the complexities of specific policy terms
+                                to find the plan that best fits your requirements and budget.
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2 className="text-2xl font-semibold mb-6">Key Benefits</h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                {service.features.map((feature, idx) => (
+                                    <div key={idx} className="flex items-center gap-3 bg-slate-50 p-4 rounded-lg border">
+                                        <CheckCircle2 className="w-5 h-5 text-green-600" />
+                                        <span className="font-medium">{feature}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </section>
+                    </div>
+
+                    <div className="space-y-6">
+                        <div className="bg-slate-900 text-white p-6 rounded-lg sticky top-24">
+                            <h3 className="text-xl font-bold mb-4">Get a Quote</h3>
+                            <p className="text-slate-300 mb-6 text-sm">
+                                Speak to our expert advisors today to get the best rates for {service.title}.
+                            </p>
+                            <Link href="/support" className="block">
+                                <Button size="lg" className="w-full bg-white text-slate-900 hover:bg-slate-100">
+                                    Contact Us
+                                </Button>
+                            </Link>
+                            <p className="text-xs text-center text-slate-500 mt-4">
+                                Free consultation. No spam.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <section className="mb-12">
-                <h2 className="text-3xl font-bold mb-6 text-center">Key Features</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {service.features.map((feature, index) => (
-                        <Card key={index} className="text-center p-6">
-                            <CardHeader>
-                                <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
-                            </CardHeader>
-                            <CardContent>
-                                <p className="text-muted-foreground">{feature.description}</p>
-                            </CardContent>
-                        </Card>
-                    ))}
-                </div>
-            </section>
         </div>
     )
 }
-
-// ISR - revalidate every 24 hours
-export const revalidate = 86400
