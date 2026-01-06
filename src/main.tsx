@@ -8,9 +8,12 @@ import i18n from './i18n.ts';
 import React, { Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async'; // Import HelmetProvider
 
+import { SpeedInsights } from "@vercel/speed-insights/react";
+
 createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <Suspense fallback={<div>Loading...</div>}>
+      <SpeedInsights />
       <I18nextProvider i18n={i18n}>
         <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
           <SessionContextProvider>

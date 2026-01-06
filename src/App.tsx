@@ -19,6 +19,7 @@ const EngagementDashboard = lazy(() => import("./pages/EngagementDashboard"));
 const SupportPage = lazy(() => import("./pages/SupportPage"));
 
 
+import Analytics from "./components/Analytics";
 
 function App() {
   const { t } = useTranslation();
@@ -27,6 +28,7 @@ function App() {
 
   return (
     <Router>
+      <Analytics />
       <SmartLanguageSelector /> {/* Add SmartLanguageSelector */}
       <GeoBlocker />
       <Layout>
