@@ -186,11 +186,14 @@ const ServiceDetailPage = () => {
             <SocialShareButtons url={`https://insurance-support.vercel.app/services/${serviceType}`} title={normalizeUIValue(t(service.titleKey))} />
           </div>
         </div>
-        <div className="relative">
+        <div className="relative aspect-video w-full">
           <img
             src={service.image}
             alt={`${normalizeUIValue(t(service.titleKey))} Infographic`}
-            className="w-full h-auto rounded-lg shadow-2xl"
+            width={800}
+            height={450}
+            className="w-full h-full object-cover rounded-lg shadow-2xl"
+            fetchPriority="high"
           />
         </div>
       </div>
