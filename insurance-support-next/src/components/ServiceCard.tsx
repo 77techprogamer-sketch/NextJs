@@ -1,36 +1,32 @@
-"use client";
+'use client'
 
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LucideIcon } from "lucide-react";
-import { Link } from "react-router-dom";
-import { useTranslation } from 'react-i18next'; // Import useTranslation
-import { formatLabel, normalizeUIValue } from '@/utils/formatText';
+import Link from 'next/link'
+import { LucideIcon } from 'lucide-react'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
 
 interface ServiceCardProps {
-  title: string;
-  icon: LucideIcon;
-  href: string;
+  title: string
+  icon: LucideIcon
+  href: string
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon: Icon, href }) => {
-  const { t } = useTranslation(); // Initialize useTranslation
-
+export default function ServiceCard({ title, icon: Icon, href }: ServiceCardProps) {
   return (
-    <Link to={href} className="block">
-      <Card
-        className="flex flex-col items-center text-center p-4 cursor-pointer hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-105"
-      >
-        <CardHeader className="pb-2 flex flex-col items-center">
-          <Icon className="h-10 w-10 text-primary mb-2" />
-          <CardTitle className="text-lg font-semibold">{normalizeUIValue(title)}</CardTitle>
+    <Link href={href}>
+      <Card className="hover:shadow-lg transition-shadow cursor-pointer h-full">
+        <CardHeader className="text-center">
+          <div className="mx-auto mb-4 p-4 rounded-full bg-primary/10 w-fit">
+            <Icon className="h-8 w-8 text-primary" />
+          </div>
+          <CardTitle className="text-xl">{title}</CardTitle>
         </CardHeader>
-        <CardContent className="text-sm text-muted-foreground">
-          {t("click_to_get_quote", { type: formatLabel(title).toLowerCase() })}
+        <CardContent className="text-center">
+          <Button variant="outline" className="w-full">
+            Learn More
+          </Button>
         </CardContent>
       </Card>
     </Link>
-  );
-};
-
-export default ServiceCard;
+  )
+}
