@@ -91,7 +91,7 @@ const VisitorCounter = () => {
             // showError("Failed to log visitor. Please try again.");
           }
         } else {
-          console.log('Visitor logged successfully via Edge Function:', edgeFunctionData);
+
         }
 
         // Fetch initial stats after logging the visitor
@@ -131,7 +131,7 @@ const VisitorCounter = () => {
     const statsChannel = supabase.channel('public:visitors');
     statsChannel
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'visitors' }, (payload) => {
-        console.log('Realtime INSERT received:', payload);
+
         fetchVisitorStats(); // Re-fetch stats when a new visitor is inserted
       })
       .subscribe();
