@@ -1,11 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ChatbotWidget from '@/components/ChatbotWidget'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta' })
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurance-support.vercel.app'),
@@ -35,7 +36,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={inter.className}>
+            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}>
                 <div className="flex flex-col min-h-screen">
                     <Header />
                     <main className="flex-1">

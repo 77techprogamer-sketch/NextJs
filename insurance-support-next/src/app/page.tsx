@@ -18,6 +18,7 @@ const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: f
 const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false });
 const VisitorCounter = dynamic(() => import('@/components/VisitorCounter'), { ssr: false });
 const DateTimeDisplay = dynamic(() => import('@/components/DateTimeDisplay'), { ssr: false });
+const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
 
 const Index = () => {
     const { t, i18n } = useTranslation();
@@ -51,24 +52,6 @@ const Index = () => {
         const randomIndex = Math.floor(Math.random() * oneLinersList.length);
         setDynamicOneLiner(oneLinersList[randomIndex]);
 
-        const updateBackgroundClass = () => {
-            const currentHour = new Date().getHours();
-            let newBackgroundClass = '';
-            if (currentHour >= 5 && currentHour < 12) {
-                newBackgroundClass = 'hero-morning-bg';
-            } else if (currentHour >= 12 && currentHour < 17) {
-                newBackgroundClass = 'hero-afternoon-bg';
-            } else if (currentHour >= 17 && currentHour < 21) {
-                newBackgroundClass = 'hero-evening-bg';
-            } else {
-                newBackgroundClass = 'hero-night-bg';
-            }
-            setCurrentBackgroundClass(newBackgroundClass);
-        };
-
-        updateBackgroundClass();
-        const intervalId = setInterval(updateBackgroundClass, 60 * 60 * 1000);
-
         const hash = window.location.hash;
         if (hash === '#services') {
             const servicesSection = document.getElementById('services');
@@ -85,7 +68,7 @@ const Index = () => {
         };
         getLatestBlogPost();
 
-        return () => clearInterval(intervalId);
+        return () => { };
     }, [t, i18n.language]);
 
     const currentUrl = "https://insurance-support.vercel.app/";
@@ -99,24 +82,40 @@ const Index = () => {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className={cn("relative w-full hero-section", currentBackgroundClass)}>
-                <div className="absolute inset-0 bg-black opacity-50"></div>
-                <div className="relative z-10 text-white w-full h-full flex flex-col justify-between items-center text-center p-4 pt-16 pb-8">
-                    <React.Suspense fallback={<div className="h-6 w-24 bg-white/10 rounded animate-pulse absolute top-4 right-4" />}>
-                        <DateTimeDisplay className="absolute top-4 right-4" />
+            <section className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden bg-primary text-white">
+                {/* Background Effects */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/50 via-primary to-primary"></div>
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
+
+                {/* Grid Pattern Overlay */}
+                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
+
+                <div className="relative z-10 w-full container mx-auto px-4 flex flex-col items-center text-center space-y-8 pt-20">
+                    <React.Suspense fallback={<div className="h-6 w-32 bg-white/10 rounded animate-pulse absolute top-6 right-6" />}>
+                        <DateTimeDisplay className="absolute top-6 right-6 backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/10" />
                     </React.Suspense>
-                    <div className="space-y-4 mt-8 mb-6">
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight px-2">
-                            {t("hero_title")}
+
+                    <div className="space-y-6 max-w-4xl mx-auto animate-fade-up">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent mb-4">
+                            <Star className="w-4 h-4 fill-accent" />
+                            <span>#1 Trusted Insurance Partner in Bangalore</span>
+                        </div>
+
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                            {t("hero_title_start", "Secure Your")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-300 to-accent animate-shimmer bg-[length:200%_auto]">{t("hero_title_highlight", "Future")}</span>
+                            <br className="hidden sm:block" /> {t("hero_title_end", "With Expert Guidance")}
                         </h1>
-                        <p className="text-sm sm:text-base md:text-lg max-w-2xl mx-auto px-2">
-                            {dynamicOneLiner}
+
+                        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                            {dynamicOneLiner || "Comprehensive coverage for life, health, and vehicle tailored to your needs."}
                         </p>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-4 w-full mt-4 mb-4">
+
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto pt-4 animate-fade-up [animation-delay:200ms]">
                         <Button
                             size="lg"
-                            className="bg-accent hover:bg-accent/90 text-white text-base sm:text-lg w-full sm:w-auto font-semibold px-8 py-6 rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.3)]"
+                            className="bg-accent hover:bg-accent/90 text-primary text-lg w-full sm:w-auto font-bold px-8 py-7 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all hover:scale-105 hover:shadow-[0_0_60px_-15px_rgba(234,179,8,0.6)]"
                             onClick={() => {
                                 setSelectedInsuranceType('general_inquiry');
                                 setIsModalOpen(true);
@@ -126,14 +125,23 @@ const Index = () => {
                         </Button>
                         <SocialShareButtons url={currentUrl} title={shareTitle} />
                     </div>
-                    <div className="mt-6 flex items-center gap-6 text-gray-300 text-xs sm:text-sm border-t border-white/20 pt-6">
-                        <div className="flex items-center gap-2">
-                            <Award className="h-5 w-5 text-accent" />
-                            <span>{t("years_experience")}</span>
+
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 border-t border-white/10 animate-fade-up [animation-delay:400ms]">
+                        <div className="flex flex-col items-center gap-2">
+                            <span className="text-3xl font-bold text-white">15k+</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">Clients</span>
                         </div>
-                        <div className="flex items-center gap-2">
-                            <ShieldCheck className="h-5 w-5 text-accent" />
-                            <span>{t("expert_claims_support")}</span>
+                        <div className="flex flex-col items-center gap-2">
+                            <span className="text-3xl font-bold text-white">98%</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">Claims Settled</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                            <span className="text-3xl font-bold text-white">24/7</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">Support</span>
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                            <span className="text-3xl font-bold text-white">50+</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">Awards</span>
                         </div>
                     </div>
                 </div>
@@ -247,18 +255,18 @@ const Index = () => {
                         <Card className="max-w-2xl mx-auto overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700">
                             <CardHeader className="bg-primary/5 dark:bg-primary/10">
                                 <CardTitle className="text-xl sm:text-2xl font-bold line-clamp-2">
-                                    {latestBlogPost.title}
+                                    {latestBlogPost?.title}
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="pt-6">
                                 <div className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-4 max-w-none text-sm sm:text-base">
-                                    {latestBlogPost.summary}
+                                    {latestBlogPost?.summary}
                                 </div>
                                 <Button
                                     asChild
                                     className="w-full sm:w-auto hover:scale-105 transition-transform"
                                 >
-                                    <a href={latestBlogPost.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                                    <a href={latestBlogPost?.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                                         {t("read_full_article")}
                                         <FileText className="h-4 w-4" />
                                     </a>
@@ -351,6 +359,13 @@ const Index = () => {
 
             <React.Suspense fallback={null}>
                 <VisitorCounter />
+            </React.Suspense>
+
+            <React.Suspense fallback={null}>
+                <FloatingCTA onGetQuote={() => {
+                    setSelectedInsuranceType('general_inquiry');
+                    setIsModalOpen(true);
+                }} />
             </React.Suspense>
         </div>
     );
