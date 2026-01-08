@@ -1,71 +1,63 @@
-import Link from 'next/link'
-import { Facebook, Twitter, Instagram, Linkedin, Heart, Phone, Mail, MapPin } from 'lucide-react'
+"use client";
 
-export default function Footer() {
-    return (
-        <footer className="bg-slate-900 text-white">
-            <div className="container mx-auto px-4 py-12">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-                    <div>
-                        <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                            Insurance Support
-                        </h3>
-                        <p className="text-slate-400 text-sm leading-relaxed">
-                            Your trusted partner for comprehensive insurance solutions. We simplify insurance to help you protect what matters most.
-                        </p>
-                    </div>
+import React from "react";
+import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
+import { ShieldCheck, Award } from 'lucide-react';
+const Footer = () => {
+  const { t } = useTranslation(); // Initialize useTranslation
 
-                    <div>
-                        <h4 className="font-semibold mb-4">Quick Links</h4>
-                        <ul className="space-y-2 text-sm text-slate-400">
-                            <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-                            <li><Link href="#services" className="hover:text-white transition-colors">Services</Link></li>
-                            <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
-                            <li><Link href="/support" className="hover:text-white transition-colors">Contact</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="font-semibold mb-4">Insurance Products</h4>
-                        <ul className="space-y-2 text-sm text-slate-400">
-                            <li><Link href="/services/life-insurance" className="hover:text-white transition-colors">Life Insurance</Link></li>
-                            <li><Link href="/services/health-insurance" className="hover:text-white transition-colors">Health Insurance</Link></li>
-                            <li><Link href="/services/motor-insurance" className="hover:text-white transition-colors">Motor Insurance</Link></li>
-                            <li><Link href="/services/term-insurance" className="hover:text-white transition-colors">Term Insurance</Link></li>
-                        </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="font-semibold mb-4">Contact Us</h4>
-                        <ul className="space-y-3 text-sm text-slate-400">
-                            <li className="flex items-center gap-2">
-                                <Phone className="h-4 w-4" />
-                                <span>+91 99866 34506</span>
-                            </li>
-                            <li className="flex items-center gap-2">
-                                <Mail className="h-4 w-4" />
-                                <span>hari.sahyadri@gmail.com</span>
-                            </li>
-                            <li className="flex items-start gap-2">
-                                <MapPin className="h-4 w-4 shrink-0 translate-y-0.5" />
-                                <span>Bangalore, Karnataka, India</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-                    <p className="text-sm text-slate-400">
-                        © 2026 Insurance Support. All rights reserved.
-                    </p>
-                    <div className="flex gap-4">
-                        <Link href="#" className="text-slate-400 hover:text-white transition-colors"><Facebook className="h-5 w-5" /></Link>
-                        <Link href="#" className="text-slate-400 hover:text-white transition-colors"><Twitter className="h-5 w-5" /></Link>
-                        <Link href="#" className="text-slate-400 hover:text-white transition-colors"><Instagram className="h-5 w-5" /></Link>
-                        <Link href="#" className="text-slate-400 hover:text-white transition-colors"><Linkedin className="h-5 w-5" /></Link>
-                    </div>
-                </div>
+  return (
+    <footer className="w-full bg-muted text-muted-foreground border-t">
+      <div className="bg-primary text-primary-foreground py-2 overflow-hidden">
+        <div className="whitespace-nowrap animate-marquee">
+          <span className="font-bold text-lg px-4">
+            {t("gst_rates_slashed")}
+          </span>
+        </div>
+      </div>
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <ShieldCheck className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold text-foreground">{t("insurance_support")}</span>
             </div>
-        </footer>
-    )
-}
+            <p className="text-sm leading-relaxed max-w-xs transition-colors">
+              Providing strategic insurance advisory and risk management solutions with over 25 years of industry excellence.
+            </p>
+            <div className="flex items-center gap-2 text-primary font-semibold">
+              <Award className="h-5 w-5 text-accent" />
+              <span>A Team led by Veterans</span>
+            </div>
+          </div>
+          <div>
+            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/support" className="hover:text-primary transition-colors">{t("support")}</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">{t("privacy_policy")}</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-primary transition-colors">{t("terms_of_service")}</Link></li>
+            </ul>
+          </div>
+          <div className="text-center sm:text-left">
+            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Headquarters</h4>
+            <p className="text-sm mb-2">{t("bangalore_office")}</p>
+            <p className="text-xs font-medium uppercase tracking-tighter opacity-70">Established 1998</p>
+          </div>
+        </div>
+        <div className="pt-8 border-t border-muted-foreground/10 flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs">&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
+          <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-primary/60">
+            <span>Legacy</span>
+            <span className="h-1 w-1 bg-accent rounded-full"></span>
+            <span>Trust</span>
+            <span className="h-1 w-1 bg-accent rounded-full"></span>
+            <span>Excellence</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

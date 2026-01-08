@@ -1,32 +1,36 @@
-import Link from 'next/link'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { ArrowRight, LucideIcon } from 'lucide-react'
+"use client";
+
+import React from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { LucideIcon } from "lucide-react";
+import Link from "next/link";
+import { useTranslation } from 'react-i18next'; // Import useTranslation
+import { formatLabel, normalizeUIValue } from '@/utils/formatText';
 
 interface ServiceCardProps {
-    title: string
-    description: string
-    icon: LucideIcon
-    href: string
+  title: string;
+  icon: LucideIcon;
+  href: string;
 }
 
-export default function ServiceCard({ title, description, icon: Icon, href }: ServiceCardProps) {
-    return (
-        <Link href={href} className="group block h-full">
-            <Card className="h-full hover:shadow-lg transition-all duration-300 border-border/50 hover:border-primary/50">
-                <CardHeader>
-                    <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-                        <Icon className="h-6 w-6" />
-                    </div>
-                    <CardTitle className="text-xl group-hover:text-primary transition-colors">{title}</CardTitle>
-                    <CardDescription className="line-clamp-2">{description}</CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                    <Button variant="ghost" className="w-full group-hover:bg-primary/5 p-0 sm:px-4 justify-start sm:justify-center">
-                        Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                </CardContent>
-            </Card>
-        </Link>
-    )
-}
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon: Icon, href }) => {
+  const { t } = useTranslation(); // Initialize useTranslation
+
+  return (
+    <Link href={href} className="block">
+      <Card
+        className="flex flex-col items-center text-center p-4 cursor-pointer hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-105"
+      >
+        <CardHeader className="pb-2 flex flex-col items-center">
+          <Icon className="h-10 w-10 text-primary mb-2" />
+          <CardTitle className="text-lg font-semibold">{normalizeUIValue(title)}</CardTitle>
+        </CardHeader>
+        <CardContent className="text-sm text-muted-foreground">
+          {t("click_to_get_quote", { type: formatLabel(title).toLowerCase() })}
+        </CardContent>
+      </Card>
+    </Link>
+  );
+};
+
+export default ServiceCard;
