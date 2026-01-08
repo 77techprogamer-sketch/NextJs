@@ -78,7 +78,7 @@ const Testimonials = () => {
                             <CardContent className="pt-0">
                                 <Quote className="h-8 w-8 text-primary/20 absolute top-4 right-4 group-hover:text-primary/40 transition-colors" />
                                 <p className="text-gray-700 dark:text-gray-200 mb-6 italic text-sm sm:text-base leading-relaxed">
-                                    "{testimonial.text}"
+                                    &quot;{testimonial.text}&quot;
                                 </p>
                                 <div className="border-t border-slate-200 dark:border-gray-700 pt-4">
                                     <p className="font-bold text-gray-900 dark:text-white">{testimonial.name}</p>

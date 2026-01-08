@@ -74,7 +74,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       dateOfBirth: undefined,
       gender: 'Male',
       memberDetails: {},
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      // eslint-disable-next-line
     } as any,
   });
 

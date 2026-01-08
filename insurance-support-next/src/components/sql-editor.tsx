@@ -152,7 +152,7 @@ export function SqlEditor({
     if (noResults && !isSqlVisible && !isNaturalLanguageMode && !readOnly && !isPending) {
       setIsSqlVisible(true)
     }
-  }, [data, isSqlVisible, isNaturalLanguageMode])
+  }, [data, isSqlVisible, isNaturalLanguageMode, isPending, readOnly])
 
   const serverErrorMessage = (error as any)?.response?.data?.message || ''
   const isReadOnlyError =
