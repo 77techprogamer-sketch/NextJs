@@ -1,7 +1,7 @@
 "use client";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React, { lazy, Suspense } from "react"; // Import lazy and Suspense
+import React, { lazy, Suspense, useEffect } from "react"; // Import lazy, Suspense, and useEffect
 import Layout from "./components/Layout";
 import GeoBlocker from "./components/GeoBlocker";
 import SmartLanguageSelector from "./components/SmartLanguageSelector"; // Import SmartLanguageSelector
@@ -25,6 +25,17 @@ function App() {
   const { t } = useTranslation();
 
 
+
+
+  useEffect(() => {
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+    document.addEventListener("contextmenu", handleContextMenu);
+    return () => {
+      document.removeEventListener("contextmenu", handleContextMenu);
+    };
+  }, []);
 
   return (
     <Router>

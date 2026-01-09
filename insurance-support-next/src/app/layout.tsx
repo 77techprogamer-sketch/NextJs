@@ -36,7 +36,10 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}>
+            <body
+                className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}
+                onContextMenu={(e) => e.preventDefault()}
+            >
                 <div className="flex flex-col min-h-screen">
                     <Header />
                     <main className="flex-1">
