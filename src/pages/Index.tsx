@@ -13,10 +13,11 @@ import { slugify } from '@/utils/slugify';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import { fetchBlogPosts } from '@/utils/blogFetcher';
 
+import DateTimeDisplay from '@/components/DateTimeDisplay';
 const ServiceModal = React.lazy(() => import('@/components/ServiceModal'));
 const Testimonials = React.lazy(() => import('@/components/Testimonials'));
 const VisitorCounter = React.lazy(() => import('@/components/VisitorCounter'));
-const DateTimeDisplay = React.lazy(() => import('@/components/DateTimeDisplay'));
+// const DateTimeDisplay = React.lazy(() => import('@/components/DateTimeDisplay'));
 
 const Index = () => {
   const { t, i18n } = useTranslation(); // Initialize useTranslation

@@ -9,7 +9,8 @@ import { Toaster } from "./components/ui/sonner";
 import { useTranslation } from 'react-i18next';
 
 // Lazy load page components
-const Index = lazy(() => import("./pages/Index"));
+import Index from "./pages/Index";
+// const Index = lazy(() => import("./pages/Index"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -31,9 +32,9 @@ function App() {
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault();
     };
-    document.addEventListener("contextmenu", handleContextMenu);
+    document.addEventListener("contextmenu", handleContextMenu, true);
     return () => {
-      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("contextmenu", handleContextMenu, true);
     };
   }, []);
 
