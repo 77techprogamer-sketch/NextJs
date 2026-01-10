@@ -4,6 +4,10 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ChatbotWidget from '@/components/ChatbotWidget'
+import GeoBlocker from '@/components/GeoBlocker'
+import SmartLanguageSelector from '@/components/SmartLanguageSelector'
+import Analytics from '@/components/Analytics'
+import { Toaster } from '@/components/ui/sonner'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta' })
@@ -41,12 +45,16 @@ export default function RootLayout({
                 onContextMenu={(e) => e.preventDefault()}
             >
                 <div className="flex flex-col min-h-screen">
+                    <Analytics />
+                    <SmartLanguageSelector />
+                    <GeoBlocker />
                     <Header />
                     <main className="flex-1">
                         {children}
                     </main>
                     <Footer />
                     <ChatbotWidget />
+                    <Toaster />
                 </div>
             </body>
         </html>

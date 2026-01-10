@@ -138,7 +138,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                 <FormLabel>{t(field.labelKey)}</FormLabel>
                 <FormControl>
                   {field.type === 'select' ? (
-                    <Select onValueChange={field.name === 'healthMembers' ? handleHealthMembersChange : formField.onChange} defaultValue={formField.value}>
+                    <Select onValueChange={field.name === 'healthMembers' ? handleHealthMembersChange : formField.onChange} defaultValue={(formField as any).value}>
                       <SelectTrigger>
                         <SelectValue placeholder={field.placeholderKey ? t(field.placeholderKey) : ""} />
                       </SelectTrigger>
@@ -149,7 +149,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                       </SelectContent>
                     </Select>
                   ) : field.type === 'radio' ? (
-                    <RadioGroup onValueChange={formField.onChange} defaultValue={formField.value} className="grid grid-cols-2 gap-4">
+                    <RadioGroup onValueChange={formField.onChange} defaultValue={(formField as any).value} className="grid grid-cols-2 gap-4">
                       {field.options?.map(opt => (
                         <FormItem key={opt.value}>
                           <FormControl>
@@ -173,7 +173,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                         const val = field.type === 'number' ? (e.target.value ? parseInt(e.target.value) : undefined) : e.target.value;
                         formField.onChange(val);
                       }}
-                      value={formField.value ?? ""}
+                      value={(formField as any).value ?? ""}
                     />
                   )}
                 </FormControl>

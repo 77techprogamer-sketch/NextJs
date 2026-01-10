@@ -12,7 +12,7 @@ import { AlertTriangle, Table, Wand } from 'lucide-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 
 // Helper to generate a Zod schema from the table's column definitions
-function generateZodSchema(table: any): z.ZodObject<any, any, any> {
+function generateZodSchema(table: any): z.ZodObject<any> {
   if (!table || !table.columns) {
     return z.object({})
   }
@@ -85,9 +85,9 @@ function EditRowView({
       const dataType = column.data_type.toLowerCase()
       const displayType =
         dataType === 'user-defined' &&
-        column.enums &&
-        Array.isArray(column.enums) &&
-        column.enums.length > 0
+          column.enums &&
+          Array.isArray(column.enums) &&
+          column.enums.length > 0
           ? 'enum'
           : dataType
 
@@ -129,9 +129,8 @@ function EditRowView({
             } else if (dataType.includes('array')) {
               // Non-nullable array, set to empty array
               const jsonObj = JSON.stringify({ [key]: [] })
-              formattedValue = `(select ${key} from json_populate_record(null::public."${
-                table.name
-              }", '${jsonObj.replace(/'/g, "''")}'))`
+              formattedValue = `(select ${key} from json_populate_record(null::public."${table.name
+                }", '${jsonObj.replace(/'/g, "''")}'))`
             } else {
               // Non-nullable text field, set to empty string
               formattedValue = "''"
@@ -139,15 +138,13 @@ function EditRowView({
           } else if (Array.isArray(value) && value.length === 0) {
             // Explicitly empty array (different from null)
             const jsonObj = JSON.stringify({ [key]: [] })
-            formattedValue = `(select ${key} from json_populate_record(null::public."${
-              table.name
-            }", '${jsonObj.replace(/'/g, "''")}'))`
+            formattedValue = `(select ${key} from json_populate_record(null::public."${table.name
+              }", '${jsonObj.replace(/'/g, "''")}'))`
           } else if (dataType.includes('array')) {
             // Array type with actual values - use json_populate_record syntax
             const jsonObj = JSON.stringify({ [key]: value })
-            formattedValue = `(select ${key} from json_populate_record(null::public."${
-              table.name
-            }", '${jsonObj.replace(/'/g, "''")}'))`
+            formattedValue = `(select ${key} from json_populate_record(null::public."${table.name
+              }", '${jsonObj.replace(/'/g, "''")}'))`
           } else if (dataType === 'user-defined' && column?.enums) {
             // Handle enum values - treat as strings with proper escaping
             formattedValue = `'${String(value).replace(/'/g, "''")}'`
