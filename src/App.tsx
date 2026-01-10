@@ -14,6 +14,7 @@ import Index from "./pages/Index";
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const MasterFormPage = lazy(() => import("./pages/MasterFormPage"));
 const BlockedPage = lazy(() => import("./pages/BlockedPage"));
 const ServiceDetailPage = lazy(() => import("./pages/ServiceDetailPage")); // Lazy load ServiceDetailPage
 const EngagementDashboard = lazy(() => import("./pages/EngagementDashboard"));
@@ -52,6 +53,7 @@ function App() {
             <Route path="/blocked" element={<BlockedPage />} />
             <Route path="/engagement" element={<EngagementDashboard />} />
             <Route path="/support" element={<SupportPage />} />
+            <Route path="/get-started" element={<MasterFormPage />} />
             <Route path="/services/:serviceType" element={<ServiceDetailPage />} /> {/* New dynamic route */}
             <Route path="*" element={<NotFound />} />
           </Routes>

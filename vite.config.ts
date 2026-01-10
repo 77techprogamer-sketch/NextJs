@@ -60,7 +60,8 @@ export default defineConfig(() => ({
             'tailwind-merge'
           ],
           'supabase-vendor': ['@supabase/supabase-js', '@supabase/auth-ui-react', '@supabase/auth-ui-shared'],
-          'utils-vendor': ['date-fns', 'zod', 'axios', '@tanstack/react-query']
+          'utils-vendor': ['date-fns', 'zod', 'axios', '@tanstack/react-query'],
+          'charts-vendor': ['recharts']
         }
       }
     }

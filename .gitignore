@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Reports
-lighthouse-report*.json
+# lighthouse-report*.json

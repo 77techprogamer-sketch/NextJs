@@ -14,15 +14,14 @@ import SocialShareButtons from '@/components/SocialShareButtons';
 import { fetchBlogPosts } from '@/utils/blogFetcher';
 
 import DateTimeDisplay from '@/components/DateTimeDisplay';
-const ServiceModal = React.lazy(() => import('@/components/ServiceModal'));
+
 const Testimonials = React.lazy(() => import('@/components/Testimonials'));
 const VisitorCounter = React.lazy(() => import('@/components/VisitorCounter'));
 // const DateTimeDisplay = React.lazy(() => import('@/components/DateTimeDisplay'));
 
 const Index = () => {
   const { t, i18n } = useTranslation(); // Initialize useTranslation
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
+
   const [dynamicOneLiner, setDynamicOneLiner] = useState('');
   const [currentBackgroundClass, setCurrentBackgroundClass] = useState('hero-morning-bg'); // State for CSS class
   const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
@@ -84,10 +83,7 @@ const Index = () => {
   const currentUrl = "https://insurance-support.vercel.app/";
   const shareTitle = t("hero_title");
 
-  const handleCloseModal = useCallback(() => {
-    setIsModalOpen(false);
-    setSelectedInsuranceType('');
-  }, []);
+
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -161,12 +157,11 @@ const Index = () => {
             <Button
               size="lg"
               className="bg-accent hover:bg-accent/90 text-white text-base sm:text-lg w-full sm:w-auto font-semibold px-8 py-6 rounded-none shadow-[4px_4px_0px_0px_rgba(0,0,0,0.3)] transition-all hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,0.3)]"
-              onClick={() => {
-                setSelectedInsuranceType('general_inquiry');
-                setIsModalOpen(true);
-              }}
+              asChild
             >
-              {t("get_a_free_quote")}
+              <Link to="/get-started">
+                {t("get_a_free_quote")}
+              </Link>
             </Button>
             {/* SocialShareButtons is now separate blocks */}
             <SocialShareButtons url={currentUrl} title={shareTitle} />
@@ -453,14 +448,6 @@ const Index = () => {
       {/* Customer Testimonials Section */}
       <React.Suspense fallback={<div className="py-12 text-center text-muted-foreground">Loading testimonials...</div>}>
         <Testimonials />
-      </React.Suspense>
-
-      <React.Suspense fallback={null}>
-        <ServiceModal
-          isOpen={isModalOpen}
-          onClose={handleCloseModal}
-          insuranceType={selectedInsuranceType}
-        />
       </React.Suspense>
 
       <React.Suspense fallback={null}>

@@ -7,8 +7,6 @@ import { Helmet } from 'react-helmet-async';
 import { Home } from 'lucide-react';
 import { slugify } from '@/utils/slugify';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import QuoteForm from '@/components/QuoteForm';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // Import Card components
 import { Skeleton } from '@/components/ui/skeleton'; // Import Skeleton component
 import { fetchBlogPosts } from '@/utils/blogFetcher'; // Import the blog fetcher utility
@@ -28,42 +26,42 @@ const serviceDetails: Record<string, ServiceDetail> = {
     titleKey: "life_insurance",
     descriptionKey: "life_insurance_long_description",
     metaDescriptionKey: "life_insurance_meta_description",
-    image: "/life-insurance.png",
+    image: "/life-insurance.jpg",
     features: ["financial_security", "tax_benefits", "wealth_creation"],
   },
   health_insurance: {
     titleKey: "health_insurance",
     descriptionKey: "health_insurance_long_description",
     metaDescriptionKey: "health_insurance_meta_description",
-    image: "/health-insurance.png",
+    image: "/health-insurance.jpg",
     features: ["medical_expenses", "cashless_hospitalization", "pre_post_hospitalization"],
   },
   term_insurance: {
     titleKey: "term_insurance",
     descriptionKey: "term_insurance_long_description",
     metaDescriptionKey: "term_insurance_meta_description",
-    image: "/term-insurance.png",
+    image: "/term-insurance.jpg",
     features: ["high_cover_low_premium", "pure_protection", "income_replacement"],
   },
   motor_insurance: {
     titleKey: "motor_insurance",
     descriptionKey: "motor_insurance_long_description",
     metaDescriptionKey: "motor-insurance_meta_description",
-    image: "/motor-insurance.png",
+    image: "/motor-insurance.jpg",
     features: ["own_damage_cover", "third_party_liability", "personal_accident_cover"],
   },
   sme_insurance: {
     titleKey: "sme_insurance",
     descriptionKey: "sme_insurance_long_description",
     metaDescriptionKey: "sme-insurance_meta_description",
-    image: "/sme-insurance.png",
+    image: "/sme-insurance.jpg",
     features: ["business_interruption", "property_damage", "liability_cover"],
   },
   travel_insurance: {
     titleKey: "travel_insurance",
     descriptionKey: "travel_insurance_long_description",
     metaDescriptionKey: "travel-insurance_meta_description",
-    image: "/travel-insurance.png",
+    image: "/travel-insurance.jpg",
     features: ["medical_emergencies", "trip_cancellation", "baggage_loss"],
   },
   pension_plans: {
@@ -99,7 +97,6 @@ const serviceDetails: Record<string, ServiceDetail> = {
 const ServiceDetailPage = () => {
   const { serviceType } = useParams<{ serviceType: string }>();
   const { t } = useTranslation();
-  const [isQuoteDialogOpen, setIsQuoteDialogOpen] = useState(false);
   const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
   const [loadingBlog, setLoadingBlog] = useState(true); // New state for blog loading
 
@@ -127,10 +124,7 @@ const ServiceDetailPage = () => {
     );
   }
 
-  const handleQuoteSuccess = () => {
-    setIsQuoteDialogOpen(false);
-    // Optionally, show a toast notification or redirect
-  };
+
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -164,23 +158,13 @@ const ServiceDetailPage = () => {
         <div>
           <h1 className="text-4xl font-bold mb-4">{normalizeUIValue(t(service.titleKey))}</h1>
           <p className="text-lg text-muted-foreground mb-6">{t(service.descriptionKey)}</p>
-          <Dialog open={isQuoteDialogOpen} onOpenChange={setIsQuoteDialogOpen}>
-            <DialogTrigger asChild>
-              <Button size="lg" className="w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button size="lg" className="w-full sm:w-auto" asChild>
+              <Link to={`/get-started?service=${serviceKey}`}>
                 {t("get_a_free_quote")}
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-              <DialogHeader>
-                <DialogTitle>{t("get_a_free_quote_for_service", { service: formatLabel(t(service.titleKey)) })}</DialogTitle>
-              </DialogHeader>
-              <QuoteForm
-                insuranceType={serviceKey}
-                onClose={() => setIsQuoteDialogOpen(false)}
-                onSuccess={handleQuoteSuccess}
-              />
-            </DialogContent>
-          </Dialog>
+              </Link>
+            </Button>
+          </div>
           <div className="mt-6 flex flex-col items-center sm:items-start gap-4">
             <p className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">{t("share_on_facebook")}</p>
             <SocialShareButtons url={`https://insurance-support.vercel.app/services/${serviceType}`} title={normalizeUIValue(t(service.titleKey))} />
