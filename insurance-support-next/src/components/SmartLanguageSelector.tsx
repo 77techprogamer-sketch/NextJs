@@ -66,6 +66,11 @@ const SmartLanguageSelector = () => {
     // MANUAL_SELECT state data
     const [selectedManualLang, setSelectedManualLang] = useState('');
 
+    // Debug: Log when component mounts
+    useEffect(() => {
+        console.log('SmartLanguageSelector: Component mounted');
+    }, []);
+
     useEffect(() => {
         const checkAndPromptLanguage = async () => {
             // 1. Check if already prompted (Session constrained)
