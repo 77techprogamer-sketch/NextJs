@@ -197,7 +197,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                       placeholder={t("age")}
                       {...field}
                       onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
-                      value={field.value ?? ""}
+                      value={(field as any).value ?? ""}
                       disabled={!!form.watch('dateOfBirth')}
                     />
                   </FormControl>
@@ -220,13 +220,13 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                           className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}
                           disabled={form.watch('age') !== undefined && form.watch('age') !== null}
                         >
-                          {field.value ? format(field.value, "PPP") : <span>{t("date_of_birth")}</span>}
+                          {field.value ? format(field.value as any, "PPP") : <span>{t("date_of_birth")}</span>}
                           <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
                     <PopoverContent className="w-auto p-0" align="start">
-                      <Calendar mode="single" selected={field.value} onSelect={field.onChange} disabled={(date) => date > new Date() || date < new Date("1900-01-01")} initialFocus />
+                      <Calendar mode="single" selected={field.value as any} onSelect={field.onChange} disabled={(date) => date > new Date() || date < new Date("1900-01-01")} initialFocus />
                     </PopoverContent>
                   </Popover>
                   <FormMessage />
@@ -244,7 +244,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               <FormItem className="space-y-3">
                 <FormLabel>{t("your_gender")}</FormLabel>
                 <FormControl>
-                  <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="grid grid-cols-3 gap-3">
+                  <RadioGroup onValueChange={field.onChange} defaultValue={(field as any).value} className="grid grid-cols-3 gap-3">
                     {["Male", "Female", "Other"].map((gender) => (
                       <FormItem key={gender}>
                         <FormControl>
@@ -278,7 +278,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                     render={({ field }) => (
                       <FormItem className="flex-1">
                         <FormControl>
-                          <Input type="number" placeholder={t("age")} {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} value={field.value ?? ""} />
+                          <Input type="number" placeholder={t("age")} {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} value={(field as any).value ?? ""} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -289,7 +289,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                     name={`memberDetails.${member}.gender`}
                     render={({ field }) => (
                       <FormItem className="flex-1">
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <Select onValueChange={field.onChange} defaultValue={(field as any).value}>
                           <SelectTrigger><SelectValue placeholder={t("gender")} /></SelectTrigger>
                           <SelectContent>
                             <SelectItem value="Male">{t("male")}</SelectItem>

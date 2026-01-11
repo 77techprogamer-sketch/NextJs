@@ -72,6 +72,7 @@
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.19",
+        "@types/common-tags": "^1.8.4",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
