@@ -156,7 +156,7 @@ export default function ServicePage({ params }: { params: { serviceType: string 
                             <p className="text-slate-300 mb-6 text-sm">
                                 Speak to our expert advisors today to get the best rates for {service.title}.
                             </p>
-                            <Link href="/support" className="block">
+                            <Link href={`/get-started?interest=${params.serviceType}`} className="block">
                                 <Button size="lg" className="w-full bg-white text-slate-900 hover:bg-slate-100">
                                     Contact Us
                                 </Button>
