@@ -7,7 +7,9 @@ import { ShieldCheck, Users, Clock, Award } from 'lucide-react';
 
 const GetStartedContent = () => {
     const searchParams = useSearchParams();
-    const interest = searchParams.get('interest') || 'life_insurance';
+    // Convert hyphenated URL params (e.g., life-insurance) to underscore format (life_insurance) for FORM_CONFIGS
+    const rawInterest = searchParams.get('interest') || 'life_insurance';
+    const interest = rawInterest.replace(/-/g, '_');
     const router = useRouter();
 
     const handleSuccess = () => {
