@@ -9,6 +9,7 @@ import SmartLanguageSelector from '@/components/SmartLanguageSelector'
 import Analytics from '@/components/Analytics'
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
+import DisableRightClick from '@/components/DisableRightClick'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta' })
@@ -41,10 +42,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="scroll-smooth">
-            <body
-                className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}
-                onContextMenu={(e) => e.preventDefault()}
-            >
+            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}>
+                <DisableRightClick />
                 <I18nProvider>
                     <div className="flex flex-col min-h-screen">
                         <Analytics />
