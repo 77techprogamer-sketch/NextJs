@@ -25,7 +25,7 @@ const TermsOfService = () => {
                         <h2 className="text-2xl font-semibold m-0">1. Acceptance of Terms</h2>
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
-                        By accessing or using the Insurance Support website ("Site") and our services, you agree to be bound by these Terms of Service ("Terms") and our Privacy Policy. If you do not agree to these Terms, you must not use our Site or services.
+                        By accessing or using the Insurance Support website (&quot;Site&quot;) and our services, you agree to be bound by these Terms of Service (&quot;Terms&quot;) and our Privacy Policy. If you do not agree to these Terms, you must not use our Site or services.
                     </p>
                 </section>
 
@@ -83,7 +83,7 @@ const TermsOfService = () => {
                     </h2>
                     <div className="bg-secondary/10 p-5 rounded-lg">
                         <p className="text-muted-foreground text-sm leading-relaxed">
-                            By submitting your information on this Site, you expressly consent to receive communications from Insurance Support and our licensed insurance partners via telephone, email, and/or text message (SMS), even if your number is listed on a national or state "Do Not Call" registry.
+                            By submitting your information on this Site, you expressly consent to receive communications from Insurance Support and our licensed insurance partners via telephone, email, and/or text message (SMS), even if your number is listed on a national or state &quot;Do Not Call&quot; registry.
                         </p>
                         <p className="text-muted-foreground text-sm mt-3 leading-relaxed">
                             These communications may involve the use of automated dialing systems or pre-recorded voice messages for the purpose of verifying your information and providing insurance quotes. Consent is not a condition of purchase; you may revoke this consent at any time by contacting us directly.

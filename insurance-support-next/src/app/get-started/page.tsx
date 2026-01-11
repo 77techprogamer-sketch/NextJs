@@ -26,7 +26,7 @@ const GetStartedContent = () => {
                             Get Your Free Quote
                         </h1>
                         <p className="text-xl text-muted-foreground leading-relaxed">
-                            You're taking the first step towards a secure future. Fill out the form to get personalized insurance options tailored to your needs.
+                            You&apos;re taking the first step towards a secure future. Fill out the form to get personalized insurance options tailored to your needs.
                         </p>
                     </div>
 
@@ -71,7 +71,7 @@ const GetStartedContent = () => {
 
                     <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl border-l-4 border-blue-500">
                         <p className="text-sm md:text-base text-blue-800 dark:text-blue-200 italic">
-                            "Insurance Support helped me find the perfect health plan for my parents. The process was smooth and transparent!"
+                            &quot;Insurance Support helped me find the perfect health plan for my parents. The process was smooth and transparent!&quot;
                         </p>
                         <p className="mt-2 text-sm font-semibold text-blue-900 dark:text-blue-100">- Rajesh K., Electronic City</p>
                     </div>

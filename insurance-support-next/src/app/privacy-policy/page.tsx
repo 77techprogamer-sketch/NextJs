@@ -37,12 +37,12 @@ const PrivacyPolicy = () => {
                         1. Information We Collect
                     </h2>
                     <p className="text-muted-foreground mb-4">
-                        To provide accurate quotes, facilitate underwriting, and service your policies, we collect various categories of personal information ("PI"). The types of PI we collect depend on the product or service you request:
+                        To provide accurate quotes, facilitate underwriting, and service your policies, we collect various categories of personal information (&quot;PI&quot;). The types of PI we collect depend on the product or service you request:
                     </p>
                     <div className="grid md:grid-cols-2 gap-4">
                         <div className="bg-muted p-4 rounded-lg">
                             <h3 className="font-semibold text-foreground mb-2">Identity Data</h3>
-                            <p className="text-sm text-muted-foreground">Name, date of birth, social security number, driver's license number, and government-issued IDs necessary for identity verification and background checks.</p>
+                            <p className="text-sm text-muted-foreground">Name, date of birth, social security number, driver&apos;s license number, and government-issued IDs necessary for identity verification and background checks.</p>
                         </div>
                         <div className="bg-muted p-4 rounded-lg">
                             <h3 className="font-semibold text-foreground mb-2">Contact Data</h3>
