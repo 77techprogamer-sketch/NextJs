@@ -68,17 +68,37 @@ const SmartLanguageSelector = () => {
 
     useEffect(() => {
         const checkAndPromptLanguage = async () => {
-            // 1. Check if already prompted
-            const hasPrompted = localStorage.getItem('language_prompt_shown');
-            if (hasPrompted) return;
+            // 1. Check if already prompted (Session constrained)
+            const hasPrompted = sessionStorage.getItem('language_prompt_shown');
+            if (hasPrompted) {
+                console.log('SmartLanguageSelector: Prompt already shown in this session.');
+                return;
+            }
 
             try {
-                // 2. Fetch IP Geolocation
-                const response = await fetch('https://ipapi.co/json/');
-                if (!response.ok) throw new Error('IP API failed');
+                // 2. Fetch IP Geolocation (Primary + Fallback)
+                let data;
+                let usedFallback = false;
 
-                const data = await response.json();
-                const { region, country_code } = data;
+                try {
+                    console.log('SmartLanguageSelector: Fetching from ipapi.co...');
+                    const response = await fetch('https://ipapi.co/json/');
+                    if (!response.ok) throw new Error(`Primary API failed: ${response.status}`);
+                    data = await response.json();
+                } catch (primaryError) {
+                    console.warn('SmartLanguageSelector: Primary API failed, trying fallback (ipwho.is)...', primaryError);
+                    // Fallback to ipwho.is
+                    const response = await fetch('https://ipwho.is/');
+                    if (!response.ok) throw new Error(`Fallback API failed: ${response.status}`);
+                    data = await response.json();
+                    usedFallback = true;
+                }
+
+                // Normalizing data between APIs
+                const country_code = usedFallback ? data.country_code : data.country_code;
+                const region = usedFallback ? data.region : data.region;
+
+                console.log(`SmartLanguageSelector: Detected ${region}, ${country_code}`);
 
                 // 3. Handle International Users
                 if (country_code !== 'IN') {
@@ -99,11 +119,12 @@ const SmartLanguageSelector = () => {
                     setFlowState('REGION_PROMPT');
                     setIsOpen(true);
                 } else {
-                    localStorage.setItem('language_prompt_shown', 'true');
+                    console.log('SmartLanguageSelector: Region matches current language or no mapping found. Surpressing.');
+                    sessionStorage.setItem('language_prompt_shown', 'true');
                 }
 
             } catch (error) {
-                console.error('Smart Language Detection failed:', error);
+                console.error('SmartLanguageSelector: All detection attempts failed:', error);
             }
         };
 
@@ -113,7 +134,7 @@ const SmartLanguageSelector = () => {
     // --- Actions ---
 
     const dismiss = () => {
-        localStorage.setItem('language_prompt_shown', 'true');
+        sessionStorage.setItem('language_prompt_shown', 'true');
         setIsOpen(false);
     };
 
