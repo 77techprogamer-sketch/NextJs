@@ -44,7 +44,6 @@ import {
 } from '@/components/ui/hover-card'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { LogoSupabase } from '@/components/logo-supabase'
-import { Link } from 'react-router-dom'
 
 const queryClient = new QueryClient()
 
