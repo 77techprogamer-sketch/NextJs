@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, CheckCircle2 } from "lucide-react"
+import QuoteForm from "@/components/QuoteForm"
 
 // Define all services data statically
 const servicesData = {
@@ -182,19 +183,10 @@ export default function ServicePage({ params }: { params: { serviceType: string 
                     </div>
 
                     <div className="space-y-6">
-                        <div className="bg-slate-900 text-white p-6 rounded-lg sticky top-24">
-                            <h3 className="text-xl font-bold mb-4">Get a Quote</h3>
-                            <p className="text-slate-300 mb-6 text-sm">
-                                Speak to our expert advisors today to get the best rates for {service.title}.
-                            </p>
-                            <Link href={`/get-started?interest=${params.serviceType}`} className="block">
-                                <Button size="lg" className="w-full bg-white text-slate-900 hover:bg-slate-100">
-                                    Contact Us
-                                </Button>
-                            </Link>
-                            <p className="text-xs text-center text-slate-500 mt-4">
-                                Free consultation. No spam.
-                            </p>
+                        <div className="sticky top-24">
+                            <QuoteForm
+                                insuranceType={params.serviceType}
+                            />
                         </div>
                     </div>
                 </div>
