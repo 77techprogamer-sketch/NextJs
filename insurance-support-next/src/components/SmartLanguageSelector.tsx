@@ -2,17 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from '@/components/ui/dialog';
-import { Button } from '@/components/ui/button';
-import { Globe, LogOut } from 'lucide-react';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Globe, Check, ArrowRight, LogOut } from 'lucide-react';
 
 // State to Language Code Mapping
 const REGION_TO_LANG: Record<string, string> = {
@@ -38,246 +28,260 @@ const REGION_TO_LANG: Record<string, string> = {
     'Uttarakhand': 'hi',
 };
 
-// Language Code to Display Name Mapping (for UI)
-const LANG_DISPLAY_NAMES: Record<string, string> = {
-    'en': 'English',
-    'hi': 'Hindi (हिंदी)',
-    'mr': 'Marathi (मराठी)',
-    'kn': 'Kannada (ಕನ್ನಡ)',
-    'ta': 'Tamil (தமிழ்)',
-    'te': 'Telugu (తెలుగు)',
-    'bn': 'Bengali (বাংলা)',
-    'gu': 'Gujarati (ગુજરાતી)',
-    'ml': 'Malayalam (മലയാളം)',
-    'pa': 'Punjabi (ਪੰਜਾਬੀ)',
-};
+// Language configurations with native names and greetings
+const LANGUAGES = [
+    { code: 'en', name: 'English', native: 'English', greeting: 'Welcome' },
+    { code: 'hi', name: 'Hindi', native: 'हिंदी', greeting: 'स्वागत है' },
+    { code: 'kn', name: 'Kannada', native: 'ಕನ್ನಡ', greeting: 'ಸ್ವಾಗತ' },
+    { code: 'ta', name: 'Tamil', native: 'தமிழ்', greeting: 'வரவேற்கிறோம்' },
+    { code: 'te', name: 'Telugu', native: 'తెలుగు', greeting: 'స్వాగతం' },
+    { code: 'mr', name: 'Marathi', native: 'मराठी', greeting: 'स्वागत आहे' },
+    { code: 'bn', name: 'Bengali', native: 'বাংলা', greeting: 'স্বাগতম' },
+    { code: 'gu', name: 'Gujarati', native: 'ગુજરાતી', greeting: 'સ્વાગત છે' },
+    { code: 'ml', name: 'Malayalam', native: 'മലയാളം', greeting: 'സ്വാഗതം' },
+    { code: 'pa', name: 'Punjabi', native: 'ਪੰਜਾਬੀ', greeting: 'ਜੀ ਆਇਆਂ ਨੂੰ' },
+];
 
-type FlowState = 'IDLE' | 'REGION_PROMPT' | 'NATIVE_CHECK' | 'MANUAL_SELECT';
+type FlowState = 'LOADING' | 'LANGUAGE_SELECT' | 'NATIVE_CHECK' | 'DISMISSED';
 
 const SmartLanguageSelector = () => {
-    const { t, i18n } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
-    const [flowState, setFlowState] = useState<FlowState>('IDLE');
-
-    // REGION_PROMPT state data
+    const { i18n } = useTranslation();
+    const [flowState, setFlowState] = useState<FlowState>('LOADING');
     const [detectedRegion, setDetectedRegion] = useState('');
-    const [suggestedLang, setSuggestedLang] = useState('');
-
-    // MANUAL_SELECT state data
-    const [selectedManualLang, setSelectedManualLang] = useState('');
-
-    // Debug: Log when component mounts
-    useEffect(() => {
-        console.log('SmartLanguageSelector: Component mounted');
-    }, []);
+    const [suggestedLang, setSuggestedLang] = useState('en');
+    const [isAnimating, setIsAnimating] = useState(false);
 
     useEffect(() => {
         const checkAndPromptLanguage = async () => {
-            // 1. Check if already prompted (Session constrained)
+            // Check if already prompted (Session constrained)
             const hasPrompted = sessionStorage.getItem('language_prompt_shown');
             if (hasPrompted) {
-                console.log('SmartLanguageSelector: Prompt already shown in this session.');
+                setFlowState('DISMISSED');
                 return;
             }
 
             try {
-                // 2. Fetch IP Geolocation (Primary + Fallback)
+                // Fetch IP Geolocation (Primary + Fallback)
                 let data;
                 let usedFallback = false;
 
                 try {
-                    console.log('SmartLanguageSelector: Fetching from ipapi.co...');
                     const response = await fetch('https://ipapi.co/json/');
                     if (!response.ok) throw new Error(`Primary API failed: ${response.status}`);
                     data = await response.json();
-                } catch (primaryError) {
-                    console.warn('SmartLanguageSelector: Primary API failed, trying fallback (ipwho.is)...', primaryError);
+                } catch {
                     // Fallback to ipwho.is
                     const response = await fetch('https://ipwho.is/');
-                    if (!response.ok) throw new Error(`Fallback API failed: ${response.status}`);
+                    if (!response.ok) throw new Error(`Fallback API failed`);
                     data = await response.json();
                     usedFallback = true;
                 }
 
-                // Normalizing data between APIs
                 const country_code = usedFallback ? data.country_code : data.country_code;
                 const region = usedFallback ? data.region : data.region;
 
-                console.log(`SmartLanguageSelector: Detected ${region}, ${country_code}`);
-
-                // 3. Handle International Users
+                // Handle International Users
                 if (country_code !== 'IN') {
-                    // Start Native Native Check Flow
                     setFlowState('NATIVE_CHECK');
-                    setIsOpen(true);
+                    setIsAnimating(true);
                     return;
                 }
 
-                if (!region) return;
-
-                // 4. Handle Domestic Users (Region Mapping)
-                const langCode = REGION_TO_LANG[region];
-
-                if (langCode && langCode !== i18n.language) {
+                // Handle Domestic Users
+                if (region) {
                     setDetectedRegion(region);
-                    setSuggestedLang(langCode);
-                    setFlowState('REGION_PROMPT');
-                    setIsOpen(true);
-                } else {
-                    console.log('SmartLanguageSelector: Region matches current language or no mapping found. Surpressing.');
-                    sessionStorage.setItem('language_prompt_shown', 'true');
+                    const langCode = REGION_TO_LANG[region];
+                    if (langCode) {
+                        setSuggestedLang(langCode);
+                    }
                 }
 
+                setFlowState('LANGUAGE_SELECT');
+                setIsAnimating(true);
+
             } catch (error) {
-                console.error('SmartLanguageSelector: All detection attempts failed:', error);
+                console.error('Language detection failed:', error);
+                // On error, show language selection anyway
+                setFlowState('LANGUAGE_SELECT');
+                setIsAnimating(true);
             }
         };
 
         checkAndPromptLanguage();
-    }, [i18n.language]);
+    }, []);
 
-    // --- Actions ---
+    const selectLanguage = (langCode: string) => {
+        i18n.changeLanguage(langCode);
+        dismiss();
+    };
 
     const dismiss = () => {
         sessionStorage.setItem('language_prompt_shown', 'true');
-        setIsOpen(false);
+        setIsAnimating(false);
+        setTimeout(() => setFlowState('DISMISSED'), 300);
     };
 
-    // Flow: NATIVE_CHECK
     const handleNativeConfirm = (isNative: boolean) => {
         if (isNative) {
-            setFlowState('MANUAL_SELECT');
+            setFlowState('LANGUAGE_SELECT');
         } else {
-            // Redirect to Google based on locale if possible, otherwise .com
-            // We'll just generic redirect for now as extracting locale from IP for google TLD is complex
             window.location.href = 'https://www.google.com';
         }
     };
 
-    // Flow: MANUAL_SELECT
-    const handleManualSelectConfirm = () => {
-        if (selectedManualLang) {
-            i18n.changeLanguage(selectedManualLang);
+    // Get suggestion details
+    const suggestedLangData = LANGUAGES.find(l => l.code === suggestedLang) || LANGUAGES[0];
+
+    if (flowState === 'DISMISSED' || flowState === 'LOADING') {
+        // Show loading state briefly
+        if (flowState === 'LOADING') {
+            return (
+                <div className="fixed inset-0 z-[100] bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center">
+                    <div className="text-center">
+                        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white mx-auto"></div>
+                        <p className="mt-4 text-white/80 text-sm">Loading...</p>
+                    </div>
+                </div>
+            );
         }
-        dismiss();
-    };
-
-    // Flow: REGION_PROMPT
-    const handleRegionConfirm = () => {
-        if (suggestedLang) {
-            i18n.changeLanguage(suggestedLang);
-        }
-        dismiss();
-    };
-
-
-    if (!isOpen) return null;
+        return null;
+    }
 
     return (
-        <Dialog open={isOpen} onOpenChange={(open) => {
-            if (!open) {
-                // If closing manually, treat as dismiss (unless redirecting)
-                dismiss();
-            }
-            setIsOpen(open);
-        }}>
-            <DialogContent className="sm:max-w-md">
+        <div
+            className={`fixed inset-0 z-[100] flex items-center justify-center p-4 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'
+                }`}
+            style={{
+                background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%)',
+            }}
+        >
+            {/* Decorative background elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+            </div>
 
-                {/* --- STATE: NATIVE_CHECK (International) --- */}
+            {/* Main Content Card */}
+            <div
+                className={`relative w-full max-w-2xl bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl p-8 md:p-10 transition-all duration-500 ${isAnimating ? 'translate-y-0 scale-100' : 'translate-y-8 scale-95'
+                    }`}
+            >
+                {/* International User Check */}
                 {flowState === 'NATIVE_CHECK' && (
-                    <>
-                        <DialogHeader>
-                            <div className="flex items-center gap-2">
-                                <Globe className="h-5 w-5 text-accent" />
-                                <DialogTitle>Welcome to Insurance Support</DialogTitle>
-                            </div>
-                            <DialogDescription className="pt-2">
-                                We detected you are visiting from outside India. To provide you the best experience, please tell us:
-                                <br /><br />
-                                <span className="font-semibold text-foreground">Are you a native of India?</span>
-                            </DialogDescription>
-                        </DialogHeader>
-                        <DialogFooter className="flex flex-col sm:flex-row gap-2 mt-4">
-                            <Button variant="outline" onClick={() => handleNativeConfirm(false)} className="order-2 sm:order-1 gap-2">
-                                <LogOut className="h-4 w-4" />
-                                No, I am not
-                            </Button>
-                            <Button onClick={() => handleNativeConfirm(true)} className="bg-primary text-white hover:bg-primary/90 order-1 sm:order-2">
-                                Yes, I am an Indian Native
-                            </Button>
-                        </DialogFooter>
-                    </>
-                )}
-
-                {/* --- STATE: MANUAL_SELECT (Native confirmed) --- */}
-                {flowState === 'MANUAL_SELECT' && (
-                    <>
-                        <DialogHeader>
-                            <div className="flex items-center gap-2">
-                                <Globe className="h-5 w-5 text-accent" />
-                                <DialogTitle>Choose Your Language / भाषा चुनें</DialogTitle>
-                            </div>
-                            <DialogDescription className="pt-2">
-                                Please select your preferred language to continue.
-                            </DialogDescription>
-                        </DialogHeader>
-
-                        <div className="py-4">
-                            <Select onValueChange={setSelectedManualLang}>
-                                <SelectTrigger>
-                                    <SelectValue placeholder="Select Language" />
-                                </SelectTrigger>
-                                <SelectContent>
-                                    {Object.entries(LANG_DISPLAY_NAMES).map(([code, name]) => (
-                                        <SelectItem key={code} value={code}>{name}</SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
+                    <div className="text-center">
+                        <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                            <Globe className="w-8 h-8 text-white" />
                         </div>
 
-                        <DialogFooter className="flex sm:justify-between gap-2 mt-4">
-                            <Button variant="ghost" onClick={dismiss} className="text-muted-foreground hover:text-foreground">
-                                Skip (English)
-                            </Button>
-                            <Button
-                                onClick={handleManualSelectConfirm}
-                                disabled={!selectedManualLang}
-                                className="bg-primary text-white hover:bg-primary/90"
+                        <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                            Welcome to Insurance Support
+                        </h1>
+                        <p className="text-white/70 mb-8">
+                            We detected you are visiting from outside India.<br />
+                            <span className="font-medium text-white/90">Are you a native of India?</span>
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button
+                                onClick={() => handleNativeConfirm(false)}
+                                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/20 text-white/80 hover:bg-white/10 transition-all"
                             >
-                                Continue
-                            </Button>
-                        </DialogFooter>
-                    </>
+                                <LogOut className="w-4 h-4" />
+                                No, I am not
+                            </button>
+                            <button
+                                onClick={() => handleNativeConfirm(true)}
+                                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium hover:from-blue-500 hover:to-blue-400 transition-all shadow-lg"
+                            >
+                                Yes, I am an Indian Native
+                                <ArrowRight className="w-4 h-4" />
+                            </button>
+                        </div>
+                    </div>
                 )}
 
-                {/* --- STATE: REGION_PROMPT (Domestic) --- */}
-                {flowState === 'REGION_PROMPT' && (
+                {/* Language Selection */}
+                {flowState === 'LANGUAGE_SELECT' && (
                     <>
-                        <DialogHeader>
-                            <div className="flex items-center gap-2">
-                                <Globe className="h-5 w-5 text-accent" />
-                                <DialogTitle>{t('language_prompt_title', 'Welcome / सुस्वागत')}</DialogTitle>
+                        {/* Header */}
+                        <div className="text-center mb-8">
+                            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                <Globe className="w-8 h-8 text-white" />
                             </div>
-                            <DialogDescription className="pt-2">
-                                {t('language_prompt_description', {
-                                    region: detectedRegion,
-                                    language: LANG_DISPLAY_NAMES[suggestedLang] || suggestedLang
-                                })}
-                            </DialogDescription>
-                        </DialogHeader>
-                        <DialogFooter className="flex flex-col sm:flex-row gap-2 mt-4">
-                            <Button variant="outline" onClick={dismiss} className="w-full sm:w-auto order-2 sm:order-1">
-                                {t('language_prompt_dismiss', 'Keep English')}
-                            </Button>
-                            <Button onClick={handleRegionConfirm} className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 order-1 sm:order-2">
-                                {t('language_prompt_confirm', { language: LANG_DISPLAY_NAMES[suggestedLang] || suggestedLang })}
-                            </Button>
-                        </DialogFooter>
+
+                            <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                                {suggestedLangData.greeting} / Welcome
+                            </h1>
+
+                            {detectedRegion && (
+                                <p className="text-white/70 text-sm">
+                                    We see you&apos;re from <span className="text-blue-300 font-medium">{detectedRegion}</span>
+                                </p>
+                            )}
+
+                            <p className="text-white/60 text-sm mt-2">
+                                Choose your preferred language
+                            </p>
+                        </div>
+
+                        {/* Language Grid */}
+                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6">
+                            {LANGUAGES.map((lang) => {
+                                const isSuggested = lang.code === suggestedLang;
+                                const isSelected = lang.code === i18n.language;
+
+                                return (
+                                    <button
+                                        key={lang.code}
+                                        onClick={() => selectLanguage(lang.code)}
+                                        className={`relative group p-4 rounded-xl border transition-all duration-200 text-center ${isSuggested
+                                                ? 'bg-gradient-to-br from-blue-600/40 to-purple-600/40 border-blue-400/50 ring-2 ring-blue-400/30'
+                                                : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
+                                            }`}
+                                    >
+                                        {isSuggested && (
+                                            <span className="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 text-[10px] font-medium bg-blue-500 text-white rounded-full">
+                                                Suggested
+                                            </span>
+                                        )}
+
+                                        <div className="text-lg font-bold text-white mb-1">
+                                            {lang.native}
+                                        </div>
+                                        <div className="text-xs text-white/60">
+                                            {lang.name}
+                                        </div>
+
+                                        {isSelected && (
+                                            <div className="absolute top-2 right-2">
+                                                <Check className="w-4 h-4 text-green-400" />
+                                            </div>
+                                        )}
+                                    </button>
+                                );
+                            })}
+                        </div>
+
+                        {/* Skip option */}
+                        <div className="text-center">
+                            <button
+                                onClick={dismiss}
+                                className="text-white/50 hover:text-white/80 text-sm transition-colors"
+                            >
+                                Skip and continue in English
+                            </button>
+                        </div>
                     </>
                 )}
+            </div>
 
-            </DialogContent>
-        </Dialog>
+            {/* Brand Footer */}
+            <div className="absolute bottom-6 left-0 right-0 text-center">
+                <p className="text-white/30 text-xs">
+                    Insurance Support • Your Trusted Partner
+                </p>
+            </div>
+        </div>
     );
 };
 
