@@ -225,41 +225,49 @@ const SmartLanguageSelector = () => {
                         </div>
 
                         {/* Language Grid */}
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6">
-                            {LANGUAGES.map((lang) => {
-                                const isSuggested = lang.code === suggestedLang;
-                                const isSelected = lang.code === i18n.language;
+                        {/* Language Grid */}
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 max-w-3xl mx-auto">
+                            {(() => {
+                                const targetCodes = Array.from(new Set([suggestedLang, 'en', 'hi']));
+                                const displayLanguages = targetCodes
+                                    .map(code => LANGUAGES.find(l => l.code === code))
+                                    .filter((l): l is typeof LANGUAGES[0] => !!l);
 
-                                return (
-                                    <button
-                                        key={lang.code}
-                                        onClick={() => selectLanguage(lang.code)}
-                                        className={`relative group p-4 rounded-xl border transition-all duration-200 text-center ${isSuggested
+                                return displayLanguages.map((lang) => {
+                                    const isSuggested = lang.code === suggestedLang;
+                                    const isSelected = lang.code === i18n.language;
+
+                                    return (
+                                        <button
+                                            key={lang.code}
+                                            onClick={() => selectLanguage(lang.code)}
+                                            className={`relative group p-4 rounded-xl border transition-all duration-200 text-center ${isSuggested
                                                 ? 'bg-gradient-to-br from-blue-600/40 to-purple-600/40 border-blue-400/50 ring-2 ring-blue-400/30'
                                                 : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
-                                            }`}
-                                    >
-                                        {isSuggested && (
-                                            <span className="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 text-[10px] font-medium bg-blue-500 text-white rounded-full">
-                                                Suggested
-                                            </span>
-                                        )}
+                                                }`}
+                                        >
+                                            {isSuggested && (
+                                                <span className="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 text-[10px] font-medium bg-blue-500 text-white rounded-full">
+                                                    Suggested
+                                                </span>
+                                            )}
 
-                                        <div className="text-lg font-bold text-white mb-1">
-                                            {lang.native}
-                                        </div>
-                                        <div className="text-xs text-white/60">
-                                            {lang.name}
-                                        </div>
-
-                                        {isSelected && (
-                                            <div className="absolute top-2 right-2">
-                                                <Check className="w-4 h-4 text-green-400" />
+                                            <div className="text-lg font-bold text-white mb-1">
+                                                {lang.native}
                                             </div>
-                                        )}
-                                    </button>
-                                );
-                            })}
+                                            <div className="text-xs text-white/60">
+                                                {lang.name}
+                                            </div>
+
+                                            {isSelected && (
+                                                <div className="absolute top-2 right-2">
+                                                    <Check className="w-4 h-4 text-green-400" />
+                                                </div>
+                                            )}
+                                        </button>
+                                    );
+                                });
+                            })()}
                         </div>
 
                         {/* Skip option */}
