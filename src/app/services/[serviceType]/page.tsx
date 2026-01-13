@@ -152,7 +152,7 @@ export default function ServicePage({ params }: { params: { serviceType: string 
                         alt={service.title}
                         width={1200}
                         height={600}
-                        className="w-full rounded-xl shadow-lg object-cover aspect-video bg-muted"
+                        className="w-full h-auto rounded-xl shadow-lg bg-muted"
                         priority
                     />
                 </div>
