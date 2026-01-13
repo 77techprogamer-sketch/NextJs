@@ -21,7 +21,26 @@ export const metadata: Metadata = {
         template: '%s | Insurance Support'
     },
     description: 'Get free insurance quotes from experienced advisors in Bangalore. Comprehensive coverage for life, health, motor, and more.',
-    keywords: ['insurance', 'life insurance', 'health insurance', 'bangalore', 'insurance agent'],
+    keywords: [
+        'Insurance Support',
+        'Insurance Support Bangalore',
+        'Insurance Support India',
+        'Insurance Claims Support',
+        'Policy Management',
+        'Life Insurance Support',
+        'Health Insurance Support',
+        'Motor Insurance Support',
+        'Travel Insurance Support',
+        'SME Insurance Support',
+        'Pension Planning',
+        'Investment Planning',
+        'insurance',
+        'life insurance',
+        'health insurance',
+        'bangalore',
+        'insurance agent',
+        'best insurance advisor bangalore'
+    ],
     icons: {
         icon: '/favicon.ico',
         shortcut: '/favicon.svg',

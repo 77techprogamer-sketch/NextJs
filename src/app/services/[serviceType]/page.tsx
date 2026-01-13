@@ -106,6 +106,15 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
     return {
         title: `${service.title} Quotes | Insurance Support`,
         description: service.description,
+        keywords: [
+            service.title,
+            `${service.title} Quotes`,
+            `Best ${service.title} in Bangalore`,
+            `${service.title} Support`,
+            "Insurance Support",
+            "Insurance Agent Bangalore",
+            ...service.features
+        ]
     }
 }
 
