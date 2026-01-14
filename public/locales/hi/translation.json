@@ -244,7 +244,7 @@
   "customer_testimonials_title": "ग्राहक प्रशंसापत्र",
   "customer_testimonials_description": "हमारी सेवाओं और उनकी वित्तीय सुरक्षा के प्रति प्रतिबद्धता के बारे में हमारे ग्राहक क्या कहते हैं।",
   "verified_client": "सत्यापित ग्राहक",
-  "trusted_partner_banner": "बैंगलोर में #1 विश्वसनीय बीमा भागीदार",
+  "trusted_partner_banner": "{{city}} में #1 विश्वसनीय बीमा भागीदार",
   "clients": "ग्राहक",
   "support_stat_label": "सहयोग",
   "awards": "पुरस्कार",

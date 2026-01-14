@@ -243,7 +243,7 @@
   "customer_testimonials_title": "ગ્રાહક પ્રતિસાદ",
   "customer_testimonials_description": "અમારી સેવાઓ અને તેમની નાણાકીય સુરક્ષા પ્રત્યેની અમારી પ્રતિબદ્ધતા વિશે અમારા ગ્રાહકો શું કહે છે.",
   "verified_client": "ચકાસણી કરેલ ગ્રાહક",
-  "trusted_partner_banner": "બેંગ્લોરમાં #1 વિશ્વસનીય વીમા ભાગીદાર",
+  "trusted_partner_banner": "{{city}}માં #1 વિશ્વસનીય વીમા ભાગીદાર",
   "clients": "ગ્રાહકો",
   "support_stat_label": "સપોર્ટ",
   "awards": "પુરસ્કારો",

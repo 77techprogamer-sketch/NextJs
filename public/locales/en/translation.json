@@ -329,7 +329,7 @@
   "customer_testimonials_title": "Customer Testimonials",
   "customer_testimonials_description": "What our clients say about our services and commitment to their financial security.",
   "verified_client": "Verified Client",
-  "trusted_partner_banner": "#1 Trusted Insurance Partner in Bangalore",
+  "trusted_partner_banner": "#1 Trusted Insurance Partner in {{city}}",
   "clients": "Clients",
   "support_stat_label": "Support",
   "awards": "Awards",

@@ -255,7 +255,7 @@
   "customer_testimonials_title": "ಗ್ರಾಹಕರ ಹೇಳಿಕೆಗಳು",
   "customer_testimonials_description": "ನಮ್ಮ ಸೇವೆಗಳು ಮತ್ತು ಅವರ ಆರ್ಥಿಕ ಭದ್ರತೆಯ ಬದ್ಧತೆಯ ಬಗ್ಗೆ ನಮ್ಮ ಗ್ರಾಹಕರು ಏನು ಹೇಳುತ್ತಾರೆ.",
   "verified_client": "ಪರಿಶೀಲಿಸಿದ ಗ್ರಾಹಕ",
-  "trusted_partner_banner": "ಬೆಂಗಳೂರಿನಲ್ಲಿ #1 ವಿಶ್ವಾಸಾರ್ಹ ವಿಮಾ ಪಾಲುದಾರ",
+  "trusted_partner_banner": "{{city}}ನಲ್ಲಿ #1 ವಿಶ್ವಾಸಾರ್ಹ ವಿಮಾ ಪಾಲುದಾರ",
   "clients": "ಗ್ರಾಹಕರು",
   "support_stat_label": "ಬೆಂಬಲ",
   "awards": "ಪ್ರಶಸ್ತಿಗಳು",

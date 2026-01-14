@@ -12,6 +12,7 @@ import { slugify } from '@/utils/slugify';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import { fetchBlogPosts } from '@/utils/blogFetcher';
 import dynamic from 'next/dynamic';
+import { useUserLocation } from '@/hooks/useUserLocation';
 import '@/i18n'; // Ensure i18n is initialized
 
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
@@ -22,6 +23,7 @@ const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: fal
 
 const Index = () => {
     const { t, i18n } = useTranslation();
+    const { city } = useUserLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
     const [dynamicOneLiner, setDynamicOneLiner] = useState('');
@@ -99,7 +101,7 @@ const Index = () => {
                     <div className="space-y-6 max-w-4xl mx-auto animate-fade-up">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent mb-4">
                             <Star className="w-4 h-4 fill-accent" />
-                            <span>{t("trusted_partner_banner")}</span>
+                            <span>{t("trusted_partner_banner", { city: city || 'Bangalore' })}</span>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
