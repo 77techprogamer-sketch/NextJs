@@ -28,11 +28,11 @@ const Footer = () => {
             </p>
             <div className="flex items-center gap-2 text-primary font-semibold">
               <Award className="h-5 w-5 text-accent" />
-              <span>A Team led by Veterans</span>
+              <span>{t("veteran_lead_team")}</span>
             </div>
           </div>
           <div>
-            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Quick Links</h4>
+            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("quick_links")}</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/support" className="hover:text-primary transition-colors">{t("support")}</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">{t("privacy_policy")}</Link></li>
@@ -40,19 +40,19 @@ const Footer = () => {
             </ul>
           </div>
           <div className="text-center sm:text-left">
-            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Headquarters</h4>
+            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("headquarters")}</h4>
             <p className="text-sm mb-2">{t("bangalore_office")}</p>
-            <p className="text-xs font-medium uppercase tracking-tighter opacity-70">Established 1998</p>
+            <p className="text-xs font-medium uppercase tracking-tighter opacity-70">{t("established_text")}</p>
           </div>
         </div>
         <div className="pt-8 border-t border-muted-foreground/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs">&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
           <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-primary/60">
-            <span>Legacy</span>
+            <span>{t("legacy")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
-            <span>Trust</span>
+            <span>{t("trust")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
-            <span>Excellence</span>
+            <span>{t("excellence")}</span>
           </div>
         </div>
       </div>

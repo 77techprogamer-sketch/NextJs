@@ -99,7 +99,7 @@ const Index = () => {
                     <div className="space-y-6 max-w-4xl mx-auto animate-fade-up">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent mb-4">
                             <Star className="w-4 h-4 fill-accent" />
-                            <span>#1 Trusted Insurance Partner in Bangalore</span>
+                            <span>{t("trusted_partner_banner")}</span>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
@@ -129,19 +129,19 @@ const Index = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 border-t border-white/10 animate-fade-up [animation-delay:400ms]">
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">15k+</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">Clients</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">{t("clients")}</span>
                         </div>
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">98%</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">Claims Settled</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">{t("claims_settled_stat")}</span>
                         </div>
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">24/7</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">Support</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">{t("support_stat_label")}</span>
                         </div>
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">50+</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">Awards</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">{t("awards")}</span>
                         </div>
                     </div>
                 </div>
