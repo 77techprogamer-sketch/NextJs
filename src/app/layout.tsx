@@ -84,6 +84,9 @@ export const metadata: Metadata = {
         images: ['/og-image.png'], // Fallback to OG image
         creator: '@insurancesupport', // Placeholder
     },
+    verification: {
+        google: 'your-google-verification-code', // TODO: Replace with actual code from Google Search Console
+    },
 }
 
 export default function RootLayout({
