@@ -115,7 +115,29 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
             "Insurance Support",
             "Insurance Agent Bangalore",
             ...service.features
-        ]
+        ],
+        openGraph: {
+            title: `${service.title} Quotes | Insurance Support`,
+            description: service.description,
+            url: `https://insurance-support.vercel.app/services/${params.serviceType}`,
+            siteName: 'Insurance Support',
+            images: [
+                {
+                    url: service.image,
+                    width: 1200,
+                    height: 600,
+                    alt: service.title,
+                }
+            ],
+            locale: 'en_IN',
+            type: 'article',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${service.title} Quotes | Insurance Support`,
+            description: service.description,
+            images: [service.image],
+        },
     }
 }
 
