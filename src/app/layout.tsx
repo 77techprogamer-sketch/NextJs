@@ -86,6 +86,10 @@ export const metadata: Metadata = {
     },
     verification: {
         google: 'your-google-verification-code', // TODO: Replace with actual code from Google Search Console
+        yandex: 'your-yandex-verification-code',
+        other: {
+            'msvalidate.01': 'your-bing-verification-code',
+        },
     },
 }
 
