@@ -4,7 +4,6 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ChatbotWidget from '@/components/ChatbotWidget'
-import GeoBlocker from '@/components/GeoBlocker'
 import SmartLanguageSelector from '@/components/SmartLanguageSelector'
 import Analytics from '@/components/Analytics'
 import { Toaster } from '@/components/ui/sonner'
@@ -107,7 +106,6 @@ export default function RootLayout({
                         <JsonLd />
                         <Analytics />
                         <SmartLanguageSelector />
-                        <GeoBlocker />
                         <Header />
                         <main className="flex-1">
                             {children}
