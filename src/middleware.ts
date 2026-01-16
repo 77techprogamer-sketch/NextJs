@@ -11,10 +11,20 @@ export async function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    // 2. Get IP
+    // 2. Enforce HTTPS (Production only)
+    if (process.env.NODE_ENV === 'production') {
+        const proto = request.headers.get('x-forwarded-proto');
+        if (proto && proto === 'http') {
+            const newUrl = new URL(request.url);
+            newUrl.protocol = 'https:';
+            return NextResponse.redirect(newUrl);
+        }
+    }
+
+    // 3. Get IP
     const ip = request.ip || request.headers.get('x-forwarded-for') || '127.0.0.1';
 
-    // 3. Check IP Reputation (stopforumspam)
+    // 4. Check IP Reputation (stopforumspam)
     try {
         // Only check in production or if needed. We skip localhost mostly in dev.
         if (process.env.NODE_ENV === 'production' && ip !== '127.0.0.1' && ip !== '::1') {
