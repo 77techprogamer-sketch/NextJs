@@ -45,11 +45,11 @@ const Header = () => {
   return (
     <header className="w-full bg-background shadow-sm sticky top-0 z-10 border-b">
       <div className="container mx-auto px-4 h-16 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")}>
+        <Link href="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")} suppressHydrationWarning>
           <div className="h-8 w-8 bg-primary rounded flex items-center justify-center group-hover:bg-accent transition-colors">
             <ShieldCheck className="h-5 w-5 text-white" />
           </div>
-          <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors">
+          <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors" suppressHydrationWarning>
             {t("insurance_support")}
           </span>
         </Link>
