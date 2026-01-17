@@ -84,7 +84,7 @@ export const metadata: Metadata = {
         creator: '@insurancesupport', // Placeholder
     },
     verification: {
-        google: '5pXuq__DK81bgDqvzYCtYvkeB7ZH868fdh6oUrDxClI',
+        google: 'UvNqMHYqn8D-knp1S1Fg7xjO73SQ0U_LW3i5osu6Pac',
         yandex: 'your-yandex-verification-code',
         other: {
             'msvalidate.01': 'your-bing-verification-code',
