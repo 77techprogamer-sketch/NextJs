@@ -8,11 +8,11 @@ const Footer = () => {
   const { t } = useTranslation(); // Initialize useTranslation
 
   return (
-    <footer className="w-full bg-muted text-muted-foreground border-t">
-      <div className="bg-primary text-primary-foreground py-2 overflow-hidden">
+    <footer className="w-full bg-muted text-muted-foreground border-t pb-12">
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-primary text-primary-foreground py-2 overflow-hidden">
         <div className="whitespace-nowrap animate-marquee">
           <span className="font-bold text-lg px-4">
-            {t("gst_rates_slashed")}
+            {t("gst_rates_slashed")} {t("finance_options")}
           </span>
         </div>
       </div>
