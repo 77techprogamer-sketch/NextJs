@@ -159,7 +159,7 @@ export function SecretsManager({ projectRef }: { projectRef: string }) {
       <div>
         <h2 className="font-semibold mb-4 lg:text-lg">Existing secrets</h2>
         {secrets && secrets.length > 0 ? (
-          secrets.map((secret) => (
+          secrets.map((secret: { name: string; updated_at?: string }) => (
             <div
               key={secret.name}
               className="flex items-center justify-between py-4 border-b last:border-b-0"

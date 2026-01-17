@@ -45,11 +45,11 @@ const Header = () => {
   return (
     <header className="w-full bg-background shadow-sm sticky top-0 z-10 border-b">
       <div className="container mx-auto px-4 h-16 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")}>
+        <Link href="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")} suppressHydrationWarning>
           <div className="h-8 w-8 bg-primary rounded flex items-center justify-center group-hover:bg-accent transition-colors">
             <ShieldCheck className="h-5 w-5 text-white" />
           </div>
-          <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors">
+          <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors" suppressHydrationWarning>
             {t("insurance_support")}
           </span>
         </Link>
@@ -62,6 +62,7 @@ const Header = () => {
                 onClick={handleScrollToServices}
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("services_offered_link")}
+                suppressHydrationWarning
               >
                 {t("services_offered_link")}
                 <ChevronDown className="h-4 w-4" />
@@ -84,6 +85,7 @@ const Header = () => {
           <Link
             href="/support"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
+            suppressHydrationWarning
           >
             {t("support")}
           </Link>
@@ -93,6 +95,7 @@ const Header = () => {
             rel="noopener noreferrer"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base"
             aria-label={t("articles_link")}
+            suppressHydrationWarning
           >
             {t("articles_link")}
           </a>

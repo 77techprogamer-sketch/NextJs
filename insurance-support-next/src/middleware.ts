@@ -1,0 +1,64 @@
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export async function middleware(request: NextRequest) {
+    // 1. Skip if already on the blocked page or static files
+    if (
+        request.nextUrl.pathname.startsWith('/blocked') ||
+        request.nextUrl.pathname.startsWith('/_next') ||
+        request.nextUrl.pathname.includes('.') // images, files, etc
+    ) {
+        return NextResponse.next();
+    }
+
+    // 2. Enforce HTTPS (Production only)
+    if (process.env.NODE_ENV === 'production') {
+        const proto = request.headers.get('x-forwarded-proto');
+        if (proto && proto === 'http') {
+            const newUrl = new URL(request.url);
+            newUrl.protocol = 'https:';
+            return NextResponse.redirect(newUrl);
+        }
+    }
+
+    // 3. Get IP
+    const ip = request.ip || request.headers.get('x-forwarded-for') || '127.0.0.1';
+
+    // 4. Check IP Reputation (stopforumspam)
+    try {
+        // Only check in production or if needed. We skip localhost mostly in dev.
+        if (process.env.NODE_ENV === 'production' && ip !== '127.0.0.1' && ip !== '::1') {
+            const sfsResponse = await fetch(`https://api.stopforumspam.org/api?ip=${ip}&json`);
+            const data = await sfsResponse.json();
+
+            if (data.success && data.ip) {
+                const { appears, frequency, confidence } = data.ip;
+                const SEVERE_THRESHOLD = 5;
+                const IS_SEVERE = appears && (frequency > SEVERE_THRESHOLD || confidence > 90);
+
+                if (IS_SEVERE) {
+                    console.warn(`[Security] IP ${ip} blocked via Middleware (freq: ${frequency}, conf: ${confidence}%)`);
+                    return NextResponse.redirect(new URL('/blocked', request.url));
+                }
+            }
+        }
+    } catch (error) {
+        // Fail open: If the API fails, allow the request to proceed
+        console.error('Middleware Security Check Failed:', error);
+    }
+
+    return NextResponse.next();
+}
+
+export const config = {
+    matcher: [
+        /*
+         * Match all request paths except for the ones starting with:
+         * - api (API routes)
+         * - _next/static (static files)
+         * - _next/image (image optimization files)
+         * - favicon.ico (favicon file)
+         */
+        '/((?!api|_next/static|_next/image|favicon.ico).*)',
+    ],
+};

@@ -53,22 +53,23 @@ const VisitorCounter = () => {
           console.warn('Could not fetch IP from client side:', e);
         }
 
-        // Fetch ISP and location information using the IP address
-        if (visitorIp) {
-          try {
-            const geoResponse = await fetch(`https://ipapi.co/${visitorIp}/json/`);
-            if (geoResponse.ok) {
-              const geoData = await geoResponse.json();
-              if (!geoData.error) {
-                visitorIsp = geoData.org || null;
-                visitorCity = geoData.city || null;
-                visitorRegion = geoData.region || null;
-                visitorCountry = geoData.country_name || null;
-              }
+        // Fetch ISP and location information using the IP address from our own API route (avoids CORS)
+        try {
+          // If we have an IP, pass it to the API, otherwise it will detect
+          const url = visitorIp ? `/api/location?ip=${visitorIp}` : '/api/location';
+          const geoResponse = await fetch(url);
+
+          if (geoResponse.ok) {
+            const geoData = await geoResponse.json();
+            if (!geoData.error) {
+              visitorIsp = geoData.org || null;
+              visitorCity = geoData.city || null;
+              visitorRegion = geoData.region || null;
+              visitorCountry = geoData.country_name || null;
             }
-          } catch (e) {
-            console.warn('Could not fetch Geo data from ipapi.co:', e);
           }
+        } catch (e) {
+          console.warn('Could not fetch Geo data from API:', e);
         }
 
         // Call the Edge Function to log the visitor

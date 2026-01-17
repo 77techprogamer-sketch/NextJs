@@ -82,7 +82,7 @@ const Testimonials = () => {
                                 </p>
                                 <div className="border-t border-slate-200 dark:border-gray-700 pt-4">
                                     <p className="font-bold text-gray-900 dark:text-white">{testimonial.name}</p>
-                                    <p className="text-xs text-primary font-medium">Verified Client</p>
+                                    <p className="text-xs text-primary font-medium">{t("verified_client")}</p>
                                 </div>
                             </CardContent>
                         </Card>

@@ -22,8 +22,8 @@ import { formatLabel, normalizeUIValue } from '@/utils/formatText';
 
 interface QuoteFormProps {
   insuranceType: string;
-  onClose: () => void;
-  onSuccess: () => void;
+  onClose?: () => void;
+  onSuccess?: () => void;
 }
 
 const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess }) => {
@@ -96,7 +96,9 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       if (error) throw error;
 
       toast.success(t("quote_submitted_successfully"));
-      onSuccess();
+      if (onSuccess) {
+        onSuccess();
+      }
     } catch (error) {
       console.error('Submission error:', error);
       toast.error(t("failed_to_submit_quote"));
@@ -306,9 +308,15 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           </div>
         )}
 
-        <div className="flex justify-end gap-3 pt-6">
-          <Button type="button" variant="outline" onClick={onClose} className="hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">{t("cancel")}</Button>
-          <Button type="submit" className="bg-gradient-to-r from-primary to-purple-600 hover:to-purple-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">{t("submit_quote")}</Button>
+        <div className={`flex ${onClose ? 'justify-end' : 'justify-center w-full'} gap-3 pt-6`}>
+          {onClose && (
+            <Button type="button" variant="outline" onClick={onClose} className="hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              {t("cancel")}
+            </Button>
+          )}
+          <Button type="submit" className={`bg-gradient-to-r from-primary to-purple-600 hover:to-purple-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${!onClose ? 'w-full' : ''}`}>
+            {t("submit_quote")}
+          </Button>
         </div>
       </form>
     </Form>

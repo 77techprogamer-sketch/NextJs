@@ -15,7 +15,7 @@ const Analytics = () => {
                 t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
                 // @ts-ignore
                 y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-            })(window, document, "clarity", "script", "ud8jkgz0wo");
+            })(window, document, "clarity", "script", "v187agkimc");
 
             console.log('Analytics initialized (User Mode)');
         } else {

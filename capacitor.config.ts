@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.example.neonshibacrawl',
-  appName: 'neon-shiba-crawl',
+  appId: 'com.insurancesupport.app',
+  appName: 'Insurance Support',
   webDir: 'dist'
 };
 

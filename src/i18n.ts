@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
-import enJSON from './locales/en.json';
+
 
 i18n
   .use(Backend)
@@ -11,9 +11,7 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: true,
-    resources: {
-      en: { translation: enJSON },
-    },
+    resources: {},
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage', 'cookie'],

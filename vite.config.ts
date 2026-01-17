@@ -1,4 +1,5 @@
 import { defineConfig } from "vite";
+import { VitePWA } from 'vite-plugin-pwa';
 import dyadComponentTagger from "@dyad-sh/react-vite-component-tagger";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -10,6 +11,24 @@ export default defineConfig(() => ({
   plugins: [
     react(),
     dyadComponentTagger(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      includeAssets: ['favicon.ico', 'favicon.svg', 'assets/*.png', 'assets/*.jpg'],
+      manifest: {
+        name: 'Insurance Support',
+        short_name: 'Insurance Support',
+        description: 'Get free insurance quotes from experienced advisors in Bangalore.',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: 'favicon.svg',
+            sizes: '192x192 512x512',
+            type: 'image/svg+xml',
+            purpose: 'any maskable'
+          }
+        ]
+      }
+    }),
   ],
   resolve: {
     alias: {
