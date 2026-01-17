@@ -50,10 +50,10 @@ const stripHtmlTags = (html: string): string => {
   }
 };
 
-export const fetchBlogPosts = async (serviceType?: string): Promise<BlogPost | null> => {
+export const fetchBlogPosts = async (serviceType?: string, language: string = 'en'): Promise<BlogPost | null> => {
   try {
     const { data, error } = await supabase.functions.invoke('fetch-blog-posts', {
-      body: { serviceType }
+      body: { serviceType, language }
     });
 
     if (error) {

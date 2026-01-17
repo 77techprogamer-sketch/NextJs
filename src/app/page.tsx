@@ -64,7 +64,7 @@ const Index = () => {
 
         const getLatestBlogPost = async () => {
             setLoadingBlog(true);
-            const post = await fetchBlogPosts();
+            const post = await fetchBlogPosts(undefined, i18n.language);
             setLatestBlogPost(post);
             setLoadingBlog(false);
         };
