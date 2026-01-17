@@ -27,7 +27,11 @@ export async function middleware(request: NextRequest) {
     // 4. Check IP Reputation (stopforumspam)
     try {
         // Only check in production or if needed. We skip localhost mostly in dev.
-        if (process.env.NODE_ENV === 'production' && ip !== '127.0.0.1' && ip !== '::1') {
+        // Check for bots (Googlebot, Bingbot, etc.) to avoid blocking them via IP check
+        const userAgent = request.headers.get('user-agent') || '';
+        const isBot = /googlebot|bingbot|yandex|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator/i.test(userAgent);
+
+        if (process.env.NODE_ENV === 'production' && !isBot && ip !== '127.0.0.1' && ip !== '::1') {
             const sfsResponse = await fetch(`https://api.stopforumspam.org/api?ip=${ip}&json`);
             const data = await sfsResponse.json();
 

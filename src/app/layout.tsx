@@ -84,7 +84,7 @@ export const metadata: Metadata = {
         creator: '@insurancesupport', // Placeholder
     },
     verification: {
-        google: 'your-google-verification-code', // TODO: Replace with actual code from Google Search Console
+        google: '5pXuq__DK81bgDqvzYCtYvkeB7ZH868fdh6oUrDxClI',
         yandex: 'your-yandex-verification-code',
         other: {
             'msvalidate.01': 'your-bing-verification-code',
