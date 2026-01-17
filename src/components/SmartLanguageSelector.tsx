@@ -66,11 +66,11 @@ const SmartLanguageSelector = () => {
                 let usedFallback = false;
 
                 try {
-                    const response = await fetch('https://ipapi.co/json/');
+                    const response = await fetch('/api/location'); // Use internal API
                     if (!response.ok) throw new Error(`Primary API failed: ${response.status}`);
                     data = await response.json();
                 } catch {
-                    // Fallback to ipwho.is
+                    // Fallback to ipwho.is if internal fails (though internal has fallback now)
                     const response = await fetch('https://ipwho.is/');
                     if (!response.ok) throw new Error(`Fallback API failed`);
                     data = await response.json();

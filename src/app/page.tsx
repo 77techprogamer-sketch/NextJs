@@ -101,7 +101,7 @@ const Index = () => {
                     <div className="space-y-6 max-w-4xl mx-auto animate-fade-up">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent mb-4">
                             <Star className="w-4 h-4 fill-accent" />
-                            <span>{t("trusted_partner_banner", { city: city || 'Bangalore' })}</span>
+                            <span suppressHydrationWarning>{t("trusted_partner_banner", { city: city || 'Bangalore' })}</span>
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">

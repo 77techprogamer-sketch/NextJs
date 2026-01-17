@@ -336,5 +336,11 @@
   "awards": "Awards",
   "hero_title_start": "Secure Your",
   "hero_title_highlight": "Future",
-  "hero_title_end": "With Expert Guidance"
+  "hero_title_end": "With Expert Guidance",
+  "get_support_now": "Get Support Now",
+  "general_inquiry_title": "General Inquiry",
+  "general_inquiry_description": "Have a question not related to a specific policy? We're here to help.",
+  "start_general_inquiry": "Start General Inquiry",
+  "need_immediate_assistance": "Need Immediate Assistance?",
+  "call_our_support_team": "Call our expert support team directly for urgent matters."
 }

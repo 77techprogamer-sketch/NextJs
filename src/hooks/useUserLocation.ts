@@ -23,8 +23,8 @@ export const useUserLocation = () => {
             }
 
             try {
-                // Primary API: ipapi.co
-                const response = await fetch('https://ipapi.co/json/');
+                // Primary API: Internal Proxy
+                const response = await fetch('/api/location');
                 if (!response.ok) throw new Error('Primary API failed');
                 const data = await response.json();
                 const city = data.city || 'Bangalore';
@@ -32,9 +32,9 @@ export const useUserLocation = () => {
                 sessionStorage.setItem('user_city', city);
                 setLocation({ city, loading: false, error: null });
             } catch (err) {
-                console.warn('Primary IP geolocation failed, trying fallback...', err);
+                console.warn('Primary IP geolocation failed, trying fallback within hook (should be handled by API)...', err);
                 try {
-                    // Fallback API: ipwho.is
+                    // Fallback to ipwho.is if even our internal fallback fails (unlikely)
                     const response = await fetch('https://ipwho.is/');
                     if (!response.ok) throw new Error('Fallback API failed');
                     const data = await response.json();

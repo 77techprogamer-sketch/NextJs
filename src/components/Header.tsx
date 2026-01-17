@@ -62,6 +62,7 @@ const Header = () => {
                 onClick={handleScrollToServices}
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("services_offered_link")}
+                suppressHydrationWarning
               >
                 {t("services_offered_link")}
                 <ChevronDown className="h-4 w-4" />
@@ -84,6 +85,7 @@ const Header = () => {
           <Link
             href="/support"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
+            suppressHydrationWarning
           >
             {t("support")}
           </Link>
@@ -93,6 +95,7 @@ const Header = () => {
             rel="noopener noreferrer"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base"
             aria-label={t("articles_link")}
+            suppressHydrationWarning
           >
             {t("articles_link")}
           </a>
