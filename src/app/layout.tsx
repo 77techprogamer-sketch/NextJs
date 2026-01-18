@@ -4,8 +4,10 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ChatbotWidget from '@/components/ChatbotWidget'
-import SmartLanguageSelector from '@/components/SmartLanguageSelector'
 import Analytics from '@/components/Analytics'
+import dynamic from 'next/dynamic'
+
+const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
 import DisableRightClick from '@/components/DisableRightClick'
@@ -113,7 +115,7 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}>
+            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`} suppressHydrationWarning>
                 <DisableRightClick />
                 <I18nProvider>
                     <div className="flex flex-col min-h-screen">

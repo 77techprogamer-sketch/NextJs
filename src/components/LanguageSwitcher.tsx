@@ -7,6 +7,11 @@ import { Globe } from 'lucide-react';
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Update selected language when i18n language changes
   useEffect(() => {
@@ -30,6 +35,8 @@ const LanguageSwitcher = () => {
     i18n.changeLanguage(lng);
     setSelectedLanguage(lng);
   };
+
+  if (!mounted) return null;
 
   return (
     <Select onValueChange={changeLanguage} value={selectedLanguage}>

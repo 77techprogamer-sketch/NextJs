@@ -25,9 +25,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon: Icon, href }) =>
           <div className="h-16 w-16 rounded-full bg-primary/5 flex items-center justify-center mb-4 group-hover:bg-accent/10 transition-colors duration-300">
             <Icon className="h-8 w-8 text-primary group-hover:text-accent transition-colors duration-300" />
           </div>
-          <CardTitle className="text-xl font-bold text-primary group-hover:text-accent transition-colors duration-300">{normalizeUIValue(title)}</CardTitle>
+          <CardTitle className="text-xl font-bold text-primary group-hover:text-accent transition-colors duration-300" suppressHydrationWarning>{normalizeUIValue(title)}</CardTitle>
         </CardHeader>
-        <CardContent className="text-sm text-gray-600 dark:text-gray-300">
+        <CardContent className="text-sm text-gray-600 dark:text-gray-300" suppressHydrationWarning>
           {t("click_to_get_quote", { type: formatLabel(title).toLowerCase() })}
         </CardContent>
       </Card>

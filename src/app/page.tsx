@@ -105,11 +105,11 @@ const Index = () => {
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
-                            {t("hero_title_start", "Secure Your")} <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-300 to-accent animate-shimmer bg-[length:200%_auto]">{t("hero_title_highlight", "Future")}</span>
-                            <br className="hidden sm:block" /> {t("hero_title_end", "With Expert Guidance")}
+                            <span suppressHydrationWarning>{t("hero_title_start", "Secure Your")}</span> <span suppressHydrationWarning className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-300 to-accent animate-shimmer bg-[length:200%_auto]">{t("hero_title_highlight", "Future")}</span>
+                            <br className="hidden sm:block" /> <span suppressHydrationWarning>{t("hero_title_end", "With Expert Guidance")}</span>
                         </h1>
 
-                        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" suppressHydrationWarning>
                             {dynamicOneLiner || "Comprehensive coverage for life, health, and vehicle tailored to your needs."}
                         </p>
                     </div>
@@ -123,7 +123,7 @@ const Index = () => {
                                 setIsModalOpen(true);
                             }}
                         >
-                            {t("get_a_free_quote")}
+                            <span suppressHydrationWarning>{t("get_a_free_quote")}</span>
                         </Button>
                         <SocialShareButtons url={currentUrl} title={shareTitle} />
                     </div>
@@ -131,19 +131,19 @@ const Index = () => {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 border-t border-white/10 animate-fade-up [animation-delay:400ms]">
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">15k+</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">{t("clients")}</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("clients")}</span>
                         </div>
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">98%</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">{t("claims_settled_stat")}</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("claims_settled_stat")}</span>
                         </div>
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">24/7</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">{t("support_stat_label")}</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("support_stat_label")}</span>
                         </div>
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">50+</span>
-                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium">{t("awards")}</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("awards")}</span>
                         </div>
                     </div>
                 </div>
@@ -152,10 +152,10 @@ const Index = () => {
             {/* Services Section */}
             <section id="services" className="py-12 sm:py-16 bg-white dark:bg-gray-800">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8" suppressHydrationWarning>
                         {t("services_offered")}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto" suppressHydrationWarning>
                         {t("services_description")}
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -181,22 +181,22 @@ const Index = () => {
                         <div className="space-y-6">
                             <div className="inline-flex items-center gap-2 px-3 py-1 bg-accent/20 border border-accent/30 rounded-full text-accent text-sm font-semibold mb-2">
                                 <Star className="h-4 w-4 fill-accent" />
-                                <span>{t("veteran_advantage")}</span>
+                                <span suppressHydrationWarning>{t("veteran_advantage")}</span>
                             </div>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
-                                {t("strategic_protection_title_start")} <span className="text-accent">{t("strategic_protection_title_highlight")}</span> {t("strategic_protection_title_end")}
+                                <span suppressHydrationWarning>{t("strategic_protection_title_start")}</span> <span className="text-accent" suppressHydrationWarning>{t("strategic_protection_title_highlight")}</span> <span suppressHydrationWarning>{t("strategic_protection_title_end")}</span>
                             </h2>
-                            <p className="text-lg text-primary-foreground/80 max-w-xl">
+                            <p className="text-lg text-primary-foreground/80 max-w-xl" suppressHydrationWarning>
                                 {t("strategic_experience_description")}
                             </p>
                             <div className="grid grid-cols-2 gap-6 pt-4">
                                 <div className="space-y-2">
                                     <div className="text-3xl sm:text-4xl font-bold text-accent">15k+</div>
-                                    <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold">{t("portfolios_managed")}</div>
+                                    <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold" suppressHydrationWarning>{t("portfolios_managed")}</div>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="text-3xl sm:text-4xl font-bold text-accent">98%</div>
-                                    <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold">{t("claims_settled_stat")}</div>
+                                    <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold" suppressHydrationWarning>{t("claims_settled_stat")}</div>
                                 </div>
                             </div>
                         </div>
@@ -208,8 +208,8 @@ const Index = () => {
                                         <Briefcase className="h-6 w-6 text-accent" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold mb-1">{t("strategic_advisory")}</h3>
-                                        <p className="text-primary-foreground/70 text-sm">{t("strategic_advisory_desc")}</p>
+                                        <h3 className="text-xl font-bold mb-1" suppressHydrationWarning>{t("strategic_advisory")}</h3>
+                                        <p className="text-primary-foreground/70 text-sm" suppressHydrationWarning>{t("strategic_advisory_desc")}</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
@@ -217,8 +217,8 @@ const Index = () => {
                                         <Users className="h-6 w-6 text-accent" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold mb-1">{t("legacy_planning")}</h3>
-                                        <p className="text-primary-foreground/70 text-sm">{t("legacy_planning_desc")}</p>
+                                        <h3 className="text-xl font-bold mb-1" suppressHydrationWarning>{t("legacy_planning")}</h3>
+                                        <p className="text-primary-foreground/70 text-sm" suppressHydrationWarning>{t("legacy_planning_desc")}</p>
                                     </div>
                                 </div>
                                 <div className="flex gap-4">
@@ -226,8 +226,8 @@ const Index = () => {
                                         <ShieldCheck className="h-6 w-6 text-accent" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold mb-1">{t("unrivaled_claims_support")}</h3>
-                                        <p className="text-primary-foreground/70 text-sm">{t("unrivaled_claims_support_desc")}</p>
+                                        <h3 className="text-xl font-bold mb-1" suppressHydrationWarning>{t("unrivaled_claims_support")}</h3>
+                                        <p className="text-primary-foreground/70 text-sm" suppressHydrationWarning>{t("unrivaled_claims_support_desc")}</p>
                                     </div>
                                 </div>
                             </div>
@@ -239,7 +239,7 @@ const Index = () => {
             {/* Blog Section */}
             <section className="py-12 sm:py-16 bg-white dark:bg-gray-800">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-8 sm:mb-12 text-center">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-8 sm:mb-12 text-center" suppressHydrationWarning>
                         {t("latest_blog_post")}
                     </h2>
 
@@ -269,14 +269,14 @@ const Index = () => {
                                     className="w-full sm:w-auto hover:scale-105 transition-transform"
                                 >
                                     <a href={latestBlogPost?.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                                        {t("read_full_article")}
+                                        <span suppressHydrationWarning>{t("read_full_article")}</span>
                                         <FileText className="h-4 w-4" />
                                     </a>
                                 </Button>
                             </CardContent>
                         </Card>
                     ) : (
-                        <p className="text-center text-gray-500 dark:text-gray-400">
+                        <p className="text-center text-gray-500 dark:text-gray-400" suppressHydrationWarning>
                             {t("no_blog_posts_available")}
                         </p>
                     )}
@@ -286,34 +286,34 @@ const Index = () => {
             {/* Features Section */}
             <section className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-900">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8" suppressHydrationWarning>
                         {t("why_choose_us")}
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
                         <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                             <CheckCircle className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">
+                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>
                                 {t("expert_guidance_title")}
                             </CardTitle>
-                            <CardDescription className="text-center text-sm sm:text-base">
+                            <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>
                                 {t("expert_guidance_description")}
                             </CardDescription>
                         </Card>
                         <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                             <Shield className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">
+                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>
                                 {t("comprehensive_coverage_title")}
                             </CardTitle>
-                            <CardDescription className="text-center text-sm sm:text-base">
+                            <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>
                                 {t("comprehensive_coverage_description")}
                             </CardDescription>
                         </Card>
                         <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                             <Heart className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">
+                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>
                                 {t("customer_satisfaction_title")}
                             </CardTitle>
-                            <CardDescription className="text-center text-sm sm:text-base">
+                            <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>
                                 {t("customer_satisfaction_description")}
                             </CardDescription>
                         </Card>
@@ -324,27 +324,27 @@ const Index = () => {
             {/* Contact Section */}
             <section className="py-12 sm:py-16 bg-gray-100 dark:bg-gray-900">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8">
+                    <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8" suppressHydrationWarning>
                         {t("get_in_touch")}
                     </h2>
-                    <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto">
+                    <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto" suppressHydrationWarning>
                         {t("contact_description")}
                     </p>
                     <div className="flex flex-wrap justify-center gap-6 sm:gap-8 max-w-2xl mx-auto">
                         <a href="tel:+919986634506" className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground">
                             <Phone className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">{t("call_us")}</CardTitle>
+                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>{t("call_us")}</CardTitle>
                             <CardDescription className="text-center text-sm sm:text-base">+91-9986634506</CardDescription>
                         </a>
                         <a href="https://wa.me/919986634506" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground">
                             <MessageSquare className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">{t("whatsapp_us")}</CardTitle>
+                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>{t("whatsapp_us")}</CardTitle>
                             <CardDescription className="text-center text-sm sm:text-base">+91-9986634506</CardDescription>
                         </a>
                         <a href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground">
                             <MapPin className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">{t("visit_us")}</CardTitle>
-                            <CardDescription className="text-center text-sm sm:text-base">{t("bangalore_office")}</CardDescription>
+                            <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>{t("visit_us")}</CardTitle>
+                            <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>{t("bangalore_office")}</CardDescription>
                         </a>
                     </div>
                 </div>

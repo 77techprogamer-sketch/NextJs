@@ -50,6 +50,11 @@ const SmartLanguageSelector = () => {
     const [detectedRegion, setDetectedRegion] = useState('');
     const [suggestedLang, setSuggestedLang] = useState('en');
     const [isAnimating, setIsAnimating] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         const checkAndPromptLanguage = async () => {
@@ -131,6 +136,9 @@ const SmartLanguageSelector = () => {
 
     // Get suggestion details
     const suggestedLangData = LANGUAGES.find(l => l.code === suggestedLang) || LANGUAGES[0];
+
+    // Prevent hydration mismatch by not rendering until mounted
+    if (!mounted) return null;
 
     if (flowState === 'DISMISSED' || flowState === 'LOADING') {
         // Show loading state briefly
