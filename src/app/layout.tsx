@@ -115,6 +115,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+            <head>
+                <link rel="preconnect" href="https://idzvdeemgxhwlkyphnel.supabase.co" />
+                <link rel="preconnect" href="https://www.clarity.ms" />
+                <link rel="preconnect" href="https://c.bing.com" />
+            </head>
             <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`} suppressHydrationWarning>
                 <DisableRightClick />
                 <I18nProvider>
