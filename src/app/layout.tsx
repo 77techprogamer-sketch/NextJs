@@ -70,9 +70,9 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: '/favicon.ico',
-        shortcut: '/favicon.svg',
-        apple: '/favicon.svg',
+        icon: '/brand-favicon.svg',
+        shortcut: '/brand-favicon.svg',
+        apple: '/brand-favicon.svg',
     },
     openGraph: {
         type: 'website',
