@@ -84,7 +84,7 @@ const Index = () => {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className="relative w-full min-h-[85vh] flex items-center justify-center overflow-hidden bg-primary text-white">
+            <section className="relative w-full min-h-[85vh] flex flex-col overflow-hidden bg-primary text-white">
                 {/* Background Effects */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/50 via-primary to-primary"></div>
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
@@ -93,12 +93,12 @@ const Index = () => {
                 {/* Grid Pattern Overlay */}
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
 
-                <div className="relative z-10 w-full container mx-auto px-4 flex flex-col items-center text-center space-y-8 pt-20">
+                <div className="relative z-10 w-full container mx-auto px-4 flex flex-col items-center text-center space-y-4 pt-6">
                     <React.Suspense fallback={<div className="h-6 w-32 bg-white/10 rounded animate-pulse absolute top-6 right-6" />}>
                         <DateTimeDisplay className="absolute top-6 right-6 backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/10" />
                     </React.Suspense>
 
-                    <div className="space-y-6 max-w-4xl mx-auto animate-fade-up">
+                    <div className="space-y-4 max-w-4xl mx-auto animate-fade-up">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent mb-4">
                             <Star className="w-4 h-4 fill-accent" />
                             <span suppressHydrationWarning>{t("trusted_partner_banner", { city: city || 'Bangalore' })}</span>
