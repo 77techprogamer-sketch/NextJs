@@ -74,6 +74,7 @@ const ChatbotWidget = () => {
             "animate-bounce [animation-duration:2000ms] infinite",
             "hover:animate-none group-hover:animate-none active:shadow-[0_0_15px_rgba(var(--primary),0.4)]"
           )}
+          aria-label={t("chat_with_us", "Chat with us")}
         >
           <div className="relative">
             <MessageSquare className="h-7 w-7 drop-shadow-md" />

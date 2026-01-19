@@ -40,7 +40,7 @@ const LanguageSwitcher = () => {
 
   return (
     <Select onValueChange={changeLanguage} value={selectedLanguage}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[180px]" aria-label={t("select_language")}>
         <Globe className="mr-2 h-4 w-4" />
         <SelectValue placeholder={t("select_language")} />
       </SelectTrigger>

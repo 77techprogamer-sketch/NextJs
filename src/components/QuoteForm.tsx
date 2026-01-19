@@ -141,7 +141,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                 <FormControl>
                   {field.type === 'select' ? (
                     <Select onValueChange={field.name === 'healthMembers' ? handleHealthMembersChange : formField.onChange} defaultValue={(formField as any).value}>
-                      <SelectTrigger>
+                      <SelectTrigger aria-label={t(field.labelKey)}>
                         <SelectValue placeholder={field.placeholderKey ? t(field.placeholderKey) : ""} />
                       </SelectTrigger>
                       <SelectContent>
@@ -292,7 +292,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                     render={({ field }) => (
                       <FormItem className="flex-1">
                         <Select onValueChange={field.onChange} defaultValue={(field as any).value}>
-                          <SelectTrigger><SelectValue placeholder={t("gender")} /></SelectTrigger>
+                          <SelectTrigger aria-label={t("gender")}><SelectValue placeholder={t("gender")} /></SelectTrigger>
                           <SelectContent>
                             <SelectItem value="Male">{t("male")}</SelectItem>
                             <SelectItem value="Female">{t("female")}</SelectItem>
