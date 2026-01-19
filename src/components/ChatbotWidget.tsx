@@ -104,7 +104,8 @@ const ChatbotWidget = () => {
           <div className="flex-grow bg-white dark:bg-gray-950 relative">
             <iframe
               key={chatbotUrl} // Force reload on context change
-              src={chatbotUrl}
+              src={isChatbotOpen ? chatbotUrl : undefined}
+              loading="lazy"
               width="100%"
               height="100%"
               className="border-none"

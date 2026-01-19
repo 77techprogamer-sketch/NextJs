@@ -94,8 +94,8 @@ const Index = () => {
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
 
                 <div className="relative z-10 w-full container mx-auto px-4 flex flex-col items-center text-center space-y-4 pt-6">
-                    <React.Suspense fallback={<div className="h-6 w-32 bg-white/10 rounded animate-pulse absolute top-6 right-6" />}>
-                        <DateTimeDisplay className="absolute top-6 right-6 backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/10" />
+                    <React.Suspense fallback={<div className="h-[38px] w-[180px] bg-white/10 rounded-full animate-pulse absolute top-6 right-6 border border-white/10" />}>
+                        <DateTimeDisplay className="absolute top-6 right-6 backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/10 min-w-[180px] min-h-[38px] flex items-center justify-center" />
                     </React.Suspense>
 
                     <div className="space-y-4 max-w-4xl mx-auto animate-fade-up">

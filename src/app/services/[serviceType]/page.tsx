@@ -184,6 +184,7 @@ export default function ServicePage({ params }: { params: { serviceType: string 
                         height={600}
                         className="w-full h-auto rounded-xl shadow-lg bg-muted"
                         priority
+                        sizes="(max-width: 896px) 100vw, 896px"
                     />
                 </div>
 
