@@ -10,7 +10,6 @@ import dynamic from 'next/dynamic'
 const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
-import DisableRightClick from '@/components/DisableRightClick'
 import JsonLd from '@/components/JsonLd'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -19,43 +18,21 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurance-support.vercel.app'),
     title: {
-        default: 'Insurance Support - Your Trusted Partner',
-        template: '%s | Insurance Support'
+        default: 'Insurance Support Bangalore | Expert Policy Advice & Claims Help',
+        template: '%s | Insurance Support Bangalore'
     },
-    description: 'Get free insurance quotes from experienced advisors in Bangalore. Comprehensive coverage for life, health, motor, and more.',
+    description: 'Free insurance quotes & expert claims assistance in Bangalore. We prioritize your needs over sales. Life, Health, Motor, & Term Insurance solutions.',
     keywords: [
-        'Insurance Support',
         'Insurance Support Bangalore',
-        'Insurance Support India',
-        'Insurance Claims Support',
-        'Policy Management',
-        'Life Insurance Support',
-        'Health Insurance Support',
-        'Motor Insurance Support',
-        'Travel Insurance Support',
-        'SME Insurance Support',
-        'Pension Planning',
-        'Investment Planning',
-        'insurance',
-        'life insurance',
-        'health insurance',
-        'bangalore',
-        'insurance agent',
-        'best insurance advisor bangalore',
-        'Claim Settlement Help',
+        'Insurance Claims Help Bangalore',
+        'Life Insurance Advisor Bangalore',
+        'Health Insurance Agent Bangalore',
         'Policy Renewal Services',
-        'Rejected Claim Assistance',
-        'Lost Policy Document Help',
-        'Insurance Portability Services',
-        'NRI Insurance Services',
-        'Senior Citizen Health Insurance',
-        'Term Life Insurance Quotes',
-        'Car Insurance Renewal',
-        'Death Claim Settlement',
-        'Maturity Claim Assistance',
-        'LIC Policy Service',
-        'Star Health Insurance Support',
-        'Tata AIA Life Insurance Support'
+        'Claim Settlement Assistance',
+        'Term Insurance Quotes',
+        'Motor Insurance Renewal',
+        'investment planning',
+        'retirement planning'
     ],
     authors: [{ name: 'Insurance Support' }],
     creator: 'Insurance Support',
@@ -80,24 +57,24 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_IN',
         url: 'https://insurance-support.vercel.app',
-        title: 'Insurance Support - Your Trusted Partner',
-        description: 'Get free insurance quotes from experienced advisors in Bangalore. Comprehensive coverage for life, health, motor, and more.',
+        title: 'Insurance Support | Trusted Insurance Advisors in Bangalore',
+        description: 'Get free quotes and expert help for Life, Health, and Motor insurance. specialized in claim settlement and policy management.',
         siteName: 'Insurance Support',
         images: [
             {
-                url: '/og-image.png', // Need to make sure this exists or use a default
+                url: '/og-image.png',
                 width: 1200,
                 height: 630,
-                alt: 'Insurance Support',
+                alt: 'Insurance Support Team',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
         title: 'Insurance Support - Your Trusted Partner',
-        description: 'Get free insurance quotes from experienced advisors in Bangalore.',
-        images: ['/og-image.png'], // Fallback to OG image
-        creator: '@insurancesupport', // Placeholder
+        description: 'Expert insurance advice and claims support in Bangalore.',
+        images: ['/og-image.png'],
+        creator: '@insurancesupport',
     },
     verification: {
         google: 'UvNqMHYqn8D-knp1S1Fg7xjO73SQ0U_LW3i5osu6Pac',
@@ -117,7 +94,6 @@ export default function RootLayout({
                 <link rel="preconnect" href="https://c.bing.com" />
             </head>
             <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`} suppressHydrationWarning>
-                <DisableRightClick />
                 <I18nProvider>
                     <div className="flex flex-col min-h-screen">
                         <JsonLd />

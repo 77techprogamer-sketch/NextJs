@@ -5,6 +5,7 @@ import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, CheckCircle2 } from "lucide-react"
 import QuoteForm from "@/components/QuoteForm"
+import ServiceJsonLd from "@/components/ServiceJsonLd"
 
 // Define all services data statically
 const servicesData = {
@@ -105,12 +106,13 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
     if (!service) return {}
 
     return {
-        title: `${service.title} Quotes | Insurance Support`,
+        title: `${service.title} in Bangalore | Insurance Support`,
         description: service.description,
         keywords: [
             service.title,
             `${service.title} Quotes`,
             `Best ${service.title} in Bangalore`,
+            `${service.title} Agent Bangalore`,
             `${service.title} Support`,
             "Insurance Support",
             "Insurance Agent Bangalore",
@@ -152,6 +154,12 @@ export default function ServicePage({ params }: { params: { serviceType: string 
 
     return (
         <div className="container px-4 py-12 mx-auto">
+            <ServiceJsonLd
+                title={`${service.title} Service`}
+                description={service.description}
+                url={`https://insurance-support.vercel.app/services/${params.serviceType}`}
+                image={`https://insurance-support.vercel.app${service.image}`}
+            />
             <div className="max-w-4xl mx-auto">
                 <div className="mb-8">
                     <Link href="/" className="text-sm text-muted-foreground hover:text-primary mb-4 block">
