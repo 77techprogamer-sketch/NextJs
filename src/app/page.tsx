@@ -70,7 +70,7 @@ const Index = () => {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className="relative w-full min-h-[85vh] flex flex-col overflow-hidden bg-primary text-white">
+            <section className="relative w-full min-h-[1900px] flex flex-col overflow-hidden bg-primary text-white">
                 {/* Background Effects */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/50 via-primary to-primary"></div>
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
@@ -114,7 +114,7 @@ const Index = () => {
                         <SocialShareButtons url={currentUrl} title={shareTitle} />
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 border-t border-white/10 animate-fade-up [animation-delay:400ms]">
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 animate-fade-up [animation-delay:400ms]">
                         <div className="flex flex-col items-center gap-2">
                             <span className="text-3xl font-bold text-white">15k+</span>
                             <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("clients")}</span>
