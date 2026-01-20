@@ -20,8 +20,8 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurance-support.vercel.app'),
     title: {
-        default: 'Insurance Support Bangalore | Expert Policy Advice & Claims Help',
-        template: '%s | Insurance Support Bangalore'
+        default: 'Insurance Support | Expert Policy & Claims Help',
+        template: '%s | Insurance Support'
     },
     description: 'Free insurance quotes & expert claims assistance in Bangalore. We prioritize your needs over sales. Life, Health, Motor, & Term Insurance solutions.',
     keywords: [

@@ -42,6 +42,10 @@ const nextConfig = {
                 ]
             }
         ]
+    },
+    experimental: {
+        optimizeCss: true, // Requires 'critters' package
+        optimizePackageImports: ['lucide-react', 'date-fns', 'lodash']
     }
 };
 
