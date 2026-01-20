@@ -29,7 +29,10 @@ const QuickDialSidebar = () => {
         // If on home page, smooth scroll
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({ behavior: "smooth" });
+            // Use requestAnimationFrame to prevent forced reflow by decoupling read/write
+            requestAnimationFrame(() => {
+                element.scrollIntoView({ behavior: "smooth" });
+            });
             setIsOpen(false);
         }
     };

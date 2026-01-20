@@ -25,7 +25,9 @@ const Header = () => {
     e.preventDefault();
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+      requestAnimationFrame(() => {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      });
     } else {
       window.location.href = "/#services";
     }
