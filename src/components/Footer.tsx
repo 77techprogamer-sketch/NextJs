@@ -32,7 +32,7 @@ const Footer = () => {
             </div>
           </div>
           <div>
-            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("quick_links")}</h4>
+            <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("quick_links")}</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/resources" className="hover:text-primary transition-colors">Resources</Link></li>
               <li><Link href="/support" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("support")}</Link></li>
@@ -41,14 +41,14 @@ const Footer = () => {
             </ul>
           </div>
           <div className="text-center sm:text-left">
-            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("headquarters")}</h4>
+            <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("headquarters")}</h3>
             <p className="text-sm mb-2" suppressHydrationWarning>{t("bangalore_office")}</p>
             <p className="text-xs font-medium uppercase tracking-tighter opacity-70" suppressHydrationWarning>{t("established_text")}</p>
           </div>
         </div>
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground" suppressHydrationWarning>&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
-          <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-primary/60">
+          <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-primary/80">
             <span suppressHydrationWarning>{t("legacy")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
             <span suppressHydrationWarning>{t("trust")}</span>

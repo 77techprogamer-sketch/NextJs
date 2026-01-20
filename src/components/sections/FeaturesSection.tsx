@@ -26,11 +26,11 @@ const FeaturesSection = () => {
                         <div className="grid grid-cols-2 gap-6 pt-4">
                             <div className="space-y-2">
                                 <div className="text-3xl sm:text-4xl font-bold text-accent">15k+</div>
-                                <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold" suppressHydrationWarning>{t("portfolios_managed")}</div>
+                                <div className="text-sm text-primary-foreground/80 uppercase tracking-wider font-semibold" suppressHydrationWarning>{t("portfolios_managed")}</div>
                             </div>
                             <div className="space-y-2">
                                 <div className="text-3xl sm:text-4xl font-bold text-accent">98%</div>
-                                <div className="text-sm text-primary-foreground/60 uppercase tracking-wider font-semibold" suppressHydrationWarning>{t("claims_settled_stat")}</div>
+                                <div className="text-sm text-primary-foreground/80 uppercase tracking-wider font-semibold" suppressHydrationWarning>{t("claims_settled_stat")}</div>
                             </div>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ const FeaturesSection = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold mb-1" suppressHydrationWarning>{t("strategic_advisory")}</h3>
-                                    <p className="text-primary-foreground/70 text-sm" suppressHydrationWarning>{t("strategic_advisory_desc")}</p>
+                                    <p className="text-primary-foreground/90 text-sm" suppressHydrationWarning>{t("strategic_advisory_desc")}</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
@@ -52,7 +52,7 @@ const FeaturesSection = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold mb-1" suppressHydrationWarning>{t("legacy_planning")}</h3>
-                                    <p className="text-primary-foreground/70 text-sm" suppressHydrationWarning>{t("legacy_planning_desc")}</p>
+                                    <p className="text-primary-foreground/90 text-sm" suppressHydrationWarning>{t("legacy_planning_desc")}</p>
                                 </div>
                             </div>
                             <div className="flex gap-4">
@@ -61,7 +61,7 @@ const FeaturesSection = () => {
                                 </div>
                                 <div>
                                     <h3 className="text-xl font-bold mb-1" suppressHydrationWarning>{t("unrivaled_claims_support")}</h3>
-                                    <p className="text-primary-foreground/70 text-sm" suppressHydrationWarning>{t("unrivaled_claims_support_desc")}</p>
+                                    <p className="text-primary-foreground/90 text-sm" suppressHydrationWarning>{t("unrivaled_claims_support_desc")}</p>
                                 </div>
                             </div>
                         </div>

@@ -71,15 +71,14 @@ const SmartLanguageSelector = () => {
                 let usedFallback = false;
 
                 try {
-                    const response = await fetch('/api/location'); // Use internal API
-                    if (!response.ok) throw new Error(`Primary API failed: ${response.status}`);
-                    data = await response.json();
-                } catch {
-                    // Fallback to ipwho.is if internal fails (though internal has fallback now)
+                    // Internal API removed as it doesn't exist
+                    // Fallback to ipwho.is directly
                     const response = await fetch('https://ipwho.is/');
                     if (!response.ok) throw new Error(`Fallback API failed`);
                     data = await response.json();
                     usedFallback = true;
+                } catch (error) {
+                    console.error('Fallback location check failed', error);
                 }
 
                 const country_code = usedFallback ? data.country_code : data.country_code;

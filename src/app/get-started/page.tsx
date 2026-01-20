@@ -38,7 +38,7 @@ const GetStartedContent = () => {
                                 <Users className="w-6 h-6" />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-lg">15k+ Clients</h3>
+                                <h2 className="font-semibold text-lg">15k+ Clients</h2>
                                 <p className="text-sm text-muted-foreground">Trusted by families across Bangalore.</p>
                             </div>
                         </div>
@@ -47,7 +47,7 @@ const GetStartedContent = () => {
                                 <ShieldCheck className="w-6 h-6" />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-lg">98% Claims</h3>
+                                <h2 className="font-semibold text-lg">98% Claims</h2>
                                 <p className="text-sm text-muted-foreground">High settlement ratio for your peace of mind.</p>
                             </div>
                         </div>
@@ -56,7 +56,7 @@ const GetStartedContent = () => {
                                 <Clock className="w-6 h-6" />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-lg">Fast Support</h3>
+                                <h2 className="font-semibold text-lg">Fast Support</h2>
                                 <p className="text-sm text-muted-foreground">24/7 dedicated support team.</p>
                             </div>
                         </div>
@@ -65,7 +65,7 @@ const GetStartedContent = () => {
                                 <Award className="w-6 h-6" />
                             </div>
                             <div>
-                                <h3 className="font-semibold text-lg">Expert Advice</h3>
+                                <h2 className="font-semibold text-lg">Expert Advice</h2>
                                 <p className="text-sm text-muted-foreground">Veteran-led financial guidance.</p>
                             </div>
                         </div>

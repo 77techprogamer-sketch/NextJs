@@ -9,7 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage', 'cookie'],

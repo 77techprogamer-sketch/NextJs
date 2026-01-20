@@ -20,17 +20,17 @@ const ContactSection = () => {
                 <div className="flex flex-wrap justify-center gap-6 sm:gap-8 max-w-2xl mx-auto">
                     <a href="tel:+919986634506" className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground">
                         <Phone className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                        <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>{t("call_us")}</CardTitle>
+                        <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl font-semibold leading-none tracking-tight" suppressHydrationWarning>{t("call_us")}</h3>
                         <CardDescription className="text-center text-sm sm:text-base">+91-9986634506</CardDescription>
                     </a>
                     <a href="https://wa.me/919986634506" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground">
                         <MessageSquare className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                        <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>{t("whatsapp_us")}</CardTitle>
+                        <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl font-semibold leading-none tracking-tight" suppressHydrationWarning>{t("whatsapp_us")}</h3>
                         <CardDescription className="text-center text-sm sm:text-base">+91-9986634506</CardDescription>
                     </a>
                     <a href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground">
                         <MapPin className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                        <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl" suppressHydrationWarning>{t("visit_us")}</CardTitle>
+                        <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl font-semibold leading-none tracking-tight" suppressHydrationWarning>{t("visit_us")}</h3>
                         <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>{t("bangalore_office")}</CardDescription>
                     </a>
                 </div>

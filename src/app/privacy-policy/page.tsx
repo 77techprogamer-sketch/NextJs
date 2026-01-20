@@ -83,15 +83,15 @@ const PrivacyPolicy = () => {
                     </p>
                     <div className="space-y-4">
                         <div className="border-l-4 border-primary pl-4">
-                            <h4 className="font-semibold text-foreground">Insurance Carriers and Partners</h4>
+                            <h3 className="font-semibold text-foreground">Insurance Carriers and Partners</h3>
                             <p className="text-sm text-muted-foreground">We share data with insurance companies and underwriters to obtain quotes and bind coverage on your behalf. These entities are also bound by strict privacy regulations.</p>
                         </div>
                         <div className="border-l-4 border-primary pl-4">
-                            <h4 className="font-semibold text-foreground">Service Providers</h4>
+                            <h3 className="font-semibold text-foreground">Service Providers</h3>
                             <p className="text-sm text-muted-foreground">We may use trusted third-party vendors for payment processing, IT support, and customer service. They are contractually obligated to protect your data and use it only for the services they provide.</p>
                         </div>
                         <div className="border-l-4 border-primary pl-4">
-                            <h4 className="font-semibold text-foreground">Legal Requirements</h4>
+                            <h3 className="font-semibold text-foreground">Legal Requirements</h3>
                             <p className="text-sm text-muted-foreground">We may disclose information to law enforcement or regulatory bodies if required by a subpoena, court order, or other legal process.</p>
                         </div>
                     </div>

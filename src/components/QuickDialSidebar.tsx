@@ -73,6 +73,7 @@ const QuickDialSidebar = () => {
                         size="icon"
                         className="rounded-full shadow-md h-8 w-8 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700"
                         onClick={togglePosition}
+                        aria-label="Switch sidebar position"
                     >
                         <ArrowLeftRight className="h-3 w-3 text-gray-600 dark:text-gray-300" />
                     </Button>
@@ -92,6 +93,7 @@ const QuickDialSidebar = () => {
                             size="icon"
                             className="rounded-full shadow-lg h-10 w-10 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700"
                             onClick={() => scrollToSection(item.id)}
+                            aria-label={item.label}
                         >
                             <item.icon className="h-4 w-4 text-primary" />
                         </Button>
@@ -115,7 +117,7 @@ const QuickDialSidebar = () => {
                 {!isOpen && (
                     <>
                         {/* Outer Ring */}
-                        <div className="absolute inset-0 -m-1 rounded-full bg-accent/40 animate-ping opacity-20 duration-[3000ms]"></div>
+                        <div className="absolute inset-0 -m-1 rounded-full bg-accent/40 animate-ping opacity-20"></div>
                         {/* Glow */}
                         <div className="absolute inset-0 rounded-full bg-accent/30 animate-pulse blur-md"></div>
                     </>

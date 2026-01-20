@@ -122,13 +122,13 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6 bg-white dark:bg-gray-950 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 animate-in slide-in-from-bottom-5 duration-700 ease-out">
-        <h3 className="text-lg font-semibold text-center mb-4">
+        <h2 className="text-lg font-semibold text-center mb-4">
           {t("quote_form_title", {
             type: config === DEFAULT_FORM_CONFIG
               ? formatLabel(insuranceType)
               : normalizeUIValue(t(insuranceType))
           })}
-        </h3>
+        </h2>
 
         {config.fields.map((field) => (
           <FormField
@@ -272,7 +272,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             <p className="font-semibold">{t("provide_member_details")}</p>
             {selectedMembers.map((member) => (
               <div key={member} className="border p-3 rounded-md space-y-2">
-                <h4 className="font-medium capitalize">{t(member)}</h4>
+                <h3 className="font-medium capitalize">{t(member)}</h3>
                 <div className="flex gap-2">
                   <FormField
                     control={form.control}
