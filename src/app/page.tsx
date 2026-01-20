@@ -3,7 +3,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare, Wallet, TrendingUp, HeartHandshake, ShieldCheck, Award, Briefcase, Users, Star } from 'lucide-react';
+import { CheckCircle, Shield, Heart, Car, Home, Plane, FireExtinguisher, Mail, Phone, MapPin, FileText, Building, MessageSquare, Wallet, TrendingUp, HeartHandshake, ShieldCheck, Award, Briefcase, Users, Star, ChevronDown, ChevronUp } from 'lucide-react';
 import ServiceCard from '@/components/ServiceCard';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useTranslation } from 'react-i18next';
@@ -29,6 +29,7 @@ const Index = () => {
     const [currentBackgroundClass, setCurrentBackgroundClass] = useState('hero-morning-bg');
     const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
     const [loadingBlog, setLoadingBlog] = useState(true);
+    const [isBlogExpanded, setIsBlogExpanded] = useState(false);
 
     const dynamicOneLiner = t("secure_family_future") || "Comprehensive coverage for life, health, and vehicle tailored to your needs.";
 
@@ -247,9 +248,28 @@ const Index = () => {
                                 </CardTitle>
                             </CardHeader>
                             <CardContent className="pt-6">
-                                <div className="text-gray-600 dark:text-gray-300 mb-6 line-clamp-4 max-w-none text-sm sm:text-base">
+                                <div className={cn(
+                                    "text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base transition-all duration-300",
+                                    !isBlogExpanded && "line-clamp-4"
+                                )}>
                                     {latestBlogPost?.summary}
                                 </div>
+
+                                <button
+                                    onClick={() => setIsBlogExpanded(!isBlogExpanded)}
+                                    className="text-primary hover:text-accent font-medium text-sm flex items-center gap-1 mb-6 focus:outline-none transition-colors"
+                                >
+                                    {isBlogExpanded ? (
+                                        <>
+                                            {t("show_less", "Show Less")} <ChevronUp className="h-4 w-4" />
+                                        </>
+                                    ) : (
+                                        <>
+                                            {t("read_more", "Read More")} <ChevronDown className="h-4 w-4" />
+                                        </>
+                                    )}
+                                </button>
+
                                 <Button
                                     asChild
                                     className="w-full sm:w-auto hover:scale-105 transition-transform"
