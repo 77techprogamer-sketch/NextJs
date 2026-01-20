@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 
 const BASE_url = 'https://insurance-support.vercel.app'
 
