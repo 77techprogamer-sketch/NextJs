@@ -101,26 +101,38 @@ const QuickDialSidebar = () => {
 
             {/* Main Toggle Dial */}
             <div className="relative pointer-events-auto group">
+                {/* Floating "Menu" Label (Only when closed) */}
+                {!isOpen && (
+                    <div className={cn(
+                        "absolute top-1/2 -translate-y-1/2 bg-black/80 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg pointer-events-none transition-all duration-300 backdrop-blur-sm border border-white/10",
+                        position === 'right' ? "right-16 opacity-100" : "left-16 opacity-100"
+                    )}>
+                        MENU
+                    </div>
+                )}
+
                 {/* Pulsing Highlight Rings (Only when closed) */}
                 {!isOpen && (
                     <>
-                        <div className="absolute inset-0 rounded-full bg-accent/40 animate-ping opacity-75 duration-[2000ms]"></div>
-                        <div className="absolute -inset-1 rounded-full bg-accent/20 animate-pulse"></div>
+                        {/* Outer Ring */}
+                        <div className="absolute inset-0 -m-1 rounded-full bg-accent/40 animate-ping opacity-20 duration-[3000ms]"></div>
+                        {/* Glow */}
+                        <div className="absolute inset-0 rounded-full bg-accent/30 animate-pulse blur-md"></div>
                     </>
                 )}
 
                 <Button
                     size="lg"
                     className={cn(
-                        "rounded-full h-14 w-14 shadow-2xl transition-all duration-500 relative z-10 border-2 border-white/20",
+                        "rounded-full h-14 w-14 shadow-[0_0_30px_rgba(234,179,8,0.6)] transition-all duration-500 relative z-10 border-2 border-white/20",
                         isOpen
                             ? "bg-slate-800 hover:bg-slate-900 rotate-[135deg]"
-                            : "bg-gradient-to-r from-accent to-yellow-500 hover:from-accent/90 hover:to-yellow-600 scale-100 hover:scale-110"
+                            : "bg-gradient-to-br from-yellow-400 via-accent to-yellow-600 hover:scale-110 hover:shadow-[0_0_40px_rgba(234,179,8,0.8)]"
                     )}
                     onClick={toggleSidebar}
                     aria-label="Quick Menu"
                 >
-                    <Plus className={cn("h-8 w-8 text-white transition-colors", !isOpen && "text-primary-foreground")} />
+                    <Plus className={cn("h-8 w-8 text-white transition-colors drop-shadow-md", !isOpen && "text-white")} />
                 </Button>
             </div>
         </div>
