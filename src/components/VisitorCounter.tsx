@@ -148,8 +148,8 @@ const VisitorCounter = () => {
   }
 
   const containerClasses = cn(
-    "fixed text-foreground bg-background border rounded-lg flex flex-col items-start shadow-xl animate-in fade-in-0 duration-700",
-    isMobile ? "bottom-2 left-2 p-3 space-y-1 text-xs" : "bottom-4 left-4 p-4 space-y-2 text-sm"
+    "fixed text-foreground bg-background border rounded-lg flex flex-col items-start shadow-xl animate-in fade-in-0 duration-700 z-[100]",
+    isMobile ? "bottom-14 left-2 p-3 space-y-1 text-xs" : "bottom-16 left-4 p-4 space-y-2 text-sm"
   );
 
   return (
