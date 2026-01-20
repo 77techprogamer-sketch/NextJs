@@ -1,9 +1,10 @@
 import type { Metadata } from 'next'
+import React from 'react';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import ChatbotWidget from '@/components/ChatbotWidget'
+const ChatbotWidget = dynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
 import Analytics from '@/components/Analytics'
 import dynamic from 'next/dynamic'
 
@@ -13,8 +14,8 @@ import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
 import JsonLd from '@/components/JsonLd'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
+const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurance-support.vercel.app'),
@@ -93,9 +94,8 @@ export default function RootLayout({
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
+                <link rel="preload" href="/grid.svg" as="image" />
                 <link rel="preconnect" href="https://idzvdeemgxhwlkyphnel.supabase.co" />
-                <link rel="preconnect" href="https://www.clarity.ms" />
-                <link rel="preconnect" href="https://c.bing.com" />
             </head>
             <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`} suppressHydrationWarning>
                 <I18nProvider>
@@ -109,7 +109,9 @@ export default function RootLayout({
                         </main>
                         <Footer />
                         <QuickDialSidebar />
-                        <ChatbotWidget />
+                        <React.Suspense fallback={null}>
+                            <ChatbotWidget />
+                        </React.Suspense>
                         <Toaster />
                     </div>
                 </I18nProvider>
