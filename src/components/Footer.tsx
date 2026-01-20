@@ -8,7 +8,7 @@ const Footer = () => {
   const { t } = useTranslation(); // Initialize useTranslation
 
   return (
-    <footer className="w-full bg-muted text-muted-foreground border-t pb-12">
+    <footer className="w-full bg-slate-50 dark:bg-slate-950 text-foreground border-t pb-12">
       <div className="fixed bottom-0 left-0 right-0 z-50 bg-primary text-primary-foreground py-2 overflow-hidden">
         <div className="whitespace-nowrap animate-marquee">
           <span className="font-bold text-lg px-4" suppressHydrationWarning>
@@ -45,8 +45,8 @@ const Footer = () => {
             <p className="text-xs font-medium uppercase tracking-tighter opacity-70" suppressHydrationWarning>{t("established_text")}</p>
           </div>
         </div>
-        <div className="pt-8 border-t border-muted-foreground/10 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs" suppressHydrationWarning>&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
+        <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p className="text-xs text-muted-foreground" suppressHydrationWarning>&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
           <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-primary/60">
             <span suppressHydrationWarning>{t("legacy")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>

@@ -26,10 +26,11 @@ const Index = () => {
     const { city } = useUserLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
-    const [dynamicOneLiner, setDynamicOneLiner] = useState('');
     const [currentBackgroundClass, setCurrentBackgroundClass] = useState('hero-morning-bg');
     const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
     const [loadingBlog, setLoadingBlog] = useState(true);
+
+    const dynamicOneLiner = t("secure_family_future") || "Comprehensive coverage for life, health, and vehicle tailored to your needs.";
 
     useEffect(() => {
         // Force i18n initialization if needed
@@ -39,21 +40,6 @@ const Index = () => {
     }, [i18n]);
 
     useEffect(() => {
-        const oneLinersList = [
-            t("secure_family_future"),
-            t("protect_wellbeing"),
-            t("affordable_term_insurance"),
-            t("drive_with_confidence"),
-            t("safeguard_business_home"),
-            t("explore_world_worry_free"),
-            t("peace_of_mind_priority"),
-            t("find_perfect_coverage"),
-            t("expert_advice_personalized_plans")
-        ];
-
-        const randomIndex = Math.floor(Math.random() * oneLinersList.length);
-        setDynamicOneLiner(oneLinersList[randomIndex]);
-
         const hash = window.location.hash;
         if (hash === '#services') {
             const servicesSection = document.getElementById('services');
