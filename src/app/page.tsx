@@ -20,6 +20,7 @@ const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: f
 const VisitorCounter = dynamic(() => import('@/components/VisitorCounter'), { ssr: false });
 const DateTimeDisplay = dynamic(() => import('@/components/DateTimeDisplay'), { ssr: false });
 const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
+const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 
 const Index = () => {
     const { t, i18n } = useTranslation();
@@ -70,7 +71,7 @@ const Index = () => {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className="relative w-full h-auto pb-24 flex flex-col overflow-hidden bg-primary text-white">
+            <section id="hero" className="relative w-full h-auto pb-24 flex flex-col overflow-hidden bg-primary text-white">
                 {/* Background Effects */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/50 via-primary to-primary"></div>
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
@@ -160,7 +161,7 @@ const Index = () => {
             </section>
 
             {/* Expertise & Veteran Advantage Section */}
-            <section className="py-16 sm:py-24 bg-primary text-primary-foreground overflow-hidden relative">
+            <section id="features" className="py-16 sm:py-24 bg-primary text-primary-foreground overflow-hidden relative">
                 <div className="absolute top-0 left-0 w-full h-1 bg-accent/30"></div>
                 <div className="container mx-auto px-4 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -223,7 +224,7 @@ const Index = () => {
             </section>
 
             {/* Blog Section */}
-            <section className="py-12 sm:py-16 bg-white dark:bg-gray-800">
+            <section id="blog" className="py-12 sm:py-16 bg-white dark:bg-gray-800">
                 <div className="container mx-auto px-4">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-8 sm:mb-12 text-center" suppressHydrationWarning>
                         {t("latest_blog_post")}
@@ -308,7 +309,7 @@ const Index = () => {
             </section>
 
             {/* Contact Section */}
-            <section className="py-12 sm:py-16 bg-gray-100 dark:bg-gray-900">
+            <section id="contact" className="py-12 sm:py-16 bg-gray-100 dark:bg-gray-900">
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8" suppressHydrationWarning>
                         {t("get_in_touch")}
@@ -338,7 +339,9 @@ const Index = () => {
 
             {/* Customer Testimonials Section */}
             <React.Suspense fallback={<div className="py-12 text-center text-muted-foreground">Loading testimonials...</div>}>
-                <Testimonials />
+                <div id="testimonials">
+                    <Testimonials />
+                </div>
             </React.Suspense>
 
             <React.Suspense fallback={null}>
@@ -354,6 +357,10 @@ const Index = () => {
                     setSelectedInsuranceType('general_inquiry');
                     setIsModalOpen(true);
                 }} />
+            </React.Suspense>
+
+            <React.Suspense fallback={null}>
+                <QuickDialSidebar />
             </React.Suspense>
         </div>
     );
