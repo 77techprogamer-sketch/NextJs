@@ -81,8 +81,8 @@ const SmartLanguageSelector = () => {
                     console.error('Fallback location check failed', error);
                 }
 
-                const country_code = usedFallback ? data.country_code : data.country_code;
-                const region = usedFallback ? data.region : data.region;
+                const country_code = (data && data.country_code) ? data.country_code : 'IN';
+                const region = (data && data.region) ? data.region : '';
 
                 // Handle International Users
                 if (country_code !== 'IN') {

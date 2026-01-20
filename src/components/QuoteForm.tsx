@@ -30,7 +30,8 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   const { t } = useTranslation();
   const [selectedMembers, setSelectedMembers] = useState<string[]>([]);
 
-  const config = FORM_CONFIGS[insuranceType] || DEFAULT_FORM_CONFIG;
+  const configKey = insuranceType.replace(/-/g, '_');
+  const config = FORM_CONFIGS[configKey] || FORM_CONFIGS[insuranceType] || DEFAULT_FORM_CONFIG;
 
   // Build schema dynamically based on config
   const schemaShape: Record<string, z.ZodTypeAny> = {
@@ -60,7 +61,23 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     })).optional();
   }
 
-  const formSchema = z.object(schemaShape).refine((data) => data.age !== undefined || data.dateOfBirth !== undefined, {
+  // Handle suppression of default validations
+  if (config.suppressDefaultFields?.includes('age') && config.suppressDefaultFields?.includes('dateOfBirth')) {
+    schemaShape.age = z.any().optional();
+    schemaShape.dateOfBirth = z.any().optional();
+  }
+
+  if (config.suppressDefaultFields?.includes('gender')) {
+    schemaShape.gender = z.string().optional();
+  }
+
+  const formSchema = z.object(schemaShape).refine((data) => {
+    // Skip age/dob validation if suppressed
+    if (config.suppressDefaultFields?.includes('age') && config.suppressDefaultFields?.includes('dateOfBirth')) {
+      return true;
+    }
+    return data.age !== undefined || data.dateOfBirth !== undefined;
+  }, {
     message: t("age_dob_required"),
     path: ["age"],
   });
@@ -80,18 +97,38 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
+      // Create a payload that includes dynamic fields
+      const payload: any = {
+        name: values.fullName,
+        age: values.age,
+        gender: values.gender,
+        phone: values.mobileNumber,
+        insurance_type: insuranceType,
+        intended_sum_insured: values.sumAssured,
+      };
+
+      // Extract specific fields to put into the 'details' JSON column
+      const details: Record<string, any> = {};
+
+      // Fields that are already mapped to specific columns in the 'customers' table
+      // Note: 'sumAssured' is mapped to 'intended_sum_insured'
+      const mappedColumnFields = ['fullName', 'mobileNumber', 'age', 'dateOfBirth', 'gender', 'sumAssured'];
+
+      Object.keys(values).forEach(key => {
+        // If the field is not one of the standard mapped columns, add it to details
+        if (!mappedColumnFields.includes(key)) {
+          details[key] = values[key];
+        }
+      });
+
+      // Add details to payload if not empty
+      if (Object.keys(details).length > 0) {
+        payload.details = details;
+      }
+
       const { error } = await supabase
         .from('customers')
-        .insert([
-          {
-            name: values.fullName,
-            age: values.age,
-            gender: values.gender,
-            phone: values.mobileNumber,
-            insurance_type: insuranceType,
-            intended_sum_insured: values.sumAssured,
-          },
-        ]);
+        .insert([payload]);
 
       if (error) throw error;
 
@@ -130,6 +167,36 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           })}
         </h2>
 
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <FormField
+            control={form.control}
+            name="fullName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("full_name")}</FormLabel>
+                <FormControl>
+                  <Input placeholder={t("enter_full_name")} {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="mobileNumber"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>{t("mobile_number")}</FormLabel>
+                <FormControl>
+                  <Input type="tel" placeholder={t("enter_mobile_number")} {...field} maxLength={10} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
         {config.fields.map((field) => (
           <FormField
             key={field.name}
@@ -157,7 +224,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                           <FormControl>
                             <div className="relative">
                               <RadioGroupItem value={opt.value} className="peer sr-only" />
-                              <FormLabel className="flex flex-col items-center justify-center p-4 rounded-xl border-2 border-muted bg-popover hover:bg-accent peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
+                              <FormLabel className="flex flex-col items-center justify-center p-4 rounded-xl border-2 border-muted bg-popover hover:bg-accent peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] text-center">
                                 {t(opt.labelKey)}
                               </FormLabel>
                             </div>
@@ -185,7 +252,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           />
         ))}
 
-        {!config.fields.find(f => f.name === 'age') && (
+        {(!config.suppressDefaultFields?.includes('age') && !config.fields.find(f => f.name === 'age')) && (
           <div className="flex items-center space-x-2">
             <FormField
               control={form.control}
@@ -238,7 +305,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           </div>
         )}
 
-        {!config.fields.find(f => f.name === 'gender') && (
+        {(!config.suppressDefaultFields?.includes('gender') && !config.fields.find(f => f.name === 'gender')) && (
           <FormField
             control={form.control}
             name="gender"
