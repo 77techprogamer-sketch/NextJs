@@ -8,6 +8,7 @@ import Analytics from '@/components/Analytics'
 import dynamic from 'next/dynamic'
 
 const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
+const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
 import JsonLd from '@/components/JsonLd'
@@ -107,6 +108,7 @@ export default function RootLayout({
                             {children}
                         </main>
                         <Footer />
+                        <QuickDialSidebar />
                         <ChatbotWidget />
                         <Toaster />
                     </div>

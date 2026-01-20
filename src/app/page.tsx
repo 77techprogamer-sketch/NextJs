@@ -20,7 +20,6 @@ const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: f
 const VisitorCounter = dynamic(() => import('@/components/VisitorCounter'), { ssr: false });
 const DateTimeDisplay = dynamic(() => import('@/components/DateTimeDisplay'), { ssr: false });
 const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
-const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 
 const Index = () => {
     const { t, i18n } = useTranslation();
@@ -357,10 +356,6 @@ const Index = () => {
                     setSelectedInsuranceType('general_inquiry');
                     setIsModalOpen(true);
                 }} />
-            </React.Suspense>
-
-            <React.Suspense fallback={null}>
-                <QuickDialSidebar />
             </React.Suspense>
         </div>
     );

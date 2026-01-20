@@ -2,17 +2,31 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, Layers, Star, MessageSquare, Phone, Plus, BookOpen } from "lucide-react";
+import { Home, Layers, Star, MessageSquare, Phone, Plus, BookOpen, ArrowLeftRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useTranslation } from "react-i18next";
+import { useRouter, usePathname } from "next/navigation";
 
 const QuickDialSidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { t } = useTranslation();
+    const [position, setPosition] = useState<'left' | 'right'>('right');
+    const router = useRouter();
+    const pathname = usePathname();
 
     const toggleSidebar = () => setIsOpen(!isOpen);
 
+    const togglePosition = () => {
+        setPosition(prev => prev === 'right' ? 'left' : 'right');
+    };
+
     const scrollToSection = (id: string) => {
+        // If not on home page, push to home with hash
+        if (pathname !== "/") {
+            router.push(`/#${id}`);
+            setIsOpen(false);
+            return;
+        }
+
+        // If on home page, smooth scroll
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: "smooth" });
@@ -30,25 +44,53 @@ const QuickDialSidebar = () => {
     ];
 
     return (
-        <div className="fixed right-6 top-1/2 -translate-y-1/2 z-[100] flex flex-col items-end gap-4 pointer-events-none">
+        <div
+            className={cn(
+                "fixed top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-4 pointer-events-none transition-all duration-500",
+                position === 'right' ? "right-6 items-end" : "left-6 items-start"
+            )}
+        >
 
             {/* Sidebar Navigation */}
             <div
                 className={cn(
-                    "flex flex-col gap-2 transition-all duration-300 pointer-events-auto",
-                    isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10 pointer-events-none"
+                    "flex flex-col gap-3 transition-all duration-300 pointer-events-auto",
+                    isOpen ? "opacity-100 translate-x-0" : "opacity-0 pointer-events-none",
+                    // Slide direction depends on position
+                    !isOpen && (position === 'right' ? "translate-x-10" : "-translate-x-10")
                 )}
             >
+                {/* Position Switcher */}
+                <div className={cn("group relative flex items-center", position === 'right' ? "justify-end" : "justify-start")}>
+                    <span className={cn(
+                        "absolute bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md",
+                        position === 'right' ? "right-12" : "left-12"
+                    )}>
+                        Switch Side
+                    </span>
+                    <Button
+                        variant="outline"
+                        size="icon"
+                        className="rounded-full shadow-md h-8 w-8 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700"
+                        onClick={togglePosition}
+                    >
+                        <ArrowLeftRight className="h-3 w-3 text-gray-600 dark:text-gray-300" />
+                    </Button>
+                </div>
+
                 {navItems.map((item) => (
-                    <div key={item.id} className="group relative flex items-center justify-end">
+                    <div key={item.id} className={cn("group relative flex items-center", position === 'right' ? "justify-end" : "justify-start")}>
                         {/* Tooltip Label */}
-                        <span className="absolute right-12 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        <span className={cn(
+                            "absolute bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap shadow-md",
+                            position === 'right' ? "right-12" : "left-12"
+                        )}>
                             {item.label}
                         </span>
                         <Button
                             variant="secondary"
                             size="icon"
-                            className="rounded-full shadow-lg h-10 w-10 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700"
+                            className="rounded-full shadow-lg h-10 w-10 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700"
                             onClick={() => scrollToSection(item.id)}
                         >
                             <item.icon className="h-4 w-4 text-primary" />
@@ -58,16 +100,29 @@ const QuickDialSidebar = () => {
             </div>
 
             {/* Main Toggle Dial */}
-            <Button
-                size="lg"
-                className={cn(
-                    "rounded-full h-14 w-14 shadow-xl pointer-events-auto transition-transform duration-500",
-                    isOpen ? "rotate-[135deg] bg-red-500 hover:bg-red-600" : "bg-primary hover:bg-primary/90"
+            <div className="relative pointer-events-auto group">
+                {/* Pulsing Highlight Rings (Only when closed) */}
+                {!isOpen && (
+                    <>
+                        <div className="absolute inset-0 rounded-full bg-accent/40 animate-ping opacity-75 duration-[2000ms]"></div>
+                        <div className="absolute -inset-1 rounded-full bg-accent/20 animate-pulse"></div>
+                    </>
                 )}
-                onClick={toggleSidebar}
-            >
-                <Plus className="h-8 w-8 text-white" />
-            </Button>
+
+                <Button
+                    size="lg"
+                    className={cn(
+                        "rounded-full h-14 w-14 shadow-2xl transition-all duration-500 relative z-10 border-2 border-white/20",
+                        isOpen
+                            ? "bg-slate-800 hover:bg-slate-900 rotate-[135deg]"
+                            : "bg-gradient-to-r from-accent to-yellow-500 hover:from-accent/90 hover:to-yellow-600 scale-100 hover:scale-110"
+                    )}
+                    onClick={toggleSidebar}
+                    aria-label="Quick Menu"
+                >
+                    <Plus className={cn("h-8 w-8 text-white transition-colors", !isOpen && "text-primary-foreground")} />
+                </Button>
+            </div>
         </div>
     );
 };
