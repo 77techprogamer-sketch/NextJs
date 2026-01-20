@@ -70,7 +70,7 @@ const Index = () => {
     return (
         <div className="flex flex-col min-h-screen">
             {/* Hero Section */}
-            <section className="relative w-full min-h-[85vh] flex flex-col overflow-hidden bg-primary text-white">
+            <section className="relative w-full h-auto pb-24 flex flex-col overflow-hidden bg-primary text-white">
                 {/* Background Effects */}
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/50 via-primary to-primary"></div>
                 <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
