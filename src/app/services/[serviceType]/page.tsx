@@ -11,27 +11,59 @@ import ServiceJsonLd from "@/components/ServiceJsonLd"
 const servicesData = {
     "life-insurance": {
         title: "Life Insurance",
-        description: "Secure your family's financial future with our comprehensive life insurance plans.",
+        description: "Secure your family's financial future with the best life insurance plans in Bangalore.",
         icon: Shield,
         image: "/life-insurance.png",
-        features: ["Family Protection", "Tax Benefits (80C)", "Wealth Creation", "Loan Collateral"],
-        content: "Life insurance is a contract between an insurance policy holder and an insurer or assurer, where the insurer promises to pay a designated beneficiary a sum of money upon the death of an insured person."
+        features: ["Family Financial Protection", "Tax Saving under 80C", "Wealth Creation Options", "Loan Liability Cover"],
+        content: `Life insurance is more than just a policy; it's a promise to secure your family's future even in your absence. In Bangalore's fast-paced life, having a robust financial safety net is essential.
+
+        **Why Choose Life Insurance Support in Bangalore?**
+        We understand that every individual's financial goal is unique. Whether you are looking for pure protection (Term Plans), wealth creation (ULIPs), or guaranteed returns (Endowment Plans), we help you compare and choose the right policy from top insurers in India.
+
+        **Types of Life Insurance We Offer:**
+        *   **Term Insurance:** Pure risk cover providing high sum assured at low premiums.
+        *   **Whole Life Insurance:** Coverage up to 100 years of age.
+        *   **Endowment Plans:** A mix of insurance and savings.
+        *   **ULIPs:** Market-linked returns with life cover.
+
+        **Claim Settlement Assistance**
+        Our dedicated team in Bangalore assists you throughout the claim process, ensuring your family faces no administrative hassles during difficult times. We have a 100% claim support record.`
     },
     "health-insurance": {
         title: "Health Insurance",
-        description: "Get access to the best medical care without financial stress.",
+        description: "Comprehensive health coverage with access to top hospitals in Bangalore.",
         icon: Heart,
         image: "/health-insurance.png",
-        features: ["Cashless Hospitalization", "Pre/Post Hospitalization", "Ambulance Cover", "Tax Benefits (80D)"],
-        content: "Health insurance covers the whole or a part of the risk of a person incurring medical expenses. It provides financial protection against unexpected medical costs."
+        features: ["Cashless Treatment", "Pre & Post Hospitalization", "AYUSH Treatment Cover", "Tax Benefit under 80D"],
+        content: `Healthcare costs in Bangalore are rising. A single hospitalization can drain your savings. Our Health Insurance plans ensure you get the best medical care without financial worry.
+        
+        **Best Health Insurance Agents in Bangalore**
+        We help you find plans that cover:
+        *   **Cashless Hospitalization:** Network of 10,000+ hospitals including major chains in Bangalore like Manipal, Apollo, and Fortis.
+        *   **Critical Illness Cover:** Protection against life-threatening diseases.
+        *   **Maternity Benefits:** Coverage for delivery expenses and newborn care.
+        *   **Senior Citizen Plans:** Special plans for parents with pre-existing disease coverage.
+
+        **We Prioritize Claims**
+        Unlike online aggregators, we personally handle your cashless approvals and reimbursement claims, ensuring you focus on recovery, not paperwork.`
     },
     "motor-insurance": {
         title: "Motor Insurance",
-        description: "Mandatory protection for your vehicle against accidents and theft.",
+        description: "Instant Car and Bike insurance renewal with max IDV and lowest premium.",
         icon: Car,
         image: "/motor-insurance.png",
-        features: ["Third Party Liability", "Own Damage Cover", "Personal Accident Cover", "No Claim Bonus"],
-        content: "Motor insurance provides protection against physical damage or bodily injury resulting from traffic collisions and against liability that could also arise from incidents in a vehicle."
+        features: ["Zero Depreciation Cover", "24x7 Roadside Assistance", "Engine Protection", "Consumables Cover"],
+        content: `Driving in Bangalore requires reliable protection. Whether you own a car or a two-wheeler, having comprehensive motor insurance is mandatory and crucial for financial safety.
+
+        **Motor Insurance Services**
+        We offer tailored plans for:
+        *   **Car Insurance:** Comprehensive, Third-Party, and Own Damage covers with add-ons like Zero Dep, Return to Invoice, and Engine Protect.
+        *   **Two-Wheeler Insurance:** Affordable plans for bikes and scooters with multi-year policy options.
+
+        **Why Renew with Us?**
+        *   **Instant Policy Issuance:** Get your policy in 5 minutes.
+        *   **Hassle-Free Claims:** Tie-ups with major workshops in Bangalore for cashless repairs.
+        *   **No Claim Bonus (NCB) Transfer:** We ensure you get up to 50% discount on renewal premiums if you haven't made a claim.`
     },
     "term-insurance": {
         title: "Term Insurance",
