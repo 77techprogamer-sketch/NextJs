@@ -4,6 +4,22 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Check, ArrowRight, LogOut } from 'lucide-react';
 
+// City to Language Code Mapping (Higher Priority)
+const CITY_TO_LANG: Record<string, string> = {
+    'Bangalore': 'kn',
+    'Bengaluru': 'kn',
+    'Chennai': 'ta',
+    'Hyderabad': 'te',
+    'Mumbai': 'mr',
+    'Pune': 'mr',
+    'Kolkata': 'bn',
+    'Delhi': 'hi',
+    'New Delhi': 'hi',
+    'Ahmedabad': 'gu',
+    'Kochi': 'ml',
+    'Thiruvananthapuram': 'ml',
+};
+
 // State to Language Code Mapping
 const REGION_TO_LANG: Record<string, string> = {
     'Maharashtra': 'mr',
@@ -83,6 +99,7 @@ const SmartLanguageSelector = () => {
 
                 const country_code = (data && data.country_code) ? data.country_code : 'IN';
                 const region = (data && data.region) ? data.region : '';
+                const city = (data && data.city) ? data.city : '';
 
                 // Handle International Users
                 if (country_code !== 'IN') {
@@ -92,12 +109,23 @@ const SmartLanguageSelector = () => {
                 }
 
                 // Handle Domestic Users
-                if (region) {
-                    setDetectedRegion(region);
-                    const langCode = REGION_TO_LANG[region];
-                    if (langCode) {
-                        setSuggestedLang(langCode);
-                    }
+                let suggestedLangCode = null;
+
+                // Check City First (More specific)
+                if (city && CITY_TO_LANG[city]) {
+                    suggestedLangCode = CITY_TO_LANG[city];
+                }
+                // Fallback to Region
+                else if (region && REGION_TO_LANG[region]) {
+                    suggestedLangCode = REGION_TO_LANG[region];
+                }
+
+                if (suggestedLangCode) {
+                    setSuggestedLang(suggestedLangCode);
+                }
+
+                if (city || region) {
+                    setDetectedRegion(city || region);
                 }
 
                 setFlowState('LANGUAGE_SELECT');
@@ -143,7 +171,7 @@ const SmartLanguageSelector = () => {
         // Show loading state briefly
         if (flowState === 'LOADING') {
             return (
-                <div className="fixed inset-0 z-[100] bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center">
+                <div className="fixed inset-0 z-[500] bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center">
                     <div className="text-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white mx-auto"></div>
                         <p className="mt-4 text-white/80 text-sm">Loading...</p>
@@ -156,7 +184,7 @@ const SmartLanguageSelector = () => {
 
     return (
         <div
-            className={`fixed inset-0 z-[100] flex items-center justify-center p-4 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'
+            className={`fixed inset-0 z-[500] flex items-center justify-center p-4 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'
                 }`}
             style={{
                 background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%)',

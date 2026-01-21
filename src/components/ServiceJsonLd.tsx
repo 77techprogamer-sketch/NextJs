@@ -23,7 +23,7 @@ export default function ServiceJsonLd({ title, description, url, image, faqs }: 
             image: 'https://insurance-support.vercel.app/brand-favicon.svg',
             address: {
                 '@type': 'PostalAddress',
-                addressLocality: 'Bangalore',
+                addressLocality: 'Bangalore', // HQ Location
                 addressRegion: 'KA',
                 addressCountry: 'IN'
             },
@@ -31,8 +31,8 @@ export default function ServiceJsonLd({ title, description, url, image, faqs }: 
             url: 'https://insurance-support.vercel.app'
         },
         areaServed: {
-            '@type': 'City',
-            name: 'Bangalore'
+            '@type': 'Country',
+            name: 'India'
         },
         hasOfferCatalog: {
             '@type': 'OfferCatalog',

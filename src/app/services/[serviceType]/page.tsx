@@ -11,14 +11,14 @@ import ServiceJsonLd from "@/components/ServiceJsonLd"
 const servicesData = {
     "life-insurance": {
         title: "Life Insurance",
-        description: "Secure your family's financial future with the best life insurance plans in Bangalore.",
+        description: "Secure your family's financial future with the best life insurance plans in India.",
         icon: Shield,
         image: "/life-insurance.png",
         features: ["Family Financial Protection", "Tax Saving under 80C", "Wealth Creation Options", "Loan Liability Cover"],
-        content: `Life insurance is more than just a policy; it's a promise to secure your family's future even in your absence. In Bangalore's fast-paced life, having a robust financial safety net is essential.
+        content: `Life insurance is more than just a policy; it's a promise to secure your family's future even in your absence. In today's fast-paced life, having a robust financial safety net is essential.
 
-        **Why Choose Life Insurance Support in Bangalore?**
-        We understand that every individual's financial goal is unique. Whether you are looking for pure protection (Term Plans), wealth creation (ULIPs), or guaranteed returns (Endowment Plans), we help you compare and choose the right policy from top insurers in India.
+        **Why Choose Insurance Support India?**
+        We understand that every individual's financial goal is unique. Whether you are looking for pure protection (Term Plans), wealth creation (ULIPs), or guaranteed returns (Endowment Plans), we help you compare and choose the right policy from top insurers across India.
 
         **Types of Life Insurance We Offer:**
         *   **Term Insurance:** Pure risk cover providing high sum assured at low premiums.
@@ -27,7 +27,7 @@ const servicesData = {
         *   **ULIPs:** Market-linked returns with life cover.
 
         **Claim Settlement Assistance**
-        Our dedicated team in Bangalore assists you throughout the claim process, ensuring your family faces no administrative hassles during difficult times. We have a 100% claim support record.`,
+        Our dedicated team assists you throughout the claim process, ensuring your family faces no administrative hassles during difficult times. We have a 100% claim support record pan-India.`,
         faqs: [
             { question: "Is a medical test mandatory for Term Insurance?", answer: "It depends on your age and sum assured. Generally, for coverage above ₹50 Lakhs or for age above 45, a medical test is required." },
             { question: "What is the ideal life cover amount?", answer: "A thumb rule is to have a cover that is 10-15 times your annual income." },
@@ -36,15 +36,15 @@ const servicesData = {
     },
     "health-insurance": {
         title: "Health Insurance",
-        description: "Comprehensive health coverage with access to top hospitals in Bangalore.",
+        description: "Comprehensive health coverage with access to top hospitals across India.",
         icon: Heart,
         image: "/health-insurance.png",
         features: ["Cashless Treatment", "Pre & Post Hospitalization", "AYUSH Treatment Cover", "Tax Benefit under 80D"],
-        content: `Healthcare costs in Bangalore are rising. A single hospitalization can drain your savings. Our Health Insurance plans ensure you get the best medical care without financial worry.
+        content: `Healthcare costs in India are rising. A single hospitalization can drain your savings. Our Health Insurance plans ensure you get the best medical care without financial worry.
         
-        **Best Health Insurance Agents in Bangalore**
+        **Best Health Insurance Agents in India**
         We help you find plans that cover:
-        *   **Cashless Hospitalization:** Network of 10,000+ hospitals including major chains in Bangalore like Manipal, Apollo, and Fortis.
+        *   **Cashless Hospitalization:** Network of 10,000+ hospitals including major chains like Manipal, Apollo, and Fortis across all metro cities.
         *   **Critical Illness Cover:** Protection against life-threatening diseases.
         *   **Maternity Benefits:** Coverage for delivery expenses and newborn care.
         *   **Senior Citizen Plans:** Special plans for parents with pre-existing disease coverage.
@@ -63,7 +63,7 @@ const servicesData = {
         icon: Car,
         image: "/motor-insurance.png",
         features: ["Zero Depreciation Cover", "24x7 Roadside Assistance", "Engine Protection", "Consumables Cover"],
-        content: `Driving in Bangalore requires reliable protection. Whether you own a car or a two-wheeler, having comprehensive motor insurance is mandatory and crucial for financial safety.
+        content: `Driving on Indian roads requires reliable protection. Whether you own a car or a two-wheeler, having comprehensive motor insurance is mandatory and crucial for financial safety.
 
         **Motor Insurance Services**
         We offer tailored plans for:
@@ -71,8 +71,8 @@ const servicesData = {
         *   **Two-Wheeler Insurance:** Affordable plans for bikes and scooters with multi-year policy options.
 
         **Why Renew with Us?**
-        *   **Instant Policy Issuance:** Get your policy in 5 minutes.
-        *   **Hassle-Free Claims:** Tie-ups with major workshops in Bangalore for cashless repairs.
+        *   **Instant Policy Issuance:** Get your policy in 5 minutes online.
+        *   **Hassle-Free Claims:** Tie-ups with major workshops across India for cashless repairs.
         *   **No Claim Bonus (NCB) Transfer:** We ensure you get up to 50% discount on renewal premiums if you haven't made a claim.`,
         faqs: [
             { question: "What happens if my insurance expires?", answer: "You can renew it online instantly. If the break-in period is long, a vehicle inspection might be required." },
@@ -86,9 +86,9 @@ const servicesData = {
         icon: Home,
         image: "/term-insurance.png",
         features: ["High Coverage/Low Premium", "Critical Illness Riders", "Accidental Death Benefit", "Tax Savings"],
-        content: `Term Insurance is the purest form of life insurance. It provides a large sum assured to your nominees if something happens to you. It is the cheapest way to buy a high life cover in Bangalore.
+        content: `Term Insurance is the purest form of life insurance. It provides a large sum assured to your nominees if something happens to you. It is the cheapest way to buy a high life cover in India.
 
-        **Key Features for Bangalore Residents:**
+        **Key Features for Indian Residents:**
         *   **High Cover at Low Cost:** Get ₹1 Crore cover starting at just ₹500/month (age dependent).
         *   **Critical Illness Riders:** Add-on covers for heart attack, cancer, stroke, etc., which are rising in urban areas like Bangalore.
         *   **Tax Benefits:** Premiums paid are eligible for tax deduction under Section 80C.
@@ -107,7 +107,7 @@ const servicesData = {
         icon: Briefcase,
         image: "/sme-insurance.png",
         features: ["Property Protection", "Employee Benefits", "Liability Coverage", "Business Interruption"],
-        content: `Small and Medium Enterprises (SMEs) are the backbone of Bangalore's economy. However, they face unique risks ranging from fire accidents to employee liability. Our SME Insurance packages are custom-built for shops, offices, and startups in Bangalore.
+        content: `Small and Medium Enterprises (SMEs) are the backbone of India's economy. However, they face unique risks ranging from fire accidents to employee liability. Our SME Insurance packages are custom-built for shops, offices, and startups across India.
 
         **What We Cover:**
         *   **Shopkeepers Policy:** Protects stock, furniture, and cash against fire and burglary.
@@ -115,7 +115,7 @@ const servicesData = {
         *   **Workmen Compensation:** Mandatory legal liability cover for employees.
         *   **Public Liability:** Protects against third-party injury claims within your premises.
         
-        **Tailored for Bangalore Startups**
+        **Tailored for Indian Startups**
         We understand the dynamic nature of startups and offer flexible plans that scale with your business.`,
         faqs: [
             { question: "Is property insurance mandatory for shops?", answer: "It is not legally mandatory, but highly recommended to protect your inventory and livelihood." },
@@ -153,8 +153,8 @@ const servicesData = {
         features: ["Regular Income", "Inflation Protection", "Tax Efficient", "Spouse Coverage"],
         content: `Retirement should be the golden phase of life, not a time of financial stress. Our Pension Plans help you build a substantial corpus during your working years, ensuring a steady stream of income post-retirement.
 
-        **Why Start Early in Bangalore?**
-        With the rising cost of living in Bangalore, reliance on savings alone is not enough. You need a dedicated pension plan that beats inflation.
+        **Why Start Early?**
+        With the rising cost of living across Indian metro cities, reliance on savings alone is not enough. You need a dedicated pension plan that beats inflation.
 
         **Types of Plans:**
         *   **Deferred Annuity:** Accumulate now, get pension later (e.g., NPS, private pension plans).
@@ -191,7 +191,7 @@ const servicesData = {
         icon: Heart,
         image: "/wedding-insurance.png",
         features: ["Event Cancellation", "Public Liability", "Property Damage", "Personal Accident"],
-        content: `A wedding is a once-in-a-lifetime event, and thousands of crores are spent on weddings in Bangalore annually. But unforeseen events like natural calamities, fire, or sudden illness can cause cancellations, leading to huge losses.
+        content: `A wedding is a once-in-a-lifetime event, and thousands of crores are spent on weddings in India annually. But unforeseen events like natural calamities, fire, or sudden illness can cause cancellations, leading to huge losses.
 
         **What Coverage Includes:**
         *   **Cancellation due to Disaster:** Fire, flood, or earthquake at the venue.
@@ -210,7 +210,7 @@ const servicesData = {
         icon: Lock,
         image: "/cyber-insurance.png",
         features: ["Data Breach Cover", "Cyber Extortion", "Identity Theft", "Legal Costs"],
-        content: `In the digital hub of Bangalore, cyber threats are a daily reality. From phishing attacks to ransomware, individuals and businesses are at constant risk. Cyber Insurance provides a safety net against financial losses caused by cybercrimes.
+        content: `In the digital era, cyber threats are a daily reality. From phishing attacks to ransomware, individuals and businesses across India are at constant risk. Cyber Insurance provides a safety net against financial losses caused by cybercrimes.
 
         **Coverage for Individuals:**
         *   **Theft of Funds:** Reimbursement for money stolen via phishing or bank fraud.
@@ -240,23 +240,23 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
     if (!service) return {}
 
     return {
-        title: `${service.title} in Bangalore | Insurance Support`,
+        title: `${service.title} in India | Insurance Support`,
         description: service.description,
         keywords: [
             service.title,
-            `${service.title} Quotes`,
-            `Best ${service.title} in Bangalore`,
-            `${service.title} Agent Bangalore`,
+            `${service.title} Quotes India`,
+            `Best ${service.title} in India`,
+            `${service.title} Agent India`,
             `${service.title} Support`,
-            "Insurance Support",
-            "Insurance Agent Bangalore",
+            "Insurance Support India",
+            "Online Insurance Agent",
             ...service.features
         ],
         openGraph: {
-            title: `${service.title} Quotes | Insurance Support`,
+            title: `${service.title} Quotes | Insurance Support India`,
             description: service.description,
             url: `https://insurance-support.vercel.app/services/${params.serviceType}`,
-            siteName: 'Insurance Support',
+            siteName: 'Insurance Support India',
             images: [
                 {
                     url: service.image,

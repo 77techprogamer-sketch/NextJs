@@ -20,19 +20,19 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurance-support.vercel.app'),
     title: {
-        default: 'Insurance Support | Expert Policy & Claims Help',
-        template: '%s | Insurance Support'
+        default: 'Insurance Support | Expert Policy & Claims Help India',
+        template: '%s | Insurance Support India'
     },
-    description: 'Free insurance quotes & expert claims assistance in Bangalore. We prioritize your needs over sales. Life, Health, Motor, & Term Insurance solutions.',
+    description: 'Free insurance quotes & expert claims assistance across India. We prioritize your needs over sales. Life, Health, Motor, & Term Insurance solutions.',
     keywords: [
-        'Insurance Support Bangalore',
-        'Insurance Claims Help Bangalore',
-        'Life Insurance Advisor Bangalore',
-        'Health Insurance Agent Bangalore',
+        'Insurance Support India',
+        'Insurance Claims Help India',
+        'Life Insurance Advisor India',
+        'Health Insurance Agent India',
         'Policy Renewal Services',
         'Claim Settlement Assistance',
-        'Term Insurance Quotes',
-        'Motor Insurance Renewal',
+        'Term Insurance Quotes Online',
+        'Motor Insurance Renewal India',
         'investment planning',
         'retirement planning'
     ],
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_IN',
         url: 'https://insurance-support.vercel.app',
-        title: 'Insurance Support | Trusted Insurance Advisors in Bangalore',
-        description: 'Get free quotes and expert help for Life, Health, and Motor insurance. specialized in claim settlement and policy management.',
+        title: 'Insurance Support | Trusted Insurance Advisors in India',
+        description: 'Get free quotes and expert help for Life, Health, and Motor insurance. Local support across all major Indian cities.',
         siteName: 'Insurance Support',
         images: [
             {
@@ -73,8 +73,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Insurance Support - Your Trusted Partner',
-        description: 'Expert insurance advice and claims support in Bangalore.',
+        title: 'Insurance Support - Your Trusted Partner in India',
+        description: 'Expert insurance advice and claims support across India.',
         images: ['/og-image.png'],
         creator: '@insurancesupport',
     },
