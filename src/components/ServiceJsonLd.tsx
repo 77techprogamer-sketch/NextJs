@@ -1,13 +1,17 @@
-import { WithContext, Service, BreadcrumbList } from 'schema-dts'
+import { WithContext, Service, BreadcrumbList, FAQPage } from 'schema-dts'
 
 interface ServiceJsonLdProps {
     title: string;
     description: string;
     url: string;
     image: string;
+    faqs?: {
+        question: string;
+        answer: string;
+    }[];
 }
 
-export default function ServiceJsonLd({ title, description, url, image }: ServiceJsonLdProps) {
+export default function ServiceJsonLd({ title, description, url, image, faqs }: ServiceJsonLdProps) {
     const serviceSchema: WithContext<Service> = {
         '@context': 'https://schema.org',
         '@type': 'Service',
@@ -66,6 +70,19 @@ export default function ServiceJsonLd({ title, description, url, image }: Servic
         ]
     }
 
+    const faqSchema: WithContext<FAQPage> | null = faqs && faqs.length > 0 ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(faq => ({
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: faq.answer
+            }
+        }))
+    } : null;
+
     return (
         <section>
             <script
@@ -76,6 +93,12 @@ export default function ServiceJsonLd({ title, description, url, image }: Servic
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
             />
+            {faqSchema && (
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                />
+            )}
         </section>
     )
 }
