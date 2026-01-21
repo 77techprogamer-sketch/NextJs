@@ -51,11 +51,9 @@ const BlogSection = () => {
                         </CardHeader>
                         <CardContent className="pt-6">
                             <div className={cn(
-                                "text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base transition-all duration-300",
-                                !isBlogExpanded && "line-clamp-4"
-                            )}>
-                                {latestBlogPost?.summary}
-                            </div>
+                                "text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base transition-all duration-300 prose prose-sm dark:prose-invert max-w-none leading-relaxed",
+                                !isBlogExpanded && "line-clamp-4 mask-content-fade"
+                            )} dangerouslySetInnerHTML={{ __html: latestBlogPost?.summary || '' }} />
 
                             <button
                                 onClick={() => setIsBlogExpanded(!isBlogExpanded)}

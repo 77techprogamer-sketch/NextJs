@@ -175,7 +175,11 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               <FormItem>
                 <FormLabel>{t("full_name")}</FormLabel>
                 <FormControl>
-                  <Input placeholder={t("enter_full_name")} {...field} />
+                  <Input
+                    placeholder={t("enter_full_name")}
+                    {...field}
+                    value={(field.value as string) || ''}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -189,7 +193,13 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               <FormItem>
                 <FormLabel>{t("mobile_number")}</FormLabel>
                 <FormControl>
-                  <Input type="tel" placeholder={t("enter_mobile_number")} {...field} maxLength={10} />
+                  <Input
+                    type="tel"
+                    placeholder={t("enter_mobile_number")}
+                    {...field}
+                    value={(field.value as string) || ''}
+                    maxLength={10}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -8,45 +8,68 @@ interface BlogPost {
   debug?: unknown; // Optional debug info
 }
 
-// Client-side helper to ensure no HTML tags leak through
-// Last Updated: 2026-01-02 22:06 (Deployment Trigger)
-// Uses a robust strategy: textarea for decoding -> Regex for stripping
-const stripHtmlTags = (html: string): string => {
+// Client-side helper to ensure safe HTML rendering
+// Uses DOMParser to parse and whitelist specific tags
+const sanitizeHtml = (html: string): string => {
   if (!html) return "";
-  try {
-    // 1. Decode HTML entities using a textarea (standard browser trick)
-    // We do it twice to handle double-encoded entities like &amp;lt;b&amp;gt;
-    const txt = document.createElement("textarea");
-    txt.innerHTML = html;
-    let decoded = txt.value;
 
-    // Second pass for double encoding (rare but happens in some RSS feeds)
-    if (decoded.includes('&')) {
-      txt.innerHTML = decoded;
-      decoded = txt.value;
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    const body = doc.body;
+
+    // Allowed tags
+    const allowedTags = new Set([
+      'P', 'BR', 'B', 'I', 'EM', 'STRONG', 'U', 'UL', 'OL', 'LI',
+      'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'BLOCKQUOTE', 'CODE', 'PRE'
+    ]);
+
+    // Recursive function to clean nodes
+    const cleanNode = (node: Node) => {
+      // Handle text nodes
+      if (node.nodeType === Node.TEXT_NODE) {
+        return;
+      }
+
+      // Process children first
+      // working backwards since we might remove nodes
+      for (let i = node.childNodes.length - 1; i >= 0; i--) {
+        cleanNode(node.childNodes[i]);
+      }
+
+      // Handle element nodes
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        const el = node as Element;
+
+        // Checking if the tag is allowed
+        if (!allowedTags.has(el.tagName)) {
+          // If not allowed, replace with its text content
+          // We process children first to preserve their text
+          while (el.firstChild) {
+            el.parentNode?.insertBefore(el.firstChild, el);
+          }
+          el.parentNode?.removeChild(el);
+        } else {
+          // If allowed, strip all attributes
+          while (el.attributes.length > 0) {
+            el.removeAttribute(el.attributes[0].name);
+          }
+        }
+      }
     }
 
-    // 2. Aggressive strip tags using regex
-    // The regex /<[^>]*>?/gm handles most tags, even unclosed ones at the end
-    const stripped = decoded.replace(/<[^>]*>?/gm, '');
+    // Process all children of body
+    // working backwards since we might remove nodes
+    for (let i = body.childNodes.length - 1; i >= 0; i--) {
+      cleanNode(body.childNodes[i]);
+    }
 
-    // 3. Final cleanup of common entities that regex might miss or that remain after stripping
-    const final = stripped
-      .replace(/&nbsp;/g, ' ')
-      .replace(/&amp;/g, '&')
-      .replace(/&quot;/g, '"')
-      .replace(/&lt;/g, '<')
-      .replace(/&gt;/g, '>')
-      .trim();
+    return body.innerHTML;
 
-
-    return final;
   } catch (e) {
-    console.warn("Failed to strip HTML tags client-side:", e);
-    // Fallback: simple aggressive regex strip on original
-    const fallback = html.replace(/<[^>]*>?/gm, '').replace(/&lt;[^&]*&gt;/gm, '').trim();
-
-    return fallback;
+    console.warn("Failed to sanitize HTML client-side:", e);
+    // Fallback: simple aggressive regex strip on original if DOMParser fails
+    return html.replace(/<[^>]*>?/gm, '').trim();
   }
 };
 
@@ -72,7 +95,7 @@ export const fetchBlogPosts = async (serviceType?: string, language: string = 'e
         title: data.post.title,
         url: data.post.url,
         date: data.post.date,
-        summary: stripHtmlTags(data.post.description),
+        summary: sanitizeHtml(data.post.description),
         debug: data.debug // Capture the debug info
       };
     }
@@ -84,7 +107,7 @@ export const fetchBlogPosts = async (serviceType?: string, language: string = 'e
         title: first.title,
         url: first.url,
         date: first.date,
-        summary: stripHtmlTags(first.description || first.summary)
+        summary: sanitizeHtml(first.description || first.summary)
       };
     }
 
