@@ -7,6 +7,7 @@ import { Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import dynamic from 'next/dynamic';
+import confetti from 'canvas-confetti';
 
 const DateTimeDisplay = dynamic(() => import('@/components/DateTimeDisplay'), { ssr: false });
 
@@ -107,7 +108,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote }) => {
                         <Button
                             size="lg"
                             className="bg-accent hover:bg-accent/90 text-primary text-lg w-full font-bold px-8 py-7 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all"
-                            onClick={onGetQuote}
+                            onClick={() => {
+                                confetti({
+                                    particleCount: 100,
+                                    spread: 70,
+                                    origin: { y: 0.6 }
+                                });
+                                onGetQuote();
+                            }}
                         >
                             <span suppressHydrationWarning>{t("get_a_free_quote")}</span>
                         </Button>
