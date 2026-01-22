@@ -11,9 +11,19 @@ export async function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    // 2. Enforce HTTPS (Production only)
+    // 2. Enforce HTTPS (Production only) & Canonical Domain
     if (process.env.NODE_ENV === 'production') {
         const proto = request.headers.get('x-forwarded-proto');
+        const host = request.headers.get('host');
+
+        // Redirect non-www to www
+        if (host === 'insurancesupport.online') {
+            const newUrl = new URL(request.url);
+            newUrl.host = 'www.insurancesupport.online';
+            newUrl.protocol = 'https:';
+            return NextResponse.redirect(newUrl);
+        }
+
         if (proto && proto === 'http') {
             const newUrl = new URL(request.url);
             newUrl.protocol = 'https:';
