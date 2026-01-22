@@ -1,5 +1,7 @@
 import { Metadata } from 'next'
 
+export const dynamic = 'force-dynamic'
+
 const BASE_url = 'https://insurance-support.vercel.app'
 
 export default async function sitemap() {
@@ -9,6 +11,8 @@ export default async function sitemap() {
         '/about',
         '/privacy-policy',
         '/terms-of-service',
+        '/get-started',
+        '/resources',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: new Date().toISOString(),

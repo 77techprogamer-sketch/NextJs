@@ -10,9 +10,13 @@ interface DateTimeDisplayProps {
 
 const DateTimeDisplay: React.FC<DateTimeDisplayProps> = ({ className }) => {
   const { i18n } = useTranslation();
-  const [currentDateTime, setCurrentDateTime] = useState(new Date());
+  const [mounted, setMounted] = useState(false);
+  const [currentDateTime, setCurrentDateTime] = useState<Date | null>(null);
 
   useEffect(() => {
+    setMounted(true);
+    setCurrentDateTime(new Date());
+
     const timer = setInterval(() => {
       setCurrentDateTime(new Date());
     }, 1000); // Update every second
@@ -21,6 +25,10 @@ const DateTimeDisplay: React.FC<DateTimeDisplayProps> = ({ className }) => {
       clearInterval(timer); // Clean up the interval on component unmount
     };
   }, []);
+
+  if (!mounted || !currentDateTime) {
+    return null;
+  }
 
   const formattedDate = currentDateTime.toLocaleDateString(i18n.language, {
     year: 'numeric',

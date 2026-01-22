@@ -3,7 +3,7 @@ export default function JsonLd() {
         '@context': 'https://schema.org',
         '@type': 'InsuranceAgency',
         name: 'Insurance Support',
-        image: 'https://insurance-support.vercel.app/logo.png', // Assuming a logo exists, or use a default image
+        image: 'https://insurance-support.vercel.app/brand-favicon.svg',
         '@id': 'https://insurance-support.vercel.app',
         url: 'https://insurance-support.vercel.app',
         telephone: '+919986634506',
@@ -20,6 +20,7 @@ export default function JsonLd() {
             latitude: 12.9716,
             longitude: 77.5946
         },
+        priceRange: '₹₹',
         openingHoursSpecification: {
             '@type': 'OpeningHoursSpecification',
             dayOfWeek: [
@@ -31,14 +32,14 @@ export default function JsonLd() {
                 'Saturday',
                 'Sunday'
             ],
-            opens: '00:00',
-            closes: '23:59'
+            opens: '09:00',
+            closes: '21:00'
         },
-        sameAs: [
-            'https://www.facebook.com/insurancesupport', // Example placeholders
-            'https://twitter.com/insurancesupport',
-            'https://www.instagram.com/insurancesupport'
-        ]
+        // sameAs: [
+        //     'https://www.facebook.com/insurancesupport', 
+        //     'https://twitter.com/insurancesupport',
+        //     'https://www.instagram.com/insurancesupport'
+        // ]
     }
 
     return (

@@ -1,45 +1,40 @@
 import type { Metadata } from 'next'
+import React from 'react';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import ChatbotWidget from '@/components/ChatbotWidget'
-import SmartLanguageSelector from '@/components/SmartLanguageSelector'
+const ChatbotWidget = dynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
 import Analytics from '@/components/Analytics'
+import dynamic from 'next/dynamic'
+
+const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
+const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
-import DisableRightClick from '@/components/DisableRightClick'
 import JsonLd from '@/components/JsonLd'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
-const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta' })
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
+const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurance-support.vercel.app'),
     title: {
-        default: 'Insurance Support - Your Trusted Partner',
-        template: '%s | Insurance Support'
+        default: 'Insurance Support | Expert Policy & Claims Help India',
+        template: '%s | Insurance Support India'
     },
-    description: 'Get free insurance quotes from experienced advisors in Bangalore. Comprehensive coverage for life, health, motor, and more.',
+    description: 'Free insurance quotes & expert claims assistance across India. We prioritize your needs over sales. Life, Health, Motor, & Term Insurance solutions.',
     keywords: [
-        'Insurance Support',
-        'Insurance Support Bangalore',
         'Insurance Support India',
-        'Insurance Claims Support',
-        'Policy Management',
-        'Life Insurance Support',
-        'Health Insurance Support',
-        'Motor Insurance Support',
-        'Travel Insurance Support',
-        'SME Insurance Support',
-        'Pension Planning',
-        'Investment Planning',
-        'insurance',
-        'life insurance',
-        'health insurance',
-        'bangalore',
-        'insurance agent',
-        'best insurance advisor bangalore'
+        'Insurance Claims Help India',
+        'Life Insurance Advisor India',
+        'Health Insurance Agent India',
+        'Policy Renewal Services',
+        'Claim Settlement Assistance',
+        'Term Insurance Quotes Online',
+        'Motor Insurance Renewal India',
+        'investment planning',
+        'retirement planning'
     ],
     authors: [{ name: 'Insurance Support' }],
     creator: 'Insurance Support',
@@ -56,39 +51,38 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: '/favicon.ico',
-        shortcut: '/favicon.svg',
-        apple: '/favicon.svg',
+        icon: '/brand-favicon.svg',
+        shortcut: '/brand-favicon.svg',
+        apple: '/brand-favicon.svg',
     },
     openGraph: {
         type: 'website',
         locale: 'en_IN',
         url: 'https://insurance-support.vercel.app',
-        title: 'Insurance Support - Your Trusted Partner',
-        description: 'Get free insurance quotes from experienced advisors in Bangalore. Comprehensive coverage for life, health, motor, and more.',
+        title: 'Insurance Support | Trusted Insurance Advisors in India',
+        description: 'Get free quotes and expert help for Life, Health, and Motor insurance. Local support across all major Indian cities.',
         siteName: 'Insurance Support',
         images: [
             {
-                url: '/og-image.png', // Need to make sure this exists or use a default
+                url: '/og-image.png',
                 width: 1200,
                 height: 630,
-                alt: 'Insurance Support',
+                alt: 'Insurance Support Team',
             },
         ],
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Insurance Support - Your Trusted Partner',
-        description: 'Get free insurance quotes from experienced advisors in Bangalore.',
-        images: ['/og-image.png'], // Fallback to OG image
-        creator: '@insurancesupport', // Placeholder
+        title: 'Insurance Support - Your Trusted Partner in India',
+        description: 'Expert insurance advice and claims support across India.',
+        images: ['/og-image.png'],
+        creator: '@insurancesupport',
     },
     verification: {
-        google: 'your-google-verification-code', // TODO: Replace with actual code from Google Search Console
-        yandex: 'your-yandex-verification-code',
-        other: {
-            'msvalidate.01': 'your-bing-verification-code',
-        },
+        google: 'UvNqMHYqn8D-knp1S1Fg7xjO73SQ0U_LW3i5osu6Pac',
+    },
+    alternates: {
+        canonical: './',
     },
 }
 
@@ -99,8 +93,11 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`}>
-                <DisableRightClick />
+            <head>
+                <link rel="preload" href="/grid.svg" as="image" />
+                <link rel="preconnect" href="https://idzvdeemgxhwlkyphnel.supabase.co" />
+            </head>
+            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`} suppressHydrationWarning>
                 <I18nProvider>
                     <div className="flex flex-col min-h-screen">
                         <JsonLd />
@@ -111,7 +108,10 @@ export default function RootLayout({
                             {children}
                         </main>
                         <Footer />
-                        <ChatbotWidget />
+                        <QuickDialSidebar />
+                        <React.Suspense fallback={null}>
+                            <ChatbotWidget />
+                        </React.Suspense>
                         <Toaster />
                     </div>
                 </I18nProvider>

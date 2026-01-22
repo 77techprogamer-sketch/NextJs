@@ -4,6 +4,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
 
+import enJSON from '../public/locales/en/translation.json';
+
 i18n
   .use(Backend)
   .use(LanguageDetector)
@@ -11,7 +13,11 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: true,
-    resources: {},
+    resources: {
+      en: {
+        translation: enJSON
+      }
+    },
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage', 'cookie'],

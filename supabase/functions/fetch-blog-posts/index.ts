@@ -1,5 +1,6 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { DOMParser } from "https://deno.land/x/deno_dom/deno-dom-wasm.ts";
+import { translate } from "npm:google-translate-api-x";
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -9,13 +10,8 @@ const corsHeaders = {
 const stripHtmlTags = (html: string): string => {
   try {
     const parser = new DOMParser();
-    // First pass: Decode HTML entities.
-    // If input is "&lt;b&gt;Text&lt;/b&gt;", this converts it to "<b>Text</b>"
     const decodedDoc = parser.parseFromString(`<body>${html}</body>`, 'text/html');
     const decodedText = decodedDoc ? (decodedDoc.body.textContent || "") : html;
-
-    // Second pass: Strip actual HTML tags.
-    // If input was "<b>Text</b>", this converts it to "Text"
     const cleanDoc = parser.parseFromString(`<body>${decodedText}</body>`, 'text/html');
     return cleanDoc ? (cleanDoc.body.textContent || "") : decodedText;
   } catch (e) {
@@ -23,9 +19,6 @@ const stripHtmlTags = (html: string): string => {
   }
 };
 
-/**
- * STRICT SERVICE KEYWORDS
- */
 const serviceKeywords: Record<string, string[]> = {
   "life_insurance": ["life insurance", "life cover", "जीवन बीमा", "death benefit", "policyholder", "whole life"],
   "health_insurance": ["health insurance", "medical insurance", "mediclaim", "hospitalization", "आरोग्य विमा", "medical cover", "base plan", "top up plan"],
@@ -39,7 +32,6 @@ const serviceKeywords: Record<string, string[]> = {
   "cyber_insurance": ["cyber insurance", "data breach", "online fraud", "सायबर विमा", "digital protection", "cyber security"],
 };
 
-// Generic categories to ignore during matching to prevent false positives
 const IGNORED_CATEGORIES = ["insurance", "india", "blog", "posts", "news", "updates", "general"];
 
 const getServiceHashtags = (serviceType: string): string[] => {
@@ -57,20 +49,21 @@ serve(async (req) => {
   try {
     const url = new URL(req.url);
     let serviceTypeSlug = url.searchParams.get('serviceType');
+    let language = url.searchParams.get('language') || 'en';
 
     if (!serviceTypeSlug) {
       try {
         const body = await req.json();
         console.log('[REQUEST_BODY]', JSON.stringify(body));
         serviceTypeSlug = body.serviceType || body.serviceTypeSlug;
+        if (body.language) language = body.language;
       } catch (e) {
         console.log('[REQUEST_BODY_PARSE_ERROR]', (e as Error).message);
       }
     }
 
     const normalizedType = serviceTypeSlug ? serviceTypeSlug.toLowerCase().replace(/-/g, '_') : null;
-    console.log(`[REQUEST] slug=${serviceTypeSlug} -> normalized=${normalizedType}`);
-    console.log(`[KEYWORDS_AVAILABLE] ${normalizedType ? (serviceKeywords[normalizedType] ? 'YES' : 'NO - MISSING!') : 'NO SERVICE TYPE'}`);
+    console.log(`[REQUEST] slug=${serviceTypeSlug} -> normalized=${normalizedType}, language=${language}`);
 
     const blogspotRssUrl = "https://insurancesupportindia.blogspot.com/feeds/posts/default?alt=rss";
     const response = await fetch(blogspotRssUrl);
@@ -100,7 +93,7 @@ serve(async (req) => {
       const hashtags = (description.match(/#(\w+)/g) || []).map(h => h.toLowerCase());
       const categories = Array.from(item.matchAll(/<category\s+[^>]*?term=['"](.*?)['"]/g))
         .map(m => m[1].toLowerCase())
-        .filter(c => !IGNORED_CATEGORIES.includes(c)); // Filter out generic categories
+        .filter(c => !IGNORED_CATEGORIES.includes(c));
 
       return { title, url: postUrl, date, description, categories, hashtags };
     });
@@ -118,13 +111,11 @@ serve(async (req) => {
         const descLower = post.description.toLowerCase();
         const matchReasons: string[] = [];
 
-        // 1. Hashtag Exact Match - 15 points
         if (post.hashtags.some(h => targetHashtags.includes(h))) {
           score += 15;
           matchReasons.push(`hashtag:${targetHashtags}`);
         }
 
-        // 2. Title Keyword Match - 10 points per unique keyword
         keywords.forEach(k => {
           if (titleLower.includes(k)) {
             score += 10;
@@ -132,12 +123,6 @@ serve(async (req) => {
           }
         });
 
-        // 3. Category Match - 8 points
-        // FIXED LOGIC: Corrected directionality. 
-        // We check if the post Category includes the Keyword (e.g. Cat "Health Insurance" includes KW "Health")
-        // OR if the Keyword includes the Category (BUT only if Category is not generic, handled by filter above)
-        // Actually, safest is: Does the Category contains any of our SERVICE KEYWORDS?
-        // e.g. Cat="Health Insurance Tips" -> contains "health insurance"? YES.
         if (post.categories.some(c =>
           targetHashtags.some(th => th.includes(c)) ||
           keywords.some(k => c.includes(k))
@@ -146,7 +131,6 @@ serve(async (req) => {
           matchReasons.push(`category`);
         }
 
-        // 4. Description Whole Word Keyword Match - 3 points
         keywords.forEach(k => {
           const regex = new RegExp(`\\b${k}\\b`, 'i');
           if (regex.test(descLower.substring(0, 1500))) {
@@ -160,7 +144,6 @@ serve(async (req) => {
         return scoredPost;
       });
 
-      // Lowered Threshold: 5 points (more lenient matching)
       const matches = scoredPosts.filter(p => p.score >= 5);
 
       if (matches.length > 0) {
@@ -168,19 +151,34 @@ serve(async (req) => {
         resultPost = matches[0];
         console.log(`[MATCH] for ${normalizedType}: "${resultPost.title}" Score=${resultPost.score}`);
       } else {
-        console.log(`[NO_MATCH] for ${normalizedType}. Best score: ${Math.max(...scoredPosts.map(p => p.score), 0)}. Returning null instead of fallback.`);
-        resultPost = null; // Explicitly set to null instead of falling through to latest post
+        resultPost = null;
       }
     } else {
-      // Home page
       resultPost = blogPosts.length > 0 ? blogPosts[0] : null;
-      console.log(`[FALLBACK] Home page latest selected: "${resultPost?.title}"`);
+    }
+
+    // TRANSLATION LOGIC
+    if (resultPost && language && language !== 'en') {
+      try {
+        console.log(`[TRANSLATE] Translating "${resultPost.title}" to ${language}`);
+        const translatedTitle = await translate(resultPost.title, { to: language });
+        const translatedSummary = await translate(resultPost.description, { to: language });
+
+        resultPost.title = translatedTitle.text;
+        resultPost.description = translatedSummary.text;
+
+      } catch (err) {
+        console.error('[TRANSLATE_ERROR]', err);
+        // Fallback: append broken robot emoji or similar to indicate attempt failed, or just leave as is
+        // resultPost.title = `${resultPost.title} (Translation Unavailable)`;
+      }
     }
 
     return new Response(JSON.stringify({
       post: resultPost,
       debug: {
         service: normalizedType,
+        language: language,
         all_scores: scores.sort((a, b) => b.score - a.score).slice(0, 3)
       }
     }), {

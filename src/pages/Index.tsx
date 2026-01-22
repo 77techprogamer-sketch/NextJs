@@ -22,12 +22,7 @@ const VisitorCounter = React.lazy(() => import('@/components/VisitorCounter'));
 const Index = () => {
   const { t, i18n } = useTranslation(); // Initialize useTranslation
 
-  const [dynamicOneLiner, setDynamicOneLiner] = useState('');
-  const [currentBackgroundClass, setCurrentBackgroundClass] = useState('hero-morning-bg'); // State for CSS class
-  const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
-  const [loadingBlog, setLoadingBlog] = useState(true);
-
-  useEffect(() => {
+  const [dynamicOneLiner] = useState(() => {
     const oneLinersList = [
       t("secure_family_future"),
       t("protect_wellbeing"),
@@ -39,10 +34,14 @@ const Index = () => {
       t("find_perfect_coverage"),
       t("expert_advice_personalized_plans")
     ];
+    return oneLinersList[Math.floor(Math.random() * oneLinersList.length)];
+  });
 
-    const randomIndex = Math.floor(Math.random() * oneLinersList.length);
-    setDynamicOneLiner(oneLinersList[randomIndex]);
+  const [currentBackgroundClass, setCurrentBackgroundClass] = useState('hero-morning-bg'); // State for CSS class
+  const [latestBlogPost, setLatestBlogPost] = useState<{ title: string; url: string; summary: string } | null>(null);
+  const [loadingBlog, setLoadingBlog] = useState(true);
 
+  useEffect(() => {
     const updateBackgroundClass = () => {
       const currentHour = new Date().getHours();
       let newBackgroundClass = '';
@@ -360,7 +359,7 @@ const Index = () => {
             {t("why_choose_us")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg">
               <CheckCircle className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
               <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">
                 {t("expert_guidance_title")}
@@ -369,7 +368,7 @@ const Index = () => {
                 {t("expert_guidance_description")}
               </CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg">
               <Shield className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
               <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">
                 {t("comprehensive_coverage_title")}
@@ -378,7 +377,7 @@ const Index = () => {
                 {t("comprehensive_coverage_description")}
               </CardDescription>
             </Card>
-            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg">
               <Heart className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
               <CardTitle className="mb-1 sm:mb-2 text-lg sm:text-xl">
                 {t("customer_satisfaction_title")}

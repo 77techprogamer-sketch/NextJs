@@ -3,7 +3,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { ThemeToggle } from './theme-toggle';
-import LanguageSwitcher from './LanguageSwitcher';
+import dynamic from 'next/dynamic';
+
+const LanguageSwitcher = dynamic(() => import('./LanguageSwitcher'), { ssr: false });
 import { useTranslation } from 'react-i18next';
 import {
   DropdownMenu,
@@ -23,7 +25,9 @@ const Header = () => {
     e.preventDefault();
     const servicesSection = document.getElementById('services');
     if (servicesSection) {
-      servicesSection.scrollIntoView({ behavior: 'smooth' });
+      requestAnimationFrame(() => {
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      });
     } else {
       window.location.href = "/#services";
     }
@@ -74,6 +78,7 @@ const Header = () => {
                   <Link
                     href={`/services/${slugify(key)}`} // Link to individual service page
                     className="cursor-pointer"
+                    suppressHydrationWarning
                   >
                     {formatLabel(t(key))}
                   </Link>

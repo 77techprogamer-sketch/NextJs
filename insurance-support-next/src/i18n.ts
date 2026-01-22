@@ -9,7 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'en',
-    debug: true,
+    debug: process.env.NODE_ENV === 'development',
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage', 'cookie'],
@@ -21,6 +21,9 @@ i18n
       escapeValue: false, // react already escapes by default
     },
     supportedLngs: ['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'], // Indian languages + English
+    react: {
+      useSuspense: false,
+    },
   }, (err, t) => {
     if (err) return console.error('i18next initialization failed:', err);
     console.log('i18next initialized successfully. Current language:', i18n.language);

@@ -11,9 +11,19 @@ export async function middleware(request: NextRequest) {
         return NextResponse.next();
     }
 
-    // 2. Enforce HTTPS (Production only)
+    // 2. Enforce HTTPS (Production only) & Canonical Domain
     if (process.env.NODE_ENV === 'production') {
         const proto = request.headers.get('x-forwarded-proto');
+        const host = request.headers.get('host');
+
+        // Redirect non-www to www
+        if (host === 'insurancesupport.online') {
+            const newUrl = new URL(request.url);
+            newUrl.host = 'www.insurancesupport.online';
+            newUrl.protocol = 'https:';
+            return NextResponse.redirect(newUrl);
+        }
+
         if (proto && proto === 'http') {
             const newUrl = new URL(request.url);
             newUrl.protocol = 'https:';
@@ -27,7 +37,11 @@ export async function middleware(request: NextRequest) {
     // 4. Check IP Reputation (stopforumspam)
     try {
         // Only check in production or if needed. We skip localhost mostly in dev.
-        if (process.env.NODE_ENV === 'production' && ip !== '127.0.0.1' && ip !== '::1') {
+        // Check for bots (Googlebot, Bingbot, etc.) to avoid blocking them via IP check
+        const userAgent = request.headers.get('user-agent') || '';
+        const isBot = /googlebot|bingbot|yandex|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator/i.test(userAgent);
+
+        if (process.env.NODE_ENV === 'production' && !isBot && ip !== '127.0.0.1' && ip !== '::1') {
             const sfsResponse = await fetch(`https://api.stopforumspam.org/api?ip=${ip}&json`);
             const data = await sfsResponse.json();
 
@@ -58,7 +72,9 @@ export const config = {
          * - _next/static (static files)
          * - _next/image (image optimization files)
          * - favicon.ico (favicon file)
+         * - robots.txt (robots file)
+         * - sitemap.xml (sitemap file)
          */
-        '/((?!api|_next/static|_next/image|favicon.ico).*)',
+        '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)',
     ],
 };

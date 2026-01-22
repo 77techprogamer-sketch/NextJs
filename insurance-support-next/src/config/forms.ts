@@ -15,6 +15,7 @@ export interface ChatbotContext {
 export interface InsuranceFormConfig {
     chatbotContext?: ChatbotContext;
     fields: FormFieldConfig[];
+    suppressDefaultFields?: ('age' | 'gender' | 'dateOfBirth')[];
 }
 
 export const DEFAULT_FORM_CONFIG: InsuranceFormConfig = {
@@ -53,16 +54,44 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
         },
         fields: [
             { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount' },
-            { name: 'income', labelKey: 'annual_income', type: 'number', placeholderKey: 'enter_income' }
+            { name: 'annualIncome', labelKey: 'annual_income', type: 'number', placeholderKey: 'enter_income' }
         ]
     },
     motor_insurance: {
         chatbotContext: {
             initialQuery: "I need to insure my vehicle. What motor insurance plans do you have?",
         },
+        suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
         fields: [
             { name: 'vehicleNumber', labelKey: 'vehicle_number', type: 'text', placeholderKey: 'enter_vehicle_number' },
-            { name: 'registrationYear', labelKey: 'registration_year', type: 'number', placeholderKey: 'enter_year' }
+            {
+                name: 'vehicleType',
+                labelKey: 'vehicle_type',
+                type: 'radio',
+                options: [
+                    { labelKey: 'car', value: 'Car' },
+                    { labelKey: 'bike', value: 'Bike' },
+                    { labelKey: 'commercial_vehicle', value: 'Commercial Vehicle' }
+                ]
+            },
+            {
+                name: 'previousPolicyType',
+                labelKey: 'previous_policy_type',
+                type: 'radio',
+                options: [
+                    { labelKey: 'comprehensive', value: 'Comprehensive' },
+                    { labelKey: 'third_party', value: 'Third Party' }
+                ]
+            },
+            {
+                name: 'newPolicyType',
+                labelKey: 'new_policy_type_intended',
+                type: 'radio',
+                options: [
+                    { labelKey: 'comprehensive', value: 'Comprehensive' },
+                    { labelKey: 'third_party', value: 'Third Party' }
+                ]
+            }
         ]
     },
     term_insurance: {
@@ -71,6 +100,7 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
         },
         fields: [
             { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount' },
+            { name: 'annualIncome', labelKey: 'annual_income', type: 'number', placeholderKey: 'enter_income' },
             { name: 'tobaccoUser', labelKey: 'tobacco_user', type: 'radio', options: [{ labelKey: 'yes', value: 'yes' }, { labelKey: 'no', value: 'no' }] }
         ]
     },
@@ -78,8 +108,32 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
         chatbotContext: {
             initialQuery: "I am looking for insurance for my small business (SME).",
         },
+        suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
         fields: [
-            { name: 'businessName', labelKey: 'business_name', type: 'text', placeholderKey: 'enter_business_name' }
+            { name: 'businessName', labelKey: 'business_name', type: 'text', placeholderKey: 'enter_business_name' },
+            {
+                name: 'industryType',
+                labelKey: 'industry_type',
+                type: 'select',
+                options: [
+                    { labelKey: 'retail', value: 'Retail' },
+                    { labelKey: 'manufacturing', value: 'Manufacturing' },
+                    { labelKey: 'it_services', value: 'IT Services' },
+                    { labelKey: 'consulting', value: 'Consulting' },
+                    { labelKey: 'other', value: 'Other' }
+                ]
+            },
+            {
+                name: 'annualTurnover',
+                labelKey: 'annual_turnover',
+                type: 'select',
+                options: [
+                    { labelKey: 'turnover_upto_50l', value: 'Upto 50 Lakhs' },
+                    { labelKey: 'turnover_50l_2cr', value: '50 Lakhs - 2 Crores' },
+                    { labelKey: 'turnover_2cr_10cr', value: '2 Crores - 10 Crores' },
+                    { labelKey: 'turnover_above_10cr', value: 'Above 10 Crores' }
+                ]
+            }
         ]
     },
     travel_insurance: {
@@ -87,7 +141,19 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
             initialQuery: "I am planning a trip and need travel insurance.",
         },
         fields: [
-            { name: 'destination', labelKey: 'destination', type: 'text', placeholderKey: 'enter_destination' }
+            {
+                name: 'destination',
+                labelKey: 'destination',
+                type: 'select',
+                options: [
+                    { labelKey: 'usa_canada', value: 'USA/Canada' },
+                    { labelKey: 'europe', value: 'Europe' },
+                    { labelKey: 'asia', value: 'Asia' },
+                    { labelKey: 'worldwide', value: 'Worldwide' }
+                ]
+            },
+            { name: 'travelStartDate', labelKey: 'travel_start_date', type: 'date' },
+            { name: 'tripDuration', labelKey: 'trip_duration_days', type: 'number', placeholderKey: 'enter_days' }
         ]
     },
     pension_plans: {
@@ -95,7 +161,8 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
             initialQuery: "I want to plan for my retirement with a pension plan.",
         },
         fields: [
-            { name: 'retirementAge', labelKey: 'target_retirement_age', type: 'number', placeholderKey: 'enter_age' }
+            { name: 'retirementAge', labelKey: 'target_retirement_age', type: 'number', placeholderKey: 'enter_age' },
+            { name: 'monthlyInvestment', labelKey: 'monthly_investment_capability', type: 'number', placeholderKey: 'enter_amount' }
         ]
     },
     ulip_plans: {
@@ -103,23 +170,48 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
             initialQuery: "Tell me about ULIP plans for investment and insurance.",
         },
         fields: [
-            { name: 'investmentAmount', labelKey: 'investment_amount', type: 'number', placeholderKey: 'enter_amount' }
+            { name: 'investmentAmount', labelKey: 'investment_amount', type: 'number', placeholderKey: 'enter_amount' },
+            {
+                name: 'riskAppetite',
+                labelKey: 'risk_appetite',
+                type: 'radio',
+                options: [
+                    { labelKey: 'low_risk', value: 'Low' },
+                    { labelKey: 'balanced', value: 'Balanced' },
+                    { labelKey: 'high_growth', value: 'High Growth' }
+                ]
+            }
         ]
     },
     wedding_insurance: {
         chatbotContext: {
             initialQuery: "I want to insure my wedding event.",
         },
+        suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
         fields: [
-            { name: 'eventDate', labelKey: 'event_date', type: 'date' }
+            { name: 'eventDate', labelKey: 'event_date', type: 'date' },
+            { name: 'expectedGuests', labelKey: 'expected_guests', type: 'number', placeholderKey: 'enter_count' },
+            { name: 'totalBudget', labelKey: 'total_wedding_budget', type: 'number', placeholderKey: 'enter_amount' }
         ]
     },
     cyber_insurance: {
         chatbotContext: {
             initialQuery: "I need cyber insurance protection.",
         },
+        suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
         fields: [
-            { name: 'websiteUrl', labelKey: 'website_url', type: 'text', placeholderKey: 'enter_url' }
+            { name: 'companyName', labelKey: 'company_name', type: 'text', placeholderKey: 'enter_company_name' },
+            { name: 'websiteUrl', labelKey: 'website_url', type: 'text', placeholderKey: 'enter_url' },
+            {
+                name: 'dataRecordsCount',
+                labelKey: 'data_records_held',
+                type: 'select',
+                options: [
+                    { labelKey: 'records_upto_10k', value: 'Upto 10,000' },
+                    { labelKey: 'records_10k_100k', value: '10,000 - 1,00,000' },
+                    { labelKey: 'records_above_100k', value: 'Above 1,00,000' }
+                ]
+            }
         ]
     }
 };

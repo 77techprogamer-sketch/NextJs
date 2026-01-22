@@ -4,6 +4,22 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Check, ArrowRight, LogOut } from 'lucide-react';
 
+// City to Language Code Mapping (Higher Priority)
+const CITY_TO_LANG: Record<string, string> = {
+    'Bangalore': 'kn',
+    'Bengaluru': 'kn',
+    'Chennai': 'ta',
+    'Hyderabad': 'te',
+    'Mumbai': 'mr',
+    'Pune': 'mr',
+    'Kolkata': 'bn',
+    'Delhi': 'hi',
+    'New Delhi': 'hi',
+    'Ahmedabad': 'gu',
+    'Kochi': 'ml',
+    'Thiruvananthapuram': 'ml',
+};
+
 // State to Language Code Mapping
 const REGION_TO_LANG: Record<string, string> = {
     'Maharashtra': 'mr',
@@ -50,6 +66,11 @@ const SmartLanguageSelector = () => {
     const [detectedRegion, setDetectedRegion] = useState('');
     const [suggestedLang, setSuggestedLang] = useState('en');
     const [isAnimating, setIsAnimating] = useState(false);
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     useEffect(() => {
         const checkAndPromptLanguage = async () => {
@@ -66,19 +87,19 @@ const SmartLanguageSelector = () => {
                 let usedFallback = false;
 
                 try {
-                    const response = await fetch('/api/location'); // Use internal API
-                    if (!response.ok) throw new Error(`Primary API failed: ${response.status}`);
-                    data = await response.json();
-                } catch {
-                    // Fallback to ipwho.is if internal fails (though internal has fallback now)
+                    // Internal API removed as it doesn't exist
+                    // Fallback to ipwho.is directly
                     const response = await fetch('https://ipwho.is/');
                     if (!response.ok) throw new Error(`Fallback API failed`);
                     data = await response.json();
                     usedFallback = true;
+                } catch (error) {
+                    console.error('Fallback location check failed', error);
                 }
 
-                const country_code = usedFallback ? data.country_code : data.country_code;
-                const region = usedFallback ? data.region : data.region;
+                const country_code = (data && data.country_code) ? data.country_code : 'IN';
+                const region = (data && data.region) ? data.region : '';
+                const city = (data && data.city) ? data.city : '';
 
                 // Handle International Users
                 if (country_code !== 'IN') {
@@ -88,12 +109,23 @@ const SmartLanguageSelector = () => {
                 }
 
                 // Handle Domestic Users
-                if (region) {
-                    setDetectedRegion(region);
-                    const langCode = REGION_TO_LANG[region];
-                    if (langCode) {
-                        setSuggestedLang(langCode);
-                    }
+                let suggestedLangCode = null;
+
+                // Check City First (More specific)
+                if (city && CITY_TO_LANG[city]) {
+                    suggestedLangCode = CITY_TO_LANG[city];
+                }
+                // Fallback to Region
+                else if (region && REGION_TO_LANG[region]) {
+                    suggestedLangCode = REGION_TO_LANG[region];
+                }
+
+                if (suggestedLangCode) {
+                    setSuggestedLang(suggestedLangCode);
+                }
+
+                if (city || region) {
+                    setDetectedRegion(city || region);
                 }
 
                 setFlowState('LANGUAGE_SELECT');
@@ -132,11 +164,14 @@ const SmartLanguageSelector = () => {
     // Get suggestion details
     const suggestedLangData = LANGUAGES.find(l => l.code === suggestedLang) || LANGUAGES[0];
 
+    // Prevent hydration mismatch by not rendering until mounted
+    if (!mounted) return null;
+
     if (flowState === 'DISMISSED' || flowState === 'LOADING') {
         // Show loading state briefly
         if (flowState === 'LOADING') {
             return (
-                <div className="fixed inset-0 z-[100] bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center">
+                <div className="fixed inset-0 z-[500] bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center">
                     <div className="text-center">
                         <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-white mx-auto"></div>
                         <p className="mt-4 text-white/80 text-sm">Loading...</p>
@@ -149,7 +184,7 @@ const SmartLanguageSelector = () => {
 
     return (
         <div
-            className={`fixed inset-0 z-[100] flex items-center justify-center p-4 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'
+            className={`fixed inset-0 z-[500] flex items-center justify-center p-4 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'
                 }`}
             style={{
                 background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%)',

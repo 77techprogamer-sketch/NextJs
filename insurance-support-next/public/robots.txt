@@ -1,6 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /engagement
-Disallow: /blocked
-
-Sitemap: https://insurance-support.vercel.app/sitemap.xml
