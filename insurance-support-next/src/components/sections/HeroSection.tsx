@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +21,27 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote }) => {
     const shareTitle = t("hero_title");
     const dynamicOneLiner = t("secure_family_future") || "Comprehensive coverage for life, health, and vehicle tailored to your needs.";
 
+    // Animation Variants
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.3
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.6 }
+        }
+    };
+
     return (
         <section id="hero" className="relative w-full h-auto pb-24 flex flex-col overflow-hidden bg-primary text-white">
             {/* Background Effects */}
@@ -32,10 +54,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote }) => {
 
             <div className="relative z-10 w-full container mx-auto px-4 flex flex-col items-center text-center space-y-4 pt-6">
                 <React.Suspense fallback={<div className="absolute top-6 right-6 w-[180px] h-[38px] bg-white/10 rounded-full animate-pulse border border-white/10" />}>
-                    <DateTimeDisplay className="absolute top-6 right-6 backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/10 min-w-[180px] min-h-[38px] flex items-center justify-center" />
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 1 }}
+                        className="absolute top-6 right-6 z-50 pointer-events-none sm:pointer-events-auto"
+                    >
+                        <DateTimeDisplay className="backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/10 min-w-[180px] min-h-[38px] flex items-center justify-center pointer-events-auto" />
+                    </motion.div>
                 </React.Suspense>
 
-                <div className="space-y-4 max-w-4xl mx-auto animate-fade-up">
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    animate="visible"
+                    className="space-y-4 max-w-4xl mx-auto"
+                >
                     <div className="min-h-[32px] flex items-center justify-center mb-4">
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent">
                             <Star className="w-4 h-4 fill-accent" />
@@ -43,26 +77,43 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote }) => {
                         </div>
                     </div>
 
-                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
+                    <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
                         <span suppressHydrationWarning>{t("hero_title_start", "Secure Your")}</span> <span suppressHydrationWarning className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-300 to-accent animate-shimmer bg-[length:200%_auto]">{t("hero_title_highlight", "Future")}</span>
                         <br className="hidden sm:block" /> <span suppressHydrationWarning>{t("hero_title_end", "With Expert Guidance")}</span>
-                    </h1>
+                    </motion.h1>
 
-                    <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" suppressHydrationWarning>
+                    <motion.p variants={itemVariants} className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" suppressHydrationWarning>
                         {dynamicOneLiner || "Comprehensive coverage for life, health, and vehicle tailored to your needs."}
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto pt-4 animate-fade-up [animation-delay:200ms]">
-                    <Button
-                        size="lg"
-                        className="bg-accent hover:bg-accent/90 text-primary text-lg w-full sm:w-auto font-bold px-8 py-7 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all hover:scale-105 hover:shadow-[0_0_60px_-15px_rgba(234,179,8,0.6)]"
-                        onClick={onGetQuote}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.8, duration: 0.5, type: "spring" }}
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto pt-4"
+                >
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        animate={{
+                            boxShadow: ["0px 0px 0px rgba(234, 179, 8, 0)", "0px 0px 20px rgba(234, 179, 8, 0.5)", "0px 0px 0px rgba(234, 179, 8, 0)"]
+                        }}
+                        transition={{
+                            boxShadow: { duration: 2, repeat: Infinity }
+                        }}
+                        className="w-full sm:w-auto"
                     >
-                        <span suppressHydrationWarning>{t("get_a_free_quote")}</span>
-                    </Button>
+                        <Button
+                            size="lg"
+                            className="bg-accent hover:bg-accent/90 text-primary text-lg w-full font-bold px-8 py-7 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all"
+                            onClick={onGetQuote}
+                        >
+                            <span suppressHydrationWarning>{t("get_a_free_quote")}</span>
+                        </Button>
+                    </motion.div>
                     <SocialShareButtons url={currentUrl} title={shareTitle} />
-                </div>
+                </motion.div>
 
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 animate-fade-up [animation-delay:400ms]">
                     <div className="flex flex-col items-center gap-2">
