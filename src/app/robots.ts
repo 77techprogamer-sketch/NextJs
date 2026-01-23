@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
             allow: '/',
             disallow: '/private/',
         },
-        sitemap: 'https://insurance-support.vercel.app/sitemap.xml',
+        sitemap: 'https://insurancesupport.online/sitemap.xml',
     }
 }

@@ -18,7 +18,7 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://insurance-support.vercel.app'),
+    metadataBase: new URL('https://insurancesupport.online'),
     title: {
         default: 'Insurance Support | Expert Policy & Claims Help India',
         template: '%s | Insurance Support India'
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     openGraph: {
         type: 'website',
         locale: 'en_IN',
-        url: 'https://insurance-support.vercel.app',
+        url: 'https://insurancesupport.online',
         title: 'Insurance Support | Trusted Insurance Advisors in India',
         description: 'Get free quotes and expert help for Life, Health, and Motor insurance. Local support across all major Indian cities.',
         siteName: 'Insurance Support',
