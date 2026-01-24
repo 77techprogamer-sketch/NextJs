@@ -3,6 +3,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
+import { MagneticButton } from '@/components/ui/MagneticButton';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SocialShareButtons from '@/components/SocialShareButtons';
@@ -65,81 +67,81 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote }) => {
                     </motion.div>
                 </React.Suspense>
 
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="space-y-4 max-w-4xl mx-auto"
-                >
-                    <div className="min-h-[32px] flex items-center justify-center mb-4">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent">
-                            <Star className="w-4 h-4 fill-accent" />
-                            <span suppressHydrationWarning>{t("trusted_partner_banner", { city: city || 'Bangalore' })}</span>
+                <div className="space-y-4 max-w-4xl mx-auto flex flex-col items-center">
+                    <ScrollReveal animation="fade-up" delay={0.2} width="100%">
+                        <div className="min-h-[32px] flex items-center justify-center mb-4">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent hover:scale-105 transition-transform duration-300">
+                                <Star className="w-4 h-4 fill-accent animate-pulse" />
+                                <span suppressHydrationWarning>{t("trusted_partner_banner", { city: city || 'Bangalore' })}</span>
+                            </div>
                         </div>
-                    </div>
+                    </ScrollReveal>
 
-                    <motion.h1 variants={itemVariants} className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
-                        <span suppressHydrationWarning>{t("hero_title_start", "Secure Your")}</span> <span suppressHydrationWarning className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-300 to-accent animate-shimmer bg-[length:200%_auto]">{t("hero_title_highlight", "Future")}</span>
-                        <br className="hidden sm:block" /> <span suppressHydrationWarning>{t("hero_title_end", "With Expert Guidance")}</span>
-                    </motion.h1>
+                    <ScrollReveal animation="pop-up" delay={0.4} width="100%">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
+                            <span suppressHydrationWarning>{t("hero_title_start", "Secure Your")}</span> <span suppressHydrationWarning className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-100 to-accent animate-shimmer bg-[length:200%_auto]">{t("hero_title_highlight", "Future")}</span>
+                            <br className="hidden sm:block" /> <span suppressHydrationWarning>{t("hero_title_end", "With Expert Guidance")}</span>
+                        </h1>
+                    </ScrollReveal>
 
-                    <motion.p variants={itemVariants} className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" suppressHydrationWarning>
-                        {dynamicOneLiner || "Comprehensive coverage for life, health, and vehicle tailored to your needs."}
-                    </motion.p>
-                </motion.div>
+                    <ScrollReveal animation="fade-up" delay={0.6} width="100%">
+                        <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" suppressHydrationWarning>
+                            {dynamicOneLiner || "Comprehensive coverage for life, health, and vehicle tailored to your needs."}
+                        </p>
+                    </ScrollReveal>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.8, duration: 0.5, type: "spring" }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto pt-4"
-                >
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        animate={{
-                            boxShadow: ["0px 0px 0px rgba(234, 179, 8, 0)", "0px 0px 20px rgba(234, 179, 8, 0.5)", "0px 0px 0px rgba(234, 179, 8, 0)"]
-                        }}
-                        transition={{
-                            boxShadow: { duration: 2, repeat: Infinity }
-                        }}
-                        className="w-full sm:w-auto"
-                    >
-                        <Button
-                            size="lg"
-                            className="bg-accent hover:bg-accent/90 text-primary text-lg w-full font-bold px-8 py-7 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all"
-                            onClick={() => {
-                                confetti({
-                                    particleCount: 100,
-                                    spread: 70,
-                                    origin: { y: 0.6 }
-                                });
-                                onGetQuote();
-                            }}
-                        >
-                            <span suppressHydrationWarning>{t("get_a_free_quote")}</span>
-                        </Button>
-                    </motion.div>
-                    <SocialShareButtons url={currentUrl} title={shareTitle} />
-                </motion.div>
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto pt-8">
+                    <ScrollReveal animation="elastic" delay={0.8}>
+                        <MagneticButton className="w-full sm:w-auto">
+                            <Button
+                                size="lg"
+                                className="bg-accent hover:bg-accent/90 text-primary text-lg w-full font-bold px-8 py-7 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all transform hover:scale-105"
+                                onClick={() => {
+                                    confetti({
+                                        particleCount: 150,
+                                        spread: 80,
+                                        origin: { y: 0.6 },
+                                        scalar: 1.2
+                                    });
+                                    onGetQuote();
+                                }}
+                            >
+                                <span suppressHydrationWarning>{t("get_a_free_quote")}</span>
+                            </Button>
+                        </MagneticButton>
+                    </ScrollReveal>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 animate-fade-up [animation-delay:400ms]">
-                    <div className="flex flex-col items-center gap-2">
-                        <span className="text-3xl font-bold text-white">15k+</span>
-                        <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("clients")}</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                        <span className="text-3xl font-bold text-white">98%</span>
-                        <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("claims_settled_stat")}</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                        <span className="text-3xl font-bold text-white">24/7</span>
-                        <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("support_stat_label")}</span>
-                    </div>
-                    <div className="flex flex-col items-center gap-2">
-                        <span className="text-3xl font-bold text-white">50+</span>
-                        <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("awards")}</span>
-                    </div>
+                    <ScrollReveal animation="fade-in" delay={1.0}>
+                        <SocialShareButtons url={currentUrl} title={shareTitle} />
+                    </ScrollReveal>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 animate-fade-up [animation-delay:800ms]">
+                    <ScrollReveal animation="pop-up" delay={1.2}>
+                        <div className="flex flex-col items-center gap-2 group hover:-translate-y-2 transition-transform duration-300">
+                            <span className="text-3xl font-bold text-white group-hover:text-accent transition-colors">15k+</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("clients")}</span>
+                        </div>
+                    </ScrollReveal>
+                    <ScrollReveal animation="pop-up" delay={1.3}>
+                        <div className="flex flex-col items-center gap-2 group hover:-translate-y-2 transition-transform duration-300">
+                            <span className="text-3xl font-bold text-white group-hover:text-accent transition-colors">98%</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("claims_settled_stat")}</span>
+                        </div>
+                    </ScrollReveal>
+                    <ScrollReveal animation="pop-up" delay={1.4}>
+                        <div className="flex flex-col items-center gap-2 group hover:-translate-y-2 transition-transform duration-300">
+                            <span className="text-3xl font-bold text-white group-hover:text-accent transition-colors">24/7</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("support_stat_label")}</span>
+                        </div>
+                    </ScrollReveal>
+                    <ScrollReveal animation="pop-up" delay={1.5}>
+                        <div className="flex flex-col items-center gap-2 group hover:-translate-y-2 transition-transform duration-300">
+                            <span className="text-3xl font-bold text-white group-hover:text-accent transition-colors">50+</span>
+                            <span className="text-sm text-gray-400 uppercase tracking-wider font-medium" suppressHydrationWarning>{t("awards")}</span>
+                        </div>
+                    </ScrollReveal>
                 </div>
             </div>
         </section>

@@ -8,7 +8,7 @@ interface ScrollRevealProps {
     width?: "fit-content" | "100%";
     className?: string;
     delay?: number;
-    animation?: "fade-up" | "fade-in" | "slide-left" | "slide-right" | "scale";
+    animation?: "fade-up" | "fade-in" | "slide-left" | "slide-right" | "scale" | "pop-up" | "rotate-in" | "elastic";
 }
 
 const animations: Record<string, { hidden: Variant; visible: Variant }> = {
@@ -31,6 +31,28 @@ const animations: Record<string, { hidden: Variant; visible: Variant }> = {
     "scale": {
         hidden: { opacity: 0, scale: 0.8 },
         visible: { opacity: 1, scale: 1 },
+    },
+    // New Animations
+    "pop-up": {
+        hidden: { opacity: 0, scale: 0.5, y: 50 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: { type: "spring", stiffness: 260, damping: 20 }
+        },
+    },
+    "rotate-in": {
+        hidden: { opacity: 0, rotate: -10, scale: 0.9 },
+        visible: { opacity: 1, rotate: 0, scale: 1 },
+    },
+    "elastic": {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { type: "spring", stiffness: 300, damping: 10 }
+        },
     },
 };
 

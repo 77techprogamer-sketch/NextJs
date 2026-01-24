@@ -101,6 +101,8 @@ const SmartLanguageSelector = () => {
                 const region = (data && data.region) ? data.region : '';
                 const city = (data && data.city) ? data.city : '';
 
+                console.log('Geolocation detected:', { city, region, country_code });
+
                 // Handle International Users
                 if (country_code !== 'IN') {
                     setFlowState('NATIVE_CHECK');
@@ -110,14 +112,31 @@ const SmartLanguageSelector = () => {
 
                 // Handle Domestic Users
                 let suggestedLangCode = null;
+                const normalizedCity = city.toLowerCase().trim();
+                const normalizedRegion = region.toLowerCase().trim();
 
-                // Check City First (More specific)
-                if (city && CITY_TO_LANG[city]) {
-                    suggestedLangCode = CITY_TO_LANG[city];
+                // Check City First (More specific & Case Insensitive)
+                // We iterate through keys to match case-insensitively
+                const cityMatch = Object.keys(CITY_TO_LANG).find(key =>
+                    key.toLowerCase() === normalizedCity ||
+                    normalizedCity.includes(key.toLowerCase()) // Partial match for safety (e.g. "Bengaluru Urban")
+                );
+
+                if (cityMatch) {
+                    suggestedLangCode = CITY_TO_LANG[cityMatch];
+                    console.log(`Matched City: ${cityMatch} -> ${suggestedLangCode}`);
                 }
-                // Fallback to Region
-                else if (region && REGION_TO_LANG[region]) {
-                    suggestedLangCode = REGION_TO_LANG[region];
+                // Fallback to Region (Case Insensitive)
+                else {
+                    const regionMatch = Object.keys(REGION_TO_LANG).find(key =>
+                        key.toLowerCase() === normalizedRegion ||
+                        normalizedRegion.includes(key.toLowerCase())
+                    );
+
+                    if (regionMatch) {
+                        suggestedLangCode = REGION_TO_LANG[regionMatch];
+                        console.log(`Matched Region: ${regionMatch} -> ${suggestedLangCode}`);
+                    }
                 }
 
                 if (suggestedLangCode) {
