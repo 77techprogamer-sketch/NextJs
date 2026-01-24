@@ -79,8 +79,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote }) => {
 
                     <ScrollReveal animation="pop-up" delay={0.4} width="100%">
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
-                            <span suppressHydrationWarning>{t("hero_title_start", "Secure Your")}</span> <span suppressHydrationWarning className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-100 to-accent animate-shimmer bg-[length:200%_auto]">{t("hero_title_highlight", "Future")}</span>
-                            <br className="hidden sm:block" /> <span suppressHydrationWarning>{t("hero_title_end", "With Expert Guidance")}</span>
+                            <span suppressHydrationWarning>{t("hero_title")}</span>
                         </h1>
                     </ScrollReveal>
 
