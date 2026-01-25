@@ -20,11 +20,13 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'Insurance Support Online | Expert Policy & Claims Help India',
+        default: 'Insurance Support | Expert LIC & Private Policy Help | Claims & Renewal',
         template: '%s | Insurance Support Online'
     },
-    description: 'Get expert Insurance Support Online. Free quotes & claims assistance across India. We prioritize your needs over sales. Life, Health, Motor, & Term Insurance solutions.',
+    description: 'Need help with LIC or private insurance? Get free expert support for unexpected claims, policy renewals, and new quotes. Locate your nearest advisor today.',
     keywords: [
+        'LIC Insurance Support',
+        'LIC Agent Near Me',
         'Insurance Support Online',
         'Online Insurance Support',
         'Insurance Help Online',

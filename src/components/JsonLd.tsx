@@ -8,6 +8,18 @@ export default function JsonLd() {
         '@id': 'https://insurancesupport.online',
         url: 'https://insurancesupport.online',
         telephone: '+919986634506',
+        knowsAbout: [
+            'LIC Insurance',
+            'Life Insurance',
+            'Health Insurance',
+            'Motor Insurance',
+            'Pension Plans',
+            'Term Insurance'
+        ],
+        areaServed: {
+            '@type': 'City',
+            name: 'Bangalore'
+        },
         address: {
             '@type': 'PostalAddress',
             streetAddress: 'Bangalore',
