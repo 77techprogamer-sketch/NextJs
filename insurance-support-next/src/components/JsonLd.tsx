@@ -3,9 +3,10 @@ export default function JsonLd() {
         '@context': 'https://schema.org',
         '@type': 'InsuranceAgency',
         name: 'Insurance Support',
-        image: 'https://insurance-support.vercel.app/brand-favicon.svg',
-        '@id': 'https://insurance-support.vercel.app',
-        url: 'https://insurance-support.vercel.app',
+        alternateName: 'Insurance Support Online',
+        image: 'https://insurancesupport.online/brand-favicon.svg',
+        '@id': 'https://insurancesupport.online',
+        url: 'https://insurancesupport.online',
         telephone: '+919986634506',
         address: {
             '@type': 'PostalAddress',

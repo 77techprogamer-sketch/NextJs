@@ -3,8 +3,8 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card, CardTitle, CardDescription } from '@/components/ui/card';
-import { CheckCircle, Shield, Heart } from 'lucide-react';
-import { ScrollReveal } from '@/components/ui/ScrollReveal';
+import { Users, Clock, ShieldCheck } from 'lucide-react';
+import { SpotlightCard } from '@/components/ui/SpotlightCard';
 
 const WhyChooseUsSection = () => {
     const { t } = useTranslation();
@@ -15,42 +15,39 @@ const WhyChooseUsSection = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8" suppressHydrationWarning>
                     {t("why_choose_us")}
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-                    <ScrollReveal delay={0.1} animation="slide-left" width="100%" className="h-full">
-                        <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-                            <CheckCircle className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl font-semibold leading-none tracking-tight" suppressHydrationWarning>
-                                {t("expert_guidance_title")}
-                            </h3>
-                            <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>
-                                {t("expert_guidance_description")}
-                            </CardDescription>
-                        </Card>
-                    </ScrollReveal>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {/* Expert Guidance */}
+                    <SpotlightCard className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-8 text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div className="w-16 h-16 mx-auto bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+                            <Users className="w-8 h-8 text-blue-600 dark:text-blue-400" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4" suppressHydrationWarning>{t("expert_guidance")}</h3>
+                        <p className="text-gray-600 dark:text-gray-300" suppressHydrationWarning>
+                            {t("expert_guidance_desc")}
+                        </p>
+                    </SpotlightCard>
 
-                    <ScrollReveal delay={0.3} animation="fade-up" width="100%" className="h-full">
-                        <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-                            <Shield className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl font-semibold leading-none tracking-tight" suppressHydrationWarning>
-                                {t("comprehensive_coverage_title")}
-                            </h3>
-                            <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>
-                                {t("comprehensive_coverage_description")}
-                            </CardDescription>
-                        </Card>
-                    </ScrollReveal>
+                    {/* 24/7 Support */}
+                    <SpotlightCard className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-8 text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div className="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6">
+                            <Clock className="w-8 h-8 text-green-600 dark:text-green-400" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4" suppressHydrationWarning>{t("24_7_support")}</h3>
+                        <p className="text-gray-600 dark:text-gray-300" suppressHydrationWarning>
+                            {t("support_desc")}
+                        </p>
+                    </SpotlightCard>
 
-                    <ScrollReveal delay={0.5} animation="slide-right" width="100%" className="h-full">
-                        <Card className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 h-full">
-                            <Heart className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
-                            <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl font-semibold leading-none tracking-tight" suppressHydrationWarning>
-                                {t("customer_satisfaction_title")}
-                            </h3>
-                            <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>
-                                {t("customer_satisfaction_description")}
-                            </CardDescription>
-                        </Card>
-                    </ScrollReveal>
+                    {/* Claims Assistance */}
+                    <SpotlightCard className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-8 text-center hover:-translate-y-2 transition-transform duration-300">
+                        <div className="w-16 h-16 mx-auto bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mb-6">
+                            <ShieldCheck className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                        </div>
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4" suppressHydrationWarning>{t("claims_assistance")}</h3>
+                        <p className="text-gray-600 dark:text-gray-300" suppressHydrationWarning>
+                            {t("claims_desc")}
+                        </p>
+                    </SpotlightCard>
                 </div>
             </div>
         </section>

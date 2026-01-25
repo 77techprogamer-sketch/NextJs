@@ -18,13 +18,16 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'sw
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://insurance-support.vercel.app'),
+    metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'Insurance Support | Expert Policy & Claims Help India',
-        template: '%s | Insurance Support India'
+        default: 'Insurance Support Online | Expert Policy & Claims Help India',
+        template: '%s | Insurance Support Online'
     },
-    description: 'Free insurance quotes & expert claims assistance across India. We prioritize your needs over sales. Life, Health, Motor, & Term Insurance solutions.',
+    description: 'Get expert Insurance Support Online. Free quotes & claims assistance across India. We prioritize your needs over sales. Life, Health, Motor, & Term Insurance solutions.',
     keywords: [
+        'Insurance Support Online',
+        'Online Insurance Support',
+        'Insurance Help Online',
         'Insurance Support India',
         'Insurance Claims Help India',
         'Life Insurance Advisor India',
@@ -58,8 +61,8 @@ export const metadata: Metadata = {
     openGraph: {
         type: 'website',
         locale: 'en_IN',
-        url: 'https://insurance-support.vercel.app',
-        title: 'Insurance Support | Trusted Insurance Advisors in India',
+        url: 'https://insurancesupport.online',
+        title: 'Insurance Support Online | Trusted Insurance Advisors in India',
         description: 'Get free quotes and expert help for Life, Health, and Motor insurance. Local support across all major Indian cities.',
         siteName: 'Insurance Support',
         images: [

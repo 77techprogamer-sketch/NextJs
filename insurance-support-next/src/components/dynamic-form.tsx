@@ -2,6 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import type { z, ZodTypeAny } from 'zod'
 import { Button } from '@/components/ui/button'
+import { motion } from 'framer-motion'
 import {
   Form,
   FormControl,
@@ -400,18 +401,28 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
     )
   }
 
+
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit as any)}>
-        {Object.keys(schema.shape).map((fieldName) =>
-          renderField(fieldName, schema.shape[fieldName] as any)
-        )}
+      <motion.form
+        layout
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        onSubmit={form.handleSubmit(onSubmit as any)}
+      >
+        <motion.div layout className="space-y-4">
+          {Object.keys(schema.shape).map((fieldName) =>
+            renderField(fieldName, schema.shape[fieldName] as any)
+          )}
+        </motion.div>
         <div className="pt-6">
           <Button type="submit" disabled={isLoading}>
             {isLoading ? 'Saving...' : 'Save'}
           </Button>
         </div>
-      </form>
+      </motion.form>
     </Form>
   )
 }

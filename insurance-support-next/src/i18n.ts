@@ -1,10 +1,12 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
+import resourcesToBackend from 'i18next-resources-to-backend';
 
 i18n
-  .use(Backend)
+  .use(resourcesToBackend((language: string, namespace: string) => {
+    return import(`../public/locales/${language}/${namespace}.json`);
+  }))
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
@@ -13,9 +15,6 @@ i18n
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
       caches: ['localStorage', 'cookie'],
-    },
-    backend: {
-      loadPath: '/locales/{{lng}}/translation.json',
     },
     interpolation: {
       escapeValue: false, // react already escapes by default

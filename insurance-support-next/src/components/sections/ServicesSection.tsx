@@ -20,34 +20,34 @@ const ServicesSection = () => {
                     {t("services_description")}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    <ScrollReveal delay={0.1} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.1} width="100%">
                         <ServiceCard title={t("life_insurance")} icon={Heart} href={`/services/${slugify('life_insurance')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.2} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.2} width="100%">
                         <ServiceCard title={t("health_insurance")} icon={Shield} href={`/services/${slugify('health_insurance')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.3} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.3} width="100%">
                         <ServiceCard title={t("term_insurance")} icon={FileText} href={`/services/${slugify('term_insurance')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.1} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.1} width="100%">
                         <ServiceCard title={t("motor_insurance")} icon={Car} href={`/services/${slugify('motor_insurance')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.2} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.2} width="100%">
                         <ServiceCard title={t("sme_insurance")} icon={Building} href={`/services/${slugify('sme_insurance')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.3} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.3} width="100%">
                         <ServiceCard title={t("travel_insurance")} icon={Plane} href={`/services/${slugify('travel_insurance')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.1} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.1} width="100%">
                         <ServiceCard title={t("pension_plans")} icon={Wallet} href={`/services/${slugify('pension_plans')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.2} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.2} width="100%">
                         <ServiceCard title={t("ulip_plans")} icon={TrendingUp} href={`/services/${slugify('ulip_plans')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.3} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.3} width="100%">
                         <ServiceCard title={t("wedding_insurance")} icon={HeartHandshake} href={`/services/${slugify('wedding_insurance')}`} />
                     </ScrollReveal>
-                    <ScrollReveal delay={0.1} width="100%">
+                    <ScrollReveal animation="fade-up" delay={0.1} width="100%">
                         <ServiceCard title={t("cyber_insurance")} icon={ShieldCheck} href={`/services/${slugify('cyber_insurance')}`} />
                     </ScrollReveal>
                 </div>

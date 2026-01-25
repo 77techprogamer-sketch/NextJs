@@ -19,6 +19,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
 import { FORM_CONFIGS, DEFAULT_FORM_CONFIG } from '@/config/forms';
 import { formatLabel, normalizeUIValue } from '@/utils/formatText';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface QuoteFormProps {
   insuranceType: string;
@@ -156,16 +157,24 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     form.setValue('memberDetails', {});
   };
 
+
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6 bg-white dark:bg-gray-950 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 animate-in slide-in-from-bottom-5 duration-700 ease-out">
-        <h2 className="text-lg font-semibold text-center mb-4">
+      <motion.form
+        layout
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.3 }}
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-6 p-6 bg-white dark:bg-gray-950 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800"
+      >
+        <motion.h2 layout className="text-lg font-semibold text-center mb-4">
           {t("quote_form_title", {
             type: config === DEFAULT_FORM_CONFIG
               ? formatLabel(insuranceType)
               : normalizeUIValue(t(insuranceType))
           })}
-        </h2>
+        </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <FormField
@@ -344,46 +353,53 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           />
         )}
 
-        {insuranceType === 'health_insurance' && selectedMembers.length > 0 && (
-          <div className="space-y-4">
-            <p className="font-semibold">{t("provide_member_details")}</p>
-            {selectedMembers.map((member) => (
-              <div key={member} className="border p-3 rounded-md space-y-2">
-                <h3 className="font-medium capitalize">{t(member)}</h3>
-                <div className="flex gap-2">
-                  <FormField
-                    control={form.control}
-                    name={`memberDetails.${member}.age`}
-                    render={({ field }) => (
-                      <FormItem className="flex-1">
-                        <FormControl>
-                          <Input type="number" placeholder={t("age")} {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} value={(field as any).value ?? ""} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name={`memberDetails.${member}.gender`}
-                    render={({ field }) => (
-                      <FormItem className="flex-1">
-                        <Select onValueChange={field.onChange} defaultValue={(field as any).value}>
-                          <SelectTrigger aria-label={t("gender")}><SelectValue placeholder={t("gender")} /></SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="Male">{t("male")}</SelectItem>
-                            <SelectItem value="Female">{t("female")}</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+        <AnimatePresence>
+          {insuranceType === 'health_insurance' && selectedMembers.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="space-y-4 overflow-hidden"
+            >
+              <p className="font-semibold">{t("provide_member_details")}</p>
+              {selectedMembers.map((member) => (
+                <div key={member} className="border p-3 rounded-md space-y-2">
+                  <h3 className="font-medium capitalize">{t(member)}</h3>
+                  <div className="flex gap-2">
+                    <FormField
+                      control={form.control}
+                      name={`memberDetails.${member}.age`}
+                      render={({ field }) => (
+                        <FormItem className="flex-1">
+                          <FormControl>
+                            <Input type="number" placeholder={t("age")} {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} value={(field as any).value ?? ""} />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name={`memberDetails.${member}.gender`}
+                      render={({ field }) => (
+                        <FormItem className="flex-1">
+                          <Select onValueChange={field.onChange} defaultValue={(field as any).value}>
+                            <SelectTrigger aria-label={t("gender")}><SelectValue placeholder={t("gender")} /></SelectTrigger>
+                            <SelectContent>
+                              <SelectItem value="Male">{t("male")}</SelectItem>
+                              <SelectItem value="Female">{t("female")}</SelectItem>
+                            </SelectContent>
+                          </Select>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        )}
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         <div className={`flex ${onClose ? 'justify-end' : 'justify-center w-full'} gap-3 pt-6`}>
           {onClose && (
@@ -395,7 +411,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             {t("submit_quote")}
           </Button>
         </div>
-      </form>
+      </motion.form>
     </Form>
   );
 };
