@@ -16,15 +16,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!city) return {}
 
     return {
-        title: `National Insurance Support in ${city.name} | Expert Agent Near You`,
-        description: `Looking for a National Insurance Company office or agent in ${city.name}? We provide doorstep service for policy renewal, new quotes, and claim settlement.`,
-        keywords: [`National Insurance ${city.name}`, `National Insurance Agent near me`, `NIC Office ${city.name}`, `Motor Insurance Renewal ${city.name}`, `Health Insurance Agent ${city.name}`],
+        title: `Insurance Support ${city.name} | Expert LIC & National Insurance Agent`,
+        description: `Looking for Insurance Support in ${city.name}? We provide doorstep service for LIC & National Insurance policy renewal, new quotes, and claim settlement.`,
+        keywords: [
+            `Insurance Support ${city.name}`,
+            `LIC Agent ${city.name}`,
+            `National Insurance Office ${city.name}`,
+            `Policy Renewal ${city.name}`,
+            `Health Insurance Agent ${city.name}`,
+            `Motor Insurance Renewal ${city.name}`,
+            `Term Insurance ${city.name}`,
+            `Claims Assistance ${city.name}`
+        ],
         alternates: {
             canonical: `./`,
         },
         openGraph: {
-            title: `National Insurance Support | Trusted ${city.name} Agents`,
-            description: `Skip the queues. Get expert help for National Insurance policies right at your doorstep in ${city.name}.`,
+            title: `Insurance Support ${city.name} | Trusted Advisors`,
+            description: `Skip the queues. Get expert help for LIC and National Insurance policies right at your doorstep in ${city.name}.`,
             type: 'website',
         }
     }
