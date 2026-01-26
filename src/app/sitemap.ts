@@ -32,11 +32,29 @@ export default async function sitemap() {
         'cyber-insurance',
     ]
 
+    const locations = [
+        'vellore',
+        'bangalore',
+        'chennai',
+        'hosur',
+        'kanchipuram',
+        'mysore',
+        'coimbatore',
+        'salem',
+        'tirupati'
+    ]
+
     const serviceRoutes = services.map((slug) => ({
         url: `${BASE_url}/services/${slug}`,
         lastModified: new Date().toISOString(),
         priority: 0.9,
     }))
 
-    return [...staticRoutes, ...serviceRoutes]
+    const locationRoutes = locations.map((city) => ({
+        url: `${BASE_url}/locations/${city}`,
+        lastModified: new Date().toISOString(),
+        priority: 0.85,
+    }))
+
+    return [...staticRoutes, ...serviceRoutes, ...locationRoutes]
 }
