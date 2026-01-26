@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { cityData } from '@/data/cityData'
 
 export const dynamic = 'force-dynamic'
 
@@ -32,17 +33,7 @@ export default async function sitemap() {
         'cyber-insurance',
     ]
 
-    const locations = [
-        'vellore',
-        'bangalore',
-        'chennai',
-        'hosur',
-        'kanchipuram',
-        'mysore',
-        'coimbatore',
-        'salem',
-        'tirupati'
-    ]
+    const locations = Object.keys(cityData)
 
     const serviceRoutes = services.map((slug) => ({
         url: `${BASE_url}/services/${slug}`,

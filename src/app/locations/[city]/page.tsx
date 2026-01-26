@@ -1,127 +1,168 @@
-import React from 'react';
-import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-import { notFound } from 'next/navigation';
-import HeroSection from '@/components/sections/HeroSection';
-import LocalBusinessSchema from '@/components/LocalBusinessSchema';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CheckCircle2, MapPin, Phone, UserCheck, Clock } from 'lucide-react'
+import QuoteForm from '@/components/QuoteForm'
+import { getCityData, cityData } from '@/data/cityData'
 
-// Dynamically load sections to improve performance
-const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'));
-const FeaturesSection = dynamic(() => import('@/components/sections/FeaturesSection'));
-const BlogSection = dynamic(() => import('@/components/sections/BlogSection'));
-const ContactSection = dynamic(() => import('@/components/sections/ContactSection'));
-const WhyChooseUsSection = dynamic(() => import('@/components/sections/WhyChooseUsSection'));
-
-// Helper to format city name
-const formatCity = (str: string) => {
-    if (!str) return '';
-    return str
-        .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-        .join(' ');
-};
-
-// Valid cities list for static generation (optional but good for SEO)
-const TARGET_CITIES = ['vellore', 'bangalore', 'chennai', 'hosur', 'kanchipuram', 'mysore', 'coimbatore', 'salem', 'tirupati'];
-
-export async function generateStaticParams() {
-    return TARGET_CITIES.map((city) => ({
-        city: city,
-    }));
+interface Props {
+    params: { city: string }
 }
 
-export async function generateMetadata({ params }: { params: { city: string } }): Promise<Metadata> {
-    const cityName = formatCity(params.city);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const city = getCityData(params.city)
+    if (!city) return {}
 
     return {
-        title: `Insurance Advisor ${cityName} | Expert Health & Life Insurance Support`,
-        description: `Looking for an Insurance Advisor in ${cityName}? Get expert help for LIC, Health, and Motor insurance claims and renewals in ${cityName}. Local support available.`,
-        keywords: [
-            `Insurance Advisor ${cityName}`,
-            `Health Insurance Agent ${cityName}`,
-            `LIC Agent ${cityName}`,
-            `Insurance Claims Help ${cityName}`,
-            `Motor Insurance Renewal ${cityName}`,
-            `Life Insurance Consultant ${cityName}`
-        ],
+        title: `National Insurance Support in ${city.name} | Expert Agent Near You`,
+        description: `Looking for a National Insurance Company office or agent in ${city.name}? We provide doorstep service for policy renewal, new quotes, and claim settlement.`,
+        keywords: [`National Insurance ${city.name}`, `National Insurance Agent near me`, `NIC Office ${city.name}`, `Motor Insurance Renewal ${city.name}`, `Health Insurance Agent ${city.name}`],
         alternates: {
-            canonical: `https://insurancesupport.online/locations/${params.city}`
+            canonical: `./`,
         },
         openGraph: {
-            title: `Insurance Advisor ${cityName} | Verified Local Experts`,
-            description: `Trusted insurance support in ${cityName}. Claims, Renewals, and New Policies.`,
-            url: `https://insurancesupport.online/locations/${params.city}`,
-            images: ['/og-image.png'],
-            locale: 'en_IN',
+            title: `National Insurance Support | Trusted ${city.name} Agents`,
+            description: `Skip the queues. Get expert help for National Insurance policies right at your doorstep in ${city.name}.`,
             type: 'website',
         }
-    };
+    }
 }
 
-export default function CityPage({ params }: { params: { city: string } }) {
-    const cityName = formatCity(params.city);
+export async function generateStaticParams() {
+    return Object.keys(cityData).map((slug) => ({
+        city: slug,
+    }))
+}
 
-    // basic validation or 404 if needed, though for SEO we might want to be permissive
-    // or restricted to our target list. For now, we'll allow any valid slug format but you could restrict it.
+export default function LocationPage({ params }: Props) {
+    const city = getCityData(params.city)
+
+    if (!city) {
+        return notFound()
+    }
+
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'InsuranceAgency',
+        name: `Insurance Support ${city.name}`,
+        description: `Authorized support and advisory for National Insurance Company products in ${city.name}.`,
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: city.name,
+            addressRegion: city.state,
+            addressCountry: 'IN'
+        },
+        areaServed: {
+            '@type': 'City',
+            name: city.name
+        },
+        telephone: '+919986634506'
+    }
 
     return (
-        <main className="flex flex-col min-h-screen">
-            <LocalBusinessSchema city={params.city} />
+        <div className="container px-4 py-12 mx-auto">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
 
-            {/* Reusing HeroSection but we might need to ensure it accepts the city prop properly */}
-            {/* HeroSection caused build errors, so we use a custom one */}
-            {/* <HeroSection city={cityName} onGetQuote={() => { }} /> */}
+            <div className="flex flex-col md:flex-row gap-12">
 
-            {/* Custom SEO Content Block for the City */}
-            <section className="py-12 bg-slate-50 dark:bg-gray-900/50">
-                <div className="container mx-auto px-4 max-w-4xl text-center">
-                    <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">
-                        Expert Insurance Support in <span className="text-primary">{cityName}</span>
+                {/* Main Content */}
+                <div className="flex-1 max-w-3xl">
+                    <Link href="/" className="text-sm text-muted-foreground hover:text-primary mb-4 block">
+                        ← Back to Home
+                    </Link>
+
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
+                        National Insurance Support in <span className="text-primary">{city.name}</span>
                     </h1>
-                    <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-                        Residents of <strong>{cityName}</strong> can now access premier insurance consulting services right at their doorstep.
-                        Whether you need assistance with <strong>claim settlements</strong>, <strong>policy renewals</strong>, or finding the
-                        perfect <strong>health and life insurance plans</strong>, our dedicated team in {cityName} is here to help.
+
+                    <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                        Are you tired of calling customer care or visiting the office just to get a simple query resolved?
+                        We bring the <strong>National Insurance office to your doorstep in {city.name}</strong>.
                     </p>
-                    <div className="flex flex-wrap justify-center gap-4">
-                        <Button asChild size="lg" className="rounded-full">
-                            <Link href="#contact">Contact {cityName} Team</Link>
+
+                    <div className="grid sm:grid-cols-2 gap-6 mb-12">
+                        <Card>
+                            <CardHeader className="pb-3">
+                                <CardTitle className="text-lg flex items-center gap-2">
+                                    <UserCheck className="h-5 w-5 text-green-600" />
+                                    Personalized Service
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">No more talking to bots. Get a dedicated insurance advisor who understands your family&apos;s needs.</p>
+                            </CardContent>
+                        </Card>
+                        <Card>
+                            <CardHeader className="pb-3">
+                                <CardTitle className="text-lg flex items-center gap-2">
+                                    <Clock className="h-5 w-5 text-blue-600" />
+                                    No More Queues
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent>
+                                <p className="text-muted-foreground">We handle all the paperwork for renewals and claims so you don&apos;t have to waste your day.</p>
+                            </CardContent>
+                        </Card>
+                    </div>
+
+                    <h2 className="text-2xl font-bold mb-6">Services We Offer in {city.name}</h2>
+                    <ul className="space-y-4 mb-10">
+                        {[
+                            'Doorstep Policy Renewal (Cheque/Online)',
+                            'Assistance with Lapsed Policies',
+                            'Cashless Claim Settlement Assistance',
+                            'Motor Insurance Inspection Scheduling',
+                            'Family Floater Health Plans',
+                            'Tax-Saving Life Insurance (80C)'
+                        ].map((item, i) => (
+                            <li key={i} className="flex items-center gap-3 text-lg">
+                                <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+
+                    {city.areas.length > 0 && (
+                        <div className="bg-slate-100 p-6 rounded-xl border border-slate-200 mb-10">
+                            <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+                                <MapPin className="h-5 w-5" />
+                                Areas We Serve in {city.name}
+                            </h3>
+                            <p className="text-muted-foreground">
+                                We cover {city.areas.join(', ')}, and all major areas in {city.name}.
+                            </p>
+                        </div>
+                    )}
+
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <Button size="lg" className="w-full sm:w-auto h-12 text-lg">
+                            <Phone className="mr-2 h-4 w-4" />
+                            Call +91 99866 34506
+                        </Button>
+                        <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 text-lg">
+                            WhatsApp Us
                         </Button>
                     </div>
+
                 </div>
-            </section>
 
-            <ServicesSection />
-
-            <section className="py-12 bg-white dark:bg-gray-800">
-                <div className="container mx-auto px-4">
-                    <h2 className="text-2xl font-bold mb-6 text-center">Why {cityName} Chooses Us?</h2>
-                    <div className="grid md:grid-cols-3 gap-8 text-center">
-                        <div className="p-6 bg-slate-50 dark:bg-gray-900 rounded-xl">
-                            <h3 className="font-bold text-xl mb-3">Local Expertise</h3>
-                            <p className="text-gray-600 dark:text-gray-400">Deep understanding of {cityName}&apos;s healthcare network and local insurance requirements.</p>
-                        </div>
-                        <div className="p-6 bg-slate-50 dark:bg-gray-900 rounded-xl">
-                            <h3 className="font-bold text-xl mb-3">Doorstep Assistance</h3>
-                            <p className="text-gray-600 dark:text-gray-400">Available for in-person consultations in {cityName} for complex claim discussions.</p>
-                        </div>
-                        <div className="p-6 bg-slate-50 dark:bg-gray-900 rounded-xl">
-                            <h3 className="font-bold text-xl mb-3">Fast Claim Support</h3>
-                            <p className="text-gray-600 dark:text-gray-400">Direct coordination with hospitals and garages in {cityName} for cashless approvals.</p>
+                {/* Sidebar / Form */}
+                <div className="w-full md:w-[400px]">
+                    <div className="sticky top-24">
+                        <div className="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                            <h3 className="text-xl font-bold mb-2">Get a Call Back</h3>
+                            <p className="text-sm text-muted-foreground mb-6">Expert advice within 2 hours.</p>
+                            <QuoteForm insuranceType="general_inquiry" />
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <FeaturesSection />
-
-            <WhyChooseUsSection />
-
-            <BlogSection />
-
-            <ContactSection />
-        </main>
-    );
+            </div>
+        </div>
+    )
 }
