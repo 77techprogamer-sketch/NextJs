@@ -20,7 +20,7 @@ export default function ServiceJsonLd({ title, description, url, image, faqs }: 
         provider: {
             '@type': 'InsuranceAgency',
             name: 'Insurance Support',
-            image: 'https://insurance-support.vercel.app/brand-favicon.svg',
+            image: 'https://insurancesupport.online/brand-favicon.svg',
             address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Bangalore', // HQ Location
@@ -28,7 +28,7 @@ export default function ServiceJsonLd({ title, description, url, image, faqs }: 
                 addressCountry: 'IN'
             },
             telephone: '+919986634506',
-            url: 'https://insurance-support.vercel.app'
+            url: 'https://insurancesupport.online'
         },
         areaServed: {
             '@type': 'Country',
@@ -59,7 +59,7 @@ export default function ServiceJsonLd({ title, description, url, image, faqs }: 
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://insurance-support.vercel.app'
+                item: 'https://insurancesupport.online'
             },
             {
                 '@type': 'ListItem',

@@ -255,7 +255,7 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
         openGraph: {
             title: `${service.title} Quotes | Insurance Support India`,
             description: service.description,
-            url: `https://insurance-support.vercel.app/services/${params.serviceType}`,
+            url: `https://insurancesupport.online/services/${params.serviceType}`,
             siteName: 'Insurance Support India',
             images: [
                 {
@@ -291,8 +291,8 @@ export default function ServicePage({ params }: { params: { serviceType: string 
             <ServiceJsonLd
                 title={`${service.title} Service`}
                 description={service.description}
-                url={`https://insurance-support.vercel.app/services/${params.serviceType}`}
-                image={`https://insurance-support.vercel.app${service.image}`}
+                url={`https://insurancesupport.online/services/${params.serviceType}`}
+                image={`https://insurancesupport.online${service.image}`}
                 faqs={service.faqs}
             />
             <div className="max-w-4xl mx-auto">

@@ -6,7 +6,11 @@ export default function JsonLd() {
                 '@type': 'InsuranceAgency',
                 '@id': 'https://insurancesupport.online/#organization',
                 name: 'Insurance Support',
-                alternateName: 'Insurance Support Online',
+                alternateName: [
+                    'Insurance Support Online',
+                    'LIC Insurance Support',
+                    'Insurance Agent Kotian'
+                ],
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/brand-favicon.svg',
                 image: 'https://insurancesupport.online/brand-favicon.svg',
@@ -67,7 +71,7 @@ export default function JsonLd() {
             },
             {
                 '@type': 'Service',
-                name: 'Insurance Consultation',
+                name: 'LIC Policy Management',
                 provider: {
                     '@id': 'https://insurancesupport.online/#organization'
                 },
@@ -76,20 +80,20 @@ export default function JsonLd() {
                     '@type': 'Country',
                     name: 'India'
                 },
-                description: 'Professional consultation for Life, Health, Motor, and extensive insurance portfolio management.'
+                description: 'Expert help with LIC policy surrender, maturity claims, and lost policy bond retrieval.'
             },
             {
                 '@type': 'Service',
-                name: 'Claims Assistance',
+                name: 'Insurance Claims Assistance',
                 provider: {
                     '@id': 'https://insurancesupport.online/#organization'
                 },
-                serviceType: 'Insurance Claims Support',
+                serviceType: 'Claims Support',
                 areaServed: {
                     '@type': 'Country',
                     name: 'India'
                 },
-                description: 'Expert assistance with insurance claim settlements and rejected claims.'
+                description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.'
             }
         ]
     }

@@ -16,17 +16,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!city) return {}
 
     return {
-        title: `Insurance Support ${city.name} | Expert LIC & National Insurance Agent`,
-        description: `Looking for Insurance Support in ${city.name}? We provide doorstep service for LIC & National Insurance policy renewal, new quotes, and claim settlement.`,
+        title: `LIC Agent in ${city.name} | Insurance Support & Renewal Services`,
+        description: `Looking for an LIC Agent in ${city.name}? We provide doorstep service for policy surrender, maturity claims, and new insurance quotes in ${city.name}.`,
         keywords: [
-            `Insurance Support ${city.name}`,
             `LIC Agent ${city.name}`,
-            `National Insurance Office ${city.name}`,
-            `Policy Renewal ${city.name}`,
+            `Insurance Agent ${city.name}`,
+            `LIC Policy Surrender ${city.name}`,
+            `National Insurance Renewal ${city.name}`,
             `Health Insurance Agent ${city.name}`,
             `Motor Insurance Renewal ${city.name}`,
-            `Term Insurance ${city.name}`,
-            `Claims Assistance ${city.name}`
+            ...city.areas.map(area => `LIC Agent in ${area}`),
+            ...city.areas.map(area => `Insurance Agent in ${area}`)
         ],
         alternates: {
             canonical: `./`,
@@ -86,12 +86,12 @@ export default function LocationPage({ params }: Props) {
                     </Link>
 
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-                        National Insurance Support in <span className="text-primary">{city.name}</span>
+                        LIC & National Insurance Support in <span className="text-primary">{city.name}</span>
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                         Are you tired of calling customer care or visiting the office just to get a simple query resolved?
-                        We bring the <strong>National Insurance office to your doorstep in {city.name}</strong>.
+                        We bring the <strong>LIC & National Insurance office to your doorstep in {city.name}</strong>.
                     </p>
 
                     <div className="grid sm:grid-cols-2 gap-6 mb-12">
