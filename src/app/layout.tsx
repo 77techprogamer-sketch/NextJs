@@ -85,7 +85,7 @@ export const metadata: Metadata = {
         google: 'UvNqMHYqn8D-knp1S1Fg7xjO73SQ0U_LW3i5osu6Pac',
     },
     alternates: {
-        canonical: './',
+        canonical: 'https://insurancesupport.online',
     },
 }
 

@@ -87,17 +87,17 @@ const SmartLanguageSelector = () => {
                 let usedFallback = false;
 
                 try {
-                    // Internal API removed as it doesn't exist
-                    // Fallback to ipwho.is directly
-                    const response = await fetch('https://ipwho.is/');
-                    if (!response.ok) throw new Error(`Fallback API failed`);
+                    // Use internal API which handles Vercel headers + fallback
+                    const response = await fetch('/api/location');
+                    if (!response.ok) throw new Error(`Location API failed`);
                     data = await response.json();
-                    usedFallback = true;
                 } catch (error) {
-                    console.error('Fallback location check failed', error);
+                    console.error('Location check failed', error);
                 }
 
                 const country_code = (data && data.country_code) ? data.country_code : 'IN';
+                // Region/City from our API might need decoding if not already done, but API does it.
+                // Just ensuring we map correctly if names differ, but API returns standard names.
                 const region = (data && data.region) ? data.region : '';
                 const city = (data && data.city) ? data.city : '';
 

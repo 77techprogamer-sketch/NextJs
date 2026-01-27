@@ -6,6 +6,23 @@ declare global {
 }
 
 export async function GET(request: NextRequest) {
+    // 1. Check Vercel Geolocation Headers (Available in Production/Preview)
+    const vCity = request.headers.get('x-vercel-ip-city');
+    const vRegion = request.headers.get('x-vercel-ip-country-region');
+    const vCountry = request.headers.get('x-vercel-ip-country');
+
+    if (vCity && vCountry) {
+        return NextResponse.json({
+            ip: request.headers.get('x-forwarded-for') || '127.0.0.1',
+            city: decodeURIComponent(vCity),
+            region: vRegion ? decodeURIComponent(vRegion) : '',
+            country_name: vCountry === 'IN' ? 'India' : vCountry, // Simple mapping
+            country_code: vCountry,
+            org: 'Vercel Edge Network'
+        });
+    }
+
+    // 2. Fallback for Local Development (ipapi.co)
     const forwardedFor = request.headers.get('x-forwarded-for');
     let ip = forwardedFor ? forwardedFor.split(',')[0] : null;
 
