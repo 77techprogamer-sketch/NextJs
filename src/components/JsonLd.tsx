@@ -94,6 +94,59 @@ export default function JsonLd() {
                     name: 'India'
                 },
                 description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.'
+            },
+            {
+                '@type': 'FAQPage',
+                mainEntity: [
+                    {
+                        '@type': 'Question',
+                        name: 'What is the entry age for life insurance?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Typically, the entry age starts from 18 years up to 65 years, depending on the specific plan chosen.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'Can I have multiple life insurance policies?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Yes, you can hold multiple policies from different providers as long as you disclose them during the application process.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'Does health insurance cover pre-existing diseases?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Most plans cover pre-existing diseases after a waiting period, which usually ranges from 2 to 4 years.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'What is a \'Cashless Claim\' in health insurance?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'It allows you to get treated at network hospitals without paying the bills upfront; the insurer settles it directly with the hospital.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'Will my family get the money if I die outside India?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Yes, term insurance provides global coverage as long as the policy is active and the cause of death is covered.'
+                        }
+                    },
+                    {
+                        '@type': 'Question',
+                        name: 'Is Third-Party insurance enough for my car?',
+                        acceptedAnswer: {
+                            '@type': 'Answer',
+                            text: 'Third-Party is mandatory by law, but a Comprehensive plan is recommended as it also covers damages to your own vehicle.'
+                        }
+                    }
+                ]
             }
         ]
     }

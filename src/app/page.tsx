@@ -25,6 +25,9 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
 const ServiceAreasSection = dynamic(() => import('@/components/sections/ServiceAreasSection'), {
     loading: () => <div className="min-h-[200px] animate-pulse bg-slate-50 dark:bg-slate-900" />
 });
+const FAQSection = dynamic(() => import('@/components/sections/FAQSection'), {
+    loading: () => <div className="min-h-[400px] animate-pulse bg-white dark:bg-gray-900" />
+});
 
 // Lazy load modals/non-critical components
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
@@ -81,6 +84,8 @@ const Index = () => {
             <WhyChooseUsSection />
 
             <ServiceAreasSection />
+
+            <FAQSection />
 
             <ContactSection />
 
