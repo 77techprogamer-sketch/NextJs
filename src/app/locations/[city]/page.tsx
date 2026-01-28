@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             ...city.areas.map(area => `Insurance Agent in ${area}`)
         ],
         alternates: {
-            canonical: `./`,
+            canonical: `https://insurancesupport.online/locations/${params.city}`,
         },
         openGraph: {
             title: `Insurance Support ${city.name} | Trusted Advisors`,

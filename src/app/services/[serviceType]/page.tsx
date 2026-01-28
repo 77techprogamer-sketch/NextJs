@@ -274,6 +274,9 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
             description: service.description,
             images: [service.image],
         },
+        alternates: {
+            canonical: `https://insurancesupport.online/services/${params.serviceType}`,
+        },
     }
 }
 
