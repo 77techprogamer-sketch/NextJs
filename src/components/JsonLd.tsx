@@ -1,11 +1,61 @@
-export default function JsonLd() {
+
+export function GlobalSchema() {
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'Organization',
+                '@id': 'https://insurancesupport.online/#organization',
+                name: 'Insurance Support',
+                url: 'https://insurancesupport.online',
+                logo: 'https://insurancesupport.online/brand-favicon.svg',
+                contactPoint: {
+                    '@type': 'ContactPoint',
+                    telephone: '+919986634506',
+                    contactType: 'customer service',
+                    areaServed: 'IN',
+                    availableLanguage: ['en', 'hi', 'kn']
+                },
+                sameAs: [
+                    'https://www.facebook.com/insurancesupport',
+                    'https://twitter.com/insurancesupport',
+                    'https://www.instagram.com/insurancesupport'
+                ]
+            },
+            {
+                '@type': 'WebSite',
+                '@id': 'https://insurancesupport.online/#website',
+                url: 'https://insurancesupport.online',
+                name: 'Insurance Support Online',
+                description: 'Your trusted partner for all insurance related queries and support.',
+                publisher: {
+                    '@id': 'https://insurancesupport.online/#organization'
+                },
+                potentialAction: {
+                    '@type': 'SearchAction',
+                    target: 'https://insurancesupport.online/search?q={search_term_string}',
+                    'query-input': 'required name=search_term_string'
+                }
+            }
+        ]
+    }
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+    )
+}
+
+export function LocalBusinessSchema() {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
             {
                 '@type': 'InsuranceAgency',
-                '@id': 'https://insurancesupport.online/#organization',
-                name: 'Insurance Support',
+                '@id': 'https://insurancesupport.online/#local-business',
+                name: 'Insurance Support Bangalore',
                 alternateName: [
                     'Insurance Support Online',
                     'LIC Insurance Support',
@@ -19,8 +69,8 @@ export default function JsonLd() {
                 email: 'contact@insurancesupport.online',
                 priceRange: '₹₹',
                 areaServed: {
-                    '@type': 'Country',
-                    name: 'India'
+                    '@type': 'City',
+                    name: 'Bangalore'
                 },
                 address: {
                     '@type': 'PostalAddress',
@@ -41,44 +91,20 @@ export default function JsonLd() {
                     opens: '09:00',
                     closes: '21:00'
                 },
-                sameAs: [
-                    'https://www.facebook.com/insurancesupport',
-                    'https://twitter.com/insurancesupport',
-                    'https://www.instagram.com/insurancesupport'
-                ],
-                contactPoint: {
-                    '@type': 'ContactPoint',
-                    telephone: '+919986634506',
-                    contactType: 'customer service',
-                    areaServed: 'IN',
-                    availableLanguage: ['en', 'hi', 'kn']
-                }
-            },
-            {
-                '@type': 'WebSite',
-                '@id': 'https://insurancesupport.online/#website',
-                url: 'https://insurancesupport.online',
-                name: 'Insurance Support Online',
-                description: 'Your trusted partner for all insurance related queries and support.',
-                publisher: {
+                parentOrganization: {
                     '@id': 'https://insurancesupport.online/#organization'
-                },
-                potentialAction: {
-                    '@type': 'SearchAction',
-                    target: 'https://insurancesupport.online/search?q={search_term_string}',
-                    'query-input': 'required name=search_term_string'
                 }
             },
             {
                 '@type': 'Service',
                 name: 'LIC Policy Management',
                 provider: {
-                    '@id': 'https://insurancesupport.online/#organization'
+                    '@id': 'https://insurancesupport.online/#local-business'
                 },
                 serviceType: 'Insurance Advisory',
                 areaServed: {
-                    '@type': 'Country',
-                    name: 'India'
+                    '@type': 'City',
+                    name: 'Bangalore'
                 },
                 description: 'Expert help with LIC policy surrender, maturity claims, and lost policy bond retrieval.'
             },
@@ -86,12 +112,12 @@ export default function JsonLd() {
                 '@type': 'Service',
                 name: 'Insurance Claims Assistance',
                 provider: {
-                    '@id': 'https://insurancesupport.online/#organization'
+                    '@id': 'https://insurancesupport.online/#local-business'
                 },
                 serviceType: 'Claims Support',
                 areaServed: {
-                    '@type': 'Country',
-                    name: 'India'
+                    '@type': 'City',
+                    name: 'Bangalore'
                 },
                 description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.'
             },
@@ -152,11 +178,12 @@ export default function JsonLd() {
     }
 
     return (
-        <section>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
-        </section>
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
     )
 }
+
+export default GlobalSchema;
+

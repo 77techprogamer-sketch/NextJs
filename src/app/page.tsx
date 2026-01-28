@@ -7,6 +7,8 @@ import '@/i18n'; // Ensure i18n is initialized
 
 import HeroSection from '@/components/sections/HeroSection';
 
+import { LocalBusinessSchema } from '@/components/JsonLd';
+
 const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), {
     loading: () => <div className="min-h-[600px] animate-pulse bg-gray-100 dark:bg-gray-800" />
 });
@@ -73,6 +75,7 @@ const Index = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
+            <LocalBusinessSchema />
             <HeroSection city={city} onGetQuote={handleGetQuote} />
 
             <ServicesSection />
