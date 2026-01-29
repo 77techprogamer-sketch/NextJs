@@ -4,8 +4,23 @@ import React from "react";
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Award } from 'lucide-react';
+import { slugify } from '@/utils/slugify';
+import { formatLabel } from '@/utils/formatText';
 const Footer = () => {
   const { t } = useTranslation(); // Initialize useTranslation
+
+  const serviceKeys = [
+    "life_insurance",
+    "health_insurance",
+    "term_insurance",
+    "motor_insurance",
+    "sme_insurance",
+    "travel_insurance",
+    "pension_plans",
+    "ulip_plans",
+    "wedding_insurance",
+    "cyber_insurance",
+  ];
 
   return (
     <footer className="w-full bg-slate-50 dark:bg-slate-950 text-foreground border-t pb-12">
@@ -17,8 +32,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
-          <div className="space-y-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mb-8">
+          <div className="col-span-2 md:col-span-3 lg:col-span-1 space-y-4">
             <div className="flex items-center gap-2">
               <ShieldCheck className="h-6 w-6 text-primary" />
               <span className="text-xl font-bold text-foreground" suppressHydrationWarning>{t("insurance_support")}</span>
@@ -31,6 +46,7 @@ const Footer = () => {
               <span suppressHydrationWarning>{t("veteran_lead_team")}</span>
             </div>
           </div>
+
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("quick_links")}</h3>
             <ul className="space-y-2 text-sm">
@@ -42,6 +58,25 @@ const Footer = () => {
               <li><Link href="/terms-of-service" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("terms_of_service")}</Link></li>
             </ul>
           </div>
+
+          <div>
+            <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("services_offered")}</h3>
+            <ul className="space-y-2 text-sm">
+              {serviceKeys.slice(0, 6).map((key) => (
+                <li key={key}>
+                  <Link href={`/services/${slugify(key)}`} className="hover:text-primary transition-colors" suppressHydrationWarning>
+                    {formatLabel(t(key))}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/#services" className="text-primary hover:underline text-xs font-semibold">
+                  {t("view_all_services")} &rarr;
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">We Serve</h3>
             <ul className="space-y-2 text-sm">
