@@ -4,6 +4,7 @@ import Image from "next/image"
 import { Metadata } from "next"
 import { Button } from "@/components/ui/button"
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, CheckCircle2 } from "lucide-react"
+import ReactMarkdown from 'react-markdown'
 import QuoteForm from "@/components/QuoteForm"
 import ServiceJsonLd from "@/components/ServiceJsonLd"
 
@@ -240,8 +241,8 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
     if (!service) return {}
 
     return {
-        title: `${service.title} in Bangalore | Agent Kotian (25+ Years Exp)`,
-        description: `Looking for the best ${service.title} in Bangalore? Get honest advice, low premiums, and 100% claim support from industry veteran Agent Kotian.`,
+        title: `${service.title} in Bangalore | Expert Advisors (25+ Years Exp)`,
+        description: `Looking for the best ${service.title} in Bangalore? Get honest advice, low premiums, and 100% claim support from industry veterans.`,
         keywords: [
             service.title,
             `${service.title} Quotes India`,
@@ -330,9 +331,10 @@ export default function ServicePage({ params }: { params: { serviceType: string 
                     <div className="md:col-span-2 space-y-8">
                         <section className="bg-card border rounded-lg p-6 shadow-sm">
                             <h2 className="text-2xl font-semibold mb-4">About {service.title}</h2>
-                            <p className="text-muted-foreground leading-loose">
-                                {service.content}
-                                <br /><br />
+                            <div className="text-muted-foreground leading-loose prose dark:prose-invert max-w-none">
+                                <ReactMarkdown>{service.content}</ReactMarkdown>
+                            </div>
+                            <p className="text-muted-foreground leading-loose mt-4">
                                 At Insurance Support, we help you navigate the complexities of specific policy terms
                                 to find the plan that best fits your requirements and budget.
                             </p>
