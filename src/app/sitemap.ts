@@ -17,6 +17,7 @@ export default async function sitemap() {
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: new Date().toISOString(),
+        changeFrequency: ['/privacy-policy', '/terms-of-service'].includes(route) ? 'monthly' : 'weekly',
         priority: route === '' ? 1 : 0.8,
     }))
 
@@ -38,12 +39,14 @@ export default async function sitemap() {
     const serviceRoutes = services.map((slug) => ({
         url: `${BASE_url}/services/${slug}`,
         lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly',
         priority: 0.9,
     }))
 
     const locationRoutes = locations.map((city) => ({
         url: `${BASE_url}/locations/${city}`,
         lastModified: new Date().toISOString(),
+        changeFrequency: 'weekly',
         priority: 0.85,
     }))
 
