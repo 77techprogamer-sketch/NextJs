@@ -16,7 +16,12 @@ export async function middleware(request: NextRequest) {
         const proto = request.headers.get('x-forwarded-proto');
         const host = request.headers.get('host');
 
-
+        // Redirect www to non-www
+        if (host?.startsWith('www.')) {
+            const newUrl = new URL(request.url);
+            newUrl.host = host.replace('www.', '');
+            return NextResponse.redirect(newUrl);
+        }
 
         if (proto && proto === 'http') {
             const newUrl = new URL(request.url);

@@ -23,6 +23,9 @@ export const metadata: Metadata = {
         default: 'Insurance Support Online | Expert LIC, Health & Motor Insurance Help',
         template: '%s | Insurance Support Online'
     },
+    alternates: {
+        canonical: './',
+    },
     description: 'Need Insurance Support? Get free expert assistance for LIC policy surrender, claims, renewals, and new policies. Local agent support across India.',
     keywords: [
         'Insurance Support',
