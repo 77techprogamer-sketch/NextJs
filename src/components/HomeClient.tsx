@@ -38,7 +38,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
 
-const HomeClient = () => {
+interface HomeClientProps {
+    heroTitle?: string;
+    heroDescription?: string;
+}
+
+const HomeClient: React.FC<HomeClientProps> = ({ heroTitle, heroDescription }) => {
     const { t, i18n } = useTranslation();
     const { city } = useUserLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -74,7 +79,12 @@ const HomeClient = () => {
     return (
         <div className="flex flex-col min-h-screen">
             {/* LocalBusinessSchema removed from here as it is now server-rendered in page.tsx */}
-            <HeroSection city={city} onGetQuote={handleGetQuote} />
+            <HeroSection
+                city={city}
+                onGetQuote={handleGetQuote}
+                title={heroTitle}
+                description={heroDescription}
+            />
 
             <ServicesSection />
 

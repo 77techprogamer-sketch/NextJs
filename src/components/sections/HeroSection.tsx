@@ -15,13 +15,15 @@ const DateTimeDisplay = dynamic(() => import('@/components/DateTimeDisplay'), { 
 interface HeroSectionProps {
     city: string | null;
     onGetQuote: () => void;
+    title?: string;
+    description?: string;
 }
 
-const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: propTitle, description: propDescription }) => {
     const { t } = useTranslation();
     const currentUrl = "https://insurance-support.vercel.app/";
-    const shareTitle = t("hero_title");
-    const dynamicOneLiner = t("secure_family_future") || "Comprehensive coverage for life, health, and vehicle tailored to your needs.";
+    const shareTitle = propTitle || t("hero_title");
+    const dynamicOneLiner = propDescription || t("secure_family_future") || "Comprehensive coverage for life, health, and vehicle tailored to your needs.";
 
     const handleVote = async () => {
         const confetti = (await import('canvas-confetti')).default;
@@ -69,7 +71,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote }) => {
 
                         <ScrollReveal animation="pop-up" delay={0.4} width="100%">
                             <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
-                                <span suppressHydrationWarning>{t("hero_title")}</span>
+                                <span suppressHydrationWarning>{shareTitle}</span>
                             </h1>
                         </ScrollReveal>
 
