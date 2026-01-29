@@ -16,19 +16,22 @@ const servicesData = {
         icon: Shield,
         image: "/life-insurance.png",
         features: ["Family Financial Protection", "Tax Saving under 80C", "Wealth Creation Options", "Loan Liability Cover"],
-        content: `Life insurance is more than just a policy; it's a promise to secure your family's future even in your absence. In today's fast-paced life, having a robust financial safety net is essential.
+        content: `Life insurance is the foundation of financial security for any family. It is not just an investment; it is a shield that protects your loved ones from financial instability in your absence. At **Insurance Support India**, we believe that the right life insurance policy ensures that your family's dreams—whether it's your child's education, your spouse's retirement, or paying off a home loan—are never compromised.
 
         **Why Choose Insurance Support India?**
-        We understand that every individual's financial goal is unique. Whether you are looking for pure protection (Term Plans), wealth creation (ULIPs), or guaranteed returns (Endowment Plans), we help you compare and choose the right policy from top insurers across India.
+        Unlike automated online comparison tools, we provide **personalized, human advisory** based on 25+ years of experience. We don't just sell a policy; we manage your portfolio for life.
+        *   **Legacy of Trust:** We have served thousands of families across India, ensuring their claims are settled priority.
+        *   **Unbiased Advice:** We work with top insurers (LIC, HDFC Life, ICICI Pru, Tata AIA) but work *for* you. We recommend plans that suit *your* needs, not the highest commission ones.
+        *   **Claim Settlement Ratio:** We only partner with insurers who have a CSR of 98% and above.
 
-        **Types of Life Insurance We Offer:**
-        *   **Term Insurance:** Pure risk cover providing high sum assured at low premiums.
-        *   **Whole Life Insurance:** Coverage up to 100 years of age.
-        *   **Endowment Plans:** A mix of insurance and savings.
-        *   **ULIPs:** Market-linked returns with life cover.
+        **Comprehensive Life Insurance Solutions:**
+        *   **Term Insurance (Pure Protection):** The most affordable way to get high cover (e.g., ₹1 Crore cover for ~₹1000/month). Crucial for every breadwinner.
+        *   **Whole Life Policy:** Coverage that lasts up to age 100, leaving a tax-free legacy for your heirs.
+        *   **Endowment & Savings Plans:** Guaranteed return plans that help you save systematically for goals like marriage or education, unaffected by market volatility.
+        *   **ULIPs (Wealth Creation):** Market-linked plans that offer the dual benefit of insurance + high returns from equity/debt markets.
 
-        **Claim Settlement Assistance**
-        Our dedicated team assists you throughout the claim process, ensuring your family faces no administrative hassles during difficult times. We have a 100% claim support record pan-India.`,
+        **Our "Claim-First" Approach**
+        The true test of insurance is at the time of a claim. Our dedicated claim settlement team handles everything—from documentation to coordinating with the insurer. Your family will never have to run around offices; we stand simply by their side.`,
         faqs: [
             { question: "Is a medical test mandatory for Term Insurance?", answer: "It depends on your age and sum assured. Generally, for coverage above ₹50 Lakhs or for age above 45, a medical test is required." },
             { question: "What is the ideal life cover amount?", answer: "A thumb rule is to have a cover that is 10-15 times your annual income." },
@@ -41,17 +44,22 @@ const servicesData = {
         icon: Heart,
         image: "/health-insurance.png",
         features: ["Cashless Treatment", "Pre & Post Hospitalization", "AYUSH Treatment Cover", "Tax Benefit under 80D"],
-        content: `Healthcare costs in India are rising. A single hospitalization can drain your savings. Our Health Insurance plans ensure you get the best medical care without financial worry.
-        
-        **Best Health Insurance Agents in India**
-        We help you find plans that cover:
-        *   **Cashless Hospitalization:** Network of 10,000+ hospitals including major chains like Manipal, Apollo, and Fortis across all metro cities.
-        *   **Critical Illness Cover:** Protection against life-threatening diseases.
-        *   **Maternity Benefits:** Coverage for delivery expenses and newborn care.
-        *   **Senior Citizen Plans:** Special plans for parents with pre-existing disease coverage.
+        content: `With medical inflation in India growing at over 14% annually, a single hospitalization can wipe out your entire life's savings. **Health Insurance** is not a luxury; it is a necessity. At Insurance Support, we don't just sell you a policy; we ensure you have access to the best medical care without the financial stress.
 
-        **We Prioritize Claims**
-        Unlike online aggregators, we personally handle your cashless approvals and reimbursement claims, ensuring you focus on recovery, not paperwork.`,
+        **Why We Are the Best Health Insurance Advisors:**
+        Choosing a health plan is tricky. There are hidden clauses like "Room Rent Capping," "Co-payment," and "Waiting Periods." We decode the fine print for you.
+        *   **No Hidden Clauses:** We recommend plans with No Room Rent Capping and Zero Co-payment.
+        *   **Restoration Benefits:** We ensure your plan refills the sum assured if it gets exhausted during a treatment.
+        *   **Lifetime Renewability:** We place you with insurers who guarantee coverage for life.
+
+        **Types of Plans We specialize In:**
+        *   **Individual & Family Floater:** Comprehensive coverage for you, your spouse, and children under a single premium.
+        *   **Senior Citizen Plans:** Specialized plans covering pre-existing diseases (Diabetes, BP) with minimal waiting periods.
+        *   **Critical Illness Covers:** Lumpsum payout for Cancer, Heart Attack, Kidney Failure, etc.
+        *   **Top-Up & Super Top-Up:** An incredibly cheap way to increase your cover (e.g., adding ₹20 Lakhs cover for just ₹5,000/year).
+
+        **The "Cashless" Advantage**
+        We have tie-ups with Star Health, HDFC Ergo, Niva Bupa, and Care to give you access to 10,000+ network hospitals. In an emergency, **you call us**, and we coordinate the cashless approval with the TPA/Insurer while you focus on your loved one's recovery.`,
         faqs: [
             { question: "Does health insurance cover pre-existing diseases?", answer: "Yes, but usually after a waiting period of 2 to 4 years. Some special plans shorten this to 1 year or less." },
             { question: "What is the difference between Cashless and Reimbursement?", answer: "In Cashless, the insurer pays the hospital directly. In Reimbursement, you pay first and claim the money back later." },
@@ -64,17 +72,24 @@ const servicesData = {
         icon: Car,
         image: "/motor-insurance.png",
         features: ["Zero Depreciation Cover", "24x7 Roadside Assistance", "Engine Protection", "Consumables Cover"],
-        content: `Driving on Indian roads requires reliable protection. Whether you own a car or a two-wheeler, having comprehensive motor insurance is mandatory and crucial for financial safety.
+        content: `Driving on Indian roads is unpredictable. Whether it's a scratch in traffic or a flood in the monsoon, your vehicle needs robust protection. We provide **Instant Motor Insurance** that protects not just your car/bike but also your wallet from heavy repair bills and third-party liabilities.
 
-        **Motor Insurance Services**
-        We offer tailored plans for:
-        *   **Car Insurance:** Comprehensive, Third-Party, and Own Damage covers with add-ons like Zero Dep, Return to Invoice, and Engine Protect.
-        *   **Two-Wheeler Insurance:** Affordable plans for bikes and scooters with multi-year policy options.
+        **Why Renew With Insurance Support?**
+        Many people buy the cheapest policy online, only to realize later that the "IDV" (Vehicle Value) was too low or critical add-ons were missing.
+        *   **Maximum IDV:** We ensure your vehicle is insured for its correct market value, so you don't lose money in case of theft or total loss.
+        *   **Claim Assistance:** In case of an accident, we guide you on how to file an FIR, take photos, and get the vehicle to a cashless garage.
+        *   **Keep Your NCB:** We verify your No Claim Bonus (NCB) eligibility to save you up to 50% on premiums legally.
 
-        **Why Renew with Us?**
-        *   **Instant Policy Issuance:** Get your policy in 5 minutes online.
-        *   **Hassle-Free Claims:** Tie-ups with major workshops across India for cashless repairs.
-        *   **No Claim Bonus (NCB) Transfer:** We ensure you get up to 50% discount on renewal premiums if you haven't made a claim.`,
+        **Essential Add-Ons We Recommend:**
+        *   **Zero Depreciation (Bumper-to-Bumper):** Mandatory for cars <5 years old. The insurer pays 100% of the parts cost, including plastic and rubber.
+        *   **Engine Protection:** Covers engine seizure due to water logging (crucial for cities like Bangalore, Mumbai, Chennai).
+        *   **Roadside Assistance:** 24/7 help for flat tires, towing, or battery jumpstarts anywhere in India.
+        *   **Return to Invoice:** In case of theft, get the full on-road price back, not just the depreciated value.
+
+        **Coverage for All Vehicles**
+        *   Private Cars & SUVs
+        *   Two-Wheelers (Bikes & Scooters)
+        *   Commercial Vehicles (Taxis, Trucks, Buses)`,
         faqs: [
             { question: "What happens if my insurance expires?", answer: "You can renew it online instantly. If the break-in period is long, a vehicle inspection might be required." },
             { question: "What is Zero Depreciation cover?", answer: "It ensures you get the full claim amount without deduction for depreciation on parts (plastic, metal, rubber)." },
@@ -87,15 +102,23 @@ const servicesData = {
         icon: Home,
         image: "/term-insurance.png",
         features: ["High Coverage/Low Premium", "Critical Illness Riders", "Accidental Death Benefit", "Tax Savings"],
-        content: `Term Insurance is the purest form of life insurance. It provides a large sum assured to your nominees if something happens to you. It is the cheapest way to buy a high life cover in India.
+        content: `**Term Insurance is the most important financial product you will ever buy.** Period. It is a pure risk protection plan that guarantees a large sum of money (e.g., ₹1 Crore, ₹5 Crore) to your family if you pass away untimely. It ensures your family lifestyle, children's education, and home loans are taken care of.
 
-        **Key Features for Indian Residents:**
-        *   **High Cover at Low Cost:** Get ₹1 Crore cover starting at just ₹500/month (age dependent).
-        *   **Critical Illness Riders:** Add-on covers for heart attack, cancer, stroke, etc., which are rising in urban areas like Bangalore.
-        *   **Tax Benefits:** Premiums paid are eligible for tax deduction under Section 80C.
+        **Top Features of Our Term Plans:**
+        *   **Unbeatable Premiums:** We source plans that offer ₹1 Crore cover for as low as ₹500 - ₹800 per month (depending on age).
+        *   **Lengthy Coverage:** Lock your premiums today and get coverage up to age 85 or even 99 (Whole Life Term).
+        *   **Riders for Extra Protection:**
+            *   *Critical Illness Rider:* Get a payout if diagnosed with Cancer, Heart issues, etc., to cover treatment costs.
+            *   *Accidental Disability:* Monthly income replacement if an accident leaves you disabled.
 
-        **Why Buy Term Insurance Early?**
-        The younger you are, the lower your premium. Once locked, the premium stays the same for the entire policy term.`,
+        **Why Buy Term Insurance Through an Advisor?**
+        Buying online is easy, but claim settlement is hard. If your family faces a rejection due to a technicality in the proposal form filled years ago, the policy is useless.
+        *   **Zero-Error Proposal:** We fill out the proposal form with professional precision to eliminate chances of "Non-Disclosure" rejection.
+        *   **Medical Coordination:** We arrange your medical tests at your convenience.
+        *   **The "3-Day" Claim Guarantee:** In the unfortunate event of a claim, we personally handle the paperwork to ensure the money reaches your nominee's bank account within the shortest possible time.
+
+        **Tax Benefits**
+        Premiums paid for Term Insurance are eligible for tax deductions of up to ₹1.5 Lakhs under Section 80C of the Income Tax Act.`,
         faqs: [
             { question: "What is the right age to buy Term Insurance?", answer: "The earlier, the better. Buying in your 20s secures a very low premium for life." },
             { question: "Do I get money back if I survive the term?", answer: "Pure term plans do not offer maturity benefits. However, 'Return of Premium' (ROP) plans refund all premiums paid if you survive." },
@@ -241,13 +264,14 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
     if (!service) return {}
 
     return {
-        title: `${service.title} in Bangalore | Expert Advisors (25+ Years Exp)`,
-        description: `Looking for the best ${service.title} in Bangalore? Get honest advice, low premiums, and 100% claim support from industry veterans.`,
+        title: `${service.title} Plans in India | Compare & Buy Online`,
+        description: `Looking for the best ${service.title} in India? Compare top plans, get low premiums, and enjoy 100% claim support from industry veterans.`,
         keywords: [
             service.title,
             `${service.title} Quotes India`,
             `Best ${service.title} in India`,
             `${service.title} Agent India`,
+            `${service.title} Bangalore`,
             `${service.title} Support`,
             "Insurance Support India",
             "Online Insurance Agent",
