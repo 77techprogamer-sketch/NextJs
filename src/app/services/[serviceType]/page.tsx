@@ -240,8 +240,8 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
     if (!service) return {}
 
     return {
-        title: `${service.title} in India | Insurance Support`,
-        description: service.description,
+        title: `${service.title} in Bangalore | Agent Kotian (25+ Years Exp)`,
+        description: `Looking for the best ${service.title} in Bangalore? Get honest advice, low premiums, and 100% claim support from industry veteran Agent Kotian.`,
         keywords: [
             service.title,
             `${service.title} Quotes India`,

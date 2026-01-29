@@ -1,5 +1,11 @@
+"use client";
+
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export function GlobalSchema() {
+    const { t } = useTranslation();
+
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
@@ -27,7 +33,7 @@ export function GlobalSchema() {
                 '@id': 'https://insurancesupport.online/#website',
                 url: 'https://insurancesupport.online',
                 name: 'Insurance Support Online',
-                description: 'Your trusted partner for all insurance related queries and support.',
+                description: t('services_description') || 'Your trusted partner for all insurance related queries and support.', // Fallback or use a specific key
                 publisher: {
                     '@id': 'https://insurancesupport.online/#organization'
                 },
@@ -49,6 +55,29 @@ export function GlobalSchema() {
 }
 
 export function LocalBusinessSchema() {
+    const { t } = useTranslation();
+
+    const faqs = [
+        { q: "faq_life_q1", a: "faq_life_a1" },
+        { q: "faq_life_q2", a: "faq_life_a2" },
+        { q: "faq_health_q1", a: "faq_health_a1" },
+        { q: "faq_health_q2", a: "faq_health_a2" },
+        { q: "faq_term_q1", a: "faq_term_a1" },
+        { q: "faq_motor_q1", a: "faq_motor_a1" },
+    ];
+
+    const faqSchema = {
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(faq => ({
+            '@type': 'Question',
+            name: t(faq.q),
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: t(faq.a)
+            }
+        }))
+    };
+
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
@@ -64,7 +93,7 @@ export function LocalBusinessSchema() {
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/brand-favicon.svg',
                 image: 'https://insurancesupport.online/brand-favicon.svg',
-                description: 'Expert insurance support online for LIC, Health, Motor, and Life policies. Assistance with claims, renewals, and new quotes.',
+                description: t('services_description') || 'Expert insurance support online for LIC, Health, Motor, and Life policies.',
                 telephone: '+919986634506',
                 email: 'contact@insurancesupport.online',
                 priceRange: '₹₹',
@@ -121,59 +150,7 @@ export function LocalBusinessSchema() {
                 },
                 description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.'
             },
-            {
-                '@type': 'FAQPage',
-                mainEntity: [
-                    {
-                        '@type': 'Question',
-                        name: 'What is the entry age for life insurance?',
-                        acceptedAnswer: {
-                            '@type': 'Answer',
-                            text: 'Typically, the entry age starts from 18 years up to 65 years, depending on the specific plan chosen.'
-                        }
-                    },
-                    {
-                        '@type': 'Question',
-                        name: 'Can I have multiple life insurance policies?',
-                        acceptedAnswer: {
-                            '@type': 'Answer',
-                            text: 'Yes, you can hold multiple policies from different providers as long as you disclose them during the application process.'
-                        }
-                    },
-                    {
-                        '@type': 'Question',
-                        name: 'Does health insurance cover pre-existing diseases?',
-                        acceptedAnswer: {
-                            '@type': 'Answer',
-                            text: 'Most plans cover pre-existing diseases after a waiting period, which usually ranges from 2 to 4 years.'
-                        }
-                    },
-                    {
-                        '@type': 'Question',
-                        name: 'What is a \'Cashless Claim\' in health insurance?',
-                        acceptedAnswer: {
-                            '@type': 'Answer',
-                            text: 'It allows you to get treated at network hospitals without paying the bills upfront; the insurer settles it directly with the hospital.'
-                        }
-                    },
-                    {
-                        '@type': 'Question',
-                        name: 'Will my family get the money if I die outside India?',
-                        acceptedAnswer: {
-                            '@type': 'Answer',
-                            text: 'Yes, term insurance provides global coverage as long as the policy is active and the cause of death is covered.'
-                        }
-                    },
-                    {
-                        '@type': 'Question',
-                        name: 'Is Third-Party insurance enough for my car?',
-                        acceptedAnswer: {
-                            '@type': 'Answer',
-                            text: 'Third-Party is mandatory by law, but a Comprehensive plan is recommended as it also covers damages to your own vehicle.'
-                        }
-                    }
-                ]
-            }
+            faqSchema
         ]
     }
 
@@ -186,4 +163,3 @@ export function LocalBusinessSchema() {
 }
 
 export default GlobalSchema;
-
