@@ -12,7 +12,7 @@ const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSe
 const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
-import JsonLd from '@/components/JsonLd'
+import { GlobalJsonLd } from '@/components/ServerJsonLd'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -103,7 +103,7 @@ export default function RootLayout({
             <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`} suppressHydrationWarning>
                 <I18nProvider>
                     <div className="flex flex-col min-h-screen">
-                        <JsonLd />
+                        <GlobalJsonLd />
                         <Analytics />
                         <SmartLanguageSelector />
                         <Header />
@@ -122,3 +122,4 @@ export default function RootLayout({
         </html>
     )
 }
+
