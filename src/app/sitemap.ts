@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { cityData } from '@/data/cityData'
 
-export const dynamic = 'force-dynamic'
+
 
 const BASE_url = 'https://insurancesupport.online'
 
