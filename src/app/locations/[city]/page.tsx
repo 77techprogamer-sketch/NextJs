@@ -25,8 +25,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             `National Insurance Renewal ${city.name}`,
             `Health Insurance Agent ${city.name}`,
             `Motor Insurance Renewal ${city.name}`,
+            `Best Insurance Advisor in ${city.name}`,
+            `Policy Claim Help ${city.name}`,
+            `Doorstep Insurance Service ${city.name}`,
             ...city.areas.map(area => `LIC Agent in ${area}`),
-            ...city.areas.map(area => `Insurance Agent in ${area}`)
+            ...city.areas.map(area => `Insurance Agent in ${area}`),
+            ...city.areas.map(area => `Policy Renewal ${area}`)
         ],
         alternates: {
             canonical: `https://insurancesupport.online/locations/${params.city}`,
