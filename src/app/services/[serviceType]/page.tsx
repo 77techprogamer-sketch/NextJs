@@ -12,7 +12,7 @@ import ServiceJsonLd from "@/components/ServiceJsonLd"
 const servicesData = {
     "life-insurance": {
         title: "Life Insurance",
-        description: "Secure your family's financial future with the best life insurance plans in India.",
+        description: "Secure your family's future with the best Life Insurance plans in India. Compare Term, Whole Life, and Endowment policies with high claim settlement ratios.",
         icon: Shield,
         image: "/life-insurance.png",
         features: ["Family Financial Protection", "Tax Saving under 80C", "Wealth Creation Options", "Loan Liability Cover"],
@@ -40,7 +40,7 @@ const servicesData = {
     },
     "health-insurance": {
         title: "Health Insurance",
-        description: "Comprehensive health coverage with access to top hospitals across India.",
+        description: "Get comprehensive Health Insurance with cashless treatment at top hospitals. Plans cover pre-existing diseases, maternity, and critical illness with no hidden clauses.",
         icon: Heart,
         image: "/health-insurance.png",
         features: ["Cashless Treatment", "Pre & Post Hospitalization", "AYUSH Treatment Cover", "Tax Benefit under 80D"],
@@ -68,7 +68,7 @@ const servicesData = {
     },
     "motor-insurance": {
         title: "Motor Insurance",
-        description: "Instant Car and Bike insurance renewal with max IDV and lowest premium.",
+        description: "Renew your Car or Bike insurance instantly with maximum IDV and lowest premiums. Enjoy cashless claims, zero depreciation, and 24/7 roadside assistance.",
         icon: Car,
         image: "/motor-insurance.png",
         features: ["Zero Depreciation Cover", "24x7 Roadside Assistance", "Engine Protection", "Consumables Cover"],
@@ -98,7 +98,7 @@ const servicesData = {
     },
     "term-insurance": {
         title: "Term Insurance",
-        description: "High life cover at affordable premiums for pure risk protection.",
+        description: "Get high life cover at affordable premiums with pure Term Insurance. Protect your family's financial future with critical illness and accidental death benefits.",
         icon: Home,
         image: "/term-insurance.png",
         features: ["High Coverage/Low Premium", "Critical Illness Riders", "Accidental Death Benefit", "Tax Savings"],
@@ -127,7 +127,7 @@ const servicesData = {
     },
     "sme-insurance": {
         title: "SME Insurance",
-        description: "Tailored insurance solutions for small and medium enterprises.",
+        description: "Protect your business with tailored SME Insurance solutions. Coverage for shops, offices, and startups including fire, burglary, liability, and employee benefits.",
         icon: Briefcase,
         image: "/sme-insurance.png",
         features: ["Property Protection", "Employee Benefits", "Liability Coverage", "Business Interruption"],
@@ -149,7 +149,7 @@ const servicesData = {
     },
     "travel-insurance": {
         title: "Travel Insurance",
-        description: "Complete protection for your domestic and international trips.",
+        description: "Travel stress-free with complete Travel Insurance for domestic and international trips. Covers medical emergencies, flight delays, lost baggage, and trip cancellations.",
         icon: Plane,
         image: "/travel-insurance.png",
         features: ["Medical Emergencies", "Trip Cancellation", "Lost Baggage", "Flight Delays"],
@@ -171,7 +171,7 @@ const servicesData = {
     },
     "pension-plans": {
         title: "Pension Plans",
-        description: "Build a retirement corpus for a stress-free retired life.",
+        description: "Plan a stress-free retirement with our Pension Plans. Build a corpus for regular monthly income, inflation protection, and financial independence in your golden years.",
         icon: Coins,
         image: "/pension-plans.png",
         features: ["Regular Income", "Inflation Protection", "Tax Efficient", "Spouse Coverage"],
@@ -192,7 +192,7 @@ const servicesData = {
     },
     "ulip-plans": {
         title: "ULIP Plans",
-        description: "Unit Linked Insurance Plans for investment plus insurance.",
+        description: "Combine insurance and investment with ULIPs. Create long-term wealth with market-linked returns while securing life cover and enjoying tax benefits.",
         icon: UserCheck,
         image: "/ulip-plans.png",
         features: ["Market Linked Returns", "Life Cover", "Tax Free Withdrawal", "Fund Switching"],
@@ -211,7 +211,7 @@ const servicesData = {
     },
     "wedding-insurance": {
         title: "Wedding Insurance",
-        description: "Insure your big day against cancellations and mishaps.",
+        description: "Insure your big day against cancellations and mishaps. Wedding Insurance covers venue damage, non-appearance, and public liability for a worry-free celebration.",
         icon: Heart,
         image: "/wedding-insurance.png",
         features: ["Event Cancellation", "Public Liability", "Property Damage", "Personal Accident"],
@@ -230,7 +230,7 @@ const servicesData = {
     },
     "cyber-insurance": {
         title: "Cyber Insurance",
-        description: "Protection against digital threats and cyber attacks.",
+        description: "Safeguard against digital threats with Cyber Insurance. Protect your finances and identity from phishing, ransomware, cyber extortion, and online fraud.",
         icon: Lock,
         image: "/cyber-insurance.png",
         features: ["Data Breach Cover", "Cyber Extortion", "Identity Theft", "Legal Costs"],
@@ -265,7 +265,7 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
 
     return {
         title: `${service.title} Plans in India | Compare & Buy Online`,
-        description: `Looking for the best ${service.title} in India? Compare top plans, get low premiums, and enjoy 100% claim support from industry veterans.`,
+        description: service.description,
         keywords: [
             service.title,
             `${service.title} Quotes India`,
