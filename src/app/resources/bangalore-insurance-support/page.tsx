@@ -6,7 +6,9 @@ import { CheckCircle2, MapPin, Phone, UserCheck, Clock } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
 
 export const metadata: Metadata = {
-    title: 'National Insurance Support in Bangalore | Expert Agent Near You',
+    title: {
+        absolute: 'National Insurance Support Bangalore - Expert Agent'
+    },
     description: 'Looking for a National Insurance Company office or agent in Bangalore? We provide doorstep service for policy renewal, new quotes, and claim settlement.',
     keywords: ['National Insurance Bangalore', 'National Insurance Agent near me', 'NIC Office Bangalore', 'Motor Insurance Renewal Bangalore', 'Health Insurance Agent JP Nagar'],
     alternates: {

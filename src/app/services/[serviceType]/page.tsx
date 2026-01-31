@@ -264,7 +264,9 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
     if (!service) return {}
 
     return {
-        title: `${service.title} Plans in India | Compare & Buy Online`,
+        title: {
+            absolute: `${service.title} Plans: Compare & Buy Online - Insurance Support`
+        },
         description: service.description,
         keywords: [
             service.title,

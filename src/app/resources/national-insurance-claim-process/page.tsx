@@ -8,7 +8,9 @@ import { Badge } from "@/components/ui/badge"
 import { CheckCircle2, FileText, Phone, AlertCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
-    title: 'How to File National Insurance Claim | Step-by-Step Guide (2025)',
+    title: {
+        absolute: 'How to File National Insurance Claim | Step-by-Step Guide (2025)'
+    },
     description: 'Simplest guide to file National Insurance claims (Cashless & Reimbursement). Check documents required, download forms, and get claiming support.',
     keywords: ['National Insurance Claim Process', 'NIC Claims', 'Cashless Claim National Insurance', 'Reimbursement Claim NIC', 'National Insurance Claim Form'],
     alternates: {

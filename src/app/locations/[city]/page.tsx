@@ -16,7 +16,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!city) return {}
 
     return {
-        title: `LIC Agent in ${city.name} | Insurance Support & Renewal Services`,
+        title: {
+            absolute: `LIC Agent in ${city.name} - Insurance Support`
+        },
         description: `Looking for an LIC Agent in ${city.name}? We provide doorstep service for policy surrender, maturity claims, and new insurance quotes in ${city.name}.`,
         keywords: [
             `LIC Agent ${city.name}`,

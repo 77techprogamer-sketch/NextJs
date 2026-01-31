@@ -5,7 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Download, ExternalLink, HelpCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
-    title: 'Download National Insurance Policy Copy | Quick Guide',
+    title: {
+        absolute: 'Download National Insurance Policy Copy - Quick Guide'
+    },
     description: 'Lost your policy document? Learn how to download your National Insurance policy copy online instantly. Step-by-step instructions for 2025.',
     keywords: ['National Insurance Policy Download', 'NIC Policy Copy', 'Lost Insurance Policy', 'Download Car Insurance Policy', 'Health Insurance Soft Copy'],
     alternates: {
