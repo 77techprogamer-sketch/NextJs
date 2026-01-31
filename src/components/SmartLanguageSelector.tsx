@@ -227,9 +227,9 @@ const SmartLanguageSelector = () => {
                             <Globe className="w-8 h-8 text-white" />
                         </div>
 
-                        <h1 className="text-2xl md:text-3xl font-bold text-white mb-3">
+                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
                             Welcome to Insurance Support
-                        </h1>
+                        </h2>
                         <p className="text-white/70 mb-8">
                             We detected you are visiting from outside India.<br />
                             <span className="font-medium text-white/90">Are you a native of India?</span>
@@ -263,9 +263,9 @@ const SmartLanguageSelector = () => {
                                 <Globe className="w-8 h-8 text-white" />
                             </div>
 
-                            <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
                                 {suggestedLangData.greeting} / Welcome
-                            </h1>
+                            </h2>
 
                             {detectedRegion && (
                                 <p className="text-white/70 text-sm">
