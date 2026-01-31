@@ -1,4 +1,4 @@
-import { WithContext, Organization, WebSite, InsuranceAgency, Service, FAQPage } from 'schema-dts';
+import { WithContext, Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList } from 'schema-dts';
 import enTranslations from '../../public/locales/en/translation.json';
 
 // Type for the translation object to ensure type safety if needed, 
@@ -78,29 +78,36 @@ export function LocalBusinessJsonLd() {
         }))
     };
 
-    const jsonLd: { '@context': string; '@graph': (InsuranceAgency | Service | FAQPage)[] } = {
+    const jsonLd: { '@context': string; '@graph': (InsuranceAgency | Service | FAQPage | BreadcrumbList)[] } = {
         '@context': 'https://schema.org',
         '@graph': [
             {
                 '@type': 'InsuranceAgency',
                 '@id': 'https://insurancesupport.online/#local-business',
-                name: 'Insurance Support Bangalore',
+                name: 'Insurance Support India',
                 alternateName: [
                     'Insurance Support Online',
                     'LIC Insurance Support',
-                    'Insurance Agent Kotian'
+                    'Insurance Agent Kotian',
+                    'Claim Recovery Experts'
                 ],
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/brand-favicon.svg',
                 image: 'https://insurancesupport.online/brand-favicon.svg',
-                description: t('services_description') || 'Expert insurance support online for LIC, Health, Motor, and Life policies.',
+                description: t('services_description') || 'Expert insurance support online for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
                 telephone: '+919986634506',
                 email: 'contact@insurancesupport.online',
                 priceRange: '₹₹',
-                areaServed: {
-                    '@type': 'City',
-                    name: 'Bangalore'
-                },
+                areaServed: [
+                    {
+                        '@type': 'Country',
+                        name: 'India'
+                    },
+                    {
+                        '@type': 'City',
+                        name: 'Bangalore'
+                    }
+                ],
                 address: {
                     '@type': 'PostalAddress',
                     streetAddress: 'Bangalore',
@@ -132,10 +139,21 @@ export function LocalBusinessJsonLd() {
                 },
                 serviceType: 'Insurance Advisory',
                 areaServed: {
-                    '@type': 'City',
-                    name: 'Bangalore'
+                    '@type': 'Country',
+                    name: 'India'
                 },
                 description: 'Expert help with LIC policy surrender, maturity claims, and lost policy bond retrieval.'
+            },
+            {
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    {
+                        '@type': 'ListItem',
+                        position: 1,
+                        name: 'Home',
+                        item: 'https://insurancesupport.online'
+                    }
+                ]
             },
             {
                 '@type': 'Service',

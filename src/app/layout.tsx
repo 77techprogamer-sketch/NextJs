@@ -20,17 +20,19 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'Insurance Support Bangalore | Expert Advisors (25+ Years Exp)',
-        template: '%s | Insurance Support Bangalore'
+        default: 'Insurance Support India | Expert Claim Recovery & LIC Services',
+        template: '%s | Insurance Support India'
     },
     alternates: {
         canonical: './',
     },
-    description: 'Claim Rejected? Policy Lost? Get expert help from industry veterans (25+ years experience) in Bangalore. Free consultation for LIC, Health, and Motor insurance.',
+    description: 'Struggling with rejected claims or lost LIC policies? Get 25+ years of expert help. We fight for your money. Free Consultation. Call Now! Serving All India.',
     keywords: [
         'Insurance Support',
         'LIC Insurance Support',
-        'LIC Policy Surrender Help',
+        'Insurance Claim Recovery India',
+        'LIC Policy Revival',
+        'Death Claim Settlement',
         'Lost Policy Bond Support',
         'Insurance Claim Settlement India',
         'LIC Agent Kotian',
@@ -65,8 +67,8 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_IN',
         url: 'https://insurancesupport.online',
-        title: 'Insurance Support Online | Trusted Insurance Advisors in India',
-        description: 'Get free quotes and expert help for Life, Health, and Motor insurance. Local support across all major Indian cities.',
+        title: 'Insurance Support India | Trusted Insurance Advisors',
+        description: 'Get free quotes and expert help for Life, Health, and Motor insurance claims. We are your partner in securing your familys future.',
         siteName: 'Insurance Support',
         images: [
             {
@@ -79,8 +81,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Insurance Support - Your Trusted Partner in India',
-        description: 'Expert insurance advice and claims support across India.',
+        title: 'Insurance Support - Expert Claims Help',
+        description: 'Expert insurance advice and claims support across India. Don\'t let your claim be rejected.',
         images: ['/og-image.png'],
         creator: '@insurancesupport',
     },

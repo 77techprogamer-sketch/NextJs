@@ -4,16 +4,16 @@ import enTranslations from "../../public/locales/en/translation.json";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: 'Insurance Support Bangalore | Expert Advisors (25+ Years Exp)',
-    description: 'Claim Rejected? Policy Lost? Get expert help from industry veterans in Bangalore. Free consultation for LIC, Health, and Motor insurance.',
+    title: 'Rejected Insurance Claim? Expert Help in India | 100% Support',
+    description: "Don't let your claim get rejected. Our 25+ years of experience ensures you get what you deserve. LIC, Health, Motor & Life Insurance. Free Advice.",
     keywords: [
-        'Insurance Support Bangalore',
-        'LIC Agent Bangalore',
-        'Insurance Consultancy India',
-        'Claim Settlement Expert',
+        'Insurance Support India',
+        'Claim Recovery Expert',
+        'Rejected Claim Help',
+        'LIC Agent India',
+        'Insurance Consultancy',
         'Lost Policy Bond Help',
-        'Insurance Advisor Bangalore',
-        'Health Insurance Support',
+        'Health Insurance Claim Support',
         'Term Insurance Consultant',
         'Motor Insurance Renewal',
         'LIC Policy Surrender'
