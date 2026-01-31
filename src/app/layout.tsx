@@ -145,7 +145,6 @@ export const metadata: Metadata = {
     },
     verification: {
         google: 'UvNqMHYqn8D-knp1S1Fg7xjO73SQ0U_LW3i5osu6Pac',
-        yandex: 'dd6e303bea7a9986',
     },
 }
 
