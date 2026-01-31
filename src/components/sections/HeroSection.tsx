@@ -60,20 +60,20 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                     </React.Suspense>
 
                     <div className="space-y-4 max-w-4xl mx-auto flex flex-col items-center">
-                        <ScrollReveal animation="fade-up" delay={0.2} width="100%">
-                            <div className="min-h-[32px] flex items-center justify-center mb-4">
+                        <div className="min-h-[32px] flex items-center justify-center mb-4">
+                            <ScrollReveal animation="fade-up" delay={0.2} width="100%">
                                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent hover:scale-105 transition-transform duration-300">
                                     <Star className="w-4 h-4 fill-accent animate-pulse" />
                                     <span suppressHydrationWarning>{t("trusted_partner_banner", { city: city || 'Bangalore' })}</span>
                                 </div>
-                            </div>
-                        </ScrollReveal>
+                            </ScrollReveal>
+                        </div>
 
-                        <ScrollReveal animation="pop-up" delay={0.4} width="100%">
-                            <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
+                            <ScrollReveal animation="pop-up" delay={0.4} width="100%">
                                 <span suppressHydrationWarning>{shareTitle}</span>
-                            </h1>
-                        </ScrollReveal>
+                            </ScrollReveal>
+                        </h1>
 
                         <ScrollReveal animation="fade-up" delay={0.6} width="100%">
                             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" suppressHydrationWarning>
