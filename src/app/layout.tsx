@@ -20,8 +20,8 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'Insurance Support India | Expert Claim Recovery & LIC Services',
-        template: '%s | Insurance Support India'
+        default: 'Insurance Support | Expert Claim Recovery Services',
+        template: '%s | Insurance Support'
     },
     alternates: {
         canonical: './',
