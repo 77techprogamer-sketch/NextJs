@@ -28,3 +28,7 @@ ts-debug.log*
 # vercel
 .vercel
 *.tsbuildinfo
+
+# next-sitemap
+public/sitemap*.xml
+public/robots.txt
