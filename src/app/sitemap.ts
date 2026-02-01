@@ -14,6 +14,7 @@ export default async function sitemap() {
         '/terms-of-service',
         '/get-started',
         '/resources',
+        '/contact',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: new Date().toISOString(),
