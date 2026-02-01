@@ -2,11 +2,13 @@ import React from 'react';
 import { Metadata } from 'next';
 import AboutContent from '@/components/AboutContent';
 
+import translations from '@/../public/locales/en/translation.json';
+
 export const metadata: Metadata = {
-    title: 'About Insurance Support | 25+ Years of Trust',
-    description: 'Learn about Insurance Support, our legacy of 25+ years, and our mission to secure families. Trusted by 15,000+ clients with a 98% claim settlement ratio.',
+    title: translations.about_page_title,
+    description: translations.about_meta_description,
     keywords: [
-        'About Insurance Support',
+        translations.about_hero_title,
         'Insurance Advisors Experience',
         'Trusted Insurance Agents',
         'Claim Settlement Ratio',

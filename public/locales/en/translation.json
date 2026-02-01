@@ -662,6 +662,8 @@
       ]
     }
   },
+  "about_page_title": "About Insurance Support | 25+ Years of Trust",
+  "about_meta_description": "Learn about Insurance Support, our legacy of 25+ years, and our mission to secure families. Trusted by 15,000+ clients with a 98% claim settlement ratio.",
   "about_hero_title": "About Insurance Support",
   "about_hero_subtitle": "Decades of trust, expertise, and dedication to securing your future.",
   "established_badge": "Established 1998",
@@ -672,5 +674,53 @@
   "industry_experience": "Industry Experience",
   "years_stat": "25+ Years",
   "our_mission_title": "Our Mission",
-  "our_mission_text": "To empower every individual with the knowledge and protection they need to face life's uncertainties with confidence. We strive to be more than just agents; we are your lifelong partners in financial security."
+  "our_mission_text": "To empower every individual with the knowledge and protection they need to face life's uncertainties with confidence. We strive to be more than just agents; we are your lifelong partners in financial security.",
+  "view_all_services": "View All Services",
+  "about_us": "About Us",
+  "resources": "Resources",
+  "get_quote": "Get Quote",
+  "we_serve": "We Serve",
+  "footer_description": "Providing strategic insurance advisory and risk management solutions with over 25 years of industry excellence.",
+  "testimonials_list": [
+    {
+      "name": "Prashanth S",
+      "rating": 5,
+      "text": "Best LIC consultant. Highly recommended person. Has indepth knowledge and suggests best required for individual as per your capacity."
+    },
+    {
+      "name": "Naveen Kumar",
+      "rating": 5,
+      "text": "Good response from him and very professional in approach."
+    },
+    {
+      "name": "R G LIKHITH",
+      "rating": 5,
+      "text": "Awesome place for all your insurance needs. Very helpful and knowledgeable staff."
+    },
+    {
+      "name": "Ayush Kandoi",
+      "rating": 5,
+      "text": "Had a very positive experience. The team is kind and provides excellent guidance for insurance planning."
+    },
+    {
+      "name": "Madhu Shivalingappa",
+      "rating": 5,
+      "text": "Great experience with the Life Insurance Agency. They make the complex process very simple."
+    },
+    {
+      "name": "Shankar",
+      "rating": 5,
+      "text": "Satisfied with the professionalism and service. Highly reliable Insurance support."
+    },
+    {
+      "name": "Kiran Kumar N",
+      "rating": 5,
+      "text": "Consistent service over a long time. A dependable partner for all insurance policies."
+    },
+    {
+      "name": "Gayathri Duraisamy",
+      "rating": 5,
+      "text": "Highly positive customer experience. Very patient in explaining the details."
+    }
+  ]
 }

@@ -1,53 +1,13 @@
+
 import React from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Star, Quote } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-const testimonials = [
-    {
-        name: "Prashanth S",
-        rating: 5,
-        text: "Best LIC consultant. Highly recommended person. Has indepth knowledge and suggests best required for individual as per your capacity."
-    },
-    {
-        name: "Naveen Kumar",
-        rating: 5,
-        text: "Good response from him and very professional in approach."
-    },
-    {
-        name: "R G LIKHITH",
-        rating: 5,
-        text: "Awesome place for all your insurance needs. Very helpful and knowledgeable staff."
-    },
-    {
-        name: "Ayush Kandoi",
-        rating: 5,
-        text: "Had a very positive experience. The team is kind and provides excellent guidance for insurance planning."
-    },
-    {
-        name: "Madhu Shivalingappa",
-        rating: 5,
-        text: "Great experience with the Life Insurance Agency. They make the complex process very simple."
-    },
-    {
-        name: "Shankar",
-        rating: 5,
-        text: "Satisfied with the professionalism and service. Highly reliable Insurance support."
-    },
-    {
-        name: "Kiran Kumar N",
-        rating: 5,
-        text: "Consistent service over a long time. A dependable partner for all insurance policies."
-    },
-    {
-        name: "Gayathri Duraisamy",
-        rating: 5,
-        text: "Highly positive customer experience. Very patient in explaining the details."
-    }
-];
 
 const Testimonials = () => {
     const { t } = useTranslation();
+    const testimonials = (t('testimonials_list', { returnObjects: true }) as Array<{ name: string; rating: number; text: string }>) || [];
 
     return (
         <section id="testimonials" className="py-12 sm:py-16 bg-white dark:bg-gray-800">

@@ -99,14 +99,14 @@ const Header = () => {
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
             suppressHydrationWarning
           >
-            About
+            {t("about_us")}
           </Link>
           <Link
             href="/get-started"
             className="hidden sm:inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
             suppressHydrationWarning
           >
-            Get Quote
+            {t("get_quote")}
           </Link>
           <a
             href="https://insurancesupportindia.blogspot.com"

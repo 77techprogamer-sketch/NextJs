@@ -38,8 +38,8 @@ const Footer = () => {
               <ShieldCheck className="h-6 w-6 text-primary" />
               <span className="text-xl font-bold text-foreground" suppressHydrationWarning>{t("insurance_support")}</span>
             </div>
-            <p className="text-sm leading-relaxed max-w-xs transition-colors">
-              Providing strategic insurance advisory and risk management solutions with over 25 years of industry excellence.
+            <p className="text-sm leading-relaxed max-w-xs transition-colors" suppressHydrationWarning>
+              {t("footer_description")}
             </p>
             <div className="flex items-center gap-2 text-primary font-semibold">
               <Award className="h-5 w-5 text-accent" />
@@ -50,10 +50,10 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("quick_links")}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/resources" className="hover:text-primary transition-colors">Resources</Link></li>
-              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/resources" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("resources")}</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("about_us")}</Link></li>
               <li><Link href="/support" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("support")}</Link></li>
-              <li><Link href="/get-started" className="hover:text-primary transition-colors">Get a Quote</Link></li>
+              <li><Link href="/get-started" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("get_quote")}</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("privacy_policy")}</Link></li>
               <li><Link href="/terms-of-service" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("terms_of_service")}</Link></li>
             </ul>
@@ -78,7 +78,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">We Serve</h3>
+            <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("we_serve")}</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/locations/bangalore" className="hover:text-primary transition-colors">Bangalore</Link></li>
               <li><Link href="/locations/vellore" className="hover:text-primary transition-colors">Vellore</Link></li>
