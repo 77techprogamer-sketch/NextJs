@@ -1,15 +1,17 @@
 "use client";
 
-import React, { Suspense } from 'react';
+import React from 'react';
 import QuoteForm from '@/components/QuoteForm';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { ShieldCheck, Users, Clock, Award } from 'lucide-react';
 
-const GetStartedContent = () => {
-    const searchParams = useSearchParams();
+interface GetStartedClientProps {
+    initialInterest: string;
+}
+
+const GetStartedClient: React.FC<GetStartedClientProps> = ({ initialInterest }) => {
     // Convert hyphenated URL params (e.g., life-insurance) to underscore format (life_insurance) for FORM_CONFIGS
-    const rawInterest = searchParams.get('interest') || 'life_insurance';
-    const interest = rawInterest.replace(/-/g, '_');
+    const interest = initialInterest.replace(/-/g, '_');
     const router = useRouter();
 
     const handleSuccess = () => {
@@ -95,14 +97,6 @@ const GetStartedContent = () => {
                 </div>
             </div>
         </div>
-    );
-};
-
-const GetStartedClient = () => {
-    return (
-        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
-            <GetStartedContent />
-        </Suspense>
     );
 };
 

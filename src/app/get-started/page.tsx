@@ -17,9 +17,14 @@ export const metadata: Metadata = {
     ]
 };
 
-const GetStartedPage = () => {
+const GetStartedPage = ({
+    searchParams,
+}: {
+    searchParams: { [key: string]: string | string[] | undefined };
+}) => {
+    const interest = typeof searchParams.interest === 'string' ? searchParams.interest : 'life-insurance';
     return (
-        <GetStartedClient />
+        <GetStartedClient initialInterest={interest} />
     );
 };
 
