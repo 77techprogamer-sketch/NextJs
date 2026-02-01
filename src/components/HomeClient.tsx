@@ -38,12 +38,12 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
 
+// interface HomeClientProps {} (Props no longer needed for title/desc)
 interface HomeClientProps {
-    heroTitle?: string;
-    heroDescription?: string;
+    // keeping empty or removing if no other props
 }
 
-const HomeClient: React.FC<HomeClientProps> = ({ heroTitle, heroDescription }) => {
+const HomeClient: React.FC<HomeClientProps> = () => {
     const { t, i18n } = useTranslation();
     const { city } = useUserLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -67,19 +67,12 @@ const HomeClient: React.FC<HomeClientProps> = ({ heroTitle, heroDescription }) =
     }, []);
 
     // Dynamic Title Logic
-    // If we have a city detected, and the propTitle is either missing or the default generic one,
-    // we override it with the local version.
-    let displayTitle = heroTitle;
+    let displayTitle = t('hero_title');
+    const displayDescription = t('secure_family_future');
 
     // Check if we should override with local title
     if (city) {
-        const localTitle = t('hero_title_local', { city });
-        // If no prop provided, use local
-        if (!heroTitle) {
-            displayTitle = localTitle;
-        }
-        // Always override if we have a city match for better personalization
-        displayTitle = localTitle;
+        displayTitle = t('hero_title_local', { city });
     }
 
     const handleCloseModal = useCallback(() => {
@@ -99,7 +92,7 @@ const HomeClient: React.FC<HomeClientProps> = ({ heroTitle, heroDescription }) =
                 city={city}
                 onGetQuote={handleGetQuote}
                 title={displayTitle}
-                description={heroDescription}
+                description={displayDescription}
             />
 
             <ServicesSection />

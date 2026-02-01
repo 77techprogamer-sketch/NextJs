@@ -406,5 +406,271 @@
   "data_records_held": "Data Records Held",
   "records_upto_10k": "Upto 10,000",
   "records_10k_100k": "10,000 - 1,00,000",
-  "records_above_100k": "Above 1,00,000"
+  "records_above_100k": "Above 1,00,000",
+  "about": "About",
+  "key_benefits": "Key Benefits",
+  "service_footer_note": "At Insurance Support, we help you navigate the complexities of specific policy terms to find the plan that best fits your requirements and budget.",
+  "services_data": {
+    "life-insurance": {
+      "title": "Life Insurance",
+      "description": "Secure your family's future with the best Life Insurance plans in India. Compare Term, Whole Life, and Endowment policies with high claim settlement ratios.",
+      "content": "Life insurance is the foundation of financial security for any family. It is not just an investment; it is a shield that protects your loved ones from financial instability in your absence. At **Insurance Support India**, we believe that the right life insurance policy ensures that your family's dreams—whether it's your child's education, your spouse's retirement, or paying off a home loan—are never compromised.\n\n**Why Choose Insurance Support India?**\nUnlike automated online comparison tools, we provide **personalized, human advisory** based on 25+ years of experience. We don't just sell a policy; we manage your portfolio for life.\n*   **Legacy of Trust:** We have served thousands of families across India, ensuring their claims are settled priority.\n*   **Unbiased Advice:** We work with top insurers (LIC, HDFC Life, ICICI Pru, Tata AIA) but work *for* you. We recommend plans that suit *your* needs, not the highest commission ones.\n*   **Claim Settlement Ratio:** We only partner with insurers who have a CSR of 98% and above.\n\n**Comprehensive Life Insurance Solutions:**\n*   **Term Insurance (Pure Protection):** The most affordable way to get high cover (e.g., ₹1 Crore cover for ~₹1000/month). Crucial for every breadwinner.\n*   **Whole Life Policy:** Coverage that lasts up to age 100, leaving a tax-free legacy for your heirs.\n*   **Endowment & Savings Plans:** Guaranteed return plans that help you save systematically for goals like marriage or education, unaffected by market volatility.\n*   **ULIPs (Wealth Creation):** Market-linked plans that offer the dual benefit of insurance + high returns from equity/debt markets.\n\n**Our \"Claim-First\" Approach**\nThe true test of insurance is at the time of a claim. Our dedicated claim settlement team handles everything—from documentation to coordinating with the insurer. Your family will never have to run around offices; we stand simply by their side.",
+      "features": [
+        "Family Financial Protection",
+        "Tax Saving under 80C",
+        "Wealth Creation Options",
+        "Loan Liability Cover"
+      ],
+      "faqs": [
+        {
+          "question": "Is a medical test mandatory for Term Insurance?",
+          "answer": "It depends on your age and sum assured. Generally, for coverage above ₹50 Lakhs or for age above 45, a medical test is required."
+        },
+        {
+          "question": "What is the ideal life cover amount?",
+          "answer": "A thumb rule is to have a cover that is 10-15 times your annual income."
+        },
+        {
+          "question": "Can I have multiple life insurance policies?",
+          "answer": "Yes, you can buy multiple policies, but you must disclose existing policies to the new insurer."
+        }
+      ]
+    },
+    "health-insurance": {
+      "title": "Health Insurance",
+      "description": "Get comprehensive Health Insurance with cashless treatment at top hospitals. Plans cover pre-existing diseases, maternity, and critical illness with no hidden clauses.",
+      "content": "With medical inflation in India growing at over 14% annually, a single hospitalization can wipe out your entire life's savings. **Health Insurance** is not a luxury; it is a necessity. At Insurance Support, we don't just sell you a policy; we ensure you have access to the best medical care without the financial stress.\n\n**Why We Are the Best Health Insurance Advisors:**\nChoosing a health plan is tricky. There are hidden clauses like \"Room Rent Capping,\" \"Co-payment,\" and \"Waiting Periods.\" We decode the fine print for you.\n*   **No Hidden Clauses:** We recommend plans with No Room Rent Capping and Zero Co-payment.\n*   **Restoration Benefits:** We ensure your plan refills the sum assured if it gets exhausted during a treatment.\n*   **Lifetime Renewability:** We place you with insurers who guarantee coverage for life.\n\n**Types of Plans We specialize In:**\n*   **Individual & Family Floater:** Comprehensive coverage for you, your spouse, and children under a single premium.\n*   **Senior Citizen Plans:** Specialized plans covering pre-existing diseases (Diabetes, BP) with minimal waiting periods.\n*   **Critical Illness Covers:** Lumpsum payout for Cancer, Heart Attack, Kidney Failure, etc.\n*   **Top-Up & Super Top-Up:** An incredibly cheap way to increase your cover (e.g., adding ₹20 Lakhs cover for just ₹5,000/year).\n\n**The \"Cashless\" Advantage**\nWe have tie-ups with Star Health, HDFC Ergo, Niva Bupa, and Care to give you access to 10,000+ network hospitals. In an emergency, **you call us**, and we coordinate the cashless approval with the TPA/Insurer while you focus on your loved one's recovery.",
+      "features": [
+        "Cashless Treatment",
+        "Pre & Post Hospitalization",
+        "AYUSH Treatment Cover",
+        "Tax Benefit under 80D"
+      ],
+      "faqs": [
+        {
+          "question": "Does health insurance cover pre-existing diseases?",
+          "answer": "Yes, but usually after a waiting period of 2 to 4 years. Some special plans shorten this to 1 year or less."
+        },
+        {
+          "question": "What is the difference between Cashless and Reimbursement?",
+          "answer": "In Cashless, the insurer pays the hospital directly. In Reimbursement, you pay first and claim the money back later."
+        },
+        {
+          "question": "Is maternity covered in health insurance?",
+          "answer": "Yes, specific plans offer maternity benefits, usually with a waiting period of 9 months to 2 years."
+        }
+      ]
+    },
+    "motor-insurance": {
+      "title": "Motor Insurance",
+      "description": "Renew your Car or Bike insurance instantly with maximum IDV and lowest premiums. Enjoy cashless claims, zero depreciation, and 24/7 roadside assistance.",
+      "content": "Driving on Indian roads is unpredictable. Whether it's a scratch in traffic or a flood in the monsoon, your vehicle needs robust protection. We provide **Instant Motor Insurance** that protects not just your car/bike but also your wallet from heavy repair bills and third-party liabilities.\n\n**Why Renew With Insurance Support?**\nMany people buy the cheapest policy online, only to realize later that the \"IDV\" (Vehicle Value) was too low or critical add-ons were missing.\n*   **Maximum IDV:** We ensure your vehicle is insured for its correct market value, so you don't lose money in case of theft or total loss.\n*   **Claim Assistance:** In case of an accident, we guide you on how to file an FIR, take photos, and get the vehicle to a cashless garage.\n*   **Keep Your NCB:** We verify your No Claim Bonus (NCB) eligibility to save you up to 50% on premiums legally.\n\n**Essential Add-Ons We Recommend:**\n*   **Zero Depreciation (Bumper-to-Bumper):** Mandatory for cars <5 years old. The insurer pays 100% of the parts cost, including plastic and rubber.\n*   **Engine Protection:** Covers engine seizure due to water logging (crucial for cities like Bangalore, Mumbai, Chennai).\n*   **Roadside Assistance:** 24/7 help for flat tires, towing, or battery jumpstarts anywhere in India.\n*   **Return to Invoice:** In case of theft, get the full on-road price back, not just the depreciated value.\n\n**Coverage for All Vehicles**\n*   Private Cars & SUVs\n*   Two-Wheelers (Bikes & Scooters)\n*   Commercial Vehicles (Taxis, Trucks, Buses)",
+      "features": [
+        "Zero Depreciation Cover",
+        "24x7 Roadside Assistance",
+        "Engine Protection",
+        "Consumables Cover"
+      ],
+      "faqs": [
+        {
+          "question": "What happens if my insurance expires?",
+          "answer": "You can renew it online instantly. If the break-in period is long, a vehicle inspection might be required."
+        },
+        {
+          "question": "What is Zero Depreciation cover?",
+          "answer": "It ensures you get the full claim amount without deduction for depreciation on parts (plastic, metal, rubber)."
+        },
+        {
+          "question": "Is third-party insurance mandatory?",
+          "answer": "Yes, as per the Motor Vehicles Act, third-party liability insurance is mandatory in India."
+        }
+      ]
+    },
+    "term-insurance": {
+      "title": "Term Insurance",
+      "description": "Get high life cover at affordable premiums with pure Term Insurance. Protect your family's financial future with critical illness and accidental death benefits.",
+      "content": "**Term Insurance is the most important financial product you will ever buy.** Period. It is a pure risk protection plan that guarantees a large sum of money (e.g., ₹1 Crore, ₹5 Crore) to your family if you pass away untimely. It ensures your family lifestyle, children's education, and home loans are taken care of.\n\n**Top Features of Our Term Plans:**\n*   **Unbeatable Premiums:** We source plans that offer ₹1 Crore cover for as low as ₹500 - ₹800 per month (depending on age).\n*   **Lengthy Coverage:** Lock your premiums today and get coverage up to age 85 or even 99 (Whole Life Term).\n*   **Riders for Extra Protection:**\n    *   *Critical Illness Rider:* Get a payout if diagnosed with Cancer, Heart issues, etc., to cover treatment costs.\n    *   *Accidental Disability:* Monthly income replacement if an accident leaves you disabled.\n\n**Why Buy Term Insurance Through an Advisor?**\nBuying online is easy, but claim settlement is hard. If your family faces a rejection due to a technicality in the proposal form filled years ago, the policy is useless.\n*   **Zero-Error Proposal:** We fill out the proposal form with professional precision to eliminate chances of \"Non-Disclosure\" rejection.\n*   **Medical Coordination:** We arrange your medical tests at your convenience.\n*   **The \"3-Day\" Claim Guarantee:** In the unfortunate event of a claim, we personally handle the paperwork to ensure the money reaches your nominee's bank account within the shortest possible time.\n\n**Tax Benefits**\nPremiums paid for Term Insurance are eligible for tax deductions of up to ₹1.5 Lakhs under Section 80C of the Income Tax Act.",
+      "features": [
+        "High Coverage/Low Premium",
+        "Critical Illness Riders",
+        "Accidental Death Benefit",
+        "Tax Savings"
+      ],
+      "faqs": [
+        {
+          "question": "What is the right age to buy Term Insurance?",
+          "answer": "The earlier, the better. Buying in your 20s secures a very low premium for life."
+        },
+        {
+          "question": "Do I get money back if I survive the term?",
+          "answer": "Pure term plans do not offer maturity benefits. However, 'Return of Premium' (ROP) plans refund all premiums paid if you survive."
+        },
+        {
+          "question": "Is accidental death covered?",
+          "answer": "Standard term plans cover all deaths (natural/accidental). You can add an Accidental Death Benefit rider for extra payout."
+        }
+      ]
+    },
+    "sme-insurance": {
+      "title": "SME Insurance",
+      "description": "Protect your business with tailored SME Insurance solutions. Coverage for shops, offices, and startups including fire, burglary, liability, and employee benefits.",
+      "content": "Small and Medium Enterprises (SMEs) are the backbone of India's economy. However, they face unique risks ranging from fire accidents to employee liability. Our SME Insurance packages are custom-built for shops, offices, and startups across India.\n\n**What We Cover:**\n*   **Shopkeepers Policy:** Protects stock, furniture, and cash against fire and burglary.\n*   **Office Package Policy:** Comprehensive cover for IT offices, including laptops and servers.\n*   **Workmen Compensation:** Mandatory legal liability cover for employees.\n*   **Public Liability:** Protects against third-party injury claims within your premises.\n\n**Tailored for Indian Startups**\nWe understand the dynamic nature of startups and offer flexible plans that scale with your business.",
+      "features": [
+        "Property Protection",
+        "Employee Benefits",
+        "Liability Coverage",
+        "Business Interruption"
+      ],
+      "faqs": [
+        {
+          "question": "Is property insurance mandatory for shops?",
+          "answer": "It is not legally mandatory, but highly recommended to protect your inventory and livelihood."
+        },
+        {
+          "question": "Does it cover employee theft?",
+          "answer": "Yes, Fidelity Guarantee cover protects against losses due to dishonesty of employees."
+        },
+        {
+          "question": "How is the premium calculated?",
+          "answer": "It depends on the value of contents, type of business, and risk factors associated with the location."
+        }
+      ]
+    },
+    "travel-insurance": {
+      "title": "Travel Insurance",
+      "description": "Travel stress-free with complete Travel Insurance for domestic and international trips. Covers medical emergencies, flight delays, lost baggage, and trip cancellations.",
+      "content": "Whether you are flying out of Kempegowda International Airport for a holiday or a business trip, unforeseen events can disrupt your plans. Travel Insurance protects you against medical emergencies, flight delays, and lost luggage.\n\n**Essential for International Travel**\nMany countries (like Schengen states) mandate travel insurance for visa approval. Our plans are 100% visa compliant.\n\n**Coverage Highlights:**\n*   **Medical Expenses:** Covers hospitalization costs abroad, which can be astronomically high.\n*   **Trip Cancellation:** Reimburses non-refundable bookings if you cancel due to medical/emergency reasons.\n*   **Baggage Loss/Delay:** Compensation for essential items if your bags are delayed.\n*   **Passport Loss:** Assistance and coverage for obtaining a duplicate passport.",
+      "features": [
+        "Medical Emergencies",
+        "Trip Cancellation",
+        "Lost Baggage",
+        "Flight Delays"
+      ],
+      "faqs": [
+        {
+          "question": "Is travel insurance mandatory?",
+          "answer": "For many countries (Schengen, UAE, etc.), it is mandatory. For others, it is strongly advised."
+        },
+        {
+          "question": "Does it cover pre-existing diseases abroad?",
+          "answer": "Most standard plans exclude pre-existing conditions unless it is a life-threatening emergency."
+        },
+        {
+          "question": "When should I buy travel insurance?",
+          "answer": "Ideally, as soon as you book your tickets to get coverage for trip cancellation."
+        }
+      ]
+    },
+    "pension-plans": {
+      "title": "Pension Plans",
+      "description": "Plan a stress-free retirement with our Pension Plans. Build a corpus for regular monthly income, inflation protection, and financial independence in your golden years.",
+      "content": "Retirement should be the golden phase of life, not a time of financial stress. Our Pension Plans help you build a substantial corpus during your working years, ensuring a steady stream of income post-retirement.\n\n**Why Start Early?**\nWith the rising cost of living across Indian metro cities, reliance on savings alone is not enough. You need a dedicated pension plan that beats inflation.\n\n**Types of Plans:**\n*   **Deferred Annuity:** Accumulate now, get pension later (e.g., NPS, private pension plans).\n*   **Immediate Annuity:** Pay a lump sum and get pension immediately (suitable for retirees).\n*   **NPS Assistance:** We guide you on National Pension System tier selection and fund management.",
+      "features": [
+        "Regular Income",
+        "Inflation Protection",
+        "Tax Efficient",
+        "Spouse Coverage"
+      ],
+      "faqs": [
+        {
+          "question": "Is pension taxable?",
+          "answer": "The commuted part (lump sum) is largely tax-free. The monthly pension is treated as income and taxed as per your slab."
+        },
+        {
+          "question": "Can I withdraw money before retirement?",
+          "answer": "Most plans have a lock-in period. However, partial withdrawals are allowed for specific reasons like children's marriage or critical illness."
+        },
+        {
+          "question": "What happens to the pension after death?",
+          "answer": "In joint-life annuity plans, the spouse continues to receive the pension."
+        }
+      ]
+    },
+    "ulip-plans": {
+      "title": "ULIP Plans",
+      "description": "Combine insurance and investment with ULIPs. Create long-term wealth with market-linked returns while securing life cover and enjoying tax benefits.",
+      "content": "Unit Linked Insurance Plans (ULIPs) offer the dual benefit of investment and life cover. They are ideal for long-term wealth creation, allowing you to invest in potential high-growth equity funds or safe debt funds.\n\n**Why Choose ULIPs?**\n*   **Wealth Creation:** Participate in the stock market with professional fund management.\n*   **Tax Efficiency:** Maturity proceeds are tax-free under Section 10(10D) (subject to conditions).\n*   **Flexibility:** Switch between equity and debt funds based on market performance without tax implications.\n*   **Lock-in Period:** A 5-year lock-in encourages disciplined saving.",
+      "features": [
+        "Market Linked Returns",
+        "Life Cover",
+        "Tax Free Withdrawal",
+        "Fund Switching"
+      ],
+      "faqs": [
+        {
+          "question": "Are ULIP charges high?",
+          "answer": "Modern ULIPs have very low charges, comparable to mutual funds. Some online plans even have zero allocation charges."
+        },
+        {
+          "question": "Is ULIP money safe?",
+          "answer": "It depends on the fund choice. Debt funds are safer, while equity funds carry market risk but offer higher potential returns."
+        },
+        {
+          "question": "Can I surrender my ULIP?",
+          "answer": "Yes, after the 5-year lock-in period, you can surrender the policy without surrender charges."
+        }
+      ]
+    },
+    "wedding-insurance": {
+      "title": "Wedding Insurance",
+      "description": "Insure your big day against cancellations and mishaps. Wedding Insurance covers venue damage, non-appearance, and public liability for a worry-free celebration.",
+      "content": "A wedding is a once-in-a-lifetime event, and thousands of crores are spent on weddings in India annually. But unforeseen events like natural calamities, fire, or sudden illness can cause cancellations, leading to huge losses.\n\n**What Coverage Includes:**\n*   **Cancellation due to Disaster:** Fire, flood, or earthquake at the venue.\n*   **Non-appearance:** If the bride, groom, or main family members cannot attend due to hospitalization/death.\n*   **Public Liability:** Accidents or injury to guests during the function.\n*   **Theft:** Loss of jewelry or cash from the venue/safe.",
+      "features": [
+        "Event Cancellation",
+        "Public Liability",
+        "Property Damage",
+        "Personal Accident"
+      ],
+      "faqs": [
+        {
+          "question": "Does it cover cancellation due to breakup?",
+          "answer": "No, 'change of heart' is not covered. Only external uncontrollable events are covered."
+        },
+        {
+          "question": "When should I take the policy?",
+          "answer": "Ideally, at least 15 days before the event date."
+        },
+        {
+          "question": "Is food poisoning covered?",
+          "answer": "Yes, public liability can cover claims arising from food poisoning of guests."
+        }
+      ]
+    },
+    "cyber-insurance": {
+      "title": "Cyber Insurance",
+      "description": "Safeguard against digital threats with Cyber Insurance. Protect your finances and identity from phishing, ransomware, cyber extortion, and online fraud.",
+      "content": "In the digital era, cyber threats are a daily reality. From phishing attacks to ransomware, individuals and businesses across India are at constant risk. Cyber Insurance provides a safety net against financial losses caused by cybercrimes.\n\n**Coverage for Individuals:**\n*   **Theft of Funds:** Reimbursement for money stolen via phishing or bank fraud.\n*   **Identity Theft:** Legal costs and expenses to restore your identity.\n*   **Cyber Bullying:** Consultation costs for psychological trauma.\n*   **Device Value:** Data restoration costs if your device is infected by malware.",
+      "features": [
+        "Data Breach Cover",
+        "Cyber Extortion",
+        "Identity Theft",
+        "Legal Costs"
+      ],
+      "faqs": [
+        {
+          "question": "Does it cover UPI frauds?",
+          "answer": "Yes, most comprehensive plans cover financial losses due to UPI or credit card fraud."
+        },
+        {
+          "question": "Do I need to file an FIR?",
+          "answer": "Yes, a police complaint/FIR is mandatory for claiming losses due to cybercrime."
+        },
+        {
+          "question": "Does it cover business data breach?",
+          "answer": "Individual cyber insurance is different from corporate cyber liability insurance. We offer both types."
+        }
+      ]
+    }
+  },
+  "about_hero_title": "About Insurance Support",
+  "about_hero_subtitle": "Decades of trust, expertise, and dedication to securing your future.",
+  "established_badge": "Established 1998",
+  "about_legacy_title": "A Legacy of Trust and Excellence",
+  "about_legacy_text_1": "Insurance Support was founded with a singular mission: to demystify insurance and provide honest, expert advice to families and businesses across Bangalore and beyond.",
+  "about_legacy_text_2": "Led by industry veterans with over 25 years of experience, we have grown from a small consultancy to a trusted partner for over 15,000 clients. Our journey is defined not just by the policies we sell, but by the claims we settle and the promises we keep.",
+  "happy_clients": "Happy Clients",
+  "industry_experience": "Industry Experience",
+  "years_stat": "25+ Years",
+  "our_mission_title": "Our Mission",
+  "our_mission_text": "To empower every individual with the knowledge and protection they need to face life's uncertainties with confidence. We strive to be more than just agents; we are your lifelong partners in financial security."
 }
