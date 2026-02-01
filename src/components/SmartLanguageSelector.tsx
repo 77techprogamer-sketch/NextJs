@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Check, ArrowRight, LogOut } from 'lucide-react';
+import { useUserLocation } from '@/hooks/useUserLocation';
 
 // City to Language Code Mapping (Higher Priority)
 const CITY_TO_LANG: Record<string, string> = {
@@ -63,16 +64,26 @@ type FlowState = 'LOADING' | 'LANGUAGE_SELECT' | 'NATIVE_CHECK' | 'DISMISSED';
 const SmartLanguageSelector = () => {
     const { i18n } = useTranslation();
     const [flowState, setFlowState] = useState<FlowState>('LOADING');
-    const [detectedRegion, setDetectedRegion] = useState('');
     const [suggestedLang, setSuggestedLang] = useState('en');
     const [isAnimating, setIsAnimating] = useState(false);
     const [mounted, setMounted] = useState(false);
+
+    // Use the unified location hook
+    const { city, region, country_code, loading: locationLoading, error: locationError } = useUserLocation();
+    const [isLocationProcessed, setIsLocationProcessed] = useState(false);
+    const [detectedRegionName, setDetectedRegionName] = useState('');
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
     useEffect(() => {
+        // Wait for location to load
+        if (locationLoading) return;
+
+        // Prevent re-processing
+        if (isLocationProcessed) return;
+
         const checkAndPromptLanguage = async () => {
             // Check if already prompted (Session constrained)
             const hasPrompted = sessionStorage.getItem('language_prompt_shown');
@@ -82,44 +93,26 @@ const SmartLanguageSelector = () => {
             }
 
             try {
-                // Fetch IP Geolocation (Primary + Fallback)
-                let data;
-                let usedFallback = false;
-
-                try {
-                    // Use internal API which handles Vercel headers + fallback
-                    const response = await fetch('/api/location');
-                    if (!response.ok) throw new Error(`Location API failed`);
-                    data = await response.json();
-                } catch (error) {
-                    console.error('Location check failed', error);
-                }
-
-                const country_code = (data && data.country_code) ? data.country_code : 'IN';
-                // Region/City from our API might need decoding if not already done, but API does it.
-                // Just ensuring we map correctly if names differ, but API returns standard names.
-                const region = (data && data.region) ? data.region : '';
-                const city = (data && data.city) ? data.city : '';
-
+                // Use data from hook
                 console.log('Geolocation detected:', { city, region, country_code });
 
                 // Handle International Users
-                if (country_code !== 'IN') {
+                if (country_code && country_code !== 'IN') {
                     setFlowState('NATIVE_CHECK');
                     setIsAnimating(true);
+                    setIsLocationProcessed(true);
                     return;
                 }
 
                 // Handle Domestic Users
                 let suggestedLangCode = null;
-                const normalizedCity = city.toLowerCase().trim();
-                const normalizedRegion = region.toLowerCase().trim();
+                const normalizedCity = (city || '').toLowerCase().trim();
+                const normalizedRegion = (region || '').toLowerCase().trim();
 
                 // Check City First (More specific & Case Insensitive)
-                // We iterate through keys to match case-insensitively
                 const cityMatch = Object.keys(CITY_TO_LANG).find(key =>
                     key.toLowerCase() === normalizedCity ||
-                    normalizedCity.includes(key.toLowerCase()) // Partial match for safety (e.g. "Bengaluru Urban")
+                    normalizedCity.includes(key.toLowerCase())
                 );
 
                 if (cityMatch) {
@@ -144,22 +137,28 @@ const SmartLanguageSelector = () => {
                 }
 
                 if (city || region) {
-                    setDetectedRegion(city || region);
+                    setDetectedRegionName(city || region || '');
                 }
 
                 setFlowState('LANGUAGE_SELECT');
-                setIsAnimating(true);
+                setIsRefAnimating(true);
+                setIsLocationProcessed(true);
 
             } catch (error) {
-                console.error('Language detection failed:', error);
+                console.error('Language detection processing failed:', error);
                 // On error, show language selection anyway
                 setFlowState('LANGUAGE_SELECT');
                 setIsAnimating(true);
+                setIsLocationProcessed(true);
             }
         };
 
         checkAndPromptLanguage();
-    }, []);
+    }, [locationLoading, city, region, country_code, isLocationProcessed]);
+
+    const setIsRefAnimating = (val: boolean) => {
+        setIsAnimating(val);
+    }
 
     const selectLanguage = (langCode: string) => {
         i18n.changeLanguage(langCode);
@@ -267,9 +266,9 @@ const SmartLanguageSelector = () => {
                                 {suggestedLangData.greeting} / Welcome
                             </h2>
 
-                            {detectedRegion && (
+                            {detectedRegionName && (
                                 <p className="text-white/70 text-sm">
-                                    We see you&apos;re from <span className="text-blue-300 font-medium">{detectedRegion}</span>
+                                    We see you&apos;re from <span className="text-blue-300 font-medium">{detectedRegionName}</span>
                                 </p>
                             )}
 

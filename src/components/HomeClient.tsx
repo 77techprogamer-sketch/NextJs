@@ -72,22 +72,13 @@ const HomeClient: React.FC<HomeClientProps> = ({ heroTitle, heroDescription }) =
     let displayTitle = heroTitle;
 
     // Check if we should override with local title
-    if (city && city !== 'Bangalore') {
+    if (city) {
         const localTitle = t('hero_title_local', { city });
         // If no prop provided, use local
         if (!heroTitle) {
             displayTitle = localTitle;
         }
-        // If prop IS provided, we might still want to override if it's the generic default.
-        // But usually, if a prop is passed (e.g. from a specific landing page), we respect it.
-        // However, the home page usually passes the translation key output which matches 'hero_title'.
-        // So we can check if it matches the default logic.
-        /* 
-           For now, the strategy: 
-           The page.tsx passes `enTranslations.hero_title` as prop. 
-           So `heroTitle` will be "Insurance Support Online...".
-           We want to replace THAT with "Insurance Support Mumbai...".
-        */
+        // Always override if we have a city match for better personalization
         displayTitle = localTitle;
     }
 
