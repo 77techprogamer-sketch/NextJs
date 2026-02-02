@@ -162,7 +162,7 @@ export default function RootLayout({
             </head>
             <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`} suppressHydrationWarning>
                 <I18nProvider>
-                    <div className="flex flex-col min-h-screen">
+                    <div className="flex flex-col min-h-screen overflow-x-hidden">
                         <GlobalJsonLd />
                         <Analytics />
                         <SmartLanguageSelector />

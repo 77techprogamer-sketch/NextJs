@@ -27,8 +27,8 @@ const Footer = () => {
   const locations = Object.keys(cityData);
 
   return (
-    <footer className="w-full bg-slate-50 dark:bg-slate-950 text-foreground border-t pb-12">
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-primary text-primary-foreground py-2 overflow-hidden">
+    <footer className="w-full bg-slate-50 dark:bg-slate-950 text-foreground border-t pb-12 overflow-x-hidden">
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-primary text-primary-foreground py-2 overflow-hidden max-w-[100vw]">
         <div className="whitespace-nowrap animate-marquee">
           <span className="font-bold text-lg px-4" suppressHydrationWarning>
             {t("gst_rates_slashed")} {t("finance_options")}
