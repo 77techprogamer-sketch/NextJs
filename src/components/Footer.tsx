@@ -6,8 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Award } from 'lucide-react';
 import { slugify } from '@/utils/slugify';
 import { formatLabel } from '@/utils/formatText';
+import { cityData } from '@/data/cityData';
 const Footer = () => {
-  const { t } = useTranslation(); // Initialize useTranslation
+  const { t } = useTranslation();
 
   const serviceKeys = [
     "life_insurance",
@@ -21,6 +22,9 @@ const Footer = () => {
     "wedding_insurance",
     "cyber_insurance",
   ];
+
+  // Manually defined city list merged with dynamic checks or just hardcoded to ensure order
+  const locations = Object.keys(cityData);
 
   return (
     <footer className="w-full bg-slate-50 dark:bg-slate-950 text-foreground border-t pb-12">
@@ -62,29 +66,29 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("services_offered")}</h3>
             <ul className="space-y-2 text-sm">
-              {serviceKeys.slice(0, 6).map((key) => (
+              {serviceKeys.map((key) => (
                 <li key={key}>
                   <Link href={`/services/${slugify(key)}`} className="hover:text-primary transition-colors" suppressHydrationWarning>
                     {formatLabel(t(key))}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/#services" className="text-primary hover:underline text-xs font-semibold">
-                  {t("view_all_services")} &rarr;
-                </Link>
-              </li>
             </ul>
           </div>
 
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("we_serve")}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/locations/bangalore" className="hover:text-primary transition-colors">Bangalore</Link></li>
-              <li><Link href="/locations/vellore" className="hover:text-primary transition-colors">Vellore</Link></li>
-              <li><Link href="/locations/chennai" className="hover:text-primary transition-colors">Chennai</Link></li>
-              <li><Link href="/locations/hosur" className="hover:text-primary transition-colors">Hosur</Link></li>
-              <li><Link href="/locations/kanchipuram" className="hover:text-primary transition-colors">Kanchipuram</Link></li>
+              {locations.map((cityKey) => {
+                const city = cityData[cityKey];
+                return (
+                  <li key={cityKey}>
+                    <Link href={`/locations/${city.slug}`} className="hover:text-primary transition-colors">
+                      {city.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="text-center sm:text-left">

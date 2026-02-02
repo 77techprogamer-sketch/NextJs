@@ -35,7 +35,7 @@ export function GlobalJsonLd() {
                 '@id': 'https://insurancesupport.online/#website',
                 url: 'https://insurancesupport.online',
                 name: 'Insurance Support Online',
-                description: t('services_description') || 'Your trusted partner for all insurance related queries and support.',
+                description: (t('services_description') as string) || 'Your trusted partner for all insurance related queries and support.',
                 publisher: {
                     '@id': 'https://insurancesupport.online/#organization'
                 },
@@ -70,10 +70,10 @@ export function LocalBusinessJsonLd() {
         '@type': 'FAQPage',
         mainEntity: faqs.map(faq => ({
             '@type': 'Question',
-            name: t(faq.q),
+            name: t(faq.q) as string,
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: t(faq.a)
+                text: t(faq.a) as string
             }
         }))
     };
@@ -94,7 +94,7 @@ export function LocalBusinessJsonLd() {
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/brand-favicon.svg',
                 image: 'https://insurancesupport.online/brand-favicon.svg',
-                description: t('services_description') || 'Expert insurance support online for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
+                description: (t('services_description') as string) || 'Expert insurance support online for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
                 telephone: '+919986634506',
                 email: 'contact@insurancesupport.online',
                 priceRange: '₹₹',

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Globe, Check, ArrowRight, LogOut } from 'lucide-react';
 import { useUserLocation } from '@/hooks/useUserLocation';
+import { usePathname } from 'next/navigation';
 
 // City to Language Code Mapping (Higher Priority)
 const CITY_TO_LANG: Record<string, string> = {
@@ -72,15 +73,13 @@ const SmartLanguageSelector = () => {
     const { city, region, country_code, loading: locationLoading, error: locationError } = useUserLocation();
     const [isLocationProcessed, setIsLocationProcessed] = useState(false);
     const [detectedRegionName, setDetectedRegionName] = useState('');
+    const pathname = usePathname();
 
     useEffect(() => {
         setMounted(true);
     }, []);
 
     useEffect(() => {
-        // Wait for location to load
-        if (locationLoading) return;
-
         // Prevent re-processing
         if (isLocationProcessed) return;
 
@@ -91,6 +90,36 @@ const SmartLanguageSelector = () => {
                 setFlowState('DISMISSED');
                 return;
             }
+
+            // 1. URL-based detection (Priority)
+            if (pathname?.startsWith('/locations/')) {
+                const urlCitySlug = pathname.split('/locations/')[1]?.split('/')[0];
+                if (urlCitySlug) {
+                    const normalizedUrlCity = urlCitySlug.replace(/-/g, ' ').toLowerCase().trim();
+
+                    // Check City Map
+                    const cityMatch = Object.keys(CITY_TO_LANG).find(key =>
+                        key.toLowerCase() === normalizedUrlCity ||
+                        normalizedUrlCity.includes(key.toLowerCase())
+                    );
+
+                    if (cityMatch) {
+                        const langCode = CITY_TO_LANG[cityMatch];
+                        console.log(`URL Location Match: ${cityMatch} -> ${langCode}`);
+
+                        setSuggestedLang(langCode);
+                        setDetectedRegionName(cityMatch);
+                        setFlowState('LANGUAGE_SELECT');
+                        setIsRefAnimating(true);
+                        setIsLocationProcessed(true);
+                        return; // Stop here, use URL source
+                    }
+                }
+            }
+
+            // 2. Fallback to IP Geolocation
+            // Wait for location to load
+            if (locationLoading) return;
 
             try {
                 // Use data from hook
@@ -154,7 +183,7 @@ const SmartLanguageSelector = () => {
         };
 
         checkAndPromptLanguage();
-    }, [locationLoading, city, region, country_code, isLocationProcessed]);
+    }, [locationLoading, city, region, country_code, isLocationProcessed, pathname]);
 
     const setIsRefAnimating = (val: boolean) => {
         setIsAnimating(val);
