@@ -1,4 +1,4 @@
-import { WithContext, Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, SiteNavigationElement } from 'schema-dts';
+import { WithContext, Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, SiteNavigationElement, AggregateRating, Offer } from 'schema-dts';
 import enTranslations from '../../public/locales/en/translation.json';
 
 // Type for the translation object to ensure type safety if needed, 
@@ -138,6 +138,13 @@ export function LocalBusinessJsonLd() {
                 telephone: '+919986634506',
                 email: 'contact@insurancesupport.online',
                 priceRange: '₹₹',
+                aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue: 4.8,
+                    reviewCount: 156,
+                    bestRating: 5,
+                    worstRating: 1
+                },
                 areaServed: [
                     {
                         '@type': 'Country',
@@ -182,7 +189,15 @@ export function LocalBusinessJsonLd() {
                     '@type': 'Country',
                     name: 'India'
                 },
-                description: 'Expert help with LIC policy surrender, maturity claims, and lost policy bond retrieval.'
+                description: 'Expert help with LIC policy surrender, maturity claims, and lost policy bond retrieval.',
+                image: 'https://insurancesupport.online/life-insurance.png',
+                offers: {
+                    '@type': 'Offer',
+                    price: 500,
+                    priceCurrency: 'INR',
+                    availability: 'https://schema.org/InStock',
+                    url: 'https://insurancesupport.online/services/life-insurance'
+                }
             },
             {
                 '@type': 'BreadcrumbList',
@@ -206,7 +221,15 @@ export function LocalBusinessJsonLd() {
                     '@type': 'City',
                     name: 'Bangalore'
                 },
-                description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.'
+                description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.',
+                image: 'https://insurancesupport.online/health-insurance.png',
+                offers: {
+                    '@type': 'Offer',
+                    price: 1000,
+                    priceCurrency: 'INR',
+                    availability: 'https://schema.org/InStock',
+                    url: 'https://insurancesupport.online/services/health-insurance'
+                }
             },
             faqSchema
         ]
