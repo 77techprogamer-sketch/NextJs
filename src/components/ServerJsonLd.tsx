@@ -1,4 +1,4 @@
-import { WithContext, Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList } from 'schema-dts';
+import { WithContext, Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, SiteNavigationElement } from 'schema-dts';
 import enTranslations from '../../public/locales/en/translation.json';
 
 // Type for the translation object to ensure type safety if needed, 
@@ -8,7 +8,7 @@ const t = (key: keyof typeof enTranslations) => {
 };
 
 export function GlobalJsonLd() {
-    const jsonLd: { '@context': string; '@graph': (Organization | WebSite)[] } = {
+    const jsonLd: { '@context': string; '@graph': (Organization | WebSite | SiteNavigationElement)[] } = {
         '@context': 'https://schema.org',
         '@graph': [
             {
@@ -44,6 +44,46 @@ export function GlobalJsonLd() {
                     target: 'https://insurancesupport.online/search?q={search_term_string}',
                     'query-input': 'required name=search_term_string'
                 } as any
+            },
+            {
+                '@type': 'SiteNavigationElement',
+                name: 'Home',
+                url: 'https://insurancesupport.online'
+            },
+            {
+                '@type': 'SiteNavigationElement',
+                name: 'About Us',
+                url: 'https://insurancesupport.online/about'
+            },
+            {
+                '@type': 'SiteNavigationElement',
+                name: 'Life Insurance',
+                url: 'https://insurancesupport.online/services/life-insurance'
+            },
+            {
+                '@type': 'SiteNavigationElement',
+                name: 'Health Insurance',
+                url: 'https://insurancesupport.online/services/health-insurance'
+            },
+            {
+                '@type': 'SiteNavigationElement',
+                name: 'Motor Insurance',
+                url: 'https://insurancesupport.online/services/motor-insurance'
+            },
+            {
+                '@type': 'SiteNavigationElement',
+                name: 'Support',
+                url: 'https://insurancesupport.online/support'
+            },
+            {
+                '@type': 'SiteNavigationElement',
+                name: 'Resources',
+                url: 'https://insurancesupport.online/resources'
+            },
+            {
+                '@type': 'SiteNavigationElement',
+                name: 'Bangalore Office',
+                url: 'https://insurancesupport.online/locations/bangalore'
             }
         ]
     }
