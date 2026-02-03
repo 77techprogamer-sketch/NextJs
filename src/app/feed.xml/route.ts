@@ -1,25 +1,66 @@
 import { NextResponse } from 'next/server';
+import enTranslations from '../../../public/locales/en/translation.json';
 
-export const revalidate = 600; // Update every 10 minutes
+const BASE_URL = 'https://insurancesupport.online';
+
+function escapeXml(unsafe: string): string {
+    return unsafe.replace(/[<>&'"]/g, (c) => {
+        switch (c) {
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case '&': return '&amp;';
+            case '\'': return '&apos;';
+            case '"': return '&quot;';
+            default: return c;
+        }
+    });
+}
 
 export async function GET() {
-    const rssUrl = 'https://insurancesupportindia.blogspot.com/feeds/posts/default?alt=rss';
+    const services = enTranslations.services_data;
+    const date = new Date().toISOString().split('T')[0];
 
-    try {
-        const response = await fetch(rssUrl, { next: { revalidate: 600 } });
-        if (!response.ok) {
-            throw new Error(`Failed to fetch RSS feed: ${response.statusText}`);
-        }
-        const xml = await response.text();
+    // Generate offers based on services
+    const offersXml = Object.entries(services).map(([key, service]) => {
+        const url = `${BASE_URL}/services/${key}`;
+        // Using a consistent ID generation strategy
+        const id = key;
 
-        return new NextResponse(xml, {
-            headers: {
-                'Content-Type': 'text/xml',
-                'Cache-Control': 's-maxage=600, stale-while-revalidate',
-            },
-        });
-    } catch (error) {
-        console.error('Error fetching RSS feed:', error);
-        return new NextResponse('Internal Server Error', { status: 500 });
-    }
+        return `
+    <offer id="${id}" available="true">
+      <name>${escapeXml(service.title)}</name>
+      <url>${escapeXml(url)}</url>
+      <price>0</price>
+      <currencyId>INR</currencyId>
+      <categoryId>1</categoryId>
+      <description>${escapeXml(service.description)}</description>
+      <picture>${BASE_URL}/brand-favicon.svg</picture>
+      <delivery>false</delivery>
+      <pickup>true</pickup>
+    </offer>`;
+    }).join('');
+
+    const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog date="${date}T12:00:00+05:30">
+  <shop>
+    <name>Insurance Support</name>
+    <company>Insurance Support India</company>
+    <url>${BASE_URL}</url>
+    <currencies>
+      <currency id="INR" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Insurance Services</category>
+    </categories>
+    <offers>
+      ${offersXml}
+    </offers>
+  </shop>
+</yml_catalog>`;
+
+    return new NextResponse(xml, {
+        headers: {
+            'Content-Type': 'application/xml; charset=utf-8',
+        },
+    });
 }
