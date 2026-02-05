@@ -166,6 +166,10 @@ export const metadata: Metadata = {
         google: 'UvNqMHYqn8D-knp1S1Fg7xjO73SQ0U_LW3i5osu6Pac',
         yandex: '89297fa7e3252466',
     },
+    other: {
+        'content-language': 'en',
+        'language': 'English',
+    },
 }
 
 export default function RootLayout({

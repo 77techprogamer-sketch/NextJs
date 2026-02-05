@@ -70,9 +70,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                         </div>
 
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1] min-h-[1.1em] sm:min-h-[2.2em]">
-                            <ScrollReveal animation="pop-up" delay={0.4} width="100%">
-                                <span suppressHydrationWarning>{shareTitle}</span>
-                            </ScrollReveal>
+                            <span suppressHydrationWarning>{shareTitle}</span>
                         </h1>
 
                         <ScrollReveal animation="fade-up" delay={0.6} width="100%">
