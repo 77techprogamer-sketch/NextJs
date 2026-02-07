@@ -10,10 +10,19 @@ import {
 } from "@/components/ui/accordion";
 import { HelpCircle } from 'lucide-react';
 
-const FAQSection = () => {
+interface FAQItem {
+    q: string;
+    a: string;
+}
+
+interface FAQSectionProps {
+    items?: FAQItem[];
+}
+
+const FAQSection: React.FC<FAQSectionProps> = ({ items }) => {
     const { t } = useTranslation();
 
-    const faqs = [
+    const defaultFaqs = [
         { q: "faq_life_q1", a: "faq_life_a1" },
         { q: "faq_life_q2", a: "faq_life_a2" },
         { q: "faq_health_q1", a: "faq_health_a1" },
@@ -21,6 +30,8 @@ const FAQSection = () => {
         { q: "faq_term_q1", a: "faq_term_a1" },
         { q: "faq_motor_q1", a: "faq_motor_a1" },
     ];
+
+    const faqs = items || defaultFaqs;
 
     return (
         <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">

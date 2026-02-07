@@ -64,7 +64,12 @@ const LoansPageClient: React.FC = () => {
 
             <WhyChooseUsSection />
 
-            <FAQSection />
+            <FAQSection items={[
+                { q: "faq_loan_q1", a: "faq_loan_a1" },
+                { q: "faq_loan_q2", a: "faq_loan_a2" },
+                { q: "faq_loan_q3", a: "faq_loan_a3" },
+                { q: "faq_loan_q4", a: "faq_loan_a4" },
+            ]} />
 
             <ContactSection />
 
