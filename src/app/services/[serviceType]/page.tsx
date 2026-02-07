@@ -94,6 +94,10 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
             `${service.title} Support`,
             "Insurance Support India",
             "Online Insurance Agent",
+            `${service.title} Policy India`,
+            `Buy ${service.title} Online`,
+            `${service.title} Benefits`,
+            `${service.title} Renewal`,
             ...(service.features || [])
         ],
         openGraph: {

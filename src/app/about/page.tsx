@@ -15,6 +15,9 @@ export const metadata: Metadata = {
         'Insurance Experts Bangalore',
         'Legacy Insurance Protection',
         'Family Financial Planning',
+        '25 Years Experience Insurance',
+        'Trusted LIC Advisor',
+        'Top Rated Insurance Agent',
         'SME Insurance Specialists'
     ]
 };

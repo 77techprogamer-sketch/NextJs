@@ -12,6 +12,10 @@ export const metadata: Metadata = {
         'Insurance Support India',
         'Claim Recovery',
         'Rejected Claim Help',
+        'Rejected Insurance Claim Help',
+        'Lost Policy Document Recovery',
+        'LIC Policy Status Check',
+        'Insurance Claim Consultant India',
         'LIC Agent',
         'Insurance Consultancy'
     ]

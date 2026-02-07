@@ -6,6 +6,15 @@ import { BookOpen, FileText, MapPin, Download } from 'lucide-react'
 export const metadata: Metadata = {
     title: 'Insurance Resources & Guides | Insurance Support',
     description: 'Helpful guides, tutorials, and resources for National Insurance policyholders. Claim process, downloads, and local support.',
+    keywords: [
+        'Insurance Guides',
+        'Policy Download Help',
+        'Claim Process Tutorial',
+        'Insurance Forms Download',
+        'National Insurance Claim Process',
+        'Duplicate Policy Copy',
+        'Insurance Resources India'
+    ],
     alternates: {
         canonical: './',
     },

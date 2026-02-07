@@ -15,17 +15,22 @@ export async function middleware(request: NextRequest) {
     if (process.env.NODE_ENV === 'production') {
         const proto = request.headers.get('x-forwarded-proto');
         const host = request.headers.get('host');
+        let shouldRedirect = false;
+        const newUrl = new URL(request.url);
 
         // Redirect www to non-www
         if (host?.startsWith('www.')) {
-            const newUrl = new URL(request.url);
             newUrl.host = host.replace('www.', '');
-            return NextResponse.redirect(newUrl);
+            shouldRedirect = true;
         }
 
+        // Enforce HTTPS
         if (proto && proto === 'http') {
-            const newUrl = new URL(request.url);
             newUrl.protocol = 'https:';
+            shouldRedirect = true;
+        }
+
+        if (shouldRedirect) {
             return NextResponse.redirect(newUrl);
         }
     }
