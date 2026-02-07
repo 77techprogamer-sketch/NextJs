@@ -13,6 +13,7 @@ const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), 
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
 import { GlobalJsonLd } from '@/components/ServerJsonLd'
+import DynamicKeywordLinks from '@/components/DynamicKeywordLinks'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -198,6 +199,7 @@ export default function RootLayout({
                         <main className="flex-1">
                             {children}
                         </main>
+                        <DynamicKeywordLinks />
                         <Footer />
                         <QuickDialSidebar />
                         <React.Suspense fallback={null}>

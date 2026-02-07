@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import { cityData } from '@/data/cityData'
+import { services } from '@/data/services'
 
 
 
@@ -22,22 +23,11 @@ export default async function sitemap() {
         priority: route === '' ? 1 : 0.8,
     }))
 
-    const services = [
-        'life-insurance',
-        'health-insurance',
-        'motor-insurance',
-        'term-insurance',
-        'sme-insurance',
-        'travel-insurance',
-        'pension-plans',
-        'ulip-plans',
-        'wedding-insurance',
-        'cyber-insurance',
-    ]
+
 
     const locations = Object.keys(cityData)
 
-    const serviceRoutes = services.map((slug) => ({
+    const serviceRoutes = services.map((slug: string) => ({
         url: `${BASE_url}/services/${slug}`,
         lastModified: new Date().toISOString(),
         changeFrequency: 'weekly',
