@@ -47,7 +47,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     if (!schemaShape[field.name]) {
       if (field.type === 'number') {
         if (field.required) {
-          schemaShape[field.name] = z.number({ required_error: t("field_required") }).min(1, { message: t("field_required") });
+          schemaShape[field.name] = z.number({ message: t("field_required") }).min(1, { message: t("field_required") });
         } else {
           schemaShape[field.name] = z.union([z.number().optional(), z.literal(null)]);
         }
