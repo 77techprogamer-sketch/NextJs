@@ -10,8 +10,6 @@ import { useTranslation } from 'react-i18next';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import dynamic from 'next/dynamic';
 
-const DateTimeDisplay = dynamic(() => import('@/components/DateTimeDisplay'), { ssr: false });
-
 interface HeroSectionProps {
     city: string | null;
     onGetQuote: () => void;
@@ -48,16 +46,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                 <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
 
                 <div className="relative z-10 w-full container mx-auto px-4 flex flex-col items-center text-center space-y-4 pt-6">
-                    <React.Suspense fallback={<div className="absolute top-6 right-6 w-[180px] h-[38px] bg-white/10 rounded-full animate-pulse border border-white/10" />}>
-                        <m.div
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 1 }}
-                            className="absolute top-6 right-6 z-50 pointer-events-none sm:pointer-events-auto"
-                        >
-                            <DateTimeDisplay className="backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/10 min-w-[180px] min-h-[38px] flex items-center justify-center pointer-events-auto" />
-                        </m.div>
-                    </React.Suspense>
 
                     <div className="space-y-4 max-w-4xl mx-auto flex flex-col items-center">
                         <div className="min-h-[32px] flex items-center justify-center mb-4">
@@ -125,8 +113,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                         </ScrollReveal>
                     </div>
                 </div>
-            </section>
-        </LazyMotion>
+            </section >
+        </LazyMotion >
     );
 };
 

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, Layers, Star, MessageSquare, Phone, Plus, BookOpen, ArrowLeftRight, X } from "lucide-react";
+import { Home, Layers, Star, MessageSquare, Phone, Plus, BookOpen, ArrowLeftRight, X, Banknote } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -19,6 +19,13 @@ const QuickDialSidebar = () => {
     };
 
     const scrollToSection = (id: string) => {
+        // Handle external/page routes
+        if (id.startsWith('/')) {
+            router.push(id);
+            setIsOpen(false);
+            return;
+        }
+
         // If not on home page, push to home with hash
         if (pathname !== "/") {
             router.push(`/#${id}`);
@@ -40,6 +47,7 @@ const QuickDialSidebar = () => {
     const navItems = [
         { id: "hero", icon: Home, label: "Home" },
         { id: "services", icon: Layers, label: "Services" },
+        { id: "/loans", icon: Banknote, label: "Loans" },
         { id: "features", icon: Star, label: "Features" },
         { id: "blog", icon: BookOpen, label: "Blog" },
         { id: "testimonials", icon: MessageSquare, label: "Reviews" },
