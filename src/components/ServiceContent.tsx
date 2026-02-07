@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown';
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, CheckCircle2 } from "lucide-react";
 import QuoteForm from "@/components/QuoteForm";
 import ServiceJsonLd from "@/components/ServiceJsonLd";
+import { AutoLinker } from "@/components/AutoLinker";
 
 // Map strings to Icon components
 const iconMap: Record<string, React.ElementType> = {
@@ -58,7 +59,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath }: Ser
                         <h1 className="text-4xl font-bold">{title}</h1>
                     </div>
                     <p className="text-xl text-muted-foreground leading-relaxed">
-                        {description}
+                        <AutoLinker text={description} />
                     </p>
                 </div>
 
@@ -92,7 +93,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath }: Ser
                                 {features.map((feature: string, idx: number) => (
                                     <div key={idx} className="flex items-center gap-3 bg-slate-50 p-4 rounded-lg border">
                                         <CheckCircle2 className="w-5 h-5 text-green-600" />
-                                        <span className="font-medium">{feature}</span>
+                                        <span className="font-medium"><AutoLinker text={feature} /></span>
                                     </div>
                                 ))}
                             </div>
