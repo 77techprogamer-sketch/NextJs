@@ -28,6 +28,9 @@ const ServiceAreasSection = dynamic(() => import('@/components/sections/ServiceA
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection'), {
     loading: () => <div className="min-h-[400px] animate-pulse bg-white dark:bg-gray-900" />
 });
+const LoansSection = dynamic(() => import('@/components/sections/LoansSection'), {
+    loading: () => <div className="min-h-[400px] animate-pulse bg-slate-50 dark:bg-slate-900" />
+});
 
 // Lazy load modals/non-critical components
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
@@ -100,6 +103,8 @@ const HomeClient: React.FC<HomeClientProps> = () => {
             <FeaturesSection />
 
             <BlogSection />
+
+            <LoansSection onGetQuote={handleGetQuote} />
 
             <WhyChooseUsSection />
 

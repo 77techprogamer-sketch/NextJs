@@ -14,28 +14,41 @@ interface ServiceCardProps {
   icon: LucideIcon;
   href: string;
   delay?: number;
+  onClick?: () => void;
 }
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon: Icon, href, delay = 0 }) => {
+const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon: Icon, href, delay = 0, onClick }) => {
   const { t } = useTranslation(); // Initialize useTranslation
+
+  const CardContentWrapper = (
+    <ScrollReveal animation="fade-up" delay={delay} width="100%">
+      <Card
+        className="flex flex-col items-center text-center p-6 h-full border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+      >
+        <CardHeader className="pb-4 flex flex-col items-center">
+          <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
+            <Icon className="h-8 w-8 text-primary transition-colors duration-300" />
+          </div>
+          <h3 className="text-xl font-bold text-foreground transition-colors duration-300" suppressHydrationWarning>{normalizeUIValue(title)}</h3>
+        </CardHeader>
+        <CardContent className="text-sm text-muted-foreground mt-2" suppressHydrationWarning>
+          {t("click_to_get_quote", { type: formatLabel(title).toLowerCase() })}
+        </CardContent>
+      </Card>
+    </ScrollReveal>
+  );
+
+  if (onClick) {
+    return (
+      <div onClick={onClick} className="block group cursor-pointer">
+        {CardContentWrapper}
+      </div>
+    );
+  }
 
   return (
     <Link href={href} className="block group">
-      <ScrollReveal animation="fade-up" delay={delay} width="100%">
-        <Card
-          className="flex flex-col items-center text-center p-6 h-full border bg-card text-card-foreground shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-        >
-          <CardHeader className="pb-4 flex flex-col items-center">
-            <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors duration-300">
-              <Icon className="h-8 w-8 text-primary transition-colors duration-300" />
-            </div>
-            <h3 className="text-xl font-bold text-foreground transition-colors duration-300" suppressHydrationWarning>{normalizeUIValue(title)}</h3>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground mt-2" suppressHydrationWarning>
-            {t("click_to_get_quote", { type: formatLabel(title).toLowerCase() })}
-          </CardContent>
-        </Card>
-      </ScrollReveal>
+      {CardContentWrapper}
     </Link>
   );
 };

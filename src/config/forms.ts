@@ -23,7 +23,7 @@ export const DEFAULT_FORM_CONFIG: InsuranceFormConfig = {
         initialQuery: "I have a general inquiry.",
     },
     fields: [
-        { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount' }
+        { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount', required: true }
     ]
 };
 
@@ -45,7 +45,7 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
                     { labelKey: 'self_parents', value: 'Self with Parents' }
                 ]
             },
-            { name: 'pincode', labelKey: 'pincode', type: 'text', placeholderKey: 'enter_pincode' }
+            { name: 'pincode', labelKey: 'pincode', type: 'text', placeholderKey: 'enter_pincode', required: true }
         ]
     },
     life_insurance: {
@@ -53,7 +53,7 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
             initialQuery: "I want to learn more about Life Insurance and how to secure my family's future.",
         },
         fields: [
-            { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount' },
+            { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount', required: true },
             { name: 'annualIncome', labelKey: 'annual_income', type: 'number', placeholderKey: 'enter_income' }
         ]
     },
@@ -63,7 +63,7 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
         },
         suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
         fields: [
-            { name: 'vehicleNumber', labelKey: 'vehicle_number', type: 'text', placeholderKey: 'enter_vehicle_number' },
+            { name: 'vehicleNumber', labelKey: 'vehicle_number', type: 'text', placeholderKey: 'enter_vehicle_number', required: true },
             {
                 name: 'vehicleType',
                 labelKey: 'vehicle_type',
@@ -72,7 +72,8 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
                     { labelKey: 'car', value: 'Car' },
                     { labelKey: 'bike', value: 'Bike' },
                     { labelKey: 'commercial_vehicle', value: 'Commercial Vehicle' }
-                ]
+                ],
+                required: true
             },
             {
                 name: 'previousPolicyType',
@@ -90,7 +91,8 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
                 options: [
                     { labelKey: 'comprehensive', value: 'Comprehensive' },
                     { labelKey: 'third_party', value: 'Third Party' }
-                ]
+                ],
+                required: true
             }
         ]
     },
@@ -99,7 +101,7 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
             initialQuery: "I am interested in Term Insurance plans. Please guide me.",
         },
         fields: [
-            { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount' },
+            { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount', required: true },
             { name: 'annualIncome', labelKey: 'annual_income', type: 'number', placeholderKey: 'enter_income' },
             { name: 'tobaccoUser', labelKey: 'tobacco_user', type: 'radio', options: [{ labelKey: 'yes', value: 'yes' }, { labelKey: 'no', value: 'no' }] }
         ]
@@ -110,7 +112,7 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
         },
         suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
         fields: [
-            { name: 'businessName', labelKey: 'business_name', type: 'text', placeholderKey: 'enter_business_name' },
+            { name: 'businessName', labelKey: 'business_name', type: 'text', placeholderKey: 'enter_business_name', required: true },
             {
                 name: 'industryType',
                 labelKey: 'industry_type',
@@ -121,7 +123,8 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
                     { labelKey: 'it_services', value: 'IT Services' },
                     { labelKey: 'consulting', value: 'Consulting' },
                     { labelKey: 'other', value: 'Other' }
-                ]
+                ],
+                required: true
             },
             {
                 name: 'annualTurnover',
@@ -150,10 +153,11 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
                     { labelKey: 'europe', value: 'Europe' },
                     { labelKey: 'asia', value: 'Asia' },
                     { labelKey: 'worldwide', value: 'Worldwide' }
-                ]
+                ],
+                required: true
             },
-            { name: 'travelStartDate', labelKey: 'travel_start_date', type: 'date' },
-            { name: 'tripDuration', labelKey: 'trip_duration_days', type: 'number', placeholderKey: 'enter_days' }
+            { name: 'travelStartDate', labelKey: 'travel_start_date', type: 'date', required: true },
+            { name: 'tripDuration', labelKey: 'trip_duration_days', type: 'number', placeholderKey: 'enter_days', required: true }
         ]
     },
     pension_plans: {
@@ -213,5 +217,42 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
                 ]
             }
         ]
-    }
+    },
+    loan_inquiry: {
+        chatbotContext: {
+            initialQuery: "I am interested in applying for a loan.",
+        },
+        fields: [
+            { name: 'loanAmount', labelKey: 'loan_amount', type: 'number', placeholderKey: 'enter_amount', required: true },
+            { name: 'annualIncome', labelKey: 'annual_income', type: 'number', placeholderKey: 'enter_income' },
+            {
+                name: 'employmentType',
+                labelKey: 'employment_type',
+                type: 'select',
+                options: [
+                    { labelKey: 'salaried', value: 'Salaried' },
+                    { labelKey: 'self_employed_professional', value: 'Self Employed Professional' },
+                    { labelKey: 'self_employed_business', value: 'Self Employed Business' },
+                    { labelKey: 'student', value: 'Student' },
+                    { labelKey: 'homemaker', value: 'Homemaker' },
+                    { labelKey: 'other', value: 'Other' }
+                ],
+                required: true
+            },
+            { name: 'pincode', labelKey: 'pincode', type: 'text', placeholderKey: 'enter_pincode', required: true }
+        ]
+    },
+    // Loan Aliases
+    home_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } }, // Placeholder to be replaced below
+    personal_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },
+    business_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },
+    mortgage_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },
+    vehicle_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },
+    education_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } }
 };
+
+// Apply loan_inquiry config to all loan types
+const loanTypes = ['home_loan', 'personal_loan', 'business_loan', 'mortgage_loan', 'vehicle_loan', 'education_loan'];
+loanTypes.forEach(type => {
+    FORM_CONFIGS[type] = FORM_CONFIGS['loan_inquiry'];
+});

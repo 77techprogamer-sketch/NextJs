@@ -46,9 +46,17 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   config.fields.forEach(field => {
     if (!schemaShape[field.name]) {
       if (field.type === 'number') {
-        schemaShape[field.name] = z.union([z.number().optional(), z.literal(null)]);
+        if (field.required) {
+          schemaShape[field.name] = z.number({ required_error: t("field_required") }).min(1, { message: t("field_required") });
+        } else {
+          schemaShape[field.name] = z.union([z.number().optional(), z.literal(null)]);
+        }
       } else {
-        schemaShape[field.name] = z.string().optional();
+        if (field.required) {
+          schemaShape[field.name] = z.string().min(1, { message: t("field_required") });
+        } else {
+          schemaShape[field.name] = z.string().optional();
+        }
       }
     }
   });
@@ -105,7 +113,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
         gender: values.gender,
         phone: values.mobileNumber,
         insurance_type: insuranceType,
-        intended_sum_insured: values.sumAssured,
+        intended_sum_insured: values.sumAssured || values.loanAmount || values.investmentAmount || values.totalBudget || values.monthlyInvestment,
       };
 
       // Extract specific fields to put into the 'details' JSON column
