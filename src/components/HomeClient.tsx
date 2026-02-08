@@ -37,6 +37,7 @@ const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: f
 const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false });
 const VisitorCounter = dynamic(() => import('@/components/VisitorCounter'), { ssr: false });
 const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
+const LostPolicyFinder = dynamic(() => import('@/components/LostPolicyFinder'), { ssr: false });
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -97,6 +98,10 @@ const HomeClient: React.FC<HomeClientProps> = () => {
                 title={displayTitle}
                 description={displayDescription}
             />
+
+            <div className="-mt-16 relative z-30 px-4 mb-12">
+                <LostPolicyFinder />
+            </div>
 
             <ServicesSection />
 

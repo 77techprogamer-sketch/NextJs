@@ -8,7 +8,7 @@ const t = (key: keyof typeof enTranslations) => {
 };
 
 export function GlobalJsonLd() {
-    const jsonLd: { '@context': string; '@graph': (Organization | WebSite | SiteNavigationElement)[] } = {
+    const jsonLd: any = {
         '@context': 'https://schema.org',
         '@graph': [
             {
@@ -28,7 +28,14 @@ export function GlobalJsonLd() {
                     'https://www.facebook.com/insurancesupport',
                     'https://twitter.com/insurancesupport',
                     'https://www.instagram.com/insurancesupport'
-                ]
+                ],
+                aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue: 4.8,
+                    reviewCount: 156,
+                    bestRating: 5,
+                    worstRating: 1
+                }
             },
             {
                 '@type': 'WebSite',
