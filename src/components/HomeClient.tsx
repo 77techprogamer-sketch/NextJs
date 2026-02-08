@@ -31,6 +31,9 @@ const FAQSection = dynamic(() => import('@/components/sections/FAQSection'), {
 const LoansSection = dynamic(() => import('@/components/sections/LoansSection'), {
     loading: () => <div className="min-h-[400px] animate-pulse bg-slate-50 dark:bg-slate-900" />
 });
+const ProcessTimeline = dynamic(() => import('@/components/sections/ProcessTimeline'), {
+    loading: () => <div className="min-h-[300px] animate-pulse bg-white dark:bg-slate-950" />
+});
 
 // Lazy load modals/non-critical components
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
@@ -106,6 +109,8 @@ const HomeClient: React.FC<HomeClientProps> = () => {
             <ServicesSection />
 
             <FeaturesSection />
+
+            <ProcessTimeline />
 
             <BlogSection />
 

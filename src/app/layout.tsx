@@ -15,6 +15,7 @@ import I18nProvider from '@/components/I18nProvider'
 import { GlobalJsonLd } from '@/components/ServerJsonLd'
 import DynamicKeywordLinks from '@/components/DynamicKeywordLinks'
 const ShareNudge = dynamic(() => import('@/components/ShareNudge'), { ssr: false });
+const ActivityTicker = dynamic(() => import('@/components/ActivityTicker'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -207,6 +208,7 @@ export default function RootLayout({
                             <ChatbotWidget />
                         </React.Suspense>
                         <ShareNudge />
+                        <ActivityTicker />
                         <Toaster />
                     </div>
                 </I18nProvider>
