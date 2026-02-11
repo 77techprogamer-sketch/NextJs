@@ -43,7 +43,7 @@ const ActivityTicker = () => {
                     initial={{ opacity: 0, y: 50, x: -20, scale: 0.8 }}
                     animate={{ opacity: 1, y: 0, x: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 20, scale: 0.8 }}
-                    className="fixed bottom-24 left-4 z-50 max-w-[280px] md:max-w-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-4 flex items-start gap-3"
+                    className="fixed bottom-40 md:bottom-48 left-4 z-50 max-w-[280px] md:max-w-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl p-4 flex items-start gap-3"
                 >
                     <div className="bg-slate-50 dark:bg-slate-800 p-2 rounded-full flex-shrink-0">
                         {activities[currentIndex].icon}
