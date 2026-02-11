@@ -8,7 +8,6 @@
         "start": "next start",
         "lint": "next lint",
         "vercel-install": "npm install --legacy-peer-deps",
-        "postbuild": "next-sitemap",
         "indexnow:submit": "node scripts/submit-indexnow.js"
     },
     "dependencies": {

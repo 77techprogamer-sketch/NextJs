@@ -41,5 +41,16 @@ export default async function sitemap() {
         priority: 0.85,
     }))
 
-    return [...staticRoutes, ...serviceRoutes, ...locationRoutes]
+    const resourceSubPages = [
+        '/resources/bangalore-insurance-support',
+        '/resources/download-policy-copy',
+        '/resources/national-insurance-claim-process',
+    ].map((route) => ({
+        url: `${BASE_url}${route}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'monthly',
+        priority: 0.7,
+    }))
+
+    return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...resourceSubPages]
 }
