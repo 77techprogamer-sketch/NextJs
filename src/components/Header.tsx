@@ -91,30 +91,30 @@ const Header = () => {
             <DropdownMenuTrigger asChild>
               <button
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                aria-label="Loans"
+                aria-label={t("loans")}
                 suppressHydrationWarning
               >
-                Loans
+                {t("loans")}
                 <ChevronDown className="h-4 w-4" />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-56">
               {[
-                "Loan Against Insurance Policy",
-                "Home Loan",
-                "Personal Loan",
-                "Business Loan",
-                "Education Loan",
-                "Vehicle Loan",
-                "Mortgage Loan"
-              ].map((item) => (
-                <DropdownMenuItem key={item} asChild>
+                "loan_against_policy",
+                "home_loan",
+                "personal_loan",
+                "business_loan",
+                "education_loan",
+                "vehicle_loan",
+                "mortgage_loan"
+              ].map((key) => (
+                <DropdownMenuItem key={key} asChild>
                   <Link
                     href="/loans"
                     className="cursor-pointer"
                     suppressHydrationWarning
                   >
-                    {item}
+                    {t(key)}
                   </Link>
                 </DropdownMenuItem>
               ))}

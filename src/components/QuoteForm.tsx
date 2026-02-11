@@ -25,9 +25,10 @@ interface QuoteFormProps {
   insuranceType: string;
   onClose?: () => void;
   onSuccess?: () => void;
+  initialData?: any;
 }
 
-const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess }) => {
+const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess, initialData }) => {
   const { t } = useTranslation();
   const [selectedMembers, setSelectedMembers] = useState<string[]>([]);
 
@@ -100,7 +101,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       dateOfBirth: undefined,
       gender: 'Male',
       memberDetails: {},
-      // eslint-disable-next-line
+      ...initialData
     } as any,
   });
 

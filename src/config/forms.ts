@@ -242,6 +242,48 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
             { name: 'pincode', labelKey: 'pincode', type: 'text', placeholderKey: 'enter_pincode', required: true }
         ]
     },
+    policy_recovery: {
+        chatbotContext: {
+            initialQuery: "I need help recovering a lost insurance policy.",
+        },
+        fields: [
+            {
+                name: 'insurer',
+                labelKey: 'insurance_company',
+                type: 'select',
+                options: [
+                    { labelKey: 'lic_of_india', value: 'LIC' },
+                    { labelKey: 'private_insurers', value: 'Private' },
+                    { labelKey: 'unknown', value: 'Unknown' }
+                ],
+                required: true
+            },
+            {
+                name: 'yearsSinceLapse',
+                labelKey: 'years_since_lapse_label',
+                type: 'select',
+                options: [
+                    { labelKey: 'less_than_1_year', value: '1' },
+                    { labelKey: '1_3_years', value: '3' },
+                    { labelKey: '3_10_years', value: '5' },
+                    { labelKey: 'more_than_10_years', value: '15' }
+                ],
+                required: true
+            },
+            {
+                name: 'hasBond',
+                labelKey: 'original_bond_status',
+                type: 'select',
+                options: [
+                    { labelKey: 'yes_have_it', value: 'yes' },
+                    { labelKey: 'have_copy_only', value: 'copy' },
+                    { labelKey: 'lost_completely', value: 'no' }
+                ],
+                required: true
+            },
+            { name: 'policyNumber', labelKey: 'policy_number_optional', type: 'text', placeholderKey: 'enter_policy_number' }
+        ]
+    },
     // Loan Aliases
     home_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } }, // Placeholder to be replaced below
     personal_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },

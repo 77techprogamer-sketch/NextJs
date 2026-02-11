@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MessageCircle, Search, Headset, CheckCircle2 } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const steps = [
     {
@@ -35,7 +36,11 @@ const steps = [
     }
 ];
 
-const ProcessTimeline = () => {
+interface ProcessTimelineProps {
+    onAction?: () => void;
+}
+
+const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onAction }) => {
     return (
         <section className="py-20 bg-white dark:bg-slate-950 overflow-hidden">
             <div className="container mx-auto px-4">
@@ -81,12 +86,18 @@ const ProcessTimeline = () => {
                         whileTap={{ scale: 0.95 }}
                         className="inline-block"
                     >
-                        <a
-                            href="#quote-form"
+                        <Button
+                            onClick={() => {
+                                if (onAction) {
+                                    onAction();
+                                } else {
+                                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
                             className="bg-primary text-white px-8 py-4 rounded-full font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all inline-flex items-center gap-2"
                         >
                             Start Your Recovery Now
-                        </a>
+                        </Button>
                     </motion.div>
                 </div>
             </div>

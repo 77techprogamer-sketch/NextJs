@@ -8,7 +8,11 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, AlertCircle, FileSearch } from 'lucide-react';
 
-const LostPolicyFinder = () => {
+interface LostPolicyFinderProps {
+    onAction?: (data?: any) => void;
+}
+
+const LostPolicyFinder: React.FC<LostPolicyFinderProps> = ({ onAction }) => {
     const [step, setStep] = useState(1);
     const [score, setScore] = useState(0);
     const [showResult, setShowResult] = useState(false);
@@ -160,7 +164,20 @@ const LostPolicyFinder = () => {
                             </ul>
                         </div>
 
-                        <Button className="w-full bg-green-600 hover:bg-green-700 text-white" size="lg" onClick={() => document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' })}>
+                        <Button
+                            className="w-full bg-green-600 hover:bg-green-700 text-white"
+                            size="lg"
+                            onClick={() => {
+                                if (onAction) {
+                                    onAction({
+                                        insuranceType: 'policy_recovery',
+                                        formData: formData
+                                    });
+                                } else {
+                                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                                }
+                            }}
+                        >
                             Start Recovery Process Free
                         </Button>
 

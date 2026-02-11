@@ -55,6 +55,7 @@ const HomeClient: React.FC<HomeClientProps> = () => {
     const { city } = useUserLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
+    const [initialFormData, setInitialFormData] = useState<any>(null);
 
     useEffect(() => {
         // Force i18n initialization if needed
@@ -85,10 +86,18 @@ const HomeClient: React.FC<HomeClientProps> = () => {
     const handleCloseModal = useCallback(() => {
         setIsModalOpen(false);
         setSelectedInsuranceType('');
+        setInitialFormData(null);
     }, []);
 
-    const handleGetQuote = useCallback(() => {
-        setSelectedInsuranceType('general_inquiry');
+    const handleGetQuote = useCallback((data?: any) => {
+        if (data && data.insuranceType) {
+            setSelectedInsuranceType(data.insuranceType);
+            if (data.formData) {
+                setInitialFormData(data.formData);
+            }
+        } else {
+            setSelectedInsuranceType('general_inquiry');
+        }
         setIsModalOpen(true);
     }, []);
 
@@ -103,14 +112,14 @@ const HomeClient: React.FC<HomeClientProps> = () => {
             />
 
             <div className="-mt-16 relative z-30 px-4 mb-12">
-                <LostPolicyFinder />
+                <LostPolicyFinder onAction={handleGetQuote} />
             </div>
 
             <ServicesSection />
 
             <FeaturesSection />
 
-            <ProcessTimeline />
+            <ProcessTimeline onAction={handleGetQuote} />
 
             <BlogSection />
 
@@ -156,7 +165,12 @@ const HomeClient: React.FC<HomeClientProps> = () => {
             </React.Suspense>
 
             <React.Suspense fallback={null}>
-                <ServiceModal isOpen={isModalOpen} onClose={handleCloseModal} insuranceType={selectedInsuranceType} />
+                <ServiceModal
+                    isOpen={isModalOpen}
+                    onClose={handleCloseModal}
+                    insuranceType={selectedInsuranceType}
+                    initialData={initialFormData}
+                />
             </React.Suspense>
 
             <React.Suspense fallback={null}>
