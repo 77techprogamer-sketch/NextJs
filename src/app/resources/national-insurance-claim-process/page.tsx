@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     description: 'Simplest guide to file National Insurance claims (Cashless & Reimbursement). Check documents required, download forms, and get claiming support.',
     keywords: ['National Insurance Claim Process', 'NIC Claims', 'Cashless Claim National Insurance', 'Reimbursement Claim NIC', 'National Insurance Claim Form'],
     alternates: {
-        canonical: './',
+        canonical: 'https://insurancesupport.online/resources/national-insurance-claim-process',
     },
     openGraph: {
         title: 'How to File National Insurance Claim | Easy Guide',

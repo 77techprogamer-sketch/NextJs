@@ -3,7 +3,9 @@ import LoansPageClient from '@/components/LoansPageClient';
 import translations from '@/../public/locales/en/translation.json';
 
 export const metadata: Metadata = {
-    title: 'Loans & Financial Services | Insurance Support India',
+    title: {
+        absolute: 'Loans & Financial Services | Insurance Support India'
+    },
     description: translations.loans_hero_description || 'Get the best loan offers specifically tailored for the Indian market. Home, Personal, Business loans and more.',
     keywords: ['Loans India', 'Home Loan', 'Personal Loan', 'Business Loan', 'Mortgage Loan', 'Education Loan', 'Vehicle Loan', 'Low Interest Loans'],
     openGraph: {

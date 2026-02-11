@@ -4,7 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { BookOpen, FileText, MapPin, Download } from 'lucide-react'
 
 export const metadata: Metadata = {
-    title: 'Insurance Resources & Guides | Insurance Support',
+    title: {
+        absolute: 'Insurance Resources & Guides | Insurance Support India'
+    },
     description: 'Helpful guides, tutorials, and resources for National Insurance policyholders. Claim process, downloads, and local support.',
     keywords: [
         'Insurance Guides',
@@ -16,7 +18,7 @@ export const metadata: Metadata = {
         'Insurance Resources India'
     ],
     alternates: {
-        canonical: './',
+        canonical: 'https://insurancesupport.online/resources',
     },
 }
 

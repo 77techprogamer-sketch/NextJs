@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Looking for a National Insurance Company office or agent in Bangalore? We provide doorstep service for policy renewal, new quotes, and claim settlement.',
     keywords: ['National Insurance Bangalore', 'National Insurance Agent near me', 'NIC Office Bangalore', 'Motor Insurance Renewal Bangalore', 'Health Insurance Agent JP Nagar'],
     alternates: {
-        canonical: './',
+        canonical: 'https://insurancesupport.online/resources/bangalore-insurance-support',
     },
     openGraph: {
         title: 'National Insurance Support | Trusted Bangalore Agents',

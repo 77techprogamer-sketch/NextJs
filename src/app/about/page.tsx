@@ -5,7 +5,9 @@ import AboutContent from '@/components/AboutContent';
 import translations from '@/../public/locales/en/translation.json';
 
 export const metadata: Metadata = {
-    title: translations.about_page_title,
+    title: {
+        absolute: `${translations.about_page_title} - Insurance Support`
+    },
     description: translations.about_meta_description,
     keywords: [
         translations.about_hero_title,
@@ -19,7 +21,10 @@ export const metadata: Metadata = {
         'Trusted LIC Advisor',
         'Top Rated Insurance Agent',
         'SME Insurance Specialists'
-    ]
+    ],
+    alternates: {
+        canonical: 'https://insurancesupport.online/about',
+    }
 };
 
 const AboutPage = () => {

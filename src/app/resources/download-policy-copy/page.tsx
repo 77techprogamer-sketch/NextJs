@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Lost your policy document? Learn how to download your National Insurance policy copy online instantly. Step-by-step instructions for 2025.',
     keywords: ['National Insurance Policy Download', 'NIC Policy Copy', 'Lost Insurance Policy', 'Download Car Insurance Policy', 'Health Insurance Soft Copy'],
     alternates: {
-        canonical: './',
+        canonical: 'https://insurancesupport.online/resources/download-policy-copy',
     },
     openGraph: {
         title: 'How to Download National Insurance Policy Copy',
