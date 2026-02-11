@@ -106,7 +106,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath }: Ser
                                     {faqs.map((faq, idx) => (
                                         <div key={idx} className="border rounded-lg p-4">
                                             <h3 className="font-semibold mb-2">{faq.question}</h3>
-                                            <p className="text-muted-foreground">{faq.answer}</p>
+                                            <p className="text-muted-foreground"><AutoLinker text={faq.answer} /></p>
                                         </div>
                                     ))}
                                 </div>

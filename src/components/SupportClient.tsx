@@ -13,6 +13,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/componen
 import dynamic from 'next/dynamic';
 
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
+import { AutoLinker } from '@/components/AutoLinker';
 
 export default function SupportClient() {
     const { t } = useTranslation();
@@ -50,7 +51,7 @@ export default function SupportClient() {
                         {t("support_page_title")}
                     </h1>
                     <p className="text-lg sm:text-xl text-blue-100 max-w-2xl mx-auto mb-8">
-                        {t("support_meta_description")}
+                        <AutoLinker text={t("support_meta_description")} />
                     </p>
                     <div className="flex flex-wrap justify-center gap-4">
                         <Button
@@ -88,7 +89,7 @@ export default function SupportClient() {
                         <div className="flex-1 text-center md:text-left">
                             <h2 className="text-2xl font-bold mb-2">{t("general_inquiry_title")}</h2>
                             <p className="text-muted-foreground text-lg">
-                                {t("general_inquiry_description")}
+                                <AutoLinker text={t("general_inquiry_description")} />
                             </p>
                         </div>
                         <Button
@@ -123,7 +124,7 @@ export default function SupportClient() {
                                 </CardHeader>
                                 <CardContent>
                                     <p className="text-sm text-muted-foreground line-clamp-3">
-                                        {t(`${service.key}_long_description`, { defaultValue: t("services_description") })}
+                                        <AutoLinker text={t(`${service.key}_long_description`, { defaultValue: t("services_description") })} />
                                     </p>
                                 </CardContent>
                                 <CardFooter>

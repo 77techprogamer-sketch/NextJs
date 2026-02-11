@@ -9,6 +9,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { HelpCircle } from 'lucide-react';
+import { AutoLinker } from '@/components/AutoLinker';
 
 interface FAQItem {
     q: string;
@@ -56,7 +57,7 @@ const FAQSection: React.FC<FAQSectionProps> = ({ items }) => {
                                     {t(faq.q)}
                                 </AccordionTrigger>
                                 <AccordionContent className="text-gray-600 dark:text-gray-400">
-                                    {t(faq.a)}
+                                    <AutoLinker text={t(faq.a)} />
                                 </AccordionContent>
                             </AccordionItem>
                         ))}

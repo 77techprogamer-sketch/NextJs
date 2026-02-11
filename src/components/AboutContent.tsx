@@ -3,6 +3,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Users, Award, History } from 'lucide-react';
+import { AutoLinker } from '@/components/AutoLinker';
 
 const AboutContent = () => {
     const { t } = useTranslation();
@@ -15,7 +16,7 @@ const AboutContent = () => {
                 <div className="container mx-auto px-4 relative z-10 text-center">
                     <h1 className="text-4xl md:text-6xl font-bold mb-6" suppressHydrationWarning>{t('about_hero_title')}</h1>
                     <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed" suppressHydrationWarning>
-                        {t('about_hero_subtitle')}
+                        <AutoLinker text={t('about_hero_subtitle')} />
                     </p>
                 </div>
             </section>
@@ -33,10 +34,10 @@ const AboutContent = () => {
                                 {t('about_legacy_title')}
                             </h2>
                             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" suppressHydrationWarning>
-                                {t('about_legacy_text_1')}
+                                <AutoLinker text={t('about_legacy_text_1')} />
                             </p>
                             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" suppressHydrationWarning>
-                                {t('about_legacy_text_2')}
+                                <AutoLinker text={t('about_legacy_text_2')} />
                             </p>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
@@ -67,7 +68,7 @@ const AboutContent = () => {
                     <div className="max-w-4xl mx-auto text-center space-y-8">
                         <h2 className="text-3xl font-bold text-gray-900 dark:text-white" suppressHydrationWarning>{t('our_mission_title')}</h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed" suppressHydrationWarning>
-                            {t('our_mission_text')}
+                            <AutoLinker text={t('our_mission_text')} />
                         </p>
                     </div>
                 </div>
