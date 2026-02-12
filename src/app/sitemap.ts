@@ -11,6 +11,8 @@ export default async function sitemap() {
         '',
         '/support',
         '/about',
+        '/loans',
+        '/engagement',
         '/privacy-policy',
         '/terms-of-service',
         '/get-started',
