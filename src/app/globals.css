@@ -109,6 +109,10 @@
         @apply bg-white/10 backdrop-blur-md border border-white/20 shadow-xl;
     }
 
+    .glass-card {
+        @apply bg-card/60 backdrop-blur-md border border-white/10 shadow-lg hover:shadow-2xl transition-all duration-300;
+    }
+
     .text-gradient {
         @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-600 dark:from-blue-400 dark:to-cyan-300;
     }
@@ -116,6 +120,47 @@
     .text-gradient-gold {
         @apply bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 via-orange-400 to-yellow-500;
     }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-background;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-primary/20 rounded-full hover:bg-primary/40 transition-colors;
+}
+
+/* Selection */
+::selection {
+    @apply bg-accent text-primary;
+}
+
+/* Page Transitions */
+.page-transition-enter {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.page-transition-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 300ms, transform 300ms;
 }
 
 /* Animations using simpler CSS or leveraging Tailwind Animate */

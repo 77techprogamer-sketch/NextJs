@@ -7,19 +7,23 @@ import { slugify } from '@/utils/slugify';
 import { Heart, Shield, FileText, Car, Building, Plane, Wallet, TrendingUp, HeartHandshake, ShieldCheck } from 'lucide-react';
 
 
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+
 const ServicesSection = () => {
     const { t } = useTranslation();
 
     return (
-        <section id="services" className="py-12 sm:py-16 bg-white dark:bg-gray-800">
+        <section id="services" className="py-20 sm:py-32 bg-white dark:bg-gray-900 overflow-hidden">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8" suppressHydrationWarning>
-                    {t("services_offered")}
-                </h2>
-                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto" suppressHydrationWarning>
-                    {t("services_description")}
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                <ScrollReveal animation="fade-up" width="100%">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 sm:mb-8" suppressHydrationWarning>
+                        {t("services_offered")}
+                    </h2>
+                    <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 mb-12 sm:mb-16 max-w-3xl mx-auto leading-relaxed" suppressHydrationWarning>
+                        {t("services_description")}
+                    </p>
+                </ScrollReveal>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
                     <ServiceCard title={t("life_insurance")} icon={Heart} href={`/services/${slugify('life_insurance')}`} delay={0.1} />
                     <ServiceCard title={t("health_insurance")} icon={Shield} href={`/services/${slugify('health_insurance')}`} delay={0.2} />
                     <ServiceCard title={t("term_insurance")} icon={FileText} href={`/services/${slugify('term_insurance')}`} delay={0.3} />
@@ -35,5 +39,6 @@ const ServicesSection = () => {
         </section>
     );
 };
+
 
 export default ServicesSection;

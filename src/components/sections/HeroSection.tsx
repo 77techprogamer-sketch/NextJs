@@ -36,16 +36,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
 
     return (
         <LazyMotion features={domAnimation}>
-            <section id="hero" className="relative w-full h-auto pb-24 flex flex-col overflow-hidden bg-primary text-white">
+            <section id="hero" className="relative w-full h-auto pb-32 pt-12 flex flex-col overflow-hidden bg-primary text-white">
                 {/* Background Effects */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/50 via-primary to-primary"></div>
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
-                <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2"></div>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,_rgba(30,58,138,0.8),_transparent),_radial-gradient(circle_at_80%_70%,_rgba(30,58,138,0.8),_transparent)]"></div>
+                <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/20 rounded-full blur-[140px] -translate-y-1/2 translate-x-1/2 animate-pulse"></div>
+                <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[140px] translate-y-1/2 -translate-x-1/2"></div>
 
                 {/* Grid Pattern Overlay */}
-                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] opacity-20"></div>
+                <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:radial-gradient(ellipse_at_center,white,transparent)] opacity-20"></div>
 
-                <div className="relative z-10 w-full container mx-auto px-4 flex flex-col items-center text-center space-y-4 pt-6">
+                <div className="relative z-10 w-full container mx-auto px-4 flex flex-col items-center text-center space-y-6">
+
 
                     <div className="space-y-4 max-w-4xl mx-auto flex flex-col items-center">
                         <div className="min-h-[32px] flex items-center justify-center mb-4">

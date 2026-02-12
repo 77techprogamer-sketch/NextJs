@@ -47,17 +47,18 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full bg-background shadow-sm sticky top-0 z-10 border-b">
+    <header className="w-full bg-background/80 backdrop-blur-md sticky top-0 z-50 border-b">
       <div className="container mx-auto px-4 h-16 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")} suppressHydrationWarning>
-          <div className="h-8 w-8 bg-primary rounded flex items-center justify-center group-hover:bg-accent transition-colors">
-            <ShieldCheck className="h-5 w-5 text-white" />
+        <Link href="/" className="flex items-center gap-2 group transition-transform hover:scale-[1.02]" aria-label={t("insurance_support")} suppressHydrationWarning>
+          <div className="h-9 w-9 bg-primary rounded-lg flex items-center justify-center group-hover:bg-accent group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-primary/20">
+            <ShieldCheck className="h-6 w-6 text-white" />
           </div>
           <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors" suppressHydrationWarning>
             {t("insurance_support")}
           </span>
         </Link>
-        <nav className="flex items-center gap-4">
+        <nav className="flex items-center gap-6">
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button

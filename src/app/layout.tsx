@@ -4,9 +4,10 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import dynamic from 'next/dynamic'
+import PageTransitionProvider from '@/components/PageTransitionProvider';
 const ChatbotWidget = dynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
 import Analytics from '@/components/Analytics'
-import dynamic from 'next/dynamic'
 
 const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
 const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
@@ -191,7 +192,13 @@ export default function RootLayout({
                 <link rel="preload" href="/grid.svg" as="image" />
                 <link rel="preconnect" href="https://idzvdeemgxhwlkyphnel.supabase.co" />
             </head>
-            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased`} suppressHydrationWarning>
+            <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased relative`} suppressHydrationWarning>
+                {/* Background Decoration */}
+                <div className="fixed inset-0 pointer-events-none z-[-1] opacity-30 dark:opacity-20 overflow-hidden">
+                    <div className="absolute -top-[10%] -left-[10%] w-[40%] h-[40%] bg-primary/20 rounded-full blur-[120px]"></div>
+                    <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-accent/10 rounded-full blur-[100px]"></div>
+                </div>
+
                 <I18nProvider>
                     <div className="flex flex-col min-h-screen overflow-x-hidden">
                         <GlobalJsonLd />
@@ -199,9 +206,12 @@ export default function RootLayout({
                         <SmartLanguageSelector />
                         <Header />
                         <main className="flex-1">
-                            {children}
+                            <PageTransitionProvider>
+                                {children}
+                            </PageTransitionProvider>
                         </main>
                         <DynamicKeywordLinks />
+
                         <Footer />
                         <QuickDialSidebar />
                         <React.Suspense fallback={null}>
@@ -213,6 +223,7 @@ export default function RootLayout({
                     </div>
                 </I18nProvider>
             </body>
+
         </html>
     )
 }
