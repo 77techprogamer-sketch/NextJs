@@ -144,9 +144,14 @@ export const metadata: Metadata = {
         },
     },
     icons: {
-        icon: '/brand-favicon.svg',
-        shortcut: '/brand-favicon.svg',
-        apple: '/brand-favicon.svg',
+        icon: [
+            { url: '/favicon.ico?v=1' },
+            { url: '/brand-favicon.svg?v=1', type: 'image/svg+xml' },
+        ],
+        shortcut: '/favicon.ico?v=1',
+        apple: [
+            { url: '/brand-favicon.svg?v=1', type: 'image/svg+xml' },
+        ],
     },
     openGraph: {
         type: 'website',

@@ -22,7 +22,7 @@ const Analytics = () => {
             {/* Google Analytics 4 */}
             <Script
                 strategy="afterInteractive"
-                src={`https://www.googletagmanager.com/gtag/js?id=G-MEASUREMENT_ID`}
+                src={`https://www.googletagmanager.com/gtag/js?id=G-JP67H399V2`}
             />
             <Script
                 id="google-analytics"
@@ -32,7 +32,7 @@ const Analytics = () => {
                     window.dataLayer = window.dataLayer || [];
                     function gtag(){dataLayer.push(arguments);}
                     gtag('js', new Date());
-                    gtag('config', 'G-MEASUREMENT_ID', {
+                    gtag('config', 'G-JP67H399V2', {
                         page_path: window.location.pathname,
                     });
                     `,
