@@ -96,15 +96,19 @@ export function SecretsManager({ projectRef }: { projectRef: string }) {
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleCreateSecrets)} className="space-y-2">
             {fields.map((field, index) => (
-              <div key={field.id} className="flex items-start space-x-2">
+              <div key={field.id} className="grid grid-cols-1 md:grid-cols-12 gap-4 items-end bg-slate-50/50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/50 transition-all hover:bg-white dark:hover:bg-slate-900 shadow-sm mb-4">
                 <FormField
                   control={form.control}
                   name={`secrets.${index}.name`}
                   render={({ field }) => (
-                    <FormItem className="flex-1">
-                      {index === 0 && <FormLabel className="mb-4">Name</FormLabel>}
+                    <FormItem className="md:col-span-5">
+                      <FormLabel className="text-xs font-bold uppercase tracking-wider text-slate-500">Secret Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="SECRET_NAME" {...field} />
+                        <Input
+                          placeholder="e.g. STRIPE_KEY"
+                          className="h-11 bg-white dark:bg-slate-950 rounded-xl border-slate-200 dark:border-slate-800 transition-all font-mono text-sm"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -114,44 +118,54 @@ export function SecretsManager({ projectRef }: { projectRef: string }) {
                   control={form.control}
                   name={`secrets.${index}.value`}
                   render={({ field }) => (
-                    <FormItem className="flex-1">
-                      {index === 0 && <FormLabel className="mb-4">Value</FormLabel>}
+                    <FormItem className="md:col-span-5">
+                      <FormLabel className="text-xs font-bold uppercase tracking-wider text-slate-500">Value</FormLabel>
                       <FormControl>
-                        <Input type="password" placeholder="••••••••" {...field} />
+                        <Input
+                          type="password"
+                          placeholder="••••••••••••"
+                          className="h-11 bg-white dark:bg-slate-950 rounded-xl border-slate-200 dark:border-slate-800 transition-all font-mono text-sm"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                <div className="w-8">
-                  {index === 0 && <FormLabel className="opacity-0 mb-4">Remove</FormLabel>}
+                <div className="md:col-span-2 flex justify-end">
                   <Button
                     type="button"
-                    variant="outline"
+                    variant="ghost"
                     size="icon"
                     onClick={() => remove(index)}
                     disabled={fields.length <= 1}
+                    className="h-11 w-11 rounded-xl text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 transition-all"
                   >
-                    <Minus className="h-4 w-4" />
+                    <Minus className="h-5 w-5" />
                   </Button>
                 </div>
               </div>
             ))}
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-between mt-8 border-t border-slate-100 dark:border-slate-800 pt-8">
               <Button
                 type="button"
                 variant="outline"
-                size="sm"
+                size="default"
                 onClick={() => append({ name: '', value: '' })}
+                className="h-12 px-6 rounded-xl border-dashed border-2 hover:border-primary hover:text-primary transition-all font-semibold"
               >
                 <PlusIcon className="mr-2 h-4 w-4" />
-                Add Secret
+                Add Another Secret
+              </Button>
+
+              <Button
+                type="submit"
+                disabled={isCreating}
+                className="h-12 px-10 rounded-xl bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold shadow-lg transition-all active:scale-[0.98]"
+              >
+                {isCreating ? 'Creating...' : 'Save Secrets'}
               </Button>
             </div>
-
-            <Button type="submit" disabled={isCreating} className="mt-6">
-              {isCreating ? 'Creating...' : 'Create Secrets'}
-            </Button>
           </form>
         </Form>
       </div>

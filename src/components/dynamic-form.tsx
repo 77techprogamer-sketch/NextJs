@@ -232,22 +232,23 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
             case 'ZodString':
             case 'string':
               return (
-                <FormItem className="py-6 border-b">
-                  <div className="w-full flex flex-col lg:flex-row lg:items-center justify-between w-full gap-4 lg:gap-8">
-                    <div className="flex-1 pr-4">
-                      <FormLabel>{label}</FormLabel>
-                      <div className="text-sm text-muted-foreground mt-1">{typeDisplay}</div>
-                      {description && <FormDescription>{description}</FormDescription>}
-                      <FormMessage />
+                <FormItem className="py-5 border-b border-slate-100 dark:border-slate-800/50 last:border-0">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
+                    <div className="lg:col-span-1">
+                      <FormLabel className="text-sm font-semibold text-slate-700 dark:text-slate-300">{label}</FormLabel>
+                      <div className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mt-0.5">{typeDisplay}</div>
+                      {description && <FormDescription className="text-xs mt-1">{description}</FormDescription>}
                     </div>
-                    <div className="flex-1 lg:max-w-1/2">
+                    <div className="lg:col-span-2">
                       <FormControl>
                         <Input
-                          placeholder={`Enter your ${fieldName}`}
+                          placeholder={`Enter ${fieldName}`}
+                          className="h-11 bg-slate-50/50 dark:bg-slate-900/50 rounded-xl border-slate-200 dark:border-slate-800 focus:ring-primary/20 transition-all font-mono text-sm"
                           {...field}
                           value={String(field.value || '')}
                         />
                       </FormControl>
+                      <FormMessage className="mt-2" />
                     </div>
                   </div>
                 </FormItem>
@@ -255,19 +256,19 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
             case 'ZodNumber':
             case 'number':
               return (
-                <FormItem className="py-6 border-b">
-                  <div className="w-full flex flex-col lg:flex-row lg:items-center justify-between w-full gap-4 lg:gap-8">
-                    <div className="flex-1 pr-4">
-                      <FormLabel>{label}</FormLabel>
-                      <div className="text-sm text-muted-foreground">{typeDisplay}</div>
-                      {description && <FormDescription>{description}</FormDescription>}
-                      <FormMessage />
+                <FormItem className="py-5 border-b border-slate-100 dark:border-slate-800/50 last:border-0">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
+                    <div className="lg:col-span-1">
+                      <FormLabel className="text-sm font-semibold text-slate-700 dark:text-slate-300">{label}</FormLabel>
+                      <div className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mt-0.5">{typeDisplay}</div>
+                      {description && <FormDescription className="text-xs mt-1">{description}</FormDescription>}
                     </div>
-                    <div className="flex-1 lg:max-w-1/2">
+                    <div className="lg:col-span-2">
                       <FormControl>
                         <Input
                           type="number"
-                          placeholder={`Enter value for ${fieldName}`}
+                          placeholder={`Enter value`}
+                          className="h-11 bg-slate-50/50 dark:bg-slate-900/50 rounded-xl border-slate-200 dark:border-slate-800 focus:ring-primary/20 transition-all font-mono text-sm"
                           {...field}
                           value={String(field.value ?? '')}
                           onChange={(e) => {
@@ -277,6 +278,7 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
                           }}
                         />
                       </FormControl>
+                      <FormMessage className="mt-2" />
                     </div>
                   </div>
                 </FormItem>
@@ -284,16 +286,18 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
             case 'ZodBoolean':
             case 'boolean':
               return (
-                <FormItem className="py-6 border-b flex flex-row items-center justify-between gap-8">
-                  <div>
-                    <FormLabel>{label}</FormLabel>
-                    <div className="text-sm text-muted-foreground">{typeDisplay}</div>
-                    {description && <FormDescription>{description}</FormDescription>}
-                    <FormMessage />
+                <FormItem className="py-5 border-b border-slate-100 dark:border-slate-800/50 last:border-0">
+                  <div className="flex flex-row items-center justify-between gap-8">
+                    <div>
+                      <FormLabel className="text-sm font-semibold text-slate-700 dark:text-slate-300">{label}</FormLabel>
+                      <div className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mt-0.5">{typeDisplay}</div>
+                      {description && <FormDescription className="text-xs mt-1">{description}</FormDescription>}
+                    </div>
+                    <FormControl>
+                      <Switch checked={!!field.value} onCheckedChange={field.onChange} />
+                    </FormControl>
                   </div>
-                  <FormControl>
-                    <Switch checked={!!field.value} onCheckedChange={field.onChange} />
-                  </FormControl>
+                  <FormMessage className="mt-2" />
                 </FormItem>
               )
             case 'ZodEnum':
@@ -301,15 +305,14 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
               const options = getZodDef(baseType).values
               const optionLabels = typeof labelConfig === 'object' ? labelConfig.options : undefined
               return (
-                <FormItem className="py-6 border-b">
-                  <div className="w-full flex flex-col lg:flex-row lg:items-center justify-between w-full gap-4 lg:gap-8">
-                    <div className="flex-1 pr-4">
-                      <FormLabel>{label}</FormLabel>
-                      <div className="text-sm text-muted-foreground">{typeDisplay}</div>
-                      {description && <FormDescription>{description}</FormDescription>}
-                      <FormMessage />
+                <FormItem className="py-5 border-b border-slate-100 dark:border-slate-800/50 last:border-0">
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 items-start">
+                    <div className="lg:col-span-1">
+                      <FormLabel className="text-sm font-semibold text-slate-700 dark:text-slate-300">{label}</FormLabel>
+                      <div className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mt-0.5">{typeDisplay}</div>
+                      {description && <FormDescription className="text-xs mt-1">{description}</FormDescription>}
                     </div>
-                    <div className="flex-1 lg:max-w-1/2">
+                    <div className="lg:col-span-2">
                       <Select
                         onValueChange={(value) => {
                           if (!isInitializingRef.current) {
@@ -319,18 +322,19 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
                         value={String(field.value || '')}
                       >
                         <FormControl>
-                          <SelectTrigger>
-                            <SelectValue placeholder={`Select a ${fieldName}`} />
+                          <SelectTrigger className="h-11 bg-slate-50/50 dark:bg-slate-900/50 rounded-xl border-slate-200 dark:border-slate-800 transition-all font-mono text-sm">
+                            <SelectValue placeholder={`Select ${fieldName}`} />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent>
+                        <SelectContent className="rounded-xl border-slate-200 dark:border-slate-800">
                           {options.map((option: string) => (
-                            <SelectItem key={option} value={option}>
+                            <SelectItem key={option} value={option} className="font-mono text-sm">
                               {optionLabels?.[option] || option}
                             </SelectItem>
                           ))}
                         </SelectContent>
                       </Select>
+                      <FormMessage className="mt-2" />
                     </div>
                   </div>
                 </FormItem>
@@ -339,57 +343,52 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
             case 'ZodArray':
             case 'array':
               return (
-                <FormItem className="py-6 border-b">
-                  <div className="flex flex-row items-center justify-between w-full gap-8">
-                    <div className="flex-1 pr-4">
-                      <FormLabel>{label}</FormLabel>
-                      <div className="text-sm text-muted-foreground">
-                        Enter as JSON array: [&quot;item1&quot;, &quot;item2&quot;]
+                <FormItem className="py-5 border-b border-slate-100 dark:border-slate-800/50 last:border-0">
+                  <div className="space-y-3">
+                    <div className="flex flex-col">
+                      <FormLabel className="text-sm font-semibold text-slate-700 dark:text-slate-300">{label}</FormLabel>
+                      <div className="text-[10px] uppercase tracking-wider font-bold text-slate-400 mt-0.5">
+                        {typeDisplay} • Enter as JSON array: [&quot;item1&quot;, &quot;item2&quot;]
                         {columnInfo?.[fieldName]?.is_nullable && ' (leave empty for null)'}
                       </div>
-
-                      {description && <FormDescription>{description}</FormDescription>}
-                      <FormMessage />
+                      {description && <FormDescription className="text-xs mt-1">{description}</FormDescription>}
                     </div>
-                    <div className="flex-1">
-                      <FormControl>
-                        <Input
-                          placeholder={
-                            columnInfo?.[fieldName]?.is_nullable
-                              ? `[&quot;item1&quot;, &quot;item2&quot;] or leave empty for null`
-                              : `[&quot;item1&quot;, &quot;item2&quot;]`
-                          }
-                          {...field}
-                          value={
-                            field.value === null || field.value === undefined
-                              ? ''
-                              : Array.isArray(field.value)
-                                ? JSON.stringify(field.value)
-                                : String(field.value || '')
-                          }
-                          onChange={(e) => {
-                            const value = e.target.value
-                            if (value.trim() === '') {
-                              // Empty string means null (for nullable) or empty array (for non-nullable)
-                              field.onChange(null)
-                            } else {
-                              try {
-                                const parsed = JSON.parse(value)
-                                if (Array.isArray(parsed)) {
-                                  field.onChange(parsed)
-                                } else {
-                                  // If it's not an array, treat as invalid input
-                                  field.onChange(value)
-                                }
-                              } catch {
-                                // Invalid JSON, keep the string value to show error
+                    <FormControl>
+                      <Input
+                        placeholder={
+                          columnInfo?.[fieldName]?.is_nullable
+                            ? `["item1", "item2"] or leave empty for null`
+                            : `["item1", "item2"]`
+                        }
+                        className="h-11 bg-slate-50/50 dark:bg-slate-900/50 rounded-xl border-slate-200 dark:border-slate-800 focus:ring-primary/20 transition-all font-mono text-sm"
+                        {...field}
+                        value={
+                          field.value === null || field.value === undefined
+                            ? ''
+                            : Array.isArray(field.value)
+                              ? JSON.stringify(field.value)
+                              : String(field.value || '')
+                        }
+                        onChange={(e) => {
+                          const value = e.target.value
+                          if (value.trim() === '') {
+                            field.onChange(null)
+                          } else {
+                            try {
+                              const parsed = JSON.parse(value)
+                              if (Array.isArray(parsed)) {
+                                field.onChange(parsed)
+                              } else {
                                 field.onChange(value)
                               }
+                            } catch {
+                              field.onChange(value)
                             }
-                          }}
-                        />
-                      </FormControl>
-                    </div>
+                          }
+                        }}
+                      />
+                    </FormControl>
+                    <FormMessage />
                   </div>
                 </FormItem>
               )
@@ -412,14 +411,18 @@ export function DynamicForm<T extends z.ZodRawShape = z.ZodRawShape>({
         transition={{ duration: 0.3 }}
         onSubmit={form.handleSubmit(onSubmit as any)}
       >
-        <motion.div layout className="space-y-4">
+        <motion.div layout className="grid grid-cols-1 gap-2">
           {Object.keys(schema.shape).map((fieldName) =>
             renderField(fieldName, schema.shape[fieldName] as any)
           )}
         </motion.div>
-        <div className="pt-6">
-          <Button type="submit" disabled={isLoading}>
-            {isLoading ? 'Saving...' : 'Save'}
+        <div className="pt-8 flex justify-end">
+          <Button
+            type="submit"
+            disabled={isLoading}
+            className="px-8 h-12 rounded-xl bg-primary hover:bg-primary/90 text-white font-bold shadow-lg shadow-primary/20 transition-all active:scale-[0.98]"
+          >
+            {isLoading ? 'Saving...' : 'Save Changes'}
           </Button>
         </div>
       </motion.form>

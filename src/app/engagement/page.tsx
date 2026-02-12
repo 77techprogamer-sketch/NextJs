@@ -3,8 +3,9 @@
 import React, { useEffect, useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion } from 'framer-motion';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line } from 'recharts';
-import { Users, Eye, TrendingUp, Clock, Table as TableIcon } from 'lucide-react';
+import { Users, Eye, TrendingUp, Clock, Table as TableIcon, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { Skeleton } from '@/components/ui/skeleton';
 
@@ -83,33 +84,46 @@ const EngagementDashboard = () => {
 
     if (!isAuthenticated) {
         return (
-            <div className="min-h-screen bg-slate-50 flex items-center justify-center p-4">
-                <Card className="w-full max-w-md border-none shadow-2xl bg-white/80 backdrop-blur-xl">
-                    <CardHeader className="space-y-1 text-center">
-                        <div className="mx-auto bg-blue-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                            <Clock className="h-6 w-6 text-blue-600" />
+            <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-4 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-full bg-[url('/grid.svg')] opacity-5" />
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-[120px]" />
+                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-[120px]" />
+
+                <Card className="w-full max-w-md border border-slate-200 dark:border-slate-800 shadow-2xl bg-white/70 dark:bg-slate-900/70 backdrop-blur-2xl glass-card rounded-3xl overflow-hidden relative z-10 transition-all">
+                    <CardHeader className="space-y-3 text-center pt-10 pb-6">
+                        <div className="mx-auto bg-gradient-to-br from-blue-500 to-indigo-600 w-16 h-16 rounded-2xl flex items-center justify-center mb-2 shadow-lg shadow-blue-500/20 rotate-3">
+                            <Clock className="h-8 w-8 text-white" />
                         </div>
-                        <CardTitle className="text-2xl font-bold tracking-tight">Engagement Dashboard</CardTitle>
-                        <p className="text-sm text-muted-foreground">Enter the access code to view analytics</p>
+                        <CardTitle className="text-3xl font-black tracking-tight bg-gradient-to-r from-slate-900 to-slate-600 dark:from-white dark:to-slate-400 bg-clip-text text-transparent">Engagement Dashboard</CardTitle>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 font-medium">Enter your secure access code to view analytics</p>
                     </CardHeader>
-                    <CardContent>
-                        <form onSubmit={handleLogin} className="space-y-4">
-                            <div className="space-y-2">
+                    <CardContent className="px-10 pb-12">
+                        <form onSubmit={handleLogin} className="space-y-6">
+                            <div className="space-y-3">
                                 <input
                                     type="password"
-                                    placeholder="Enter password"
-                                    className={`w-full px-4 py-3 rounded-xl border ${error ? 'border-red-500 bg-red-50' : 'border-slate-200'} focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all text-center text-lg`}
+                                    placeholder="Enter access code"
+                                    className={`w-full px-6 py-4 rounded-2xl border ${error ? 'border-red-500 bg-red-50/50 dark:bg-red-950/20' : 'border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50'} focus:outline-none focus:ring-4 focus:ring-blue-500/10 transition-all text-center text-xl font-mono tracking-widest placeholder:text-slate-400 placeholder:font-sans placeholder:text-base placeholder:tracking-normal`}
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                                     autoFocus
                                 />
-                                {error && <p className="text-red-500 text-xs text-center font-medium">{error}</p>}
+                                {error && (
+                                    <motion.p
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="text-red-500 text-xs text-center font-bold uppercase tracking-wider"
+                                    >
+                                        {error}
+                                    </motion.p>
+                                )}
                             </div>
                             <button
                                 type="submit"
-                                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-xl transition-all shadow-lg shadow-blue-500/25 active:scale-[0.98]"
+                                className="w-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-bold py-4 rounded-2xl transition-all shadow-xl hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2 group"
                             >
                                 Access Dashboard
+                                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </button>
                         </form>
                     </CardContent>
