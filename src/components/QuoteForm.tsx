@@ -188,19 +188,19 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           <div className="h-1 w-20 bg-primary/20 mx-auto rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6">
           <FormField
             control={form.control}
             name="fullName"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="font-semibold text-slate-700 dark:text-slate-300">{t("full_name")}</FormLabel>
+              <FormItem className="space-y-1.5">
+                <FormLabel className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{t("full_name")}</FormLabel>
                 <FormControl>
                   <Input
                     placeholder={t("enter_full_name")}
                     {...field}
                     value={(field.value as string) || ''}
-                    className="h-11 bg-white/50 dark:bg-slate-900/50"
+                    className="h-12 bg-white/60 dark:bg-slate-900/60 border-slate-200 dark:border-slate-700/50 focus:border-primary/50 transition-all rounded-xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -212,8 +212,8 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             control={form.control}
             name="mobileNumber"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel className="font-semibold text-slate-700 dark:text-slate-300">{t("mobile_number")}</FormLabel>
+              <FormItem className="space-y-1.5">
+                <FormLabel className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{t("mobile_number")}</FormLabel>
                 <FormControl>
                   <Input
                     type="tel"
@@ -221,7 +221,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                     {...field}
                     value={(field.value as string) || ''}
                     maxLength={10}
-                    className="h-11 bg-white/50 dark:bg-slate-900/50"
+                    className="h-12 bg-white/60 dark:bg-slate-900/60 border-slate-200 dark:border-slate-700/50 focus:border-primary/50 transition-all rounded-xl"
                   />
                 </FormControl>
                 <FormMessage />
@@ -236,13 +236,19 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               name={field.name}
               render={({ field: formField }) => (
                 <FormItem className={cn(
-                  (field.type === 'radio' || field.name === 'healthMembers') ? "md:col-span-2" : ""
+                  "space-y-1.5",
+                  (field.type === 'radio' || field.name === 'healthMembers' || field.name === 'company_name' || field.name === 'business_name') ? "md:col-span-2" : ""
                 )}>
-                  <FormLabel className="font-semibold text-slate-700 dark:text-slate-300">{t(field.labelKey)}</FormLabel>
+                  <FormLabel className="font-semibold text-slate-800 dark:text-slate-200 text-sm leading-tight inline-block mb-0.5">
+                    {t(field.labelKey)}
+                  </FormLabel>
                   <FormControl>
                     {field.type === 'select' ? (
-                      <Select onValueChange={field.name === 'healthMembers' ? handleHealthMembersChange : formField.onChange} defaultValue={(formField as any).value}>
-                        <SelectTrigger className="h-11 bg-white/50 dark:bg-slate-900/50" aria-label={t(field.labelKey)}>
+                      <Select
+                        onValueChange={field.name === 'healthMembers' ? handleHealthMembersChange : formField.onChange}
+                        defaultValue={(formField as any).value}
+                      >
+                        <SelectTrigger className="h-12 bg-white/60 dark:bg-slate-900/60 border-slate-200 dark:border-slate-700/50 rounded-xl" aria-label={t(field.labelKey)}>
                           <SelectValue placeholder={field.placeholderKey ? t(field.placeholderKey) : ""} />
                         </SelectTrigger>
                         <SelectContent>
@@ -252,13 +258,13 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                         </SelectContent>
                       </Select>
                     ) : field.type === 'radio' ? (
-                      <RadioGroup onValueChange={formField.onChange} defaultValue={(formField as any).value} className="grid grid-cols-2 gap-3">
+                      <RadioGroup onValueChange={formField.onChange} defaultValue={(formField as any).value} className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-3 pt-1">
                         {field.options?.map(opt => (
-                          <FormItem key={opt.value}>
+                          <FormItem key={opt.value} className="space-y-0">
                             <FormControl>
-                              <div className="relative">
+                              <div className="relative h-full">
                                 <RadioGroupItem value={opt.value} className="peer sr-only" />
-                                <FormLabel className="flex flex-col items-center justify-center p-3 rounded-xl border-2 border-muted bg-white/50 dark:bg-slate-900/50 hover:bg-accent peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 hover:scale-[1.01] active:scale-[0.98] text-center text-sm">
+                                <FormLabel className="flex h-full items-center justify-center p-3.5 rounded-xl border-2 border-slate-100 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 hover:bg-slate-50 dark:hover:bg-slate-800/60 peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 text-center text-sm font-medium">
                                   {t(opt.labelKey)}
                                 </FormLabel>
                               </div>
@@ -271,7 +277,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                         type={field.type}
                         placeholder={field.placeholderKey ? t(field.placeholderKey) : ""}
                         {...formField}
-                        className="h-11 bg-white/50 dark:bg-slate-900/50 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
+                        className="h-12 bg-white/60 dark:bg-slate-900/60 border-slate-200 dark:border-slate-700/50 rounded-xl focus-visible:ring-primary/40"
                         onChange={(e) => {
                           const val = field.type === 'number' ? (e.target.value ? parseInt(e.target.value) : undefined) : e.target.value;
                           formField.onChange(val);
@@ -287,13 +293,13 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           ))}
 
           {(!config.suppressDefaultFields?.includes('age') && !config.fields.find(f => f.name === 'age')) && (
-            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-7 gap-3 items-end">
+            <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-11 gap-4 items-end bg-slate-50/50 dark:bg-slate-800/10 p-4 rounded-2xl border border-slate-100 dark:border-slate-800/50">
               <FormField
                 control={form.control}
                 name="age"
                 render={({ field }) => (
-                  <FormItem className="sm:col-span-3">
-                    <FormLabel className="font-semibold text-slate-700 dark:text-slate-300">{t("age")}</FormLabel>
+                  <FormItem className="sm:col-span-5 space-y-1.5">
+                    <FormLabel className="font-semibold text-slate-800 dark:text-slate-200 text-xs uppercase tracking-wider opacity-70">{t("age")}</FormLabel>
                     <FormControl>
                       <Input
                         type="number"
@@ -302,34 +308,34 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                         onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
                         value={(field as any).value ?? ""}
                         disabled={!!form.watch('dateOfBirth')}
-                        className="h-11 bg-white/50 dark:bg-slate-900/50"
+                        className="h-11 bg-white/80 dark:bg-slate-900/80 rounded-lg"
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <div className="hidden sm:flex col-span-1 justify-center pb-3 text-muted-foreground font-medium">{t("or")}</div>
+              <div className="flex sm:col-span-1 justify-center pb-3 text-slate-400 font-bold text-xs">{t("or").toUpperCase()}</div>
               <FormField
                 control={form.control}
                 name="dateOfBirth"
                 render={({ field }) => (
-                  <FormItem className="sm:col-span-3">
-                    <FormLabel className="font-semibold text-slate-700 dark:text-slate-300">{t("date_of_birth")}</FormLabel>
+                  <FormItem className="sm:col-span-5 space-y-1.5">
+                    <FormLabel className="font-semibold text-slate-800 dark:text-slate-200 text-xs uppercase tracking-wider opacity-70">{t("date_of_birth")}</FormLabel>
                     <Popover>
                       <PopoverTrigger asChild>
                         <FormControl>
                           <Button
                             variant={"outline"}
-                            className={cn("w-full h-11 pl-3 text-left font-normal bg-white/50 dark:bg-slate-900/50", !field.value && "text-muted-foreground")}
+                            className={cn("w-full h-11 pl-3 text-left font-normal bg-white/80 dark:bg-slate-900/80 rounded-lg border-slate-200 dark:border-slate-700", !field.value && "text-muted-foreground")}
                             disabled={form.watch('age') !== undefined && form.watch('age') !== null}
                           >
-                            {field.value ? format(field.value as any, "PPP") : <span>{t("date_of_birth")}</span>}
+                            {field.value ? format(field.value as any, "PPP") : <span className="text-sm opacity-60">{t("date_of_birth")}</span>}
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                           </Button>
                         </FormControl>
                       </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
+                      <PopoverContent className="w-auto p-0 rounded-xl overflow-hidden border-none shadow-2xl" align="start">
                         <Calendar mode="single" selected={field.value as any} onSelect={field.onChange} disabled={(date) => date > new Date() || date < new Date("1900-01-01")} initialFocus />
                       </PopoverContent>
                     </Popover>
@@ -345,16 +351,16 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               control={form.control}
               name="gender"
               render={({ field }) => (
-                <FormItem className="md:col-span-2 space-y-3 mt-2">
-                  <FormLabel className="font-semibold text-slate-700 dark:text-slate-300">{t("your_gender")}</FormLabel>
+                <FormItem className="md:col-span-2 space-y-3 mt-1">
+                  <FormLabel className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{t("your_gender")}</FormLabel>
                   <FormControl>
                     <RadioGroup onValueChange={field.onChange} defaultValue={(field as any).value} className="grid grid-cols-3 gap-3">
                       {["Male", "Female", "Other"].map((gender) => (
-                        <FormItem key={gender}>
+                        <FormItem key={gender} className="space-y-0">
                           <FormControl>
                             <div className="relative">
                               <RadioGroupItem value={gender} className="peer sr-only" />
-                              <FormLabel className="flex flex-col items-center justify-center p-2.5 rounded-xl border-2 border-muted bg-white/50 dark:bg-slate-900/50 hover:bg-accent peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 text-sm font-medium">
+                              <FormLabel className="flex h-11 items-center justify-center rounded-xl border-2 border-slate-100 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 hover:bg-slate-50 dark:hover:bg-slate-800/60 peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 text-sm font-medium">
                                 {t(gender.toLowerCase())}
                               </FormLabel>
                             </div>
@@ -377,19 +383,27 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                 exit={{ opacity: 0, height: 0 }}
                 className="md:col-span-2 space-y-4 overflow-hidden pt-4"
               >
-                <p className="font-semibold text-slate-700 dark:text-slate-300">{t("provide_member_details")}</p>
+                <div className="flex items-center gap-2">
+                  <div className="h-[1px] flex-1 bg-slate-100 dark:bg-slate-800 text-sm" />
+                  <p className="font-semibold text-slate-600 dark:text-slate-400 text-xs uppercase tracking-widest">{t("provide_member_details")}</p>
+                  <div className="h-[1px] flex-1 bg-slate-100 dark:bg-slate-800" />
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {selectedMembers.map((member) => (
-                    <div key={member} className="border p-4 rounded-xl bg-white/30 dark:bg-slate-900/30 space-y-3">
-                      <h3 className="font-semibold capitalize text-primary">{t(member)}</h3>
+                    <div key={member} className="border border-slate-100 dark:border-slate-800 p-5 rounded-2xl bg-slate-50/30 dark:bg-slate-900/30 space-y-3 relative overflow-hidden group">
+                      <div className="absolute top-0 right-0 w-16 h-16 bg-primary/5 rounded-bl-full -mr-8 -mt-8 group-hover:bg-primary/10 transition-colors" />
+                      <h3 className="font-bold capitalize text-primary text-sm flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        {t(member)}
+                      </h3>
                       <div className="grid grid-cols-2 gap-3">
                         <FormField
                           control={form.control}
                           name={`memberDetails.${member}.age`}
                           render={({ field }) => (
-                            <FormItem>
+                            <FormItem className="space-y-1">
                               <FormControl>
-                                <Input type="number" placeholder={t("age")} {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} value={(field as any).value ?? ""} className="bg-white/50 dark:bg-slate-900/50" />
+                                <Input type="number" placeholder={t("age")} {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} value={(field as any).value ?? ""} className="h-10 bg-white/80 dark:bg-slate-800/80 rounded-lg text-sm" />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -399,9 +413,9 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                           control={form.control}
                           name={`memberDetails.${member}.gender`}
                           render={({ field }) => (
-                            <FormItem>
+                            <FormItem className="space-y-1">
                               <Select onValueChange={field.onChange} defaultValue={(field as any).value}>
-                                <SelectTrigger className="bg-white/50 dark:bg-slate-900/50" aria-label={t("gender")}><SelectValue placeholder={t("gender")} /></SelectTrigger>
+                                <SelectTrigger className="h-10 bg-white/80 dark:bg-slate-800/80 rounded-lg text-sm" aria-label={t("gender")}><SelectValue placeholder={t("gender")} /></SelectTrigger>
                                 <SelectContent>
                                   <SelectItem value="Male">{t("male")}</SelectItem>
                                   <SelectItem value="Female">{t("female")}</SelectItem>
@@ -420,13 +434,13 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           </AnimatePresence>
         </div>
 
-        <div className={`flex ${onClose ? 'justify-end' : 'justify-center w-full'} gap-4 pt-8 border-t border-slate-100 dark:border-slate-800`}>
+        <div className={`flex flex-col sm:flex-row ${onClose ? 'sm:justify-end' : 'justify-center w-full'} gap-3 pt-10 mt-4 border-t border-slate-100 dark:border-slate-800/60`}>
           {onClose && (
-            <Button type="button" variant="outline" onClick={onClose} className="px-6 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <Button type="button" variant="ghost" onClick={onClose} className="px-8 h-12 rounded-xl text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all font-semibold order-2 sm:order-1">
               {t("cancel")}
             </Button>
           )}
-          <Button type="submit" className={`px-8 rounded-xl bg-gradient-to-r from-primary to-blue-700 hover:to-blue-800 text-white shadow-xl shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${!onClose ? 'w-full' : ''}`}>
+          <Button type="submit" className={`px-10 h-12 rounded-xl bg-primary hover:bg-primary/95 text-white shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-all duration-300 font-bold tracking-wide active:scale-[0.98] order-1 sm:order-2 ${!onClose ? 'w-full' : 'min-w-[180px]'}`}>
             {t("submit_quote")}
           </Button>
         </div>
