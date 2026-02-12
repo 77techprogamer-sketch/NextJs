@@ -119,7 +119,7 @@ const HomeClient: React.FC<HomeClientProps> = () => {
 
             <FeaturesSection />
 
-            <ProcessTimeline onAction={handleGetQuote} />
+            <ProcessTimeline onAction={() => handleGetQuote({ insuranceType: 'policy_recovery' })} />
 
             <BlogSection />
 
