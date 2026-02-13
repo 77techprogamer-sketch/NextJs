@@ -190,6 +190,7 @@ import Script from 'next/script';
 const GTM_ID = 'GTM-P8DZ6MRQ';
 
 import BacklinkSubmitter from '@/components/BacklinkSubmitter';
+const FloatingToolDock = dynamic(() => import('@/components/FloatingToolDock'), { ssr: false });
 
 export default function RootLayout({
     children,
@@ -252,6 +253,7 @@ export default function RootLayout({
                         <ShareNudge />
                         <ActivityTicker />
                         <Toaster />
+                        <FloatingToolDock />
                     </div>
                 </I18nProvider>
             </body>
