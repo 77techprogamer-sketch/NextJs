@@ -189,6 +189,8 @@ export const metadata: Metadata = {
 import Script from 'next/script';
 const GTM_ID = 'GTM-P8DZ6MRQ';
 
+import BacklinkSubmitter from '@/components/BacklinkSubmitter';
+
 export default function RootLayout({
     children,
 }: {
@@ -230,6 +232,7 @@ export default function RootLayout({
 
                 <I18nProvider>
                     <div className="flex flex-col min-h-screen overflow-x-hidden">
+                        <BacklinkSubmitter />
                         <GlobalJsonLd />
                         <Analytics />
                         <SmartLanguageSelector />
