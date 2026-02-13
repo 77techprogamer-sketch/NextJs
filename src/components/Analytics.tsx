@@ -2,7 +2,17 @@
 
 import Script from 'next/script';
 
+import { useEffect, useState } from 'react';
+
 const Analytics = () => {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    if (!mounted) return null;
+
     return (
         <>
             {/* Microsoft Clarity */}

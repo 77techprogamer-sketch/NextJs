@@ -14,10 +14,12 @@ const activities = [
 ];
 
 const ActivityTicker = () => {
+    const [mounted, setMounted] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         const showTimeout = setTimeout(() => {
             setIsVisible(true);
         }, 5000); // Show first after 5 seconds
@@ -35,6 +37,8 @@ const ActivityTicker = () => {
             clearInterval(interval);
         };
     }, []);
+
+    if (!mounted) return null;
 
     return (
         <AnimatePresence>
