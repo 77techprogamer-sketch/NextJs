@@ -18,7 +18,35 @@ const data = JSON.stringify({
     urlList: [
         'https://insurancesupport.online/',
         'https://insurancesupport.online/about',
-        'https://insurancesupport.online/contact'
+        'https://insurancesupport.online/contact',
+        'https://insurancesupport.online/support',
+        'https://insurancesupport.online/loans',
+        'https://insurancesupport.online/engagement',
+        'https://insurancesupport.online/privacy-policy',
+        'https://insurancesupport.online/terms-of-service',
+        'https://insurancesupport.online/get-started',
+        'https://insurancesupport.online/resources',
+        // Services
+        'https://insurancesupport.online/services/life-insurance',
+        'https://insurancesupport.online/services/health-insurance',
+        'https://insurancesupport.online/services/motor-insurance',
+        'https://insurancesupport.online/services/term-insurance',
+        'https://insurancesupport.online/services/sme-insurance',
+        'https://insurancesupport.online/services/travel-insurance',
+        'https://insurancesupport.online/services/pension-plans',
+        'https://insurancesupport.online/services/ulip-plans',
+        'https://insurancesupport.online/services/wedding-insurance',
+        'https://insurancesupport.online/services/cyber-insurance',
+        // Locations
+        'https://insurancesupport.online/locations/bangalore',
+        'https://insurancesupport.online/locations/chennai',
+        'https://insurancesupport.online/locations/vellore',
+        'https://insurancesupport.online/locations/hosur',
+        'https://insurancesupport.online/locations/kanchipuram',
+        'https://insurancesupport.online/locations/mysore',
+        'https://insurancesupport.online/locations/coimbatore',
+        'https://insurancesupport.online/locations/salem',
+        'https://insurancesupport.online/locations/tirupati'
     ]
 });
 
