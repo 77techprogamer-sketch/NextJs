@@ -5,7 +5,7 @@ import { motion, LazyMotion, domAnimation, m } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { Star } from 'lucide-react';
+import { Star, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import dynamic from 'next/dynamic';
@@ -69,18 +69,42 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                         </ScrollReveal>
                     </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md mx-auto pt-8">
-                        <ScrollReveal animation="elastic" delay={0.8}>
-                            <MagneticButton className="w-full sm:w-auto">
-                                <Button
-                                    size="lg"
-                                    className="bg-accent hover:bg-accent/90 text-primary text-lg w-full font-bold px-8 py-7 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all transform hover:scale-105"
-                                    onClick={handleVote}
-                                >
-                                    <span suppressHydrationWarning>{t("get_a_free_quote")}</span>
-                                </Button>
-                            </MagneticButton>
-                        </ScrollReveal>
+                    <div className="flex flex-col items-center justify-center gap-6 w-full max-w-md mx-auto pt-8">
+                        <div className="space-y-4 w-full flex flex-col items-center">
+                            <ScrollReveal animation="elastic" delay={0.8}>
+                                <MagneticButton className="w-full sm:w-auto">
+                                    <Button
+                                        size="lg"
+                                        className="bg-accent hover:bg-accent/90 text-primary text-xl w-full font-extrabold px-10 py-8 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all transform hover:scale-105 active:scale-95"
+                                        onClick={handleVote}
+                                    >
+                                        <span suppressHydrationWarning className="flex items-center gap-3">
+                                            {t("get_a_free_quote")}
+                                            <motion.div
+                                                animate={{ x: [0, 5, 0] }}
+                                                transition={{ repeat: Infinity, duration: 1.5 }}
+                                            >
+                                                →
+                                            </motion.div>
+                                        </span>
+                                    </Button>
+                                </MagneticButton>
+                            </ScrollReveal>
+
+                            <ScrollReveal animation="fade-in" delay={1.1}>
+                                <div className="flex items-center gap-6 text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+                                        <span>{t("verified_advisor_active")}</span>
+                                    </div>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
+                                    <div className="flex items-center gap-2">
+                                        <ShieldCheck className="w-3 h-3 text-accent" />
+                                        <span>{t("approx_30_seconds")}</span>
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        </div>
 
                         <ScrollReveal animation="fade-in" delay={1.0}>
                             <SocialShareButtons url={currentUrl} title={shareTitle} />
