@@ -42,16 +42,16 @@ const FloatingToolDock = () => {
     ];
 
     return (
-        <div className="fixed bottom-8 right-8 z-[100] flex flex-col items-end gap-4">
+        <div className="fixed bottom-8 left-8 z-[100] flex flex-col items-start gap-4">
             <AnimatePresence>
                 {isOpen && (
-                    <div className="flex flex-col gap-3 items-end mb-2">
+                    <div className="flex flex-col gap-3 items-start mb-2">
                         {tools.map((tool, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, scale: 0.8, y: 20, x: 20 }}
+                                initial={{ opacity: 0, scale: 0.8, y: 20, x: -20 }}
                                 animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
-                                exit={{ opacity: 0, scale: 0.8, y: 20, x: 20 }}
+                                exit={{ opacity: 0, scale: 0.8, y: 20, x: -20 }}
                                 transition={{ delay: (tools.length - index) * 0.1 }}
                             >
                                 <Link
@@ -62,10 +62,10 @@ const FloatingToolDock = () => {
                                         tool.color === 'bg-primary' ? 'bg-primary/95 text-white' : 'bg-accent/95 text-primary'
                                     )}
                                 >
-                                    {tool.title}
                                     <div className="p-1.5 bg-white/20 rounded-lg">
                                         {tool.icon}
                                     </div>
+                                    {tool.title}
                                 </Link>
                             </motion.div>
                         ))}
@@ -76,13 +76,13 @@ const FloatingToolDock = () => {
             <AnimatePresence>
                 {isVisible && (
                     <motion.button
-                        initial={{ scale: 0, rotate: -180 }}
+                        initial={{ scale: 0, rotate: 180 }}
                         animate={{ scale: 1, rotate: 0 }}
-                        exit={{ scale: 0, rotate: 180 }}
+                        exit={{ scale: 0, rotate: -180 }}
                         onClick={() => setIsOpen(!isOpen)}
                         className={cn(
                             "w-16 h-16 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(var(--primary),0.3)] border-4 border-white dark:border-slate-900 transition-all duration-300",
-                            isOpen ? "bg-slate-800 text-white rotate-90" : "bg-primary text-white"
+                            isOpen ? "bg-slate-800 text-white -rotate-90" : "bg-primary text-white"
                         )}
                     >
                         {isOpen ? <X className="w-8 h-8" /> : <Calculator className="w-8 h-8" />}

@@ -9,6 +9,9 @@ import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, Che
 import QuoteForm from "@/components/QuoteForm";
 import ServiceJsonLd from "@/components/ServiceJsonLd";
 import { AutoLinker } from "@/components/AutoLinker";
+import dynamic from 'next/dynamic';
+
+const ToolIslands = dynamic(() => import('@/components/sections/ToolIslands'), { ssr: false });
 
 // Map strings to Icon components
 const iconMap: Record<string, React.ElementType> = {
@@ -121,6 +124,11 @@ export default function ServiceContent({ serviceType, iconName, imagePath }: Ser
                             />
                         </div>
                     </div>
+                </div>
+
+                {/* Interactive Tools Section */}
+                <div className="mt-16">
+                    <ToolIslands />
                 </div>
             </div>
         </div>
