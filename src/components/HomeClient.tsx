@@ -34,6 +34,9 @@ const LoansSection = dynamic(() => import('@/components/sections/LoansSection'),
 const ProcessTimeline = dynamic(() => import('@/components/sections/ProcessTimeline'), {
     loading: () => <div className="min-h-[300px] animate-pulse bg-white dark:bg-slate-950" />
 });
+const LeadMagnetSection = dynamic(() => import('@/components/sections/LeadMagnetSection'), {
+    loading: () => <div className="min-h-[400px] animate-pulse bg-slate-50 dark:bg-slate-900" />
+});
 
 // Lazy load modals/non-critical components
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
@@ -101,6 +104,23 @@ const HomeClient: React.FC<HomeClientProps> = () => {
         setIsModalOpen(true);
     }, []);
 
+    useEffect(() => {
+        // Global handler for Lead Magnet Result
+        (window as any).triggerLeadMagnetHandoff = () => {
+            handleGetQuote({
+                insuranceType: 'general_inquiry',
+                formData: {
+                    fullName: '',
+                    mobileNumber: ''
+                }
+            });
+        };
+
+        return () => {
+            delete (window as any).triggerLeadMagnetHandoff;
+        };
+    }, [handleGetQuote]);
+
     return (
         <div className="flex flex-col min-h-screen">
             {/* LocalBusinessSchema removed from here as it is now server-rendered in page.tsx */}
@@ -124,6 +144,8 @@ const HomeClient: React.FC<HomeClientProps> = () => {
             <BlogSection />
 
             <LoansSection onGetQuote={handleGetQuote} />
+
+            <LeadMagnetSection />
 
             <WhyChooseUsSection />
 
