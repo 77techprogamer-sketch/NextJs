@@ -1,20 +1,14 @@
 const https = require('https');
 
-const options = {
-    hostname: 'api.indexnow.org',
-    port: 443,
-    path: '/indexnow',
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json',
-        'Content-Length': 0 // Will be set later
-    }
-};
-
-const data = JSON.stringify({
+const config = {
     host: 'insurancesupport.online',
     key: 'bed5a6a083d549ca8881dd6ba00ea744',
     keyLocation: 'https://insurancesupport.online/bed5a6a083d549ca8881dd6ba00ea744.txt',
+    endpoints: [
+        'www.bing.com',
+        'yandex.com',
+        'api.indexnow.org'
+    ],
     urlList: [
         'https://insurancesupport.online/',
         'https://insurancesupport.online/about',
@@ -48,21 +42,67 @@ const data = JSON.stringify({
         'https://insurancesupport.online/locations/salem',
         'https://insurancesupport.online/locations/tirupati'
     ]
+};
+
+const data = JSON.stringify({
+    host: config.host,
+    key: config.key,
+    keyLocation: config.keyLocation,
+    urlList: config.urlList
 });
 
-options.headers['Content-Length'] = data.length;
+async function submitToIndexNow(hostname) {
+    return new Promise((resolve, reject) => {
+        const options = {
+            hostname: hostname,
+            port: 443,
+            path: '/indexnow',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': data.length
+            }
+        };
 
-const req = https.request(options, (res) => {
-    console.log(`statusCode: ${res.statusCode}`);
+        console.log(`[IndexNow] Submitting to ${hostname}...`);
 
-    res.on('data', (d) => {
-        process.stdout.write(d);
+        const req = https.request(options, (res) => {
+            let body = '';
+            res.on('data', (d) => { body += d; });
+            res.on('end', () => {
+                if (res.statusCode === 200 || res.statusCode === 202) {
+                    console.log(`[Success] ${hostname} accepted the submission (Status: ${res.statusCode})`);
+                    resolve({ hostname, status: res.statusCode, success: true });
+                } else {
+                    console.error(`[Failure] ${hostname} rejected the submission (Status: ${res.statusCode})`);
+                    console.error(`Response: ${body}`);
+                    resolve({ hostname, status: res.statusCode, success: false });
+                }
+            });
+        });
+
+        req.on('error', (error) => {
+            console.error(`[Error] Connection to ${hostname} failed: ${error.message}`);
+            resolve({ hostname, error: error.message, success: false });
+        });
+
+        req.write(data);
+        req.end();
     });
-});
+}
 
-req.on('error', (error) => {
-    console.error(error);
-});
+async function main() {
+    console.log(`[IndexNow] Starting submission for ${config.urlList.length} URLs...`);
 
-req.write(data);
-req.end();
+    const results = await Promise.all(config.endpoints.map(submitToIndexNow));
+
+    console.log('\n--- Submission Summary ---');
+    results.forEach(res => {
+        const status = res.success ? '✔' : '✘';
+        const msg = res.success ? `Status ${res.status}` : (res.error || `Status ${res.status}`);
+        console.log(`${status} ${res.hostname}: ${msg}`);
+    });
+    console.log('---------------------------\n');
+}
+
+main().catch(console.error);
