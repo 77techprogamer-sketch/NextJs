@@ -8,7 +8,7 @@ export async function POST(request: Request) {
     try {
         const { url } = await request.json();
 
-        if (!url || !url.includes(HOST)) {
+        if (!url || !(url.startsWith(`https://${HOST}`) || url.startsWith(`http://${HOST}`))) {
             return NextResponse.json({ error: 'Invalid URL' }, { status: 400 });
         }
 

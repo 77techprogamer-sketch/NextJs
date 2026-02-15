@@ -8,7 +8,7 @@ export default function BacklinkSubmitter() {
 
     useEffect(() => {
         const autoSubmit = async () => {
-            const currentUrl = window.location.href;
+            const currentUrl = window.location.origin + window.location.pathname;
             const storageKey = `seo_submit_${pathname}`;
             const lastSubmit = localStorage.getItem(storageKey);
             const now = Date.now();
