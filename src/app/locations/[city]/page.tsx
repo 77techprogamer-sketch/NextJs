@@ -100,6 +100,12 @@ export default function LocationPage({ params }: Props) {
                         We bring the <strong>LIC & National Insurance office to your doorstep in {city.name}</strong>.
                     </p>
 
+                    {city.description && (
+                        <div className="prose dark:prose-invert mb-8 text-lg">
+                            <p>{city.description}</p>
+                        </div>
+                    )}
+
                     <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 mb-8 rounded-r-lg">
                         <h3 className="text-lg font-bold text-amber-900 dark:text-amber-100 flex items-center gap-2 mb-2">
                             <MapPin className="h-5 w-5" />
