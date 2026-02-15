@@ -113,8 +113,15 @@ export const fetchBlogPosts = async (serviceType?: string, language: string = 'e
 
     return null;
 
-  } catch (error) {
-    console.error('An error occurred fetching blog posts:', error);
     return null;
+  } catch (error) {
+    console.warn('Fetching blog posts failed, using fallback:', error);
+    // Fallback content to ensure SEO value even if API fails
+    return {
+      title: "5 Reasons Why Your Health Insurance Claim Got Rejected (And How to Fix It)",
+      url: "/services/health-insurance", // Internal link boost
+      date: new Date().toISOString(),
+      summary: "<p>Rejected claims are a nightmare. Discover the top 5 reasons insurers deny claims, from non-disclosure of pre-existing diseases to waiting period clauses, and learn how expert guidance can help you recover your money.</p>"
+    };
   }
 };
