@@ -60,6 +60,7 @@ const Footer = () => {
               <li><Link href="/get-started" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("get_quote")}</Link></li>
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("privacy_policy")}</Link></li>
               <li><Link href="/terms-of-service" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("terms_of_service")}</Link></li>
+              <li><Link href="/return-policy" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("return_policy")}</Link></li>
             </ul>
           </div>
 

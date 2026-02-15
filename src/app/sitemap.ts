@@ -15,6 +15,7 @@ export default async function sitemap() {
         '/engagement',
         '/privacy-policy',
         '/terms-of-service',
+        '/return-policy',
         '/get-started',
         '/resources',
         '/contact',
