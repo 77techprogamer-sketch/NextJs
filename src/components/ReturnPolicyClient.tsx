@@ -25,7 +25,7 @@ const ReturnPolicyClient = () => {
                         <h2 className="text-2xl font-semibold m-0">Free Look Period</h2>
                     </div>
                     <p className="text-muted-foreground leading-relaxed">
-                        Insurance policies in India come with a mandatory "Free Look Period" of 15 days (30 days for policies sold via distance marketing like online or phone). During this time, you have the right to review the terms and conditions of your policy. If you disagree with any of the terms, you can return (cancel) the policy.
+                        Insurance policies in India come with a mandatory &quot;Free Look Period&quot; of 15 days (30 days for policies sold via distance marketing like online or phone). During this time, you have the right to review the terms and conditions of your policy. If you disagree with any of the terms, you can return (cancel) the policy.
                     </p>
                 </section>
 
@@ -79,7 +79,7 @@ const ReturnPolicyClient = () => {
                         3. Service Returns
                     </h2>
                     <p className="text-muted-foreground mb-4">
-                        Please note that "Insurance Support" acts as a facilitator. We do not issue refunds directly. All refunds are processed by the respective Insurance Company to your bank account directly.
+                        Please note that &quot;Insurance Support&quot; acts as a facilitator. We do not issue refunds directly. All refunds are processed by the respective Insurance Company to your bank account directly.
                     </p>
                     <p className="text-muted-foreground">
                         For our advisory or consulting fees (if applicable and charged separately), refunds are governed by the specific service agreement signed at the time of engagement.

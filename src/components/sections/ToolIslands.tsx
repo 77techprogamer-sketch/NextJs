@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ShieldCheck, FileSearch, ArrowRight, Zap, Target } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const ToolIslands = () => {
     const { t } = useTranslation();
@@ -88,7 +89,7 @@ const ToolIslands = () => {
                                             <div className="flex -space-x-2">
                                                 {[1, 2, 3].map((i) => (
                                                     <div key={i} className="w-7 h-7 rounded-full border-2 border-white dark:border-slate-800 bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-[8px] font-bold overflow-hidden">
-                                                        <img src={`https://i.pravatar.cc/100?u=${island.title}${i}`} alt="user" className="w-full h-full object-cover grayscale" />
+                                                        <Image src={`https://i.pravatar.cc/100?u=${island.title}${i}`} alt="user" width={28} height={28} className="w-full h-full object-cover grayscale" />
                                                     </div>
                                                 ))}
                                                 <div className="w-7 h-7 rounded-full border-2 border-white dark:border-slate-800 bg-primary flex items-center justify-center text-[8px] font-bold text-white">
