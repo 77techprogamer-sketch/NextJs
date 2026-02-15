@@ -380,6 +380,38 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
                                   </FormItem>
                                 ))}
                               </RadioGroup>
+                            ) : field.type === 'date' ? (
+                              <Popover>
+                                <PopoverTrigger asChild>
+                                  <FormControl>
+                                    <Button
+                                      variant={"outline"}
+                                      className={cn(
+                                        "w-full h-12 pl-3 text-left font-normal rounded-xl border-slate-200 dark:border-slate-700/50 bg-white/60 dark:bg-slate-900/60",
+                                        !formField.value && "text-muted-foreground"
+                                      )}
+                                    >
+                                      {formField.value ? (
+                                        format(new Date(formField.value as string), "PPP")
+                                      ) : (
+                                        <span>{t("pick_a_date")}</span>
+                                      )}
+                                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                                    </Button>
+                                  </FormControl>
+                                </PopoverTrigger>
+                                <PopoverContent className="w-auto p-0" align="start">
+                                  <Calendar
+                                    mode="single"
+                                    selected={formField.value ? new Date(formField.value as string) : undefined}
+                                    onSelect={formField.onChange}
+                                    disabled={(date) =>
+                                      date < new Date("1900-01-01")
+                                    }
+                                    initialFocus
+                                  />
+                                </PopoverContent>
+                              </Popover>
                             ) : (
                               <Input
                                 type={field.type}
@@ -486,7 +518,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               </motion.div>
             )}
           </AnimatePresence>
-        </div>
+        </div >
 
         <div className={`flex flex-col sm:flex-row ${onClose ? 'sm:justify-between' : 'justify-center w-full'} gap-3 pt-6 mt-4 border-t border-slate-100 dark:border-slate-800/60`}>
           <div className="flex gap-3">
@@ -514,8 +546,8 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             )}
           </div>
         </div>
-      </motion.form>
-    </Form>
+      </motion.form >
+    </Form >
   );
 
 };
