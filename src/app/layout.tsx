@@ -177,7 +177,7 @@ export const metadata: Metadata = {
         creator: '@insurancesupport',
     },
     verification: {
-        google: 'UvNqMHYqn8D-knp1S1Fg7xjO73SQ0U_LW3i5osu6Pac',
+        google: 'bi-hPLUbWhBDce-KaR7UTDRzD36y1vQa33la1ORxFxSF',
         yandex: '89297fa7e3252466',
     },
     other: {
