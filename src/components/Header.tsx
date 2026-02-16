@@ -92,6 +92,39 @@ const Header = () => {
             <DropdownMenuTrigger asChild>
               <button
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label="Free Tools"
+                suppressHydrationWarning
+              >
+                Tools
+                <ChevronDown className="h-4 w-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-64">
+              <DropdownMenuItem asChild>
+                <Link href="/tools/human-life-value-calculator" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold text-primary">HLV Calculator</span>
+                  <span className="text-xs text-muted-foreground">Calculate your ideal insurance cover</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/tools/policy-recovery" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold">Lost Policy Recovery</span>
+                  <span className="text-xs text-muted-foreground">Find details of lost LIC policies</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/tools/risk-scorecard" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold">Risk Scorecard</span>
+                  <span className="text-xs text-muted-foreground">Assess your financial risk profile</span>
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("loans")}
                 suppressHydrationWarning
               >
