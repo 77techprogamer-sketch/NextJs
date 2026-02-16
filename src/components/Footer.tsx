@@ -90,6 +90,7 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("quick_links")}</h3>
             <ul className="space-y-2 text-sm">
+              <li><Link href="/tools/human-life-value-calculator" className="hover:text-primary transition-colors font-semibold text-primary" suppressHydrationWarning>HLV Calculator (New)</Link></li>
               <li><Link href="/resources" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("resources")}</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("about_us")}</Link></li>
               <li><Link href="/support" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("support")}</Link></li>

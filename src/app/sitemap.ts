@@ -46,6 +46,9 @@ export default async function sitemap() {
 
     const resourceSubPages = [
         '/resources/bangalore-insurance-support',
+        '/tools/policy-recovery',
+        '/tools/risk-scorecard',
+        '/tools/human-life-value-calculator',
         '/resources/download-policy-copy',
         '/resources/national-insurance-claim-process',
     ].map((route) => ({
