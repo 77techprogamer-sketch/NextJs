@@ -31,7 +31,7 @@ export async function middleware(request: NextRequest) {
         }
 
         if (shouldRedirect) {
-            return NextResponse.redirect(newUrl);
+            return NextResponse.redirect(newUrl, 301);
         }
     }
 
