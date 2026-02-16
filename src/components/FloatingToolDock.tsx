@@ -28,6 +28,12 @@ const FloatingToolDock = () => {
 
     const tools = [
         {
+            title: "HLV Calculator",
+            icon: <Calculator className="w-5 h-5" />,
+            link: '/tools/human-life-value-calculator',
+            color: 'bg-primary'
+        },
+        {
             title: t('get_insurance_iq'),
             icon: <Target className="w-5 h-5" />,
             link: '/tools/risk-scorecard',
