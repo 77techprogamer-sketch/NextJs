@@ -1,0 +1,227 @@
+import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
+import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { CheckCircle2, MapPin, Phone, UserCheck, Clock, Shield, ArrowRight } from 'lucide-react'
+import QuoteForm from '@/components/QuoteForm'
+import { getCityData, cityData } from '@/data/cityData'
+import { services, serviceLabels } from '@/data/services'
+
+interface Props {
+    params: { city: string; service: string }
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const city = getCityData(params.city)
+    const serviceLabel = serviceLabels[params.service]
+
+    if (!city || !serviceLabel) return {}
+
+    return {
+        title: {
+            absolute: `Best ${serviceLabel} in ${city.name} | Expert Agent & Support`
+        },
+        description: `Looking for ${serviceLabel} in ${city.name}? We provide expert guidance, policy comparisons, and claim support for ${serviceLabel} across ${city.name}.`,
+        keywords: [
+            `${serviceLabel} ${city.name}`,
+            `Best ${serviceLabel} Agent in ${city.name}`,
+            `${serviceLabel} Renewal ${city.name}`,
+            `${serviceLabel} Claims ${city.name}`,
+            `Insurance Agent for ${serviceLabel} in ${city.name}`,
+            ...city.areas.map(area => `${serviceLabel} near ${area}`),
+        ],
+        alternates: {
+            canonical: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
+        },
+        openGraph: {
+            title: `${serviceLabel} in ${city.name} | Verified Agents`,
+            description: `Get the best ${serviceLabel} plans in ${city.name} with doorstep service and claim assistance.`,
+            type: 'website',
+        }
+    }
+}
+
+export async function generateStaticParams() {
+    const params: { city: string; service: string }[] = []
+
+    Object.keys(cityData).forEach((city) => {
+        services.forEach((service) => {
+            params.push({ city, service })
+        })
+    })
+
+    return params
+}
+
+export default function ServiceLocationPage({ params }: Props) {
+    const city = getCityData(params.city)
+    const serviceLabel = serviceLabels[params.service]
+    const serviceSlug = params.service
+
+    if (!city || !serviceLabel) {
+        return notFound()
+    }
+
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'InsuranceAgency',
+        name: `Insurance Support - ${serviceLabel} in ${city.name}`,
+        description: `Expert ${serviceLabel} services in ${city.name}.`,
+        areaServed: {
+            '@type': 'City',
+            name: city.name
+        },
+        hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: `${serviceLabel} Services`,
+            itemListElement: [
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: `${serviceLabel} Consultation`
+                    }
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: `${serviceLabel} Renewal`
+                    }
+                },
+                {
+                    '@type': 'Offer',
+                    itemOffered: {
+                        '@type': 'Service',
+                        name: `${serviceLabel} Claim Assistance`
+                    }
+                }
+            ]
+        }
+    }
+
+    return (
+        <div className="container px-4 py-12 mx-auto">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
+            <div className="flex flex-col md:flex-row gap-12">
+
+                {/* Main Content */}
+                <div className="flex-1 max-w-3xl">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+                        <Link href="/" className="hover:text-primary">Home</Link>
+                        <span>/</span>
+                        <Link href={`/locations/${params.city}`} className="hover:text-primary">{city.name}</Link>
+                        <span>/</span>
+                        <span className="text-slate-900 font-medium">{serviceLabel}</span>
+                    </div>
+
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
+                        Best <span className="text-primary">{serviceLabel}</span> in {city.name}
+                    </h1>
+
+                    <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                        Secure your future with the most reliable <strong>{serviceLabel} plans in {city.name}</strong>.
+                        Whether you are in {city.areas[0]} or {city.areas[1] || 'nearby'}, our expert advisors provide personalized support at your doorstep.
+                    </p>
+
+                    <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 mb-10">
+                        <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
+                            <Shield className="h-6 w-6 text-primary" />
+                            Why Choose Us for {serviceLabel}?
+                        </h2>
+                        <div className="grid sm:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                    <CheckCircle2 className="h-5 w-5 text-green-600" />
+                                    Local Expertise
+                                </h3>
+                                <p className="text-muted-foreground text-sm">We understand the specific needs of residents in {city.name}.</p>
+                            </div>
+                            <div className="space-y-2">
+                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                    <CheckCircle2 className="h-5 w-5 text-green-600" />
+                                    Claim Settlement
+                                </h3>
+                                <p className="text-muted-foreground text-sm">Dedicated support to ensure your claims are processed smoothly.</p>
+                            </div>
+                            <div className="space-y-2">
+                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                    <CheckCircle2 className="h-5 w-5 text-green-600" />
+                                    Best Quotes
+                                </h3>
+                                <p className="text-muted-foreground text-sm">Compare plans from top insurers to get the best value.</p>
+                            </div>
+                            <div className="space-y-2">
+                                <h3 className="font-semibold text-lg flex items-center gap-2">
+                                    <CheckCircle2 className="h-5 w-5 text-green-600" />
+                                    Doorstep Service
+                                </h3>
+                                <p className="text-muted-foreground text-sm">We come to you in {city.name} for all paperwork.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 className="text-2xl font-bold mb-6">Our {serviceLabel} Services in {city.name}</h2>
+                    <ul className="space-y-4 mb-10">
+                        {[
+                            `New ${serviceLabel} Policy Issuance`,
+                            `Renewal of Existing ${serviceLabel}`,
+                            `Lapsed Policy Revival`,
+                            `Claim Intimation & Settlement Support`,
+                            `Portability to Better Plans`,
+                            `Nominee & Address Updates`
+                        ].map((item, i) => (
+                            <li key={i} className="flex items-center gap-3 text-lg bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                <ArrowRight className="h-4 w-4 text-primary shrink-0" />
+                                {item}
+                            </li>
+                        ))}
+                    </ul>
+
+                    <div className="bg-slate-900 text-white p-8 rounded-2xl mb-12">
+                        <h3 className="text-2xl font-bold mb-4">Serving All Areas in {city.name}</h3>
+                        <p className="text-slate-300 mb-6">
+                            Our network covers {city.areas.join(', ')} and surrounding regions.
+                            We ensure that quality insurance advice is accessible to everyone in {city.name}.
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                            {city.areas.map(area => (
+                                <span key={area} className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium backdrop-blur-sm">
+                                    {area}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                        <Button size="lg" className="w-full sm:w-auto h-12 text-lg">
+                            <Phone className="mr-2 h-4 w-4" />
+                            Call +91 99866 34506
+                        </Button>
+                        <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 text-lg">
+                            WhatsApp Us
+                        </Button>
+                    </div>
+                </div>
+
+                {/* Sidebar / Form */}
+                <div className="w-full md:w-[400px]">
+                    <div className="sticky top-24">
+                        <div className="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
+                            <h3 className="text-xl font-bold mb-2">Get a {serviceLabel} Quote</h3>
+                            <p className="text-sm text-muted-foreground mb-6"> customized for {city.name} residents.</p>
+                            {/* We can pass the specific insurance type if it matches the form config keys */}
+                            <QuoteForm insuranceType={serviceSlug.replace(/-/g, '_')} />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    )
+}

@@ -142,21 +142,25 @@ export default function LocationPage({ params }: Props) {
                     </div>
 
                     <h2 className="text-2xl font-bold mb-6">Services We Offer in {city.name}</h2>
-                    <ul className="space-y-4 mb-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
                         {[
-                            'Doorstep Policy Renewal (Cheque/Online)',
-                            'Assistance with Lapsed Policies',
-                            'Cashless Claim Settlement Assistance',
-                            'Motor Insurance Inspection Scheduling',
-                            'Family Floater Health Plans',
-                            'Tax-Saving Life Insurance (80C)'
-                        ].map((item, i) => (
-                            <li key={i} className="flex items-center gap-3 text-lg">
-                                <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
-                                {item}
-                            </li>
+                            { label: 'Life Insurance', slug: 'life-insurance' },
+                            { label: 'Health Insurance', slug: 'health-insurance' },
+                            { label: 'Motor Insurance', slug: 'motor-insurance' },
+                            { label: 'Term Insurance', slug: 'term-insurance' },
+                            { label: 'SME / Business Insurance', slug: 'sme-insurance' },
+                            { label: 'Pension Plans', slug: 'pension-plans' }
+                        ].map((item) => (
+                            <Link
+                                key={item.slug}
+                                href={`/locations/${params.city}/${item.slug}`}
+                                className="flex items-center gap-3 text-lg p-3 rounded-lg border border-slate-100 hover:border-primary/30 hover:bg-primary/5 transition-colors group"
+                            >
+                                <CheckCircle2 className="h-5 w-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
+                                <span className="text-slate-700 font-medium group-hover:text-primary transition-colors">{item.label}</span>
+                            </Link>
                         ))}
-                    </ul>
+                    </div>
 
                     {city.areas.length > 0 && (
                         <div className="bg-slate-100 p-6 rounded-xl border border-slate-200 mb-10">

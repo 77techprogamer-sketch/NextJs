@@ -3,10 +3,46 @@
 import React from "react";
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { ShieldCheck, Award } from 'lucide-react';
+import { ShieldCheck, Award, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 import { slugify } from '@/utils/slugify';
 import { formatLabel } from '@/utils/formatText';
 import { cityData } from '@/data/cityData';
+
+interface CollapsibleListProps<T> {
+  items: T[];
+  renderItem: (item: T) => React.ReactNode;
+  limit?: number;
+}
+
+function CollapsibleList<T>({ items, renderItem, limit = 6 }: CollapsibleListProps<T>) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  if (items.length <= limit) {
+    return <ul className="space-y-2 text-sm">{items.map(renderItem)}</ul>;
+  }
+
+  const displayedItems = isExpanded ? items : items.slice(0, limit);
+
+  return (
+    <div className="space-y-2">
+      <ul className="space-y-2 text-sm">
+        {displayedItems.map(renderItem)}
+      </ul>
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="text-xs font-semibold text-primary flex items-center gap-1 hover:underline focus:outline-none"
+      >
+        {isExpanded ? (
+          <>Show Less <ChevronUp className="h-3 w-3" /></>
+        ) : (
+          <>Show All ({items.length}) <ChevronDown className="h-3 w-3" /></>
+        )}
+      </button>
+    </div>
+  );
+}
+
 const Footer = () => {
   const { t } = useTranslation();
 
@@ -66,21 +102,25 @@ const Footer = () => {
 
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("services_offered")}</h3>
-            <ul className="space-y-2 text-sm">
-              {serviceKeys.map((key) => (
+            <CollapsibleList
+              items={serviceKeys}
+              limit={5}
+              renderItem={(key) => (
                 <li key={key}>
                   <Link href={`/services/${slugify(key)}`} className="hover:text-primary transition-colors" suppressHydrationWarning>
                     {formatLabel(t(key))}
                   </Link>
                 </li>
-              ))}
-            </ul>
+              )}
+            />
           </div>
 
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("we_serve")}</h3>
-            <ul className="space-y-2 text-sm">
-              {locations.map((cityKey) => {
+            <CollapsibleList
+              items={locations}
+              limit={5}
+              renderItem={(cityKey) => {
                 const city = cityData[cityKey];
                 return (
                   <li key={cityKey}>
@@ -89,13 +129,22 @@ const Footer = () => {
                     </Link>
                   </li>
                 );
-              })}
-            </ul>
+              }}
+            />
           </div>
           <div className="text-center sm:text-left">
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("headquarters")}</h3>
-            <p className="text-sm mb-2" suppressHydrationWarning>{t("bangalore_office")}</p>
-            <p className="text-xs font-medium uppercase tracking-tighter opacity-70" suppressHydrationWarning>{t("established_text")}</p>
+            <p className="text-sm mb-6" suppressHydrationWarning>{t("bangalore_office")}</p>
+
+            <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs text-primary" suppressHydrationWarning>Trending Now</h3>
+            <ul className="space-y-2 text-sm">
+              <li><Link href="/locations/bangalore/health-insurance" className="hover:text-primary transition-colors">Health Insurance Bangalore</Link></li>
+              <li><Link href="/locations/hyderabad/life-insurance" className="hover:text-primary transition-colors">Life Insurance Hyderabad</Link></li>
+              <li><Link href="/locations/pune/term-insurance" className="hover:text-primary transition-colors">Term Insurance Pune</Link></li>
+              <li><Link href="/locations/chennai/motor-insurance" className="hover:text-primary transition-colors">Motor Insurance Chennai</Link></li>
+              <li><Link href="/locations/mumbai/lic-agent" className="hover:text-primary transition-colors">LIC Agent Mumbai</Link></li>
+              <li><Link href="/locations/delhi/sme-insurance" className="hover:text-primary transition-colors">SME Insurance Delhi</Link></li>
+            </ul>
           </div>
         </div>
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">

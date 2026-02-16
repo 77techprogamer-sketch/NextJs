@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import { Metadata, MetadataRoute } from 'next'
 import { cityData } from '@/data/cityData'
 import { services } from '@/data/services'
 
@@ -55,5 +55,17 @@ export default async function sitemap() {
         priority: 0.7,
     }))
 
-    return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...resourceSubPages]
+    const matrixRoutes: MetadataRoute.Sitemap = []
+    locations.forEach(city => {
+        services.forEach(service => {
+            matrixRoutes.push({
+                url: `${BASE_url}/locations/${city}/${service}`,
+                lastModified: new Date().toISOString(),
+                changeFrequency: 'weekly',
+                priority: 0.8,
+            })
+        })
+    })
+
+    return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...resourceSubPages, ...matrixRoutes]
 }
