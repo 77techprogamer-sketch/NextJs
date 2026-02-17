@@ -106,12 +106,16 @@ const HomeClient: React.FC<HomeClientProps> = () => {
 
     useEffect(() => {
         // Global handler for Lead Magnet Result
-        (window as any).triggerLeadMagnetHandoff = () => {
+        // Global handler for Lead Magnet Result
+        (window as any).triggerLeadMagnetHandoff = (data: { score: number; riskLevel: string }) => {
             handleGetQuote({
                 insuranceType: 'general_inquiry',
                 formData: {
                     fullName: '',
-                    mobileNumber: ''
+                    mobileNumber: '',
+                    source: 'lead_magnet_quiz',
+                    quiz_score: data?.score,
+                    quiz_risk: data?.riskLevel
                 }
             });
         };

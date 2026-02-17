@@ -1,6 +1,7 @@
 import { Metadata, MetadataRoute } from 'next'
 import { cityData } from '@/data/cityData'
 import { services } from '@/data/services'
+import { faqData } from '@/data/faqData'
 
 
 
@@ -58,6 +59,14 @@ export default async function sitemap() {
         priority: 0.7,
     }))
 
+    // Generate FAQ Routes
+    const faqRoutes = faqData.map((faq) => ({
+        url: `${BASE_url}/resources/faq/${faq.slug}`,
+        lastModified: new Date().toISOString(),
+        changeFrequency: 'always',
+        priority: 0.75, // Higher priority than general resources
+    }))
+
     const matrixRoutes: MetadataRoute.Sitemap = []
     locations.forEach(city => {
         services.forEach(service => {
@@ -70,5 +79,5 @@ export default async function sitemap() {
         })
     })
 
-    return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...resourceSubPages, ...matrixRoutes]
+    return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...resourceSubPages, ...matrixRoutes, ...faqRoutes]
 }

@@ -13,14 +13,16 @@ export const cityData: Record<string, CityData> = {
         slug: 'bangalore',
         state: 'Karnataka',
         areas: ['Indiranagar', 'Koramangala', 'Jayanagar', 'JP Nagar', 'Whitefield', 'HSR Layout', 'Electronic City', 'Hebbal', 'Malleshwaram'],
-        description: "As India's Silicon Valley, Bangalore sees high vehicle density and rapid urban growth. This makes comprehensive motor and health insurance essential for navigating the city's busy life."
+        description: "As India's Silicon Valley, Bangalore sees high vehicle density and rapid urban growth. From the busy streets of MG Road to the tech hubs of Whitefield, we provide comprehensive motor and health insurance essential for navigating the Garden City's dynamic life.",
+        phone: "+91-9962536848"
     },
     chennai: {
         name: 'Chennai',
         slug: 'chennai',
         state: 'Tamil Nadu',
         areas: ['T Nagar', 'Adyar', 'Velachery', 'Anna Nagar', 'Mylapore', 'Tambaram', 'Guindy', 'Porur'],
-        description: "Given Chennai's coastal weather and monsoon risks, property and health insurance are vital. We help residents secure their homes and health against unpredictable climatic changes."
+        description: "Given Chennai's coastal weather and monsoon risks, especially in areas like Velachery and Adyar, property and health insurance are vital. We help residents secure their homes and health against unpredictable climatic changes and urban challenges.",
+        phone: "+91-9962536848"
     },
     vellore: {
         name: 'Vellore',
@@ -75,15 +77,25 @@ export const cityData: Record<string, CityData> = {
         name: 'Hyderabad',
         slug: 'hyderabad',
         state: 'Telangana',
-        areas: ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kukatpally', 'Secunderabad'],
-        description: "In the bustling IT hub of Hyderabad, securing your family's future is paramount. We provide comprehensive health and term life insurance solutions tailored for tech professionals and families."
+        areas: ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kukatpally', 'Secunderabad', 'Hitech City'],
+        description: "In the bustling IT hub of Hyderabad, specifically around Hitech City and Gachibowli, ensuring your family's future is paramount. We provide comprehensive health and term life insurance solutions tailored for tech professionals and families.",
+        phone: "+91-9962536848"
     },
     pune: {
         name: 'Pune',
         slug: 'pune',
         state: 'Maharashtra',
-        areas: ['Koregaon Park', 'Kalyani Nagar', 'Viman Nagar', 'Hinjewadi', 'Kothrud'],
-        description: "Pune's dynamic lifestyle demands robust protection. From motor insurance for your daily commute to health plans for your family, we cover all your insurance needs in the Oxford of the East."
+        areas: ['Koregaon Park', 'Kalyani Nagar', 'Viman Nagar', 'Hinjewadi', 'Kothrud', 'Magarpatta'],
+        description: "Pune's dynamic lifestyle demands robust protection. From motor insurance for your daily commute to Hinjewadi or Magarpatta, to health plans for your family, we cover all your insurance needs in the Oxford of the East.",
+        phone: "+91-9962536848"
+    },
+    mumbai: {
+        name: 'Mumbai',
+        slug: 'mumbai',
+        state: 'Maharashtra',
+        areas: ['Andheri', 'Bandra', 'Juhu', 'Powai', 'Colaba', 'Dadar'],
+        description: "In the City of Dreams, financial security is the bedrock of ambition. We offer specialized marine insurance for businesses in South Bombay and comprehensive family floaters for residents in the suburbs.",
+        phone: "+91-9962536848"
     },
     ahmedabad: {
         name: 'Ahmedabad',

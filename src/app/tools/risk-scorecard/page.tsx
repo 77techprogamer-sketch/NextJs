@@ -5,8 +5,11 @@ import LeadMagnetQuiz from '@/components/LeadMagnetQuiz';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
-import { ShieldCheck, Zap, BarChart3, ChevronLeft } from 'lucide-react';
+import { ShieldCheck, Zap, BarChart3, ChevronLeft, Code2, Copy } from 'lucide-react';
 import Link from 'next/link';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from '@/components/ui/button';
+import { toast } from 'sonner';
 
 export default function RiskScorecardPage() {
     const { t } = useTranslation();
@@ -16,10 +19,40 @@ export default function RiskScorecardPage() {
             <div className="container mx-auto px-4">
                 <div className="max-w-4xl mx-auto text-center mb-12">
                     <ScrollReveal animation="fade-up">
-                        <Link href="/" className="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:gap-3 transition-all">
-                            <ChevronLeft className="w-4 h-4" />
-                            {t('back_to_home')}
-                        </Link>
+                        <div className="flex justify-between items-start">
+                            <Link href="/" className="inline-flex items-center gap-2 text-primary font-bold mb-8 hover:gap-3 transition-all">
+                                <ChevronLeft className="w-4 h-4" />
+                                {t('back_to_home')}
+                            </Link>
+
+                            <Dialog>
+                                <DialogTrigger asChild>
+                                    <Button variant="outline" size="sm" className="gap-2 text-xs uppercase font-bold tracking-wider rounded-full border-primary/20 hover:bg-primary/5 hover:text-primary">
+                                        <Code2 className="w-4 h-4" />
+                                        {t('embed_this_tool', 'Embed Tool')}
+                                    </Button>
+                                </DialogTrigger>
+                                <DialogContent className="sm:max-w-md">
+                                    <DialogHeader>
+                                        <DialogTitle>{t('embed_on_your_site', 'Embed on your site')}</DialogTitle>
+                                        <DialogDescription>
+                                            {t('embed_instructions', 'Copy and paste this code to add the Risk Scorecard to your website.')}
+                                        </DialogDescription>
+                                    </DialogHeader>
+                                    <div className="flex items-center space-x-2 bg-slate-100 dark:bg-slate-900 p-4 rounded-lg mt-4">
+                                        <code className="text-xs text-slate-600 dark:text-slate-400 break-all">
+                                            {`<iframe src="https://insurancesupport.online/tools/risk-scorecard/embed" width="100%" height="600" frameborder="0"></iframe>`}
+                                        </code>
+                                        <Button size="icon" variant="ghost" className="shrink-0" onClick={() => {
+                                            navigator.clipboard.writeText(`<iframe src="https://insurancesupport.online/tools/risk-scorecard/embed" width="100%" height="600" frameborder="0"></iframe>`);
+                                            toast.success(t('copied_to_clipboard', 'Copied to clipboard'));
+                                        }}>
+                                            <Copy className="w-4 h-4" />
+                                        </Button>
+                                    </div>
+                                </DialogContent>
+                            </Dialog>
+                        </div>
                         <br />
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}

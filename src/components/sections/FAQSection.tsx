@@ -11,28 +11,18 @@ import {
 import { HelpCircle } from 'lucide-react';
 import { AutoLinker } from '@/components/AutoLinker';
 
-interface FAQItem {
-    q: string;
-    a: string;
-}
+import { faqData } from '@/data/faqData';
+import Link from 'next/link';
 
 interface FAQSectionProps {
-    items?: FAQItem[];
+    items?: any[]; // Keep flexible if passed from props
 }
 
 const FAQSection: React.FC<FAQSectionProps> = ({ items }) => {
     const { t } = useTranslation();
 
-    const defaultFaqs = [
-        { q: "faq_life_q1", a: "faq_life_a1" },
-        { q: "faq_life_q2", a: "faq_life_a2" },
-        { q: "faq_health_q1", a: "faq_health_a1" },
-        { q: "faq_health_q2", a: "faq_health_a2" },
-        { q: "faq_term_q1", a: "faq_term_a1" },
-        { q: "faq_motor_q1", a: "faq_motor_a1" },
-    ];
-
-    const faqs = items || defaultFaqs;
+    // specific subset for homepage if needed, or just take first 6
+    const displayFaqs = items || faqData.slice(0, 6);
 
     return (
         <section className="py-12 sm:py-16 bg-white dark:bg-gray-950">
@@ -51,13 +41,25 @@ const FAQSection: React.FC<FAQSectionProps> = ({ items }) => {
 
                 <div className="bg-gray-50 dark:bg-gray-900 rounded-2xl p-6 sm:p-8 shadow-sm border border-gray-100 dark:border-gray-800">
                     <Accordion type="single" collapsible className="w-full">
-                        {faqs.map((faq, index) => (
+                        {displayFaqs.map((faq, index) => (
                             <AccordionItem key={index} value={`item-${index}`} className="border-b-gray-200 dark:border-b-gray-800">
                                 <AccordionTrigger className="text-left font-medium text-gray-900 dark:text-gray-100 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-                                    {t(faq.q)}
+                                    {t(faq.questionKey)}
                                 </AccordionTrigger>
-                                <AccordionContent className="text-gray-600 dark:text-gray-400">
-                                    <AutoLinker text={t(faq.a)} />
+                                <AccordionContent className="text-gray-600 dark:text-gray-400 space-y-3">
+                                    <div className="prose prose-sm dark:prose-invert max-w-none">
+                                        <AutoLinker text={t(faq.answerKey)} />
+                                    </div>
+                                    {faq.slug && (
+                                        <div className="pt-2">
+                                            <Link
+                                                href={`/resources/faq/${faq.slug}`}
+                                                className="text-primary text-sm font-semibold hover:underline flex items-center gap-1"
+                                            >
+                                                {t("read_detailed_answer", "Read detailed answer")} &rarr;
+                                            </Link>
+                                        </div>
+                                    )}
                                 </AccordionContent>
                             </AccordionItem>
                         ))}

@@ -132,6 +132,11 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
         }
       });
 
+      // Capture source and quiz data from initialData if present
+      if (initialData?.source) details.source = initialData.source;
+      if (initialData?.quiz_score) details.quiz_score = initialData.quiz_score;
+      if (initialData?.quiz_risk) details.quiz_risk = initialData.quiz_risk;
+
       // Add details to payload if not empty
       if (Object.keys(details).length > 0) {
         payload.details = details;

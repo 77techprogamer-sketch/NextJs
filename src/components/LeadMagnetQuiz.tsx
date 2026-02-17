@@ -97,6 +97,15 @@ const LeadMagnetQuiz: React.FC<LeadMagnetQuizProps> = ({ onComplete }) => {
         if (score < 40) riskLevel = 'HIGH';
         else if (score > 75) riskLevel = 'LOW';
 
+        // Track completion in GA
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'lead_magnet_completed', {
+                'event_category': 'engagement',
+                'event_label': riskLevel,
+                'value': score
+            });
+        }
+
         setIsFinished(true);
         onComplete({ score, riskLevel });
     };
@@ -196,7 +205,10 @@ const LeadMagnetQuiz: React.FC<LeadMagnetQuizProps> = ({ onComplete }) => {
 
                         <div className="space-y-4">
                             <Button
-                                onClick={() => (window as any).triggerLeadMagnetHandoff && (window as any).triggerLeadMagnetHandoff()}
+                                onClick={() => (window as any).triggerLeadMagnetHandoff && (window as any).triggerLeadMagnetHandoff({
+                                    score: Math.max(0, Math.min(100, 70 + Object.values(answers).reduce((a, b) => a + b, 0))),
+                                    riskLevel: resultInfo().label
+                                })}
                                 className="w-full h-14 bg-primary text-white text-lg font-bold rounded-2xl shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3"
                             >
                                 <FileText className="w-5 h-5" />
