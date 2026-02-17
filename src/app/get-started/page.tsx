@@ -14,7 +14,10 @@ export const metadata: Metadata = {
         'Motor Insurance Calculator',
         'Instant Policy Issuance',
         'Compare Insurance Plans'
-    ]
+    ],
+    alternates: {
+        canonical: 'https://insurancesupport.online/get-started',
+    }
 };
 
 const GetStartedPage = ({

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
         title: 'Free Human Life Value (HLV) Calculator',
         description: 'Are you under-insured? Calculate your true life insurance need in 2 minutes.',
         type: 'website',
+    },
+    alternates: {
+        canonical: 'https://insurancesupport.online/tools/human-life-value-calculator',
     }
 }
 

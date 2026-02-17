@@ -18,7 +18,10 @@ export const metadata: Metadata = {
         'Insurance Claim Consultant India',
         'LIC Agent',
         'Insurance Consultancy'
-    ]
+    ],
+    alternates: {
+        canonical: 'https://insurancesupport.online',
+    }
 };
 
 export default function Home() {

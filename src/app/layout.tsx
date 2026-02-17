@@ -27,9 +27,6 @@ export const metadata: Metadata = {
         default: 'Insurance Support | Expert Claim Recovery Services',
         template: '%s | Insurance Support'
     },
-    alternates: {
-        canonical: 'https://insurancesupport.online',
-    },
     description: 'Struggling with rejected claims or lost LIC policies? Get 25+ years of expert help. We fight for your money. Free Consultation. Call Now! Serving All India.',
     keywords: [
         'Insurance Support',
