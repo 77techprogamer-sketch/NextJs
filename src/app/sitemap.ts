@@ -22,7 +22,7 @@ export default async function sitemap() {
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: new Date().toISOString(),
-        changeFrequency: ['/privacy-policy', '/terms-of-service'].includes(route) ? 'monthly' : 'weekly',
+        changeFrequency: 'always',
         priority: route === '' ? 1 : 0.8,
     }))
 
@@ -33,14 +33,14 @@ export default async function sitemap() {
     const serviceRoutes = services.map((slug: string) => ({
         url: `${BASE_url}/services/${slug}`,
         lastModified: new Date().toISOString(),
-        changeFrequency: 'weekly',
+        changeFrequency: 'always',
         priority: 0.9,
     }))
 
     const locationRoutes = locations.map((city) => ({
         url: `${BASE_url}/locations/${city}`,
         lastModified: new Date().toISOString(),
-        changeFrequency: 'weekly',
+        changeFrequency: 'always',
         priority: 0.85,
     }))
 
@@ -54,7 +54,7 @@ export default async function sitemap() {
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: new Date().toISOString(),
-        changeFrequency: 'monthly',
+        changeFrequency: 'always',
         priority: 0.7,
     }))
 
@@ -64,7 +64,7 @@ export default async function sitemap() {
             matrixRoutes.push({
                 url: `${BASE_url}/locations/${city}/${service}`,
                 lastModified: new Date().toISOString(),
-                changeFrequency: 'weekly',
+                changeFrequency: 'always',
                 priority: 0.8,
             })
         })
