@@ -8,7 +8,7 @@
         "start": "next start",
         "lint": "next lint",
         "vercel-install": "npm install --legacy-peer-deps",
-        "indexnow:submit": "node scripts/submit-indexnow.js"
+        "indexnow:submit": "node scripts/fast-track-index.js"
     },
     "dependencies": {
         "@hookform/resolvers": "^5.2.2",

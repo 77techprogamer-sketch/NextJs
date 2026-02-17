@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
         rules: {
             userAgent: '*',
             allow: '/',
-            disallow: ['/private/', '/api/', '/_next/'],
+            disallow: ['/private/', '/api/'],
         },
         sitemap: 'https://insurancesupport.online/sitemap.xml',
     }
