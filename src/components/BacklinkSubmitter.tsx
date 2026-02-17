@@ -19,6 +19,10 @@ export default function BacklinkSubmitter() {
                 return;
             }
 
+            // Skip for bots to avoid "blocked by robots.txt" errors in GSC
+            const isBot = /bot|google|baidu|bing|msn|duckduckgo|teoma|slurp|yandex/i.test(navigator.userAgent);
+            if (isBot) return;
+
             try {
                 // Background submission
                 const response = await fetch('/api/seo/auto-submit', {
