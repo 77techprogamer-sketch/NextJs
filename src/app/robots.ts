@@ -6,12 +6,14 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: [
                 '/',
-                '/_next/',
-                '/api/location',
+                '/_next/static/',
                 '/images/',
-                '/locales/',
+                '/api/location',
             ],
-            disallow: ['/private/', '/api/'],
+            disallow: [
+                '/api/',
+                '/private/',
+            ],
         },
         sitemap: 'https://insurancesupport.online/sitemap.xml',
     }

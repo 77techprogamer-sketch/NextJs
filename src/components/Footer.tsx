@@ -113,11 +113,9 @@ const Footer = () => {
               items={serviceKeys}
               limit={5}
               renderItem={(key) => (
-                <li key={key}>
-                  <Link href={`/services/${slugify(key)}`} className="hover:text-primary transition-colors" suppressHydrationWarning>
-                    {formatLabel(t(key))}
-                  </Link>
-                </li>
+                <Link href={`/services/${slugify(key)}`} className="hover:text-primary transition-colors" suppressHydrationWarning>
+                  {formatLabel(t(key))}
+                </Link>
               )}
             />
             <Link href="/services" className="text-xs font-bold text-primary mt-2 flex items-center gap-1 hover:underline">
@@ -133,11 +131,9 @@ const Footer = () => {
               renderItem={(cityKey) => {
                 const city = cityData[cityKey];
                 return (
-                  <li key={cityKey}>
-                    <Link href={`/locations/${city.slug}`} className="hover:text-primary transition-colors">
-                      {city.name}
-                    </Link>
-                  </li>
+                  <Link href={`/locations/${city.slug}`} className="hover:text-primary transition-colors">
+                    {city.name}
+                  </Link>
                 );
               }}
             />

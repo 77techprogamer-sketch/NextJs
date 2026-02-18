@@ -25,10 +25,8 @@ export default function I18nProvider({ children }: { children: React.ReactNode }
         }
     }, []);
 
-    // Prevent hydration mismatch by waiting for mount
-    if (!mounted) return null;
-
-    // Render children even if not initialized to avoid blocking the app
+    // Prevent hydration mismatch while still rendering content on the server
+    // We render the provider but allow the child components to handle individual hydration if needed
     return (
         <I18nextProvider i18n={i18n}>
             {children}

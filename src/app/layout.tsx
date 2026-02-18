@@ -189,7 +189,7 @@ export const metadata: Metadata = {
 import Script from 'next/script';
 const GTM_ID = 'GTM-P8DZ6MRQ';
 
-import BacklinkSubmitter from '@/components/BacklinkSubmitter';
+const BacklinkSubmitter = dynamic(() => import('@/components/BacklinkSubmitter'), { ssr: false });
 const FloatingToolDock = dynamic(() => import('@/components/FloatingToolDock'), { ssr: false });
 
 import { ThemeProvider } from '@/components/theme-provider'
