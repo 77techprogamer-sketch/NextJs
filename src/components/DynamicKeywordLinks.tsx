@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from 'react';
 import { cityData } from '@/data/cityData';
 import { services, serviceLabels } from '@/data/services';
 import Link from 'next/link';
@@ -13,10 +16,21 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 export default function DynamicKeywordLinks() {
-    // Get 6 random cities and 6 random services
+    const [mounted, setMounted] = useState(false);
+    const [randomCities, setRandomCities] = useState<string[]>([]);
+    const [randomServices, setRandomServices] = useState<string[]>([]);
+
+    useEffect(() => {
+        const locations = Object.keys(cityData);
+        setRandomCities(shuffleArray(locations).slice(0, 8));
+        setRandomServices(shuffleArray(services).slice(0, 8));
+        setMounted(true);
+    }, []);
+
+    // Return null during SSR and initial client pass
+    if (!mounted) return null;
+
     const locations = Object.keys(cityData);
-    const randomCities = shuffleArray(locations).slice(0, 8);
-    const randomServices = shuffleArray(services).slice(0, 8);
 
     return (
         <section className="py-8 bg-gray-50 border-t border-gray-200">

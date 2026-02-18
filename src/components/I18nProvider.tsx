@@ -6,8 +6,10 @@ import i18n from '@/i18n';
 
 export default function I18nProvider({ children }: { children: React.ReactNode }) {
     const [isInitialized, setIsInitialized] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         // Ensure i18n is initialized
         if (!i18n.isInitialized) {
             i18n.init().then(() => {
@@ -22,6 +24,9 @@ export default function I18nProvider({ children }: { children: React.ReactNode }
             setIsInitialized(true);
         }
     }, []);
+
+    // Prevent hydration mismatch by waiting for mount
+    if (!mounted) return null;
 
     // Render children even if not initialized to avoid blocking the app
     return (

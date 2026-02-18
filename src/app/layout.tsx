@@ -189,6 +189,8 @@ const GTM_ID = 'GTM-P8DZ6MRQ';
 import BacklinkSubmitter from '@/components/BacklinkSubmitter';
 const FloatingToolDock = dynamic(() => import('@/components/FloatingToolDock'), { ssr: false });
 
+import { ThemeProvider } from '@/components/theme-provider'
+
 export default function RootLayout({
     children,
 }: {
@@ -197,7 +199,7 @@ export default function RootLayout({
     return (
         <html lang="en" className="scroll-smooth" suppressHydrationWarning>
             <head>
-                {/* Google Tag Manager */}
+                {/* Google Tag Manager anchor */}
                 <Script
                     id="gtm-script"
                     strategy="afterInteractive"
@@ -228,31 +230,38 @@ export default function RootLayout({
                     <div className="absolute top-[20%] -right-[5%] w-[30%] h-[30%] bg-accent/10 rounded-full blur-[100px]"></div>
                 </div>
 
-                <I18nProvider>
-                    <div className="flex flex-col min-h-screen overflow-x-hidden">
-                        <BacklinkSubmitter />
-                        <GlobalJsonLd />
-                        <Analytics />
-                        <SmartLanguageSelector />
-                        <Header />
-                        <main className="flex-1">
-                            <PageTransitionProvider>
-                                {children}
-                            </PageTransitionProvider>
-                        </main>
-                        <DynamicKeywordLinks />
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
+                >
+                    <I18nProvider>
+                        <div className="flex flex-col min-h-screen overflow-x-hidden">
+                            <BacklinkSubmitter />
+                            <GlobalJsonLd />
+                            <Analytics />
+                            <SmartLanguageSelector />
+                            <Header />
+                            <main className="flex-1">
+                                <PageTransitionProvider>
+                                    {children}
+                                </PageTransitionProvider>
+                            </main>
+                            <DynamicKeywordLinks />
 
-                        <Footer />
-                        <QuickDialSidebar />
-                        <React.Suspense fallback={null}>
-                            <ChatbotWidget />
-                        </React.Suspense>
-                        <ShareNudge />
-                        <ActivityTicker />
-                        <Toaster />
-                        <FloatingToolDock />
-                    </div>
-                </I18nProvider>
+                            <Footer />
+                            <QuickDialSidebar />
+                            <React.Suspense fallback={null}>
+                                <ChatbotWidget />
+                            </React.Suspense>
+                            <ShareNudge />
+                            <ActivityTicker />
+                            <Toaster />
+                            <FloatingToolDock />
+                        </div>
+                    </I18nProvider>
+                </ThemeProvider>
             </body>
 
         </html>
