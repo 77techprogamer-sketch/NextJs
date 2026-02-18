@@ -92,15 +92,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                             </ScrollReveal>
 
                             <ScrollReveal animation="fade-in" delay={1.1}>
-                                <div className="flex items-center gap-6 text-[11px] font-bold uppercase tracking-[0.2em] text-white/50">
+                                <div className="flex items-center gap-6 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
                                     <div className="flex items-center gap-2">
-                                        <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
-                                        <span>{t("verified_advisor_active")}</span>
+                                        <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_12px_rgba(34,197,94,0.8)]" />
+                                        <span className="text-accent">{t("verified_advisor_active")}</span>
                                     </div>
-                                    <div className="w-1.5 h-1.5 rounded-full bg-white/20" />
-                                    <div className="flex items-center gap-2">
-                                        <ShieldCheck className="w-3 h-3 text-accent" />
-                                        <span>{t("approx_30_seconds")}</span>
+                                    <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
+                                    <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg backdrop-blur-sm border border-white/20">
+                                        <ShieldCheck className="w-4 h-4 text-accent" />
+                                        <span className="text-white">{t("approx_30_seconds")}</span>
                                     </div>
                                 </div>
                             </ScrollReveal>

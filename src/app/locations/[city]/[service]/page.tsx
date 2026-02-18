@@ -20,23 +20,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: {
-            absolute: `Best ${serviceLabel} in ${city.name} | Expert Agent & Support`
+            absolute: `Best ${serviceLabel} in ${city.name} | 98% Claim Settlement`
         },
-        description: `Looking for ${serviceLabel} in ${city.name}? We provide expert guidance, policy comparisons, and claim support for ${serviceLabel} across ${city.name}.`,
+        description: `Compare the best ${serviceLabel} plans in ${city.name}. Expert guidance and doorstep claim support with 25+ years experience. Get a free quote in 30 seconds!`,
         keywords: [
             `${serviceLabel} ${city.name}`,
             `Best ${serviceLabel} Agent in ${city.name}`,
-            `${serviceLabel} Renewal ${city.name}`,
-            `${serviceLabel} Claims ${city.name}`,
-            `Insurance Agent for ${serviceLabel} in ${city.name}`,
+            `${serviceLabel} renewal ${city.name}`,
+            `${serviceLabel} claims ${city.name}`,
+            `insurance agent for ${serviceLabel} in ${city.name}`,
             ...city.areas.map(area => `${serviceLabel} near ${area}`),
         ],
         alternates: {
             canonical: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
         },
         openGraph: {
-            title: `${serviceLabel} in ${city.name} | Verified Agents`,
-            description: `Get the best ${serviceLabel} plans in ${city.name} with doorstep service and claim assistance.`,
+            title: `Expert ${serviceLabel} in ${city.name} | Verified Support`,
+            description: `Get the best ${serviceLabel} plans in ${city.name} with doorstep service and 98% claim settlement assurance.`,
             type: 'website',
         }
     }
@@ -67,7 +67,20 @@ export default function ServiceLocationPage({ params }: Props) {
         '@context': 'https://schema.org',
         '@type': 'InsuranceAgency',
         name: `Insurance Support - ${serviceLabel} in ${city.name}`,
-        description: `Expert ${serviceLabel} services in ${city.name}.`,
+        description: `Expert ${serviceLabel} services in ${city.name}. 25+ years of trust and 98% claim settlement ratio.`,
+        url: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
+        telephone: "+919986634506",
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: city.name,
+            addressRegion: city.state,
+            addressCountry: "IN"
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: city.coordinates?.[0],
+            longitude: city.coordinates?.[1]
+        },
         areaServed: {
             '@type': 'City',
             name: city.name
@@ -101,11 +114,46 @@ export default function ServiceLocationPage({ params }: Props) {
         }
     }
 
+    const faqJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        'mainEntity': [
+            {
+                '@type': 'Question',
+                'name': `Who is the best ${serviceLabel} agent in ${city.name}?`,
+                'acceptedAnswer': {
+                    '@type': 'Answer',
+                    'text': `Insurance Support is a top-rated agency in ${city.name} with 25+ years of experience, offering 98% claim settlement assurance and doorstep service for all ${serviceLabel} needs.`
+                }
+            },
+            {
+                '@type': 'Question',
+                'name': `How can I renew my ${serviceLabel} in ${city.name}?`,
+                'acceptedAnswer': {
+                    '@type': 'Answer',
+                    'text': `You can renew your ${serviceLabel} instantly through Insurance Support. We provide expert guidance to ensure you get the maximum benefits and IDV for your policy in ${city.name}.`
+                }
+            },
+            {
+                '@type': 'Question',
+                'name': `Does Insurance Support provide doorstep service in ${city.name}?`,
+                'acceptedAnswer': {
+                    '@type': 'Answer',
+                    'text': `Yes, our expert advisors provide doorstep service across ${city.name}, including ${city.areas.slice(0, 3).join(', ')} and surrounding regions.`
+                }
+            }
+        ]
+    }
+
     return (
         <div className="container px-4 py-12 mx-auto">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
             />
 
             <div className="flex flex-col md:flex-row gap-12">

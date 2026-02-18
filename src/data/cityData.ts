@@ -5,6 +5,7 @@ export interface CityData {
     areas: string[];
     description?: string;
     phone?: string;
+    coordinates?: [number, number]; // [lat, lng]
 }
 
 export const cityData: Record<string, CityData> = {
@@ -14,7 +15,8 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['Indiranagar', 'Koramangala', 'Jayanagar', 'JP Nagar', 'Whitefield', 'HSR Layout', 'Electronic City', 'Hebbal', 'Malleshwaram'],
         description: "As India's Silicon Valley, Bangalore sees high vehicle density and rapid urban growth. From the busy streets of MG Road to the tech hubs of Whitefield, we provide comprehensive motor and health insurance essential for navigating the Garden City's dynamic life.",
-        phone: "+91-9962536848"
+        phone: "+91-9962536848",
+        coordinates: [12.9716, 77.5946]
     },
     chennai: {
         name: 'Chennai',
@@ -22,7 +24,8 @@ export const cityData: Record<string, CityData> = {
         state: 'Tamil Nadu',
         areas: ['T Nagar', 'Adyar', 'Velachery', 'Anna Nagar', 'Mylapore', 'Tambaram', 'Guindy', 'Porur'],
         description: "Given Chennai's coastal weather and monsoon risks, especially in areas like Velachery and Adyar, property and health insurance are vital. We help residents secure their homes and health against unpredictable climatic changes and urban challenges.",
-        phone: "+91-9962536848"
+        phone: "+91-9962536848",
+        coordinates: [13.0827, 80.2707]
     },
     vellore: {
         name: 'Vellore',
@@ -79,7 +82,8 @@ export const cityData: Record<string, CityData> = {
         state: 'Telangana',
         areas: ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kukatpally', 'Secunderabad', 'Hitech City'],
         description: "In the bustling IT hub of Hyderabad, specifically around Hitech City and Gachibowli, ensuring your family's future is paramount. We provide comprehensive health and term life insurance solutions tailored for tech professionals and families.",
-        phone: "+91-9962536848"
+        phone: "+91-9962536848",
+        coordinates: [17.3850, 78.4867]
     },
     pune: {
         name: 'Pune',
@@ -95,7 +99,8 @@ export const cityData: Record<string, CityData> = {
         state: 'Maharashtra',
         areas: ['Andheri', 'Bandra', 'Juhu', 'Powai', 'Colaba', 'Dadar'],
         description: "In the City of Dreams, financial security is the bedrock of ambition. We offer specialized marine insurance for businesses in South Bombay and comprehensive family floaters for residents in the suburbs.",
-        phone: "+91-9962536848"
+        phone: "+91-9962536848",
+        coordinates: [19.0760, 72.8777]
     },
     ahmedabad: {
         name: 'Ahmedabad',
