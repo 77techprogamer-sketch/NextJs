@@ -141,10 +141,7 @@ export const metadata: Metadata = {
         },
     },
     verification: {
-        google: [
-            'fbed68329c17dcd9',
-            'bFhPLDbWhBDce-KaR7UTDRzD36yivQo33lo1DBxExSE'
-        ],
+        google: 'fbed68329c17dcd9',
         yandex: '89297fa7e3252466',
         other: {
             'msvalidate.01': '71a80a3568ae5d1d945fda3ef57fe18e',

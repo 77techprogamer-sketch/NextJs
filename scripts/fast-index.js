@@ -2,7 +2,7 @@ const https = require('https');
 const HOST = 'insurancesupport.online';
 const KEY = '71a80a3568ae5d1d945fda3ef57fe18e';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const API_HOST = 'api.indexnow.org'; // Central endpoint for all engines
+const API_HOST = 'www.bing.com';
 
 // Priority URLs to index first
 const urls = [
@@ -29,7 +29,7 @@ const options = {
     headers: {
         'Content-Type': 'application/json; charset=utf-8',
         'Content-Length': Buffer.byteLength(data),
-        'User-Agent': 'IndexNow-Submitter/1.0',
+        'User-Agent': 'IndexNow/1.0',
     },
 };
 
