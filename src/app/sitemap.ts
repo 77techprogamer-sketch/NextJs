@@ -26,7 +26,7 @@ export default async function sitemap() {
         url: `${BASE_url}${route}`,
         lastModified: new Date().toISOString(),
         changeFrequency: 'always',
-        priority: route === '' ? 1 : 0.8,
+        priority: route === '' || route === '/locations' || route === '/services' ? 1 : 0.8,
     }))
 
 

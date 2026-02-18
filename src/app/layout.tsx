@@ -140,6 +140,16 @@ export const metadata: Metadata = {
             'max-snippet': -1,
         },
     },
+    verification: {
+        google: [
+            'fbed68329c17dcd9',
+            'bFhPLDbWhBDce-KaR7UTDRzD36yivQo33lo1DBxExSE'
+        ],
+        yandex: '89297fa7e3252466',
+        other: {
+            'msvalidate.01': '71a80a3568ae5d1d945fda3ef57fe18e',
+        }
+    },
     icons: {
         icon: [
             { url: '/favicon.ico?v=2' },
@@ -172,10 +182,6 @@ export const metadata: Metadata = {
         description: 'Expert insurance advice and claims support across India. Don\'t let your claim be rejected.',
         images: ['/og-image.png'],
         creator: '@insurancesupport',
-    },
-    verification: {
-        google: 'bFhPLDbWhBDce-KaR7UTDRzD36yivQo33lo1DBxExSE',
-        yandex: '89297fa7e3252466',
     },
     other: {
         'content-language': 'en',
