@@ -29,19 +29,26 @@ const options = {
     headers: {
         'Content-Type': 'application/json; charset=utf-8',
         'Content-Length': Buffer.byteLength(data),
+        'User-Agent': 'IndexNow-Submitter/1.0',
     },
 };
 
 console.log('🚀 Starting Fast-Track Indexing via IndexNow...');
+console.log(`Submitting to: ${API_HOST}`);
 
 const req = https.request(options, (res) => {
-    console.log(`Status Record: ${res.statusCode}`);
-    if (res.statusCode === 200) {
-        console.log('✅ Success! Search engines (Bing/Yandex) have been notified.');
-        console.log('Google also monitors IndexNow signals for priority crawling.');
-    } else {
-        console.log('❌ Failed to notify search engines. Check your IndexNow key.');
-    }
+    console.log(`Status Result: ${res.statusCode} ${res.statusMessage}`);
+
+    let body = '';
+    res.on('data', (chunk) => body += chunk);
+    res.on('end', () => {
+        if (res.statusCode === 200) {
+            console.log('✅ Success! Search engines have been notified.');
+        } else {
+            console.log(`❌ Failed. Response: ${body}`);
+            console.log('TIP: Ensure you have DEPLOYED the latest changes so the key file is live.');
+        }
+    });
 });
 
 req.on('error', (error) => {
