@@ -85,6 +85,14 @@ const Header = () => {
                   </Link>
                 </DropdownMenuItem>
               ))}
+              <div className="border-t border-slate-100 mt-2 pt-2">
+                <Link
+                  href="/services"
+                  className="flex items-center justify-center p-2 text-xs font-bold text-primary hover:bg-slate-50 transition-colors rounded-md"
+                >
+                  View All Services
+                </Link>
+              </div>
             </DropdownMenuContent>
           </DropdownMenu>
 

@@ -132,49 +132,54 @@ export default function ServiceLocationPage({ params }: Props) {
                     <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 mb-10">
                         <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                             <Shield className="h-6 w-6 text-primary" />
-                            Why Choose Us for {serviceLabel}?
+                            Why Choose Insurance Support in {city.name}?
                         </h2>
+                        {city.description && (
+                            <p className="text-slate-700 mb-6 italic border-l-4 border-primary/20 pl-4 py-1">
+                                &quot;{city.description}&quot;
+                            </p>
+                        )}
                         <div className="grid sm:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-600" />
-                                    Local Expertise
+                                    {city.name} Specialists
                                 </h3>
-                                <p className="text-muted-foreground text-sm">We understand the specific needs of residents in {city.name}.</p>
+                                <p className="text-muted-foreground text-sm">We&apos;ve helped thousands of residents in {city.name} with {serviceLabel} since 2001.</p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-600" />
                                     Claim Settlement
                                 </h3>
-                                <p className="text-muted-foreground text-sm">Dedicated support to ensure your claims are processed smoothly.</p>
+                                <p className="text-muted-foreground text-sm">Dedicated support to ensure your {serviceLabel} claims are processed smoothly in {city.state}.</p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-600" />
                                     Best Quotes
                                 </h3>
-                                <p className="text-muted-foreground text-sm">Compare plans from top insurers to get the best value.</p>
+                                <p className="text-muted-foreground text-sm">Compare plans from top insurers to get the best value for {serviceLabel}.</p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-600" />
                                     Doorstep Service
                                 </h3>
-                                <p className="text-muted-foreground text-sm">We come to you in {city.name} for all paperwork.</p>
+                                <p className="text-muted-foreground text-sm">Our advisors visit {city.areas.slice(0, 3).join(', ')} and other areas for your convenience.</p>
                             </div>
                         </div>
                     </div>
 
-                    <h2 className="text-2xl font-bold mb-6">Our {serviceLabel} Services in {city.name}</h2>
+                    <h2 className="text-2xl font-bold mb-6">Our {serviceLabel} Support Services in {city.name}</h2>
                     <ul className="space-y-4 mb-10">
                         {[
-                            `New ${serviceLabel} Policy Issuance`,
-                            `Renewal of Existing ${serviceLabel}`,
-                            `Lapsed Policy Revival`,
-                            `Claim Intimation & Settlement Support`,
-                            `Portability to Better Plans`,
-                            `Nominee & Address Updates`
+                            `New ${serviceLabel} Policy Issuance in ${city.name}`,
+                            `Renewal of Existing ${serviceLabel} Policies`,
+                            `Lapsed Policy Revival Support`,
+                            `Claim Intimation & Settlement Assistance`,
+                            `Portability for ${city.name} Residents`,
+                            `Local Nominee & Address Updates`
                         ].map((item, i) => (
                             <li key={i} className="flex items-center gap-3 text-lg bg-slate-50 p-3 rounded-lg border border-slate-100">
                                 <ArrowRight className="h-4 w-4 text-primary shrink-0" />
@@ -183,15 +188,43 @@ export default function ServiceLocationPage({ params }: Props) {
                         ))}
                     </ul>
 
-                    <div className="bg-slate-900 text-white p-8 rounded-2xl mb-12">
-                        <h3 className="text-2xl font-bold mb-4">Serving All Areas in {city.name}</h3>
-                        <p className="text-slate-300 mb-6">
-                            Our network covers {city.areas.join(', ')} and surrounding regions.
-                            We ensure that quality insurance advice is accessible to everyone in {city.name}.
+                    {/* Internal Linking for SEO */}
+                    <div className="grid sm:grid-cols-2 gap-8 mb-12 py-8 border-y border-slate-100">
+                        <div>
+                            <h4 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-xs text-primary">Other Services in {city.name}</h4>
+                            <ul className="space-y-2 text-sm">
+                                {services.filter(s => s !== serviceSlug).slice(0, 5).map(s => (
+                                    <li key={s}>
+                                        <Link href={`/locations/${params.city}/${s}`} className="text-slate-600 hover:text-primary hover:underline">
+                                            {serviceLabels[s]} in {city.name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-xs text-primary">{serviceLabel} in Nearby Cities</h4>
+                            <ul className="space-y-2 text-sm">
+                                {Object.keys(cityData).filter(c => c !== params.city).slice(0, 5).map(c => (
+                                    <li key={c}>
+                                        <Link href={`/locations/${c}/${serviceSlug}`} className="text-slate-600 hover:text-primary hover:underline">
+                                            {serviceLabel} in {cityData[c].name}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div className="bg-slate-900 text-white p-8 rounded-2xl mb-12 shadow-2xl shadow-slate-200">
+                        <h3 className="text-2xl font-bold mb-4">Serving Every Corner of {city.name}</h3>
+                        <p className="text-slate-400 mb-6 leading-relaxed">
+                            From {city.areas[0]} to {city.areas[city.areas.length - 1]}, our dedicated team ensures you don&apos;t have to travel for your insurance needs.
+                            We cover {city.areas.join(', ')} and surrounding regions with localized support for {serviceLabel}.
                         </p>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap gap-2 text-slate-200">
                             {city.areas.map(area => (
-                                <span key={area} className="px-3 py-1 bg-white/10 rounded-full text-xs font-medium backdrop-blur-sm">
+                                <span key={area} className="px-3 py-1 bg-white/10 rounded-full text-xs font-semibold backdrop-blur-sm border border-white/5">
                                     {area}
                                 </span>
                             ))}
@@ -199,12 +232,12 @@ export default function ServiceLocationPage({ params }: Props) {
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                        <Button size="lg" className="w-full sm:w-auto h-12 text-lg">
+                        <Button size="lg" className="w-full sm:w-auto h-12 text-lg shadow-lg shadow-primary/20">
                             <Phone className="mr-2 h-4 w-4" />
-                            Call +91 99866 34506
+                            Call Agent in {city.name}
                         </Button>
                         <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 text-lg">
-                            WhatsApp Us
+                            WhatsApp Support
                         </Button>
                     </div>
                 </div>
@@ -212,11 +245,21 @@ export default function ServiceLocationPage({ params }: Props) {
                 {/* Sidebar / Form */}
                 <div className="w-full md:w-[400px]">
                     <div className="sticky top-24">
-                        <div className="bg-white p-6 rounded-xl shadow-lg border border-slate-100">
-                            <h3 className="text-xl font-bold mb-2">Get a {serviceLabel} Quote</h3>
-                            <p className="text-sm text-muted-foreground mb-6"> customized for {city.name} residents.</p>
-                            {/* We can pass the specific insurance type if it matches the form config keys */}
+                        <div className="bg-white p-8 rounded-2xl shadow-2xl shadow-slate-100 border border-slate-100">
+                            <h3 className="text-2xl font-bold mb-2">Request {serviceLabel} Quote</h3>
+                            <p className="text-sm text-muted-foreground mb-8 italic">Verified support for {city.name} residents.</p>
                             <QuoteForm insuranceType={serviceSlug.replace(/-/g, '_')} />
+                        </div>
+
+                        <div className="mt-8 p-6 bg-slate-50 rounded-xl border border-slate-100">
+                            <h4 className="font-bold mb-4 flex items-center gap-2">
+                                <Clock className="h-4 w-4 text-primary" />
+                                Service Hours
+                            </h4>
+                            <ul className="text-sm space-y-2 text-slate-600">
+                                <li className="flex justify-between"><span>Mon - Sat:</span> <span>9:30 AM - 6:30 PM</span></li>
+                                <li className="flex justify-between"><span>Sundays:</span> <span>On Appointment</span></li>
+                            </ul>
                         </div>
                     </div>
                 </div>

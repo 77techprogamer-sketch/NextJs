@@ -3,7 +3,7 @@
 import React from "react";
 import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
-import { ShieldCheck, Award, ChevronDown, ChevronUp } from 'lucide-react';
+import { ShieldCheck, Award, ChevronDown, ChevronUp, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 import { slugify } from '@/utils/slugify';
 import { formatLabel } from '@/utils/formatText';
@@ -18,27 +18,33 @@ interface CollapsibleListProps<T> {
 function CollapsibleList<T>({ items, renderItem, limit = 6 }: CollapsibleListProps<T>) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  if (items.length <= limit) {
-    return <ul className="space-y-2 text-sm">{items.map(renderItem)}</ul>;
-  }
-
-  const displayedItems = isExpanded ? items : items.slice(0, limit);
+  // SEO critical: We render ALL items in the DOM so crawlers see the links.
+  // We use CSS to hide the extra items visually.
 
   return (
     <div className="space-y-2">
       <ul className="space-y-2 text-sm">
-        {displayedItems.map(renderItem)}
+        {items.map((item, index) => (
+          <li
+            key={index}
+            className={index >= limit && !isExpanded ? 'hidden' : 'block'}
+          >
+            {renderItem(item)}
+          </li>
+        ))}
       </ul>
-      <button
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="text-xs font-semibold text-primary flex items-center gap-1 hover:underline focus:outline-none"
-      >
-        {isExpanded ? (
-          <>Show Less <ChevronUp className="h-3 w-3" /></>
-        ) : (
-          <>Show All ({items.length}) <ChevronDown className="h-3 w-3" /></>
-        )}
-      </button>
+      {items.length > limit && (
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="text-xs font-semibold text-primary flex items-center gap-1 hover:underline focus:outline-none"
+        >
+          {isExpanded ? (
+            <>Show Less <ChevronUp className="h-3 w-3" /></>
+          ) : (
+            <>Show All ({items.length}) <ChevronDown className="h-3 w-3" /></>
+          )}
+        </button>
+      )}
     </div>
   );
 }
@@ -114,6 +120,9 @@ const Footer = () => {
                 </li>
               )}
             />
+            <Link href="/services" className="text-xs font-bold text-primary mt-2 flex items-center gap-1 hover:underline">
+              View All Services <ChevronRight className="h-3 w-3" />
+            </Link>
           </div>
 
           <div>
@@ -132,6 +141,9 @@ const Footer = () => {
                 );
               }}
             />
+            <Link href="/locations" className="text-xs font-bold text-primary mt-2 flex items-center gap-1 hover:underline">
+              View All 30+ Locations <ChevronRight className="h-3 w-3" />
+            </Link>
           </div>
           <div className="text-center sm:text-left">
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("headquarters")}</h3>
