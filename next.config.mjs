@@ -34,7 +34,7 @@ const nextConfig = {
                     {
                         key: 'Content-Security-Policy',
                         // eslint-disable-next-line max-len
-                        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.clarity.ms https://*.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.clarity.ms https://c.bing.com https://idzvdeemgxhwlkyphnel.supabase.co; font-src 'self' data:; frame-src 'self' https://udify.app; connect-src 'self' https://*.clarity.ms https://c.bing.com https://idzvdeemgxhwlkyphnel.supabase.co wss://idzvdeemgxhwlkyphnel.supabase.co https://api.ipify.org; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
+                        value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.clarity.ms https://*.clarity.ms https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://*.clarity.ms https://c.bing.com https://idzvdeemgxhwlkyphnel.supabase.co https://i.pravatar.cc https://*.pravatar.cc https://www.googletagmanager.com; font-src 'self' data:; frame-src 'self' https://udify.app; connect-src 'self' https://*.clarity.ms https://c.bing.com https://idzvdeemgxhwlkyphnel.supabase.co wss://idzvdeemgxhwlkyphnel.supabase.co https://api.ipify.org https://www.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests;"
                     },
                     {
                         key: 'Permissions-Policy',
@@ -43,6 +43,22 @@ const nextConfig = {
                 ]
             }
         ]
+    },
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'i.pravatar.cc',
+                port: '',
+                pathname: '/**',
+            },
+            {
+                protocol: 'https',
+                hostname: 'idzvdeemgxhwlkyphnel.supabase.co',
+                port: '',
+                pathname: '/**',
+            }
+        ],
     },
     experimental: {
         optimizeCss: true, // Requires 'critters' package
