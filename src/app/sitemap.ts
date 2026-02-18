@@ -20,6 +20,8 @@ export default async function sitemap() {
         '/get-started',
         '/resources',
         '/contact',
+        '/locations',
+        '/services',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: new Date().toISOString(),
