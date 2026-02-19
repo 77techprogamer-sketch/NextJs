@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const HOST = 'insurancesupport.online';
-const KEY = 'bed5a6a083d549ca8881dd6ba00ea744';
+const KEY = '71a80a3568ae5d1d945fda3ef57fe18e';
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
 
 // Read city data to generate URLs dynamically
