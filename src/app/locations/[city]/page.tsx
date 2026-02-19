@@ -76,11 +76,40 @@ export default function LocationPage({ params }: Props) {
         telephone: '+919986634506'
     }
 
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://insurancesupport.online'
+            },
+            {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Locations',
+                'item': 'https://insurancesupport.online/locations'
+            },
+            {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': city.name,
+                'item': `https://insurancesupport.online/locations/${params.city}`
+            }
+        ]
+    }
+
     return (
         <div className="container px-4 py-12 mx-auto">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
             />
 
             <div className="flex flex-col md:flex-row gap-12">
