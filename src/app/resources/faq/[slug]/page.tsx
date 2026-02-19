@@ -30,6 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: `${faq.slug.replace(/-/g, ' ')} | Insurance Support`, // Fallback title
         description: `Expert answer to: ${faq.slug.replace(/-/g, ' ')}`,
+        alternates: {
+            canonical: `https://insurancesupport.online/resources/faq/${params.slug}`,
+        }
     }
 }
 

@@ -1,8 +1,7 @@
 const https = require('https');
 const HOST = 'insurancesupport.online';
 const KEY = '71a80a3568ae5d1d945fda3ef57fe18e';
-const KEY_LOCATION = `https://${HOST}/${KEY}.txt`;
-const API_HOST = 'www.bing.com';
+const API_HOST = 'api.indexnow.org';
 
 // Priority URLs to index first
 const urls = [
@@ -17,7 +16,6 @@ const urls = [
 const data = JSON.stringify({
     host: HOST,
     key: KEY,
-    keyLocation: KEY_LOCATION,
     urlList: urls,
 });
 

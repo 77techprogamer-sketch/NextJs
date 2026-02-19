@@ -1,11 +1,14 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Access Restricted | Insurance Support',
-    description: 'Access to Insurance Support is restricted from your current location due to regulatory requirements.',
+    title: 'Access Restricted | Insurance Support India',
+    description: 'Access to this site is currently restricted based on your location or security profile.',
     robots: {
         index: false,
         follow: false,
+    },
+    alternates: {
+        canonical: 'https://insurancesupport.online/blocked',
     }
 }
 
