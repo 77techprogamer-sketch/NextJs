@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
 
-const INDEXNOW_KEY = 'bed5a6a083d549ca8881dd6ba00ea744';
+const INDEXNOW_KEY = '71a80a3568ae5d1d945fda3ef57fe18e';
 const HOST = 'insurancesupport.online';
 
 export async function POST(request: Request) {
