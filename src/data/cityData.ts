@@ -220,6 +220,239 @@ export const cityData: Record<string, CityData> = {
         state: 'Bihar',
         areas: ['Boring Road', 'Kankarbagh', 'Rajendra Nagar', 'Bailey Road'],
         description: "Patna's historic legacy deserves future protection. We bring trusted LIC and general insurance services to every household in the capital."
+    },
+    delhi: {
+        name: 'Delhi',
+        slug: 'delhi',
+        state: 'Delhi',
+        areas: ['Connaught Place', 'Dwarka', 'Rohini', 'Saket', 'Vasant Kunj', 'Janakpuri', 'Lajpat Nagar', 'Karol Bagh'],
+        description: "In the heart of the nation, secure your future with our capital-grade insurance services. From vehicle coverage in bustling Connaught Place to family health plans in Dwarka, we've got Delhi covered.",
+        phone: "+91-9962536848",
+        coordinates: [28.6139, 77.2090]
+    },
+    agra: {
+        name: 'Agra',
+        slug: 'agra',
+        state: 'Uttar Pradesh',
+        areas: ['Tajganj', 'Sanjay Place', 'Kamla Nagar', 'Dayal Bagh'],
+        description: "Protect your home and heritage in the city of the Taj. We offer comprehensive property and life insurance solutions for Agra's residents and businesses."
+    },
+    ajmer: {
+        name: 'Ajmer',
+        slug: 'ajmer',
+        state: 'Rajasthan',
+        areas: ['Vaishali Nagar', 'Civil Lines', 'Pushkar Road'],
+        description: "Secure your pilgrimage of life with our trusted insurance plans in Ajmer. We provide seamless support for all your general and life insurance needs."
+    },
+    amritsar: {
+        name: 'Amritsar',
+        slug: 'amritsar',
+        state: 'Punjab',
+        areas: ['Ranjit Avenue', 'Lawrence Road', 'Model Town'],
+        description: "In the Holy City, ensure your family's prosperity is well-guarded. We bring top-tier health and term insurance advice to your doorstep in Amritsar."
+    },
+    dehradun: {
+        name: 'Dehradun',
+        slug: 'dehradun',
+        state: 'Uttarakhand',
+        areas: ['Rajpur Road', 'Clement Town', 'Vasant Vihar', 'Prem Nagar'],
+        description: "Retire peacefully in the Doon Valley with our specialized pension plans. We also offer robust vehicle insurance for the hilly terrains of Dehradun."
+    },
+    jalandhar: {
+        name: 'Jalandhar',
+        slug: 'jalandhar',
+        state: 'Punjab',
+        areas: ['Model Town', 'Jalandhar Cantt', 'Urban Estate'],
+        description: "For the NRI hub of Punjab, we offer specialized investment and insurance management services. Secure your assets in Jalandhar with our expert help."
+    },
+    kanpur: {
+        name: 'Kanpur',
+        slug: 'kanpur',
+        state: 'Uttar Pradesh',
+        areas: ['Swaroop Nagar', 'Civil Lines', 'Kidwai Nagar', 'Kakadeo'],
+        description: "As the industrial capital of UP, Kanpur needs strong commercial insurance. We protect your factories and families alike with tailored policies."
+    },
+    ludhiana: {
+        name: 'Ludhiana',
+        slug: 'ludhiana',
+        state: 'Punjab',
+        areas: ['Sarabha Nagar', 'Model Town', 'Civil Lines', 'Ferozepur Road'],
+        description: "Protect your business in India's Manchester. We provide workmen compensation and industrial insurance alongside personal health covers in Ludhiana."
+    },
+    meerut: {
+        name: 'Meerut',
+        slug: 'meerut',
+        state: 'Uttar Pradesh',
+        areas: ['Shastri Nagar', 'Ganga Nagar', 'Pallav Puram'],
+        description: "From sports goods to steady growth, Meerut is rising. Secure your journey with our reliable motor and life insurance services."
+    },
+    varanasi: {
+        name: 'Varanasi',
+        slug: 'varanasi',
+        state: 'Uttar Pradesh',
+        areas: ['Lanka', 'Sigra', 'Mahmoorganj', 'Cantonment'],
+        description: "In the world's oldest living city, ensure your legacy lives on. We offer dedicated life insurance and endowment plans for families in Kashi."
+    },
+    srinagar: {
+        name: 'Srinagar',
+        slug: 'srinagar',
+        state: 'Jammu and Kashmir',
+        areas: ['Rajbagh', 'Hyderpora', 'Lal Chowk'],
+        description: "Safeguard your Shikaras and homes in Paradise on Earth. We provide essential property and health insurance support in Srinagar."
+    },
+    jammu: {
+        name: 'Jammu',
+        slug: 'jammu',
+        state: 'Jammu and Kashmir',
+        areas: ['Gandhi Nagar', 'Trikuta Nagar', 'Channi Himmat'],
+        description: "In the City of Temples, secure your family's future with our comprehensive term and life insurance plans."
+    },
+    goa: {
+        name: 'Goa',
+        slug: 'goa',
+        state: 'Goa',
+        areas: ['Panaji', 'Margao', 'Vasco da Gama', 'Mapusa', 'Porvorim'],
+        description: "Live the Susegad life without worries. We handle your travel, vehicle, and health insurance needs across the beautiful state of Goa."
+    },
+    nashik: {
+        name: 'Nashik',
+        slug: 'nashik',
+        state: 'Maharashtra',
+        areas: ['College Road', 'Gangapur Road', 'Indira Nagar', 'Panchavati'],
+        description: "In the Wine Capital of India, secure your vineyards and vehicles alike. We offer specialized agricultural and personal insurance in Nashik."
+    },
+    rajkot: {
+        name: 'Rajkot',
+        slug: 'rajkot',
+        state: 'Gujarat',
+        areas: ['Kalawad Road', '150 Feet Ring Road', 'Amin Marg'],
+        description: "Drive your business in Rajkot with confidence. We provide SME and industrial insurance solutions alongside personal term plans."
+    },
+    thane: {
+        name: 'Thane',
+        slug: 'thane',
+        state: 'Maharashtra',
+        areas: ['Ghodbunder Road', 'Vartak Nagar', 'Naupada', 'Kolshet'],
+        description: "As the City of Lakes expands, so do we. Get premium home and life insurance support for your new apartment in Thane."
+    },
+    vadodara: {
+        name: 'Vadodara',
+        slug: 'vadodara',
+        state: 'Gujarat',
+        areas: ['Alkapuri', 'Old Padra Road', 'Manjalpur', 'Karelibaug'],
+        description: "In the Cultural Capital of Gujarat, preserve your traditions and future. We offer trusted LIC advisory and health plans in Baroda."
+    },
+    aurangabad: {
+        name: 'Aurangabad',
+        slug: 'aurangabad',
+        state: 'Maharashtra',
+        areas: ['CIDCO', 'Garkheda', 'Samarth Nagar'],
+        description: "Protect your assets in this historic tourism hub. Our advisors help you pick the best travel and property insurance in Aurangabad."
+    },
+    bhubaneswar: {
+        name: 'Bhubaneswar',
+        slug: 'bhubaneswar',
+        state: 'Odisha',
+        areas: ['Saheed Nagar', 'Patia', 'Chandrasekharpur', 'Jayadev Vihar'],
+        description: "Smart City needs smart protection. We provide tech-enabled insurance services for the modern residents of Bhubaneswar."
+    },
+    guwahati: {
+        name: 'Guwahati',
+        slug: 'guwahati',
+        state: 'Assam',
+        areas: ['Ganeshguri', 'Paltan Bazar', 'Zoo Road', 'Dispur'],
+        description: "Gateway to the North East, verify your vehicle and health insurance with us. We ensure you are covered against the unique risks of the region."
+    },
+    jamshedpur: {
+        name: 'Jamshedpur',
+        slug: 'jamshedpur',
+        state: 'Jharkhand',
+        areas: ['Sakchi', 'Bistupur', 'Telco Colony', 'Kadma'],
+        description: "In the Steel City, forged connections matter. We build lasting relationships by securing your family's financial steel frame with life insurance."
+    },
+    raipur: {
+        name: 'Raipur',
+        slug: 'raipur',
+        state: 'Chhattisgarh',
+        areas: ['Shankar Nagar', 'Civil Lines', 'Pandri'],
+        description: "As Chhattisgarh's capital grows, so does the need for security. We offer comprehensive general and life insurance plans in Raipur."
+    },
+    ranchi: {
+        name: 'Ranchi',
+        slug: 'ranchi',
+        state: 'Jharkhand',
+        areas: ['Morabadi', 'Doranda', 'Lalpur', 'Hinoo'],
+        description: "Keep your cool in the City of Waterfalls with our hassle-free insurance support. We cover everything from bikes to businesses in Ranchi."
+    },
+    siliguri: {
+        name: 'Siliguri',
+        slug: 'siliguri',
+        state: 'West Bengal',
+        areas: ['Sevoke Road', 'Hill Cart Road', 'Pradhan Nagar'],
+        description: "Connecting the mainland to the hills, Siliguri relies on transport. We offer specialized commercial vehicle insurance and personal cover."
+    },
+    belagavi: {
+        name: 'Belagavi',
+        slug: 'belagavi',
+        state: 'Karnataka',
+        areas: ['Tilakwadi', 'Camp', 'Hanuman Nagar'],
+        description: "In the Sugar Bowl of Karnataka, verify your sweetness of life with our comprehensive health and term plans in Belgaum."
+    },
+    hubli: {
+        name: 'Hubli-Dharwad',
+        slug: 'hubli-dharwad',
+        state: 'Karnataka',
+        areas: ['Vidya Nagar', 'Keshwapur', 'Gokul Road'],
+        description: "Twin cities, double the protection. We cover the educational and commercial hubs of Hubli-Dharwad with tailored insurance solutions."
+    },
+    mangalore: {
+        name: 'Mangalore',
+        slug: 'mangalore',
+        state: 'Karnataka',
+        areas: ['Bejai', 'Kadri', 'Kankanady', 'Urwa'],
+        description: "From the port to the hills, Mangaloreans need robust cover. We specialize in marine and health insurance for the coastal city."
+    },
+    warangal: {
+        name: 'Warangal',
+        slug: 'warangal',
+        state: 'Telangana',
+        areas: ['Hanamkonda', 'Kazipet', 'Subedari'],
+        description: "Secure your heritage in the historic city of Warangal. We provide reliable life and general insurance services to local families."
+    },
+    kozhikode: {
+        name: 'Kozhikode',
+        slug: 'kozhikode',
+        state: 'Kerala',
+        areas: ['Mavoor Road', 'Nadakkavu', 'West Hill'],
+        description: "In the City of Spices, add the flavor of security to your life. We offer comprehensive health and NRI insurance support in Calicut."
+    },
+    thrissur: {
+        name: 'Thrissur',
+        slug: 'thrissur',
+        state: 'Kerala',
+        areas: ['Ayyanthole', 'Punkunnam', 'Mission Quarters'],
+        description: "Cultural capital needs financial culture. We help Thrissur families plan their wealth with the best investment and insurance schemes."
+    },
+    gwalior: {
+        name: 'Gwalior',
+        slug: 'gwalior',
+        state: 'Madhya Pradesh',
+        areas: ['City Center', 'Lashkar', 'Morar'],
+        description: "Fortify your finances in Gwalior. We bring royal-grade protection for your vehicles, home, and health."
+    },
+    jabalpur: {
+        name: 'Jabalpur',
+        slug: 'jabalpur',
+        state: 'Madhya Pradesh',
+        areas: ['Civil Lines', 'Wright Town', 'Vijay Nagar'],
+        description: "By the Narmada, ensure your life flows smoothly. We offer specialized pension and term plans for residents of Jabalpur."
+    },
+    ujjain: {
+        name: 'Ujjain',
+        slug: 'ujjain',
+        state: 'Madhya Pradesh',
+        areas: ['Freeganj', 'Mahakal Vanijya', 'Rishi Nagar'],
+        description: "In the City of Mahakal, time is precious. Secure your time and family with our trusted term life insurance policies."
     }
 };
 

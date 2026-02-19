@@ -48,7 +48,7 @@ const Header = () => {
 
   return (
     <header className="w-full bg-background/80 backdrop-blur-md sticky top-0 z-50 border-b">
-      <div className="container mx-auto px-4 h-16 flex justify-between items-center">
+      <div className="container mx-auto px-6 lg:px-8 h-20 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2 group transition-transform hover:scale-[1.02]" aria-label={t("insurance_support")} suppressHydrationWarning>
           <div className="h-9 w-9 bg-primary rounded-lg flex items-center justify-center group-hover:bg-accent group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-primary/20">
             <ShieldCheck className="h-6 w-6 text-white" />
@@ -57,7 +57,7 @@ const Header = () => {
             {t("insurance_support")}
           </span>
         </Link>
-        <nav className="flex items-center gap-6">
+        <nav className="flex items-center gap-5 lg:gap-8">
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
