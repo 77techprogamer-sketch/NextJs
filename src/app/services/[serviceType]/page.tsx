@@ -139,11 +139,42 @@ export default function ServicePage({ params }: { params: { serviceType: string 
         notFound()
     }
 
+    const breadcrumbJsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://insurancesupport.online'
+            },
+            {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Services',
+                'item': 'https://insurancesupport.online/services'
+            },
+            {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': service.title,
+                'item': `https://insurancesupport.online/services/${params.serviceType}`
+            }
+        ]
+    }
+
     return (
-        <ServiceContent
-            serviceType={params.serviceType}
-            iconName={assets.iconName}
-            imagePath={assets.image}
-        />
+        <>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
+            <ServiceContent
+                serviceType={params.serviceType}
+                iconName={assets.iconName}
+                imagePath={assets.image}
+            />
+        </>
     )
 }

@@ -6,6 +6,9 @@ import { Shield, ChevronRight, CheckCircle2 } from 'lucide-react'
 export const metadata: Metadata = {
     title: 'Our Insurance Services | Claim Support & Policy Guidance',
     description: 'Comprehensive insurance solutions including Life, Health, Motor, SME, and Travel insurance across India. Specialized services for lapsed policy revival and claim settlement.',
+    alternates: {
+        canonical: 'https://insurancesupport.online/services',
+    }
 }
 
 export default function ServicesHubPage() {

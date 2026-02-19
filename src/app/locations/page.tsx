@@ -6,6 +6,9 @@ import { MapPin, ChevronRight, Shield } from 'lucide-react'
 export const metadata: Metadata = {
     title: 'Areas We Serve | Local Insurance Support Across India',
     description: 'Find expert insurance support and claim recovery services in your city. Serving Bangalore, Chennai, Hyderabad, Pune, Mumbai, and 25+ other major cities across India.',
+    alternates: {
+        canonical: 'https://insurancesupport.online/locations',
+    }
 }
 
 export default function LocationsPage() {
