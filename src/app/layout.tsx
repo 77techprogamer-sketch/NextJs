@@ -24,9 +24,10 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'Insurance Support | Expert Claim Recovery Services',
+        default: 'Insurance Support India | Expert Claim Recovery',
         template: '%s | Insurance Support'
     },
+    applicationName: 'Insurance Support',
     description: 'Struggling with rejected claims or lost LIC policies? Get 25+ years of expert help. We fight for your money. Free Consultation. Call Now! Serving All India.',
     keywords: [
         'Insurance Support',
@@ -149,21 +150,26 @@ export const metadata: Metadata = {
     },
     icons: {
         icon: [
-            { url: '/favicon.ico?v=3' },
             { url: '/brand-favicon.svg?v=3', type: 'image/svg+xml' },
+            { url: '/favicon.ico?v=3' },
         ],
-        shortcut: '/favicon.ico?v=3',
+        shortcut: '/brand-favicon.svg?v=3',
         apple: [
             { url: '/brand-favicon.svg?v=3', type: 'image/svg+xml' },
         ],
+    },
+    appleWebApp: {
+        title: 'Insurance Support',
+        capable: true,
+        statusBarStyle: 'default',
     },
     openGraph: {
         type: 'website',
         locale: 'en_IN',
         url: 'https://insurancesupport.online',
-        title: 'Insurance Support India | Trusted Insurance Advisors',
+        title: 'Insurance Support India | Expert Claim Recovery',
         description: 'Get free quotes and expert help for Life, Health, and Motor insurance claims. We are your partner in securing your familys future.',
-        siteName: 'Insurance Support',
+        siteName: 'Insurance Support India',
         images: [
             {
                 url: '/og-image.png',

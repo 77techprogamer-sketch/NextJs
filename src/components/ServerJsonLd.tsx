@@ -49,7 +49,7 @@ export function GlobalJsonLd() {
                 '@type': 'WebSite',
                 '@id': 'https://insurancesupport.online/#website',
                 url: 'https://insurancesupport.online',
-                name: 'Insurance Support Online',
+                name: 'Insurance Support India',
                 description: (t('services_description') as string) || 'Your trusted partner for all insurance related queries and support.',
                 publisher: {
                     '@id': 'https://insurancesupport.online/#organization'
