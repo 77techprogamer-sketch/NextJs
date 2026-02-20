@@ -10,16 +10,35 @@ import { usePathname } from 'next/navigation';
 const CITY_TO_LANG: Record<string, string> = {
     'Bangalore': 'kn',
     'Bengaluru': 'kn',
+    'Mysore': 'kn',
     'Chennai': 'ta',
+    'Coimbatore': 'ta',
+    'Madurai': 'ta',
     'Hyderabad': 'te',
+    'Visakhapatnam': 'te',
+    'Vijayawada': 'te',
     'Mumbai': 'mr',
     'Pune': 'mr',
+    'Nagpur': 'mr',
+    'Nashik': 'mr',
     'Kolkata': 'bn',
+    'Asansol': 'bn',
     'Delhi': 'hi',
     'New Delhi': 'hi',
+    'Lucknow': 'hi',
+    'Kanpur': 'hi',
+    'Patna': 'hi',
+    'Indore': 'hi',
+    'Bhopal': 'hi',
+    'Jaipur': 'hi',
     'Ahmedabad': 'gu',
+    'Surat': 'gu',
+    'Vadodara': 'gu',
     'Kochi': 'ml',
     'Thiruvananthapuram': 'ml',
+    'Amritsar': 'pa',
+    'Ludhiana': 'pa',
+    'Chandigarh': 'hi',
 };
 
 // State to Language Code Mapping
@@ -33,6 +52,8 @@ const REGION_TO_LANG: Record<string, string> = {
     'Gujarat': 'gu',
     'Kerala': 'ml',
     'Punjab': 'pa',
+    'Odisha': 'bn', // Closest available if Oriya not present
+    'Assam': 'bn',   // Closest available
     // Hindi Belt
     'Delhi': 'hi',
     'Uttar Pradesh': 'hi',
@@ -310,7 +331,16 @@ const SmartLanguageSelector = () => {
                         {/* Language Grid */}
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 max-w-3xl mx-auto">
                             {(() => {
-                                const targetCodes = Array.from(new Set([suggestedLang, 'en', 'hi']));
+                                const targetCodes: string[] = ['en', 'hi'];
+                                if (suggestedLang && !targetCodes.includes(suggestedLang)) {
+                                    targetCodes.push(suggestedLang);
+                                } else {
+                                    // If suggested is already 'en' or 'hi', add a 3rd local language to keep the grid consistent
+                                    // We'll pick Marathi (mr) or Kannada (kn) or Bengali (bn) as high-value fallbacks for India
+                                    const fallback = ['kn', 'mr', 'bn', 'ta'].find(c => !targetCodes.includes(c));
+                                    if (fallback) targetCodes.push(fallback);
+                                }
+
                                 const displayLanguages = targetCodes
                                     .map(code => LANGUAGES.find(l => l.code === code))
                                     .filter((l): l is typeof LANGUAGES[0] => !!l);
