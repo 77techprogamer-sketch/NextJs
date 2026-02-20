@@ -8,34 +8,34 @@ import '@/i18n'; // Ensure i18n is initialized
 import HeroSection from '@/components/sections/HeroSection';
 
 const ServicesSection = dynamic(() => import('@/components/sections/ServicesSection'), {
-    loading: () => <div className="min-h-[600px] animate-pulse bg-gray-100 dark:bg-gray-800" />
+    loading: () => <div className="min-h-[800px] animate-pulse bg-gray-100 dark:bg-gray-800" />
 });
 const FeaturesSection = dynamic(() => import('@/components/sections/FeaturesSection'), {
-    loading: () => <div className="min-h-[500px] animate-pulse bg-primary/10" />
+    loading: () => <div className="min-h-[600px] animate-pulse bg-primary/10" />
 });
 const BlogSection = dynamic(() => import('@/components/sections/BlogSection'), {
-    loading: () => <div className="min-h-[400px] animate-pulse bg-white dark:bg-gray-800" />
+    loading: () => <div className="min-h-[500px] animate-pulse bg-white dark:bg-gray-800" />
 });
 const WhyChooseUsSection = dynamic(() => import('@/components/sections/WhyChooseUsSection'), {
-    loading: () => <div className="min-h-[300px] animate-pulse bg-gray-50 dark:bg-gray-900" />
+    loading: () => <div className="min-h-[400px] animate-pulse bg-gray-50 dark:bg-gray-900" />
 });
 const ContactSection = dynamic(() => import('@/components/sections/ContactSection'), {
-    loading: () => <div className="min-h-[400px] animate-pulse bg-gray-100 dark:bg-gray-900" />
+    loading: () => <div className="min-h-[700px] animate-pulse bg-gray-100 dark:bg-gray-900" />
 });
 const ServiceAreasSection = dynamic(() => import('@/components/sections/ServiceAreasSection'), {
-    loading: () => <div className="min-h-[200px] animate-pulse bg-slate-50 dark:bg-slate-900" />
+    loading: () => <div className="min-h-[300px] animate-pulse bg-slate-50 dark:bg-slate-900" />
 });
 const FAQSection = dynamic(() => import('@/components/sections/FAQSection'), {
-    loading: () => <div className="min-h-[400px] animate-pulse bg-white dark:bg-gray-900" />
+    loading: () => <div className="min-h-[500px] animate-pulse bg-white dark:bg-gray-900" />
 });
 const LoansSection = dynamic(() => import('@/components/sections/LoansSection'), {
-    loading: () => <div className="min-h-[400px] animate-pulse bg-slate-50 dark:bg-slate-900" />
+    loading: () => <div className="min-h-[500px] animate-pulse bg-slate-50 dark:bg-slate-900" />
 });
 const ProcessTimeline = dynamic(() => import('@/components/sections/ProcessTimeline'), {
-    loading: () => <div className="min-h-[300px] animate-pulse bg-white dark:bg-slate-950" />
+    loading: () => <div className="min-h-[400px] animate-pulse bg-white dark:bg-slate-950" />
 });
 const LeadMagnetSection = dynamic(() => import('@/components/sections/LeadMagnetSection'), {
-    loading: () => <div className="min-h-[400px] animate-pulse bg-slate-50 dark:bg-slate-900" />
+    loading: () => <div className="min-h-[500px] animate-pulse bg-slate-50 dark:bg-slate-900" />
 });
 
 // Lazy load modals/non-critical components

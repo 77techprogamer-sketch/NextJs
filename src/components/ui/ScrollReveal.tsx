@@ -9,6 +9,7 @@ interface ScrollRevealProps {
     className?: string;
     delay?: number;
     animation?: "fade-up" | "fade-in" | "slide-left" | "slide-right" | "scale" | "pop-up" | "rotate-in" | "elastic";
+    enableAnimation?: boolean;
 }
 
 const animations: Record<string, { hidden: Variant; visible: Variant }> = {
@@ -62,23 +63,24 @@ export const ScrollReveal = ({
     className = "",
     delay = 0,
     animation = "fade-up",
+    enableAnimation = true,
 }: ScrollRevealProps) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-50px" });
     const mainControls = useAnimation();
 
     React.useEffect(() => {
-        if (isInView) {
+        if (isInView && enableAnimation) {
             mainControls.start("visible");
         }
-    }, [isInView, mainControls]);
+    }, [isInView, mainControls, enableAnimation]);
 
     return (
         <motion.div
             ref={ref}
-            variants={animations[animation]}
-            initial="hidden"
-            animate={mainControls}
+            variants={enableAnimation ? animations[animation] : {}}
+            initial={enableAnimation ? "hidden" : "visible"}
+            animate={enableAnimation ? mainControls : "visible"}
             transition={{ duration: 0.5, delay: delay, ease: "easeOut" }}
             className={className}
             style={{ width }}
