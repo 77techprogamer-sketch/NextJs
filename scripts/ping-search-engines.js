@@ -1,8 +1,7 @@
 const SITEMAP_URL = 'https://insurancesupport.online/sitemap.xml';
 
 const searchEngines = [
-    `http://www.google.com/ping?sitemap=${SITEMAP_URL}`,
-    `http://www.bing.com/ping?sitemap=${SITEMAP_URL}`
+    `http://www.google.com/ping?sitemap=${SITEMAP_URL}`
 ];
 
 console.log('🚀 Pinging Search Engines...');

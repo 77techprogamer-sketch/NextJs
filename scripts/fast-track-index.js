@@ -10,7 +10,6 @@ const HOST = 'insurancesupport.online';
 const SITEMAP = `https://${HOST}/sitemap.xml`;
 
 const engines = [
-    'https://www.bing.com/indexnow',
     'https://search.yandex.ru/indexnow',
     'https://indexnow.org/indexnow'
 ];
