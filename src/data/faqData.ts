@@ -41,6 +41,36 @@ export const faqData: FAQItem[] = [
         questionKey: 'faq_motor_q1',
         answerKey: 'faq_motor_a1',
         category: 'Motor'
+    },
+    {
+        slug: 'how-to-claim-insurance-if-rejected',
+        questionKey: 'faq_claim_rejected_q',
+        answerKey: 'faq_claim_rejected_a',
+        category: 'General'
+    },
+    {
+        slug: 'best-life-insurance-for-senior-citizens',
+        questionKey: 'faq_senior_life_q',
+        answerKey: 'faq_senior_life_a',
+        category: 'Life'
+    },
+    {
+        slug: 'lic-policy-surrender-value-calculator',
+        questionKey: 'faq_lic_surrender_q',
+        answerKey: 'faq_lic_surrender_a',
+        category: 'Life'
+    },
+    {
+        slug: 'cashless-hospitalization-process',
+        questionKey: 'faq_cashless_q',
+        answerKey: 'faq_cashless_a',
+        category: 'Health'
+    },
+    {
+        slug: 'documents-required-for-death-claim',
+        questionKey: 'faq_death_claim_docs_q',
+        answerKey: 'faq_death_claim_docs_a',
+        category: 'Life'
     }
 ];
 

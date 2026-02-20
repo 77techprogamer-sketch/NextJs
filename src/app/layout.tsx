@@ -149,12 +149,12 @@ export const metadata: Metadata = {
     },
     icons: {
         icon: [
-            { url: '/favicon.ico?v=2' },
-            { url: '/brand-favicon.svg?v=2', type: 'image/svg+xml' },
+            { url: '/favicon.ico?v=3' },
+            { url: '/brand-favicon.svg?v=3', type: 'image/svg+xml' },
         ],
-        shortcut: '/favicon.ico?v=2',
+        shortcut: '/favicon.ico?v=3',
         apple: [
-            { url: '/brand-favicon.svg?v=2', type: 'image/svg+xml' },
+            { url: '/brand-favicon.svg?v=3', type: 'image/svg+xml' },
         ],
     },
     openGraph: {

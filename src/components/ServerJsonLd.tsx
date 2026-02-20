@@ -1,10 +1,11 @@
 import { WithContext, Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, SiteNavigationElement, AggregateRating, Offer } from 'schema-dts';
 import enTranslations from '../../public/locales/en/translation.json';
+import { faqData } from '@/data/faqData';
 
 // Type for the translation object to ensure type safety if needed, 
 // though direct import infers types.
-const t = (key: keyof typeof enTranslations) => {
-    return enTranslations[key] || key;
+const t = (key: string) => {
+    return (enTranslations as any)[key] || key;
 };
 
 export function GlobalJsonLd() {
@@ -17,12 +18,19 @@ export function GlobalJsonLd() {
                 name: 'Insurance Support',
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/brand-favicon.svg',
+                email: 'contact@insurancesupport.online',
+                address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Bangalore',
+                    addressRegion: 'KA',
+                    addressCountry: 'IN'
+                },
                 contactPoint: {
                     '@type': 'ContactPoint',
                     telephone: '+919986634506',
                     contactType: 'customer service',
                     areaServed: 'IN',
-                    availableLanguage: ['en', 'hi', 'kn']
+                    availableLanguage: ['en', 'hi', 'kn', 'ta', 'te', 'mr', 'gu']
                 },
                 sameAs: [
                     'https://www.facebook.com/insurancesupport',
@@ -86,11 +94,6 @@ export function GlobalJsonLd() {
                 '@type': 'SiteNavigationElement',
                 name: 'Resources',
                 url: 'https://insurancesupport.online/resources'
-            },
-            {
-                '@type': 'SiteNavigationElement',
-                name: 'Bangalore Office',
-                url: 'https://insurancesupport.online/locations/bangalore'
             }
         ]
     }
@@ -104,23 +107,14 @@ export function GlobalJsonLd() {
 }
 
 export function LocalBusinessJsonLd() {
-    const faqs = [
-        { q: "faq_life_q1", a: "faq_life_a1" },
-        { q: "faq_life_q2", a: "faq_life_a2" },
-        { q: "faq_health_q1", a: "faq_health_a1" },
-        { q: "faq_health_q2", a: "faq_health_a2" },
-        { q: "faq_term_q1", a: "faq_term_a1" },
-        { q: "faq_motor_q1", a: "faq_motor_a1" },
-    ] as const;
-
     const faqSchema: FAQPage = {
         '@type': 'FAQPage',
-        mainEntity: faqs.map(faq => ({
+        mainEntity: faqData.map(faq => ({
             '@type': 'Question',
-            name: t(faq.q) as string,
+            name: t(faq.questionKey) as string,
             acceptedAnswer: {
                 '@type': 'Answer',
-                text: t(faq.a) as string
+                text: t(faq.answerKey) as string
             }
         }))
     };
@@ -136,7 +130,8 @@ export function LocalBusinessJsonLd() {
                     'Insurance Support Online',
                     'LIC Insurance Support',
                     'Insurance Agent Kotian',
-                    'Claim Recovery Experts'
+                    'Claim Recovery Experts',
+                    'Rejected Claim Specialists'
                 ],
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/brand-favicon.svg',
@@ -147,11 +142,12 @@ export function LocalBusinessJsonLd() {
                 priceRange: '₹₹',
                 aggregateRating: {
                     '@type': 'AggregateRating',
+                    name: 'Insurance Support Customer Satisfaction',
                     ratingValue: 4.8,
                     reviewCount: 156,
                     bestRating: 5,
                     worstRating: 1
-                },
+                } as any,
                 areaServed: [
                     {
                         '@type': 'Country',
@@ -183,7 +179,21 @@ export function LocalBusinessJsonLd() {
                 },
                 parentOrganization: {
                     '@id': 'https://insurancesupport.online/#organization'
-                }
+                },
+                review: [
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Prashanth S' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5 },
+                        reviewBody: 'Best LIC consultant. Highly recommended. In-depth knowledge of LIC policies.'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Ayush Kandoi' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5 },
+                        reviewBody: 'Positive experience. Excellent guidance for insurance planning.'
+                    }
+                ] as any
             },
             {
                 '@type': 'Service',
@@ -207,17 +217,6 @@ export function LocalBusinessJsonLd() {
                 }
             },
             {
-                '@type': 'BreadcrumbList',
-                itemListElement: [
-                    {
-                        '@type': 'ListItem',
-                        position: 1,
-                        name: 'Home',
-                        item: 'https://insurancesupport.online'
-                    }
-                ]
-            },
-            {
                 '@type': 'Service',
                 name: 'Insurance Claims Assistance',
                 provider: {
@@ -225,8 +224,8 @@ export function LocalBusinessJsonLd() {
                 },
                 serviceType: 'Claims Support',
                 areaServed: {
-                    '@type': 'City',
-                    name: 'Bangalore'
+                    '@type': 'Country',
+                    name: 'India'
                 },
                 description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.',
                 image: 'https://insurancesupport.online/health-insurance.png',

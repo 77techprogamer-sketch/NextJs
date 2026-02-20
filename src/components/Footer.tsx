@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { slugify } from '@/utils/slugify';
 import { formatLabel } from '@/utils/formatText';
 import { cityData } from '@/data/cityData';
+import TrustBadges from './TrustBadges';
 
 interface CollapsibleListProps<T> {
   items: T[];
@@ -87,6 +88,7 @@ const Footer = () => {
             <p className="text-sm leading-relaxed max-w-xs transition-colors" suppressHydrationWarning>
               {t("footer_description")}
             </p>
+            <TrustBadges />
             <div className="flex items-center gap-2 text-primary font-semibold">
               <Award className="h-5 w-5 text-accent" />
               <span suppressHydrationWarning>{t("veteran_lead_team")}</span>
