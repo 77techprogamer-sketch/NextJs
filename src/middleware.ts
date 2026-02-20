@@ -2,11 +2,11 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export async function middleware(request: NextRequest) {
-    // 1. Skip if already on the blocked page or static files
+    // 1. Skip if internal Next.js request or specific asset files that don't need redirection logic
     if (
-        request.nextUrl.pathname.startsWith('/blocked') ||
         request.nextUrl.pathname.startsWith('/_next') ||
-        request.nextUrl.pathname.includes('.') // images, files, etc
+        request.nextUrl.pathname.startsWith('/api') ||
+        /\.(png|jpg|jpeg|gif|webp|svg|ico|css|js)$/.test(request.nextUrl.pathname)
     ) {
         return NextResponse.next();
     }
