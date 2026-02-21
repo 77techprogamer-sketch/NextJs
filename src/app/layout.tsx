@@ -150,8 +150,7 @@ export const metadata: Metadata = {
     },
     icons: {
         icon: [
-            { url: '/brand-favicon.svg?v=3', type: 'image/svg+xml' },
-            { url: '/favicon.ico?v=3' },
+            { url: '/brand-favicon.svg?v=3', type: 'image/svg+xml' }
         ],
         shortcut: '/brand-favicon.svg?v=3',
         apple: [
