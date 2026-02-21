@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, MapPin, Phone, UserCheck, Clock } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
 import { getCityData, cityData } from '@/data/cityData'
+import { ServiceLinksForCity } from '@/components/KeywordLinkBlocks'
 
 interface Props {
     params: { city: string }
@@ -170,26 +171,10 @@ export default function LocationPage({ params }: Props) {
                         </Card>
                     </div>
 
-                    <h2 className="text-2xl font-bold mb-6">Services We Offer in {city.name}</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                        {[
-                            { label: 'Life Insurance', slug: 'life-insurance' },
-                            { label: 'Health Insurance', slug: 'health-insurance' },
-                            { label: 'Motor Insurance', slug: 'motor-insurance' },
-                            { label: 'Term Insurance', slug: 'term-insurance' },
-                            { label: 'SME / Business Insurance', slug: 'sme-insurance' },
-                            { label: 'Pension Plans', slug: 'pension-plans' }
-                        ].map((item) => (
-                            <Link
-                                key={item.slug}
-                                href={`/locations/${params.city}/${item.slug}`}
-                                className="flex items-center gap-3 text-lg p-3 rounded-lg border border-slate-100 hover:border-primary/30 hover:bg-primary/5 transition-colors group"
-                            >
-                                <CheckCircle2 className="h-5 w-5 text-primary shrink-0 group-hover:scale-110 transition-transform" />
-                                <span className="text-slate-700 font-medium group-hover:text-primary transition-colors">{item.label}</span>
-                            </Link>
-                        ))}
-                    </div>
+                    <ServiceLinksForCity
+                        citySlug={params.city}
+                        cityName={city.name}
+                    />
 
                     {city.areas.length > 0 && (
                         <div className="bg-slate-100 p-6 rounded-xl border border-slate-200 mb-10">

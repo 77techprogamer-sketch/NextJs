@@ -12,8 +12,6 @@ export default async function sitemap() {
         '',
         '/support',
         '/about',
-        '/loans',
-        '/engagement',
         '/privacy-policy',
         '/terms-of-service',
         '/return-policy',
@@ -24,7 +22,7 @@ export default async function sitemap() {
         '/services',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
-        changeFrequency: 'daily',
+        changeFrequency: 'daily' as const,
         priority: route === '' || route === '/locations' || route === '/services' ? 1 : 0.8,
     }))
 

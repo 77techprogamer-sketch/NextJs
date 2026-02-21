@@ -2,6 +2,7 @@ import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock } from "lucide-react"
 import ServiceContent from "@/components/ServiceContent"
+import { CityLinksForService } from "@/components/KeywordLinkBlocks"
 
 // Define all services data statically for SEO/Metadata
 import translations from '@/../public/locales/en/translation.json';
@@ -175,6 +176,12 @@ export default function ServicePage({ params }: { params: { serviceType: string 
                 iconName={assets.iconName}
                 imagePath={assets.image}
             />
+            <div className="container mx-auto px-4 pb-16">
+                <CityLinksForService
+                    serviceSlug={params.serviceType}
+                    serviceTitle={service.title}
+                />
+            </div>
         </>
     )
 }
