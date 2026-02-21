@@ -33,7 +33,8 @@ export function GlobalJsonLd() {
                 sameAs: [
                     'https://www.facebook.com/insurancesupport',
                     'https://twitter.com/insurancesupport',
-                    'https://www.instagram.com/insurancesupport'
+                    'https://www.instagram.com/insurancesupport',
+                    'https://share.google/2Cbcq7l39kTWJl2Dm'
                 ],
                 aggregateRating: {
                     '@type': 'AggregateRating',
@@ -179,6 +180,12 @@ export function LocalBusinessJsonLd() {
                     'Rejected Claim Specialists'
                 ],
                 url: 'https://insurancesupport.online',
+                sameAs: [
+                    'https://share.google/2Cbcq7l39kTWJl2Dm',
+                    'https://www.facebook.com/insurancesupport',
+                    'https://twitter.com/insurancesupport',
+                    'https://www.instagram.com/insurancesupport'
+                ],
                 logo: 'https://insurancesupport.online/brand-favicon.svg',
                 image: 'https://insurancesupport.online/brand-favicon.svg',
                 hasMap: 'https://maps.google.com/?q=Bangalore,Karnataka,India',

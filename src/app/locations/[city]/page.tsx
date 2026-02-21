@@ -7,6 +7,7 @@ import { CheckCircle2, MapPin, Phone, UserCheck, Clock } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
 import { getCityData, cityData } from '@/data/cityData'
 import { ServiceLinksForCity } from '@/components/KeywordLinkBlocks'
+import CityFAQSection from '@/components/CityFAQSection'
 
 interface Props {
     params: { city: string }
@@ -214,6 +215,12 @@ export default function LocationPage({ params }: Props) {
                             WhatsApp Us
                         </Button>
                     </div>
+
+                    <CityFAQSection
+                        cityName={city.name}
+                        stateName={city.state}
+                        areas={city.areas}
+                    />
 
                 </div>
 
