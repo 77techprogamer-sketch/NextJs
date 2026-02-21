@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: {
-            absolute: `Best ${serviceLabel} in ${city.name} | 98% Claim Settlement`
+            absolute: `Best ${serviceLabel} Agent in ${city.name} | 98% Claim Settlement`
         },
         description: `Compare the best ${serviceLabel} plans in ${city.name}. Expert guidance and doorstep claim support with 25+ years experience. Get a free quote in 30 seconds!`,
         keywords: [
@@ -28,8 +28,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             `Best ${serviceLabel} Agent in ${city.name}`,
             `${serviceLabel} renewal ${city.name}`,
             `${serviceLabel} claims ${city.name}`,
+            `buy ${serviceLabel} in ${city.name}`,
+            `${serviceLabel} policy agent ${city.name}`,
             `insurance agent for ${serviceLabel} in ${city.name}`,
+            `IRDAI certified ${serviceLabel} advisor ${city.name}`,
+            `top rated ${serviceLabel} company ${city.name}`,
+            `${serviceLabel} consultant near me ${city.name}`,
             ...city.areas.map(area => `${serviceLabel} near ${area}`),
+            ...city.areas.map(area => `buy ${serviceLabel} in ${area}`),
+            ...city.areas.map(area => `${serviceLabel} agent ${area}`)
         ],
         alternates: {
             canonical: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
