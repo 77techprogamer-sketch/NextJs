@@ -1,13 +1,12 @@
-import { Metadata, MetadataRoute } from 'next'
+import { MetadataRoute } from 'next'
 import { cityData } from '@/data/cityData'
 import { services } from '@/data/services'
 import { faqData } from '@/data/faqData'
 
-
-
 const BASE_url = 'https://insurancesupport.online'
+const LAST_MOD = new Date().toISOString()
 
-export default async function sitemap() {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const staticRoutes = [
         '',
         '/support',
@@ -22,23 +21,24 @@ export default async function sitemap() {
         '/services',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
+        lastModified: LAST_MOD,
         changeFrequency: 'daily' as const,
         priority: route === '' || route === '/locations' || route === '/services' ? 1 : 0.8,
     }))
-
-
 
     const locations = Object.keys(cityData)
 
     const serviceRoutes = services.map((slug: string) => ({
         url: `${BASE_url}/services/${slug}`,
-        changeFrequency: 'daily',
+        lastModified: LAST_MOD,
+        changeFrequency: 'daily' as const,
         priority: 0.9,
     }))
 
     const locationRoutes = locations.map((city) => ({
         url: `${BASE_url}/locations/${city}`,
-        changeFrequency: 'daily',
+        lastModified: LAST_MOD,
+        changeFrequency: 'weekly' as const,
         priority: 0.85,
     }))
 
@@ -51,15 +51,16 @@ export default async function sitemap() {
         '/resources/national-insurance-claim-process',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
-        changeFrequency: 'daily',
+        lastModified: LAST_MOD,
+        changeFrequency: 'monthly' as const,
         priority: 0.7,
     }))
 
-    // Generate FAQ Routes
     const faqRoutes = faqData.map((faq) => ({
         url: `${BASE_url}/resources/faq/${faq.slug}`,
-        changeFrequency: 'daily',
-        priority: 0.75, // Higher priority than general resources
+        lastModified: LAST_MOD,
+        changeFrequency: 'monthly' as const,
+        priority: 0.75,
     }))
 
     const matrixRoutes: MetadataRoute.Sitemap = []
@@ -67,7 +68,8 @@ export default async function sitemap() {
         services.forEach(service => {
             matrixRoutes.push({
                 url: `${BASE_url}/locations/${city}/${service}`,
-                changeFrequency: 'daily',
+                lastModified: LAST_MOD,
+                changeFrequency: 'monthly' as const,
                 priority: 0.8,
             })
         })

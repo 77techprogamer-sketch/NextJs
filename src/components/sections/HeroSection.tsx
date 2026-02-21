@@ -19,7 +19,7 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: propTitle, description: propDescription }) => {
     const { t } = useTranslation();
-    const currentUrl = "https://insurance-support.vercel.app/";
+    const currentUrl = "https://insurancesupport.online/";
     const shareTitle = propTitle || t("hero_title");
     const dynamicOneLiner = propDescription || t("secure_family_future") || "Comprehensive coverage for life, health, and vehicle tailored to your needs.";
 

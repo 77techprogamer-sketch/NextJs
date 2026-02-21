@@ -62,19 +62,36 @@ export default function LocationPage({ params }: Props) {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'InsuranceAgency',
-        name: `Insurance Support ${city.name}`,
-        description: `Authorized support and advisory for National Insurance Company products in ${city.name}.`,
+        '@id': `https://insurancesupport.online/locations/${params.city}#local`,
+        name: `Insurance Support – ${city.name}`,
+        description: `Certified insurance advisor providing LIC, health, motor, and life insurance support in ${city.name}, ${city.state}. Doorstep service for claims, policy revival, and renewals.`,
+        url: `https://insurancesupport.online/locations/${params.city}`,
+        telephone: '+919986634506',
+        email: 'contact@insurancesupport.online',
+        priceRange: '₹₹',
+        image: 'https://insurancesupport.online/brand-favicon.svg',
         address: {
             '@type': 'PostalAddress',
             addressLocality: city.name,
             addressRegion: city.state,
             addressCountry: 'IN'
         },
-        areaServed: {
-            '@type': 'City',
-            name: city.name
+        areaServed: [
+            { '@type': 'City', name: city.name },
+            ...city.areas.map((area: string) => ({ '@type': 'Place', name: area }))
+        ],
+        openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            opens: '09:00',
+            closes: '20:00'
         },
-        telephone: '+919986634506'
+        parentOrganization: {
+            '@id': 'https://insurancesupport.online/#organization'
+        },
+        employee: {
+            '@id': 'https://insurancesupport.online/#advisor'
+        }
     }
 
     const breadcrumbJsonLd = {

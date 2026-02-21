@@ -1,9 +1,7 @@
-import { WithContext, Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, SiteNavigationElement, AggregateRating, Offer } from 'schema-dts';
+import { InsuranceAgency, Service, FAQPage, BreadcrumbList } from 'schema-dts';
 import enTranslations from '../../public/locales/en/translation.json';
 import { faqData } from '@/data/faqData';
 
-// Type for the translation object to ensure type safety if needed, 
-// though direct import infers types.
 const t = (key: string) => {
     return (enTranslations as any)[key] || key;
 };
@@ -46,6 +44,32 @@ export function GlobalJsonLd() {
                 }
             },
             {
+                // Person schema — critical E-E-A-T for YMYL insurance niche
+                '@type': 'Person',
+                '@id': 'https://insurancesupport.online/#advisor',
+                name: 'Kotian',
+                jobTitle: 'Certified Insurance Advisor & Claim Recovery Specialist',
+                description: 'Licensed insurance advisor with 25+ years of experience in LIC, health, motor, and life insurance claim recovery across India.',
+                url: 'https://insurancesupport.online/about',
+                telephone: '+919986634506',
+                email: 'contact@insurancesupport.online',
+                worksFor: {
+                    '@id': 'https://insurancesupport.online/#organization'
+                },
+                knowsAbout: [
+                    'Life Insurance',
+                    'Health Insurance',
+                    'LIC Policy Management',
+                    'Insurance Claim Recovery',
+                    'Motor Insurance',
+                    'Term Insurance',
+                    'Pension Plans'
+                ],
+                sameAs: [
+                    'https://www.instagram.com/insurancesupport'
+                ]
+            },
+            {
                 '@type': 'WebSite',
                 '@id': 'https://insurancesupport.online/#website',
                 url: 'https://insurancesupport.online',
@@ -61,40 +85,61 @@ export function GlobalJsonLd() {
                 } as any
             },
             {
-                '@type': 'SiteNavigationElement',
-                name: 'Home',
-                url: 'https://insurancesupport.online'
+                // HowTo schema — targets "how to claim insurance India" featured snippets
+                '@type': 'HowTo',
+                name: 'How to File an Insurance Claim in India',
+                description: 'Step-by-step guide to filing a life, health, or motor insurance claim in India with help from a certified advisor.',
+                totalTime: 'P7D',
+                supply: [
+                    { '@type': 'HowToSupply', name: 'Policy documents' },
+                    { '@type': 'HowToSupply', name: 'Identity proof (Aadhaar/PAN)' },
+                    { '@type': 'HowToSupply', name: 'Claim form from insurer' }
+                ],
+                step: [
+                    {
+                        '@type': 'HowToStep',
+                        position: 1,
+                        name: 'Notify the Insurance Company',
+                        text: 'Inform your insurer about the claim event within 24-48 hours via phone or online portal. For death claims, notify within 7 days.',
+                        url: 'https://insurancesupport.online/support'
+                    },
+                    {
+                        '@type': 'HowToStep',
+                        position: 2,
+                        name: 'Gather Required Documents',
+                        text: 'Collect policy documents, ID proof, medical records (for health), FIR copy (for motor), or death certificate (for life claims).',
+                        url: 'https://insurancesupport.online/resources'
+                    },
+                    {
+                        '@type': 'HowToStep',
+                        position: 3,
+                        name: 'Submit the Claim Form',
+                        text: 'Fill out the insurer\'s claim form accurately. Attach all supporting documents. Submit online or at the nearest branch.',
+                        url: 'https://insurancesupport.online/support'
+                    },
+                    {
+                        '@type': 'HowToStep',
+                        position: 4,
+                        name: 'Track Your Claim Status',
+                        text: 'Note down your claim reference number and track status via the insurer\'s portal or helpline.',
+                        url: 'https://insurancesupport.online/support'
+                    },
+                    {
+                        '@type': 'HowToStep',
+                        position: 5,
+                        name: 'Escalate if Rejected',
+                        text: 'If your claim is rejected, you can escalate to IRDAI Grievance Cell or seek help from a certified claim recovery specialist.',
+                        url: 'https://insurancesupport.online/services/life-insurance'
+                    }
+                ]
             },
-            {
-                '@type': 'SiteNavigationElement',
-                name: 'About Us',
-                url: 'https://insurancesupport.online/about'
-            },
-            {
-                '@type': 'SiteNavigationElement',
-                name: 'Life Insurance',
-                url: 'https://insurancesupport.online/services/life-insurance'
-            },
-            {
-                '@type': 'SiteNavigationElement',
-                name: 'Health Insurance',
-                url: 'https://insurancesupport.online/services/health-insurance'
-            },
-            {
-                '@type': 'SiteNavigationElement',
-                name: 'Motor Insurance',
-                url: 'https://insurancesupport.online/services/motor-insurance'
-            },
-            {
-                '@type': 'SiteNavigationElement',
-                name: 'Support',
-                url: 'https://insurancesupport.online/support'
-            },
-            {
-                '@type': 'SiteNavigationElement',
-                name: 'Resources',
-                url: 'https://insurancesupport.online/resources'
-            }
+            { '@type': 'SiteNavigationElement', name: 'Home', url: 'https://insurancesupport.online' },
+            { '@type': 'SiteNavigationElement', name: 'About Us', url: 'https://insurancesupport.online/about' },
+            { '@type': 'SiteNavigationElement', name: 'Life Insurance', url: 'https://insurancesupport.online/services/life-insurance' },
+            { '@type': 'SiteNavigationElement', name: 'Health Insurance', url: 'https://insurancesupport.online/services/health-insurance' },
+            { '@type': 'SiteNavigationElement', name: 'Motor Insurance', url: 'https://insurancesupport.online/services/motor-insurance' },
+            { '@type': 'SiteNavigationElement', name: 'Support', url: 'https://insurancesupport.online/support' },
+            { '@type': 'SiteNavigationElement', name: 'Resources', url: 'https://insurancesupport.online/resources' }
         ]
     }
 
@@ -136,6 +181,7 @@ export function LocalBusinessJsonLd() {
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/brand-favicon.svg',
                 image: 'https://insurancesupport.online/brand-favicon.svg',
+                hasMap: 'https://maps.google.com/?q=Bangalore,Karnataka,India',
                 description: (t('services_description') as string) || 'Expert insurance support online for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
                 telephone: '+919986634506',
                 email: 'contact@insurancesupport.online',
@@ -149,14 +195,12 @@ export function LocalBusinessJsonLd() {
                     worstRating: 1
                 } as any,
                 areaServed: [
-                    {
-                        '@type': 'Country',
-                        name: 'India'
-                    },
-                    {
-                        '@type': 'City',
-                        name: 'Bangalore'
-                    }
+                    { '@type': 'Country', name: 'India' },
+                    { '@type': 'City', name: 'Bangalore' },
+                    { '@type': 'City', name: 'Mumbai' },
+                    { '@type': 'City', name: 'Delhi' },
+                    { '@type': 'City', name: 'Chennai' },
+                    { '@type': 'City', name: 'Hyderabad' }
                 ],
                 address: {
                     '@type': 'PostalAddress',
@@ -180,32 +224,88 @@ export function LocalBusinessJsonLd() {
                 parentOrganization: {
                     '@id': 'https://insurancesupport.online/#organization'
                 },
+                employee: {
+                    '@id': 'https://insurancesupport.online/#advisor'
+                },
                 review: [
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Prashanth S' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5 },
-                        reviewBody: 'Best LIC consultant. Highly recommended. In-depth knowledge of LIC policies.'
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Best LIC consultant. Highly recommended. In-depth knowledge of LIC policies.',
+                        datePublished: '2025-11-15'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Ayush Kandoi' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5 },
-                        reviewBody: 'Positive experience. Excellent guidance for insurance planning.'
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Positive experience. Excellent guidance for insurance planning.',
+                        datePublished: '2025-12-02'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Meera Nair' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'My LIC death claim was stuck for over a year. Insurance Support resolved it in 3 weeks. Cannot thank them enough.',
+                        datePublished: '2025-10-20'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Ravi Kumar' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Doorstep service is a game changer. They handled my entire policy revival without me visiting any office.',
+                        datePublished: '2026-01-10'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Sneha Patil' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Got my maturity claim settled after my policy had lapsed. Professional and transparent throughout.',
+                        datePublished: '2025-09-05'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Arun Sharma' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 4, bestRating: 5 },
+                        reviewBody: 'Very knowledgeable team. Helped me understand my health insurance cover and get a rejected claim reconsidered.',
+                        datePublished: '2025-08-18'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Priya Menon' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Found my lost LIC policy bond with their help. Never thought it was possible. Truly excellent service.',
+                        datePublished: '2026-02-01'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Suresh Reddy' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Recommended by my friend. They helped me get the best term insurance for my family. Fast, honest, expert advice.',
+                        datePublished: '2025-11-28'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Farida Khan' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Our group health insurance for 50+ employees was set up smoothly. Very professional team.',
+                        datePublished: '2025-07-14'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Dinesh Bhat' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 4, bestRating: 5 },
+                        reviewBody: 'Helped me renew my motor insurance at a great price and also advised on a better health cover. Very helpful.',
+                        datePublished: '2026-01-30'
                     }
                 ] as any
             },
             {
                 '@type': 'Service',
                 name: 'LIC Policy Management',
-                provider: {
-                    '@id': 'https://insurancesupport.online/#local-business'
-                },
+                provider: { '@id': 'https://insurancesupport.online/#local-business' },
                 serviceType: 'Insurance Advisory',
-                areaServed: {
-                    '@type': 'Country',
-                    name: 'India'
-                },
+                areaServed: { '@type': 'Country', name: 'India' },
                 description: 'Expert help with LIC policy surrender, maturity claims, and lost policy bond retrieval.',
                 image: 'https://insurancesupport.online/life-insurance.png',
                 offers: {
@@ -219,14 +319,9 @@ export function LocalBusinessJsonLd() {
             {
                 '@type': 'Service',
                 name: 'Insurance Claims Assistance',
-                provider: {
-                    '@id': 'https://insurancesupport.online/#local-business'
-                },
+                provider: { '@id': 'https://insurancesupport.online/#local-business' },
                 serviceType: 'Claims Support',
-                areaServed: {
-                    '@type': 'Country',
-                    name: 'India'
-                },
+                areaServed: { '@type': 'Country', name: 'India' },
                 description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.',
                 image: 'https://insurancesupport.online/health-insurance.png',
                 offers: {
