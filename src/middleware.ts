@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server';
-import type { NextRequest } from 'next/server';
+import type { NextRequest, NextFetchEvent } from 'next/server';
+import { cityData } from '@/data/cityData';
 
-export async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest, event: NextFetchEvent) {
     // 1. Skip if internal Next.js request or specific asset files that don't need redirection logic
     if (
         request.nextUrl.pathname.startsWith('/_next') ||
@@ -63,6 +64,52 @@ export async function middleware(request: NextRequest) {
     } catch (error) {
         // Fail open: If the API fails, allow the request to proceed
         console.error('Middleware Security Check Failed:', error);
+    }
+
+    // 5. IP-Based Location Redirection for Homepage
+    if (request.nextUrl.pathname === '/') {
+        const vCity = request.headers.get('x-vercel-ip-city');
+        const cityName = vCity ? decodeURIComponent(vCity).trim().toLowerCase() : null;
+
+        let matchedSlug: string | null = null;
+        if (cityName) {
+            // Find a city match ignoring case
+            matchedSlug = Object.keys(cityData).find(
+                slug => cityData[slug].name.toLowerCase() === cityName || slug === cityName
+            ) || null;
+        }
+
+        if (matchedSlug) {
+            // City exists! Redirect to local page
+            return NextResponse.redirect(new URL(`/locations/${matchedSlug}`, request.url));
+        } else {
+            // City doesn't exist. Route to Bangalore and log the missing city.
+            if (cityName) {
+                const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://idzvdeemgxhwlkyphnel.supabase.co';
+                const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkenZkZWVtZ3hod2xreXBobmVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIwNjU1NDAsImV4cCI6MjA3NzY0MTU0MH0.q11DxU-2I9KKzdb-pEBXM73_yLnqYuRSElie831uB6w';
+
+                // Fire and forget using event.waitUntil so edge doesn't block the redirect
+                event.waitUntil(
+                    fetch(`${supabaseUrl}/functions/v1/log-visitor`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${supabaseAnonKey}`
+                        },
+                        body: JSON.stringify({
+                            ip_address: ip,
+                            city: decodeURIComponent(vCity as string),
+                            note: 'MISSED_LOCATION_REDIRECT',
+                            region: request.headers.get('x-vercel-ip-country-region'),
+                            country: request.headers.get('x-vercel-ip-country')
+                        })
+                    }).catch(error => console.error("Failed to log missed location:", error))
+                );
+            }
+
+            // Redirect to headquarters (Bangalore)
+            return NextResponse.redirect(new URL(`/locations/bangalore`, request.url));
+        }
     }
 
     return NextResponse.next();
