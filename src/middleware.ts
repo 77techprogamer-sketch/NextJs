@@ -117,15 +117,6 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
 
 export const config = {
     matcher: [
-        /*
-         * Match all request paths except for the ones starting with:
-         * - api (API routes)
-         * - _next/static (static files)
-         * - _next/image (image optimization files)
-         * - favicon.ico (favicon file)
-         * - robots.txt (robots file)
-         * - sitemap.xml (sitemap file)
-         */
         '/((?!api|_next/static|_next/image|favicon.ico|71a80a3568ae5d1d945fda3ef57fe18e.txt).*)',
     ],
 };
