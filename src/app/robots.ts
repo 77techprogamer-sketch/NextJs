@@ -15,7 +15,6 @@ export default function robots(): MetadataRoute.Robots {
                 '/private/',
                 '/engagement/',
                 '/blocked/',
-                '/loans/',
             ],
         },
         sitemap: 'https://insurancesupport.online/sitemap.xml',

@@ -1,7 +1,7 @@
 const https = require('https');
 
 const url = 'https://insurancesupport.online';
-const verificationCode = 'bi-hPLUbWhBDce-KaR7UTDRzD36y1vQa33la1ORxFxSF';
+const verificationCode = 'fbed68329c17dcd9';
 
 https.get(url, (res) => {
     let data = '';
