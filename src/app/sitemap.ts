@@ -49,11 +49,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/tools/human-life-value-calculator',
         '/resources/download-policy-copy',
         '/resources/national-insurance-claim-process',
+        '/success-stories',
+        '/resources/guides/death-claim-settlement',
+        '/resources/guides/lapsed-policy-revival',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: LAST_MOD,
-        changeFrequency: 'monthly' as const,
-        priority: 0.7,
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
     }))
 
     const faqRoutes = faqData.map((faq) => ({

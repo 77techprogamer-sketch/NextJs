@@ -163,6 +163,49 @@ const Header = () => {
             </DropdownMenuContent>
           </DropdownMenu>
 
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label={t("resources")}
+                suppressHydrationWarning
+              >
+                {t("resources")}
+                <ChevronDown className="h-4 w-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-64">
+              <DropdownMenuItem asChild>
+                <Link href="/success-stories" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold text-primary">{t("success_stories")}</span>
+                  <span className="text-xs text-muted-foreground">Proof of our expert claim recovery</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/resources/guides/death-claim-settlement" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold">Death Claim Guide</span>
+                  <span className="text-xs text-muted-foreground">Step-by-step LIC claim process</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/resources/guides/lapsed-policy-revival" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold">Policy Revival Guide</span>
+                  <span className="text-xs text-muted-foreground">How to restore old LIC policies</span>
+                </Link>
+              </DropdownMenuItem>
+              <div className="border-t border-slate-100 mt-2 pt-2">
+                <a
+                  href="https://insurancesupportindia.blogspot.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center p-2 text-xs font-bold text-primary hover:bg-slate-50 transition-colors rounded-md"
+                >
+                  {t("articles_link")}
+                </a>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <Link
             href="/support"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
@@ -184,16 +227,6 @@ const Header = () => {
           >
             {t("get_quote")}
           </Link>
-          <a
-            href="https://insurancesupportindia.blogspot.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground hover:text-primary transition-colors text-sm sm:text-base"
-            aria-label={t("articles_link")}
-            suppressHydrationWarning
-          >
-            {t("articles_link")}
-          </a>
           <LanguageSwitcher />
           <ThemeToggle />
         </nav>

@@ -14,7 +14,7 @@ export const cityData: Record<string, CityData> = {
         slug: 'bangalore',
         state: 'Karnataka',
         areas: ['Indiranagar', 'Koramangala', 'Jayanagar', 'JP Nagar', 'Whitefield', 'HSR Layout', 'Electronic City', 'Hebbal', 'Malleshwaram'],
-        description: "As India's Silicon Valley, Bangalore sees high vehicle density and rapid urban growth. From the busy streets of MG Road to the tech hubs of Whitefield, we provide comprehensive motor and health insurance essential for navigating the Garden City's dynamic life.",
+        description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the busy streets of MG Road to the tech hubs of Whitefield and Electronic City, we provide specialized health insurance for IT professionals and motor cover for the city's unique traffic conditions. Our advisors are familiar with local LIC branches in Jayanagar and Indiranagar for faster processing.",
         phone: "+91-9962536848",
         coordinates: [12.9716, 77.5946]
     },
@@ -23,7 +23,7 @@ export const cityData: Record<string, CityData> = {
         slug: 'chennai',
         state: 'Tamil Nadu',
         areas: ['T Nagar', 'Adyar', 'Velachery', 'Anna Nagar', 'Mylapore', 'Tambaram', 'Guindy', 'Porur'],
-        description: "Given Chennai's coastal weather and monsoon risks, especially in areas like Velachery and Adyar, property and health insurance are vital. We help residents secure their homes and health against unpredictable climatic changes and urban challenges.",
+        description: "Given Chennai's coastal geography and monsoon history, especially in low-lying areas like Velachery and Adyar, 'flood-protection' in motor and property insurance is a top priority. We help residents in Anna Nagar and T. Nagar with localized claim support and LIC policy management, ensuring your assets are resilient against the Bay of Bengal's unpredictability.",
         phone: "+91-9962536848",
         coordinates: [13.0827, 80.2707]
     },
@@ -81,7 +81,7 @@ export const cityData: Record<string, CityData> = {
         slug: 'hyderabad',
         state: 'Telangana',
         areas: ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kukatpally', 'Secunderabad', 'Hitech City'],
-        description: "In the bustling IT hub of Hyderabad, specifically around Hitech City and Gachibowli, ensuring your family's future is paramount. We provide comprehensive health and term life insurance solutions tailored for tech professionals and families.",
+        description: "In the bustling IT hub of Hyderabad, specifically serving the Hitech City and Gachibowli corridors, we provide comprehensive health and term life insurance solutions tailored for global professionals. Our expertise includes handling policy revivals for long-term residents in Secunderabad and Banjara Hills, bridging the gap between digital convenience and doorstep service.",
         phone: "+91-9962536848",
         coordinates: [17.3850, 78.4867]
     },
@@ -98,7 +98,7 @@ export const cityData: Record<string, CityData> = {
         slug: 'mumbai',
         state: 'Maharashtra',
         areas: ['Andheri', 'Bandra', 'Juhu', 'Powai', 'Colaba', 'Dadar'],
-        description: "In the City of Dreams, financial security is the bedrock of ambition. We offer specialized marine insurance for businesses in South Bombay and comprehensive family floaters for residents in the suburbs.",
+        description: "In the City of Dreams, financial security must keep pace with the fast life. From South Mumbai's corporate corridors to the residential hubs of Andheri and Bandra, we provide doorstep insurance assistance. We specialize in marine insurance for business owners and comprehensive health plans that cover Mumbai's top-tier medical facilities.",
         phone: "+91-9962536848",
         coordinates: [19.0760, 72.8777]
     },
@@ -226,7 +226,7 @@ export const cityData: Record<string, CityData> = {
         slug: 'delhi',
         state: 'Delhi',
         areas: ['Connaught Place', 'Dwarka', 'Rohini', 'Saket', 'Vasant Kunj', 'Janakpuri', 'Lajpat Nagar', 'Karol Bagh'],
-        description: "In the heart of the nation, secure your future with our capital-grade insurance services. From vehicle coverage in bustling Connaught Place to family health plans in Dwarka, we've got Delhi covered.",
+        description: "In the heart of the nation, we offer capital-grade insurance services. Our advisors are active across NCR, from Connaught Place to Dwarka. We provide expert help with complex LIC claim settlements and motor insurance renewals, ensuring your family stays secure amidst the city's fast-paced growth and environmental challenges like air-quality-linked health covers.",
         phone: "+91-9962536848",
         coordinates: [28.6139, 77.2090]
     },
