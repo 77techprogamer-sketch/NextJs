@@ -46,7 +46,7 @@ export default function DeathClaimGuide() {
                                 <p className="text-blue-900 font-medium italic">
                                     &quot;Navigating a death claim during a time of grief is overwhelming. This guide is designed to simplify the technicalities so you can secure your family&apos;s financial future.&quot;
                                 </p>
-                                <p className="text-blue-700 text-sm mt-2">— Kotian, Senior Claim Specialist (25+ Yrs Exp)</p>
+                                <p className="text-blue-700 text-sm mt-2">— Hari Kotian, Senior Claim Specialist (25+ Yrs Exp)</p>
                             </div>
                         </div>
 
