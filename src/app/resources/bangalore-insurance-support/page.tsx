@@ -7,16 +7,16 @@ import QuoteForm from '@/components/QuoteForm'
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'National Insurance Support Bangalore - Expert Agent'
+        absolute: 'General Insurance Support Bangalore - Expert Agent'
     },
-    description: 'Looking for a National Insurance Company office or agent in Bangalore? We provide doorstep service for policy renewal, new quotes, and claim settlement.',
-    keywords: ['National Insurance Bangalore', 'National Insurance Agent near me', 'NIC Office Bangalore', 'Motor Insurance Renewal Bangalore', 'Health Insurance Agent JP Nagar'],
+    description: 'Looking for a General Insurance Company office or agent in Bangalore? We provide doorstep service for policy renewal, new quotes, and claim settlement.',
+    keywords: ['General Insurance Bangalore', 'General Insurance Agent near me', 'NIC Office Bangalore', 'Motor Insurance Renewal Bangalore', 'Health Insurance Agent JP Nagar'],
     alternates: {
         canonical: 'https://insurancesupport.online/resources/bangalore-insurance-support',
     },
     openGraph: {
-        title: 'National Insurance Support | Trusted Bangalore Agents',
-        description: 'Skip the queues. Get expert help for National Insurance policies right at your doorstep in Bangalore.',
+        title: 'General Insurance Support | Trusted Bangalore Agents',
+        description: 'Skip the queues. Get expert help for General Insurance policies right at your doorstep in Bangalore.',
         type: 'website',
     }
 }
@@ -26,7 +26,7 @@ export default function BangaloreSupportPage() {
         '@context': 'https://schema.org',
         '@type': 'InsuranceAgency',
         name: 'Insurance Support Bangalore',
-        description: 'Authorized support and advisory for National Insurance Company products in Bangalore.',
+        description: 'Authorized support and advisory for General Insurance Company products in Bangalore.',
         address: {
             '@type': 'PostalAddress',
             addressLocality: 'Bangalore',
@@ -56,12 +56,12 @@ export default function BangaloreSupportPage() {
                     </Link>
 
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-                        National Insurance Support in <span className="text-primary">Bangalore</span>
+                        General Insurance Support in <span className="text-primary">Bangalore</span>
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                         Are you tired of calling customer care or visiting the office just to get a simple query resolved?
-                        We bring the <strong>National Insurance office to your doorstep</strong>.
+                        We bring the <strong>General Insurance office to your doorstep</strong>.
                     </p>
 
                     <div className="grid sm:grid-cols-2 gap-6 mb-12">

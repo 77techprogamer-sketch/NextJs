@@ -2,6 +2,9 @@ import { NextResponse } from 'next/server';
 import type { NextRequest, NextFetchEvent } from 'next/server';
 import { cityData } from '@/data/cityData';
 
+// Layer 2 DDoS Protection: Simple in-memory rate limiting map (per edge isolate)
+const ipMap = new Map<string, { count: number; startTime: number }>();
+
 export async function middleware(request: NextRequest, event: NextFetchEvent) {
     // 1. Skip if internal Next.js request or specific asset files that don't need redirection logic
     if (
@@ -38,6 +41,34 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
 
     // 3. Get IP
     const ip = request.ip || request.headers.get('x-forwarded-for') || '127.0.0.1';
+
+    // 3.5. Layer 2 DDoS Protection: Rate Limiting
+    const currentTime = Date.now();
+    const rateData = ipMap.get(ip) || { count: 0, startTime: currentTime };
+    const RATE_LIMIT_WINDOW_MS = 10 * 1000; // 10 seconds
+    const RATE_LIMIT_MAX_REQUESTS = 20;
+
+    if (currentTime - rateData.startTime > RATE_LIMIT_WINDOW_MS) {
+        rateData.count = 1;
+        rateData.startTime = currentTime;
+    } else {
+        rateData.count++;
+    }
+
+    ipMap.set(ip, rateData);
+
+    // Basic memory management to prevent memory leaks in the Map
+    if (ipMap.size > 10000) {
+        ipMap.clear();
+    }
+
+    if (rateData.count > RATE_LIMIT_MAX_REQUESTS) {
+        console.warn(`[DDoS Protection] Blocked IP: ${ip} for exceeding rate limit (${rateData.count} requests)`);
+        return new NextResponse(
+            JSON.stringify({ error: "Too many requests. Please try again later." }),
+            { status: 429, headers: { 'Content-Type': 'application/json' } }
+        );
+    }
 
     // 4. Check IP Reputation (stopforumspam)
     try {

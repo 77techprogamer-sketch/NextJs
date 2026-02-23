@@ -49,7 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/tools/risk-scorecard',
         '/tools/human-life-value-calculator',
         '/resources/download-policy-copy',
-        '/resources/national-insurance-claim-process',
+        '/resources/general-insurance-claim-process',
         '/success-stories',
         '/resources/guides/death-claim-settlement',
         '/resources/guides/lapsed-policy-revival',

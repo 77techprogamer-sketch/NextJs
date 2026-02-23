@@ -9,16 +9,16 @@ import { CheckCircle2, FileText, Phone, AlertCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'How to File National Insurance Claim | Step-by-Step Guide (2025)'
+        absolute: 'How to File General Insurance Claim | Step-by-Step Guide (2025)'
     },
-    description: 'Simplest guide to file National Insurance claims (Cashless & Reimbursement). Check documents required, download forms, and get claiming support.',
-    keywords: ['National Insurance Claim Process', 'NIC Claims', 'Cashless Claim National Insurance', 'Reimbursement Claim NIC', 'National Insurance Claim Form'],
+    description: 'Simplest guide to file General Insurance claims (Cashless & Reimbursement). Check documents required, download forms, and get claiming support.',
+    keywords: ['General Insurance Claim Process', 'NIC Claims', 'Cashless Claim General Insurance', 'Reimbursement Claim NIC', 'General Insurance Claim Form'],
     alternates: {
-        canonical: 'https://insurancesupport.online/resources/national-insurance-claim-process',
+        canonical: 'https://insurancesupport.online/resources/general-insurance-claim-process',
     },
     openGraph: {
-        title: 'How to File National Insurance Claim | Easy Guide',
-        description: 'Step-by-step guide for National Insurance claims. Don\'t let paperwork delay your settlement.',
+        title: 'How to File General Insurance Claim | Easy Guide',
+        description: 'Step-by-step guide for General Insurance claims. Don\'t let paperwork delay your settlement.',
         type: 'article',
     }
 }
@@ -27,13 +27,13 @@ export default function ClaimProcessPage() {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'HowTo',
-        name: 'How to File a National Insurance Company Claim',
-        description: 'A comprehensive step-by-step guide to filing both cashless and reimbursement claims with National Insurance Company Ltd.',
+        name: 'How to File a General Insurance Company Claim',
+        description: 'A comprehensive step-by-step guide to filing both cashless and reimbursement claims with General Insurance Company Ltd.',
         step: [
             {
                 '@type': 'HowToStep',
                 name: 'Notify the Insurer',
-                text: 'Inform National Insurance or the TPA immediately upon hospitalization (24 hours for emergency, 48 hours prior for planned).'
+                text: 'Inform General Insurance or the TPA immediately upon hospitalization (24 hours for emergency, 48 hours prior for planned).'
             },
             {
                 '@type': 'HowToStep',
@@ -48,7 +48,7 @@ export default function ClaimProcessPage() {
             {
                 '@type': 'HowToStep',
                 name: 'Submit Claim Documents',
-                text: 'Submit the claim form along with original documents to the TPA or National Insurance office within 15 days of discharge.'
+                text: 'Submit the claim form along with original documents to the TPA or General Insurance office within 15 days of discharge.'
             }
         ]
     }
@@ -64,7 +64,7 @@ export default function ClaimProcessPage() {
                 <Link href="/" className="text-sm text-muted-foreground hover:text-primary mb-4 block">
                     ← Back to Home
                 </Link>
-                <h1 className="text-4xl font-bold mb-4">National Insurance Claim Process Guide (2025)</h1>
+                <h1 className="text-4xl font-bold mb-4">General Insurance Claim Process Guide (2025)</h1>
                 <p className="text-xl text-muted-foreground">
                     Filing a claim doesn&apos;t have to be complicated. Whether you need a cashless claim or reimbursement, follow this simple guide to ensure your settlement is fast and hassle-free.
                 </p>
@@ -75,7 +75,7 @@ export default function ClaimProcessPage() {
                     <AlertCircle className="h-4 w-4" />
                     <AlertTitle>Need Immediate Help?</AlertTitle>
                     <AlertDescription>
-                        If you are in Bangalore and struggling with a claim rejection or delay, <Link href="/contact" className="underline font-medium">contact a National Insurance expert</Link> for free advice.
+                        If you are in Bangalore and struggling with a claim rejection or delay, <Link href="/contact" className="underline font-medium">contact a General Insurance expert</Link> for free advice.
                     </AlertDescription>
                 </Alert>
 
@@ -140,7 +140,7 @@ export default function ClaimProcessPage() {
                             <AccordionTrigger className="text-lg font-medium">1. Cashless Claims (Network Hospitals)</AccordionTrigger>
                             <AccordionContent className="text-muted-foreground leading-relaxed">
                                 <ul className="list-disc pl-5 space-y-2">
-                                    <li><strong>Step 1:</strong> Identify a Network Hospital. National Insurance has tie-ups with thousands of hospitals.</li>
+                                    <li><strong>Step 1:</strong> Identify a Network Hospital. General Insurance has tie-ups with thousands of hospitals.</li>
                                     <li><strong>Step 2:</strong> Approach the TPA desk at the hospital with your Health Card and ID proof.</li>
                                     <li><strong>Step 3:</strong> Fill out the Pre-Authorization Form. The hospital will send this to the TPA/Insurer.</li>
                                     <li><strong>Step 4:</strong> Once approved, the insurance company settles the bill directly with the hospital. You only pay for non-medical items (like gloves, food, etc.).</li>
@@ -154,7 +154,7 @@ export default function ClaimProcessPage() {
                                     <li><strong>Step 1:</strong> Admissions generally require you to pay upfront. Inform the TPA within 24 hours of emergency hospitalization.</li>
                                     <li><strong>Step 2:</strong> Collect <strong>ALL originals</strong> (bills, discharge summary, reports) before leaving.</li>
                                     <li><strong>Step 3:</strong> Fill the Claim Form (Part A & B).</li>
-                                    <li><strong>Step 4:</strong> Submit documents to the TPA or National Insurance office within 15 days of discharge.</li>
+                                    <li><strong>Step 4:</strong> Submit documents to the TPA or General Insurance office within 15 days of discharge.</li>
                                     <li><strong>Step 5:</strong> Amount is credited to your bank account after verification (usually 15-30 days).</li>
                                 </ul>
                             </AccordionContent>
@@ -172,7 +172,7 @@ export default function ClaimProcessPage() {
                     <CardContent>
                         <div className="grid md:grid-cols-2 gap-4">
                             <div>
-                                <p className="font-semibold">National Insurance Toll Free:</p>
+                                <p className="font-semibold">General Insurance Toll Free:</p>
                                 <a href="tel:18003450330" className="text-primary hover:underline">1800 345 0330</a>
                             </div>
                             <div>

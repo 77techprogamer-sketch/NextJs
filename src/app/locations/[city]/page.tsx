@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             `LIC Agent ${city.name}`,
             `Insurance Agent ${city.name}`,
             `LIC Policy Surrender ${city.name}`,
-            `National Insurance Renewal ${city.name}`,
+            `General Insurance Renewal ${city.name}`,
             `Health Insurance Agent ${city.name}`,
             `Motor Insurance Renewal ${city.name}`,
             `Best Insurance Advisor in ${city.name}`,
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         openGraph: {
             title: `Insurance Support ${city.name} | Trusted Advisors`,
-            description: `Skip the queues. Get expert help for LIC and National Insurance policies right at your doorstep in ${city.name}.`,
+            description: `Skip the queues. Get expert help for LIC and General Insurance policies right at your doorstep in ${city.name}.`,
             type: 'website',
         }
     }
@@ -140,12 +140,12 @@ export default function LocationPage({ params }: Props) {
                     </Link>
 
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-                        LIC & National Insurance Support in <span className="text-primary">{city.name}</span>
+                        LIC & General Insurance Support in <span className="text-primary">{city.name}</span>
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
                         Are you tired of calling customer care or visiting the office just to get a simple query resolved?
-                        We bring the <strong>LIC & National Insurance office to your doorstep in {city.name}</strong>.
+                        We bring the <strong>LIC & General Insurance office to your doorstep in {city.name}</strong>.
                     </p>
 
                     {city.description && (

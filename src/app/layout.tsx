@@ -95,7 +95,7 @@ export const metadata: Metadata = {
         'new india assurance',
         'oriental insurance',
         'united india insurance',
-        'national insurance',
+        'general insurance',
         'reliance general insurance',
         'navi insurance',
         'care health insurance',

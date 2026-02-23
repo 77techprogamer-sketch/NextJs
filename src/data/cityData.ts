@@ -13,8 +13,15 @@ export const cityData: Record<string, CityData> = {
         name: 'Bangalore',
         slug: 'bangalore',
         state: 'Karnataka',
-        areas: ['Indiranagar', 'Koramangala', 'Jayanagar', 'JP Nagar', 'Whitefield', 'HSR Layout', 'Electronic City', 'Hebbal', 'Malleshwaram'],
-        description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the busy streets of MG Road to the tech hubs of Whitefield and Electronic City, we provide specialized health insurance for IT professionals and motor cover for the city's unique traffic conditions. Our advisors are familiar with local LIC branches in Jayanagar and Indiranagar for faster processing.",
+        areas: [
+            'Indiranagar', 'Koramangala', 'Jayanagar', 'JP Nagar', 'Whitefield',
+            'HSR Layout', 'Electronic City', 'Hebbal', 'Malleshwaram', 'BTM Layout',
+            'Bellandur', 'Marathahalli', 'Yelahanka', 'Banashankari', 'Rajajinagar',
+            'Basavanagudi', 'RT Nagar', 'KR Puram', 'Sarjapur Road', 'Bannerghatta Road',
+            'RR Nagar', 'Vijayanagar', 'Vidyaranyapura', 'Sahakarnagar', 'Mahadevapura',
+            'Brookefield', 'Kalyan Nagar', 'Kammanahalli', 'Frazer Town', 'Benson Town'
+        ],
+        description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the IT corridors of Outer Ring Road and Manyata Tech Park to the residential hubs of HSR Layout and Jayanagar, we provide hyper-local insurance support. Stop waiting in traffic at Silk Board—our certified advisors offer doorstep service for policy renewals, death claims, and health insurance disputes. We are intimately familiar with major LIC branches across the city, including the main Jeevan Prakash Building on JC Road and localized branches in Bangalore South, ensuring your paperwork is processed rapidly without you ever needing to visit the branch.",
         phone: "+91-9962536848",
         coordinates: [12.9716, 77.5946]
     },

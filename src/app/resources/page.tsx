@@ -7,13 +7,13 @@ export const metadata: Metadata = {
     title: {
         absolute: 'Insurance Resources & Guides | Insurance Support India'
     },
-    description: 'Helpful guides, tutorials, and resources for National Insurance policyholders. Claim process, downloads, and local support.',
+    description: 'Helpful guides, tutorials, and resources for General Insurance policyholders. Claim process, downloads, and local support.',
     keywords: [
         'Insurance Guides',
         'Policy Download Help',
         'Claim Process Tutorial',
         'Insurance Forms Download',
-        'National Insurance Claim Process',
+        'General Insurance Claim Process',
         'Duplicate Policy Copy',
         'Insurance Resources India'
     ],
@@ -32,7 +32,7 @@ export default function ResourcesPage() {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-                <Link href="/resources/national-insurance-claim-process" className="group">
+                <Link href="/resources/general-insurance-claim-process" className="group">
                     <Card className="h-full hover:shadow-lg transition-shadow border-slate-200">
                         <CardHeader>
                             <div className="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-blue-100 transition-colors">

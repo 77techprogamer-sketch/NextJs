@@ -34,7 +34,7 @@ const ServiceAreasSection = () => {
                                         Insurance Support {city.name}
                                     </h3>
                                     <p className="text-xs text-muted-foreground mt-1">
-                                        LIC & National Insurance Agent
+                                        LIC & General Insurance Agent
                                     </p>
                                 </div>
                             </ScrollReveal>

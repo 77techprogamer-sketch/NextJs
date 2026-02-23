@@ -6,15 +6,15 @@ import { Download, ExternalLink, HelpCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'Download National Insurance Policy Copy - Quick Guide'
+        absolute: 'Download General Insurance Policy Copy - Quick Guide'
     },
-    description: 'Lost your policy document? Learn how to download your National Insurance policy copy online instantly. Step-by-step instructions for 2025.',
-    keywords: ['National Insurance Policy Download', 'NIC Policy Copy', 'Lost Insurance Policy', 'Download Car Insurance Policy', 'Health Insurance Soft Copy'],
+    description: 'Lost your policy document? Learn how to download your General Insurance policy copy online instantly. Step-by-step instructions for 2025.',
+    keywords: ['General Insurance Policy Download', 'NIC Policy Copy', 'Lost Insurance Policy', 'Download Car Insurance Policy', 'Health Insurance Soft Copy'],
     alternates: {
         canonical: 'https://insurancesupport.online/resources/download-policy-copy',
     },
     openGraph: {
-        title: 'How to Download National Insurance Policy Copy',
+        title: 'How to Download General Insurance Policy Copy',
         description: 'Get your policy document in minutes. Easy guide for PDF download.',
         type: 'article',
     }
@@ -28,11 +28,11 @@ export default function DownloadPolicyPage() {
             </Link>
 
             <h1 className="text-3xl md:text-4xl font-bold mb-6">
-                How to Download Your National Insurance Policy Copy
+                How to Download Your General Insurance Policy Copy
             </h1>
 
             <p className="text-lg text-muted-foreground mb-8">
-                Misplaced your physical insurance document? Don&apos;t worry. You can easily download a duplicate PDF copy from the official National Insurance portal. Here is how.
+                Misplaced your physical insurance document? Don&apos;t worry. You can easily download a duplicate PDF copy from the official General Insurance portal. Here is how.
             </p>
 
             <div className="space-y-8">
@@ -44,7 +44,7 @@ export default function DownloadPolicyPage() {
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <ol className="list-decimal pl-5 space-y-2 text-muted-foreground">
-                            <li>Visit the <a href="https://nationalinsurance.nic.co.in" target="_blank" rel="nofollow noreferrer" className="text-primary underline">Official National Insurance Website</a>.</li>
+                            <li>Visit the <a href="https://nationalinsurance.nic.co.in" target="_blank" rel="nofollow noreferrer" className="text-primary underline">Official General Insurance Website</a>.</li>
                             <li>Click on <strong>&quot;Customer Login&quot;</strong> in the top menu.</li>
                             <li>Enter your Customer ID / User ID and Password.</li>
                             <li>Once logged in, go to the <strong>&quot;My Policies&quot;</strong> section.</li>
