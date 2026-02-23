@@ -97,7 +97,7 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         console.error('Middleware Security Check Failed:', error);
     }
 
-    // 5. IP-Based Location Redirection for Homepage
+    // 5. IP-Based Location Logging for Homepage (No longer redirecting to fix GSC Indexing)
     if (request.nextUrl.pathname === '/') {
         const vCity = request.headers.get('x-vercel-ip-city');
         const cityName = vCity ? decodeURIComponent(vCity).trim().toLowerCase() : null;
@@ -110,37 +110,33 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
             ) || null;
         }
 
-        if (matchedSlug) {
-            // City exists! Redirect to local page
-            return NextResponse.redirect(new URL(`/locations/${matchedSlug}`, request.url));
-        } else {
-            // City doesn't exist. Route to Bangalore and log the missing city.
-            if (cityName) {
-                const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://idzvdeemgxhwlkyphnel.supabase.co';
-                const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkenZkZWVtZ3hod2xreXBobmVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIwNjU1NDAsImV4cCI6MjA3NzY0MTU0MH0.q11DxU-2I9KKzdb-pEBXM73_yLnqYuRSElie831uB6w';
+        if (!matchedSlug && cityName) {
+            // City doesn't exist in our DB. Log the missing city for future expansion.
+            const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://idzvdeemgxhwlkyphnel.supabase.co';
+            const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkenZkZWVtZ3hod2xreXBobmVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIwNjU1NDAsImV4cCI6MjA3NzY0MTU0MH0.q11DxU-2I9KKzdb-pEBXM73_yLnqYuRSElie831uB6w';
 
-                // Fire and forget using event.waitUntil so edge doesn't block the redirect
-                event.waitUntil(
-                    fetch(`${supabaseUrl}/functions/v1/log-visitor`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': `Bearer ${supabaseAnonKey}`
-                        },
-                        body: JSON.stringify({
-                            ip_address: ip,
-                            city: decodeURIComponent(vCity as string),
-                            note: 'MISSED_LOCATION_REDIRECT',
-                            region: request.headers.get('x-vercel-ip-country-region'),
-                            country: request.headers.get('x-vercel-ip-country')
-                        })
-                    }).catch(error => console.error("Failed to log missed location:", error))
-                );
-            }
-
-            // Redirect to headquarters (Bangalore)
-            return NextResponse.redirect(new URL(`/locations/bangalore`, request.url));
+            // Fire and forget using event.waitUntil so edge doesn't block the request
+            event.waitUntil(
+                fetch(`${supabaseUrl}/functions/v1/log-visitor`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${supabaseAnonKey}`
+                    },
+                    body: JSON.stringify({
+                        ip_address: ip,
+                        city: decodeURIComponent(vCity as string),
+                        note: 'MISSED_LOCATION_REDIRECT',
+                        region: request.headers.get('x-vercel-ip-country-region'),
+                        country: request.headers.get('x-vercel-ip-country')
+                    })
+                }).catch(error => console.error("Failed to log missed location:", error))
+            );
         }
+
+        // We now ALLOW the request to proceed to the homepage (status 200) instead of redirecting
+        // This is crucial for Google Search Console (GSC) to verify HTTPS and index the root domain.
+        // The display logic in HomeClient.tsx will still dynamically show the local city.
     }
 
     return NextResponse.next();
