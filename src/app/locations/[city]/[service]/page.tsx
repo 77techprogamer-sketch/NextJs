@@ -286,7 +286,7 @@ export default function ServiceLocationPage({ params }: Props) {
                                 {services.filter(s => s !== serviceSlug).slice(0, 5).map(s => (
                                     <li key={s}>
                                         <Link href={`/locations/${params.city}/${s}`} className="text-slate-600 hover:text-primary hover:underline">
-                                            {serviceLabels[s]} in {city.name}
+                                            {serviceLabels[s]} Advisor in {city.name}
                                         </Link>
                                     </li>
                                 ))}
@@ -298,7 +298,7 @@ export default function ServiceLocationPage({ params }: Props) {
                                 {Object.keys(cityData).filter(c => c !== params.city).slice(0, 5).map(c => (
                                     <li key={c}>
                                         <Link href={`/locations/${c}/${serviceSlug}`} className="text-slate-600 hover:text-primary hover:underline">
-                                            {serviceLabel} in {cityData[c].name}
+                                            {serviceLabel} Advisor in {cityData[c].name}
                                         </Link>
                                     </li>
                                 ))}

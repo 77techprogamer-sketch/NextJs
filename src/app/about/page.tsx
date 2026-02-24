@@ -58,12 +58,28 @@ const advisorSchema = {
     ]
 }
 
+const aboutPageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    mainEntity: {
+        '@id': 'https://insurancesupport.online/#organization'
+    },
+    description: 'Learn about Insurance Support India, our legacy of 25+ years in claim recovery, and our mission to provide professional insurance advisory services.',
+    publisher: {
+        '@id': 'https://insurancesupport.online/#organization'
+    }
+}
+
 const AboutPage = () => {
     return (
         <>
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(advisorSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
             />
             <AboutContent />
         </>

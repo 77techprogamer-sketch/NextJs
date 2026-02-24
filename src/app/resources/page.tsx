@@ -7,15 +7,15 @@ export const metadata: Metadata = {
     title: {
         absolute: 'Insurance Resources & Guides | Insurance Support India'
     },
-    description: 'Helpful guides, tutorials, and resources for General Insurance policyholders. Claim process, downloads, and local support.',
+    description: 'Master your insurance policies with expert guides, claim process tutorials, and local advisor support. 25+ years of experience in solving insurance complexities across India.',
     keywords: [
-        'Insurance Guides',
-        'Policy Download Help',
-        'Claim Process Tutorial',
-        'Insurance Forms Download',
-        'General Insurance Claim Process',
-        'Duplicate Policy Copy',
-        'Insurance Resources India'
+        'Insurance Guides India',
+        'Policy Management Tutorials',
+        'Claim Settlement Process',
+        'Duplicate Policy Recovery',
+        'Insurance Support Resources',
+        'Expert Helping Hand Insurance',
+        'General Insurance Claim Guide'
     ],
     alternates: {
         canonical: 'https://insurancesupport.online/resources',

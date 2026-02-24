@@ -7,7 +7,6 @@ import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, CheckCircle2 } from "lucide-react";
 import QuoteForm from "@/components/QuoteForm";
-import ServiceJsonLd from "@/components/ServiceJsonLd";
 import { AutoLinker } from "@/components/AutoLinker";
 import dynamic from 'next/dynamic';
 
@@ -43,13 +42,6 @@ export default function ServiceContent({ serviceType, iconName, imagePath }: Ser
 
     return (
         <div className="container px-4 py-12 mx-auto">
-            <ServiceJsonLd
-                title={`${title} Service`}
-                description={description}
-                url={`https://insurancesupport.online/services/${serviceType}`}
-                image={`https://insurancesupport.online${imagePath}`}
-                faqs={faqs}
-            />
             <div className="max-w-4xl mx-auto">
                 <div className="mb-8">
                     <Link href="/" className="text-sm text-muted-foreground hover:text-primary mb-4 block">

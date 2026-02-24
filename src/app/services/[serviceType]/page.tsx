@@ -145,6 +145,31 @@ export default function ServicePage({ params }: { params: { serviceType: string 
         notFound()
     }
 
+    const serviceSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: service.title,
+        description: service.description,
+        provider: {
+            '@id': 'https://insurancesupport.online/#organization'
+        },
+        areaServed: {
+            '@type': 'Country',
+            name: 'India'
+        },
+        hasOfferCatalog: {
+            '@type': 'OfferCatalog',
+            name: `${service.title} Services`,
+            itemListElement: (service.features || []).map((feature: string, index: number) => ({
+                '@type': 'Offer',
+                itemOffered: {
+                    '@type': 'Service',
+                    name: feature
+                }
+            }))
+        }
+    }
+
     const breadcrumbJsonLd = {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
@@ -175,6 +200,10 @@ export default function ServicePage({ params }: { params: { serviceType: string 
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
             />
             <ServiceContent
                 serviceType={params.serviceType}

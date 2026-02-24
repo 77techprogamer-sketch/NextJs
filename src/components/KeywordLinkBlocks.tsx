@@ -23,7 +23,7 @@ export const CityLinksForService: React.FC<CityLinksForServiceProps> = ({ servic
                         href={`/locations/${cityKey}/${serviceSlug}`}
                         className="text-slate-600 hover:text-primary hover:underline transition-colors py-1"
                     >
-                        {serviceTitle} in {cityData[cityKey].name}
+                        {serviceTitle} Advisor in {cityData[cityKey].name}
                     </Link>
                 ))}
             </div>
@@ -50,7 +50,7 @@ export const ServiceLinksForCity: React.FC<ServiceLinksForCityProps> = ({ citySl
                         className="group flex items-center justify-between p-4 bg-white border border-slate-100 rounded-xl hover:border-primary/20 hover:shadow-md transition-all"
                     >
                         <span className="font-semibold text-slate-700 group-hover:text-primary transition-colors">
-                            Best {serviceLabels[serviceSlug]} in {cityName}
+                            Best {serviceLabels[serviceSlug]} Advisor in {cityName}
                         </span>
                         <div className="h-6 w-6 rounded-full bg-slate-50 flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-all">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg>
