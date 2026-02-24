@@ -38,7 +38,7 @@ export async function GET() {
   const offersXml = Object.entries(services).map(([key, service]) => {
     const url = `${BASE_URL}/services/${key}`;
     const id = key;
-    const meta = serviceMeta[key] || { image: 'brand-favicon.svg', price: 0, rating: 4.5, reviews: 10 };
+    const meta = serviceMeta[key] || { image: 'favicon.svg', price: 0, rating: 4.5, reviews: 10 };
 
     return `
     <offer id="${id}" available="true">

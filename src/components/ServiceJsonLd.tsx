@@ -20,7 +20,7 @@ export default function ServiceJsonLd({ title, description, url, image, faqs }: 
         provider: {
             '@type': 'InsuranceAgency',
             name: 'Insurance Support',
-            image: 'https://insurancesupport.online/brand-favicon.svg',
+            image: 'https://insurancesupport.online/favicon.svg',
             address: {
                 '@type': 'PostalAddress',
                 addressLocality: 'Bangalore', // HQ Location

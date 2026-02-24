@@ -15,7 +15,7 @@ export function GlobalJsonLd() {
                 '@id': 'https://insurancesupport.online/#organization',
                 name: 'Insurance Support',
                 url: 'https://insurancesupport.online',
-                logo: 'https://insurancesupport.online/brand-favicon.svg',
+                logo: 'https://insurancesupport.online/favicon.svg',
                 email: 'contact@insurancesupport.online',
                 address: {
                     '@type': 'PostalAddress',
@@ -186,8 +186,8 @@ export function LocalBusinessJsonLd() {
                     'https://twitter.com/insurancesupport',
                     'https://www.instagram.com/insurancesupport'
                 ],
-                logo: 'https://insurancesupport.online/brand-favicon.svg',
-                image: 'https://insurancesupport.online/brand-favicon.svg',
+                logo: 'https://insurancesupport.online/favicon.svg',
+                image: 'https://insurancesupport.online/favicon.svg',
                 hasMap: 'https://maps.google.com/?q=Bangalore,Karnataka,India',
                 description: (t('services_description') as string) || 'Expert insurance support online for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
                 telephone: '+919986634506',

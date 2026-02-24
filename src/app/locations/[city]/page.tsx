@@ -70,7 +70,7 @@ export default function LocationPage({ params }: Props) {
         telephone: '+919986634506',
         email: 'contact@insurancesupport.online',
         priceRange: '₹₹',
-        image: 'https://insurancesupport.online/brand-favicon.svg',
+        image: 'https://insurancesupport.online/favicon.svg',
         address: {
             '@type': 'PostalAddress',
             addressLocality: city.name,
