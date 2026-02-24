@@ -119,7 +119,7 @@ const QuickDialSidebar = () => {
                 {!isOpen && (
                     <div className={cn(
                         "absolute top-1/2 -translate-y-1/2 bg-black/80 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg pointer-events-none transition-all duration-300 backdrop-blur-sm border border-white/10",
-                        position === 'right' ? "right-16 opacity-100" : "left-16 opacity-100"
+                        position === 'right' ? "right-20 opacity-100" : "left-20 opacity-100"
                     )}>
                         MENU
                     </div>

@@ -59,10 +59,10 @@ const ShareNudge = () => {
         <AnimatePresence>
             {isVisible && (
                 <motion.div
-                    initial={{ y: 100, opacity: 0 }}
+                    initial={{ y: -100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
-                    className="fixed bottom-4 right-4 z-50 max-w-sm w-full p-4"
+                    exit={{ y: -100, opacity: 0 }}
+                    className="fixed top-24 right-4 z-[60] max-w-sm w-full p-4"
                 >
                     <div className="bg-white dark:bg-slate-900 rounded-lg shadow-xl border border-slate-200 dark:border-slate-800 p-4 flex flex-col gap-3">
                         <div className="flex justify-between items-start">

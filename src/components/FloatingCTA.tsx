@@ -13,7 +13,7 @@ interface FloatingCTAProps {
 const FloatingCTA = ({ onGetQuote }: FloatingCTAProps) => {
     const { t } = useTranslation();
     const [isVisible, setIsVisible] = useState(false);
-    const [bottomOffset, setBottomOffset] = useState(24); // Default 6 (1.5rem / 24px)
+    const [bottomOffset, setBottomOffset] = useState(110); // Above ChatbotWidget (64px height + 24px gap + buffer)
 
     useEffect(() => {
         let ticking = false;
@@ -39,10 +39,10 @@ const FloatingCTA = ({ onGetQuote }: FloatingCTAProps) => {
                             // Calculate how much of the footer is visible
                             const visibleFooterHeight = windowHeight - footerRect.top;
                             // Set offset to be visible footer height + default spacing
-                            setBottomOffset(visibleFooterHeight + 24);
+                            setBottomOffset(visibleFooterHeight + 110);
                         } else {
                             // Reset to default if footer is not visible
-                            setBottomOffset(24);
+                            setBottomOffset(110);
                         }
                     }
 
