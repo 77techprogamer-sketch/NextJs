@@ -153,7 +153,7 @@ const Footer = () => {
               <li><Link href="/locations/hyderabad/life-insurance" className="hover:text-primary transition-colors">Life Insurance Hyderabad</Link></li>
               <li><Link href="/locations/pune/term-insurance" className="hover:text-primary transition-colors">Term Insurance Pune</Link></li>
               <li><Link href="/locations/chennai/motor-insurance" className="hover:text-primary transition-colors">Motor Insurance Chennai</Link></li>
-              <li><Link href="/locations/mumbai/lic-agent" className="hover:text-primary transition-colors">LIC Agent Mumbai</Link></li>
+              <li><Link href="/locations/mumbai/lic-agent" className="hover:text-primary transition-colors">Insurance Advisor Mumbai</Link></li>
               <li><Link href="/locations/delhi/sme-insurance" className="hover:text-primary transition-colors">SME Insurance Delhi</Link></li>
             </ul>
           </div>

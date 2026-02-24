@@ -58,7 +58,7 @@ export default function LocationsPage() {
                                             <ChevronRight className="h-5 w-5 text-slate-300 group-hover:text-primary transform group-hover:translate-x-1 transition-all" />
                                         </div>
                                         <p className="text-sm text-muted-foreground line-clamp-2 mb-4">
-                                            {city.description || `Expert insurance agents and claim support services for families and businesses in ${city.name}.`}
+                                            {city.description || `Expert insurance advisors and claim support services for families and businesses in ${city.name}.`}
                                         </p>
                                         <div className="flex flex-wrap gap-2">
                                             {city.areas.slice(0, 3).map(area => (

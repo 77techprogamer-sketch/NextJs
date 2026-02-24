@@ -24,10 +24,10 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'Insurance Support India | Expert Claim Recovery',
-        template: '%s | Insurance Support'
+        default: 'Insurance Support Online | Expert Claim Recovery India',
+        template: '%s | Insurance Support Online'
     },
-    applicationName: 'Insurance Support',
+    applicationName: 'Insurance Support Online',
     description: 'Struggling with rejected claims or lost LIC policies? Get 25+ years of expert help. We fight for your money. Free Consultation. Call Now! Serving All India.',
     keywords: [
         'Insurance Support',
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
         'Death Claim Settlement',
         'Lost Policy Bond Support',
         'Insurance Claim Settlement India',
-        'LIC Agent Kotian',
-        'Insurance Agent Near Me',
+        'Insurance Advisor Kotian',
+        'Insurance Advisor Near Me',
         'Policy Renewal Services',
         'Health Insurance Portability',
         'Motor Insurance Renewal',

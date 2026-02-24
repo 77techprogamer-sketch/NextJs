@@ -13,7 +13,7 @@ export function GlobalJsonLd() {
             {
                 '@type': 'Organization',
                 '@id': 'https://insurancesupport.online/#organization',
-                name: 'Insurance Support',
+                name: 'Insurance Support Online',
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/favicon.svg',
                 email: 'contact@insurancesupport.online',
@@ -171,11 +171,11 @@ export function LocalBusinessJsonLd() {
             {
                 '@type': 'InsuranceAgency',
                 '@id': 'https://insurancesupport.online/#local-business',
-                name: 'Insurance Support India',
+                name: 'Insurance Support Online',
                 alternateName: [
                     'Insurance Support Online',
                     'LIC Insurance Support',
-                    'Insurance Agent Kotian',
+                    'Insurance Advisor Kotian',
                     'Claim Recovery Experts',
                     'Rejected Claim Specialists'
                 ],

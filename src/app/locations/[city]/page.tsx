@@ -19,21 +19,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: {
-            absolute: `LIC Agent in ${city.name} - Insurance Support`
+            absolute: `Insurance Advisor in ${city.name} - Insurance Support`
         },
-        description: `Looking for an LIC Agent in ${city.name}? We provide doorstep service for policy surrender, maturity claims, and new insurance quotes in ${city.name}.`,
+        description: `Looking for an Insurance Advisor in ${city.name}? We provide doorstep service for policy surrender, maturity claims, and new insurance quotes in ${city.name}.`,
         keywords: [
-            `LIC Agent ${city.name}`,
-            `Insurance Agent ${city.name}`,
+            `Insurance Advisor ${city.name}`,
+            `Insurance Advisor ${city.name}`,
             `LIC Policy Surrender ${city.name}`,
             `General Insurance Renewal ${city.name}`,
-            `Health Insurance Agent ${city.name}`,
+            `Health Insurance Advisor ${city.name}`,
             `Motor Insurance Renewal ${city.name}`,
             `Best Insurance Advisor in ${city.name}`,
             `Policy Claim Help ${city.name}`,
             `Doorstep Insurance Service ${city.name}`,
-            ...city.areas.map(area => `LIC Agent in ${area}`),
-            ...city.areas.map(area => `Insurance Agent in ${area}`),
+            ...city.areas.map(area => `Insurance Advisor in ${area}`),
+            ...city.areas.map(area => `Insurance Advisor in ${area}`),
             ...city.areas.map(area => `Policy Renewal ${area}`)
         ],
         alternates: {
@@ -160,7 +160,7 @@ export default function LocationPage({ params }: Props) {
                             Looking for the LIC Office in {city.name}?
                         </h3>
                         <p className="text-amber-800 dark:text-amber-200">
-                            <strong>Skip the long queues!</strong> You don&apos;t need to visit the branch. Our authorized agents provide full support for policy surrender, claims, and renewals right at your home in {city.name}.
+                            <strong>Skip the long queues!</strong> You don&apos;t need to visit the branch. Our authorized advisors provide full support for policy surrender, claims, and renewals right at your home in {city.name}.
                         </p>
                     </div>
 

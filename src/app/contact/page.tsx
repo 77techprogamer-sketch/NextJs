@@ -8,12 +8,12 @@ export const metadata: Metadata = {
     },
     description: 'Contact our expert insurance advisors for quick support. Call us or send an inquiry for Life, Health, and Motor insurance services.',
     keywords: [
-        'Contact Insurance Agent',
+        'Contact Insurance Advisor',
         'Insurance Support Number',
-        'LIC Agent Contact',
+        'Insurance Advisor Contact',
         'Insurance Inquiry',
         'Insurance Customer Care Number',
-        'LIC Agent Phone Number',
+        'Insurance Advisor Phone Number',
         'Insurance Helpline India'
     ],
     alternates: {

@@ -20,23 +20,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: {
-            absolute: `Best ${serviceLabel} Agent in ${city.name} | 98% Claim Settlement`
+            absolute: `Best ${serviceLabel} Advisor in ${city.name} | 98% Claim Settlement`
         },
         description: `Compare the best ${serviceLabel} plans in ${city.name}. Expert guidance and doorstep claim support with 25+ years experience. Get a free quote in 30 seconds!`,
         keywords: [
             `${serviceLabel} ${city.name}`,
-            `Best ${serviceLabel} Agent in ${city.name}`,
+            `Best ${serviceLabel} Advisor in ${city.name}`,
             `${serviceLabel} renewal ${city.name}`,
             `${serviceLabel} claims ${city.name}`,
             `buy ${serviceLabel} in ${city.name}`,
-            `${serviceLabel} policy agent ${city.name}`,
-            `insurance agent for ${serviceLabel} in ${city.name}`,
+            `${serviceLabel} policy advisor ${city.name}`,
+            `insurance advisor for ${serviceLabel} in ${city.name}`,
             `IRDAI certified ${serviceLabel} advisor ${city.name}`,
             `top rated ${serviceLabel} company ${city.name}`,
             `${serviceLabel} consultant near me ${city.name}`,
             ...city.areas.map(area => `${serviceLabel} near ${area}`),
             ...city.areas.map(area => `buy ${serviceLabel} in ${area}`),
-            ...city.areas.map(area => `${serviceLabel} agent ${area}`)
+            ...city.areas.map(area => `${serviceLabel} advisor ${area}`)
         ],
         alternates: {
             canonical: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
@@ -127,7 +127,7 @@ export default function ServiceLocationPage({ params }: Props) {
         'mainEntity': [
             {
                 '@type': 'Question',
-                'name': `Who is the best ${serviceLabel} agent in ${city.name}?`,
+                'name': `Who is the best ${serviceLabel} advisor in ${city.name}?`,
                 'acceptedAnswer': {
                     '@type': 'Answer',
                     'text': `Insurance Support is a top-rated agency in ${city.name} with 25+ years of experience, offering 98% claim settlement assurance and doorstep service for all ${serviceLabel} needs.`
@@ -324,7 +324,7 @@ export default function ServiceLocationPage({ params }: Props) {
                     <div className="flex flex-col sm:flex-row gap-4 mb-8">
                         <Button size="lg" className="w-full sm:w-auto h-12 text-lg shadow-lg shadow-primary/20">
                             <Phone className="mr-2 h-4 w-4" />
-                            Call Agent in {city.name}
+                            Call Advisor in {city.name}
                         </Button>
                         <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 text-lg">
                             WhatsApp Support

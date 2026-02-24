@@ -31,7 +31,7 @@ export default function HLVCalculator() {
         // 1. Calculate Surplus Income (Income - Personal Expenses)
         // 2. Project this surplus for remaining years adjusting for inflation/interest (Simplified as direct multiplier for basic tool, or PV formula)
         // Let's use a Present Value formula assuming investment return matches inflation (Real rate ~0-1% for safety) or simple multiplier.
-        // LIC agents often use: (Annual Income * Years Left) + Loans - Savings. Let's add slight sophistication.
+        // Insurance advisors often use: (Annual Income * Years Left) + Loans - Savings. Let's add slight sophistication.
 
         const yearsLeft = retirementAge - age;
         if (yearsLeft <= 0) {

@@ -36,7 +36,7 @@ const TermsOfServiceClient = () => {
                         2. Scope of Services & Our Role
                     </h2>
                     <p className="text-muted-foreground mb-4">
-                        Insurance Support acts as an independent insurance intermediary and/or marketing agency connected with licensed insurance carriers and agents.
+                        Insurance Support acts as an independent insurance intermediary and/or marketing agency connected with licensed insurance carriers and advisors.
                     </p>
                     <div className="bg-muted p-4 rounded-lg border-l-4 border-yellow-500">
                         <h3 className="font-semibold text-foreground mb-2 flex items-center gap-2">

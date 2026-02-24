@@ -83,7 +83,7 @@ export default function DownloadPolicyPage() {
                         Still Can&apos;t Find It?
                     </h3>
                     <p className="text-yellow-700 mb-4">
-                        If you bought the policy through us or a specific agent, it might be faster to contact them directly.
+                        If you bought the policy through us or a specific advisor, it might be faster to contact them directly.
                         They usually keep a record of your policy.
                     </p>
                     <Button variant="outline" className="border-yellow-600 text-yellow-700 hover:bg-yellow-100">

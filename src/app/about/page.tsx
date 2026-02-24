@@ -11,18 +11,18 @@ export const metadata: Metadata = {
     keywords: [
         translations.about_hero_title,
         'Insurance Advisors Experience',
-        'Trusted Insurance Agents',
+        'Trusted Insurance Advisors',
         'Claim Settlement Ratio',
         'Insurance Experts Bangalore',
         'Legacy Insurance Protection',
         'Family Financial Planning',
         '25 Years Experience Insurance',
         'Trusted LIC Advisor',
-        'Top Rated Insurance Agent',
+        'Top Rated Insurance Advisor',
         'SME Insurance Specialists',
         'IRDAI Certified Insurance Advisor',
-        'Licensed Insurance Agent India',
-        'Insurance Agent Kotian',
+        'Licensed Insurance Advisor India',
+        'Insurance Advisor Kotian',
         'Best Insurance Advisor India'
     ],
     alternates: {

@@ -51,7 +51,7 @@ export default function ResourcesPage() {
                                 <MapPin className="h-6 w-6 text-green-600" />
                             </div>
                             <CardTitle className="group-hover:text-primary transition-colors">Bangalore Support</CardTitle>
-                            <CardDescription>Locate agents and get doorstep service in Bangalore.</CardDescription>
+                            <CardDescription>Locate advisors and get doorstep service in Bangalore.</CardDescription>
                         </CardHeader>
                     </Card>
                 </Link>

@@ -7,15 +7,15 @@ import QuoteForm from '@/components/QuoteForm'
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'General Insurance Support Bangalore - Expert Agent'
+        absolute: 'General Insurance Support Bangalore - Expert Advisor'
     },
-    description: 'Looking for a General Insurance Company office or agent in Bangalore? We provide doorstep service for policy renewal, new quotes, and claim settlement.',
-    keywords: ['General Insurance Bangalore', 'General Insurance Agent near me', 'NIC Office Bangalore', 'Motor Insurance Renewal Bangalore', 'Health Insurance Agent JP Nagar'],
+    description: 'Looking for a General Insurance Company office or advisor in Bangalore? We provide doorstep service for policy renewal, new quotes, and claim settlement.',
+    keywords: ['General Insurance Bangalore', 'General Insurance Advisor near me', 'NIC Office Bangalore', 'Motor Insurance Renewal Bangalore', 'Health Insurance Advisor JP Nagar'],
     alternates: {
         canonical: 'https://insurancesupport.online/resources/bangalore-insurance-support',
     },
     openGraph: {
-        title: 'General Insurance Support | Trusted Bangalore Agents',
+        title: 'General Insurance Support | Trusted Bangalore Advisors',
         description: 'Skip the queues. Get expert help for General Insurance policies right at your doorstep in Bangalore.',
         type: 'website',
     }

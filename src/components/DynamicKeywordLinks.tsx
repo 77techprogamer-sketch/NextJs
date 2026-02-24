@@ -49,7 +49,7 @@ export default function DynamicKeywordLinks() {
                                 href={`/locations/${city}`}
                                 className="text-gray-600 hover:text-primary hover:underline transition-colors"
                             >
-                                Insurance Agents in {cityData[city]?.name || city}
+                                Insurance Advisors in {cityData[city]?.name || city}
                             </Link>
                         ))}
                     </div>
