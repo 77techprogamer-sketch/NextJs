@@ -117,13 +117,19 @@ const Header = () => {
               <DropdownMenuItem asChild>
                 <Link href="/tools/policy-recovery" className="cursor-pointer flex flex-col items-start gap-1 p-2">
                   <span className="font-semibold">Lost Policy Recovery</span>
-                  <span className="text-xs text-muted-foreground">Find details of lost LIC policies</span>
+                  <span className="text-xs text-muted-foreground">Find details of lost insurance policies</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/tools/risk-scorecard" className="cursor-pointer flex flex-col items-start gap-1 p-2">
                   <span className="font-semibold">Risk Scorecard</span>
                   <span className="text-xs text-muted-foreground">Assess your financial risk profile</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/tools/investment-returns" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold text-primary">Wealth Discovery</span>
+                  <span className="text-xs text-muted-foreground">ROI & Maturity benefit calculator</span>
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>

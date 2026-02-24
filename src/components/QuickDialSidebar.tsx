@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, Layers, Star, MessageSquare, Phone, Plus, BookOpen, ArrowLeftRight, X, Banknote, Calculator } from "lucide-react";
+import { Home, Layers, Star, MessageSquare, Phone, Plus, BookOpen, ArrowLeftRight, X, Banknote, Calculator, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -47,6 +47,7 @@ const QuickDialSidebar = () => {
     const navItems = [
         { id: "hero", icon: Home, label: "Home" },
         { id: "/tools/human-life-value-calculator", icon: Calculator, label: "HLV Calc" },
+        { id: "/tools/investment-returns", icon: TrendingUp, label: "Wealth Calc" },
         { id: "services", icon: Layers, label: "Services" },
         { id: "/loans", icon: Banknote, label: "Loans" },
         { id: "features", icon: Star, label: "Features" },
