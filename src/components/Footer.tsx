@@ -159,7 +159,14 @@ const Footer = () => {
           </div>
         </div>
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-xs text-muted-foreground" suppressHydrationWarning>&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+            <p className="text-xs text-muted-foreground" suppressHydrationWarning>&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
+            <div className="flex items-center gap-3 text-[10px] text-muted-foreground/60">
+              <Link href="/sitemap-index" className="hover:text-primary transition-colors">Site Map</Link>
+              <span>|</span>
+              <a href="/sitemap.xml" className="hover:text-primary transition-colors">XML Sitemap</a>
+            </div>
+          </div>
           <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-primary/80">
             <span suppressHydrationWarning>{t("legacy")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>

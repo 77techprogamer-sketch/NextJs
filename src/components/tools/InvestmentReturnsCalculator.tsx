@@ -166,7 +166,7 @@ const InvestmentReturnsCalculator = () => {
 
                 <div className="text-center space-y-4 pt-4">
                     <p className="text-sm text-slate-500 font-medium">
-                        Secure your family's future and build wealth simultaneously.
+                        Secure your family&apos;s future and build wealth simultaneously.
                     </p>
                     <Button size="lg" className="w-full h-16 rounded-2xl text-lg font-bold shadow-xl hover:scale-[1.02] active:scale-95 transition-all">
                         Get Detailed Illustration <ArrowRight className="ml-2 w-5 h-5" />
