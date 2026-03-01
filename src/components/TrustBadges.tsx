@@ -19,8 +19,8 @@ const TrustBadges = () => {
                     <ShieldCheck className="h-5 w-5 text-accent" />
                 </div>
                 <div>
-                    <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Compliance</p>
-                    <p className="text-sm font-semibold">IRDA Verified</p>
+                    <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">IRDAI</p>
+                    <p className="text-sm font-semibold">Certified Team</p>
                 </div>
             </div>
 
@@ -29,7 +29,7 @@ const TrustBadges = () => {
                     <Award className="h-5 w-5 text-green-600" />
                 </div>
                 <div>
-                    <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Legacy</p>
+                    <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Quality</p>
                     <p className="text-sm font-semibold">ISO 9001:2015</p>
                 </div>
             </div>

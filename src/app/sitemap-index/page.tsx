@@ -128,7 +128,7 @@ export default function SitemapIndexPage() {
                                             Advisor in {city.name}
                                         </Link>
                                         <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1">
-                                            {services.slice(0, 3).map(service => (
+                                            {services.map(service => (
                                                 <Link
                                                     key={`${city.slug}-${service}`}
                                                     href={`/locations/${city.slug}/${service}`}

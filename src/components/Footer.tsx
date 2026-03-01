@@ -167,13 +167,21 @@ const Footer = () => {
               <a href="/sitemap.xml" className="hover:text-primary transition-colors">XML Sitemap</a>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-xs font-semibold uppercase tracking-widest text-primary/80">
+          <div className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-widest text-primary/80">
+            <span title="Team of IRDAI Certified Insurance Advisors">IRDAI CERTIFIED ADVISORS</span>
+            <span className="h-1 w-1 bg-accent rounded-full"></span>
             <span suppressHydrationWarning>{t("legacy")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
             <span suppressHydrationWarning>{t("trust")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
             <span suppressHydrationWarning>{t("excellence")}</span>
           </div>
+        </div>
+        <div className="mt-8 text-center sm:text-left">
+          <p className="text-[10px] text-muted-foreground/60 leading-relaxed max-w-4xl mx-auto sm:mx-0">
+            <strong>Disclaimer:</strong> Insurance is a subject matter of solicitation. Insurance Support is a professional advisory firm providing consultancy for IRDAI approved insurance products.
+            All policy issuance and claim settlements are subject to the terms and conditions and underwriting of the respective insurance companies.
+          </p>
         </div>
       </div>
     </footer>

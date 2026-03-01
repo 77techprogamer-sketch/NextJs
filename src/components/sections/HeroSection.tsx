@@ -49,11 +49,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
 
 
                     <div className="space-y-4 max-w-4xl mx-auto flex flex-col items-center">
-                        <div className="min-h-[32px] flex items-center justify-center mb-4">
-                            <ScrollReveal animation="fade-up" delay={0.2} width="100%" enableAnimation={false}>
+                        <div className="min-h-[32px] flex flex-wrap items-center justify-center gap-4 mb-4">
+                            <ScrollReveal animation="fade-up" delay={0.2} width="fit-content" enableAnimation={false}>
                                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-md text-sm font-medium text-accent hover:scale-105 transition-transform duration-300">
                                     <Star className="w-4 h-4 fill-accent animate-pulse" />
                                     <span suppressHydrationWarning>{t("trusted_partner_banner", { city: city || 'Bangalore' })}</span>
+                                </div>
+                            </ScrollReveal>
+                            <ScrollReveal animation="fade-up" delay={0.3} width="fit-content" enableAnimation={false}>
+                                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-md text-sm font-medium text-green-400 hover:scale-105 transition-transform duration-300">
+                                    <ShieldCheck className="w-4 h-4" />
+                                    <span>IRDAI Certified Advisory</span>
                                 </div>
                             </ScrollReveal>
                         </div>
