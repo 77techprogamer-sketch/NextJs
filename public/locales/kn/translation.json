@@ -1,13 +1,52 @@
 {
   "hero_title": "ವಿಸ್ತೃತ ವಿಮೆಗಾಗಿ ನಿಮ್ಮ ನಂಬಿಕೆಯ ಭಾಗಿದಾರ",
+  "hero_title_local": "Expert Insurance & Claim Support in {{city}} | 25+ Years Experience",
   "get_a_free_quote": "ಉಚಿತ ಉದ್ಧರಣಿಯನ್ನು ಪಡೆಯಿರಿ",
   "chat_with_expert": "ತಜ್ಞರೊಂದಿಗೆ ಚಾಟ್ ಮಾಡಿ",
   "expert_available": "ತಜ್ಞರು ಲಭ್ಯರಿದ್ದಾರೆ",
+  "chatbot_24_7": "Available 24/7",
+  "immediate_response": "Immediate Response",
   "services_offered": "ನಮ್ಮ ಸೇವೆಗಳನ್ನು ನೀಡಲಾಗುತ್ತಿದೆ",
   "services_description": "ನಿಮಗಾಗಿ ಅತ್ಯಂತ ಮುಖ್ಯವಾದುದನ್ನು ರಕ್ಷಿಸಲು ತಯಾರಿಸಲಾದ ವಿಮೆ ಪರಿಹಾರಗಳ ವಿಸ್ತೃತ ಶ್ರೇಣಿಯನ್ನು ನಾವು ಒದಗಿಸುತ್ತೇವೆ.",
-  "life_insurance": "ಜೀವನ ವಿಮೆ",
-  "health_insurance": "ಆರೋಗ್ಯ ವಿಮೆ",
-  "term_insurance": "ಅವಧಿ ವಿಮೆ",
+  "hero_fallback_description": "Comprehensive coverage for life, health, and vehicle tailored to your needs.",
+  "irdai_advisory": "IRDAI Certified Advisory",
+  "view_all_services": "View All Services",
+  "tools": "Tools",
+  "free_tools": "Free Tools",
+  "hlv_calculator": "HLV Calculator",
+  "hlv_calculator_desc": "Calculate your ideal insurance cover",
+  "lost_policy_recovery": "Lost Policy Recovery",
+  "lost_policy_recovery_desc": "Find details of lost insurance policies",
+  "risk_scorecard_tool": "Risk Scorecard",
+  "risk_scorecard_desc": "Assess your financial risk profile",
+  "wealth_discovery": "Wealth Discovery",
+  "wealth_discovery_desc": "ROI & Maturity benefit calculator",
+  "resources": "Resources",
+  "success_stories": "Success Stories",
+  "success_stories_desc": "Proof of our expert claim recovery",
+  "death_claim_guide": "Death Claim Guide",
+  "death_claim_guide_desc": "Step-by-step LIC claim process",
+  "policy_revival_guide": "Policy Revival Guide",
+  "policy_revival_guide_desc": "How to restore old LIC policies",
+  "about_us": "About Us",
+  "get_quote": "Get Quote",
+  "loans_offered": "Loans & Financial Services",
+  "loans_hero_title": "Smart Loans for Your Every Need",
+  "loans_hero_description": "From home and personal loans to business financing, we provide tailored solutions with competitive interest rates and quick approvals.",
+  "loans_description": "Achieve your dreams with our tailored loan solutions. Whether it's a home, personal needs, or business expansion, we help you get the best rates.",
+  "home_loan": "Home Loan",
+  "personal_loan": "Personal Loan",
+  "business_loan": "Business Loan",
+  "mortgage_loan": "Mortgage Loan",
+  "vehicle_loan": "Vehicle Loan",
+  "education_loan": "Education Loan",
+  "loan_amount": "Required Loan Amount",
+  "employment_type": "Employment Status",
+  "salaried": "Salaried",
+  "self_employed_professional": "Self Employed Professional",
+  "self_employed_business": "Self Employed Business",
+  "student": "Student",
+  "homemaker": "Homemaker",
   "motor_insurance": "ಮೋಟಾರ್ (ಖಾಸಗಿ/ವಾಣಿಜ್ಯ ವಾಹನಗಳು) ವಿಮೆ",
   "sme_insurance": "ಎಸ್ಎಂಇ (ಫೈರ್ ಮತ್ತು ಹೋಮ್) ವಿಮೆ",
   "travel_insurance": "ಪ್ರವಾಸ ವಿಮೆ",
@@ -16,6 +55,58 @@
   "wedding_insurance": "ವಿವಾಹ ಮತ್ತು ಹನಿಮೂನ್ ವಿಮೆ",
   "cyber_insurance": "ಸೈಬರ್ ವಿಮೆ",
   "click_to_get_quote": "{{type}} ಗಾಗಿ ಉದ್ಧರಣಿಯನ್ನು ಪಡೆಯಲು ಕ್ಲಿಕ್ ಮಾಡಿ.",
+  "most_popular": "Most Popular",
+  "instant_quote": "Instant Quote",
+  "paperless": "100% Paperless",
+  "expert_support": "Expert Support",
+  "life_insurance_benefit": "Secure your family's future with up to ₹1 Crore cover and doorstep claim recovery assistance.",
+  "health_insurance_benefit": "Cashless treatment at 10,000+ hospitals with dedicated support for rejected claim appeals.",
+  "term_insurance_benefit": "Pure protection plans with critical illness & disability riders.",
+  "motor_insurance_benefit": "Instant renewal with zero depreciation and 24/7 roadside assistance.",
+  "sme_insurance_benefit": "Safeguard your business assets from fire, theft, and liabilities.",
+  "travel_insurance_benefit": "Worldwide coverage for medical emergencies and trip disruptions.",
+  "pension_plans_benefit": "Ensure steady monthly income after retirement with tax benefits.",
+  "ulip_plans_benefit": "Wealth creation + life cover with flexible fund switching.",
+  "wedding_insurance_benefit": "Protect your special day investments from unforeseen cancellations.",
+  "cyber_insurance_benefit": "Security against digital fraud, identity theft, and hacking.",
+  "identity": "Identity",
+  "contact": "Contact",
+  "details": "Details",
+  "next_step": "Next Step",
+  "get_plans_now": "Get Plans Now",
+  "verified_expert_callback": "Request a Verified Expert Callback",
+  "we_will_not_spam": "We respect your privacy. No spam, only expert advice.",
+  "approx_30_seconds": "~30 Seconds to Get Quote",
+  "verified_advisor_active": "Verified Advisor Active",
+  "free_risk_assessment": "Free Risk Assessment",
+  "risk_scorecard_page_title": "Is Your Family Truly Protected?",
+  "risk_scorecard_page_description": "Our 30-second proprietary Risk Scorecard helps you identify gaps in your financial security before they become critical.",
+  "privacy_first": "Privacy First",
+  "privacy_first_desc": "We don't ask for personal data until you decide to get a detailed report.",
+  "instant_analysis": "Instant Analysis",
+  "instant_analysis_desc": "Get your result in less than 30 seconds with our advanced algorithm.",
+  "data_driven": "Data Driven",
+  "data_driven_desc": "Based on 25+ years of risk management insight and claim history.",
+  "specialized_recovery_service": "Specialized Recovery Service",
+  "policy_recovery_page_title": "Find Your Lost Wealth",
+  "policy_recovery_page_description": "Recover lost, lapsed, or hidden insurance policies with our veteran-led recovery service. We handle the paperwork, you reclaim your legacy.",
+  "recovery_benefit_all_insurers": "All Insurers Covered",
+  "recovery_benefit_all_insurers_desc": "Whether it's LIC or private insurers, we have the archives to trace your records.",
+  "recovery_benefit_time_saving": "Saves Months of Work",
+  "recovery_benefit_time_saving_desc": "Don't run around insurer offices. We coordinate the entire process professionally.",
+  "recovery_benefit_legal_help": "Legal Documentation",
+  "recovery_benefit_legal_help_desc": "We assist with Indemnity Bonds and legal formalities for duplicate policy issuance.",
+  "interactive_tools_title": "Interactive Protection Hub",
+  "interactive_tools_desc": "Engage with our pro tools to evaluate your risk or recover your lost investments instantly.",
+  "island_risk_title": "Insurance IQ Scorecard",
+  "island_risk_desc": "Test your financial immunity and find the gaps in your family protection plan.",
+  "island_recovery_title": "Lost Policy Recovery",
+  "island_recovery_desc": "Is there a hidden policy in your family archives? Let us help you find and reclaim it.",
+  "most_popular_tool": "Most Popular",
+  "expert_service": "Expert Service",
+  "open_tool": "Start Now",
+  "get_insurance_iq": "Check Insurance IQ",
+  "recover_lost_policy": "Recover Policy",
   "why_choose_us": "ನಮ್ಮನ್ನು ಏಕೆ ಆಯ್ಕೆ ಮಾಡಬೇಕು?",
   "expert_guidance_title": "ತಜ್ಞರ ಮಾರ್ಗದರ್ಶನ",
   "expert_guidance_description": "ನಮ್ಮ ಅನುಭವಿ ಸಲಹೆಗಾರರು ನಿಮಗಾಗಿ ಉತ್ತಮ ಯೋಜನೆಗಳನ್ನು ಕಂಡುಹಿಡಿಯಲು ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
@@ -30,6 +121,7 @@
   "whatsapp_us": "ನಮಗೆ ವಾಟ್ಸಾಪ್ ಮಾಡಿ",
   "privacy_policy": "ಗೌಪ್ಯತಾ ನೀತಿ",
   "terms_of_service": "ಸೇವೆಯ ನಿಯಮಗಳು",
+  "return_policy": "Return Policy",
   "page_not_found": "ಅಯ್ಯೋ! ಪುಟ ಕಂಡುಬಂದಿಲ್ಲ",
   "return_to_home": "ಮುಖಪುಟಕ್ಕೆ ಹಿಂದಿರಿ",
   "insurance_support": "ವಿಮೆ ಬೆಂಬಲ",
@@ -76,6 +168,7 @@
   "unexpected_error_submission": "ಸಲ್ಲಿಸುವಾಗ ಅನಿರೀಕ್ಷಿತ ದೋಷ ಉಂಟಾಗಿದೆ.",
   "correct_form_errors": "ದಯವಿಟ್ಟು ಫಾರ್ಮ್ ನಲ್ಲಿನ ದೋಷಗಳನ್ನು ಸರಿಪಡಿಸಿ.",
   "gst_rates_slashed": "🎉 ಆಯ್ಕೆ ಯೋಜನೆಗಳಲ್ಲಿ ಜಿಎಸ್ಟಿ ದರಗಳನ್ನು ಕಡಿದು ಹಾಕಲಾಗಿದೆ ಮತ್ತು ತೆಗೆದುಹಾಕಲಾಗಿದೆ! 🎉",
+  "finance_options": " Finance Options for new policies available on select products. T&Cs applicable",
   "insurance_support_contact": "ಸಂಪರ್ಕ: ಹರಿ ಕೋಟಿಯನ್ | 9986634506",
   "privacy_policy_intro": "ನಿಮ್ಮ ಗೌಪ್ಯತೆ ನಮಗೆ ಮುಖ್ಯವಾದುದು. ಈ ಗೌಪ್ಯತಾ ನೀತಿ ನಿಮ್ಮ ಜಾಲತಾಣವನ್ನು ಭೇಟಿ ಮಾಡುವಾಗ ನಾವು ನಿಮ್ಮ ಮಾಹಿತಿಯನ್ನು ಹೇಗೆ ಸಂಗ್ರಹಿಸುತ್ತೇವೆ, ಬಳಸುತ್ತೇವೆ, ಪ್ರಕಟಿಸುತ್ತೇವೆ ಮತ್ತು ರಕ್ಷಿಸುತ್ತೇವೆ ಎಂಬುದನ್ನು ವಿವರಿಸುತ್ತದೆ.",
   "information_we_collect": "ನಾವು ಸಂಗ್ರಹಿಸುವ ಮಾಹಿತಿ",
@@ -84,14 +177,26 @@
   "how_we_use_your_information_description": "ನಮ್ಮ ಜಾಲತಾಣದ ಮೂಲಕ ಸಂಗ್ರಹಿಸಿದ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ಕೆಳಗೆ ವಿವರಿಸಲಾದ ವಿವಿಧ ವ್ಯವಹಾರ ಉದ್ದೇಶಗಳಿಗೆ ನಾವು ಬಳಸುತ್ತೇವೆ. ನಮ್ಮ ಮಾನ್ಯ ವ್ಯವಹಾರ ಹಿತಾಸಕ್ತಿಗಳ ಆಧಾರದ ಮೇಲೆ, ನಿಮ್ಮೊಂದಿಗೆ ಒಪ್ಪಂದವನ್ನು ಮಾಡಿಕೊಳ್ಳಲು ಅಥವಾ ನಿರ್ವಹಿಸಲು, ನಿಮ್ಮ ಒಪ್ಪಿಗೆಯಿಂದ ಮತ್ತು/ಅಥವಾ ನಮ್ಮ ಕಾನೂನು ಕರ್ತವ್ಯಗಳನ್ನು ಪಾಲಿಸಲು ಈ ಉದ್ದೇಶಗಳಿಗೆ ನಿಮ್ಮ ವೈಯಕ್ತಿಕ ಮಾಹಿತಿಯನ್ನು ನಾವು ಪ್ರಕ್ರಿಯೆಗೊಳಿಸುತ್ತೇವೆ.",
   "disclosure_of_your_information": "ನಿಮ್ಮ ಮಾಹಿತಿಯ ಪ್ರಕಟಣೆ",
   "disclosure_of_your_information_description": "ನಮ್ಮ ಮಾರ್ಗದಲ್ಲಿ ಅಥವಾ ನಮ್ಮ ತರಫು ಸೇವೆಗಳನ್ನು ಒದಗಿಸುವ ಮೂರನೇ ವ್ಯಕ್ತಿಗಳೊಂದಿಗೆ ನಾವು ನಿಮ್ಮ ಮಾಹಿತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಬಹುದು, ಇದರಲ್ಲಿ ಪಾವತಿ ಪ್ರಕ್ರಿಯೆ, ಡೇಟಾ ವಿಶ್ಲೇಷಣೆ, ಇಮೇಲ್ ವಿತರಣೆ, ಹೋಸ್ಟಿಂಗ್ ಸೇವೆಗಳು, ಗ್ರಾಹಕ ಸೇವೆ ಮತ್ತು ಮಾರ್ಕೆಟಿಂಗ್ ಸಹಾಯ ಸೇರಿವೆ.",
+  "data_security": "4. Advanced Security Infrastructure",
+  "data_security_description": "We employ enterprise-grade security to safeguard your legacy:\n• End-to-End Encryption (E2EE) for all digital submissions.\n• Secure Cloud Storage with periodic penetration testing.\n• Strict Internal Access Controls (Access is limited only to your dedicated veteran consultant).",
+  "data_retention": "5. Data Retention & Erasure",
+  "data_retention_description": "Data is retained only as long as necessary for policy administration or as required by law. Upon completion of legal requirements, data is securely erased or anonymized.",
   "privacy_contact_us": "ನಿಮ್ಮ ಗೌಪ್ಯತೆ ಬಗ್ಗೆ ಯಾವುದೇ ಪ್ರಶ್ನೆಗಳು ಅಥವಾ ಚಿಂತೆಗಳಿದ್ದರೆ, ದಯವಿಟ್ಟು ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ.",
   "terms_of_service_intro": "ವಿಮೆ ಬೆಂಬಲಕ್ಕೆ ಸ್ವಾಗತ. ಈ ಸೇವೆಯ ನಿಯಮಗಳು ನಮ್ಮ ಜಾಲತಾಣ ಮತ್ತು ಸೇವೆಗಳನ್ನು ನೀವು ಬಳಸುವುದನ್ನು ನಿಯಂತ್ರಿಸುತ್ತವೆ. ನಮ್ಮ ಜಾಲತಾಣವನ್ನು ಪ್ರವೇಶಿಸುವ ಮೂಲಕ ಅಥವಾ ಬಳಸುವ ಮೂಲಕ, ಈ ನಿಯಮಗಳಿಗೆ ನೀವು ಬದ್ಧರಾಗುತ್ತೀರಿ.",
   "acceptance_of_terms": "ನಿಯಮಗಳ ಸ್ವೀಕೃತಿ",
   "acceptance_of_terms_description": "ನಮ್ಮ ಸೇವೆಗಳನ್ನು ಬಳಸುವ ಮೂಲಕ, ಈ ಸೇವೆಯ ನಿಯಮಗಳನ್ನು ನೀವು ಪಾಲಿಸಲು ಮತ್ತು ಕಾನೂನು ಪ್ರಕಾರ ಬದ್ಧರಾಗಲು ಸ್ವೀಕರಿಸುತ್ತೀರಿ. ಈ ನಿಯಮಗಳನ್ನು ನೀವು ಸ್ವೀಕರಿಸದಿದ್ದರೆ, ನೀವು ಸೇವೆಗಳನ್ನು ಪ್ರವೇಶಿಸಲು ಅಥವಾ ಬಳಸಲು ಸಾಧ್ಯವಿಲ್ಲ.",
   "use_of_services": "ಸೇವೆಗಳ ಬಳಕೆ",
   "use_of_services_description": "ನಮ್ಮ ಸೇವೆಗಳನ್ನು ಕೇವಲ ಕಾನೂನುಪಾಲಿತ ಉದ್ದೇಶಗಳಿಗೆ ಮತ್ತು ಯಾರಿಗಾದರೂ ಹಕ್ಕುಗಳನ್ನು ಉಲ್ಲಂಘಿಸದೆ, ಜಾಲತಾಣದ ಬಳಕೆ ಮತ್ತು ಆನಂದವನ್ನು ನಿರ್ಬಂಧಿಸದೆ ಅಥವಾ ಅಡ್ಡಿಮಾಡದೆ ಬಳಸಲು ನೀವು ಸ್ವೀಕರಿಸುತ್ತೀರಿ. ನಿಷಿದ್ಧ ವರ್ತನೆಯಲ್ಲಿ ಬೇರೊಬ್ಬರನ್ನು ತೊಂದರೆಗೊಳಿಸುವುದು ಅಥವಾ ತೊಂದರೆ ಅಥವಾ ಅಸೌಕರ್ಯವನ್ನು ಉಂಟುಮಾಡುವುದು, ಅಶ್ಲೀಲವಾದ ಅಥವಾ ಆಕ್ಷೇಪಣೆಯ ವಿಷಯವನ್ನು ಪ್ರಸಾರಿಸುವುದು ಅಥವಾ ನಮ್ಮ ಜಾಲತಾಣದೊಳಗೆ ಸಂವಾದದ ಸಾಮಾನ್ಯ ಹರಿವನ್ನು ಅಡ್ಡಿಮಾಡುವುದು ಸೇರಿವೆ.",
+  "accuracy_of_data": "3. Accuracy of Information & User Responsibility",
+  "accuracy_of_data_description": "• Data Integrity: You are responsible for the accuracy of all information provided (Age, Health, Assets). Incorrect data may lead to policy cancellation or claim rejection by the insurer.\n• Identity Protection: You agree to protect your account credentials and notify us immediately of any unauthorized access.",
+  "market_linked_risks": "4. Market-Linked Products (ULIPs)",
+  "market_linked_risks_description": "• Investment Risk: For market-linked products like ULIPs, the investment risk in the investment portfolio is borne by the policyholder.\n• Non-Guaranteed Returns: Past performance is not indicative of future results. Fund returns are subject to market volatility.",
+  "limitation_of_liability": "5. Limitation of Liability & Disclaimers",
+  "limitation_of_liability_description": "• No Liability for Insurer Defaults: We are not liable for any default, insolvency, or deficiency in service by the insurance company.\n• Indirect Damages: In no event shall Insurance Support be liable for any indirect, incidental, or consequential damages arising from the use of our platform.\n• Technical Disruptions: We do not guarantee uninterrupted access to the site during maintenance or technical failures.",
   "intellectual_property": "ಬೌದ್ಧಿಕ ಸಂಪತ್ತು",
   "intellectual_property_description": "ಈ ಜಾಲತಾಣದಲ್ಲಿರುವ ಎಲ್ಲಾ ವಿಷಯಗಳು, ಇದರಲ್ಲಿ ಪಠ್ಯ, ಗ್ರಾಫಿಕ್ಸ್, ಲೋಗೊಗಳು, ಚಿತ್ರಗಳು ಮತ್ತು ತಂತ್ರಾಂಶ ಸೇರಿವೆ, ವಿಮೆ ಬೆಂಬಲ ಅಥವಾ ಅದರ ವಿಷಯ ಪೂರೈಕೆದಾರರ ಸಂಪತ್ತು ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಹಕ್ಕುಗಳ ಕಾನೂನುಗಳಿಂದ ರಕ್ಷಿಸಲ್ಪಟ್ಟಿವೆ.",
+  "governing_law": "7. Governing Law & Jurisdiction",
+  "governing_law_description": "These Terms are governed by the laws of India. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts in Bangalore, Karnataka.",
   "terms_of_service_reservation": "ಯಾವುದೇ ಕಾರಣಕ್ಕೂ, ಸೂಚನೆಯಿಲ್ಲದೆ ಮತ್ತು ಯಾವುದೇ ಸಮಯದಲ್ಲಿ ನಮ್ಮ ಸೇವೆಗಳಲ್ಲಿ ಬದಲಾವಣೆ ಮಾಡಲು ಅಥವಾ ಅಂತ್ಯಗೊಳಿಸಲು ನಮಗೆ ಹಕ್ಕು ಉಳಿದಿದೆ.",
   "select_language": "ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ",
   "test_message": "ಇದು ಒಂದು ಪರೀಕ್ಷಾ ಸಂದೇಶ.",
@@ -121,7 +226,6 @@
   "go_to_google": "ಗೂಗಲ್‌ಗೆ ಹೋಗಿ",
   "contact_support": "ಬೆಂಬಲವನ್ನು ಸಂಪರ್ಕಿಸಿ",
   "back_to_home": "ಮುಖಪುಟಕ್ಕೆ ಹಿಂದಿರಿ",
-  "service_not_found": "ಸೇವೆ ಕಂಡುಬಂದಿಲ್ಲ",
   "service_not_found_description": "ನೀವು ಹುಡುಕುತ್ತಿರುವ ವಿಮಾ ಸೇವೆ ಕಂಡುಬಂದಿಲ್ಲ. ದಯವಿಟ್ಟು URL ಅನ್ನು ಪರಿಶೀಲಿಸಿ ಅಥವಾ ಮುಖಪುಟಕ್ಕೆ ಹಿಂದಿರಿ.",
   "service_not_found_page_title": "ಸೇವೆ ಕಂಡುಬಂದಿಲ್ಲ - ವಿಮಾ ಬೆಂಬಲ",
   "service_not_found_meta_description": "ವಿನಂತಿಸಿದ ವಿಮಾ ಸೇವಾ ಪುಟ ವಿಮಾ ಬೆಂಬಲದಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ.",
@@ -170,10 +274,70 @@
   "share_on_linkedin": "ಲಿಂಕ್ಡ್‌ಇನ್‌ನಲ್ಲಿ ಹಂಚಿಕೊಳ್ಳಿ",
   "share_on_whatsapp": "ವಾಟ್ಸಾಪ್‌ನಲ್ಲಿ ಹಂಚಿಕೊಳ್ಳಿ",
   "copy_link_instagram": "ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್‌ಗಾಗಿ ಲಿಂಕ್ ಕಾಪಿ ಮಾಡಿ",
+  "financial_security": "Financial Security",
+  "financial_security_description": "Ensure your family's financial stability in your absence.",
+  "tax_benefits": "Tax Benefits",
+  "tax_benefits_description": "Save on taxes while building your financial safety net.",
+  "wealth_creation": "Wealth Creation",
+  "wealth_creation_description": "Grow your assets with our investment-cum-insurance plans.",
+  "medical_expenses": "Medical Expenses",
+  "medical_expenses_description": "Cover hospital bills, surgery costs, and more.",
+  "cashless_hospitalization": "Cashless Hospitalization",
+  "cashless_hospitalization_description": "Focus on recovery while we handle the payments at network hospitals.",
+  "pre_post_hospitalization": "Pre & Post Hospitalization",
+  "pre_post_hospitalization_description": "Coverage for medical expenses before and after your hospital stay.",
+  "high_cover_low_premium": "High Cover, Low Premium",
+  "high_cover_low_premium_description": "Get significant life cover at an extremely affordable price.",
+  "pure_protection": "Pure Protection",
+  "pure_protection_description": "Focus solely on providing financial security for your survivors.",
+  "income_replacement": "Income Replacement",
+  "income_replacement_description": "Ensure your family's lifestyle remains unchanged if you're not around.",
+  "own_damage_cover": "Own Damage Cover",
+  "own_damage_cover_description": "Protection against damages to your own vehicle due to accidents or theft.",
+  "third_party_liability": "Third Party Liability",
+  "third_party_liability_description": "Covers legal liability against damage to other people or property.",
+  "personal_accident_cover": "Personal Accident Cover",
+  "personal_accident_cover_description": "Financial aid for injuries or death of the owner-driver.",
+  "business_interruption": "Business Interruption",
+  "business_interruption_description": "Covers lost income when your business is forced to close temporarily.",
+  "property_damage": "Property Damage",
+  "property_damage_description": "Protection for your office, machinery, and inventory from fire and other risks.",
+  "liability_cover": "Liability Cover",
+  "liability_cover_description": "Safeguards your business against legal claims from third parties.",
+  "medical_emergencies": "Medical Emergencies",
+  "medical_emergencies_description": "Coverage for unexpected illness or injury while traveling abroad.",
+  "trip_cancellation": "Trip Cancellation",
+  "trip_cancellation_description": "Reimbursement for non-refundable trip costs due to emergencies.",
+  "baggage_loss": "Baggage Loss",
+  "baggage_loss_description": "Financial assistance if your checked-in baggage is delayed or lost.",
+  "retirement_income": "Retirement Income",
+  "retirement_income_description": "Receive a steady monthly payout to sustain your lifestyle after retirement.",
+  "annuity_options": "Annuity Options",
+  "annuity_options_description": "Flexible payout methods tailored to your post-retirement needs.",
+  "financial_independence": "Financial Independence",
+  "financial_independence_description": "Maintain your standard of living without depending on others.",
+  "investment_growth": "Investment Growth",
+  "investment_growth_description": "Opportunity to earn high returns through market-linked funds.",
+  "life_cover": "Life Cover",
+  "life_cover_description": "Secures your family with a sum assured along with market gains.",
+  "fund_switching": "Fund Switching",
+  "fund_switching_description": "Freedom to move your investments between equity and debt funds.",
+  "cancellation_cover": "Cancellation Cover",
+  "cancellation_cover_description": "Protects your wedding investments if the event is canceled or postponed.",
+  "damage_to_property": "Damage to Property",
+  "damage_to_property_description": "Covers damages to the wedding venue or hired equipment.",
+  "public_liability": "Public Liability",
+  "public_liability_description": "Covers legal costs if a guest gets injured during the celebration.",
+  "data_breach_costs": "Data Breach Costs",
+  "data_breach_costs_description": "Covers investigation and notification costs following a data breach.",
+  "cyber_extortion": "Cyber Extortion",
+  "cyber_extortion_description": "Assistance and coverage for ransomware attacks and digital threats.",
+  "legal_expenses": "Legal Expenses",
+  "legal_expenses_description": "Financial aid for legal defense against third-party claims.",
   "support": "ಕ್ಲೈಂಟ್ ಸೇವೆಗಳು",
   "support_page_title": "ಎಕ್ಸಿಕ್ಯೂಟಿವ್ ಕ್ಲೈಂಟ್ ಸೇವೆಗಳು | ಪಾಲಿಸಿ ಮ್ಯಾನೇಜ್‌ಮೆಂಟ್ ಮತ್ತು ಕ್ಲೈಮ್ಸ್ ಅಡ್ವೈಸರಿ",
   "support_meta_description": "ಹೆಚ್ಚಿನ ಆದ್ಯತೆಯ ಪಾಲಿಸಿ ನವೀಕರಣಗಳು, ಸಂಕೀರ್ಣ ಕ್ಲೈಮ್‌ಗಳು ಮತ್ತು ಕಾರ್ಯತಂತ್ರದ ಸಲಹೆಗಾಗಿ ಸಮರ್ಪಿತ ಬೆಂಬಲವನ್ನು ಪಡೆಯಿರಿ. ಬೆಂಗಳೂರಿನಲ್ಲಿರುವ ನಮ್ಮ ಅನುಭವಿ ತಂಡವು ನಿಮ್ಮ ಸೇವೆಯಲ್ಲಿದೆ.",
-  "how_we_help": "ಇಂದು ನಾವು ನಿಮಗೆ ಹೇಗೆ ಸಹಾಯ ಮಾಡಬಹುದು?",
+  "how_can_we_help": "How may we assist you today?",
   "customer_support_description": "ನಮ್ಮ ವೃತ್ತಿಪರ ಸಲಹಾ ತಂಡವು ನಿಮ್ಮ ಪೋರ್ಟ್‌ಫೋಲಿಯೊವನ್ನು ನಿಖರವಾಗಿ ಮತ್ತು ಕಾಳಜಿಯಿಂದ ನಿರ್ವಹಿಸಲು ಸಮರ್ಪಿತವಾಗಿದೆ.",
   "our_location": "ನಮ್ಮ ಮುಖ್ಯ ಕಚೇರಿ",
   "frequently_asked_questions": "ಪದೇ ಪದೇ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳು",
@@ -187,25 +351,6 @@
   "share_expertise": "ಪರಿಣತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ",
   "faq_life_q1": "ಜೀವ ವಿಮೆಗಾಗಿ ಪ್ರವೇಶ ವಯಸ್ಸು ಎಷ್ಟು?",
   "faq_life_a1": "ಸಾಮಾನ್ಯವಾಗಿ, ಆಯ್ಕೆಮಾಡಿದ ಯೋಜನೆಯನ್ನು ಅವಲಂಬಿಸಿ ಪ್ರವೇಶ ವಯಸ್ಸು 18 ವರ್ಷದಿಂದ 65 ವರ್ಷಗಳವರೆಗೆ ಇರುತ್ತದೆ.",
-  "years_experience": "25+ ವರ್ಷಗಳ ಅನುಭವ",
-  "expert_claims_support": "ತಜ್ಞ ಕ್ಲೈಮ್ ಬೆಂಬಲ",
-  "veteran_advantage": "ಅನುಭವಿ ಪ್ರಯೋಜನ",
-  "strategic_protection_title_start": "ಕಾರ್ಯತಂತ್ರದ ರಕ್ಷಣೆ",
-  "strategic_protection_title_highlight": "ಎರಡು ದಶಕಗಳ",
-  "strategic_protection_title_end": "ಒಳನೋಟದ ಮೇಲೆ ನಿರ್ಮಿಸಲಾಗಿದೆ",
-  "strategic_experience_description": "ವಿಮೆಯ ಸಂಕೀರ್ಣ ಜಗತ್ತಿನಲ್ಲಿ, ಅನುಭವವು ಕೇವಲ ಸಂಖ್ಯೆಯಲ್ಲ - ಅದು ನಿಮ್ಮ ದೊಡ್ಡ ಆಸ್ತಿಯಾಗಿದೆ. ನಾವು ಸರಳ ಪಾಲಿಸಿಗಳನ್ನು ಮೀರಿದ ಗಣ್ಯ ಸಲಹಾ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತೇವೆ, ದೀರ್ಘಕಾಲೀನ ಅಪಾಯ ನಿರ್ವಹಣೆ ಮತ್ತು ಪರಂಪರೆಯ ರಕ್ಷಣೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತೇವೆ.",
-  "portfolios_managed": "ನಿರ್ವಹಿಸಿದ ಬಂಡವಾಳ",
-  "claims_settled_stat": "ಕ್ಲೈಮ್‌ಗಳು ಇತ್ಯರ್ಥ",
-  "strategic_advisory": "ಕಾರ್ಯತಂತ್ರದ ಸಲಹಾ",
-  "strategic_advisory_desc": "ಹೆಚ್ಚಿನ ಮೌಲ್ಯದ ಆಸ್ತಿಗಳು ಮತ್ತು ವ್ಯಾಪಾರ ಹಿತಾಸಕ್ತಿಗಳಿಗಾಗಿ ಅನುಗುಣವಾದ ಅಪಾಯದ ಮೌಲ್ಯಮಾಪನ ಮತ್ತು ಬಂಡವಾಳ ಆಪ್ಟಿಮೈಸೇಶನ್.",
-  "legacy_planning": "ಪರಂಪರೆ ಯೋಜನೆ",
-  "legacy_planning_desc": "ಅತ್ಯಾಧುನಿಕ ಜೀವನ ಮತ್ತು ಎಸ್ಟೇಟ್ ರಕ್ಷಣಾ ತಂತ್ರಗಳೊಂದಿಗೆ ನಿಮ್ಮ ಕುಟುಂಬದ ಭವಿಷ್ಯವನ್ನು ಭದ್ರಪಡಿಸಿಕೊಳ್ಳುವುದು.",
-  "unrivaled_claims_support": "ಸಾಟಿಯಿಲ್ಲದ ಕ್ಲೈಮ್ ಬೆಂಬಲ",
-  "unrivaled_claims_support_desc": "ನಿರ್ಣಾಯಕ ಕ್ಷಣಗಳಲ್ಲಿ ಅನುಭವಿ ನೇತೃತ್ವದ ಸಮನ್ವಯ, ಹೆಚ್ಚು ಅಗತ್ಯವಿರುವಾಗ ನಿಮ್ಮ ಬೆಂಬಲಕ್ಕೆ ನಿಲ್ಲುವುದು.",
-  "language_prompt_title": "ಸ್ವಾಗತ",
-  "language_prompt_description": "ನೀವು {{region}} ನಲ್ಲಿದ್ದೀರಿ ಎಂದು ನಾವು ಪತ್ತೆಹಚ್ಚಿದ್ದೇವೆ. ನೀವು {{language}} ಗೆ ಬದಲಾಯಿಸಲು ಬಯಸುವಿರಾ?",
-  "language_prompt_confirm": "ಹೌದು, {{language}} ಗೆ ಬದಲಾಯಿಸಿ",
-  "language_prompt_dismiss": "ಇಲ್ಲ, ಇಂಗ್ಲಿಷ್ ಇರಲಿ",
   "faq_life_q2": "ನಾನು ಒಂದಕ್ಕಿಂತ ಹೆಚ್ಚು ಜೀವ ವಿಮಾ ಪಾಲಿಸಿಗಳನ್ನು ಹೊಂದಿರಬಹುದೇ?",
   "faq_life_a2": "ಹೌದು, ನೀವು ಅರ್ಜಿಯ ಸಮಯದಲ್ಲಿ ಅವುಗಳನ್ನು ಬಹಿರಂಗಪಡಿಸಿದರೆ ವಿವಿಧ ಕಂಪನಿಗಳಿಂದ ಬಹು ಪಾಲಿಸಿಗಳನ್ನು ಹೊಂದಿರಬಹುದು.",
   "faq_health_q1": "ಆರೋಗ್ಯ ವಿಮೆಯು ಮೊದಲೇ ಇರುವ ಕಾಯಿಲೆಗಳನ್ನು ಒಳಗೊಳ್ಳುತ್ತದೆಯೇ?",
@@ -244,6 +389,25 @@
   "faq_cyber_a1": "ಹೌದು, ಕೆಲವು ವೈಯಕ್ತಿಕ ಸೈಬರ್ ವಿಮಾ ಯೋಜನೆಗಳು ಸೋಶಿಯಲ್ ಮೀಡಿಯಾ ಖಾತೆ ಹ್ಯಾಕಿಂಗ್‌ಗೆ ರಕ್ಷಣೆ ಮತ್ತು ಮರುಪಡೆಯುವಿಕೆ ಸಹಾಯವನ್ನು ನೀಡುತ್ತವೆ.",
   "faq_cyber_q2": "ಆನ್‌ಲೈನ್ ಶಾಪಿಂಗ್ ವಂಚನೆಯು ಕವರೇಜ್ ಅಡಿಯಲ್ಲಿ ಬರುತ್ತದೆಯೇ?",
   "faq_cyber_a2": "ಹೌದು, ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಫಿಶಿಂಗ್, ಗುರುತಿನ ಕಳ್ಳತನ ಮತ್ತು ಅನಧಿಕೃತ ಆನ್‌ಲೈನ್ ವಹಿವಾಟುಗಳಿಂದ ಉಂಟಾಗುವ ಆರ್ಥಿಕ ನಷ್ಟವನ್ನು ಒಳಗೊಳ್ಳುತ್ತದೆ.",
+  "years_experience": "25+ ವರ್ಷಗಳ ಅನುಭವ",
+  "expert_claims_support": "ತಜ್ಞ ಕ್ಲೈಮ್ ಬೆಂಬಲ",
+  "veteran_advantage": "ಅನುಭವಿ ಪ್ರಯೋಜನ",
+  "strategic_protection_title_start": "ಕಾರ್ಯತಂತ್ರದ ರಕ್ಷಣೆ",
+  "strategic_protection_title_highlight": "ಎರಡು ದಶಕಗಳ",
+  "strategic_protection_title_end": "ಒಳನೋಟದ ಮೇಲೆ ನಿರ್ಮಿಸಲಾಗಿದೆ",
+  "strategic_experience_description": "ವಿಮೆಯ ಸಂಕೀರ್ಣ ಜಗತ್ತಿನಲ್ಲಿ, ಅನುಭವವು ಕೇವಲ ಸಂಖ್ಯೆಯಲ್ಲ - ಅದು ನಿಮ್ಮ ದೊಡ್ಡ ಆಸ್ತಿಯಾಗಿದೆ. ನಾವು ಸರಳ ಪಾಲಿಸಿಗಳನ್ನು ಮೀರಿದ ಗಣ್ಯ ಸಲಹಾ ಸೇವೆಗಳನ್ನು ಒದಗಿಸುತ್ತೇವೆ, ದೀರ್ಘಕಾಲೀನ ಅಪಾಯ ನಿರ್ವಹಣೆ ಮತ್ತು ಪರಂಪರೆಯ ರಕ್ಷಣೆಯ ಮೇಲೆ ಕೇಂದ್ರೀಕರಿಸುತ್ತೇವೆ.",
+  "portfolios_managed": "ನಿರ್ವಹಿಸಿದ ಬಂಡವಾಳ",
+  "claims_settled_stat": "ಕ್ಲೈಮ್‌ಗಳು ಇತ್ಯರ್ಥ",
+  "strategic_advisory": "ಕಾರ್ಯತಂತ್ರದ ಸಲಹಾ",
+  "strategic_advisory_desc": "ಹೆಚ್ಚಿನ ಮೌಲ್ಯದ ಆಸ್ತಿಗಳು ಮತ್ತು ವ್ಯಾಪಾರ ಹಿತಾಸಕ್ತಿಗಳಿಗಾಗಿ ಅನುಗುಣವಾದ ಅಪಾಯದ ಮೌಲ್ಯಮಾಪನ ಮತ್ತು ಬಂಡವಾಳ ಆಪ್ಟಿಮೈಸೇಶನ್.",
+  "legacy_planning": "ಪರಂಪರೆ ಯೋಜನೆ",
+  "legacy_planning_desc": "ಅತ್ಯಾಧುನಿಕ ಜೀವನ ಮತ್ತು ಎಸ್ಟೇಟ್ ರಕ್ಷಣಾ ತಂತ್ರಗಳೊಂದಿಗೆ ನಿಮ್ಮ ಕುಟುಂಬದ ಭವಿಷ್ಯವನ್ನು ಭದ್ರಪಡಿಸಿಕೊಳ್ಳುವುದು.",
+  "unrivaled_claims_support": "ಸಾಟಿಯಿಲ್ಲದ ಕ್ಲೈಮ್ ಬೆಂಬಲ",
+  "unrivaled_claims_support_desc": "ನಿರ್ಣಾಯಕ ಕ್ಷಣಗಳಲ್ಲಿ ಅನುಭವಿ ನೇತೃತ್ವದ ಸಮನ್ವಯ, ಹೆಚ್ಚು ಅಗತ್ಯವಿರುವಾಗ ನಿಮ್ಮ ಬೆಂಬಲಕ್ಕೆ ನಿಲ್ಲುವುದು.",
+  "language_prompt_title": "ಸ್ವಾಗತ",
+  "language_prompt_description": "ನೀವು {{region}} ನಲ್ಲಿದ್ದೀರಿ ಎಂದು ನಾವು ಪತ್ತೆಹಚ್ಚಿದ್ದೇವೆ. ನೀವು {{language}} ಗೆ ಬದಲಾಯಿಸಲು ಬಯಸುವಿರಾ?",
+  "language_prompt_confirm": "ಹೌದು, {{language}} ಗೆ ಬದಲಾಯಿಸಿ",
+  "language_prompt_dismiss": "ಇಲ್ಲ, ಇಂಗ್ಲಿಷ್ ಇರಲಿ",
   "veteran_lead_team": "ಪರಿಣಿತರ ತಂಡದ ನೇತೃತ್ವದಲ್ಲಿ",
   "quick_links": "ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು",
   "headquarters": "ಮುಖ್ಯ ಕಚೇರಿ",
@@ -261,5 +425,439 @@
   "awards": "ಪ್ರಶಸ್ತಿಗಳು",
   "hero_title_start": "ಸುರಕ್ಷಿತಗೊಳಿಸಿ ನಿಮ್ಮ",
   "hero_title_highlight": "ಭವಿಷ್ಯ",
-  "hero_title_end": "ತಜ್ಞ ಮಾರ್ಗದರ್ಶನದೊಂದಿಗೆ"
+  "hero_title_end": "ತಜ್ಞ ಮಾರ್ಗದರ್ಶನದೊಂದಿಗೆ",
+  "get_support_now": "Get Support Now",
+  "general_inquiry_title": "General Inquiry",
+  "general_inquiry_description": "Have a question not related to a specific policy? We're here to help.",
+  "start_general_inquiry": "Start General Inquiry",
+  "need_immediate_assistance": "Need Immediate Assistance?",
+  "call_our_support_team": "Call our expert support team directly for urgent matters.",
+  "full_name": "Full Name",
+  "enter_full_name": "Enter Full Name",
+  "enter_mobile_number": "Enter 10-digit Mobile Number",
+  "pincode": "Current Residence Pincode",
+  "enter_pincode": "Enter Current Residence Pincode",
+  "who_needs_coverage": "Who needs coverage?",
+  "health_members": "Health Members",
+  "enter_amount": "Enter Amount",
+  "enter_income": "Enter Net Annual Income",
+  "vehicle_number": "Vehicle Number",
+  "enter_vehicle_number": "Enter Vehicle Number (e.g., KA01AB1234)",
+  "vehicle_type": "Vehicle Type",
+  "car": "Car",
+  "bike": "Bike",
+  "commercial_vehicle": "Commercial Vehicle",
+  "previous_policy_type": "Previous Policy Type",
+  "new_policy_type_intended": "New Policy Type Intended",
+  "comprehensive": "Comprehensive",
+  "third_party": "Third Party",
+  "tobacco_user": "Tobacco User",
+  "yes": "Yes",
+  "no": "No",
+  "annual_income": "Net Annual Income",
+  "business_name": "Business Name",
+  "enter_business_name": "Enter Business Name",
+  "industry_type": "Industry Type",
+  "retail": "Retail",
+  "manufacturing": "Manufacturing",
+  "it_services": "IT Services",
+  "consulting": "Consulting",
+  "annual_turnover": "Annual Turnover",
+  "turnover_upto_50l": "Upto 50 Lakhs",
+  "turnover_50l_2cr": "50 Lakhs - 2 Crores",
+  "turnover_2cr_10cr": "2 Crores - 10 Crores",
+  "turnover_above_10cr": "Above 10 Crores",
+  "destination": "Destination",
+  "usa_canada": "USA / Canada",
+  "europe": "Europe",
+  "asia": "Asia",
+  "worldwide": "Worldwide",
+  "travel_start_date": "Travel Start Date",
+  "trip_duration_days": "Trip Duration (Days)",
+  "enter_days": "Enter Days",
+  "target_retirement_age": "Target Retirement Age",
+  "enter_age": "Enter Age",
+  "monthly_investment_capability": "Monthly Investment Capability",
+  "investment_amount": "Investment Amount",
+  "risk_appetite": "Risk Appetite",
+  "low_risk": "Low",
+  "balanced": "Balanced",
+  "high_growth": "High Growth",
+  "event_date": "Event Date",
+  "expected_guests": "Expected Guests",
+  "enter_count": "Enter Count",
+  "total_wedding_budget": "Total Wedding Budget",
+  "company_name": "Company Name",
+  "enter_company_name": "Enter Company Name",
+  "website_url": "Website URL",
+  "enter_url": "Enter URL",
+  "data_records_held": "Data Records Held",
+  "records_upto_10k": "Upto 10,000",
+  "records_10k_100k": "10,000 - 1,00,000",
+  "records_above_100k": "Above 1,00,000",
+  "about": "About",
+  "key_benefits": "Key Benefits",
+  "service_footer_note": "At Insurance Support, we help you navigate the complexities of specific policy terms to find the plan that best fits your requirements and budget.",
+  "services_data": {
+    "life-insurance": {
+      "title": "Life Insurance",
+      "description": "Secure your family's future with the best Life Insurance plans in India. Compare Term, Whole Life, and Endowment policies with high claim settlement ratios.",
+      "content": "Life insurance is the foundation of financial security for any family. It is not just an investment; it is a shield that protects your loved ones from financial instability in your absence. At **Insurance Support India**, we believe that the right life insurance policy ensures that your family's dreams—whether it's your child's education, your spouse's retirement, or paying off a home loan—are never compromised.\n\n**Why Choose Insurance Support India?**\nUnlike automated online comparison tools, we provide **personalized, human advisory** based on 25+ years of experience. We don't just sell a policy; we manage your portfolio for life.\n*   **Legacy of Trust:** We have served thousands of families across India, ensuring their claims are settled priority.\n*   **Unbiased Advice:** We work with top insurers (LIC, HDFC Life, ICICI Pru, Tata AIA) but work *for* you. We recommend plans that suit *your* needs, not the highest commission ones.\n*   **Claim Settlement Ratio:** We only partner with insurers who have a CSR of 98% and above.\n\n**Comprehensive Life Insurance Solutions:**\n*   **Term Insurance (Pure Protection):** The most affordable way to get high cover (e.g., ₹1 Crore cover for ~₹1000/month). Crucial for every breadwinner.\n*   **Whole Life Policy:** Coverage that lasts up to age 100, leaving a tax-free legacy for your heirs.\n*   **Endowment & Savings Plans:** Guaranteed return plans that help you save systematically for goals like marriage or education, unaffected by market volatility.\n*   **ULIPs (Wealth Creation):** Market-linked plans that offer the dual benefit of insurance + high returns from equity/debt markets.\n\n**Our \"Claim-First\" Approach**\nThe true test of insurance is at the time of a claim. Our dedicated claim settlement team handles everything—from documentation to coordinating with the insurer. Your family will never have to run around offices; we stand simply by their side.",
+      "features": [
+        "Family Financial Protection",
+        "Tax Saving under 80C",
+        "Wealth Creation Options",
+        "Loan Liability Cover"
+      ],
+      "faqs": [
+        {
+          "question": "Is a medical test mandatory for Term Insurance?",
+          "answer": "It depends on your age and sum assured. Generally, for coverage above ₹50 Lakhs or for age above 45, a medical test is required."
+        },
+        {
+          "question": "What is the ideal life cover amount?",
+          "answer": "A thumb rule is to have a cover that is 10-15 times your annual income."
+        },
+        {
+          "question": "Can I have multiple life insurance policies?",
+          "answer": "Yes, you can buy multiple policies, but you must disclose existing policies to the new insurer."
+        }
+      ]
+    },
+    "health-insurance": {
+      "title": "Health Insurance",
+      "description": "Get comprehensive Health Insurance with cashless treatment at top hospitals. Plans cover pre-existing diseases, maternity, and critical illness with no hidden clauses.",
+      "content": "With medical inflation in India growing at over 14% annually, a single hospitalization can wipe out your entire life's savings. **Health Insurance** is not a luxury; it is a necessity. At Insurance Support, we don't just sell you a policy; we ensure you have access to the best medical care without the financial stress.\n\n**Why We Are the Best Health Insurance Advisors:**\nChoosing a health plan is tricky. There are hidden clauses like \"Room Rent Capping,\" \"Co-payment,\" and \"Waiting Periods.\" We decode the fine print for you.\n*   **No Hidden Clauses:** We recommend plans with No Room Rent Capping and Zero Co-payment.\n*   **Restoration Benefits:** We ensure your plan refills the sum assured if it gets exhausted during a treatment.\n*   **Lifetime Renewability:** We place you with insurers who guarantee coverage for life.\n\n**Types of Plans We specialize In:**\n*   **Individual & Family Floater:** Comprehensive coverage for you, your spouse, and children under a single premium.\n*   **Senior Citizen Plans:** Specialized plans covering pre-existing diseases (Diabetes, BP) with minimal waiting periods.\n*   **Critical Illness Covers:** Lumpsum payout for Cancer, Heart Attack, Kidney Failure, etc.\n*   **Top-Up & Super Top-Up:** An incredibly cheap way to increase your cover (e.g., adding ₹20 Lakhs cover for just ₹5,000/year).\n\n**The \"Cashless\" Advantage**\nWe have tie-ups with Star Health, HDFC Ergo, Niva Bupa, and Care to give you access to 10,000+ network hospitals. In an emergency, **you call us**, and we coordinate the cashless approval with the TPA/Insurer while you focus on your loved one's recovery.",
+      "features": [
+        "Cashless Treatment",
+        "Pre & Post Hospitalization",
+        "AYUSH Treatment Cover",
+        "Tax Benefit under 80D"
+      ],
+      "faqs": [
+        {
+          "question": "Does health insurance cover pre-existing diseases?",
+          "answer": "Yes, but usually after a waiting period of 2 to 4 years. Some special plans shorten this to 1 year or less."
+        },
+        {
+          "question": "What is the difference between Cashless and Reimbursement?",
+          "answer": "In Cashless, the insurer pays the hospital directly. In Reimbursement, you pay first and claim the money back later."
+        },
+        {
+          "question": "Is maternity covered in health insurance?",
+          "answer": "Yes, specific plans offer maternity benefits, usually with a waiting period of 9 months to 2 years."
+        }
+      ]
+    },
+    "motor-insurance": {
+      "title": "Motor Insurance",
+      "description": "Renew your Car or Bike insurance instantly with maximum IDV and lowest premiums. Enjoy cashless claims, zero depreciation, and 24/7 roadside assistance.",
+      "content": "Driving on Indian roads is unpredictable. Whether it's a scratch in traffic or a flood in the monsoon, your vehicle needs robust protection. We provide **Instant Motor Insurance** that protects not just your car/bike but also your wallet from heavy repair bills and third-party liabilities.\n\n**Why Renew With Insurance Support?**\nMany people buy the cheapest policy online, only to realize later that the \"IDV\" (Vehicle Value) was too low or critical add-ons were missing.\n*   **Maximum IDV:** We ensure your vehicle is insured for its correct market value, so you don't lose money in case of theft or total loss.\n*   **Claim Assistance:** In case of an accident, we guide you on how to file an FIR, take photos, and get the vehicle to a cashless garage.\n*   **Keep Your NCB:** We verify your No Claim Bonus (NCB) eligibility to save you up to 50% on premiums legally.\n\n**Essential Add-Ons We Recommend:**\n*   **Zero Depreciation (Bumper-to-Bumper):** Mandatory for cars <5 years old. The insurer pays 100% of the parts cost, including plastic and rubber.\n*   **Engine Protection:** Covers engine seizure due to water logging (crucial for cities like Bangalore, Mumbai, Chennai).\n*   **Roadside Assistance:** 24/7 help for flat tires, towing, or battery jumpstarts anywhere in India.\n*   **Return to Invoice:** In case of theft, get the full on-road price back, not just the depreciated value.\n\n**Coverage for All Vehicles**\n*   Private Cars & SUVs\n*   Two-Wheelers (Bikes & Scooters)\n*   Commercial Vehicles (Taxis, Trucks, Buses)",
+      "features": [
+        "Zero Depreciation Cover",
+        "24x7 Roadside Assistance",
+        "Engine Protection",
+        "Consumables Cover"
+      ],
+      "faqs": [
+        {
+          "question": "What happens if my insurance expires?",
+          "answer": "You can renew it online instantly. If the break-in period is long, a vehicle inspection might be required."
+        },
+        {
+          "question": "What is Zero Depreciation cover?",
+          "answer": "It ensures you get the full claim amount without deduction for depreciation on parts (plastic, metal, rubber)."
+        },
+        {
+          "question": "Is third-party insurance mandatory?",
+          "answer": "Yes, as per the Motor Vehicles Act, third-party liability insurance is mandatory in India."
+        }
+      ]
+    },
+    "term-insurance": {
+      "title": "Term Insurance",
+      "description": "Get high life cover at affordable premiums with pure Term Insurance. Protect your family's financial future with critical illness and accidental death benefits.",
+      "content": "**Term Insurance is the most important financial product you will ever buy.** Period. It is a pure risk protection plan that guarantees a large sum of money (e.g., ₹1 Crore, ₹5 Crore) to your family if you pass away untimely. It ensures your family lifestyle, children's education, and home loans are taken care of.\n\n**Top Features of Our Term Plans:**\n*   **Unbeatable Premiums:** We source plans that offer ₹1 Crore cover for as low as ₹500 - ₹800 per month (depending on age).\n*   **Lengthy Coverage:** Lock your premiums today and get coverage up to age 85 or even 99 (Whole Life Term).\n*   **Riders for Extra Protection:**\n    *   *Critical Illness Rider:* Get a payout if diagnosed with Cancer, Heart issues, etc., to cover treatment costs.\n    *   *Accidental Disability:* Monthly income replacement if an accident leaves you disabled.\n\n**Why Buy Term Insurance Through an Advisor?**\nBuying online is easy, but claim settlement is hard. If your family faces a rejection due to a technicality in the proposal form filled years ago, the policy is useless.\n*   **Zero-Error Proposal:** We fill out the proposal form with professional precision to eliminate chances of \"Non-Disclosure\" rejection.\n*   **Medical Coordination:** We arrange your medical tests at your convenience.\n*   **The \"3-Day\" Claim Guarantee:** In the unfortunate event of a claim, we personally handle the paperwork to ensure the money reaches your nominee's bank account within the shortest possible time.\n\n**Tax Benefits**\nPremiums paid for Term Insurance are eligible for tax deductions of up to ₹1.5 Lakhs under Section 80C of the Income Tax Act.",
+      "features": [
+        "High Coverage/Low Premium",
+        "Critical Illness Riders",
+        "Accidental Death Benefit",
+        "Tax Savings"
+      ],
+      "faqs": [
+        {
+          "question": "What is the right age to buy Term Insurance?",
+          "answer": "The earlier, the better. Buying in your 20s secures a very low premium for life."
+        },
+        {
+          "question": "Do I get money back if I survive the term?",
+          "answer": "Pure term plans do not offer maturity benefits. However, 'Return of Premium' (ROP) plans refund all premiums paid if you survive."
+        },
+        {
+          "question": "Is accidental death covered?",
+          "answer": "Standard term plans cover all deaths (natural/accidental). You can add an Accidental Death Benefit rider for extra payout."
+        }
+      ]
+    },
+    "sme-insurance": {
+      "title": "SME Insurance",
+      "description": "Protect your business with tailored SME Insurance solutions. Coverage for shops, offices, and startups including fire, burglary, liability, and employee benefits.",
+      "content": "Small and Medium Enterprises (SMEs) are the backbone of India's economy. However, they face unique risks ranging from fire accidents to employee liability. Our SME Insurance packages are custom-built for shops, offices, and startups across India.\n\n**What We Cover:**\n*   **Shopkeepers Policy:** Protects stock, furniture, and cash against fire and burglary.\n*   **Office Package Policy:** Comprehensive cover for IT offices, including laptops and servers.\n*   **Workmen Compensation:** Mandatory legal liability cover for employees.\n*   **Public Liability:** Protects against third-party injury claims within your premises.\n\n**Tailored for Indian Startups**\nWe understand the dynamic nature of startups and offer flexible plans that scale with your business.",
+      "features": [
+        "Property Protection",
+        "Employee Benefits",
+        "Liability Coverage",
+        "Business Interruption"
+      ],
+      "faqs": [
+        {
+          "question": "Is property insurance mandatory for shops?",
+          "answer": "It is not legally mandatory, but highly recommended to protect your inventory and livelihood."
+        },
+        {
+          "question": "Does it cover employee theft?",
+          "answer": "Yes, Fidelity Guarantee cover protects against losses due to dishonesty of employees."
+        },
+        {
+          "question": "How is the premium calculated?",
+          "answer": "It depends on the value of contents, type of business, and risk factors associated with the location."
+        }
+      ]
+    },
+    "travel-insurance": {
+      "title": "Travel Insurance",
+      "description": "Travel stress-free with complete Travel Insurance for domestic and international trips. Covers medical emergencies, flight delays, lost baggage, and trip cancellations.",
+      "content": "Whether you are flying out of Kempegowda International Airport for a holiday or a business trip, unforeseen events can disrupt your plans. Travel Insurance protects you against medical emergencies, flight delays, and lost luggage.\n\n**Essential for International Travel**\nMany countries (like Schengen states) mandate travel insurance for visa approval. Our plans are 100% visa compliant.\n\n**Coverage Highlights:**\n*   **Medical Expenses:** Covers hospitalization costs abroad, which can be astronomically high.\n*   **Trip Cancellation:** Reimburses non-refundable bookings if you cancel due to medical/emergency reasons.\n*   **Baggage Loss/Delay:** Compensation for essential items if your bags are delayed.\n*   **Passport Loss:** Assistance and coverage for obtaining a duplicate passport.",
+      "features": [
+        "Medical Emergencies",
+        "Trip Cancellation",
+        "Lost Baggage",
+        "Flight Delays"
+      ],
+      "faqs": [
+        {
+          "question": "Is travel insurance mandatory?",
+          "answer": "For many countries (Schengen, UAE, etc.), it is mandatory. For others, it is strongly advised."
+        },
+        {
+          "question": "Does it cover pre-existing diseases abroad?",
+          "answer": "Most standard plans exclude pre-existing conditions unless it is a life-threatening emergency."
+        },
+        {
+          "question": "When should I buy travel insurance?",
+          "answer": "Ideally, as soon as you book your tickets to get coverage for trip cancellation."
+        }
+      ]
+    },
+    "pension-plans": {
+      "title": "Pension Plans",
+      "description": "Plan a stress-free retirement with our Pension Plans. Build a corpus for regular monthly income, inflation protection, and financial independence in your golden years.",
+      "content": "Retirement should be the golden phase of life, not a time of financial stress. Our Pension Plans help you build a substantial corpus during your working years, ensuring a steady stream of income post-retirement.\n\n**Why Start Early?**\nWith the rising cost of living across Indian metro cities, reliance on savings alone is not enough. You need a dedicated pension plan that beats inflation.\n\n**Types of Plans:**\n*   **Deferred Annuity:** Accumulate now, get pension later (e.g., NPS, private pension plans).\n*   **Immediate Annuity:** Pay a lump sum and get pension immediately (suitable for retirees).\n*   **NPS Assistance:** We guide you on National Pension System tier selection and fund management.",
+      "features": [
+        "Regular Income",
+        "Inflation Protection",
+        "Tax Efficient",
+        "Spouse Coverage"
+      ],
+      "faqs": [
+        {
+          "question": "Is pension taxable?",
+          "answer": "The commuted part (lump sum) is largely tax-free. The monthly pension is treated as income and taxed as per your slab."
+        },
+        {
+          "question": "Can I withdraw money before retirement?",
+          "answer": "Most plans have a lock-in period. However, partial withdrawals are allowed for specific reasons like children's marriage or critical illness."
+        },
+        {
+          "question": "What happens to the pension after death?",
+          "answer": "In joint-life annuity plans, the spouse continues to receive the pension."
+        }
+      ]
+    },
+    "ulip-plans": {
+      "title": "ULIP Plans",
+      "description": "Combine insurance and investment with ULIPs. Create long-term wealth with market-linked returns while securing life cover and enjoying tax benefits.",
+      "content": "Unit Linked Insurance Plans (ULIPs) offer the dual benefit of investment and life cover. They are ideal for long-term wealth creation, allowing you to invest in potential high-growth equity funds or safe debt funds.\n\n**Why Choose ULIPs?**\n*   **Wealth Creation:** Participate in the stock market with professional fund management.\n*   **Tax Efficiency:** Maturity proceeds are tax-free under Section 10(10D) (subject to conditions).\n*   **Flexibility:** Switch between equity and debt funds based on market performance without tax implications.\n*   **Lock-in Period:** A 5-year lock-in encourages disciplined saving.",
+      "features": [
+        "Market Linked Returns",
+        "Life Cover",
+        "Tax Free Withdrawal",
+        "Fund Switching"
+      ],
+      "faqs": [
+        {
+          "question": "Are ULIP charges high?",
+          "answer": "Modern ULIPs have very low charges, comparable to mutual funds. Some online plans even have zero allocation charges."
+        },
+        {
+          "question": "Is ULIP money safe?",
+          "answer": "It depends on the fund choice. Debt funds are safer, while equity funds carry market risk but offer higher potential returns."
+        },
+        {
+          "question": "Can I surrender my ULIP?",
+          "answer": "Yes, after the 5-year lock-in period, you can surrender the policy without surrender charges."
+        }
+      ]
+    },
+    "wedding-insurance": {
+      "title": "Wedding Insurance",
+      "description": "Insure your big day against cancellations and mishaps. Wedding Insurance covers venue damage, non-appearance, and public liability for a worry-free celebration.",
+      "content": "A wedding is a once-in-a-lifetime event, and thousands of crores are spent on weddings in India annually. But unforeseen events like natural calamities, fire, or sudden illness can cause cancellations, leading to huge losses.\n\n**What Coverage Includes:**\n*   **Cancellation due to Disaster:** Fire, flood, or earthquake at the venue.\n*   **Non-appearance:** If the bride, groom, or main family members cannot attend due to hospitalization/death.\n*   **Public Liability:** Accidents or injury to guests during the function.\n*   **Theft:** Loss of jewelry or cash from the venue/safe.",
+      "features": [
+        "Event Cancellation",
+        "Public Liability",
+        "Property Damage",
+        "Personal Accident"
+      ],
+      "faqs": [
+        {
+          "question": "Does it cover cancellation due to breakup?",
+          "answer": "No, 'change of heart' is not covered. Only external uncontrollable events are covered."
+        },
+        {
+          "question": "When should I take the policy?",
+          "answer": "Ideally, at least 15 days before the event date."
+        },
+        {
+          "question": "Is food poisoning covered?",
+          "answer": "Yes, public liability can cover claims arising from food poisoning of guests."
+        }
+      ]
+    },
+    "cyber-insurance": {
+      "title": "Cyber Insurance",
+      "description": "Safeguard against digital threats with Cyber Insurance. Protect your finances and identity from phishing, ransomware, cyber extortion, and online fraud.",
+      "content": "In the digital era, cyber threats are a daily reality. From phishing attacks to ransomware, individuals and businesses across India are at constant risk. Cyber Insurance provides a safety net against financial losses caused by cybercrimes.\n\n**Coverage for Individuals:**\n*   **Theft of Funds:** Reimbursement for money stolen via phishing or bank fraud.\n*   **Identity Theft:** Legal costs and expenses to restore your identity.\n*   **Cyber Bullying:** Consultation costs for psychological trauma.\n*   **Device Value:** Data restoration costs if your device is infected by malware.",
+      "features": [
+        "Data Breach Cover",
+        "Cyber Extortion",
+        "Identity Theft",
+        "Legal Costs"
+      ],
+      "faqs": [
+        {
+          "question": "Does it cover UPI frauds?",
+          "answer": "Yes, most comprehensive plans cover financial losses due to UPI or credit card fraud."
+        },
+        {
+          "question": "Do I need to file an FIR?",
+          "answer": "Yes, a police complaint/FIR is mandatory for claiming losses due to cybercrime."
+        },
+        {
+          "question": "Does it cover business data breach?",
+          "answer": "Individual cyber insurance is different from corporate cyber liability insurance. We offer both types."
+        }
+      ]
+    }
+  },
+  "about_page_title": "About Insurance Support | 25+ Years of Trust",
+  "about_meta_description": "Learn about Insurance Support, our legacy of 25+ years, and our mission to secure families. Trusted by 15,000+ clients with a 98% claim settlement ratio.",
+  "about_hero_title": "About Insurance Support",
+  "about_hero_subtitle": "Decades of trust, expertise, and dedication to securing your future.",
+  "established_badge": "Established 1998",
+  "about_legacy_title": "A Legacy of Trust and Excellence",
+  "about_legacy_text_1": "Insurance Support was founded with a singular mission: to demystify insurance and provide honest, expert advice to families and businesses across Bangalore and beyond.",
+  "about_legacy_text_2": "Led by industry veterans with over 25 years of experience, we have grown from a small consultancy to a trusted partner for over 15,000 clients. Our journey is defined not just by the policies we sell, but by the claims we settle and the promises we keep.",
+  "happy_clients": "Happy Clients",
+  "industry_experience": "Industry Experience",
+  "years_stat": "25+ Years",
+  "our_mission_title": "Our Mission",
+  "our_mission_text": "To empower every individual with the knowledge and protection they need to face life's uncertainties with confidence. We strive to be more than just advisors; we are your lifelong partners in financial security.",
+  "we_serve": "We Serve",
+  "footer_description": "Providing strategic insurance advisory and risk management solutions with over 25 years of industry excellence.",
+  "testimonials_list": [
+    {
+      "name": "Prashanth S",
+      "rating": 5,
+      "text": "Best LIC consultant. Highly recommended person. Has indepth knowledge and suggests best required for individual as per your capacity."
+    },
+    {
+      "name": "Naveen Kumar",
+      "rating": 5,
+      "text": "Good response from him and very professional in approach."
+    },
+    {
+      "name": "R G LIKHITH",
+      "rating": 5,
+      "text": "Awesome place for all your insurance needs. Very helpful and knowledgeable staff."
+    },
+    {
+      "name": "Ayush Kandoi",
+      "rating": 5,
+      "text": "Had a very positive experience. The team is kind and provides excellent guidance for insurance planning."
+    },
+    {
+      "name": "Madhu Shivalingappa",
+      "rating": 5,
+      "text": "Great experience with the Life Insurance Agency. They make the complex process very simple."
+    },
+    {
+      "name": "Shankar",
+      "rating": 5,
+      "text": "Satisfied with the professionalism and service. Highly reliable Insurance support."
+    },
+    {
+      "name": "Kiran Kumar N",
+      "rating": 5,
+      "text": "Consistent service over a long time. A dependable partner for all insurance policies."
+    },
+    {
+      "name": "Gayathri Duraisamy",
+      "rating": 5,
+      "text": "Highly positive customer experience. Very patient in explaining the details."
+    }
+  ],
+  "faq_loan_q1": "What types of loans do you offer?",
+  "faq_loan_a1": "We offer a wide range of loans including Home Loans, Personal Loans, Business Loans, Mortgage Loans, Vehicle Loans, and Education Loans to suit your various financial needs.",
+  "faq_loan_q2": "What is the typical interest rate for home loans?",
+  "faq_loan_a2": "Interest rates vary based on the lender, your credit score, and the loan amount. We help you compare and secure the most competitive rates available in the Indian market.",
+  "faq_loan_q3": "How long does the loan approval process take?",
+  "faq_loan_a3": "The processing time depends on the type of loan and document verification. Generally, personal loans can be approved within 2-3 days, while home and business loans may take 7-10 working days.",
+  "faq_loan_q4": "What documents are required to apply for a loan?",
+  "faq_loan_a4": "Standard documents include Identity Proof (Aadhar/PAN), Address Proof, Income Proof (Salary slips/ITR), and Bank Statements for the last 6 months. Specific requirements may vary by loan type.",
+  "expert_guidance": "Expert Guidance",
+  "expert_guidance_desc": "Our experienced advisors help you navigate claims and find the best insurance plans.",
+  "24_7_support": "24/7 Support",
+  "support_desc": "Dedicated support teams available around the clock for your peace of mind.",
+  "claims_assistance": "Claims Assistance",
+  "claims_desc": "Hassle-free recovery and claim settlement support when you need it most.",
+  "find_answers_to_common_questions": "Find answers to common questions about our services and policies.",
+  "loans": "Loans",
+  "loan_against_policy": "Loan Against Insurance Policy",
+  "policy_recovery": "Lost Policy Recovery",
+  "insurance_company": "Insurance Company",
+  "lic_of_india": "LIC of India",
+  "private_insurers": "Private Insurers",
+  "unknown": "Unknown",
+  "years_since_lapse_label": "Years Since Lapse",
+  "less_than_1_year": "Less than 1 year",
+  "1_3_years": "1 - 3 years",
+  "3_10_years": "3 - 10 years",
+  "more_than_10_years": "More than 10 years",
+  "original_bond_status": "Original Policy Bond Status",
+  "yes_have_it": "Yes, I have it",
+  "have_copy_only": "I have a copy/photo only",
+  "lost_completely": "Lost completely",
+  "policy_number_optional": "Policy Number (Optional)",
+  "enter_policy_number": "Enter policy number if known",
+  "select_insurer": "Select Insurer",
+  "select_duration": "Select Duration",
+  "select_document_status": "Select Document Status",
+  "recovery_chance": "Recovery Chance: {{score}}%",
+  "recovery_excellent": "Excellent! Your policy is highly likely to be recoverable with full benefits.",
+  "recovery_possible": "Your case requires expert handling, but recovery is possible.",
+  "why_use_service": "Why use our service?",
+  "trace_policy_numbers": "We trace lost policy numbers using archives.",
+  "handle_paperwork": "We handle \"Indemnity Bond\" paperwork for lost documents.",
+  "no_upfront_fees": "No upfront fees for checking status.",
+  "start_recovery_free": "Start Recovery Process Free",
+  "recovery_disclaimer": "*This is an estimate. Official confirmation requires insurer verification.",
+  "lost_policy_recovery_tool": "Lost Policy Recovery Tool",
+  "check_eligibility_revival": "Check your eligibility for policy revival",
+  "which_insurance_company": "Which Insurance Company?",
+  "years_lapse_question": "Approximately how many years ago did it lapse?",
+  "original_bond_question": "Do you have the Original Policy Bond?",
+  "check_probability": "Check Probability",
+  "next": "Next",
+  "step_of": "Step {{current}} of {{total}}"
 }

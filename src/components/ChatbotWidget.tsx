@@ -45,7 +45,7 @@ const ChatbotWidget = () => {
   return (
     <>
       {/* Floating Action Button */}
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-none group">
+      <div className="fixed bottom-6 right-6 z-[110] flex flex-col items-end gap-3 pointer-events-none group">
         {/* Availability Badge */}
         <div className={cn(
           "backdrop-blur-md bg-white/90 dark:bg-black/80 border border-white/30 shadow-2xl px-4 py-2 rounded-2xl flex flex-col items-start gap-1 transition-all duration-300 pointer-events-auto",

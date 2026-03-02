@@ -59,7 +59,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                             <ScrollReveal animation="fade-up" delay={0.3} width="fit-content" enableAnimation={false}>
                                 <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 backdrop-blur-md text-sm font-medium text-green-400 hover:scale-105 transition-transform duration-300">
                                     <ShieldCheck className="w-4 h-4" />
-                                    <span>IRDAI Certified Advisory</span>
+                                    <span>{t("irdai_advisory")}</span>
                                 </div>
                             </ScrollReveal>
                         </div>
@@ -70,7 +70,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
 
                         <ScrollReveal animation="fade-up" delay={0.6} width="100%" enableAnimation={false}>
                             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed" suppressHydrationWarning>
-                                {dynamicOneLiner || "Comprehensive coverage for life, health, and vehicle tailored to your needs."}
+                                {dynamicOneLiner || t("hero_fallback_description")}
                             </p>
                         </ScrollReveal>
                     </div>

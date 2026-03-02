@@ -90,7 +90,7 @@ const Header = () => {
                   href="/services"
                   className="flex items-center justify-center p-2 text-xs font-bold text-primary hover:bg-slate-50 transition-colors rounded-md"
                 >
-                  View All Services
+                  {t("view_all_services")}
                 </Link>
               </div>
             </DropdownMenuContent>
@@ -100,36 +100,36 @@ const Header = () => {
             <DropdownMenuTrigger asChild>
               <button
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                aria-label="Free Tools"
+                aria-label={t("free_tools")}
                 suppressHydrationWarning
               >
-                Tools
+                {t("tools")}
                 <ChevronDown className="h-4 w-4" />
               </button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-64">
               <DropdownMenuItem asChild>
                 <Link href="/tools/human-life-value-calculator" className="cursor-pointer flex flex-col items-start gap-1 p-2">
-                  <span className="font-semibold text-primary">HLV Calculator</span>
-                  <span className="text-xs text-muted-foreground">Calculate your ideal insurance cover</span>
+                  <span className="font-semibold text-primary">{t("hlv_calculator")}</span>
+                  <span className="text-xs text-muted-foreground">{t("hlv_calculator_desc")}</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/tools/policy-recovery" className="cursor-pointer flex flex-col items-start gap-1 p-2">
-                  <span className="font-semibold">Lost Policy Recovery</span>
-                  <span className="text-xs text-muted-foreground">Find details of lost insurance policies</span>
+                  <span className="font-semibold">{t("lost_policy_recovery")}</span>
+                  <span className="text-xs text-muted-foreground">{t("lost_policy_recovery_desc")}</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/tools/risk-scorecard" className="cursor-pointer flex flex-col items-start gap-1 p-2">
-                  <span className="font-semibold">Risk Scorecard</span>
-                  <span className="text-xs text-muted-foreground">Assess your financial risk profile</span>
+                  <span className="font-semibold">{t("risk_scorecard_tool")}</span>
+                  <span className="text-xs text-muted-foreground">{t("risk_scorecard_desc")}</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/tools/investment-returns" className="cursor-pointer flex flex-col items-start gap-1 p-2">
-                  <span className="font-semibold text-primary">Wealth Discovery</span>
-                  <span className="text-xs text-muted-foreground">ROI & Maturity benefit calculator</span>
+                  <span className="font-semibold text-primary">{t("wealth_discovery")}</span>
+                  <span className="text-xs text-muted-foreground">{t("wealth_discovery_desc")}</span>
                 </Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
@@ -184,19 +184,19 @@ const Header = () => {
               <DropdownMenuItem asChild>
                 <Link href="/success-stories" className="cursor-pointer flex flex-col items-start gap-1 p-2">
                   <span className="font-semibold text-primary">{t("success_stories")}</span>
-                  <span className="text-xs text-muted-foreground">Proof of our expert claim recovery</span>
+                  <span className="text-xs text-muted-foreground">{t("success_stories_desc")}</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/resources/guides/death-claim-settlement" className="cursor-pointer flex flex-col items-start gap-1 p-2">
-                  <span className="font-semibold">Death Claim Guide</span>
-                  <span className="text-xs text-muted-foreground">Step-by-step LIC claim process</span>
+                  <span className="font-semibold">{t("death_claim_guide")}</span>
+                  <span className="text-xs text-muted-foreground">{t("death_claim_guide_desc")}</span>
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/resources/guides/lapsed-policy-revival" className="cursor-pointer flex flex-col items-start gap-1 p-2">
-                  <span className="font-semibold">Policy Revival Guide</span>
-                  <span className="text-xs text-muted-foreground">How to restore old LIC policies</span>
+                  <span className="font-semibold">{t("policy_revival_guide")}</span>
+                  <span className="text-xs text-muted-foreground">{t("policy_revival_guide_desc")}</span>
                 </Link>
               </DropdownMenuItem>
               <div className="border-t border-slate-100 mt-2 pt-2">

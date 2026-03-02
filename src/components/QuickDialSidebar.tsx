@@ -59,7 +59,7 @@ const QuickDialSidebar = () => {
     return (
         <div
             className={cn(
-                "fixed top-1/2 -translate-y-1/2 z-[100] flex flex-col gap-4 pointer-events-none transition-all duration-500",
+                "fixed top-[35%] -translate-y-1/2 z-[100] flex flex-col gap-4 pointer-events-none transition-all duration-500",
                 position === 'right' ? "right-6 items-end" : "left-6 items-start"
             )}
         >
