@@ -21,9 +21,11 @@ interface ServiceContentProps {
     serviceType: string;
     iconName: string;
     imagePath: string;
+    title?: string;
+    description?: string;
 }
 
-export default function ServiceContent({ serviceType, iconName, imagePath }: ServiceContentProps) {
+export default function ServiceContent({ serviceType, iconName, imagePath, title: initialTitle, description: initialDescription }: ServiceContentProps) {
     const { t } = useTranslation();
     const Icon = iconMap[iconName] || Shield;
 
@@ -33,8 +35,8 @@ export default function ServiceContent({ serviceType, iconName, imagePath }: Ser
         return Array.isArray(items) ? items : [];
     };
 
-    const title = t(`services_data.${serviceType}.title`);
-    const description = t(`services_data.${serviceType}.description`);
+    const title = initialTitle || t(`services_data.${serviceType}.title`);
+    const description = initialDescription || t(`services_data.${serviceType}.description`);
     const content = t(`services_data.${serviceType}.content`);
     const features = getList(`services_data.${serviceType}.features`);
     const faqs = getList(`services_data.${serviceType}.faqs`) as Array<{ question: string, answer: string }>;

@@ -50,10 +50,11 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 // interface HomeClientProps {} (Props no longer needed for title/desc)
 interface HomeClientProps {
-    // keeping empty or removing if no other props
+    initialTitle?: string;
+    initialDescription?: string;
 }
 
-const HomeClient: React.FC<HomeClientProps> = () => {
+const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescription }) => {
     const { t, i18n } = useTranslation();
     const { city } = useUserLocation();
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -78,8 +79,8 @@ const HomeClient: React.FC<HomeClientProps> = () => {
     }, []);
 
     // Dynamic Title Logic
-    let displayTitle = t('hero_title');
-    const displayDescription = t('secure_family_future');
+    let displayTitle = initialTitle || t('hero_title');
+    const displayDescription = initialDescription || t('secure_family_future');
 
     // Check if we should override with local title
     if (city) {

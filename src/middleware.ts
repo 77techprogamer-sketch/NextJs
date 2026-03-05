@@ -144,6 +144,6 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
 
 export const config = {
     matcher: [
-        '/((?!api|_next/static|_next/image|favicon.ico|71a80a3568ae5d1d945fda3ef57fe18e.txt).*)',
+        '/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|71a80a3568ae5d1d945fda3ef57fe18e.txt|fbed68329c17dcd9.html).*)',
     ],
 };

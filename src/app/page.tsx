@@ -1,5 +1,6 @@
 import { LocalBusinessJsonLd } from "@/components/ServerJsonLd";
 import HomeClient from "@/components/HomeClient";
+import translations from '@/../public/locales/en/translation.json';
 
 import { Metadata } from 'next';
 
@@ -29,7 +30,10 @@ export default function Home() {
     return (
         <>
             <LocalBusinessJsonLd />
-            <HomeClient />
+            <HomeClient
+                initialTitle={translations.hero_title}
+                initialDescription={translations.secure_family_future}
+            />
         </>
     );
 }

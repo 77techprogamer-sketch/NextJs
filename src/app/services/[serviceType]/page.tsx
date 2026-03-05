@@ -209,6 +209,8 @@ export default function ServicePage({ params }: { params: { serviceType: string 
                 serviceType={params.serviceType}
                 iconName={assets.iconName}
                 imagePath={assets.image}
+                title={service.title}
+                description={service.description}
             />
             <div className="container mx-auto px-4 pb-16">
                 <CityLinksForService
