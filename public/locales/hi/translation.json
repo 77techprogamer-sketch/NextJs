@@ -1,6 +1,6 @@
 {
   "hero_title": "व्यापक बीमा के लिए आपका विश्वसनीय साथी",
-  "hero_title_local": "Expert Insurance & Claim Support in {{city}} | 25+ Years Experience",
+  "hero_title_local": "{{city}} में विशेषज्ञ बीमा एवं दावा सहायता | 25+ वर्षों का अनुभव",
   "get_a_free_quote": "मुफ्त कोटेशन प्राप्त करें",
   "chat_with_expert": "विशेषज्ञ से चैट करें",
   "expert_available": "विशेषज्ञ उपलब्ध है",
@@ -8,45 +8,45 @@
   "immediate_response": "तत्काल प्रतिक्रिया",
   "services_offered": "हमारी सेवाएं",
   "services_description": "हम आपकी सबसे महत्वपूर्ण चीज़ों की सुरक्षा के लिए तैयार किए गए बीमा समाधानों की एक विस्तृत श्रृंखला प्रदान करते हैं।",
-  "hero_fallback_description": "Comprehensive coverage for life, health, and vehicle tailored to your needs.",
-  "irdai_advisory": "IRDAI Certified Advisory",
-  "view_all_services": "View All Services",
-  "tools": "Tools",
-  "free_tools": "Free Tools",
-  "hlv_calculator": "HLV Calculator",
-  "hlv_calculator_desc": "Calculate your ideal insurance cover",
-  "lost_policy_recovery": "Lost Policy Recovery",
-  "lost_policy_recovery_desc": "Find details of lost insurance policies",
-  "risk_scorecard_tool": "Risk Scorecard",
-  "risk_scorecard_desc": "Assess your financial risk profile",
-  "wealth_discovery": "Wealth Discovery",
-  "wealth_discovery_desc": "ROI & Maturity benefit calculator",
-  "resources": "Resources",
-  "success_stories": "Success Stories",
-  "success_stories_desc": "Proof of our expert claim recovery",
-  "death_claim_guide": "Death Claim Guide",
-  "death_claim_guide_desc": "Step-by-step LIC claim process",
-  "policy_revival_guide": "Policy Revival Guide",
-  "policy_revival_guide_desc": "How to restore old LIC policies",
-  "about_us": "About Us",
-  "get_quote": "Get Quote",
-  "loans_offered": "Loans & Financial Services",
-  "loans_hero_title": "Smart Loans for Your Every Need",
-  "loans_hero_description": "From home and personal loans to business financing, we provide tailored solutions with competitive interest rates and quick approvals.",
-  "loans_description": "Achieve your dreams with our tailored loan solutions. Whether it's a home, personal needs, or business expansion, we help you get the best rates.",
-  "home_loan": "Home Loan",
-  "personal_loan": "Personal Loan",
-  "business_loan": "Business Loan",
-  "mortgage_loan": "Mortgage Loan",
-  "vehicle_loan": "Vehicle Loan",
-  "education_loan": "Education Loan",
-  "loan_amount": "Required Loan Amount",
-  "employment_type": "Employment Status",
-  "salaried": "Salaried",
-  "self_employed_professional": "Self Employed Professional",
-  "self_employed_business": "Self Employed Business",
-  "student": "Student",
-  "homemaker": "Homemaker",
+  "hero_fallback_description": "आपकी आवश्यकताओं के अनुसार जीवन, स्वास्थ्य और वाहन के लिए व्यापक कवरेज।",
+  "irdai_advisory": "IRDAI प्रमाणित सलाहकार",
+  "view_all_services": "सभी सेवाएं देखें",
+  "tools": "उपकरण",
+  "free_tools": "मुफ्त उपकरण",
+  "hlv_calculator": "HLV कैलकुलेटर",
+  "hlv_calculator_desc": "अपने आदर्श बीमा कवर की गणना करें",
+  "lost_policy_recovery": "खोई हुई पॉलिसी रिकवरी",
+  "lost_policy_recovery_desc": "खोई हुई बीमा पॉलिसियों का विवरण प्राप्त करें",
+  "risk_scorecard_tool": "रिस्क स्कोरकार्ड",
+  "risk_scorecard_desc": "अपने वित्तीय जोखिम प्रोफाइल का आकलन करें",
+  "wealth_discovery": "वेल्थ डिस्कवरी",
+  "wealth_discovery_desc": "ROI और परिपक्वता लाभ कैलकुलेटर",
+  "resources": "संसाधन",
+  "success_stories": "सफलता की कहानियां",
+  "success_stories_desc": "हमारी विशेषज्ञ दावा वसूली का प्रमाण",
+  "death_claim_guide": "डेथ क्लेम गाइड",
+  "death_claim_guide_desc": "चरण-दर-चरण LIC दावा प्रक्रिया",
+  "policy_revival_guide": "पॉलिसी रिवाइवल गाइड",
+  "policy_revival_guide_desc": "पुरानी LIC पॉलिसियों को कैसे बहाल करें",
+  "about_us": "हमारे बारे में",
+  "get_quote": "कोटेशन प्राप्त करें",
+  "loans_offered": "ऋण एवं वित्तीय सेवाएं",
+  "loans_hero_title": "आपकी हर जरूरत के लिए स्मार्ट लोन",
+  "loans_hero_description": "होम और पर्सनल लोन से लेकर बिजनेस फाइनेंस तक, हम प्रतिस्पर्धी ब्याज दरों और त्वरित मंजूरी के साथ तैयार समाधान प्रदान करते हैं।",
+  "loans_description": "हमारे विशेष लोन समाधानों के साथ अपने सपनों को पूरा करें। चाहे वह घर हो, व्यक्तिगत जरूरतें हों, या व्यवसाय विस्तार, हम आपको सर्वोत्तम दरें प्राप्त करने में मदद करते हैं।",
+  "home_loan": "होम लोन",
+  "personal_loan": "पर्सनल लोन",
+  "business_loan": "बिजनेस लोन",
+  "mortgage_loan": "मॉर्टगेज लोन",
+  "vehicle_loan": "वाहन लोन",
+  "education_loan": "शिक्षा लोन",
+  "loan_amount": "आवश्यक ऋण राशि",
+  "employment_type": "रोजगार की स्थिति",
+  "salaried": "वेतनभोगी",
+  "self_employed_professional": "स्व-नियोजित पेशेवर",
+  "self_employed_business": "स्व-नियोजित व्यवसाय",
+  "student": "छात्र",
+  "homemaker": "गृहणी",
   "motor_insurance": "मोटर (निजी/वाणिज्यिक वाहन) बीमा",
   "sme_insurance": "एसएमई (अग्नि और गृह) बीमा",
   "travel_insurance": "यात्रा बीमा",
@@ -55,29 +55,29 @@
   "wedding_insurance": "विवाह और हनीमून बीमा",
   "cyber_insurance": "साइबर बीमा",
   "click_to_get_quote": "{{type}} के लिए कोटेशन प्राप्त करने के लिए क्लिक करें।",
-  "most_popular": "Most Popular",
-  "instant_quote": "Instant Quote",
-  "paperless": "100% Paperless",
-  "expert_support": "Expert Support",
-  "life_insurance_benefit": "Secure your family's future with up to ₹1 Crore cover and doorstep claim recovery assistance.",
-  "health_insurance_benefit": "Cashless treatment at 10,000+ hospitals with dedicated support for rejected claim appeals.",
-  "term_insurance_benefit": "Pure protection plans with critical illness & disability riders.",
-  "motor_insurance_benefit": "Instant renewal with zero depreciation and 24/7 roadside assistance.",
-  "sme_insurance_benefit": "Safeguard your business assets from fire, theft, and liabilities.",
-  "travel_insurance_benefit": "Worldwide coverage for medical emergencies and trip disruptions.",
-  "pension_plans_benefit": "Ensure steady monthly income after retirement with tax benefits.",
-  "ulip_plans_benefit": "Wealth creation + life cover with flexible fund switching.",
-  "wedding_insurance_benefit": "Protect your special day investments from unforeseen cancellations.",
-  "cyber_insurance_benefit": "Security against digital fraud, identity theft, and hacking.",
-  "identity": "Identity",
-  "contact": "Contact",
-  "details": "Details",
-  "next_step": "Next Step",
-  "get_plans_now": "Get Plans Now",
-  "verified_expert_callback": "Request a Verified Expert Callback",
-  "we_will_not_spam": "We respect your privacy. No spam, only expert advice.",
-  "approx_30_seconds": "~30 Seconds to Get Quote",
-  "verified_advisor_active": "Verified Advisor Active",
+  "most_popular": "सबसे लोकप्रिय",
+  "instant_quote": "त्वरित कोटेशन",
+  "paperless": "100% पेपरलेस",
+  "expert_support": "विशेषज्ञ सहायता",
+  "life_insurance_benefit": "₹1 करोड़ तक के कवर और डोरस्टेप क्लेम रिकवरी सहायता के साथ अपने परिवार के भविष्य को सुरक्षित करें।",
+  "health_insurance_benefit": "10,000+ अस्पतालों में कैशलेस उपचार और खारिज किए गए दावों की अपील के लिए समर्पित सहायता।",
+  "term_insurance_benefit": "गंभीर बीमारी और विकलांगता राइडर्स के साथ शुद्ध सुरक्षा योजनाएं।",
+  "motor_insurance_benefit": "शून्य मूल्यह्रास (Zero Depreciation) और 24/7 रोड-साइड सहायता के साथ त्वरित नवीनीकरण।",
+  "sme_insurance_benefit": "अपनी व्यावसायिक संपत्ति को आग, चोरी और देनदारियों से सुरक्षित रखें।",
+  "travel_insurance_benefit": "चिकित्सा आपात स्थिति और यात्रा व्यवधानों के लिए विश्वव्यापी कवरेज।",
+  "pension_plans_benefit": "कर लाभ के साथ सेवानिवृत्ति के बाद स्थिर मासिक आय सुनिश्चित करें।",
+  "ulip_plans_benefit": "लचीले फंड स्विचिंग के साथ धन सृजन + जीवन कवर।",
+  "wedding_insurance_benefit": "अनपेक्षित रद्दीकरण से अपने विशेष दिन के निवेश को सुरक्षित रखें।",
+  "cyber_insurance_benefit": "डिजिटल धोखाधड़ी, पहचान की चोरी और हैकिंग के खिलाफ सुरक्षा।",
+  "identity": "पहचान",
+  "contact": "संपर्क",
+  "details": "विवरण",
+  "next_step": "अगला कदम",
+  "get_plans_now": "अभी योजनाएं प्राप्त करें",
+  "verified_expert_callback": "सत्यापित विशेषज्ञ कॉल-बैक का अनुरोध करें",
+  "we_will_not_spam": "हम आपकी गोपनीयता का सम्मान करते हैं। कोई स्पैम नहीं, केवल विशेषज्ञ सलाह।",
+  "approx_30_seconds": "कोटेशन प्राप्त करने के लिए ~30 सेकंड",
+  "verified_advisor_active": "सत्यापित सलाहकार सक्रिय",
   "free_risk_assessment": "Free Risk Assessment",
   "risk_scorecard_page_title": "Is Your Family Truly Protected?",
   "risk_scorecard_page_description": "Our 30-second proprietary Risk Scorecard helps you identify gaps in your financial security before they become critical.",
@@ -426,345 +426,345 @@
   "hero_title_start": "सुरक्षित करें अपना",
   "hero_title_highlight": "भविष्य",
   "hero_title_end": "विशेषज्ञ मार्गदर्शन के साथ",
-  "get_support_now": "Get Support Now",
-  "general_inquiry_title": "General Inquiry",
-  "general_inquiry_description": "Have a question not related to a specific policy? We're here to help.",
-  "start_general_inquiry": "Start General Inquiry",
-  "need_immediate_assistance": "Need Immediate Assistance?",
-  "call_our_support_team": "Call our expert support team directly for urgent matters.",
-  "full_name": "Full Name",
-  "enter_full_name": "Enter Full Name",
-  "enter_mobile_number": "Enter 10-digit Mobile Number",
-  "pincode": "Current Residence Pincode",
-  "enter_pincode": "Enter Current Residence Pincode",
-  "who_needs_coverage": "Who needs coverage?",
-  "health_members": "Health Members",
-  "enter_amount": "Enter Amount",
-  "enter_income": "Enter Net Annual Income",
-  "vehicle_number": "Vehicle Number",
-  "enter_vehicle_number": "Enter Vehicle Number (e.g., KA01AB1234)",
-  "vehicle_type": "Vehicle Type",
-  "car": "Car",
-  "bike": "Bike",
-  "commercial_vehicle": "Commercial Vehicle",
-  "previous_policy_type": "Previous Policy Type",
-  "new_policy_type_intended": "New Policy Type Intended",
-  "comprehensive": "Comprehensive",
-  "third_party": "Third Party",
-  "tobacco_user": "Tobacco User",
-  "yes": "Yes",
-  "no": "No",
-  "annual_income": "Net Annual Income",
-  "business_name": "Business Name",
-  "enter_business_name": "Enter Business Name",
-  "industry_type": "Industry Type",
-  "retail": "Retail",
-  "manufacturing": "Manufacturing",
-  "it_services": "IT Services",
-  "consulting": "Consulting",
-  "annual_turnover": "Annual Turnover",
-  "turnover_upto_50l": "Upto 50 Lakhs",
-  "turnover_50l_2cr": "50 Lakhs - 2 Crores",
-  "turnover_2cr_10cr": "2 Crores - 10 Crores",
-  "turnover_above_10cr": "Above 10 Crores",
-  "destination": "Destination",
-  "usa_canada": "USA / Canada",
-  "europe": "Europe",
-  "asia": "Asia",
-  "worldwide": "Worldwide",
-  "travel_start_date": "Travel Start Date",
-  "trip_duration_days": "Trip Duration (Days)",
-  "enter_days": "Enter Days",
-  "target_retirement_age": "Target Retirement Age",
-  "enter_age": "Enter Age",
-  "monthly_investment_capability": "Monthly Investment Capability",
-  "investment_amount": "Investment Amount",
-  "risk_appetite": "Risk Appetite",
-  "low_risk": "Low",
-  "balanced": "Balanced",
-  "high_growth": "High Growth",
-  "event_date": "Event Date",
-  "expected_guests": "Expected Guests",
-  "enter_count": "Enter Count",
-  "total_wedding_budget": "Total Wedding Budget",
-  "company_name": "Company Name",
-  "enter_company_name": "Enter Company Name",
-  "website_url": "Website URL",
-  "enter_url": "Enter URL",
-  "data_records_held": "Data Records Held",
-  "records_upto_10k": "Upto 10,000",
+  "get_support_now": "अभी सहायता प्राप्त करें",
+  "general_inquiry_title": "सामान्य पूछताछ",
+  "general_inquiry_description": "किसी विशिष्ट पॉलिसी से संबंधित प्रश्न नहीं है? हम यहाँ सहायता के लिए हैं।",
+  "start_general_inquiry": "सामान्य पूछताछ शुरू करें",
+  "need_immediate_assistance": "तत्काल सहायता की आवश्यकता है?",
+  "call_our_support_team": "तत्काल मामलों के लिए सीधे हमारी विशेषज्ञ सहायता टीम को कॉल करें।",
+  "full_name": "पूरा नाम",
+  "enter_full_name": "पूरा नाम दर्ज करें",
+  "enter_mobile_number": "10-अंकीय मोबाइल नंबर दर्ज करें",
+  "pincode": "वर्तमान निवास पिनकोड",
+  "enter_pincode": "वर्तमान निवास पिनकोड दर्ज करें",
+  "who_needs_coverage": "किसे कवरेज की आवश्यकता है?",
+  "health_members": "स्वास्थ्य सदस्य",
+  "enter_amount": "राशि दर्ज करें",
+  "enter_income": "शुद्ध वार्षिक आय दर्ज करें",
+  "vehicle_number": "वाहन संख्या",
+  "enter_vehicle_number": "वाहन संख्या दर्ज करें (जैसे, KA01AB1234)",
+  "vehicle_type": "वाहन का प्रकार",
+  "car": "कार",
+  "bike": "बाइक",
+  "commercial_vehicle": "वाणिज्यिक वाहन",
+  "previous_policy_type": "पिछली पॉलिसी का प्रकार",
+  "new_policy_type_intended": "नया पॉलिसी प्रकार इच्छित",
+  "comprehensive": "व्यापक (Comprehensive)",
+  "third_party": "थर्ड पार्टी (Third Party)",
+  "tobacco_user": "तंबाकू उपयोगकर्ता",
+  "yes": "हाँ",
+  "no": "नहीं",
+  "annual_income": "शुद्ध वार्षिक आय",
+  "business_name": "व्यवसाय का नाम",
+  "enter_business_name": "व्यवसाय का नाम दर्ज करें",
+  "industry_type": "उद्योग का प्रकार",
+  "retail": "रिटेल",
+  "manufacturing": "विनिर्माण",
+  "it_services": "आईटी सेवाएं",
+  "consulting": "परामर्श",
+  "annual_turnover": "वार्षिक टर्नओवर",
+  "turnover_upto_50l": "50 लाख तक",
+  "turnover_50l_2cr": "50 लाख - 2 करोड़",
+  "turnover_2cr_10cr": "2 करोड़ - 10 करोड़",
+  "turnover_above_10cr": "10 करोड़ से ऊपर",
+  "destination": "गंतव्य",
+  "usa_canada": "यूएसए / कनाडा",
+  "europe": "यूरोप",
+  "asia": "एशिया",
+  "worldwide": "दुनिया भर में",
+  "travel_start_date": "यात्रा शुरू होने की तिथि",
+  "trip_duration_days": "यात्रा की अवधि (दिन)",
+  "enter_days": "दिन दर्ज करें",
+  "target_retirement_age": "लक्ष्य सेवानिवृत्ति आयु",
+  "enter_age": "उम्र दर्ज करें",
+  "monthly_investment_capability": "मासिक निवेश क्षमता",
+  "investment_amount": "निवेश राशि",
+  "risk_appetite": "जोखिम सहनशीलता",
+  "low_risk": "कम",
+  "balanced": "संतुलित",
+  "high_growth": "उच्च विकास",
+  "event_date": "कार्यक्रम की तिथि",
+  "expected_guests": "अपेक्षित मेहमान",
+  "enter_count": "संख्या दर्ज करें",
+  "total_wedding_budget": "कुल शादी का बजट",
+  "company_name": "कंपनी का नाम",
+  "enter_company_name": "कंपनी का नाम दर्ज करें",
+  "website_url": "वेबसाइट यूआरएल",
+  "enter_url": "यूआरएल दर्ज करें",
+  "data_records_held": "डेटा रिकॉर्ड्स",
+  "records_upto_10k": "10,000 तक",
   "records_10k_100k": "10,000 - 1,00,000",
-  "records_above_100k": "Above 1,00,000",
-  "about": "About",
-  "key_benefits": "Key Benefits",
-  "service_footer_note": "At Insurance Support, we help you navigate the complexities of specific policy terms to find the plan that best fits your requirements and budget.",
+  "records_above_100k": "1,00,000 से ऊपर",
+  "about": "हमारे बारे में",
+  "key_benefits": "प्रमुख लाभ",
+  "service_footer_note": "बीमा सहायता में, हम आपको आपकी आवश्यकताओं और बजट के सबसे अनुकूल योजना खोजने के लिए विशिष्ट पॉलिसी शर्तों की जटिलताओं को नेविगेट करने में मदद करते हैं।",
   "services_data": {
     "life-insurance": {
-      "title": "Life Insurance",
-      "description": "Secure your family's future with the best Life Insurance plans in India. Compare Term, Whole Life, and Endowment policies with high claim settlement ratios.",
-      "content": "Life insurance is the foundation of financial security for any family. It is not just an investment; it is a shield that protects your loved ones from financial instability in your absence. At **Insurance Support India**, we believe that the right life insurance policy ensures that your family's dreams—whether it's your child's education, your spouse's retirement, or paying off a home loan—are never compromised.\n\n**Why Choose Insurance Support India?**\nUnlike automated online comparison tools, we provide **personalized, human advisory** based on 25+ years of experience. We don't just sell a policy; we manage your portfolio for life.\n*   **Legacy of Trust:** We have served thousands of families across India, ensuring their claims are settled priority.\n*   **Unbiased Advice:** We work with top insurers (LIC, HDFC Life, ICICI Pru, Tata AIA) but work *for* you. We recommend plans that suit *your* needs, not the highest commission ones.\n*   **Claim Settlement Ratio:** We only partner with insurers who have a CSR of 98% and above.\n\n**Comprehensive Life Insurance Solutions:**\n*   **Term Insurance (Pure Protection):** The most affordable way to get high cover (e.g., ₹1 Crore cover for ~₹1000/month). Crucial for every breadwinner.\n*   **Whole Life Policy:** Coverage that lasts up to age 100, leaving a tax-free legacy for your heirs.\n*   **Endowment & Savings Plans:** Guaranteed return plans that help you save systematically for goals like marriage or education, unaffected by market volatility.\n*   **ULIPs (Wealth Creation):** Market-linked plans that offer the dual benefit of insurance + high returns from equity/debt markets.\n\n**Our \"Claim-First\" Approach**\nThe true test of insurance is at the time of a claim. Our dedicated claim settlement team handles everything—from documentation to coordinating with the insurer. Your family will never have to run around offices; we stand simply by their side.",
+      "title": "जीवन बीमा",
+      "description": "भारत में सर्वोत्तम जीवन बीमा योजनाओं के साथ अपने परिवार के भविष्य को सुरक्षित करें। उच्च दावा निपटान अनुपात वाली टर्म, होल लाइफ और एंडोमेंट पॉलिसियों की तुलना करें।",
+      "content": "जीवन बीमा किसी भी परिवार के लिए वित्तीय सुरक्षा की नींव है। यह केवल एक निवेश नहीं है; यह एक ढाल है जो आपकी अनुपस्थिति में आपके प्रियजनों को वित्तीय अस्थिरता से बचाती है। **बीमा सहायता इंडिया** में, हमारा मानना है कि सही जीवन बीमा पॉलिसी यह सुनिश्चित करती है कि आपके परिवार के सपने—चाहे वह आपके बच्चे की शिक्षा हो, आपके जीवनसाथी की सेवानिवृत्ति हो, या होम लोन चुकाना हो—कभी भी समझौता न करें।\n\n**बीमा सहायता इंडिया को क्यों चुनें?**\nस्वचालित ऑनलाइन तुलना उपकरणों के विपरीत, हम 25+ वर्षों के अनुभव के आधार पर **व्यक्तिगत, मानवीय सलाह** प्रदान करते हैं। हम केवल एक पॉलिसी नहीं बेचते हैं; हम जीवन भर के लिए आपके पोर्टफोलियो का प्रबंधन करते हैं।\n*   **विश्वास की विरासत:** हमने पूरे भारत में हजारों परिवारों की सेवा की है, यह सुनिश्चित करते हुए कि उनके दावों को प्राथमिकता के आधार पर निपटाया जाए।\n*   **निष्पक्ष सलाह:** हम शीर्ष बीमाकर्ताओं (LIC, HDFC Life, ICICI Pru, Tata AIA) के साथ काम करते हैं लेकिन *आपके* लिए काम करते हैं। हम उन योजनाओं की सिफारिश करते हैं जो *आपकी* जरूरतों के अनुकूल हों, न कि उच्चतम कमीशन वाली।\n*   **दावा निपटान अनुपात (CSR):** हम केवल उन्हीं बीमाकर्ताओं के साथ साझेदारी करते हैं जिनका CSR 98% और उससे अधिक है।\n\n**व्यापक जीवन बीमा समाधान:**\n*   **टर्म इंश्योरेंस (शुद्ध सुरक्षा):** उच्च कवर प्राप्त करने का सबसे किफायती तरीका (उदा. ~₹1000/माह के लिए ₹1 करोड़ का कवर)। हर कमाने वाले के लिए महत्वपूर्ण।\n*   **होल लाइफ पॉलिसी (Whole Life):** कवरेज जो 100 वर्ष की आयु तक चलती है, आपके वारिसों के लिए एक कर-मुक्त विरासत छोड़ती है।\n*   **एंडोमेंट और बचत योजनाएं:** गारंटीड रिटर्न योजनाएं जो आपको शादी या शिक्षा जैसे लक्ष्यों के लिए व्यवस्थित रूप से बचत करने में मदद करती हैं, जो बाजार की अस्थिरता से अप्रभावित रहती हैं।\n*   **यूलिप (ULIPs - धन सृजन):** बाजार से जुड़ी योजनाएं जो बीमा + इक्विटी/डेट बाजारों से उच्च रिटर्न का दोहरा लाभ प्रदान करती हैं।\n\n**हमारा \"दावा-प्रथम\" (Claim-First) दृष्टिकोण**\nबीमे की असली परीक्षा दावे के समय होती है। हमारी समर्पित दावा निपटान टीम दस्तावेज़ीकरण से लेकर बीमाकर्ता के साथ समन्वय तक सब कुछ संभालती है। आपके परिवार को कार्यालयों के चक्कर नहीं लगाने पड़ेंगे; हम उनके साथ खड़े रहेंगे।",
       "features": [
-        "Family Financial Protection",
-        "Tax Saving under 80C",
-        "Wealth Creation Options",
-        "Loan Liability Cover"
+        "पारिवारिक वित्तीय सुरक्षा",
+        "80C के तहत कर बचत",
+        "धन सृजन के विकल्प",
+        "ऋण देयता कवर"
       ],
       "faqs": [
         {
-          "question": "Is a medical test mandatory for Term Insurance?",
-          "answer": "It depends on your age and sum assured. Generally, for coverage above ₹50 Lakhs or for age above 45, a medical test is required."
+          "question": "क्या टर्म इंश्योरेंस के लिए मेडिकल टेस्ट अनिवार्य है?",
+          "answer": "यह आपकी उम्र और बीमा राशि पर निर्भर करता है। आम तौर पर, ₹50 लाख से अधिक के कवरेज या 45 वर्ष से अधिक उम्र के लिए मेडिकल टेस्ट आवश्यक है।"
         },
         {
-          "question": "What is the ideal life cover amount?",
-          "answer": "A thumb rule is to have a cover that is 10-15 times your annual income."
+          "question": "आदर्श जीवन कवर राशि क्या है?",
+          "answer": "एक सामान्य नियम यह है कि आपकी वार्षिक आय का 10-15 गुना कवर होना चाहिए।"
         },
         {
-          "question": "Can I have multiple life insurance policies?",
-          "answer": "Yes, you can buy multiple policies, but you must disclose existing policies to the new insurer."
+          "question": "क्या मेरे पास कई जीवन बीमा पॉलिसियां हो सकती हैं?",
+          "answer": "हाँ, आप कई प्रदाताओं से पॉलिसी खरीद सकते हैं, लेकिन आपको नए बीमाकर्ता को मौजूदा पॉलिसियों का खुलासा करना होगा।"
         }
       ]
     },
     "health-insurance": {
-      "title": "Health Insurance",
-      "description": "Get comprehensive Health Insurance with cashless treatment at top hospitals. Plans cover pre-existing diseases, maternity, and critical illness with no hidden clauses.",
-      "content": "With medical inflation in India growing at over 14% annually, a single hospitalization can wipe out your entire life's savings. **Health Insurance** is not a luxury; it is a necessity. At Insurance Support, we don't just sell you a policy; we ensure you have access to the best medical care without the financial stress.\n\n**Why We Are the Best Health Insurance Advisors:**\nChoosing a health plan is tricky. There are hidden clauses like \"Room Rent Capping,\" \"Co-payment,\" and \"Waiting Periods.\" We decode the fine print for you.\n*   **No Hidden Clauses:** We recommend plans with No Room Rent Capping and Zero Co-payment.\n*   **Restoration Benefits:** We ensure your plan refills the sum assured if it gets exhausted during a treatment.\n*   **Lifetime Renewability:** We place you with insurers who guarantee coverage for life.\n\n**Types of Plans We specialize In:**\n*   **Individual & Family Floater:** Comprehensive coverage for you, your spouse, and children under a single premium.\n*   **Senior Citizen Plans:** Specialized plans covering pre-existing diseases (Diabetes, BP) with minimal waiting periods.\n*   **Critical Illness Covers:** Lumpsum payout for Cancer, Heart Attack, Kidney Failure, etc.\n*   **Top-Up & Super Top-Up:** An incredibly cheap way to increase your cover (e.g., adding ₹20 Lakhs cover for just ₹5,000/year).\n\n**The \"Cashless\" Advantage**\nWe have tie-ups with Star Health, HDFC Ergo, Niva Bupa, and Care to give you access to 10,000+ network hospitals. In an emergency, **you call us**, and we coordinate the cashless approval with the TPA/Insurer while you focus on your loved one's recovery.",
+      "title": "स्वास्थ्य बीमा",
+      "description": "शीर्ष अस्पतालों में कैशलेस उपचार के साथ व्यापक स्वास्थ्य बीमा प्राप्त करें। योजनाओं में पहले से मौजूद बीमारियां, मातृत्व और गंभीर बीमारियां बिना किसी छिपी हुई शर्तों के शामिल हैं।",
+      "content": "भारत में चिकित्सा मुद्रास्फीति सालाना 14% से अधिक की दर से बढ़ रही है, एक बार अस्पताल में भर्ती होने पर आपकी जीवन भर की बचत खत्म हो सकती है। **स्वास्थ्य बीमा** विलासिता नहीं है; यह एक आवश्यकता है। बीमा सहायता में, हम आपको केवल पॉलिसी नहीं बेचते हैं; हम यह सुनिश्चित करते हैं कि आपको बिना किसी वित्तीय तनाव के सर्वोत्तम चिकित्सा देखभाल मिले।\n\n**हम सर्वश्रेष्ठ स्वास्थ्य बीमा सलाहकार क्यों हैं:**\nस्वास्थ्य योजना चुनना मुश्किल है। \"रूम रेंट कैपिंग,\" \"को-पेमेंट,\" और \"वेटिंग पीरियड\" जैसी छिपी हुई शर्तें होती हैं। हम आपके लिए इन बारीकियों को डिकोड करते हैं।\n*   **कोई छिपी हुई शर्तें नहीं:** हम बिना रूम रेंट कैपिंग और जीरो को-पेमेंट वाली योजनाओं की सिफारिश करते हैं।\n*   **रेस्टोरेशन लाभ:** हम सुनिश्चित करते हैं कि आपकी योजना बीमा राशि को फिर से भर दे यदि वह उपचार के दौरान समाप्त हो जाती है।\n*   **आजीवन नवीनीकरण:** हम आपको उन बीमाकर्ताओं के साथ जोड़ते हैं जो जीवन भर कवरेज की गारंटी देते हैं।\n\n**योजनाओं के प्रकार जिनमें हम विशेषज्ञ हैं:**\n*   **व्यक्तिगत और फैमिली फ्लोटर:** एक ही प्रीमियम के तहत आपके, आपके जीवनसाथी और बच्चों के लिए व्यापक कवरेज।\n*   **वरिष्ठ नागरिक योजनाएं:** न्यूनतम प्रतीक्षा अवधि के साथ पहले से मौजूद बीमारियों (मधुमेह, बीपी) को कवर करने वाली विशेष योजनाएं।\n*   **गंभीर बीमारी कवर (Critical Illness):** कैंसर, नसों का दौरा, गुर्दे की विफलता आदि के लिए एकमुश्त भुगतान।\n*   **टॉप-अप और सुपर टॉप-अप:** अपने कवर को बढ़ाने का एक अविश्वसनीय रूप से सस्ता तरीका (उदा. प्रति वर्ष केवल ₹5,000 में ₹20 लाख का कवर जोड़ना)।\n\n**कैशलेस लाभ**\nहमारे पास स्टार हेल्थ (Star Health), एचडीएफसी एर्गो (HDFC Ergo), निवा बूपा (Niva Bupa), और केयर (Care) के साथ गठजोड़ है ताकि आपको 10,000+ नेटवर्क अस्पतालों तक पहुंच मिल सके। आपात स्थिति में, **आप हमें कॉल करें**, और जब आप अपने प्रियजन की रिकवरी पर ध्यान केंद्रित करते हैं, तो हम TPA/बीमाकर्ता के साथ कैशलेस अनुमोदन का समन्वय करते हैं।",
       "features": [
-        "Cashless Treatment",
-        "Pre & Post Hospitalization",
-        "AYUSH Treatment Cover",
-        "Tax Benefit under 80D"
+        "कैशलेस उपचार",
+        "अस्पताल में भर्ती होने से पहले और बाद का खर्च",
+        "आयुष (AYUSH) उपचार कवर",
+        "80D के तहत टैक्स लाभ"
       ],
       "faqs": [
         {
-          "question": "Does health insurance cover pre-existing diseases?",
-          "answer": "Yes, but usually after a waiting period of 2 to 4 years. Some special plans shorten this to 1 year or less."
+          "question": "क्या स्वास्थ्य बीमा पहले से मौजूद बीमारियों को कवर करता है?",
+          "answer": "हाँ, लेकिन आमतौर पर 2 से 4 साल की प्रतीक्षा अवधि के बाद। कुछ विशेष योजनाएं इसे 1 वर्ष या उससे कम कर देती हैं।"
         },
         {
-          "question": "What is the difference between Cashless and Reimbursement?",
-          "answer": "In Cashless, the insurer pays the hospital directly. In Reimbursement, you pay first and claim the money back later."
+          "question": "कैशलेस और रिइम्बर्समेंट (Reimbursement) में क्या अंतर है?",
+          "answer": "कैशलेस में बीमाकर्ता सीधे अस्पताल को भुगतान करता है। रिइम्बर्समेंट में आप पहले भुगतान करते हैं और बाद में पैसा वापस मांगते हैं।"
         },
         {
-          "question": "Is maternity covered in health insurance?",
-          "answer": "Yes, specific plans offer maternity benefits, usually with a waiting period of 9 months to 2 years."
+          "question": "क्या स्वास्थ्य बीमा में मातृत्व शुल्क कवर किया गया है?",
+          "answer": "हाँ, विशिष्ट योजनाएं मातृत्व लाभ प्रदान करती हैं, आमतौर पर 9 महीने से 2 साल की प्रतीक्षा अवधि के साथ।"
         }
       ]
     },
     "motor-insurance": {
-      "title": "Motor Insurance",
-      "description": "Renew your Car or Bike insurance instantly with maximum IDV and lowest premiums. Enjoy cashless claims, zero depreciation, and 24/7 roadside assistance.",
-      "content": "Driving on Indian roads is unpredictable. Whether it's a scratch in traffic or a flood in the monsoon, your vehicle needs robust protection. We provide **Instant Motor Insurance** that protects not just your car/bike but also your wallet from heavy repair bills and third-party liabilities.\n\n**Why Renew With Insurance Support?**\nMany people buy the cheapest policy online, only to realize later that the \"IDV\" (Vehicle Value) was too low or critical add-ons were missing.\n*   **Maximum IDV:** We ensure your vehicle is insured for its correct market value, so you don't lose money in case of theft or total loss.\n*   **Claim Assistance:** In case of an accident, we guide you on how to file an FIR, take photos, and get the vehicle to a cashless garage.\n*   **Keep Your NCB:** We verify your No Claim Bonus (NCB) eligibility to save you up to 50% on premiums legally.\n\n**Essential Add-Ons We Recommend:**\n*   **Zero Depreciation (Bumper-to-Bumper):** Mandatory for cars <5 years old. The insurer pays 100% of the parts cost, including plastic and rubber.\n*   **Engine Protection:** Covers engine seizure due to water logging (crucial for cities like Bangalore, Mumbai, Chennai).\n*   **Roadside Assistance:** 24/7 help for flat tires, towing, or battery jumpstarts anywhere in India.\n*   **Return to Invoice:** In case of theft, get the full on-road price back, not just the depreciated value.\n\n**Coverage for All Vehicles**\n*   Private Cars & SUVs\n*   Two-Wheelers (Bikes & Scooters)\n*   Commercial Vehicles (Taxis, Trucks, Buses)",
+      "title": "मोटर बीमा",
+      "description": "अधिकतम IDV और न्यूनतम प्रीमियम के साथ अपनी कार या बाइक का बीमा तुरंत नवीनीकृत करें। कैशलेस दावों, शून्य मूल्यह्रास और 24/7 रोड-साइड सहायता का आनंद लें।",
+      "content": "भारतीय सड़कों पर गाड़ी चलाना अप्रत्याशित है। चाहे वह ट्रैफिक में खरोंच हो या मानसून में बाढ़, आपके वाहन को मजबूत सुरक्षा की आवश्यकता है। हम **त्वरित मोटर बीमा** प्रदान करते हैं जो न केवल आपकी कार/बाइक की रक्षा करता है बल्कि भारी मरम्मत बिलों और तीसरे पक्ष की देनदारियों से आपके बटुए की भी रक्षा करता है।\n\n**बीमा सहायता के साथ नवीनीकरण क्यों करें?**\nकई लोग ऑनलाइन सबसे सस्ती पॉलिसी खरीदते हैं, बाद में पता चलता है कि \"IDV\" (वाहन मूल्य) बहुत कम था या महत्वपूर्ण ऐड-ऑन गायब थे।\n*   **अधिकतम IDV:** हम सुनिश्चित करते हैं कि आपके वाहन का उसके सही बाजार मूल्य के लिए बीमा किया जाए, ताकि चोरी या कुल नुकसान (Total Loss) के मामले में आपको पैसा न गँवाना पड़े।\n*   **दावा सहायता:** दुर्घटना के मामले में, हम आपको मार्गदर्शन करते हैं कि एफआईआर कैसे दर्ज करें, फोटो लें और वाहन को कैशलेस गैरेज में कैसे ले जाएं।\n*   **अपना NCB रखें:** हम आपकी कानूनी रूप से प्रीमियम पर 50% तक बचाने के लिए आपकी नो क्लेम बोनस (NCB) पात्रता की पुष्टि करते हैं।\n\n**महत्वपूर्ण ऐड-ऑन जिनकी हम अनुशंसा करते हैं:**\n*   **शून्य मूल्यह्रास (Zero Depreciation):** 5 वर्ष से कम पुराने वाहनों के लिए अनिवार्य। बीमाकर्ता प्लास्टिक और रबड़ सहित पुर्जों की लागत का 100% भुगतान करता है।\n*   **इंजन सुरक्षा:** जलभराव के कारण इंजन खराब होने को कवर करता है (बैंगलोर, मुंबई, चेन्नई जैसे शहरों के लिए महत्वपूर्ण)।\n*   **रोडसाइड सहायता (RSA):** भारत में कहीं भी फ्लैट टायर, टोइंग या बैटरी जंपस्टार्ट के लिए 24/7 सहायता।\n*   **रिटर्न टू इनवॉइस (RTI):** चोरी के मामले में, पूर्ण ऑन-रोड मूल्य वापस प्राप्त करें, न कि केवल मूल्यांकित मूल्य।\n\n**सभी वाहनों के लिए कवरेज**\n*   निजी कारें और एसयूवी (Cars & SUVs)\n*   दोपहिया वाहन (बाइक और स्कूटर)\n*   वाणिज्यिक वाहन (टैक्सी, ट्रक, बस)",
       "features": [
-        "Zero Depreciation Cover",
-        "24x7 Roadside Assistance",
-        "Engine Protection",
-        "Consumables Cover"
+        "जीरो डेप्रिसिएशन कवर",
+        "24x7 रोडसाइड सहायता",
+        "इंजन प्रोटेक्शन",
+        "कंज्यूमेबल कवर (Consumables)"
       ],
       "faqs": [
         {
-          "question": "What happens if my insurance expires?",
-          "answer": "You can renew it online instantly. If the break-in period is long, a vehicle inspection might be required."
+          "question": "अगर मेरा बीमा समाप्त हो गया है तो क्या होगा?",
+          "answer": "आप इसे तुरंत ऑनलाइन नवीनीकृत कर सकते हैं। यदि ब्रेक-इन अवधि लंबी है, तो वाहन निरीक्षण की आवश्यकता हो सकती है।"
         },
         {
-          "question": "What is Zero Depreciation cover?",
-          "answer": "It ensures you get the full claim amount without deduction for depreciation on parts (plastic, metal, rubber)."
+          "question": "जीरो डेप्रिसिएशन कवर क्या है?",
+          "answer": "यह सुनिश्चित करता है कि आपको पुर्जों (प्लास्टिक, धातु, रबड़) पर मूल्यह्रास की कटौती के बिना पूरी दावा राशि मिले।"
         },
         {
-          "question": "Is third-party insurance mandatory?",
-          "answer": "Yes, as per the Motor Vehicles Act, third-party liability insurance is mandatory in India."
+          "question": "क्या थर्ड पार्टी बीमा अनिवार्य है?",
+          "answer": "हाँ, मोटर वाहन अधिनियम के अनुसार, भारत में तीसरे पक्ष की देयता (Third-party liability) का बीमा अनिवार्य है।"
         }
       ]
     },
     "term-insurance": {
-      "title": "Term Insurance",
-      "description": "Get high life cover at affordable premiums with pure Term Insurance. Protect your family's financial future with critical illness and accidental death benefits.",
-      "content": "**Term Insurance is the most important financial product you will ever buy.** Period. It is a pure risk protection plan that guarantees a large sum of money (e.g., ₹1 Crore, ₹5 Crore) to your family if you pass away untimely. It ensures your family lifestyle, children's education, and home loans are taken care of.\n\n**Top Features of Our Term Plans:**\n*   **Unbeatable Premiums:** We source plans that offer ₹1 Crore cover for as low as ₹500 - ₹800 per month (depending on age).\n*   **Lengthy Coverage:** Lock your premiums today and get coverage up to age 85 or even 99 (Whole Life Term).\n*   **Riders for Extra Protection:**\n    *   *Critical Illness Rider:* Get a payout if diagnosed with Cancer, Heart issues, etc., to cover treatment costs.\n    *   *Accidental Disability:* Monthly income replacement if an accident leaves you disabled.\n\n**Why Buy Term Insurance Through an Advisor?**\nBuying online is easy, but claim settlement is hard. If your family faces a rejection due to a technicality in the proposal form filled years ago, the policy is useless.\n*   **Zero-Error Proposal:** We fill out the proposal form with professional precision to eliminate chances of \"Non-Disclosure\" rejection.\n*   **Medical Coordination:** We arrange your medical tests at your convenience.\n*   **The \"3-Day\" Claim Guarantee:** In the unfortunate event of a claim, we personally handle the paperwork to ensure the money reaches your nominee's bank account within the shortest possible time.\n\n**Tax Benefits**\nPremiums paid for Term Insurance are eligible for tax deductions of up to ₹1.5 Lakhs under Section 80C of the Income Tax Act.",
+      "title": "टर्म बीमा",
+      "description": "शुद्ध टर्म इंश्योरेंस के साथ किफायती प्रीमियम पर उच्च जीवन कवर प्राप्त करें। गंभीर बीमारी और आकस्मिक मृत्यु लाभों के साथ अपने परिवार के वित्तीय भविष्य को सुरक्षित रखें।",
+      "content": "**टर्म इंश्योरेंस सबसे महत्वपूर्ण वित्तीय उत्पाद है जिसे आप कभी खरीदेंगे।** यह एक शुद्ध जोखिम सुरक्षा योजना है जो आपके असामयिक निधन की स्थिति में आपके परिवार को एक बड़ी राशि (उदा. ₹1 करोड़, ₹5 करोड़) की गारंटी देती है। यह सुनिश्चित करता है कि आपके परिवार की जीवनशैली, बच्चों की शिक्षा और होम लोन का ध्यान रखा जाए।\n\n**हमारी टर्म योजनाओं की शीर्ष विशेषताएं:**\n*   **अपराजेय प्रीमियम:** हम ऐसी योजनाओं को स्रोत करते हैं जो ₹1 करोड़ का कवर ₹500 - ₹800 प्रति माह (उम्र के आधार पर) जैसे कम मूल्य पर प्रदान करती हैं।\n*   **लंबी कवरेज:** आज ही अपना प्रीमियम लॉक करें और 85 या 99 वर्ष (होल लाइफ टर्म) की आयु तक कवरेज प्राप्त करें।\n*   **अतिरिक्त सुरक्षा के लिए राइडर्स:**\n    *   *गंभीर बीमारी राइडर:* कैंसर, हृदय संबंधी समस्याओं आदि का निदान होने पर उपचार लागत को कवर करने के लिए भुगतान प्राप्त करें।\n    *   *आकस्मिक विकलांगता:* यदि कोई दुर्घटना आपको विकलांग कर देती है तो मासिक आय प्रतिस्थापन (Income Replacement)।\n\n**एक सलाहकार के माध्यम से टर्म इंश्योरेंस क्यों खरीदें?**\nऑनलाइन खरीदना आसान है, लेकिन दावा निपटान कठिन है। यदि आपके परिवार को वर्षों पहले भरे गए प्रस्ताव फॉर्म में तकनीकी खराबी के कारण अस्वीकृति का सामना करना पड़ता है, तो पॉलिसी बेकार है।\n*   **शून्य-त्रुटि प्रस्ताव:** हम \"गैर-प्रकटीकरण\" (Non-Disclosure) अस्वीकृति की संभावनाओं को खत्म करने के लिए पेशेवर सटीकता के साथ प्रस्ताव फॉर्म भरते हैं।\n*   **मेडिकल समन्वय:** हम आपकी सुविधा के अनुसार आपके मेडिकल परीक्षणों की व्यवस्था करते हैं।\n*   **\"3-दिवसीय\" दावा गारंटी:** दावे की दुर्भाग्यपूर्ण स्थिति में, हम व्यक्तिगत रूप से कागजी कार्रवाई संभालते हैं ताकि यह सुनिश्चित हो सके कि पैसा कम से कम समय में आपके नामांकित व्यक्ति के बैंक खाते में पहुंच जाए।\n\n**कर लाभ**\nटर्म इंश्योरेंस के लिए भुगतान किए गए प्रीमियम आयकर अधिनियम की धारा 80C के तहत ₹1.5 लाख तक की कर कटौती के लिए पात्र हैं।",
       "features": [
-        "High Coverage/Low Premium",
-        "Critical Illness Riders",
-        "Accidental Death Benefit",
-        "Tax Savings"
+        "उच्च कवरेज / कम प्रीमियम",
+        "गंभीर बीमारी राइडर्स",
+        "आकस्मिक मृत्यु लाभ",
+        "कर बचत"
       ],
       "faqs": [
         {
-          "question": "What is the right age to buy Term Insurance?",
-          "answer": "The earlier, the better. Buying in your 20s secures a very low premium for life."
+          "question": "टर्म इंश्योरेंस खरीदने की सही उम्र क्या है?",
+          "answer": "जितनी जल्दी उतना अच्छा। अपने 20 के दशक में खरीदने से जीवन भर के लिए बहुत कम प्रीमियम सुरक्षित हो जाता है।"
         },
         {
-          "question": "Do I get money back if I survive the term?",
-          "answer": "Pure term plans do not offer maturity benefits. However, 'Return of Premium' (ROP) plans refund all premiums paid if you survive."
+          "question": "यदि मैं टर्म से अधिक जीवित रहता हूँ तो क्या मुझे पैसे वापस मिलेंगे?",
+          "answer": "शुद्ध टर्म प्लान मैच्योरिटी लाभ प्रदान नहीं करते हैं। हालाँकि, 'रिटर्न ऑफ प्रीमियम' (ROP) योजनाएं आपके जीवित रहने पर भुगतान किए गए सभी प्रीमियम वापस कर देती हैं।"
         },
         {
-          "question": "Is accidental death covered?",
-          "answer": "Standard term plans cover all deaths (natural/accidental). You can add an Accidental Death Benefit rider for extra payout."
+          "question": "क्या आकस्मिक मृत्यु कवर की गई है?",
+          "answer": "मानक टर्म प्लान सभी मौतों (प्राकृतिक/आकस्मिक) को कवर करते हैं। आप अतिरिक्त भुगतान के लिए आकस्मिक मृत्यु लाभ राइडर जोड़ सकते हैं।"
         }
       ]
     },
     "sme-insurance": {
-      "title": "SME Insurance",
-      "description": "Protect your business with tailored SME Insurance solutions. Coverage for shops, offices, and startups including fire, burglary, liability, and employee benefits.",
-      "content": "Small and Medium Enterprises (SMEs) are the backbone of India's economy. However, they face unique risks ranging from fire accidents to employee liability. Our SME Insurance packages are custom-built for shops, offices, and startups across India.\n\n**What We Cover:**\n*   **Shopkeepers Policy:** Protects stock, furniture, and cash against fire and burglary.\n*   **Office Package Policy:** Comprehensive cover for IT offices, including laptops and servers.\n*   **Workmen Compensation:** Mandatory legal liability cover for employees.\n*   **Public Liability:** Protects against third-party injury claims within your premises.\n\n**Tailored for Indian Startups**\nWe understand the dynamic nature of startups and offer flexible plans that scale with your business.",
+      "title": "एसएमई (SME) बीमा",
+      "description": "अनुकूलित एसएमई बीमा समाधानों के साथ अपने व्यवसाय को सुरक्षित रखें। दुकानों, कार्यालयों और स्टार्टअप्स के लिए आग, चोरी, देयता और कर्मचारी लाभों सहित कवरेज।",
+      "content": "लघु और मध्यम उद्यम (एसएमई) भारत की अर्थव्यवस्था की रीढ़ हैं। हालांकि, उन्हें अग्नि दुर्घटनाओं से लेकर कर्मचारी देयता तक अनूठे जोखिमों का सामना करना पड़ता है। हमारे एसएमई बीमा पैकेज भारत भर में दुकानों, कार्यालयों और स्टार्टअप्स के लिए विशेष रूप से बनाए गए हैं।\n\n**हम क्या कवर करते हैं:**\n*   **दुकानदार पॉलिसी (Shopkeepers Policy):** स्टॉक, फर्नीचर और नकदी को आग और चोरी से बचाता है।\n*   **कार्यालय पैकेज पॉलिसी (Office Package Policy):** लैपटॉप और सर्वर सहित आईटी कार्यालयों के लिए व्यापक कवर।\n*   **वर्कमेन कॉम्पेंसेशन (Workmen Compensation):** कर्मचारियों के लिए अनिवार्य कानूनी देयता कवर।\n*   **सार्वजनिक देयता (Public Liability):** आपके परिसर के भीतर तीसरे पक्ष के चोट के दावों से सुरक्षा।\n\n**भारतीय स्टार्टअप्स के लिए तैयार**\nहम स्टार्टअप्स की गतिशील प्रकृति को समझते हैं और लचीली योजनाएं पेश करते हैं जो आपके व्यवसाय के साथ बढ़ती हैं।",
       "features": [
-        "Property Protection",
-        "Employee Benefits",
-        "Liability Coverage",
-        "Business Interruption"
+        "संपत्ति की सुरक्षा",
+        "कर्मचारी लाभ",
+        "देयता कवरेज",
+        "व्यावसायिक रुकावट (Business Interruption)"
       ],
       "faqs": [
         {
-          "question": "Is property insurance mandatory for shops?",
-          "answer": "It is not legally mandatory, but highly recommended to protect your inventory and livelihood."
+          "question": "क्या दुकानों के लिए संपत्ति बीमा अनिवार्य है?",
+          "answer": "यह कानूनी रूप से अनिवार्य नहीं है, लेकिन आपके इन्वेंट्री और आजीविका की रक्षा के लिए अत्यधिक अनुशंसित है।"
         },
         {
-          "question": "Does it cover employee theft?",
-          "answer": "Yes, Fidelity Guarantee cover protects against losses due to dishonesty of employees."
+          "question": "क्या यह कर्मचारी चोरी को कवर करता है?",
+          "answer": "हाँ, फिडेलिटी गारंटी (Fidelity Guarantee) कवर कर्मचारियों की बेईमानी के कारण होने वाले नुकसान से बचाता है।"
         },
         {
-          "question": "How is the premium calculated?",
-          "answer": "It depends on the value of contents, type of business, and risk factors associated with the location."
+          "question": "प्रीमियम की गणना कैसे की जाती है?",
+          "answer": "यह सामग्री के मूल्य, व्यवसाय के प्रकार और स्थान से जुड़े जोखिम कारकों पर निर्भर करता है।"
         }
       ]
     },
     "travel-insurance": {
-      "title": "Travel Insurance",
-      "description": "Travel stress-free with complete Travel Insurance for domestic and international trips. Covers medical emergencies, flight delays, lost baggage, and trip cancellations.",
-      "content": "Whether you are flying out of Kempegowda International Airport for a holiday or a business trip, unforeseen events can disrupt your plans. Travel Insurance protects you against medical emergencies, flight delays, and lost luggage.\n\n**Essential for International Travel**\nMany countries (like Schengen states) mandate travel insurance for visa approval. Our plans are 100% visa compliant.\n\n**Coverage Highlights:**\n*   **Medical Expenses:** Covers hospitalization costs abroad, which can be astronomically high.\n*   **Trip Cancellation:** Reimburses non-refundable bookings if you cancel due to medical/emergency reasons.\n*   **Baggage Loss/Delay:** Compensation for essential items if your bags are delayed.\n*   **Passport Loss:** Assistance and coverage for obtaining a duplicate passport.",
+      "title": "यात्रा बीमा",
+      "description": "घरेलू और अंतर्राष्ट्रीय यात्राओं के लिए संपूर्ण यात्रा बीमा के साथ तनाव मुक्त यात्रा करें। चिकित्सा आपात स्थिति, उड़ान में देरी, खोया हुआ सामान और यात्रा रद्दीकरण को कवर करता है।",
+      "content": "चाहे आप छुट्टी या व्यावसायिक यात्रा के लिए केम्पेगौड़ा अंतर्राष्ट्रीय हवाई अड्डे से उड़ान भर रहे हों, अप्रत्याशित घटनाएं आपकी योजनाओं को बाधित कर सकती हैं। यात्रा बीमा आपको चिकित्सा आपात स्थिति, उड़ान में देरी और खोए हुए सामान से बचाता है।\n\n**अंतर्राष्ट्रीय यात्रा के लिए आवश्यक**\nकई देश (जैसे शेंगेन देश) वीज़ा अनुमोदन के लिए यात्रा बीमा अनिवार्य करते हैं। हमारी योजनाएं 100% वीज़ा अनुपालन वाली हैं।\n\n**कवरेज की मुख्य विशेषताएं:**\n*   **चिकित्सा व्यय:** विदेश में अस्पताल में भर्ती होने की लागत को कवर करता है, जो बहुत अधिक हो सकती है।\n*   **यात्रा रद्दीकरण:** यदि आप चिकित्सा/आपातकालीन कारणों से रद्दीकरण करते हैं तो गैर-वापसी योग्य बुकिंग की प्रतिपूर्ति करता है।\n*   **सामान का नुकसान/देरी:** यदि आपके बैग में देरी होती है तो आवश्यक वस्तुओं के लिए मुआवजा।\n*   **पासपोर्ट खोना:** डुप्लीकेट पासपोर्ट प्राप्त करने के लिए सहायता और कवरेज।",
       "features": [
-        "Medical Emergencies",
-        "Trip Cancellation",
-        "Lost Baggage",
-        "Flight Delays"
+        "चिकित्सा आपात स्थिति",
+        "यात्रा रद्दीकरण",
+        "सामान का खोना",
+        "उड़ान में देरी"
       ],
       "faqs": [
         {
-          "question": "Is travel insurance mandatory?",
-          "answer": "For many countries (Schengen, UAE, etc.), it is mandatory. For others, it is strongly advised."
+          "question": "क्या यात्रा बीमा अनिवार्य है?",
+          "answer": "कई देशों (शेंगेन, संयुक्त अरब अमीरात, आदि) के लिए यह अनिवार्य है। दूसरों के लिए, इसकी दृढ़ता से सलाह दी जाती है।"
         },
         {
-          "question": "Does it cover pre-existing diseases abroad?",
-          "answer": "Most standard plans exclude pre-existing conditions unless it is a life-threatening emergency."
+          "question": "क्या यह विदेश में पहले से मौजूद बीमारियों को कवर करता है?",
+          "answer": "अधिकांश मानक योजनाएं पहले से मौजूद स्थितियों को बाहर रखती हैं जब तक कि यह जीवन के लिए खतरा पैदा करने वाली आपात स्थिति न हो।"
         },
         {
-          "question": "When should I buy travel insurance?",
-          "answer": "Ideally, as soon as you book your tickets to get coverage for trip cancellation."
+          "question": "मुझे यात्रा बीमा कब खरीदना चाहिए?",
+          "answer": "आदर्श रूप से, जैसे ही आप अपनी टिकट बुक करते हैं ताकि यात्रा रद्दीकरण के लिए कवरेज मिल सके।"
         }
       ]
     },
     "pension-plans": {
-      "title": "Pension Plans",
-      "description": "Plan a stress-free retirement with our Pension Plans. Build a corpus for regular monthly income, inflation protection, and financial independence in your golden years.",
-      "content": "Retirement should be the golden phase of life, not a time of financial stress. Our Pension Plans help you build a substantial corpus during your working years, ensuring a steady stream of income post-retirement.\n\n**Why Start Early?**\nWith the rising cost of living across Indian metro cities, reliance on savings alone is not enough. You need a dedicated pension plan that beats inflation.\n\n**Types of Plans:**\n*   **Deferred Annuity:** Accumulate now, get pension later (e.g., NPS, private pension plans).\n*   **Immediate Annuity:** Pay a lump sum and get pension immediately (suitable for retirees).\n*   **NPS Assistance:** We guide you on National Pension System tier selection and fund management.",
+      "title": "पेंशन योजनाएं",
+      "description": "हमारी पेंशन योजनाओं के साथ तनाव मुक्त सेवानिवृत्ति की योजना बनाएं। अपने सुनहरे वर्षों में नियमित मासिक आय, मुद्रास्फीति सुरक्षा और वित्तीय स्वतंत्रता के लिए एक कोष बनाएं।",
+      "content": "सेवानिवृत्ति जीवन का सुनहरा दौर होना चाहिए, न कि वित्तीय तनाव का समय। हमारी पेंशन योजनाएं आपके कामकाजी वर्षों के दौरान एक पर्याप्त कोष बनाने में मदद करती हैं, जिससे सेवानिवृत्ति के बाद आय का एक स्थिर प्रवाह सुनिश्चित होता है।\n\n**जल्दी शुरू क्यों करें?**\nभारतीय मेट्रो शहरों में रहने की बढ़ती लागत के साथ, अकेले बचत पर निर्भर रहना पर्याप्त नहीं है। आपको एक समर्पित पेंशन योजना की आवश्यकता है जो मुद्रास्फीति को मात दे सके।\n\n**योजनाओं के प्रकार:**\n*   **डेफर्ड एन्युइटी (Deferred Annuity):** अभी संचय करें, बाद में पेंशन प्राप्त करें (उदा. NPS, निजी पेंशन योजनाएं)।\n*   **त्वरित एन्युइटी (Immediate Annuity):** एकमुश्त भुगतान करें और तुरंत पेंशन प्राप्त करें (सेवानिवृत्त लोगों के लिए उपयुक्त)।\n*   **एनपीएस सहायता:** हम आपको राष्ट्रीय पेंशन प्रणाली टीयर चयन और फंड प्रबंधन पर मार्गदर्शन करते हैं।",
       "features": [
-        "Regular Income",
-        "Inflation Protection",
-        "Tax Efficient",
-        "Spouse Coverage"
+        "नियमित आय",
+        "मुद्रास्फीति सुरक्षा",
+        "कर कुशल",
+        "जीवनसाथी कवरेज"
       ],
       "faqs": [
         {
-          "question": "Is pension taxable?",
-          "answer": "The commuted part (lump sum) is largely tax-free. The monthly pension is treated as income and taxed as per your slab."
+          "question": "क्या पेंशन पर टैक्स लगता है?",
+          "answer": "कम्यूटेड हिस्सा (एकमुश्त राशि) काफी हद तक कर-मुक्त है। मासिक पेंशन को आय के रूप में माना जाता है और आपके स्लैब के अनुसार कर लगाया जाता है।"
         },
         {
-          "question": "Can I withdraw money before retirement?",
-          "answer": "Most plans have a lock-in period. However, partial withdrawals are allowed for specific reasons like children's marriage or critical illness."
+          "question": "क्या मैं सेवानिवृत्ति से पहले पैसा निकाल सकता हूँ?",
+          "answer": "अधिकांश योजनाओं में लॉक-इन अवधि होती है। हालांकि, बच्चों की शादी या गंभीर बीमारी जैसे विशिष्ट कारणों से आंशिक निकासी की अनुमति है।"
         },
         {
-          "question": "What happens to the pension after death?",
-          "answer": "In joint-life annuity plans, the spouse continues to receive the pension."
+          "question": "मृत्यु के बाद पेंशन का क्या होता है?",
+          "answer": "जॉइंट-लाइफ एन्युइटी योजनाओं में, जीवनसाथी को पेंशन मिलना जारी रहता है।"
         }
       ]
     },
     "ulip-plans": {
-      "title": "ULIP Plans",
-      "description": "Combine insurance and investment with ULIPs. Create long-term wealth with market-linked returns while securing life cover and enjoying tax benefits.",
-      "content": "Unit Linked Insurance Plans (ULIPs) offer the dual benefit of investment and life cover. They are ideal for long-term wealth creation, allowing you to invest in potential high-growth equity funds or safe debt funds.\n\n**Why Choose ULIPs?**\n*   **Wealth Creation:** Participate in the stock market with professional fund management.\n*   **Tax Efficiency:** Maturity proceeds are tax-free under Section 10(10D) (subject to conditions).\n*   **Flexibility:** Switch between equity and debt funds based on market performance without tax implications.\n*   **Lock-in Period:** A 5-year lock-in encourages disciplined saving.",
+      "title": "यूलिप (ULIP) योजनाएं",
+      "description": "यूलिप के साथ बीमा और निवेश का संयोजन करें। जीवन कवर सुरक्षित करते और कर लाभों का आनंद लेते हुए बाजार से जुड़े रिटर्न के साथ दीर्घकालिक धन बनाएं।",
+      "content": "यूनिट लिंक्ड इंश्योरेंस प्लान (ULIPs) निवेश और जीवन कवर का दोहरा लाभ प्रदान करते हैं। वे दीर्घकालिक धन सृजन के लिए आदर्श हैं, जिससे आप उच्च-विकास वाले इक्विटी फंड या सुरक्षित ऋण (Debt) फंडों में निवेश कर सकते हैं।\n\n**यूलिप क्यों चुनें?**\n*   **धन सृजन:** पेशेवर फंड प्रबंधन के साथ शेयर बाजार में भाग लें।\n*   **कर दक्षता:** परिपक्वता आय धारा 10(10D) के तहत कर-मुक्त है (शर्तों के अधीन)।\n*   **लचीलापन:** कर निहितार्थों के बिना बाजार के प्रदर्शन के आधार पर इक्विटी और ऋण फंडों के बीच स्विच करें।\n*   **लॉक-इन अवधि:** 5 साल की लॉक-इन अवधि अनुशासित बचत को प्रोत्साहित करती है।",
       "features": [
-        "Market Linked Returns",
-        "Life Cover",
-        "Tax Free Withdrawal",
-        "Fund Switching"
+        "बाजार से जुड़े रिटर्न",
+        "जीवन कवर",
+        "कर मुक्त निकासी",
+        "फंड स्विचिंग"
       ],
       "faqs": [
         {
-          "question": "Are ULIP charges high?",
-          "answer": "Modern ULIPs have very low charges, comparable to mutual funds. Some online plans even have zero allocation charges."
+          "question": "क्या यूलिप शुल्क अधिक हैं?",
+          "answer": "आधुनिक यूलिप में बहुत कम शुल्क होते हैं, जो म्यूचुअल फंड के बराबर होते हैं। कुछ ऑनलाइन योजनाओं में शून्य आवंटन शुल्क भी होता है।"
         },
         {
-          "question": "Is ULIP money safe?",
-          "answer": "It depends on the fund choice. Debt funds are safer, while equity funds carry market risk but offer higher potential returns."
+          "question": "क्या यूलिप में निवेश किया गया पैसा सुरक्षित है?",
+          "answer": "यह फंड की पसंद पर निर्भर करता है। ऋण फंड सुरक्षित होते हैं, जबकि इक्विटी फंड में बाजार जोखिम होता है लेकिन उच्च रिटर्न की संभावना होती है।"
         },
         {
-          "question": "Can I surrender my ULIP?",
-          "answer": "Yes, after the 5-year lock-in period, you can surrender the policy without surrender charges."
+          "question": "क्या मैं अपना यूलिप सरेंडर कर सकता हूँ?",
+          "answer": "हाँ, 5 साल की लॉक-इन अवधि के बाद, आप बिना सरेंडर शुल्क के पॉलिसी सरेंडर कर सकते हैं।"
         }
       ]
     },
     "wedding-insurance": {
-      "title": "Wedding Insurance",
-      "description": "Insure your big day against cancellations and mishaps. Wedding Insurance covers venue damage, non-appearance, and public liability for a worry-free celebration.",
-      "content": "A wedding is a once-in-a-lifetime event, and thousands of crores are spent on weddings in India annually. But unforeseen events like natural calamities, fire, or sudden illness can cause cancellations, leading to huge losses.\n\n**What Coverage Includes:**\n*   **Cancellation due to Disaster:** Fire, flood, or earthquake at the venue.\n*   **Non-appearance:** If the bride, groom, or main family members cannot attend due to hospitalization/death.\n*   **Public Liability:** Accidents or injury to guests during the function.\n*   **Theft:** Loss of jewelry or cash from the venue/safe.",
+      "title": "विवाह बीमा",
+      "description": "रद्दीकरण और दुर्घटनाओं के खिलाफ अपने बड़े दिन का बीमा करें। विवाह बीमा चिंता मुक्त उत्सव के लिए स्थान क्षति, अनुपस्थिति और सार्वजनिक देयता को कवर करता है।",
+      "content": "शादी जीवन में एक बार होने वाली घटना है, और भारत में सालाना शादियों पर हजारों करोड़ खर्च किए जाते हैं। लेकिन प्राकृतिक आपदाओं, आग या अचानक बीमारी जैसी अनपेक्षित घटनाएं रद्दीकरण का कारण बन सकती हैं, जिससे भारी नुकसान होता है।\n\n**कवरेज में क्या शामिल है:**\n*   **आपदा के कारण रद्दीकरण:** घटना स्थल पर आग, बाढ़ या भूकंप।\n*   **गैर-उपस्थिति (Non-appearance):** यदि दूल्हा, दुल्हन या मुख्य परिवार के सदस्य अस्पताल में भर्ती होने/मृत्यु के कारण उपस्थित नहीं हो सकते हैं।\n*   **सार्वजनिक देयता (Public Liability):** समारोह के दौरान मेहमानों को चोट लगना या दुर्घटना।\n*   **चोरी:** घटना स्थल/तिजोरी से गहनों या नकदी का नुकसान।",
       "features": [
-        "Event Cancellation",
-        "Public Liability",
-        "Property Damage",
-        "Personal Accident"
+        "इवेंट रद्दीकरण",
+        "सार्वजनिक देयता",
+        "संपत्ति की क्षति",
+        "व्यक्तिगत दुर्घटना"
       ],
       "faqs": [
         {
-          "question": "Does it cover cancellation due to breakup?",
-          "answer": "No, 'change of heart' is not covered. Only external uncontrollable events are covered."
+          "question": "क्या यह ब्रेकअप के कारण रद्दीकरण को कवर करता है?",
+          "answer": "नहीं, 'दिल बदलना' (Change of heart) कवर नहीं किया गया है। केवल बाहरी बेकाबू घटनाएं ही कवर की जाती हैं।"
         },
         {
-          "question": "When should I take the policy?",
-          "answer": "Ideally, at least 15 days before the event date."
+          "question": "मुझे पॉलिसी कब लेनी चाहिए?",
+          "answer": "आदर्श रूप से, घटना की तारीख से कम से कम 15 दिन पहले।"
         },
         {
-          "question": "Is food poisoning covered?",
-          "answer": "Yes, public liability can cover claims arising from food poisoning of guests."
+          "question": "क्या फूड पॉइजनिंग कवर की गई है?",
+          "answer": "हाँ, सार्वजनिक देयता मेहमानों के फूड पॉइजनिंग से उत्पन्न दावों को कवर कर सकती है।"
         }
       ]
     },
     "cyber-insurance": {
-      "title": "Cyber Insurance",
-      "description": "Safeguard against digital threats with Cyber Insurance. Protect your finances and identity from phishing, ransomware, cyber extortion, and online fraud.",
-      "content": "In the digital era, cyber threats are a daily reality. From phishing attacks to ransomware, individuals and businesses across India are at constant risk. Cyber Insurance provides a safety net against financial losses caused by cybercrimes.\n\n**Coverage for Individuals:**\n*   **Theft of Funds:** Reimbursement for money stolen via phishing or bank fraud.\n*   **Identity Theft:** Legal costs and expenses to restore your identity.\n*   **Cyber Bullying:** Consultation costs for psychological trauma.\n*   **Device Value:** Data restoration costs if your device is infected by malware.",
+      "title": "साइबर बीमा",
+      "description": "साइबर खतरों के खिलाफ सुरक्षा। फ़िशिंग, रैंसमवेयर, साइबर एक्सटॉर्शन और ऑनलाइन धोखाधड़ी से अपने वित्त और पहचान को सुरक्षित रखें।",
+      "content": "डिजिटल युग में, साइबर खतरे एक दैनिक वास्तविकता हैं। फ़िशिंग हमलों से लेकर रैंसमवेयर तक, पूरे भारत में व्यक्ति और व्यवसाय निरंतर जोखिम में हैं। साइबर बीमा साइबर अपराधों के कारण होने वाले वित्तीय नुकसान के खिलाफ एक सुरक्षा जाल प्रदान करता है।\n\n**व्यक्तियों के लिए कवरेज:**\n*   **धन की चोरी:** फ़िशिंग या बैंक धोखाधड़ी के माध्यम से चोरी किए गए धन की प्रतिपूर्ति।\n*   **पहचान की चोरी:** आपकी पहचान बहाल करने के लिए कानूनी लागत और खर्च।\n*   **साइबर बुलिंग:** मनोवैज्ञानिक आघात के लिए परामर्श लागत।\n*   **डिवाइस मूल्य:** यदि आपका डिवाइस मैलवेयर से संक्रमित है तो डेटा बहाली लागत।",
       "features": [
-        "Data Breach Cover",
-        "Cyber Extortion",
-        "Identity Theft",
-        "Legal Costs"
+        "डेटा ब्रीच कवर",
+        "साइबर जबरन वसूली (Cyber Extortion)",
+        "पहचान की चोरी",
+        "कानूनी लागत"
       ],
       "faqs": [
         {
-          "question": "Does it cover UPI frauds?",
-          "answer": "Yes, most comprehensive plans cover financial losses due to UPI or credit card fraud."
+          "question": "क्या यह यूपीआई धोखाधड़ी को कवर करता है?",
+          "answer": "हाँ, अधिकांश व्यापक योजनाएं यूपीआई या क्रेडिट कार्ड धोखाधड़ी के कारण होने वाले वित्तीय नुकसान को कवर करती हैं।"
         },
         {
-          "question": "Do I need to file an FIR?",
-          "answer": "Yes, a police complaint/FIR is mandatory for claiming losses due to cybercrime."
+          "question": "क्या मुझे एफआईआर दर्ज करने की आवश्यकता है?",
+          "answer": "हाँ, साइबर अपराध के कारण हुए नुकसान का दावा करने के लिए पुलिस शिकायत/एफआईआर अनिवार्य है।"
         },
         {
-          "question": "Does it cover business data breach?",
-          "answer": "Individual cyber insurance is different from corporate cyber liability insurance. We offer both types."
+          "question": "क्या यह व्यावसायिक डेटा ब्रीच को कवर करता है?",
+          "answer": "व्यक्तिगत साइबर बीमा कॉर्पोरेट साइबर देयता बीमा से अलग है। हम दोनों प्रकार की पेशकश करते हैं।"
         }
       ]
     }
   },
-  "about_page_title": "About Insurance Support | 25+ Years of Trust",
-  "about_meta_description": "Learn about Insurance Support, our legacy of 25+ years, and our mission to secure families. Trusted by 15,000+ clients with a 98% claim settlement ratio.",
-  "about_hero_title": "About Insurance Support",
-  "about_hero_subtitle": "Decades of trust, expertise, and dedication to securing your future.",
-  "established_badge": "Established 1998",
-  "about_legacy_title": "A Legacy of Trust and Excellence",
-  "about_legacy_text_1": "Insurance Support was founded with a singular mission: to demystify insurance and provide honest, expert advice to families and businesses across Bangalore and beyond.",
-  "about_legacy_text_2": "Led by industry veterans with over 25 years of experience, we have grown from a small consultancy to a trusted partner for over 15,000 clients. Our journey is defined not just by the policies we sell, but by the claims we settle and the promises we keep.",
-  "happy_clients": "Happy Clients",
-  "industry_experience": "Industry Experience",
-  "years_stat": "25+ Years",
-  "our_mission_title": "Our Mission",
-  "our_mission_text": "To empower every individual with the knowledge and protection they need to face life's uncertainties with confidence. We strive to be more than just advisors; we are your lifelong partners in financial security.",
-  "we_serve": "We Serve",
-  "footer_description": "Providing strategic insurance advisory and risk management solutions with over 25 years of industry excellence.",
+  "about_page_title": "बीमा सहायता के बारे में | 25+ वर्षों का विश्वास",
+  "about_meta_description": "बीमा सहायता, हमारी 25+ वर्षों की विरासत, और परिवारों को सुरक्षित करने के हमारे मिशन के बारे में जानें। 15,000+ ग्राहकों द्वारा भरोसा किया गया।",
+  "about_hero_title": "बीमा सहायता के बारे में",
+  "about_hero_subtitle": "दशकों का विश्वास, विशेषज्ञता और आपके भविष्य को सुरक्षित करने के लिए समर्पण।",
+  "established_badge": "स्थापना 1998",
+  "about_legacy_title": "विश्वास और उत्कृष्टता की एक विरासत",
+  "about_legacy_text_1": "बीमा सहायता की स्थापना एक ही मिशन के साथ की गई थी: बीमा को सरल बनाना और बैंगलोर और उसके बाहर परिवारों और व्यवसायों को ईमानदार, विशेषज्ञ सलाह प्रदान करना।",
+  "about_legacy_text_2": "25 से अधिक वर्षों के अनुभव वाले उद्योग के दिग्गजों के नेतृत्व में, हम एक छोटे परामर्श से 15,000 से अधिक ग्राहकों के लिए एक विश्वसनीय भागीदार के रूप में विकसित हुए हैं। हमारी यात्रा केवल हमारे द्वारा बेची जाने वाली पॉलिसियों से नहीं, बल्कि हमारे द्वारा तय किए गए दावों और हमारे द्वारा किए गए वादों से परिभाषित होती है।",
+  "happy_clients": "खुश ग्राहक",
+  "industry_experience": "उद्योग का अनुभव",
+  "years_stat": "25+ वर्ष",
+  "our_mission_title": "हमारा मिशन",
+  "our_mission_text": "प्रत्येक व्यक्ति को उस ज्ञान और सुरक्षा के साथ सशक्त बनाना जिसकी उन्हें आत्मविश्वास के साथ जीवन की अनिश्चितताओं का सामना करने के लिए आवश्यकता है। हम केवल सलाहकार से अधिक होने का प्रयास करते हैं; हम वित्तीय सुरक्षा में आपके आजीवन भागीदार हैं।",
+  "we_serve": "हम सेवा करते हैं",
+  "footer_description": "25 वर्षों से अधिक की उद्योग उत्कृष्टता के साथ रणनीतिक बीमा सलाहकार और जोखिम प्रबंधन समाधान प्रदान करना।",
   "testimonials_list": [
     {
       "name": "Prashanth S",
@@ -840,24 +840,24 @@
   "lost_completely": "पूरी तरह से खो गई",
   "policy_number_optional": "पॉलिसी नंबर (वैकल्पिक)",
   "enter_policy_number": "यदि ज्ञात हो तो पॉलिसी नंबर दर्ज करें",
-  "select_insurer": "Select Insurer",
-  "select_duration": "Select Duration",
-  "select_document_status": "Select Document Status",
-  "recovery_chance": "Recovery Chance: {{score}}%",
-  "recovery_excellent": "Excellent! Your policy is highly likely to be recoverable with full benefits.",
-  "recovery_possible": "Your case requires expert handling, but recovery is possible.",
-  "why_use_service": "Why use our service?",
-  "trace_policy_numbers": "We trace lost policy numbers using archives.",
-  "handle_paperwork": "We handle \"Indemnity Bond\" paperwork for lost documents.",
-  "no_upfront_fees": "No upfront fees for checking status.",
-  "start_recovery_free": "Start Recovery Process Free",
-  "recovery_disclaimer": "*This is an estimate. Official confirmation requires insurer verification.",
-  "lost_policy_recovery_tool": "Lost Policy Recovery Tool",
-  "check_eligibility_revival": "Check your eligibility for policy revival",
-  "which_insurance_company": "Which Insurance Company?",
-  "years_lapse_question": "Approximately how many years ago did it lapse?",
-  "original_bond_question": "Do you have the Original Policy Bond?",
-  "check_probability": "Check Probability",
-  "next": "Next",
-  "step_of": "Step {{current}} of {{total}}"
+  "select_insurer": "बीमाकर्ता चुनें",
+  "select_duration": "अवधि चुनें",
+  "select_document_status": "दस्तावेज़ की स्थिति चुनें",
+  "recovery_chance": "पुनर्प्राप्ति की संभावना: {{score}}%",
+  "recovery_excellent": "उत्कृष्ट! आपकी पॉलिसी पूरी तरह से पुनर्प्राप्त होने की अत्यधिक संभावना है।",
+  "recovery_possible": "आपके मामले में विशेषज्ञ हैंडलिंग की आवश्यकता है, लेकिन पुनर्प्राप्ति संभव है।",
+  "why_use_service": "हमारी सेवा का उपयोग क्यों करें?",
+  "trace_policy_numbers": "हम अभिलेखागार का उपयोग करके खोए हुए पॉलिसी नंबरों का पता लगाते हैं।",
+  "handle_paperwork": "हम खोए हुए दस्तावेजों के लिए 'क्षतिपूर्ति बांड' कागजी कार्रवाई संभालते हैं।",
+  "no_upfront_fees": "स्थिति की जांच के लिए कोई अग्रिम शुल्क नहीं।",
+  "start_recovery_free": "मुफ्त में पुनर्प्राप्ति प्रक्रिया शुरू करें",
+  "recovery_disclaimer": "*यह एक अनुमान है। आधिकारिक पुष्टि के लिए बीमाकर्ता सत्यापन की आवश्यकता होती है।",
+  "lost_policy_recovery_tool": "खोई हुई पॉलिसी पुनर्प्राप्ति उपकरण",
+  "check_eligibility_revival": "पॉलिसी बहाली के लिए अपनी पात्रता की जांच करें",
+  "which_insurance_company": "कौन सी बीमा कंपनी?",
+  "years_lapse_question": "लगभग कितने साल पहले यह लैप्स हुई थी?",
+  "original_bond_question": "क्या आपके पास मूल पॉलिसी बॉन्ड है?",
+  "check_probability": "संभावना की जांच करें",
+  "next": "अगला",
+  "step_of": "चरण {{current}} का {{total}}"
 }
