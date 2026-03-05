@@ -155,10 +155,10 @@ export default function LocationPage({ params }: Props) {
                     )}
 
                     <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 mb-8 rounded-r-lg">
-                        <h3 className="text-lg font-bold text-amber-900 dark:text-amber-100 flex items-center gap-2 mb-2">
+                        <h2 className="text-lg font-bold text-amber-900 dark:text-amber-100 flex items-center gap-2 mb-2">
                             <MapPin className="h-5 w-5" />
                             Looking for the LIC Office in {city.name}?
-                        </h3>
+                        </h2>
                         <p className="text-amber-800 dark:text-amber-200">
                             <strong>Skip the long queues!</strong> You don&apos;t need to visit the branch. Our authorized advisors provide full support for policy surrender, claims, and renewals right at your home in {city.name}.
                         </p>
@@ -196,10 +196,10 @@ export default function LocationPage({ params }: Props) {
 
                     {city.areas.length > 0 && (
                         <div className="bg-slate-100 p-6 rounded-xl border border-slate-200 mb-10">
-                            <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
+                            <h2 className="text-xl font-bold mb-2 flex items-center gap-2">
                                 <MapPin className="h-5 w-5" />
                                 Areas We Serve in {city.name}
-                            </h3>
+                            </h2>
                             <p className="text-muted-foreground">
                                 We cover {city.areas.join(', ')}, and all major areas in {city.name}.
                             </p>
