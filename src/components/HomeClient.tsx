@@ -39,7 +39,6 @@ const LeadMagnetSection = dynamic(() => import('@/components/sections/LeadMagnet
 });
 
 // Lazy load modals/non-critical components
-const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
 const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false });
 const VisitorCounter = dynamic(() => import('@/components/VisitorCounter'), { ssr: false });
 const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
@@ -94,6 +93,13 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescriptio
     }, []);
 
     const handleGetQuote = useCallback((data?: any) => {
+        // If it's a global trigger available
+        if (typeof window !== 'undefined' && (window as any).triggerGlobalForm) {
+            (window as any).triggerGlobalForm(data);
+            return;
+        }
+
+        // Fallback for local state if needed (though GlobalForms should handle it)
         if (data && data.insuranceType) {
             setSelectedInsuranceType(data.insuranceType);
             if (data.formData) {
@@ -105,26 +111,6 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescriptio
         setIsModalOpen(true);
     }, []);
 
-    useEffect(() => {
-        // Global handler for Lead Magnet Result
-        // Global handler for Lead Magnet Result
-        (window as any).triggerLeadMagnetHandoff = (data: { score: number; riskLevel: string }) => {
-            handleGetQuote({
-                insuranceType: 'general_inquiry',
-                formData: {
-                    fullName: '',
-                    mobileNumber: '',
-                    source: 'lead_magnet_quiz',
-                    quiz_score: data?.score,
-                    quiz_risk: data?.riskLevel
-                }
-            });
-        };
-
-        return () => {
-            delete (window as any).triggerLeadMagnetHandoff;
-        };
-    }, [handleGetQuote]);
 
     return (
         <div className="flex flex-col min-h-screen">
@@ -187,14 +173,6 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescriptio
                 </div>
             </React.Suspense>
 
-            <React.Suspense fallback={null}>
-                <ServiceModal
-                    isOpen={isModalOpen}
-                    onClose={handleCloseModal}
-                    insuranceType={selectedInsuranceType}
-                    initialData={initialFormData}
-                />
-            </React.Suspense>
 
             <React.Suspense fallback={null}>
                 <VisitorCounter />

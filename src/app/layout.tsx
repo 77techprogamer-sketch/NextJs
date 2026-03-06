@@ -132,6 +132,7 @@ const GTM_ID = 'GTM-P8DZ6MRQ';
 
 const BacklinkSubmitter = dynamic(() => import('@/components/BacklinkSubmitter'), { ssr: false });
 const FloatingToolDock = dynamic(() => import('@/components/FloatingToolDock'), { ssr: false });
+const GlobalForms = dynamic(() => import('@/components/GlobalForms'), { ssr: false });
 
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -203,6 +204,7 @@ export default function RootLayout({
                             <ActivityTicker />
                             <Toaster />
                             <FloatingToolDock />
+                            <GlobalForms />
                         </div>
                     </I18nProvider>
                 </ThemeProvider>
