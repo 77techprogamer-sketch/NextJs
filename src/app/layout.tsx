@@ -109,6 +109,18 @@ export const metadata: Metadata = {
         images: ['/og-image.png'],
         creator: '@insurancesupport',
     },
+    alternates: {
+        canonical: 'https://insurancesupport.online',
+        languages: {
+            'en-IN': 'https://insurancesupport.online',
+            'hi-IN': 'https://insurancesupport.online?lang=hi',
+            'kn-IN': 'https://insurancesupport.online?lang=kn',
+            'ta-IN': 'https://insurancesupport.online?lang=ta',
+            'te-IN': 'https://insurancesupport.online?lang=te',
+            'mr-IN': 'https://insurancesupport.online?lang=mr',
+            'gu-IN': 'https://insurancesupport.online?lang=gu',
+        },
+    },
     other: {
         'content-language': 'en',
         'language': 'English',

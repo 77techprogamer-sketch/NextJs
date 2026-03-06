@@ -222,7 +222,7 @@ export default function ServiceLocationPage({ params }: Props) {
                     <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 mb-10">
                         <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                             <Shield className="h-6 w-6 text-primary" />
-                            Why Choose Insurance Support in {city.name}?
+                            Why Choose Insurance Support for {serviceLabel} in {city.name}?
                         </h2>
                         {city.description && (
                             <p className="text-slate-700 mb-6 italic border-l-4 border-primary/20 pl-4 py-1">
@@ -233,30 +233,30 @@ export default function ServiceLocationPage({ params }: Props) {
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-600" />
-                                    {city.name} Specialists
+                                    {city.name} Local Experts
                                 </h3>
-                                <p className="text-muted-foreground text-sm">We&apos;ve helped thousands of residents in {city.name} with {serviceLabel} since 2001.</p>
+                                <p className="text-muted-foreground text-sm">Serving all {city.areas.length} major areas in {city.name} with dedicated {serviceLabel} support since 2001.</p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-600" />
-                                    Claim Settlement
+                                    {city.state} Claim Support
                                 </h3>
-                                <p className="text-muted-foreground text-sm">Dedicated support to ensure your {serviceLabel} claims are processed smoothly in {city.state}.</p>
+                                <p className="text-muted-foreground text-sm">We handle complex {serviceLabel} claims across {city.state}, ensuring a 98% settlement ratio for our clients.</p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-600" />
-                                    Best Quotes
+                                    Customized {serviceLabel}
                                 </h3>
-                                <p className="text-muted-foreground text-sm">Compare plans from top insurers to get the best value for {serviceLabel}.</p>
+                                <p className="text-muted-foreground text-sm">Plans tailored for residents of {city.areas.slice(0, 3).join(', ')} and surrounding regions.</p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2">
                                     <CheckCircle2 className="h-5 w-5 text-green-600" />
                                     Doorstep Service
                                 </h3>
-                                <p className="text-muted-foreground text-sm">Our advisors visit {city.areas.slice(0, 3).join(', ')} and other areas for your convenience.</p>
+                                <p className="text-muted-foreground text-sm">Our authorized advisors visit your home anywhere in {city.name} for hassle-free {serviceLabel} processing.</p>
                             </div>
                         </div>
                     </div>

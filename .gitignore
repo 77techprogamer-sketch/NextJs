@@ -32,3 +32,6 @@ ts-debug.log*
 # next-sitemap
 public/sitemap*.xml
 public/robots.txt
+
+# Google Cloud Key
+google-service-account.json

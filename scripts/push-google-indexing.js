@@ -39,13 +39,11 @@ function extractKeysFromTS(filePath, regex) {
 
 async function getJwtClient() {
     const keyFile = require(KEY_FILE);
-    const jwtClient = new google.auth.JWT(
-        keyFile.client_email,
-        null,
-        keyFile.private_key,
-        ['https://www.googleapis.com/auth/indexing'],
-        null
-    );
+    const jwtClient = new google.auth.JWT({
+        email: keyFile.client_email,
+        key: keyFile.private_key,
+        scopes: ['https://www.googleapis.com/auth/indexing']
+    });
 
     await jwtClient.authorize();
     return jwtClient;
@@ -70,7 +68,19 @@ async function run() {
         });
     });
 
-    console.log(`📦 Found ${urlsToPush.length} URLs to push.`);
+    console.log(`📦 Found ${urlsToPush.length} total URLs.`);
+
+    // Shuffle the array so we get a different random batch each time
+    for (let i = urlsToPush.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [urlsToPush[i], urlsToPush[j]] = [urlsToPush[j], urlsToPush[i]];
+    }
+
+    // Google limits new projects to 200 requests per day.
+    const QUOTA_LIMIT = 200;
+    const batchToPush = urlsToPush.slice(0, QUOTA_LIMIT);
+
+    console.log(`⚠️ Limiting this run to ${batchToPush.length} URLs to respect the daily Google API Quota.`);
 
     try {
         const client = await getJwtClient();
@@ -82,8 +92,8 @@ async function run() {
         let failCount = 0;
 
         console.log(`📤 Pushing URLs to Google...`);
-        for (let i = 0; i < urlsToPush.length; i++) {
-            const url = urlsToPush[i];
+        for (let i = 0; i < batchToPush.length; i++) {
+            const url = batchToPush[i];
             try {
                 const response = await client.request({
                     url: 'https://indexing.googleapis.com/v3/urlNotifications:publish',

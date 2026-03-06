@@ -153,7 +153,6 @@ async function run() {
 async function pingSearchEngines() {
     console.log('📡 Pinging search engines with the sitemap...');
     const pings = [
-        { name: 'Google', url: `https://www.google.com/ping?sitemap=${SITEMAP_URL}` },
         { name: 'Bing', url: `https://www.bing.com/ping?sitemap=${SITEMAP_URL}` }
     ];
 
