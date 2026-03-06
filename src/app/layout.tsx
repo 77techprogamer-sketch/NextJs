@@ -17,6 +17,7 @@ import { GlobalJsonLd } from '@/components/ServerJsonLd'
 import DynamicKeywordLinks from '@/components/DynamicKeywordLinks'
 const ShareNudge = dynamic(() => import('@/components/ShareNudge'), { ssr: false });
 const ActivityTicker = dynamic(() => import('@/components/ActivityTicker'), { ssr: false });
+import WhatsAppWidget from "@/components/WhatsAppWidget";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -182,7 +183,7 @@ export default function RootLayout({
                     disableTransitionOnChange
                 >
                     <I18nProvider>
-                        <div className="flex flex-col min-h-screen overflow-x-hidden">
+                        <div className="relative flex flex-col min-h-screen">
                             <BacklinkSubmitter />
                             <GlobalJsonLd />
                             <Analytics />
@@ -205,6 +206,7 @@ export default function RootLayout({
                             <Toaster />
                             <FloatingToolDock />
                             <GlobalForms />
+                            <WhatsAppWidget />
                         </div>
                     </I18nProvider>
                 </ThemeProvider>

@@ -9,6 +9,9 @@ import { Star, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import ShortLeadForm from '@/components/ShortLeadForm';
+import { MessageCircle } from 'lucide-react';
 
 interface HeroSectionProps {
     city: string | null;
@@ -75,47 +78,119 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                         </ScrollReveal>
                     </div>
 
-                    <div className="flex flex-col items-center justify-center gap-6 w-full max-w-md mx-auto pt-8">
-                        <div className="space-y-4 w-full flex flex-col items-center">
-                            <ScrollReveal animation="elastic" delay={0.8}>
-                                <MagneticButton className="w-full sm:w-auto">
-                                    <Button
-                                        size="lg"
-                                        className="bg-accent hover:bg-accent/90 text-primary text-xl w-full font-extrabold px-10 py-8 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all transform hover:scale-105 active:scale-95"
-                                        onClick={handleVote}
+                    <div className="w-full flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 pt-8">
+                        {/* Left Side: Copy */}
+                        <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-8 lg:max-w-xl">
+                            <div className="space-y-4">
+                                <ScrollReveal animation="fade-up" delay={0.6} width="100%" enableAnimation={false}>
+                                    <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed" suppressHydrationWarning>
+                                        {dynamicOneLiner || t("hero_fallback_description")}
+                                    </p>
+                                </ScrollReveal>
+                            </div>
+
+                            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
+                                <ScrollReveal animation="elastic" delay={0.8}>
+                                    <MagneticButton>
+                                        <Button
+                                            size="lg"
+                                            className="bg-accent hover:bg-accent/90 text-primary text-xl font-extrabold px-10 py-8 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all transform hover:scale-105 active:scale-95"
+                                            onClick={handleVote}
+                                        >
+                                            <span suppressHydrationWarning className="flex items-center gap-3">
+                                                {t("get_a_free_quote")}
+                                                <motion.div
+                                                    animate={{ x: [0, 5, 0] }}
+                                                    transition={{ repeat: Infinity, duration: 1.5 }}
+                                                >
+                                                    →
+                                                </motion.div>
+                                            </span>
+                                        </Button>
+                                    </MagneticButton>
+                                </ScrollReveal>
+
+                                <ScrollReveal animation="elastic" delay={0.9}>
+                                    <a
+                                        href="https://wa.me/918197711411?text=Hi%20Insurance%20Support,%20I%20need%20expert%20help%20with%20my%20policy."
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex"
                                     >
-                                        <span suppressHydrationWarning className="flex items-center gap-3">
-                                            {t("get_a_free_quote")}
-                                            <motion.div
-                                                animate={{ x: [0, 5, 0] }}
-                                                transition={{ repeat: Infinity, duration: 1.5 }}
-                                            >
-                                                →
-                                            </motion.div>
-                                        </span>
-                                    </Button>
-                                </MagneticButton>
-                            </ScrollReveal>
+                                        <Button
+                                            variant="outline"
+                                            size="lg"
+                                            className="bg-[#25D366]/10 border-[#25D366]/50 text-[#25D366] hover:bg-[#25D366] hover:text-white text-lg font-bold px-8 py-8 rounded-full backdrop-blur-sm transition-all transform hover:scale-105"
+                                        >
+                                            <MessageCircle className="w-6 h-6 mr-2 fill-current" />
+                                            Chat on WhatsApp
+                                        </Button>
+                                    </a>
+                                </ScrollReveal>
+                            </div>
 
                             <ScrollReveal animation="fade-in" delay={1.1}>
-                                <div className="flex items-center gap-6 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
-                                    <div className="flex items-center gap-2">
-                                        <div className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_12px_rgba(34,197,94,0.8)]" />
-                                        <span className="text-accent">{t("verified_advisor_active")}</span>
+                                <div className="flex flex-col sm:flex-row items-center gap-6">
+                                    <div className="flex items-center gap-4 bg-white/5 border border-white/10 p-2 pr-4 rounded-full backdrop-blur-sm hover:border-accent/40 transition-colors group">
+                                        <div className="relative w-10 h-10 rounded-full border-2 border-accent overflow-hidden shrink-0">
+                                            <Image
+                                                src="/assets/images/trust/advisor-hari.png"
+                                                alt="Hari Kotian"
+                                                width={40}
+                                                height={40}
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                        <div className="text-left">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                                <p className="text-[12px] font-bold text-white group-hover:text-accent transition-colors">{t("trust_signals.advisor_name")}</p>
+                                            </div>
+                                            <p className="text-[10px] text-gray-400 font-medium">{t("trust_signals.advisor_subtitle")}</p>
+                                        </div>
                                     </div>
-                                    <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                                    <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg backdrop-blur-sm border border-white/20">
-                                        <ShieldCheck className="w-4 h-4 text-accent" />
-                                        <span className="text-white">{t("approx_30_seconds")}</span>
+
+                                    <div className="hidden sm:flex items-center gap-4 text-[12px] font-bold uppercase tracking-[0.2em] text-white">
+                                        <div className="flex items-center gap-2 bg-white/10 px-3 py-1 rounded-lg backdrop-blur-sm border border-white/20">
+                                            <ShieldCheck className="w-4 h-4 text-accent" />
+                                            <span className="text-white">{t("approx_30_seconds")}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </ScrollReveal>
                         </div>
 
-                        <ScrollReveal animation="fade-in" delay={1.0}>
-                            <SocialShareButtons url={currentUrl} title={shareTitle} />
-                        </ScrollReveal>
+                        {/* Right Side: Quick Lead Form */}
+                        <div className="w-full lg:w-auto flex-shrink-0">
+                            <ScrollReveal animation="fade-left" delay={0.7}>
+                                <ShortLeadForm />
+                            </ScrollReveal>
+                        </div>
                     </div>
+
+                    <ScrollReveal animation="fade-in" delay={1.2}>
+                        <div className="pt-4 flex flex-wrap justify-center gap-8 opacity-70 hover:opacity-100 transition-opacity">
+                            <div className="flex items-center gap-2">
+                                <ShieldCheck className="w-4 h-4 text-accent" />
+                                <span className="text-[10px] font-bold tracking-widest uppercase">{t("trust_signals.licensed_badge")}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <Star className="w-4 h-4 text-accent" />
+                                <span className="text-[10px] font-bold tracking-widest uppercase">{t("trust_signals.expert_badge")}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <div className="w-4 h-4 rounded-full bg-accent/20 flex items-center justify-center">
+                                    <div className="w-2 h-2 rounded-full bg-accent" />
+                                </div>
+                                <span className="text-[10px] font-bold tracking-widest uppercase">{t("trust_signals.secure_badge")}</span>
+                            </div>
+                        </div>
+                        <p className="text-[10px] text-gray-500 mt-4 italic">{t("trust_signals.privacy_promise")}</p>
+                    </ScrollReveal>
+
+                    <ScrollReveal animation="fade-in" delay={1.5}>
+                        <SocialShareButtons url={currentUrl} title={shareTitle} />
+                    </ScrollReveal>
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-12 pt-8 animate-fade-up [animation-delay:800ms]">
                         <ScrollReveal animation="pop-up" delay={1.2}>

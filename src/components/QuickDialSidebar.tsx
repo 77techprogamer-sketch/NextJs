@@ -2,15 +2,17 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Home, Layers, Star, MessageSquare, Phone, Plus, BookOpen, ArrowLeftRight, X, Banknote, Calculator, TrendingUp } from "lucide-react";
+import { Home, Layers, Star, MessageSquare, Phone, Plus, BookOpen, ArrowLeftRight, X, Banknote, Calculator, TrendingUp, ShieldCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useRouter, usePathname } from "next/navigation";
+import { useTranslation } from 'react-i18next';
 
 const QuickDialSidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [position, setPosition] = useState<'left' | 'right'>('right');
     const router = useRouter();
     const pathname = usePathname();
+    const { t } = useTranslation();
 
     const toggleSidebar = () => setIsOpen(!isOpen);
 
@@ -112,6 +114,14 @@ const QuickDialSidebar = () => {
                         </Button>
                     </div>
                 ))}
+
+                {/* Trust Signal in Sidebar */}
+                <div className="mt-2 flex flex-col items-center gap-1 opacity-60">
+                    <ShieldCheck className="h-4 w-4 text-accent" />
+                    <span className="text-[8px] font-bold text-white uppercase tracking-widest text-center max-w-[60px]">
+                        {t("trust_signals.secure_badge")}
+                    </span>
+                </div>
             </div>
 
             {/* Main Toggle Dial */}

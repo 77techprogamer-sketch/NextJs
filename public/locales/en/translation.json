@@ -859,5 +859,30 @@
   "original_bond_question": "Do you have the Original Policy Bond?",
   "check_probability": "Check Probability",
   "next": "Next",
-  "step_of": "Step {{current}} of {{total}}"
+  "step_of": "Step {{current}} of {{total}}",
+  "trust_signals": {
+    "advisor_name": "Hari Kotian",
+    "advisor_title": "Licensed Insurance Expert",
+    "advisor_subtitle": "IRDAI Authorised | 15+ Years Experience",
+    "licensed_badge": "IRDAI Licensed",
+    "secure_badge": "SSL Secured",
+    "expert_badge": "Personalized Advice",
+    "privacy_promise": "We respect your privacy. No spam, only expert advice.",
+    "data_privacy_badge": "Data Privacy Guaranteed"
+  },
+  "short_lead_form": {
+    "title": "Quick Quote",
+    "subtitle": "Get expert advice in 2 mins",
+    "name_label": "Your Name",
+    "mobile_label": "Mobile Number",
+    "requirement_label": "What do you need?",
+    "submit_button": "Get Advice Now",
+    "privacy_note": "No spam. Expert calls only.",
+    "select_insurance": "Select Insurance Type",
+    "life_insurance": "Life Insurance",
+    "health_insurance": "Health Insurance",
+    "motor_insurance": "Vehicle Insurance",
+    "loan_help": "Loan Assistance",
+    "policy_revival": "Policy Revival (LIC/Private)"
+  }
 }

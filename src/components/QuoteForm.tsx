@@ -10,7 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
-import { CalendarIcon, ShieldCheck } from 'lucide-react';
+import { CalendarIcon, ShieldCheck, Star } from 'lucide-react';
 import { Calendar } from '@/components/ui/calendar';
 import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
@@ -550,6 +550,23 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               </Button>
             )}
           </div>
+        </div>
+
+        <div className="mt-8 pt-4 border-t border-slate-100 dark:border-slate-800/60 flex flex-col items-center gap-3">
+          <div className="flex items-center gap-4 opacity-60">
+            <div className="flex items-center gap-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-primary" />
+              <span className="text-[10px] font-bold uppercase tracking-tighter">{t("trust_signals.data_privacy_badge")}</span>
+            </div>
+            <div className="w-px h-3 bg-slate-300 dark:bg-slate-700" />
+            <div className="flex items-center gap-1">
+              <Star className="w-3.5 h-3.5 text-primary" />
+              <span className="text-[10px] font-bold uppercase tracking-tighter">{t("trust_signals.licensed_badge")}</span>
+            </div>
+          </div>
+          <p className="text-[10px] text-slate-400 italic text-center px-4">
+            {t("trust_signals.privacy_promise")}
+          </p>
         </div>
       </motion.form >
     </Form >

@@ -859,5 +859,30 @@
   "original_bond_question": "क्या आपके पास मूल पॉलिसी बॉन्ड है?",
   "check_probability": "संभावना की जांच करें",
   "next": "अगला",
-  "step_of": "चरण {{current}} का {{total}}"
+  "step_of": "चरण {{current}} का {{total}}",
+  "trust_signals": {
+    "advisor_name": "हरि कोटियन",
+    "advisor_title": "लाइसेंस प्राप्त बीमा विशेषज्ञ",
+    "advisor_subtitle": "IRDAI अधिकृत | 15+ वर्षों का अनुभव",
+    "licensed_badge": "IRDAI लाइसेंस प्राप्त",
+    "secure_badge": "SSL सुरक्षित",
+    "expert_badge": "व्यक्तिगत सलाह",
+    "privacy_promise": "हम आपकी गोपनीयता का सम्मान करते हैं। कोई स्पैम नहीं, केवल विशेषज्ञ सलाह।",
+    "data_privacy_badge": "डेटा गोपनीयता की गारंटी"
+  },
+  "short_lead_form": {
+    "title": "त्वरित कोटेशन",
+    "subtitle": "2 मिनट में विशेषज्ञ सलाह प्राप्त करें",
+    "name_label": "आपका नाम",
+    "mobile_label": "मोबाइल नंबर",
+    "requirement_label": "आपको क्या चाहिए?",
+    "submit_button": "अभी सलाह लें",
+    "privacy_note": "कोई स्पैम नहीं। केवल विशेषज्ञ कॉल।",
+    "select_insurance": "बीमा प्रकार चुनें",
+    "life_insurance": "जीवन बीमा",
+    "health_insurance": "स्वास्थ्य बीमा",
+    "motor_insurance": "वाहन बीमा",
+    "loan_help": "ऋण सहायता",
+    "policy_revival": "पॉलिसी बहाली (LIC/निजी)"
+  }
 }
