@@ -13,7 +13,7 @@ export function GlobalJsonLd() {
             {
                 '@type': 'Organization',
                 '@id': 'https://insurancesupport.online/#organization',
-                name: 'Insurance Support Online',
+                name: 'Insurance Support',
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/favicon.svg',
                 email: 'contact@insurancesupport.online',
@@ -74,7 +74,7 @@ export function GlobalJsonLd() {
                 '@type': 'WebSite',
                 '@id': 'https://insurancesupport.online/#website',
                 url: 'https://insurancesupport.online',
-                name: 'Insurance Support India',
+                name: 'Insurance Support',
                 description: (t('services_description') as string) || 'Your trusted partner for all insurance related queries and support.',
                 publisher: {
                     '@id': 'https://insurancesupport.online/#organization'
@@ -173,7 +173,7 @@ export function LocalBusinessJsonLd() {
                 '@id': 'https://insurancesupport.online/#local-business',
                 name: 'Insurance Support Online',
                 alternateName: [
-                    'Insurance Support Online',
+                    'Insurance Support',
                     'LIC Insurance Support',
                     'Insurance Advisor Kotian',
                     'Claim Recovery Experts',
