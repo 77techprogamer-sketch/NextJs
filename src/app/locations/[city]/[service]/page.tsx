@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: {
-            absolute: `Best ${serviceLabel} Advisor in ${city.name} | 98% Claim Settlement`
+            absolute: `${serviceLabel} - Insurance Support in ${city.name}`
         },
         description: `Compare the best ${serviceLabel} plans in ${city.name}. Expert guidance and doorstep claim support with 25+ years experience. Get a free quote in 30 seconds!`,
         keywords: [
@@ -73,8 +73,8 @@ export default function ServiceLocationPage({ params }: Props) {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'InsuranceAgency',
-        name: `Insurance Support - ${serviceLabel} in ${city.name}`,
-        description: `Expert ${serviceLabel} services in ${city.name}. 25+ years of trust and 98% claim settlement ratio.`,
+        name: `${serviceLabel} - Insurance Support in ${city.name}`,
+        description: `Expert ${serviceLabel} services in ${city.name}. 25+ years of trust and 98% claim settlement ratio by Insurance Support.`,
         url: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
         telephone: "+919986634506",
         address: {
@@ -211,7 +211,7 @@ export default function ServiceLocationPage({ params }: Props) {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
-                        Best <span className="text-primary">{serviceLabel}</span> in {city.name}
+                        Best <span className="text-primary">{serviceLabel} Support</span> in {city.name}
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">

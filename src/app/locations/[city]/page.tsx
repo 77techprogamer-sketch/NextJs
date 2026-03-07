@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: {
-            absolute: `Insurance Advisor in ${city.name} - Insurance Support`
+            absolute: `Insurance Support in ${city.name} | Expert Advisor`
         },
         description: `Looking for an Insurance Advisor in ${city.name}? We provide doorstep service for policy surrender, maturity claims, and new insurance quotes in ${city.name}.`,
         keywords: [
@@ -64,7 +64,7 @@ export default function LocationPage({ params }: Props) {
         '@context': 'https://schema.org',
         '@type': 'InsuranceAgency',
         '@id': `https://insurancesupport.online/locations/${params.city}#local`,
-        name: `Insurance Support – ${city.name}`,
+        name: `Insurance Support ${city.name}`,
         description: `Certified insurance advisor providing LIC, health, motor, and life insurance support in ${city.name}, ${city.state}. Doorstep service for claims, policy revival, and renewals.`,
         url: `https://insurancesupport.online/locations/${params.city}`,
         telephone: '+919986634506',
@@ -139,8 +139,8 @@ export default function LocationPage({ params }: Props) {
                         ← Back to Home
                     </Link>
 
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">
-                        LIC & General Insurance Support in <span className="text-primary">{city.name}</span>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
+                        Insurance Support in <span className="text-primary">{city.name}</span> | Expert Claim Help
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
