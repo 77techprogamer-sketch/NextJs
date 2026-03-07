@@ -4,7 +4,7 @@ import ReturnPolicyClient from '@/components/ReturnPolicyClient';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'Return Policy | Insurance Support India'
+        absolute: 'Return Policy | Insurance Support'
     },
     description: 'Understand the Free Look Period and cancellation policy for insurance products. Learn about refunds and deductions.',
     keywords: ['Return Policy', 'Free Look Period', 'Insurance Cancellation', 'Refund Policy'],

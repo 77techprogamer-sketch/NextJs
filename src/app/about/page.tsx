@@ -43,7 +43,7 @@ const advisorSchema = {
     email: 'contact@insurancesupport.online',
     worksFor: {
         '@type': 'InsuranceAgency',
-        name: 'Insurance Support India',
+        name: 'Insurance Support',
         url: 'https://insurancesupport.online'
     },
     knowsAbout: [
@@ -64,7 +64,7 @@ const aboutPageSchema = {
     mainEntity: {
         '@id': 'https://insurancesupport.online/#organization'
     },
-    description: 'Learn about Insurance Support India, our legacy of 25+ years in claim recovery, and our mission to provide professional insurance advisory services.',
+    description: 'Learn about Insurance Support, our legacy of 25+ years in claim recovery, and our mission to provide professional insurance advisory services.',
     publisher: {
         '@id': 'https://insurancesupport.online/#organization'
     }

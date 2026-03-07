@@ -93,8 +93,8 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
             `${service.title} Advisor India`,
             `${service.title} Bangalore`,
             `${service.title} Support`,
-            "Insurance Support India",
-            "Online Insurance Advisor",
+            "Insurance Support",
+            "Insurance Advisor",
             `${service.title} policy check`,
             `buy ${service.title} online`,
             `${service.title} advisor near me`,
@@ -107,10 +107,10 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
             ...(service.features || [])
         ],
         openGraph: {
-            title: `${service.title} Quotes | Insurance Support India`,
+            title: `${service.title} Quotes | Insurance Support`,
             description: service.description,
             url: `https://insurancesupport.online/services/${params.serviceType}`,
-            siteName: 'Insurance Support India',
+            siteName: 'Insurance Support',
             images: [
                 {
                     url: assets.image,

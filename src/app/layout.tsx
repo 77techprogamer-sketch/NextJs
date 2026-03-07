@@ -91,9 +91,9 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_IN',
         url: 'https://insurancesupport.online',
-        title: 'Insurance Support India | Expert Claim Recovery',
+        title: 'Insurance Support | Expert Claim Recovery',
         description: 'Get free quotes and expert help for Life, Health, and Motor insurance claims. We are your partner in securing your familys future.',
-        siteName: 'Insurance Support India',
+        siteName: 'Insurance Support',
         images: [
             {
                 url: '/og-image.png',

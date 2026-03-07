@@ -6,7 +6,7 @@ import { faqData } from '@/data/faqData'
 import { MapPin, Shield, FileText, HelpCircle, Layout } from 'lucide-react'
 
 export const metadata: Metadata = {
-    title: 'Site Map | Insurance Support India',
+    title: 'Site Map | Insurance Support',
     description: 'Complete directory of all insurance services and local advisor pages across India. Easy navigation for all your insurance needs.',
     robots: {
         index: true,

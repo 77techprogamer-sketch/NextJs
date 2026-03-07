@@ -4,7 +4,7 @@ import SupportClient from '@/components/SupportClient';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'Contact Us | Insurance Support India'
+        absolute: 'Contact Us | Insurance Support'
     },
     description: 'Contact our expert insurance advisors for quick support. Call us or send an inquiry for Life, Health, and Motor insurance services.',
     keywords: [

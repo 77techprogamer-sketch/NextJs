@@ -4,7 +4,7 @@ import PrivacyPolicyClient from '@/components/PrivacyPolicyClient';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'Privacy Policy | Insurance Support India'
+        absolute: 'Privacy Policy | Insurance Support'
     },
     description: 'Learn how Insurance Support collects, uses, and protects your personal information. Our commitment to data privacy and security.',
     keywords: ['Privacy Policy', 'Data Protection', 'Insurance Privacy', 'Personal Information Security'],

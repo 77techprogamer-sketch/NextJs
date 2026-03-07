@@ -5,7 +5,7 @@ import { BookOpen, FileText, MapPin, Download } from 'lucide-react'
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'Insurance Resources & Guides | Insurance Support India'
+        absolute: 'Insurance Resources & Guides | Insurance Support'
     },
     description: 'Master your insurance policies with expert guides, claim process tutorials, and local advisor support. 25+ years of experience in solving insurance complexities across India.',
     keywords: [
