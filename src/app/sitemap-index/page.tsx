@@ -167,7 +167,7 @@ export default function SitemapIndexPage() {
                 <div className="mt-16 text-center text-xs text-slate-400">
                     <Link href="/sitemap.xml" className="hover:text-primary">XML Sitemap</Link>
                     <span className="mx-2">|</span>
-                    <span>&copy; {new Date().getFullYear()} Insurance Support Online</span>
+                    <span>&copy; {new Date().getFullYear()} Insurance Support India</span>
                 </div>
             </div>
         </div>

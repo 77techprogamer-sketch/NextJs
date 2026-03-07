@@ -63,7 +63,7 @@ export default function InsuranceSupportGuide() {
                                 While most people interact with insurance only during the "purchase" phase, true insurance support focuses on the most critical phase: <strong>the Claim and Service phase.</strong>
                             </p>
                             <p>
-                                At Insurance Support Online, we view our role as <em>active advocates</em>. We don't just sell you a piece of paper; we stand by you when that paper needs to be converted into financial security.
+                                At Insurance Support, we view our role as <em>active advocates</em>. We don't just sell you a piece of paper; we stand by you when that paper needs to be converted into financial security.
                             </p>
                         </div>
                     </div>
