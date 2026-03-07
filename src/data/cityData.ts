@@ -19,9 +19,10 @@ export const cityData: Record<string, CityData> = {
             'Bellandur', 'Marathahalli', 'Yelahanka', 'Banashankari', 'Rajajinagar',
             'Basavanagudi', 'RT Nagar', 'KR Puram', 'Sarjapur Road', 'Bannerghatta Road',
             'RR Nagar', 'Vijayanagar', 'Vidyaranyapura', 'Sahakarnagar', 'Mahadevapura',
-            'Brookefield', 'Kalyan Nagar', 'Kammanahalli', 'Frazer Town', 'Benson Town'
+            'Brookefield', 'Kalyan Nagar', 'Kammanahalli', 'Frazer Town', 'Benson Town',
+            'Jeevan Bima Nagar', 'Sampige Road', 'Devanahalli', 'Nelamangala'
         ],
-        description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the IT corridors of Outer Ring Road and Manyata Tech Park to the residential hubs of HSR Layout and Jayanagar, we provide hyper-local insurance support. Stop waiting in traffic at Silk Board—our certified advisors offer doorstep service for policy renewals, death claims, and health insurance disputes. We are intimately familiar with major LIC branches across the city, including the main Jeevan Prakash Building on JC Road and localized branches in Bangalore South, ensuring your paperwork is processed rapidly without you ever needing to visit the branch.",
+        description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the IT corridors of Outer Ring Road and Manyata Tech Park to the residential hubs of HSR Layout and Jayanagar, we provide hyper-local Insurance Support. Skip the traffic at Silk Board—our certified advisors offer doorstep service for policy renewals, death claims, and health insurance disputes. We are intimately familiar with major LIC branches across the city, including the main Jeevan Prakash Building on JC Road, the Jeevan Bima Nagar hub, and localized branches in Bangalore South, ensuring your paperwork is processed rapidly without you ever needing to visit the branch.",
         phone: "+91-9962536848",
         coordinates: [12.9716, 77.5946]
     },
@@ -29,8 +30,8 @@ export const cityData: Record<string, CityData> = {
         name: 'Chennai',
         slug: 'chennai',
         state: 'Tamil Nadu',
-        areas: ['T Nagar', 'Adyar', 'Velachery', 'Anna Nagar', 'Mylapore', 'Tambaram', 'Guindy', 'Porur'],
-        description: "Given Chennai's coastal geography and monsoon history, especially in low-lying areas like Velachery and Adyar, 'flood-protection' in motor and property insurance is a top priority. We help residents in Anna Nagar and T. Nagar with localized claim support and LIC policy management, ensuring your assets are resilient against the Bay of Bengal's unpredictability.",
+        areas: ['T Nagar', 'Adyar', 'Velachery', 'Anna Nagar', 'Mylapore', 'Tambaram', 'Guindy', 'Porur', 'OMR IT Corridor', 'ECR', 'Anna Nagar West', 'Taramani', 'Sholinganallur', 'Perungudi', 'Besant Nagar', 'Nungambakkam'],
+        description: "Given Chennai's coastal geography and monsoon history, especially in low-lying areas like Velachery and Adyar, 'flood-protection' in motor and property insurance is a top priority. Our Insurance Support team helps residents in Anna Nagar and T. Nagar with localized claim support and LIC policy management. We coordinate closely with the LIC Mount Road (Jeevan Prakash) and Greams Road offices, ensuring your assets are resilient against the Bay of Bengal's unpredictability with professional doorstep advisory.",
         phone: "+91-9962536848",
         coordinates: [13.0827, 80.2707]
     },
@@ -38,57 +39,57 @@ export const cityData: Record<string, CityData> = {
         name: 'Vellore',
         slug: 'vellore',
         state: 'Tamil Nadu',
-        areas: ['Katpadi', 'Gandhinagar', 'Sathuvachari', 'Vellore Fort Area', 'Bagayam'],
-        description: "Vellore is a major educational and medical hub. We provide specialized insurance solutions for students, professionals, and families to ensure complete financial protection."
+        areas: ['Katpadi', 'Gandhinagar', 'Sathuvachari', 'Vellore Fort Area', 'Bagayam', 'CMC Area'],
+        description: "Vellore is a major educational and medical hub. We provide specialized Insurance Support for students, professionals, and families. Our advisors assist with LIC services near Katpadi and Sathuvachari (Jeevan Prakash), ensuring residents and visitors have expert health and life insurance guidance."
     },
     hosur: {
         name: 'Hosur',
         slug: 'hosur',
         state: 'Tamil Nadu',
-        areas: ['Industrial Area', 'Rayakottai Road', 'Bagalur Road'],
-        description: "As a booming industrial town, Hosur has specific needs for SME and workman compensation insurance. We guide local businesses and employees in securing their assets."
+        areas: ['Industrial Area', 'Rayakottai Road', 'Bagalur Road', 'SIPCOT Phase 1', 'SIPCOT Phase 2'],
+        description: "As a booming industrial town, Hosur has specific needs for SME and workman compensation insurance. Our Insurance Support team guides local businesses and employees in securing their assets. We provide doorstep LIC services near the Bagalur Road office for personal and commercial policy management."
     },
     kanchipuram: {
         name: 'Kanchipuram',
         slug: 'kanchipuram',
         state: 'Tamil Nadu',
-        areas: ['Temple City', 'Silk Saree Market Area'],
-        description: "Heritage meets modernity in Kanchipuram. Whether you run a traditional business or need personal life cover, our local support ensures your legacy is protected."
+        areas: ['Temple City', 'Silk Saree Market Area', 'Little Kanchi', 'Orikkai'],
+        description: "Heritage meets modernity in Kanchipuram. Whether you run a traditional business or need personal life cover, our Insurance Support ensures your legacy is protected. We assist locals near the LIC Gandhi Road office with policy renewals and claim recovery."
     },
     mysore: {
         name: 'Mysore',
         slug: 'mysore',
         state: 'Karnataka',
-        areas: ['Vijayanagar', 'Gokulam', 'Saraswathipuram', 'Kuvempunagar'],
-        description: "Mysore's peaceful life deserves refined protection. We offer tailored pension and retirement plans for the city's residents to ensure a stress-free future."
+        areas: ['Vijayanagar', 'Gokulam', 'Saraswathipuram', 'Kuvempunagar', 'J.P. Nagar', 'Jayalakshmipuram'],
+        description: "Mysore's peaceful life deserves refined protection. We offer tailored pension and retirement Insurance Support for the city's residents. Our experts provide doorstep LIC services near the Jeevan Prakash (Bannimantap) office, ensuring your future is stress-free and secure."
     },
     coimbatore: {
         name: 'Coimbatore',
         slug: 'coimbatore',
         state: 'Tamil Nadu',
-        areas: ['Gandhipuram', 'RS Puram', 'Peelamedu', 'Saravanampatti'],
-        description: "Known as the Manchester of South India, Coimbatore's textile and engineering sectors need robust business insurance. We also provide top-tier health plans for families."
+        areas: ['Gandhipuram', 'RS Puram', 'Peelamedu', 'Saravanampatti', 'Race Course', 'Vadavalli'],
+        description: "Known as the Manchester of South India, Coimbatore's textile and engineering sectors need robust Insurance Support. We assist locals with motor, health, and life insurance. Our team coordindates with the LIC Trichy Road office to provide professional doorstep service across Gandhipuram and RS Puram."
     },
     salem: {
         name: 'Salem',
         slug: 'salem',
         state: 'Tamil Nadu',
-        areas: ['Fairlands', 'Hasthampatti', 'Ammapet'],
-        description: "In the steel and textile hub of Salem, securing assets is a priority. We assist locals with motor, health, and property insurance to safeguard their hard-earned wealth."
+        areas: ['Fairlands', 'Hasthampatti', 'Ammapet', 'Suramangalam', 'Seelanaickenpatti'],
+        description: "In the steel and textile hub of Salem, securing assets is a priority. We assist locals with motor, health, and property Insurance Support to safeguard their wealth. Get expert LIC advice near the Jeevan Prakash office, with doorstep assistance for all your claim and renewal needs."
     },
     tirupati: {
         name: 'Tirupati',
         slug: 'tirupati',
         state: 'Andhra Pradesh',
-        areas: ['Alipiri', 'Tirumala Bypass', 'Renigunta Road'],
-        description: "For the residents of the spiritual capital, we offer pure term insurance and endowment plans to ensure the financial sanctity and security of your loved ones."
+        areas: ['Alipiri', 'Tirumala Bypass', 'Renigunta Road', 'Bairagipatteda', 'K.T. Road'],
+        description: "For the residents of the spiritual capital, we offer pure term insurance and endowment Insurance Support. We assist families near the LIC Prakasam Road office, ensuring the financial sanctity and security of your loved ones with expert local guidance."
     },
     hyderabad: {
         name: 'Hyderabad',
         slug: 'hyderabad',
         state: 'Telangana',
-        areas: ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kukatpally', 'Secunderabad', 'Hitech City'],
-        description: "In the bustling IT hub of Hyderabad, specifically serving the Hitech City and Gachibowli corridors, we provide comprehensive health and term life insurance solutions tailored for global professionals. Our expertise includes handling policy revivals for long-term residents in Secunderabad and Banjara Hills, bridging the gap between digital convenience and doorstep service.",
+        areas: ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kukatpally', 'Secunderabad', 'Hitech City', 'Kondapur', 'Madhapur', 'Manikonda', 'Uppal', 'LB Nagar', 'Ameerpet', 'Begumpet'],
+        description: "In the bustling IT hub of Hyderabad, specifically serving the Hitech City, Kondapur, and Gachibowli corridors, we provide comprehensive health and term life Insurance Support tailored for global professionals. Our expertise includes handling policy revivals and maturity claims near the LIC Saifabad Zonal Office and Basheerbagh hub, bridging the gap between digital convenience and doorstep service for residents in Secunderabad and Banjara Hills.",
         phone: "+91-9962536848",
         coordinates: [17.3850, 78.4867]
     },
@@ -96,16 +97,16 @@ export const cityData: Record<string, CityData> = {
         name: 'Pune',
         slug: 'pune',
         state: 'Maharashtra',
-        areas: ['Koregaon Park', 'Kalyani Nagar', 'Viman Nagar', 'Hinjewadi', 'Kothrud', 'Magarpatta'],
-        description: "Pune's dynamic lifestyle demands robust protection. From motor insurance for your daily commute to Hinjewadi or Magarpatta, to health plans for your family, we cover all your insurance needs in the Oxford of the East.",
+        areas: ['Koregaon Park', 'Kalyani Nagar', 'Viman Nagar', 'Hinjewadi', 'Kothrud', 'Magarpatta', 'Wakad', 'Baner', 'Balewadi', 'Pimple Saudagar', 'Hadapsar', 'Kharadi'],
+        description: "Pune's dynamic lifestyle demands robust Insurance Support. From motor insurance for your daily commute to Hinjewadi IT Park or Magarpatta City, to health plans for your family in Baner or Wakad, we cover all your needs. We provide specialized LIC policy services with proximity to the LIC Model Colony and Jeevan Tara Shivajinagar offices, ensuring fast-track claim processing in the Oxford of the East.",
         phone: "+91-9962536848"
     },
     mumbai: {
         name: 'Mumbai',
         slug: 'mumbai',
         state: 'Maharashtra',
-        areas: ['Andheri', 'Bandra', 'Juhu', 'Powai', 'Colaba', 'Dadar'],
-        description: "In the City of Dreams, financial security must keep pace with the fast life. From South Mumbai's corporate corridors to the residential hubs of Andheri and Bandra, we provide doorstep insurance assistance. We specialize in marine insurance for business owners and comprehensive health plans that cover Mumbai's top-tier medical facilities.",
+        areas: ['Andheri', 'Bandra', 'Juhu', 'Powai', 'Colaba', 'Dadar', 'Nariman Point', 'Lower Parel', 'Worli', 'Malad West', 'BKC', 'Kandivali', 'Borivali'],
+        description: "In the City of Dreams, financial security must keep pace with the fast life. From South Mumbai's corporate corridors at Nariman Point to the IT hubs of Malad and residential circles of Andheri, our Insurance Support team provides doorstep assistance. We specialize in LIC policy maturity and revival, coordinating with the Yogakshema and Santacruz hubs, alongside comprehensive health plans that cover Mumbai's top-tier medical facilities.",
         phone: "+91-9962536848",
         coordinates: [19.0760, 72.8777]
     },
@@ -113,127 +114,127 @@ export const cityData: Record<string, CityData> = {
         name: 'Ahmedabad',
         slug: 'ahmedabad',
         state: 'Gujarat',
-        areas: ['Satellite', 'Bodakdev', 'Vastrapur', 'Maninagar', 'Navrangpura'],
-        description: "As a major business center, Ahmedabad requires specialized commercial and personal insurance. We help secure your business assets and family health with top-tier policies."
+        areas: ['Satellite', 'Bodakdev', 'Vastrapur', 'Maninagar', 'Navrangpura', 'Prahlad Nagar', 'Sindhu Bhavan Road', 'Gota', 'Chandkheda'],
+        description: "As a premier business and industrial hub, Ahmedabad requires high-performance Insurance Support. We assist entrepreneurs and families from the corporate offices of Prahlad Nagar to the residential circles of Satellite and Vastrapur. Our team provides specialized LIC advisory near the Relief Road and Jeevan Prakash (Satellite) hubs, offering doorstep claim assistance and policy revival services across the city."
     },
     kolkata: {
         name: 'Kolkata',
         slug: 'kolkata',
         state: 'West Bengal',
-        areas: ['Salt Lake', 'New Town', 'Park Street', 'Ballygunge', 'Howrah'],
-        description: "In the City of Joy, don't let financial worries dampen your spirit. Our expert advisors in Kolkata help you choose the best life and health insurance plans for lifelong peace of mind."
+        areas: ['Salt Lake', 'New Town', 'Park Street', 'Ballygunge', 'Howrah', 'Behala', 'Garia', 'Tollygunge', 'Dum Dum', 'Kasba', 'Lake Town'],
+        description: "In the City of Joy, don't let financial worries dampen your spirit. Our expert Insurance Support advisors in Kolkata help you choose the best life and health insurance plans. We provide local assistance for LIC policyholders near Jeevan Deep Chowringhee and Jibon Bima Bhaban, offering doorstep recovery for rejected claims and policy revivals across Salt Lake and South Kolkata.",
     },
     lucknow: {
         name: 'Lucknow',
         slug: 'lucknow',
         state: 'Uttar Pradesh',
-        areas: ['Gomti Nagar', 'Hazratganj', 'Alambagh', 'Indira Nagar'],
-        description: "Protecting your family's heritage in Lucknow is easier with our support. We offer personalized LIC policy services and health insurance guidance right at your doorstep."
+        areas: ['Gomti Nagar', 'Hazratganj', 'Alambagh', 'Indira Nagar', 'Jankipuram', 'Aashiana', 'Mahanagar'],
+        description: "Protecting your family's heritage in Lucknow is easier with our Insurance Support. We offer personalized LIC policy services and health insurance guidance right at your doorstep. We are active across Gomti Nagar and Hazratganj, coordinating with the main LIC Jeevan Bhawan office to expedite your maturity claims and policy revivals."
     },
     jaipur: {
         name: 'Jaipur',
         slug: 'jaipur',
         state: 'Rajasthan',
-        areas: ['Vaishali Nagar', 'Mansarovar', 'Malviya Nagar', 'C Scheme'],
-        description: "In the Pink City, safeguard your royal lifestyle with our premium insurance solutions. We assist with vehicle, property, and life insurance needs across Jaipur."
+        areas: ['Vaishali Nagar', 'Mansarovar', 'Malviya Nagar', 'C Scheme', 'Jagatpura', 'Raja Park', 'Bani Park'],
+        description: "In the Pink City, safeguard your lifestyle with our premium Insurance Support solutions. We assist with vehicle, property, and life insurance needs across Jaipur. Our advisors provide expert guidance near the LIC Bhawani Singh Road office, ensuring your claims are handled with local expertise."
     },
     chandigarh: {
         name: 'Chandigarh',
         slug: 'chandigarh',
         state: 'Chandigarh',
-        areas: ['Sector 17', 'Sector 35', 'Manimajra', 'Zirakpur'],
-        description: "Chandigarh's planned living deserves planned financial security. We provide expert consultancy for retirement planning and health coverage in the City Beautiful."
+        areas: ['Sector 17', 'Sector 35', 'Manimajra', 'Zirakpur', 'Panchkula', 'Mohali Phase 7', 'Sector 22'],
+        description: "Chandigarh's planned living deserves planned financial security. We provide expert Insurance Support for retirement planning and health coverage in the City Beautiful. We offer doorstep LIC services near Sector 17 and Sector 35 hubs, ensuring residents of Chandigarh, Mohali, and Panchkula get professional advice without the commute."
     },
     kochi: {
         name: 'Kochi',
         slug: 'kochi',
         state: 'Kerala',
-        areas: ['Edappally', 'Kaloor', 'Fort Kochi', 'Kakkanad'],
-        description: "In God's Own Country, ensure your family's well-being with our comprehensive insurance plans. We specialize in NRI investment options and local health coverage in Kochi."
+        areas: ['Edappally', 'Kaloor', 'Fort Kochi', 'Kakkanad', 'Tripunithura', 'Aluva', 'Palarivattom'],
+        description: "In God's Own Country, ensure your family's well-being with our comprehensive Insurance Support. We specialize in NRI investment options and local health coverage in Kochi. Our team coordinates with the LIC M.G. Road (Jeevan Prakash) office, providing doorstep support for claim recovery and policy management."
     },
     trivandrum: {
         name: 'Trivandrum',
         slug: 'trivandrum',
         state: 'Kerala',
-        areas: ['Technopark', 'Kowdiar', 'Pattom', 'Vellayambalam'],
-        description: "Secure your future in Kerala's capital. We offer reliable LIC support and health insurance advice to government employees and private professionals in Thiruvananthapuram."
+        areas: ['Technopark', 'Kowdiar', 'Pattom', 'Vellayambalam', 'Kazhakoottam', 'Peroorkada'],
+        description: "Secure your future in Kerala's capital with localized Insurance Support. We offer reliable LIC support near the Pattom office and health insurance advice to government employees and private professionals across Trivandrum, from Kowdiar to the Technopark hub."
     },
     madurai: {
         name: 'Madurai',
         slug: 'madurai',
         state: 'Tamil Nadu',
-        areas: ['KK Nagar', 'Anna Nagar', 'TVS Nagar', 'Simmakkal'],
-        description: "In the cultural capital of Madurai, we ensure your traditions are protected. Get best-in-class life and term insurance support from trusted local advisors."
+        areas: ['KK Nagar', 'Anna Nagar', 'TVS Nagar', 'Simmakkal', 'K.Pudur', 'Sellur'],
+        description: "In the cultural capital of Madurai, we ensure your traditions are protected. Get best-in-class life and term Insurance Support from trusted local advisors. We provide doorstep LIC services near the Simmakkal area, assisting families with claim recovery and policy renewals."
     },
     trichy: {
         name: 'Trichy',
         slug: 'trichy',
         state: 'Tamil Nadu',
-        areas: ['Thillai Nagar', 'Srirangam', 'Cantonment', 'K.K. Nagar'],
-        description: "Trichy's growing economy needs solid financial backing. We help residents and businesses secure their future with tailored insurance strategies."
+        areas: ['Thillai Nagar', 'Srirangam', 'Cantonment', 'K.K. Nagar', 'Lalgudi'],
+        description: "Trichy's growing economy needs solid financial backing. Our Insurance Support team helps residents and businesses secure their future with tailored strategies. We are active near the LIC Thillai Nagar office, providing local expertise for policy revivals and maturity claims."
     },
     pondicherry: {
         name: 'Pondicherry',
         slug: 'pondicherry',
         state: 'Puducherry',
-        areas: ['White Town', 'Lawspet', 'Reddiarpalayam'],
-        description: "Enjoy the serene life in Pondicherry while we handle your insurance worries. We provide hassle-free support for vehicle renewals and health policies."
+        areas: ['White Town', 'Lawspet', 'Reddiarpalayam', 'Ariyankuppam'],
+        description: "Enjoy the serene life in Pondicherry while we handle your insurance worries. Our Insurance Support team provides hassle-free doorstep assistance for vehicle renewals, LIC policy checks near Mission Street, and health covers."
     },
     vijayawada: {
         name: 'Vijayawada',
         slug: 'vijayawada',
         state: 'Andhra Pradesh',
-        areas: ['Benz Circle', 'Patamata', 'Gunadala', 'Bhavanipuram'],
-        description: "As a commercial hub, Vijayawada demands smart financial planning. Our advisors help you navigate the best investment and insurance options available."
+        areas: ['Benz Circle', 'Patamata', 'Gunadala', 'Bhavanipuram', 'One Town'],
+        description: "As a commercial hub, Vijayawada demands smart financial planning. Our Insurance Support advisors help you navigate LIC and health options near the Benz Circle hub, ensuring your family and business are fully protected."
     },
     vizag: {
         name: 'Visakhapatnam',
         slug: 'vizag',
         state: 'Andhra Pradesh',
-        areas: ['MVP Colony', 'Gajuwaka', 'Seethammadhara', 'Siripuram'],
-        description: "Protect your home and health in the port city of Vizag. We offer specialized marine, property, and personal insurance services for the coastal community."
+        areas: ['MVP Colony', 'Gajuwaka', 'Seethammadhara', 'Siripuram', 'Madhurawada', 'Rushikonda'],
+        description: "Protect your home and health in the port city of Vizag. We offer specialized Insurance Support for the coastal community. Our team coordinates with the LIC Jeevan Prakash (Asilmetta) office, providing doorstep recovery for rejected claims and policy management."
     },
     surat: {
         name: 'Surat',
         slug: 'surat',
         state: 'Gujarat',
-        areas: ['Adajan', 'Vesu', 'Piplod', 'Varachha'],
-        description: "In the Diamond City, secure your valuable assets with our help. We provide top-notch business and family insurance solutions for Surat's entrepreneurs."
+        areas: ['Adajan', 'Vesu', 'Piplod', 'Varachha', 'Katargam', 'Dumas Road', 'City Light'],
+        description: "In the Diamond City, secure your valuable assets with our help. Our Insurance Support team provides top-notch business and family solutions for Surat's entrepreneurs. We offer specialized LIC advisory near the Adajan and Vesu hubs, ensuring doorstep service for policy renewals and claim recovery."
     },
     nagpur: {
         name: 'Nagpur',
         slug: 'nagpur',
         state: 'Maharashtra',
-        areas: ['Dharampeth', 'Civil Lines', 'Manish Nagar', 'Sadar'],
-        description: "Nagpur's central location makes it a logistics hub. We offer specialized transit and motor insurance, along with personal life cover for residents."
+        areas: ['Dharampeth', 'Civil Lines', 'Manish Nagar', 'Sadar', 'Ramdaspeth', 'Sitabuldi'],
+        description: "Nagpur's central location makes it a logistics hub. We offer specialized transit and motor Insurance Support, along with personal life cover. Our advisors are active near the LIC Jeevan Prakash (Sadar) office, providing local expertise for claim settlements and policy management across the Orange City."
     },
     indore: {
         name: 'Indore',
         slug: 'indore',
         state: 'Madhya Pradesh',
-        areas: ['Vijay Nagar', 'Palasia', 'Saket', 'Rajwada'],
-        description: "Cleanest city, cleanest finances. We help Indoris maintain financial hygiene with the right health and life insurance portfolios."
+        areas: ['Vijay Nagar', 'Palasia', 'Saket', 'Rajwada', 'Bhawarkua', 'Rau'],
+        description: "Cleanest city, cleanest finances. Our Insurance Support team helps Indoris maintain financial hygiene with the right health and life portfolios. We provide doorstep LIC services near the Vijay Nagar and Palasia hubs, ensuring your family stays secure with expert local guidance."
     },
     bhopal: {
         name: 'Bhopal',
         slug: 'bhopal',
         state: 'Madhya Pradesh',
-        areas: ['Arera Colony', 'MP Nagar', 'Kolar Road', 'New Market'],
-        description: "In the City of Lakes, ensure your family stays afloat during tough times. We provide compassionate support for claim settlement and policy revival."
+        areas: ['Arera Colony', 'MP Nagar', 'Kolar Road', 'New Market', 'Bairagarh'],
+        description: "In the City of Lakes, ensure your family stays afloat during tough times. Our Insurance Support advisors provide compassionate assistance for claim settlement and policy revival near the LIC Arera Colony and MP Nagar offices, offering professional doorstep service across Bhopal."
     },
     patna: {
         name: 'Patna',
         slug: 'patna',
         state: 'Bihar',
-        areas: ['Boring Road', 'Kankarbagh', 'Rajendra Nagar', 'Bailey Road'],
-        description: "Patna's historic legacy deserves future protection. We bring trusted LIC and general insurance services to every household in the capital."
+        areas: ['Boring Road', 'Kankarbagh', 'Rajendra Nagar', 'Bailey Road', 'Patliputra Colony'],
+        description: "Patna's historic legacy deserves future protection. We bring trusted LIC and general Insurance Support to every household in the capital. Our team coordinates with the LIC Fraser Road office, ensuring doorstep service for policy revivals and maturity claims across Boring Road and Kankarbagh."
     },
     delhi: {
         name: 'Delhi',
         slug: 'delhi',
         state: 'Delhi',
-        areas: ['Connaught Place', 'Dwarka', 'Rohini', 'Saket', 'Vasant Kunj', 'Janakpuri', 'Lajpat Nagar', 'Karol Bagh'],
-        description: "In the heart of the nation, we offer capital-grade insurance services. Our advisors are active across NCR, from Connaught Place to Dwarka. We provide expert help with complex LIC claim settlements and motor insurance renewals, ensuring your family stays secure amidst the city's fast-paced growth and environmental challenges like air-quality-linked health covers.",
+        areas: ['Connaught Place', 'Dwarka', 'Rohini', 'Saket', 'Vasant Kunj', 'Janakpuri', 'Lajpat Nagar', 'Karol Bagh', 'Okhla', 'Pitampura', 'Mayur Vihar', 'Laxmi Nagar'],
+        description: "In the heart of the nation, we offer capital-grade Insurance Support. Our advisors are active across NCR, from Connaught Place to the dense residential sectors of Dwarka and Rohini. We provide expert help with complex LIC claim settlements near the Jeevan Deep (Parliament Street) and Jeevan Bharti offices, ensuring your family stays secure amidst the city's fast-paced growth and air-quality-linked health challenges.",
         phone: "+91-9962536848",
         coordinates: [28.6139, 77.2090]
     },
@@ -241,43 +242,43 @@ export const cityData: Record<string, CityData> = {
         name: 'Agra',
         slug: 'agra',
         state: 'Uttar Pradesh',
-        areas: ['Tajganj', 'Sanjay Place', 'Kamla Nagar', 'Dayal Bagh'],
-        description: "Protect your home and heritage in the city of the Taj. We offer comprehensive property and life insurance solutions for Agra's residents and businesses."
+        areas: ['Tajganj', 'Sanjay Place', 'Kamla Nagar', 'Dayal Bagh', 'Civil Lines'],
+        description: "Protect your home and heritage in the city of the Taj. Our Insurance Support team offers comprehensive property and life solutions. We provide local LIC assistance near Sanjay Place, ensuring Agra's residents and businesses have expert support for all their insurance needs."
     },
     ajmer: {
         name: 'Ajmer',
         slug: 'ajmer',
         state: 'Rajasthan',
-        areas: ['Vaishali Nagar', 'Civil Lines', 'Pushkar Road'],
-        description: "Secure your pilgrimage of life with our trusted insurance plans in Ajmer. We provide seamless support for all your general and life insurance needs."
+        areas: ['Vaishali Nagar', 'Civil Lines', 'Pushkar Road', 'Adarsh Nagar'],
+        description: "Secure your pilgrimage of life with our trusted Insurance Support in Ajmer. We provide seamless doorstep assistance for all your general and life insurance needs, coordinating with the local LIC Kutchery Road office for policy revivals and claims."
     },
     amritsar: {
         name: 'Amritsar',
         slug: 'amritsar',
         state: 'Punjab',
-        areas: ['Ranjit Avenue', 'Lawrence Road', 'Model Town'],
-        description: "In the Holy City, ensure your family's prosperity is well-guarded. We bring top-tier health and term insurance advice to your doorstep in Amritsar."
+        areas: ['Ranjit Avenue', 'Lawrence Road', 'Model Town', 'Golden Temple Area', 'Majitha Road'],
+        description: "In the Holy City, ensure your family's prosperity is well-guarded. We bring top-tier health and term Insurance Support to your doorstep in Amritsar. Our advisors assist with LIC services near the Jeevan Prakash office, providing local expertise for claim settlements and policy management."
     },
     dehradun: {
         name: 'Dehradun',
         slug: 'dehradun',
         state: 'Uttarakhand',
-        areas: ['Rajpur Road', 'Clement Town', 'Vasant Vihar', 'Prem Nagar'],
-        description: "Retire peacefully in the Doon Valley with our specialized pension plans. We also offer robust vehicle insurance for the hilly terrains of Dehradun."
+        areas: ['Rajpur Road', 'Clement Town', 'Vasant Vihar', 'Prem Nagar', 'Dalanwala', 'Balliwala'],
+        description: "Retire peacefully in the Doon Valley with our specialized pension Insurance Support. We also offer robust vehicle insurance for the hilly terrains of Dehradun. Our experts provide doorstep LIC services near Rajpur Road, ensuring your financial goals are met with local expertise."
     },
     jalandhar: {
         name: 'Jalandhar',
         slug: 'jalandhar',
         state: 'Punjab',
-        areas: ['Model Town', 'Jalandhar Cantt', 'Urban Estate'],
-        description: "For the NRI hub of Punjab, we offer specialized investment and insurance management services. Secure your assets in Jalandhar with our expert help."
+        areas: ['Model Town', 'Jalandhar Cantt', 'Urban Estate', 'Adarsh Nagar', 'Civil Lines'],
+        description: "For the NRI hub of Punjab, we offer specialized investment and Insurance Support management. Secure your assets in Jalandhar with our expert local advisors, coordinating with the LIC Jeevan Prakash office for seamless policy and claim support."
     },
     kanpur: {
         name: 'Kanpur',
         slug: 'kanpur',
         state: 'Uttar Pradesh',
-        areas: ['Swaroop Nagar', 'Civil Lines', 'Kidwai Nagar', 'Kakadeo'],
-        description: "As the industrial capital of UP, Kanpur needs strong commercial insurance. We protect your factories and families alike with tailored policies."
+        areas: ['Swaroop Nagar', 'Civil Lines', 'Kidwai Nagar', 'Kakadeo', 'Azad Nagar'],
+        description: "As the industrial capital of UP, Kanpur needs strong commercial insurance. Our Insurance Support team protects your factories and families alike. We offer doorstep LIC services near the Jeevan Bima Marg hub, ensuring fast-track claim processing and policy management for the industrial community."
     },
     ludhiana: {
         name: 'Ludhiana',
@@ -290,127 +291,127 @@ export const cityData: Record<string, CityData> = {
         name: 'Meerut',
         slug: 'meerut',
         state: 'Uttar Pradesh',
-        areas: ['Shastri Nagar', 'Ganga Nagar', 'Pallav Puram'],
-        description: "From sports goods to steady growth, Meerut is rising. Secure your journey with our reliable motor and life insurance services."
+        areas: ['Shastri Nagar', 'Ganga Nagar', 'Pallav Puram', 'Modipuram'],
+        description: "From sports goods to steady growth, Meerut is rising. Secure your journey with our reliable motor and life Insurance Support. We assist locals near the LIC Prabhat Nagar office, providing professional advice for policy renewals and claim settlements."
     },
     varanasi: {
         name: 'Varanasi',
         slug: 'varanasi',
         state: 'Uttar Pradesh',
-        areas: ['Lanka', 'Sigra', 'Mahmoorganj', 'Cantonment'],
-        description: "In the world's oldest living city, ensure your legacy lives on. We offer dedicated life insurance and endowment plans for families in Kashi."
+        areas: ['Lanka', 'Sigra', 'Mahmoorganj', 'Cantonment', 'Sarnath', 'Bhelupur'],
+        description: "In the world's oldest living city, ensure your legacy lives on. We offer dedicated Insurance Support, life plans, and endowment strategies for families in Kashi. Our advisors assist with LIC services near the Bhelupur office, providing doorstep recovery for rejected claims and policy revivals."
     },
     srinagar: {
         name: 'Srinagar',
         slug: 'srinagar',
         state: 'Jammu and Kashmir',
-        areas: ['Rajbagh', 'Hyderpora', 'Lal Chowk'],
-        description: "Safeguard your Shikaras and homes in Paradise on Earth. We provide essential property and health insurance support in Srinagar."
+        areas: ['Rajbagh', 'Hyderpora', 'Lal Chowk', 'Sonwar', 'Bemina'],
+        description: "Safeguard your Shikaras and homes in Paradise on Earth. We provide essential property, health, and life Insurance Support in Srinagar. Our experts offer doorstep LIC advisory near Residency Road, ensuring your family stays secure across the valley."
     },
     jammu: {
         name: 'Jammu',
         slug: 'jammu',
         state: 'Jammu and Kashmir',
-        areas: ['Gandhi Nagar', 'Trikuta Nagar', 'Channi Himmat'],
-        description: "In the City of Temples, secure your family's future with our comprehensive term and life insurance plans."
+        areas: ['Gandhi Nagar', 'Trikuta Nagar', 'Channi Himmat', 'Rehari', 'Bari Brahmana'],
+        description: "In the City of Temples, secure your family's future with our comprehensive term and life Insurance Support. We assist locals near the LIC Jeevan Prakash office, providing expert local guidance for claim settlements and policy management in Jammu."
     },
     goa: {
         name: 'Goa',
         slug: 'goa',
         state: 'Goa',
-        areas: ['Panaji', 'Margao', 'Vasco da Gama', 'Mapusa', 'Porvorim'],
-        description: "Live the Susegad life without worries. We handle your travel, vehicle, and health insurance needs across the beautiful state of Goa."
+        areas: ['Panaji', 'Margao', 'Vasco da Gama', 'Mapusa', 'Porvorim', 'Calangute', 'Candolim'],
+        description: "Live the Susegad life without worries. Our Insurance Support team handles your travel, vehicle, and health needs across the beautiful state of Goa. We provide doorstep LIC services near Panaji and Margao, ensuring your policies are managed with local expertise."
     },
     nashik: {
         name: 'Nashik',
         slug: 'nashik',
         state: 'Maharashtra',
-        areas: ['College Road', 'Gangapur Road', 'Indira Nagar', 'Panchavati'],
-        description: "In the Wine Capital of India, secure your vineyards and vehicles alike. We offer specialized agricultural and personal insurance in Nashik."
+        areas: ['College Road', 'Gangapur Road', 'Indira Nagar', 'Panchavati', 'Pathardi Phata', 'Govind Nagar'],
+        description: "In the Wine Capital of India, secure your vineyards and vehicles alike. Our Insurance Support team offers specialized agricultural and personal solutions in Nashik. We provide doorstep LIC services near the Nashik Road and Jeevan Prakash offices, ensuring your claims are settled with local expertise."
     },
     rajkot: {
         name: 'Rajkot',
         slug: 'rajkot',
         state: 'Gujarat',
-        areas: ['Kalawad Road', '150 Feet Ring Road', 'Amin Marg'],
-        description: "Drive your business in Rajkot with confidence. We provide SME and industrial insurance solutions alongside personal term plans."
+        areas: ['Kalawad Road', '150 Feet Ring Road', 'Amin Marg', 'Yagnik Road', 'Raiya Road'],
+        description: "Drive your business in Rajkot with confidence. We provide SME and industrial Insurance Support solutions alongside personal term plans. Our advisors help you navigate LIC options near Tagore Road, ensuring doorstep service for policy renewals and maturity claims."
     },
     thane: {
         name: 'Thane',
         slug: 'thane',
         state: 'Maharashtra',
-        areas: ['Ghodbunder Road', 'Vartak Nagar', 'Naupada', 'Kolshet'],
-        description: "As the City of Lakes expands, so do we. Get premium home and life insurance support for your new apartment in Thane."
+        areas: ['Ghodbunder Road', 'Vartak Nagar', 'Naupada', 'Kolshet', 'Hiranandani Estate', 'Majiwada', 'Wagle Estate'],
+        description: "As the City of Lakes expands, so do we. Get premium home and life Insurance Support for your new apartment in Thane. We provide localized LIC assistance near the Thane Divisional Office in Naupada, ensuring your family stays secure with professional doorstep advisory."
     },
     vadodara: {
         name: 'Vadodara',
         slug: 'vadodara',
         state: 'Gujarat',
-        areas: ['Alkapuri', 'Old Padra Road', 'Manjalpur', 'Karelibaug'],
-        description: "In the Cultural Capital of Gujarat, preserve your traditions and future. We offer trusted LIC advisory and health plans in Baroda."
+        areas: ['Alkapuri', 'Old Padra Road', 'Manjalpur', 'Krelebaug', 'Gotri', 'Akota', 'Sayajigunj'],
+        description: "In the Cultural Capital of Gujarat, preserve your traditions and future. Our Insurance Support team offers trusted LIC advisory near Sayajigunj and health plans across Baroda. We ensure your claims and renewals are handled right at your doorstep in Alkapuri and Manjalpur."
     },
     aurangabad: {
         name: 'Aurangabad',
         slug: 'aurangabad',
         state: 'Maharashtra',
-        areas: ['CIDCO', 'Garkheda', 'Samarth Nagar'],
-        description: "Protect your assets in this historic tourism hub. Our advisors help you pick the best travel and property insurance in Aurangabad."
+        areas: ['CIDCO', 'Garkheda', 'Samarth Nagar', 'Waluj', 'Paithan Road'],
+        description: "Protect your assets in this historic tourism hub. Our Insurance Support advisors help you pick the best travel, property, and life policies in Aurangabad. We coordinate with the LIC Adalat Road office to expedite your claim settlements and policy revivals."
     },
     bhubaneswar: {
         name: 'Bhubaneswar',
         slug: 'bhubaneswar',
         state: 'Odisha',
-        areas: ['Saheed Nagar', 'Patia', 'Chandrasekharpur', 'Jayadev Vihar'],
-        description: "Smart City needs smart protection. We provide tech-enabled insurance services for the modern residents of Bhubaneswar."
+        areas: ['Saheed Nagar', 'Patia', 'Chandrasekharpur', 'Jayadev Vihar', 'Khandagiri', 'Unit 9'],
+        description: "Smart City needs smart protection. We provide tech-enabled Insurance Support for the modern residents of Bhubaneswar. Our team offers doorstep LIC services near the Unit 9 (Jeevan Prakash) office, ensuring fast-track claim processing across Patia and Saheed Nagar."
     },
     guwahati: {
         name: 'Guwahati',
         slug: 'guwahati',
         state: 'Assam',
-        areas: ['Ganeshguri', 'Paltan Bazar', 'Zoo Road', 'Dispur'],
-        description: "Gateway to the North East, verify your vehicle and health insurance with us. We ensure you are covered against the unique risks of the region."
+        areas: ['Ganeshguri', 'Paltan Bazar', 'Zoo Road', 'Dispur', 'Bhetapara', 'Six Mile'],
+        description: "Gateway to the North East, verify your vehicle and health Insurance Support with us. We ensure you are covered against the unique risks of the region. Our advisors provide doorstep LIC assistance near Fancy Bazar (Jeevan Prakash), serving families across Guwahati."
     },
     jamshedpur: {
         name: 'Jamshedpur',
         slug: 'jamshedpur',
         state: 'Jharkhand',
-        areas: ['Sakchi', 'Bistupur', 'Telco Colony', 'Kadma'],
-        description: "In the Steel City, forged connections matter. We build lasting relationships by securing your family's financial steel frame with life insurance."
+        areas: ['Sakchi', 'Bistupur', 'Telco Colony', 'Kadma', 'Sonari', 'Adityapur'],
+        description: "In the Steel City, forged connections matter. We build lasting relationships by securing your family's financial steel frame with professional Insurance Support. We coordinate with the LIC Jeevan Prakash (Bistupur) office to provide doorstep assistance for policy maturity and claims."
     },
     raipur: {
         name: 'Raipur',
         slug: 'raipur',
         state: 'Chhattisgarh',
-        areas: ['Shankar Nagar', 'Civil Lines', 'Pandri'],
-        description: "As Chhattisgarh's capital grows, so does the need for security. We offer comprehensive general and life insurance plans in Raipur."
+        areas: ['Shankar Nagar', 'Civil Lines', 'Pandri', 'Tatibandh', 'Naya Raipur'],
+        description: "As Chhattisgarh's capital grows, so does the need for security. We offer comprehensive general and life Insurance Support in Raipur. Get expert LIC advice near the Pandri hub, with doorstep service for all your claim and renewal needs."
     },
     ranchi: {
         name: 'Ranchi',
         slug: 'ranchi',
         state: 'Jharkhand',
-        areas: ['Morabadi', 'Doranda', 'Lalpur', 'Hinoo'],
-        description: "Keep your cool in the City of Waterfalls with our hassle-free insurance support. We cover everything from bikes to businesses in Ranchi."
+        areas: ['Morabadi', 'Doranda', 'Lalpur', 'Hinoo', 'Kanke Road', 'Ratu Road'],
+        description: "Keep your cool in the City of Waterfalls with our hassle-free Insurance Support. We cover everything from bikes to businesses in Ranchi, coordinating with the main LIC Jeevan Prakash office to ensure your claims are settled without delays."
     },
     siliguri: {
         name: 'Siliguri',
         slug: 'siliguri',
         state: 'West Bengal',
-        areas: ['Sevoke Road', 'Hill Cart Road', 'Pradhan Nagar'],
-        description: "Connecting the mainland to the hills, Siliguri relies on transport. We offer specialized commercial vehicle insurance and personal cover."
+        areas: ['Sevoke Road', 'Hill Cart Road', 'Pradhan Nagar', 'Matigara', 'Khalpara'],
+        description: "Connecting the mainland to the hills, Siliguri relies on transport. We offer specialized commercial vehicle Insurance Support and personal cover. Our team provides local LIC assistance near the Jalpaiguri Division hub, serving the entire Siliguri corridor."
     },
     belagavi: {
         name: 'Belagavi',
         slug: 'belagavi',
         state: 'Karnataka',
-        areas: ['Tilakwadi', 'Camp', 'Hanuman Nagar'],
-        description: "In the Sugar Bowl of Karnataka, verify your sweetness of life with our comprehensive health and term plans in Belgaum."
+        areas: ['Tilakwadi', 'Camp', 'Hanuman Nagar', 'Udyambag', 'Shahapur'],
+        description: "In the Sugar Bowl of Karnataka, verify your sweetness of life with our comprehensive health and term Insurance Support in Belgaum. We offer doorstep LIC services near Kirloskar Road, ensuring your family stays financially secure."
     },
     hubli: {
         name: 'Hubli-Dharwad',
         slug: 'hubli-dharwad',
         state: 'Karnataka',
-        areas: ['Vidya Nagar', 'Keshwapur', 'Gokul Road'],
-        description: "Twin cities, double the protection. We cover the educational and commercial hubs of Hubli-Dharwad with tailored insurance solutions."
+        areas: ['Vidya Nagar', 'Keshwapur', 'Gokul Road', 'Navanagar', 'Seven Seas Corner'],
+        description: "Twin cities, double the protection. We cover the educational and commercial hubs of Hubli-Dharwad with tailored Insurance Support. Our advisors provide local LIC expertise near the Dharwad Road office, offering doorstep assistance for all your policy needs."
     },
     mangalore: {
         name: 'Mangalore',
@@ -428,43 +429,43 @@ export const cityData: Record<string, CityData> = {
         name: 'Warangal',
         slug: 'warangal',
         state: 'Telangana',
-        areas: ['Hanamkonda', 'Kazipet', 'Subedari'],
-        description: "Secure your heritage in the historic city of Warangal. We provide reliable life and general insurance services to local families."
+        areas: ['Hanamkonda', 'Kazipet', 'Subedari', 'Warangal Fort Area'],
+        description: "Secure your heritage in the historic city of Warangal. Our Insurance Support team provides reliable life and general services near the LIC Hanamkonda hub, ensuring your family's future is well-guarded with professional doorstep advisory."
     },
     kozhikode: {
         name: 'Kozhikode',
         slug: 'kozhikode',
         state: 'Kerala',
-        areas: ['Mavoor Road', 'Nadakkavu', 'West Hill'],
-        description: "In the City of Spices, add the flavor of security to your life. We offer comprehensive health and NRI insurance support in Calicut."
+        areas: ['Mavoor Road', 'Nadakkavu', 'West Hill', 'Medical College Area', 'Beach Road'],
+        description: "In the City of Spices, add the flavor of security to your life. We offer comprehensive health and NRI Insurance Support in Calicut. Our team coordinates with the LIC Mananchira Square (Jeevan Prakash) office, providing doorstep support for claim recovery and policy revivals."
     },
     thrissur: {
         name: 'Thrissur',
         slug: 'thrissur',
         state: 'Kerala',
-        areas: ['Ayyanthole', 'Punkunnam', 'Mission Quarters'],
-        description: "Cultural capital needs financial culture. We help Thrissur families plan their wealth with the best investment and insurance schemes."
+        areas: ['Ayyanthole', 'Punkunnam', 'Mission Quarters', 'Swaraj Round', 'Guruvayur Road'],
+        description: "Cultural capital needs financial culture. Our Insurance Support team helps Thrissur families plan their wealth. We offer doorstep LIC services near the Swaraj Round hub, ensuring your investments and policies are managed with local expertise."
     },
     gwalior: {
         name: 'Gwalior',
         slug: 'gwalior',
         state: 'Madhya Pradesh',
-        areas: ['City Center', 'Lashkar', 'Morar'],
-        description: "Fortify your finances in Gwalior. We bring royal-grade protection for your vehicles, home, and health."
+        areas: ['City Center', 'Lashkar', 'Morar', 'Thatipur', 'Gritly'],
+        description: "Fortify your finances in Gwalior. Our Insurance Support team brings royal-grade protection for your vehicles, home, and health. We provide localized LIC assistance near the City Center office, ensuring your claims are processed without delays."
     },
     jabalpur: {
         name: 'Jabalpur',
         slug: 'jabalpur',
         state: 'Madhya Pradesh',
-        areas: ['Civil Lines', 'Wright Town', 'Vijay Nagar'],
-        description: "By the Narmada, ensure your life flows smoothly. We offer specialized pension and term plans for residents of Jabalpur."
+        areas: ['Civil Lines', 'Wright Town', 'Vijay Nagar', 'Ranjhi', 'Adhartal'],
+        description: "By the Narmada, ensure your life flows smoothly. Our Insurance Support team offers specialized pension and term plans near the LIC Madan Mahal office, providing doorstep service for all residents of Jabalpur."
     },
     ujjain: {
         name: 'Ujjain',
         slug: 'ujjain',
         state: 'Madhya Pradesh',
-        areas: ['Freeganj', 'Mahakal Vanijya', 'Rishi Nagar'],
-        description: "In the City of Mahakal, time is precious. Secure your time and family with our trusted term life insurance policies."
+        areas: ['Freeganj', 'Mahakal Vanijya', 'Rishi Nagar', 'Nanakheda', 'Tower Chowk'],
+        description: "In the City of Mahakal, time is precious. Secure your time and family with our trusted Insurance Support. We coordinate with the LIC Freeganj office to provide professional doorstep advisory and claim recovery services across Ujjain."
     }
 };
 
