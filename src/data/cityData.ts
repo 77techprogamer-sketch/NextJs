@@ -416,8 +416,13 @@ export const cityData: Record<string, CityData> = {
         name: 'Mangalore',
         slug: 'mangalore',
         state: 'Karnataka',
-        areas: ['Bejai', 'Kadri', 'Kankanady', 'Urwa'],
-        description: "From the port to the hills, Mangaloreans need robust cover. We specialize in marine and health insurance for the coastal city."
+        areas: [
+            'Bejai', 'Kadri', 'Kankanady', 'Urwa', 'Hampankatta', 'Ladyhill',
+            'Panambur', 'Surathkal', 'Ullal', 'Bajpe', 'Pandeshwar', 'Maryhill', 'Bondel'
+        ],
+        description: "As Karnataka's premier port city, Mangalore (Kudla) has a unique insurance landscape blending maritime commerce, banking, and a growing IT sector. We provide hyper-local support for Mangaloreans, ranging from health insurance for families in Kadri and Bejai to claim assistance for the industrial hubs of Surathkal and Panambur. We are deeply familiar with the LIC Pandeshwar branch operations and major private insurers in the city, offering doorstep service for policy renewals and maturity claims so you don't have to navigate the city's hilly terrain or monsoon rains just for paperwork.",
+        phone: "+91-9986634506",
+        coordinates: [12.9141, 74.8560]
     },
     warangal: {
         name: 'Warangal',
