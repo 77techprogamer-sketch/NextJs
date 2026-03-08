@@ -20,18 +20,23 @@ export const cityData: Record<string, CityData> = {
             'Basavanagudi', 'RT Nagar', 'KR Puram', 'Sarjapur Road', 'Bannerghatta Road',
             'RR Nagar', 'Vijayanagar', 'Vidyaranyapura', 'Sahakarnagar', 'Mahadevapura',
             'Brookefield', 'Kalyan Nagar', 'Kammanahalli', 'Frazer Town', 'Benson Town',
-            'Jeevan Bima Nagar', 'Sampige Road', 'Devanahalli', 'Nelamangala'
+            'Jeevan Bima Nagar', 'Manyata Tech Park', 'Bagmane Tech Park', 'Brigade Gateway',
+            'MG Road', 'Church Street', 'Nelamangala'
         ],
-        description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the IT corridors of Outer Ring Road and Manyata Tech Park to the residential hubs of HSR Layout and Jayanagar, we provide hyper-local Insurance Support. Skip the traffic at Silk Board—our certified advisors offer doorstep service for policy renewals, death claims, and health insurance disputes. We are intimately familiar with major LIC branches across the city, including the main Jeevan Prakash Building on JC Road, the Jeevan Bima Nagar hub, and localized branches in Bangalore South, ensuring your paperwork is processed rapidly without you ever needing to visit the branch.",
-        phone: "+91-9962536848",
+        description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the IT corridors of Outer Ring Road, Manyata Tech Park, and Bagmane Tech Park to the landmark Brigade Gateway and residential hubs of HSR Layout, we provide hyper-local Insurance Support. Skip the traffic at Silk Board—our certified advisors offer doorstep service for policy renewals, death claims, and health insurance disputes. We are intimately familiar with major LIC branches across the city, including the main Jeevan Prakash Building on JC Road, the Jeevan Bima Nagar hub, and localized branches in Bangalore South, ensuring your paperwork is processed rapidly without you ever needing to visit the branch.",
+        phone: "+91-9986634506",
         coordinates: [12.9716, 77.5946]
     },
     chennai: {
         name: 'Chennai',
         slug: 'chennai',
         state: 'Tamil Nadu',
-        areas: ['T Nagar', 'Adyar', 'Velachery', 'Anna Nagar', 'Mylapore', 'Tambaram', 'Guindy', 'Porur', 'OMR IT Corridor', 'ECR', 'Anna Nagar West', 'Taramani', 'Sholinganallur', 'Perungudi', 'Besant Nagar', 'Nungambakkam'],
-        description: "Given Chennai's coastal geography and monsoon history, especially in low-lying areas like Velachery and Adyar, 'flood-protection' in motor and property insurance is a top priority. Our Insurance Support team helps residents in Anna Nagar and T. Nagar with localized claim support and LIC policy management. We coordinate closely with the LIC Mount Road (Jeevan Prakash) and Greams Road offices, ensuring your assets are resilient against the Bay of Bengal's unpredictability with professional doorstep advisory.",
+        areas: [
+            'T Nagar', 'Adyar', 'Velachery', 'Anna Nagar', 'Mylapore', 'Tambaram', 'Guindy', 'Porur',
+            'OMR IT Corridor', 'ECR Road', 'Anna Nagar West', 'Taramani', 'Sholinganallur', 'Perungudi',
+            'Besant Nagar Avenue', 'Nungambakkam', 'Mount Road District', 'Anna Nagar East'
+        ],
+        description: "Given Chennai's coastal geography and monsoon history, especially in low-lying areas like Velachery and Adyar, 'flood-protection' in motor and property insurance is a top priority. Our Insurance Support team helps residents in Anna Nagar and T. Nagar with localized claim support and LIC policy management. We coordinate closely with the LIC Mount Road (Jeevan Prakash) and Greams Road offices, ensuring your assets are resilient against the Bay of Bengal's unpredictability with professional doorstep advisory across the OMR IT Expressway and ECR corridors.",
         phone: "+91-9962536848",
         coordinates: [13.0827, 80.2707]
     },
@@ -88,8 +93,12 @@ export const cityData: Record<string, CityData> = {
         name: 'Hyderabad',
         slug: 'hyderabad',
         state: 'Telangana',
-        areas: ['Banjara Hills', 'Jubilee Hills', 'Gachibowli', 'Kukatpally', 'Secunderabad', 'Hitech City', 'Kondapur', 'Madhapur', 'Manikonda', 'Uppal', 'LB Nagar', 'Ameerpet', 'Begumpet'],
-        description: "In the bustling IT hub of Hyderabad, specifically serving the Hitech City, Kondapur, and Gachibowli corridors, we provide comprehensive health and term life Insurance Support tailored for global professionals. Our expertise includes handling policy revivals and maturity claims near the LIC Saifabad Zonal Office and Basheerbagh hub, bridging the gap between digital convenience and doorstep service for residents in Secunderabad and Banjara Hills.",
+        areas: [
+            'Banjara Hills', 'Jubilee Hills', 'Gachibowli DLF', 'Kukatpally', 'Secunderabad',
+            'Hitech City Phase 2', 'Kondapur', 'Madhapur', 'Manikonda', 'Financial District',
+            'Uppal', 'LB Nagar', 'Ameerpet', 'Begumpet', 'Jubilee Hills Road No. 36', 'Charminar Area'
+        ],
+        description: "In the bustling IT hub of Hyderabad, specifically serving the Hitech City, Financial District, and Gachibowli corridors, we provide comprehensive health and term life Insurance Support tailored for global professionals. Our expertise includes handling policy revivals and maturity claims near the LIC Saifabad Zonal Office and Basheerbagh hub. We bridge the gap between digital convenience and doorstep service for residents in Secunderabad and the elite circles of Jubilee Hills Road No. 36, also providing traditional heritage policy support near the Charminar area.",
         phone: "+91-9962536848",
         coordinates: [17.3850, 78.4867]
     },
@@ -97,16 +106,24 @@ export const cityData: Record<string, CityData> = {
         name: 'Pune',
         slug: 'pune',
         state: 'Maharashtra',
-        areas: ['Koregaon Park', 'Kalyani Nagar', 'Viman Nagar', 'Hinjewadi', 'Kothrud', 'Magarpatta', 'Wakad', 'Baner', 'Balewadi', 'Pimple Saudagar', 'Hadapsar', 'Kharadi'],
-        description: "Pune's dynamic lifestyle demands robust Insurance Support. From motor insurance for your daily commute to Hinjewadi IT Park or Magarpatta City, to health plans for your family in Baner or Wakad, we cover all your needs. We provide specialized LIC policy services with proximity to the LIC Model Colony and Jeevan Tara Shivajinagar offices, ensuring fast-track claim processing in the Oxford of the East.",
+        areas: [
+            'Koregaon Park Lane 7', 'Kalyani Nagar', 'Viman Nagar', 'Hinjewadi Phase 2', 'Kothrud',
+            'Magarpatta City North', 'Wakad', 'Baner High Street', 'Balewadi', 'Pimple Saudagar',
+            'Hadapsar', 'Kharadi'
+        ],
+        description: "Pune's dynamic lifestyle demands robust Insurance Support. From motor insurance for your daily commute to Hinjewadi IT Park Phase 1-3 or Magarpatta City, to health plans for your family in Baner High Street or Pimple Saudagar, we cover all your needs. We provide specialized LIC policy services with proximity to the LIC Model Colony and Jeevan Tara Shivajinagar offices, ensuring fast-track claim processing in the Oxford of the East, including the premium residential corridors of Koregaon Park.",
         phone: "+91-9962536848"
     },
     mumbai: {
         name: 'Mumbai',
         slug: 'mumbai',
         state: 'Maharashtra',
-        areas: ['Andheri', 'Bandra', 'Juhu', 'Powai', 'Colaba', 'Dadar', 'Nariman Point', 'Lower Parel', 'Worli', 'Malad West', 'BKC', 'Kandivali', 'Borivali'],
-        description: "In the City of Dreams, financial security must keep pace with the fast life. From South Mumbai's corporate corridors at Nariman Point to the IT hubs of Malad and residential circles of Andheri, our Insurance Support team provides doorstep assistance. We specialize in LIC policy maturity and revival, coordinating with the Yogakshema and Santacruz hubs, alongside comprehensive health plans that cover Mumbai's top-tier medical facilities.",
+        areas: [
+            'Andheri', 'Bandra Kurla Complex (BKC)', 'Juhu Beach Area', 'Powai', 'Colaba Causeway',
+            'Dadar', 'Nariman Point', 'Lower Parel', 'Worli Sea Face', 'Malad West', 'Kandivali East',
+            'Borivali West', 'Cuffe Parade'
+        ],
+        description: "In the City of Dreams, financial security must keep pace with the fast life. From South Mumbai's corporate corridors at Nariman Point and Cuffe Parade to the BKC financial hub and residential circles of Juhu and Bandra, our Insurance Support team provides doorstep assistance. We specialize in LIC policy maturity and revival, coordinating with the Yogakshema (Nariman Point) and Santacruz hubs, alongside comprehensive health plans that cover Mumbai's top-tier medical facilities near the iconic Gateway of India.",
         phone: "+91-9962536848",
         coordinates: [19.0760, 72.8777]
     },
@@ -114,15 +131,21 @@ export const cityData: Record<string, CityData> = {
         name: 'Ahmedabad',
         slug: 'ahmedabad',
         state: 'Gujarat',
-        areas: ['Satellite', 'Bodakdev', 'Vastrapur', 'Maninagar', 'Navrangpura', 'Prahlad Nagar', 'Sindhu Bhavan Road', 'Gota', 'Chandkheda'],
-        description: "As a premier business and industrial hub, Ahmedabad requires high-performance Insurance Support. We assist entrepreneurs and families from the corporate offices of Prahlad Nagar to the residential circles of Satellite and Vastrapur. Our team provides specialized LIC advisory near the Relief Road and Jeevan Prakash (Satellite) hubs, offering doorstep claim assistance and policy revival services across the city."
+        areas: [
+            'Satellite', 'Bodakdev', 'Vastrapur', 'Maninagar', 'Navrangpura', 'Prahlad Nagar Corporate Road',
+            'Sindhu Bhavan Road', 'Gota', 'Chandkheda', 'SG Highway'
+        ],
+        description: "As a premier business and industrial hub, Ahmedabad requires high-performance Insurance Support. We assist entrepreneurs and families from the corporate offices of Prahlad Nagar and SG Highway to the residential circles of Sindhu Bhavan Road and Satellite. Our team provides specialized LIC advisory near the Relief Road and Jeevan Prakash (Satellite) hubs, offering doorstep claim assistance and policy revival services across the city's rapidly expanding western corridors."
     },
     kolkata: {
         name: 'Kolkata',
         slug: 'kolkata',
         state: 'West Bengal',
-        areas: ['Salt Lake', 'New Town', 'Park Street', 'Ballygunge', 'Howrah', 'Behala', 'Garia', 'Tollygunge', 'Dum Dum', 'Kasba', 'Lake Town'],
-        description: "In the City of Joy, don't let financial worries dampen your spirit. Our expert Insurance Support advisors in Kolkata help you choose the best life and health insurance plans. We provide local assistance for LIC policyholders near Jeevan Deep Chowringhee and Jibon Bima Bhaban, offering doorstep recovery for rejected claims and policy revivals across Salt Lake and South Kolkata.",
+        areas: [
+            'Salt Lake Sector V', 'New Town Action Area 1', 'Park Street Area', 'Ballygunge Circular Road',
+            'Howrah', 'Behala', 'Garia', 'Tollygunge', 'Dum Dum', 'Kasba', 'Lake Town'
+        ],
+        description: "In the City of Joy, don't let financial worries dampen your spirit. Our expert Insurance Support advisors in Kolkata help you choose the best life and health insurance plans. We provide local assistance for LIC policyholders near Jeevan Deep (Chowringhee) and Jibon Bima Bhaban, offering doorstep recovery for rejected claims and policy revivals across the Salt Lake IT hub and the historical residential corridors of Ballygunge and Park Street.",
     },
     lucknow: {
         name: 'Lucknow',
@@ -233,8 +256,12 @@ export const cityData: Record<string, CityData> = {
         name: 'Delhi',
         slug: 'delhi',
         state: 'Delhi',
-        areas: ['Connaught Place', 'Dwarka', 'Rohini', 'Saket', 'Vasant Kunj', 'Janakpuri', 'Lajpat Nagar', 'Karol Bagh', 'Okhla', 'Pitampura', 'Mayur Vihar', 'Laxmi Nagar'],
-        description: "In the heart of the nation, we offer capital-grade Insurance Support. Our advisors are active across NCR, from Connaught Place to the dense residential sectors of Dwarka and Rohini. We provide expert help with complex LIC claim settlements near the Jeevan Deep (Parliament Street) and Jeevan Bharti offices, ensuring your family stays secure amidst the city's fast-paced growth and air-quality-linked health challenges.",
+        areas: [
+            'Connaught Place - Block B', 'Dwarka Sector 10', 'Rohini Sector 7', 'Saket District Centre',
+            'Vasant Kunj', 'Janakpuri District Center', 'Lajpat Nagar', 'Karol Bagh', 'Okhla',
+            'Pitampura', 'Mayur Vihar', 'Laxmi Nagar'
+        ],
+        description: "In the heart of the nation, we offer capital-grade Insurance Support. Our advisors are active across NCR, from Connaught Place and Saket to the dense residential sectors of Dwarka and Rohini. We provide expert help with complex LIC claim settlements near the Jeevan Deep (Parliament Street) and Jeevan Bharti offices, ensuring your family stays secure amidst the city's fast-paced growth and air-quality-linked health challenges across the entire Delhi-NCR region.",
         phone: "+91-9962536848",
         coordinates: [28.6139, 77.2090]
     },
