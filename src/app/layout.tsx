@@ -114,17 +114,20 @@ export const metadata: Metadata = {
         canonical: 'https://insurancesupport.online',
         languages: {
             'en-IN': 'https://insurancesupport.online',
-            'hi-IN': 'https://insurancesupport.online?lang=hi',
-            'kn-IN': 'https://insurancesupport.online?lang=kn',
-            'ta-IN': 'https://insurancesupport.online?lang=ta',
-            'te-IN': 'https://insurancesupport.online?lang=te',
-            'mr-IN': 'https://insurancesupport.online?lang=mr',
-            'gu-IN': 'https://insurancesupport.online?lang=gu',
+            'hi-IN': 'https://insurancesupport.online/hi',
+            'kn-IN': 'https://insurancesupport.online/kn',
+            'ta-IN': 'https://insurancesupport.online/ta',
+            'te-IN': 'https://insurancesupport.online/te',
+            'mr-IN': 'https://insurancesupport.online/mr',
+            'gu-IN': 'https://insurancesupport.online/gu',
         },
     },
     other: {
-        'content-language': 'en',
-        'language': 'English',
+        'content-language': 'en-IN',
+        'geo.region': 'IN-KA',
+        'geo.placename': 'Bangalore',
+        'geo.position': '12.9716;77.5946',
+        'ICBM': '12.9716, 77.5946',
     },
 }
 

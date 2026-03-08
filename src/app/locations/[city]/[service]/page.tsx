@@ -231,34 +231,51 @@ export default function ServiceLocationPage({ params }: Props) {
                         )}
                         <div className="grid sm:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <h3 className="font-semibold text-lg flex items-center gap-2">
-                                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                                    {city.name} Local Experts
+                                <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
+                                    <MapPin className="h-5 w-5 text-primary" />
+                                    {city.name} Regional Coverage
                                 </h3>
-                                <p className="text-muted-foreground text-sm">Serving all {city.areas.length} major areas in {city.name} with dedicated {serviceLabel} support since 2001.</p>
+                                <p className="text-muted-foreground text-sm">
+                                    Comprehensive {serviceLabel} support across {city.areas.slice(0, 5).join(', ')} and all major neighborhoods in {city.name}.
+                                </p>
                             </div>
                             <div className="space-y-2">
-                                <h3 className="font-semibold text-lg flex items-center gap-2">
-                                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                                    {city.state} Claim Support
+                                <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
+                                    <UserCheck className="h-5 w-5 text-primary" />
+                                    Expert {serviceLabel} Advisor
                                 </h3>
-                                <p className="text-muted-foreground text-sm">We handle complex {serviceLabel} claims across {city.state}, ensuring a 98% settlement ratio for our clients.</p>
+                                <p className="text-muted-foreground text-sm">
+                                    Direct access to certified experts with 25+ years of experience in the {city.state} insurance market.
+                                </p>
                             </div>
                             <div className="space-y-2">
-                                <h3 className="font-semibold text-lg flex items-center gap-2">
-                                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                                    Customized {serviceLabel}
+                                <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
+                                    <Clock className="h-5 w-5 text-primary" />
+                                    Hassle-Free Processing
                                 </h3>
-                                <p className="text-muted-foreground text-sm">Plans tailored for residents of {city.areas.slice(0, 3).join(', ')} and surrounding regions.</p>
+                                <p className="text-muted-foreground text-sm">
+                                    We handle the end-to-end documentation for {serviceLabel} at your doorstep in {city.name}.
+                                </p>
                             </div>
                             <div className="space-y-2">
-                                <h3 className="font-semibold text-lg flex items-center gap-2">
-                                    <CheckCircle2 className="h-5 w-5 text-green-600" />
-                                    Doorstep Service
+                                <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
+                                    <Shield className="h-5 w-5 text-primary" />
+                                    98% Settlement Ratio
                                 </h3>
-                                <p className="text-muted-foreground text-sm">Our authorized advisors visit your home anywhere in {city.name} for hassle-free {serviceLabel} processing.</p>
+                                <p className="text-muted-foreground text-sm">
+                                    Trusted by thousands of families in {city.name} for resolving rejected claims and securing legacy policies.
+                                </p>
                             </div>
                         </div>
+                    </div>
+
+                    <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 mb-10">
+                        <h3 className="text-lg font-bold mb-3">{city.name} Local Advisory Hub</h3>
+                        <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                            Looking for a reliable <strong>{serviceLabel} agent in {city.name}</strong>?
+                            Our team specializes in {city.state}-specific insurance regulations and has a deep understanding of the local landscape,
+                            ensuring you get the best possible claim support in areas like {city.areas.slice(-3).join(', ')}.
+                        </p>
                     </div>
 
                     <h2 className="text-2xl font-bold mb-6">Our {serviceLabel} Support Services in {city.name}</h2>

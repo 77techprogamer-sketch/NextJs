@@ -29,7 +29,8 @@ const Analytics = () => {
             `,
                 }}
             />
-            {/* Google Analytics 4 */}
+            {/* Google Analytics 4 - Removed to prevent double-tagging with GTM */}
+            {/* 
             <Script
                 strategy="afterInteractive"
                 src={`https://www.googletagmanager.com/gtag/js?id=G-JP67H399V2`}
@@ -48,6 +49,7 @@ const Analytics = () => {
                     `,
                 }}
             />
+            */}
         </>
     );
 };
