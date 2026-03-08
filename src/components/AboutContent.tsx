@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ShieldCheck, Users, Award, History } from 'lucide-react';
+import { ShieldCheck, Users, Award, History, Info } from 'lucide-react';
 import { AutoLinker } from '@/components/AutoLinker';
 
 const AboutContent = () => {
@@ -65,11 +65,37 @@ const AboutContent = () => {
                         </div>
                     </div>
 
-                    <div className="max-w-4xl mx-auto text-center space-y-8">
+                    <div className="max-w-4xl mx-auto text-center space-y-8 mb-20">
                         <h2 className="text-3xl font-bold text-gray-900 dark:text-white" suppressHydrationWarning>{t('our_mission_title')}</h2>
                         <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed" suppressHydrationWarning>
                             <AutoLinker text={t('our_mission_text')} />
                         </p>
+                    </div>
+
+                    {/* SEO Trust Signals (E-E-A-T) */}
+                    <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-100 dark:border-slate-800 pt-16">
+                        <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl">
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                <ShieldCheck className="w-5 h-5 text-blue-600" />
+                                {t('editorial_policy_title')}
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400">
+                                {t('editorial_policy_text')}
+                            </p>
+                        </div>
+                        <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl">
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                <Info className="w-5 h-5 text-blue-600" />
+                                {t('official_sources_title')}
+                            </h3>
+                            <div className="text-slate-600 dark:text-slate-400">
+                                <AutoLinker text={t('official_sources_text')} />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="text-center mt-12 text-sm text-slate-500">
+                        {t('last_updated', { date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) })}
                     </div>
                 </div>
             </section>

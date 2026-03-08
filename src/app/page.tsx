@@ -6,9 +6,9 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'Insurance Support | Expert Claim Recovery & Policy Help India'
+        absolute: 'Insurance Support: Expert Claim Recovery & Policy Help India'
     },
-    description: "Expert help for rejected insurance claims and policy management. 25+ years of trust. LIC, Health, Motor & Life Insurance support in India.",
+    description: "Navigate rejected insurance claims and policy issues with expert help. 25+ years of trust in LIC, Health, & Life insurance support across India.",
     keywords: [
         'Insurance Support',
         'Insurance Support India',

@@ -6,7 +6,7 @@ import {
     Shield, Heart, Car, Home, Plane,
     Wallet, TrendingUp, HeartHandshake, ShieldCheck,
     FileText, Building, Phone, HelpCircle,
-    ArrowRight, MessageSquare
+    ArrowRight, MessageSquare, CheckCircle2, XCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -140,6 +140,73 @@ export default function SupportClient() {
                             </Card>
                         );
                     })}
+                </div>
+
+                {/* Practical Help Sections (SEO & Task Focused) */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
+                    {/* Claim Checklist */}
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-primary">
+                            <FileText className="w-5 h-5" />
+                            {t('claim_filing_checklist_title')}
+                        </h3>
+                        <ul className="space-y-4">
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                                <span className="text-slate-600 dark:text-slate-400">{t('claim_filing_step_1')}</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                                <span className="text-slate-600 dark:text-slate-400">{t('claim_filing_step_2')}</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                                <span className="text-slate-600 dark:text-slate-400">{t('claim_filing_step_3')}</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Policy Pitfalls */}
+                    <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800">
+                        <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-red-600">
+                            <XCircle className="w-5 h-5" />
+                            {t('common_pitfalls_title')}
+                        </h3>
+                        <ul className="space-y-4">
+                            <li className="flex items-start gap-3">
+                                <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0"></div>
+                                <span className="text-slate-600 dark:text-slate-400">{t('pitfall_1')}</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <div className="div-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0"></div>
+                                <span className="text-slate-600 dark:text-slate-400">{t('pitfall_2')}</span>
+                            </li>
+                            <li className="flex items-start gap-3">
+                                <div className="div-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0"></div>
+                                <span className="text-slate-600 dark:text-slate-400">{t('pitfall_3')}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Rich Snippet FAQ Section (People Also Ask) */}
+                <div className="mt-20 max-w-4xl mx-auto">
+                    <div className="text-center mb-10">
+                        <h3 className="text-2xl font-bold mb-4">{t('frequently_asked_questions')}</h3>
+                        <p className="text-slate-500">{t('find_answers_to_common_questions')}</p>
+                    </div>
+                    <div className="space-y-6">
+                        {[1, 2, 3].map((i) => (
+                            <div key={i} className="bg-gray-100/50 dark:bg-gray-800/50 p-6 rounded-xl border border-dashed border-slate-300 dark:border-slate-700">
+                                <h4 className="font-bold text-lg mb-2 text-slate-900 dark:text-white">
+                                    {t(`faq_paa_q${i}`)}
+                                </h4>
+                                <p className="text-slate-600 dark:text-slate-400 italic">
+                                    {t(`faq_paa_a${i}`)}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Footer CTA */}
