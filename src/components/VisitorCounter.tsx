@@ -35,29 +35,15 @@ const VisitorCounter = () => {
 
   useEffect(() => {
     const logVisitorAndFetchInitialStats = async () => {
-      let visitorIp: string | null = null;
       let visitorIsp: string | null = null;
       let visitorCity: string | null = null;
       let visitorRegion: string | null = null;
       let visitorCountry: string | null = null;
 
       try {
-        // Fetch IP address - Attempt but don't fail hard
+        // Fetch ISP and location information from our own API route (avoids CORS and protects IP)
         try {
-          const ipResponse = await fetch('https://api.ipify.org?format=json');
-          if (ipResponse.ok) {
-            const { ip } = await ipResponse.json();
-            visitorIp = ip;
-          }
-        } catch (e) {
-          console.warn('Could not fetch IP from client side:', e);
-        }
-
-        // Fetch ISP and location information using the IP address from our own API route (avoids CORS)
-        try {
-          // If we have an IP, pass it to the API, otherwise it will detect
-          const url = visitorIp ? `/api/location?ip=${visitorIp}` : '/api/location';
-          const geoResponse = await fetch(url);
+          const geoResponse = await fetch('/api/location');
 
           if (geoResponse.ok) {
             const geoData = await geoResponse.json();
@@ -73,9 +59,9 @@ const VisitorCounter = () => {
         }
 
         // Call the Edge Function to log the visitor
+        // The Edge Function should detect the IP from request headers internally
         const { data: edgeFunctionData, error: edgeFunctionError } = await supabase.functions.invoke('log-visitor', {
           body: {
-            ip_address: visitorIp,
             isp: visitorIsp,
             city: visitorCity,
             region: visitorRegion,

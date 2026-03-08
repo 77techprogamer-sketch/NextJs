@@ -13,7 +13,6 @@ export async function GET(request: NextRequest) {
 
     if (vCity && vCountry) {
         return NextResponse.json({
-            ip: request.headers.get('x-forwarded-for') || '127.0.0.1',
             city: decodeURIComponent(vCity),
             region: vRegion ? decodeURIComponent(vRegion) : '',
             country_name: vCountry === 'IN' ? 'India' : vCountry, // Simple mapping
@@ -70,7 +69,6 @@ export async function GET(request: NextRequest) {
             // Hardcoded fallback logic for development
             console.warn('API rate limit hit or error, using fallback location.');
             return NextResponse.json({
-                ip: '127.0.0.1',
                 city: 'Bangalore',
                 region: 'Karnataka',
                 country_name: 'India',
@@ -80,6 +78,9 @@ export async function GET(request: NextRequest) {
         }
 
         const data = await response.json();
+
+        // Remove IP from external API response before caching/returning
+        if (data.ip) delete data.ip;
 
         // Save to cache
         if (!globalThis.locationCache) {

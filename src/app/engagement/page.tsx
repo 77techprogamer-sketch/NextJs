@@ -19,11 +19,9 @@ const EngagementDashboard = () => {
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-
-    useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-
+    const fetchData = async () => {
+        setLoading(true);
+        try {
             // Fetch Visitor Stats
             const { data: statsData, error: statsError } = await supabase.rpc('get_visitor_stats');
             if (statsError) console.error('Error fetching stats:', statsError);
@@ -37,16 +35,22 @@ const EngagementDashboard = () => {
 
             if (leadsError) {
                 console.error('Error fetching leads:', leadsError);
-                // If it's a 401 or RLS issue, we'll just have an empty list but log the error
             } else if (leadsData) {
                 setLeads(leadsData);
             }
-
+        } finally {
             setLoading(false);
-        };
+        }
+    };
 
-        fetchData();
-    }, []);
+    useEffect(() => {
+        // Only fetch if already authenticated (e.g., if we implement persistent auth later)
+        if (isAuthenticated) {
+            fetchData();
+        } else {
+            setLoading(false);
+        }
+    }, [isAuthenticated]);
 
     if (loading) {
         return (
