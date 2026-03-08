@@ -119,7 +119,6 @@ export async function GET(request: NextRequest) {
         console.error('Error fetching location:', error);
         // Fallback on network error too
         return NextResponse.json({
-            ip: '127.0.0.1',
             city: 'Bangalore',
             region: 'Karnataka',
             country_name: 'India',
