@@ -6,6 +6,29 @@ declare global {
 }
 
 export async function GET(request: NextRequest) {
+    // 0. Security: Restrict access to our own domain
+    const origin = request.headers.get('origin');
+    const referer = request.headers.get('referer');
+    const host = request.headers.get('host');
+
+    // Allowed domain
+    const allowedDomain = 'insurancesupport.online';
+    const isLocalhost = process.env.NODE_ENV === 'development';
+
+    const isAllowed =
+        isLocalhost ||
+        (origin && origin.includes(allowedDomain)) ||
+        (referer && referer.includes(allowedDomain)) ||
+        (host && host.includes(allowedDomain));
+
+    if (!isAllowed) {
+        console.warn(`[Security] Unauthorized API access attempt to /api/location from: ${origin || referer || 'Unknown'}`);
+        return new NextResponse(JSON.stringify({ error: "Unauthorized access" }), {
+            status: 403,
+            headers: { 'Content-Type': 'application/json' }
+        });
+    }
+
     // 1. Check Vercel Geolocation Headers (Available in Production/Preview)
     const vCity = request.headers.get('x-vercel-ip-city');
     const vRegion = request.headers.get('x-vercel-ip-country-region');
