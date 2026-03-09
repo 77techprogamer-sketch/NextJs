@@ -18,25 +18,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!city || !serviceLabel) return {}
 
+    const isLicRelated = params.service.includes('lic') || params.service.includes('life');
+    const title = isLicRelated
+        ? `Verified ${serviceLabel} Advisor in ${city.name} | Doorstep Service`
+        : `${serviceLabel} Support ${city.name} | 98% Claim Settlement`;
+
     return {
         title: {
-            absolute: `${serviceLabel} - Insurance Support in ${city.name}`
+            absolute: title
         },
-        description: `Compare the best ${serviceLabel} plans in ${city.name}. Expert guidance and doorstep claim support with 25+ years experience. Get a free quote in 30 seconds!`,
+        description: `Struggling with ${serviceLabel} in ${city.name}? Get expert guidance and doorstep support from verified advisors with 25+ years experience. 98% claim settlement assurance. Free consultation!`,
         keywords: [
             `${serviceLabel} ${city.name}`,
-            `Best ${serviceLabel} Advisor in ${city.name}`,
-            `${serviceLabel} renewal ${city.name}`,
-            `${serviceLabel} claims ${city.name}`,
-            `buy ${serviceLabel} in ${city.name}`,
-            `${serviceLabel} policy advisor ${city.name}`,
-            `insurance advisor for ${serviceLabel} in ${city.name}`,
-            `IRDAI certified ${serviceLabel} advisor ${city.name}`,
+            `Verified ${serviceLabel} Advisor in ${city.name}`,
+            `${serviceLabel} claim assistance ${city.name}`,
+            `${serviceLabel} doorstep service ${city.name}`,
             `top rated ${serviceLabel} company ${city.name}`,
             `${serviceLabel} consultant near me ${city.name}`,
-            ...city.areas.map(area => `${serviceLabel} near ${area}`),
-            ...city.areas.map(area => `buy ${serviceLabel} in ${area}`),
-            ...city.areas.map(area => `${serviceLabel} advisor ${area}`)
+            ...city.areas.slice(0, 5).map(area => `${serviceLabel} near ${area}`),
         ],
         alternates: {
             canonical: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
@@ -361,6 +360,27 @@ export default function ServiceLocationPage({ params }: Props) {
                         <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 text-lg">
                             WhatsApp Support
                         </Button>
+                    </div>
+
+                    {/* Nearby Support Centers for Crawl Depth */}
+                    <div className="pt-8 border-t border-slate-100 dark:border-slate-800">
+                        <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">Nearby Insurance Support Centers</h3>
+                        <div className="flex flex-wrap gap-x-6 gap-y-3">
+                            {Object.values(cityData)
+                                .filter(c => c.state === city.state && c.name !== city.name)
+                                .slice(0, 6)
+                                .map(nearbyCity => (
+                                    <Link
+                                        key={nearbyCity.name}
+                                        href={`/locations/${nearbyCity.name.toLowerCase().replace(/\s+/g, '-')}/${params.service}`}
+                                        className="text-sm text-slate-500 hover:text-primary transition-colors flex items-center gap-1"
+                                    >
+                                        <MapPin className="h-3 w-3" />
+                                        {nearbyCity.name}
+                                    </Link>
+                                ))
+                            }
+                        </div>
                     </div>
                 </div>
 
