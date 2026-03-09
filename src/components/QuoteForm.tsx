@@ -148,6 +148,14 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
 
       if (error) throw error;
 
+      // GA4 Lead Event
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'generate_lead', {
+          service_type: insuranceType,
+          form_location: 'detailed_quote_form'
+        });
+      }
+
       toast.success(t("quote_submitted_successfully"));
       if (onSuccess) {
         onSuccess();

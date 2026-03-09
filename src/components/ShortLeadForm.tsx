@@ -47,6 +47,14 @@ const ShortLeadForm = () => {
 
             if (error) throw error;
 
+            // GA4 Lead Event
+            if (typeof window !== 'undefined' && (window as any).gtag) {
+                (window as any).gtag('event', 'generate_lead', {
+                    service_type: values.requirement,
+                    form_location: 'hero_short_form'
+                });
+            }
+
             toast.success(t("quote_submitted_successfully"));
             form.reset();
         } catch (error) {

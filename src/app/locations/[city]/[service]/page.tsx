@@ -338,6 +338,21 @@ export default function ServiceLocationPage({ params }: Props) {
                         </div>
                     </div>
 
+                    {/* Related Guides for Engagement */}
+                    <div className="mb-12">
+                        <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Helpful {serviceLabel} Guides</h3>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            <Link href="/guides/claim-recovery-process" className="group p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl hover:border-primary/50 transition-all shadow-sm">
+                                <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">Rejected Case Recovery</h4>
+                                <p className="text-sm text-muted-foreground">Learn how we help {city.name} residents recover rejected insurance claims.</p>
+                            </Link>
+                            <Link href="/guides/lost-lic-policy-help" className="group p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl hover:border-primary/50 transition-all shadow-sm">
+                                <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">Duplicate Policy Guide</h4>
+                                <p className="text-sm text-muted-foreground">Getting a duplicate LIC policy in {city.name} without the hassle.</p>
+                            </Link>
+                        </div>
+                    </div>
+
                     <div className="flex flex-col sm:flex-row gap-4 mb-8">
                         <Button size="lg" className="w-full sm:w-auto h-12 text-lg shadow-lg shadow-primary/20">
                             <Phone className="mr-2 h-4 w-4" />
