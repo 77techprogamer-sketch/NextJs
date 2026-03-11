@@ -18,8 +18,8 @@ export default function DynamicKeywordLinks() {
     const locations = Object.keys(cityData);
 
     // Using deterministic selection so search engines see consistent links
-    const featuredCities = getDeterministicSubset(locations, 8, 0);
-    const featuredServices = getDeterministicSubset(services, 8, 2);
+    const featuredCities = getDeterministicSubset(locations, 12, 0);
+    const featuredServices = getDeterministicSubset(services, 12, 3);
 
     return (
         <section className="py-8 bg-gray-50 border-t border-gray-200">

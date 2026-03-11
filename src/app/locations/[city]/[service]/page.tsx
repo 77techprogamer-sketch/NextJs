@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, MapPin, Phone, UserCheck, Clock, Shield, ArrowRight } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
 import { getCityData, cityData } from '@/data/cityData'
-import { services, serviceLabels } from '@/data/services'
+import { services, serviceLabels, serviceDescriptions, serviceHighlights } from '@/data/services'
 
 interface Props {
     params: { city: string; service: string }
@@ -214,7 +214,7 @@ export default function ServiceLocationPage({ params }: Props) {
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                        Secure your future with the most reliable <strong>{serviceLabel} plans in {city.name}</strong>.
+                        {serviceDescriptions[params.service] || `Secure your future with the most reliable ${serviceLabel} plans in ${city.name}.`}
                         Whether you are in {city.areas[0]} or {city.areas[1] || 'nearby'}, our expert advisors provide personalized support at your doorstep.
                     </p>
 

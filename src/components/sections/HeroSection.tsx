@@ -139,6 +139,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                                                 width={40}
                                                 height={40}
                                                 className="object-cover"
+                                                priority
                                             />
                                         </div>
                                         <div className="text-left">
@@ -162,7 +163,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
 
                         {/* Right Side: Quick Lead Form */}
                         <div className="w-full lg:w-auto flex-shrink-0">
-                            <ScrollReveal animation="fade-left" delay={0.7}>
+                            <ScrollReveal animation="slide-left" delay={0.7}>
                                 <ShortLeadForm />
                             </ScrollReveal>
                         </div>
