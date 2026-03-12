@@ -59,7 +59,7 @@ async function run() {
     const serviceSlugs = extractArrayFromTS(path.join(DATA_PATH, 'services.ts'), /['"]([a-z-]+)['"]/g);
     serviceSlugs.forEach(s => urlsToPush.push(`${BASE_URL}/services/${s}`));
 
-    const cities = extractKeysFromTS(path.join(DATA_PATH, 'cityData.ts'), /^\s{4}([a-z-]+):\s{/gm);
+    const cities = extractKeysFromTS(path.join(DATA_PATH, 'cityData.ts'), /^\s*([a-z-]+):\s*{/gm);
     cities.forEach(c => urlsToPush.push(`${BASE_URL}/locations/${c}`));
 
     cities.forEach(city => {
