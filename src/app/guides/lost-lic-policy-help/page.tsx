@@ -31,7 +31,7 @@ const LostPolicyGuide = () => {
                         </h1>
 
                         <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                            Losing your LIC policy document or forgetting the policy number is common. Whether it's an old policy from your parents or one you misplaced during shifting, here is how you can recover it without paying agent fees.
+                            Losing your LIC policy document or forgetting the policy number is common. Whether it&apos;s an old policy from your parents or one you misplaced during shifting, here is how you can recover it without paying agent fees.
                         </p>
 
                         <div className="flex items-center gap-4 py-4 border-y border-slate-100 dark:border-white/5">
@@ -51,16 +51,15 @@ const LostPolicyGuide = () => {
 
                     <div className="lg:max-w-3xl prose prose-slate dark:prose-invert">
                         <h2 className="text-2xl font-bold mb-6">1. Check Your Bank Statements</h2>
-                        <p>The easiest way to find your LIC policy number is to check the bank statement from which you paid the initial or recurring premiums. Look for entries like <strong>"LIC-PREM"</strong> or <strong>"LIFE INS CORP"</strong>. The narration often contains the 9-digit policy number.</p>
-
+                        <p>The easiest way to find your LIC policy number is to check the bank statement from which you paid the initial or recurring premiums. Look for entries like <strong>&quot;LIC-PREM&quot;</strong> or <strong>&quot;LIFE INS CORP&quot;</strong>. The narration often contains the 9-digit policy number.</p>
                         <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-2xl border-l-4 border-blue-500 my-8">
                             <p className="text-sm font-medium text-blue-800 dark:text-blue-300 m-0">
-                                <strong>Pro Tip:</strong> Search for "LIC" in your bank's mobile app transaction history.
+                                <strong>Pro Tip:</strong> Search for &quot;LIC&quot; in your bank&apos;s mobile app transaction history.
                             </p>
                         </div>
 
                         <h2 className="text-2xl font-bold mb-6">2. Visit the Branch Office</h2>
-                        <p>If you remember the branch where you took the policy, you can visit it with your ID proof (Aadhar/PAN). The "In-force Search" or "Lapsed Search" facility allows officials to find your policy by name and date of birth.</p>
+                        <p>If you remember the branch where you took the policy, you can visit it with your ID proof (Aadhar/PAN). The &quot;In-force Search&quot; or &quot;Lapsed Search&quot; facility allows officials to find your policy by name and date of birth.</p>
 
                         <div className="my-12 p-8 bg-slate-900 rounded-3xl text-white relative overflow-hidden">
                             <div className="relative z-10">
@@ -103,7 +102,7 @@ const LostPolicyGuide = () => {
 
                             <div className="flex items-center gap-4 p-4 rounded-2xl bg-green-500/10 border border-green-500/20 text-green-700 dark:text-green-400">
                                 <Search className="w-8 h-8 opacity-50" />
-                                <p className="text-xs font-bold leading-tight">We've helped recover ₹15 Cr+ in lost policy benefits last year.</p>
+                                <p className="text-xs font-bold leading-tight">We&apos;ve helped recover ₹15 Cr+ in lost policy benefits last year.</p>
                             </div>
                         </div>
                     </aside>

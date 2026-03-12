@@ -42,7 +42,11 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     // 3. Get IP
     const ip = request.ip || request.headers.get('x-forwarded-for') || '127.0.0.1';
 
-    // 3.5. Layer 2 DDoS Protection: Rate Limiting
+    // 4. Bot Detection (Needed for rate limiting and security exemptions)
+    const userAgent = request.headers.get('user-agent') || '';
+    const isBot = /googlebot|bingbot|yandex|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|Google-InspectionTool|Storebot-Google|Lighthouse|IndexNow/i.test(userAgent);
+
+    // 4.5. Layer 2 DDoS Protection: Rate Limiting
     const currentTime = Date.now();
     const rateData = ipMap.get(ip) || { count: 0, startTime: currentTime };
     const RATE_LIMIT_WINDOW_MS = 10 * 1000; // 10 seconds
@@ -62,7 +66,8 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         ipMap.clear();
     }
 
-    if (rateData.count > RATE_LIMIT_MAX_REQUESTS) {
+    // Skip rate limiting for verified bots to prevent GSC Indexing issues
+    if (rateData.count > RATE_LIMIT_MAX_REQUESTS && !isBot) {
         console.warn(`[DDoS Protection] Blocked IP: ${ip} for exceeding rate limit (${rateData.count} requests)`);
         return new NextResponse(
             JSON.stringify({ error: "Too many requests. Please try again later." }),
@@ -70,13 +75,10 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         );
     }
 
-    // 4. Check IP Reputation (stopforumspam)
+    // 5. Check IP Reputation (stopforumspam)
     try {
         // Only check in production or if needed. We skip localhost mostly in dev.
         // Check for bots (Googlebot, Bingbot, etc.) to avoid blocking them via IP check
-        const userAgent = request.headers.get('user-agent') || '';
-        const isBot = /googlebot|bingbot|yandex|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|Google-InspectionTool|Storebot-Google|Lighthouse|IndexNow/i.test(userAgent);
-
         if (process.env.NODE_ENV === 'production' && !isBot && ip !== '127.0.0.1' && ip !== '::1') {
             const sfsResponse = await fetch(`https://api.stopforumspam.org/api?ip=${ip}&json`);
             const data = await sfsResponse.json();
@@ -97,7 +99,7 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         console.error('Middleware Security Check Failed:', error);
     }
 
-    // 5. IP-Based Location Logging for Homepage (No longer redirecting to fix GSC Indexing)
+    // 6. IP-Based Location Logging for Homepage (No longer redirecting to fix GSC Indexing)
     if (request.nextUrl.pathname === '/') {
         const vCity = request.headers.get('x-vercel-ip-city');
         const cityName = vCity ? decodeURIComponent(vCity).trim().toLowerCase() : null;

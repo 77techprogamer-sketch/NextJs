@@ -60,10 +60,10 @@ export default function InsuranceSupportGuide() {
                         <div className="prose prose-lg max-w-none text-slate-600">
                             <p>
                                 In its simplest form, <strong>Insurance Support</strong> is a professional service that bridges the gap between the complex legal jargon of insurance companies and the real-world needs of policyholders.
-                                While most people interact with insurance only during the "purchase" phase, true insurance support focuses on the most critical phase: <strong>the Claim and Service phase.</strong>
+                                While most people interact with insurance only during the &quot;purchase&quot; phase, true insurance support focuses on the most critical phase: <strong>the Claim and Service phase.</strong>
                             </p>
                             <p>
-                                At Insurance Support, we view our role as <em>active advocates</em>. We don't just sell you a piece of paper; we stand by you when that paper needs to be converted into financial security.
+                                At Insurance Support, we view our role as <em>active advocates</em>. We don&apos;t just sell you a piece of paper; we stand by you when that paper needs to be converted into financial security.
                             </p>
                         </div>
                     </div>
@@ -181,10 +181,10 @@ export default function InsuranceSupportGuide() {
             {/* CTA Section */}
             <section className="py-20 bg-primary/5 border-t border-primary/10">
                 <div className="container px-4 mx-auto text-center max-w-4xl">
-                    <h2 className="text-3xl font-bold mb-6 italic">Don't Navigate This Alone.</h2>
+                    <h2 className="text-3xl font-bold mb-6 italic">Don&apos;t Navigate This Alone.</h2>
                     <p className="text-xl text-slate-700 mb-10 leading-relaxed">
-                        Whether you're looking for a new policy Quote, need help with a rejected LIC claim,
-                        or simply want an expert to review your family's protection plan—we are here to support you.
+                        Whether you&apos;re looking for a new policy Quote, need help with a rejected LIC claim,
+                        or simply want an expert to review your family&apos;s protection plan—we are here to support you.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6">
                         <Link href="/contact" className="inline-flex items-center justify-center px-8 py-4 bg-primary text-white font-bold rounded-xl shadow-lg hover:shadow-primary/20 transition-all gap-2">

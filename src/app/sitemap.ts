@@ -74,7 +74,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 url: `${BASE_url}/locations/${city}/${service}`,
                 lastModified: LAST_MOD,
                 changeFrequency: 'monthly' as const,
-                priority: 0.8,
+                priority: 0.5,
             })
         })
     })

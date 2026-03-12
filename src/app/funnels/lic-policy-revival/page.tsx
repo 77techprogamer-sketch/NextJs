@@ -127,9 +127,9 @@ const LICRevivalPage = () => {
             <section className="py-20 bg-slate-100 dark:bg-slate-900/50">
                 <div className="container mx-auto px-4 text-center">
                     <div className="max-w-4xl mx-auto">
-                        <span className="text-accent text-6xl font-serif leading-none italic opacity-50 block mb-6">"</span>
+                        <span className="text-accent text-6xl font-serif leading-none italic opacity-50 block mb-6">&quot;</span>
                         <p className="text-2xl md:text-3xl font-medium text-slate-800 dark:text-slate-200 italic leading-relaxed">
-                            Managing insurance isn't just about math; it's about protecting family legacies. A lapsed policy is a broken promise—we help you fix it.
+                            Managing insurance isn&apos;t just about math; it&apos;s about protecting family legacies. A lapsed policy is a broken promise—we help you fix it.
                         </p>
                         <div className="mt-8 flex items-center justify-center gap-4">
                             <div>
