@@ -29,6 +29,12 @@ export const serviceHighlights: Record<string, string[]> = {
     'health-insurance': ['Cashless Network Parks', 'No-Claim Bonus Clarity', 'Fast Pre-Auth Support'],
     'motor-insurance': ['Instant Policy Issuance', 'Max IDV Assurance', 'Zero Dep Coverage'],
     'term-insurance': ['High Sum Assured', 'Nominee Assistance', 'Tax Benefit Guidance'],
+    'sme-insurance': ['Liability Protection', 'Asset Coverage', 'Employee Benefit Plans'],
+    'travel-insurance': ['Global Medical Cover', 'Loss of Baggage Help', 'Trip Cancellation Protection'],
+    'pension-plans': ['Guaranteed Retirement Income', 'Wealth Accumulation', 'Tax-Efficient Withdrawals'],
+    'ulip-plans': ['Market-Linked Growth', 'Insurance Security', 'Fund Switching Flexibility'],
+    'wedding-insurance': ['Cancellation Protection', 'Property Damage Cover', 'Liability Shield'],
+    'cyber-insurance': ['Phishing Attack Cover', 'Data Breach Protection', 'Digital ID Security'],
 };
 
 export const serviceLabels: Record<string, string> = {

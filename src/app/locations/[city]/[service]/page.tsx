@@ -229,40 +229,45 @@ export default function ServiceLocationPage({ params }: Props) {
                             </p>
                         )}
                         <div className="grid sm:grid-cols-2 gap-6">
-                            <div className="space-y-2">
+                            <div className="space-y-4">
                                 <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
-                                    <MapPin className="h-5 w-5 text-primary" />
-                                    {city.name} Regional Coverage
+                                    <CheckCircle2 className="h-5 w-5 text-primary" />
+                                    {serviceLabel} Specialist
                                 </h3>
-                                <p className="text-muted-foreground text-sm">
-                                    Comprehensive {serviceLabel} support across {city.areas.slice(0, 5).join(', ')} and all major neighborhoods in {city.name}.
-                                </p>
+                                <ul className="space-y-2">
+                                    {serviceHighlights[params.service]?.map((highlight, idx) => (
+                                        <li key={idx} className="text-sm text-muted-foreground flex items-center gap-2">
+                                            <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
+                                            {highlight}
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
-                                    <UserCheck className="h-5 w-5 text-primary" />
-                                    Expert {serviceLabel} Advisor
+                                    <MapPin className="h-5 w-5 text-primary" />
+                                    Regional Presence
                                 </h3>
                                 <p className="text-muted-foreground text-sm">
-                                    Direct access to certified experts with 25+ years of experience in the {city.state} insurance market.
+                                    Direct doorstep service available in <strong>{city.areas[0]}</strong>, <strong>{city.areas[1]}</strong>, and throughout the {city.name} metropolitan region. Our advisors understand the local {city.state} insurance climate.
                                 </p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
                                     <Clock className="h-5 w-5 text-primary" />
-                                    Hassle-Free Processing
+                                    Fast Local Processing
                                 </h3>
                                 <p className="text-muted-foreground text-sm">
-                                    We handle the end-to-end documentation for {serviceLabel} at your doorstep in {city.name}.
+                                    Most {serviceLabel} documents in {city.name} are processed within 24-48 hours with our dedicated local coordinator.
                                 </p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
                                     <Shield className="h-5 w-5 text-primary" />
-                                    98% Settlement Ratio
+                                    Trusted by 15k+ Families
                                 </h3>
                                 <p className="text-muted-foreground text-sm">
-                                    Trusted by thousands of families in {city.name} for resolving rejected claims and securing legacy policies.
+                                    Our {city.state} regional office has a 98% settlement ratio, ensuring {city.name} residents get their claims settled without stress.
                                 </p>
                             </div>
                         </div>
