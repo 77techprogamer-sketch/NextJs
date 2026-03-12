@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Search, Info, CheckCircle2, AlertTriangle, MessageCircle, ArrowRight } from 'lucide-react';
+import { contactConfig } from '@/data/contact';
 import ShortLeadForm from '@/components/ShortLeadForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -65,7 +66,7 @@ const LostPolicyGuide = () => {
                             <div className="relative z-10">
                                 <h3 className="text-xl font-bold mb-4 text-accent">Stuck with complex document requirements?</h3>
                                 <p className="text-slate-300 mb-6">Recovering lost bonds often requires indemnity bonds and notarized affidavits. We can handle the entire paperwork for you.</p>
-                                <a href="https://wa.me/918197711411?text=Hi%20Insurance%20Support,%20I%20lost%20my%20LIC%20bond.%20Help%20me%20recover%20it." target="_blank">
+                                <a href={contactConfig.whatsappUrl} target="_blank">
                                     <Button className="bg-accent text-primary font-bold hover:bg-accent/90">
                                         <MessageCircle className="w-4 h-4 mr-2" />
                                         Get Expert Help on WhatsApp

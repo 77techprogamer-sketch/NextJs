@@ -13,7 +13,7 @@
   "about_legacy_title": "நம்பிக்கை மற்றும் சிறப்பின் பாரம்பரியம்",
   "about_meta_description": "காப்பீட்டு ஆதரவு பற்றியும், எமது 25+ ஆண்டுகாலப் பாரம்பரியம் மற்றும் குடும்பங்களைப் பாதுகாக்கும் எமது நோக்கம் பற்றியும் அறிந்து கொள்ளுங்கள். 15,000+ வாடிக்கையாளர்களின் நம்பிக்கை.",
   "about_page_title": "காப்பீட்டு ஆதரவு பற்றி | 25+ ஆண்டுகால நம்பிக்கை",
-  "about_us": "About Us",
+  "about_us": "எங்களைப் பற்றி",
   "above_45": "Above 45",
   "acceptance_of_terms": "விதிமுறைகள் ஏற்றுக்கொள்ளுதல்",
   "acceptance_of_terms_description": "எங்கள் சேவைகளைப் பயன்படுத்துவதன் மூலம், இந்த சேவை விதிமுறைகளை நீங்கள் பின்பற்ற மற்றும் சட்டபூர்வமாக கட்டுப்படுத்தப்பட ஒப்புக்கொள்கிறீர்கள். இந்த விதிமுறைகளுக்கு நீங்கள் ஒப்புக்கொள்ளவில்லை என்றால், எங்கள் சேவைகளை அணுகவோ அல்லது பயன்படுத்தவோ முடியாது.",
@@ -51,7 +51,7 @@
   "business_interruption_description": "Covers lost income when your business is forced to close temporarily.",
   "business_loan": "Business Loan",
   "business_name": "வணிகப் பெயர்",
-  "call_now": "இப்போது அழைக்கவும்",
+  "call_now": "இப்பொழுதே அழைக்கவும்",
   "call_our_support_team": "அவசரக் காரியங்களுக்கு நேரடியாக எமது நிபுணத்துவ ஆதரவுக் குழுவை அழைக்கவும்.",
   "call_us": "எங்களை அழைக்கவும்",
   "cancel": "ரத்து செய்",
@@ -237,7 +237,7 @@
   "get_insurance_iq": "Check Insurance IQ",
   "get_personalized_report": "Get Personalized Report",
   "get_plans_now": "Get Plans Now",
-  "get_quote": "Get Quote",
+  "get_quote": "மேற்கோள் பெறவும்",
   "get_support_now": "இப்போது ஆதரவைப் பெறுங்கள்",
   "go_to_google": "கூகிளுக்குச் செல்லவும்",
   "governing_law": "7. Governing Law & Jurisdiction",
@@ -290,7 +290,7 @@
   "instant_analysis_desc": "Get your result in less than 30 seconds with our advanced algorithm.",
   "instant_quote": "Instant Quote",
   "insurance_company": "காப்பீட்டு நிறுவனம்",
-  "insurance_support": "காப்பீடு ஆதரவு",
+  "insurance_support": "இன்சூரன்ஸ் சப்போர்ட்",
   "insurance_support_contact": "தொடர்பு: ஹரி கோடியன் | 9986634506",
   "intellectual_property": "அறிவுசார் சொத்து",
   "intellectual_property_description": "இந்த இணையதளத்தில் உள்ள அனைத்து உள்ளடக்கமும், இதில் உரை, வரைகலை, லோகோக்கள், படங்கள் மற்றும் மென்பொருள் ஆகியவை அடங்கும், காப்பீடு ஆதரவு அல்லது அதன் உள்ளடக்க வழங்குநர்களின் சொத்து மற்றும் சர்வதேச பதிப்புரிமை சட்டங்களால் பாதுகாக்கப்படுகிறது。",
@@ -656,7 +656,7 @@
   },
   "services_description": "உங்களுக்கு மிகவும் முக்கியமானவற்றைப் பாதுகாக்க உருவாக்கப்பட்ட காப்பீட்டு தீர்வுகளின் விரிவான வரிசையை நாங்கள் வழங்குகிறோம்。",
   "services_offered": "எங்கள் சேவைகள் வழங்கப்படுகின்றன",
-  "services_offered_link": "சேவைகள் வழங்கப்படுகின்றன",
+  "services_offered_link": "எங்கள் சேவைகள்",
   "share_expertise": "நிபுணத்துவத்தைப் பகிரவும்",
   "share_on_facebook": "பேஸ்புக்கில் பகிரவும்",
   "share_on_linkedin": "லிங்க்ட்இனில் பகிரவும்",
@@ -769,7 +769,7 @@
   "third_party_liability_description": "Covers legal liability against damage to other people or property.",
   "tobacco_user": "புகையிலை பயன்படுத்துபவரா?",
   "toggle_theme": "தீம் மாற்றவும்",
-  "tools": "Tools",
+  "tools": "கருவிகள்",
   "total_wedding_budget": "மொத்த திருமண பட்ஜெட்",
   "trace_policy_numbers": "தொலைந்த பாலிசி எண்களைக் கண்டறிய காப்பகங்களைப் பயன்படுத்துகிறோம்.",
   "travel_insurance": "பயண காப்பீடு",
@@ -850,5 +850,15 @@
   "yes_have_it": "ஆம், என்னிடம் உள்ளது",
   "your_full_name": "உங்கள் முழு பெயர்",
   "your_gender": "உங்கள் பாலினம்",
-  "your_risk_score": "Your Risk Score"
+  "your_risk_score": "Your Risk Score",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
+      "highlights": [
+        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
+        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
+        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
+      ]
+    }
+  }
 }

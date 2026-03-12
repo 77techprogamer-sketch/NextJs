@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { contactConfig } from '@/data/contact';
 
 const WhatsAppWidget = () => {
     const { t } = useTranslation();
@@ -21,7 +22,7 @@ const WhatsAppWidget = () => {
         };
     }, []);
 
-    const whatsappUrl = "https://wa.me/918197711411?text=Hi%20Insurance%20Support,%20I%20have%20a%20question%20about%20my%20policy.";
+    const whatsappUrl = contactConfig.whatsappUrl;
 
     return (
         <div className="fixed bottom-6 left-6 z-[100] flex flex-col items-start gap-3 pointer-events-none">

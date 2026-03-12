@@ -1,3 +1,5 @@
+import { contactConfig } from "./contact";
+
 export interface CityData {
     name: string;
     slug: string; // url friendly
@@ -24,7 +26,7 @@ export const cityData: Record<string, CityData> = {
             'MG Road', 'Church Street', 'Nelamangala'
         ],
         description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the IT corridors of Outer Ring Road, Manyata Tech Park, and Bagmane Tech Park to the landmark Brigade Gateway and residential hubs of HSR Layout, we provide hyper-local Insurance Support. Skip the traffic at Silk Board—our certified advisors offer doorstep service for policy renewals, death claims, and health insurance disputes. We are intimately familiar with major LIC branches across the city, including the main Jeevan Prakash Building on JC Road, the Jeevan Bima Nagar hub, and localized branches in Bangalore South, ensuring your paperwork is processed rapidly without you ever needing to visit the branch. Specializing in Employee Benefits and Corporate Wellness plans for the city's vast startup ecosystem.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [12.9716, 77.5946]
     },
     chennai: {
@@ -37,7 +39,7 @@ export const cityData: Record<string, CityData> = {
             'Besant Nagar Avenue', 'Nungambakkam', 'Mount Road District', 'Anna Nagar East'
         ],
         description: "Given Chennai's coastal geography and monsoon history, especially in low-lying areas like Velachery and Adyar, 'flood-protection' in motor and property insurance is a top priority. Our Insurance Support team helps residents in Anna Nagar and T. Nagar with localized claim support and LIC policy management. We coordinate closely with the LIC Mount Road (Jeevan Prakash) and Greams Road offices, ensuring your assets are resilient against the Bay of Bengal's unpredictability with professional doorstep advisory across the OMR IT Expressway and ECR corridors. We specialize in comprehensive Marine and Transit insurance for businesses near the Chennai Port.",
-        phone: "+91-9962536848",
+        phone: contactConfig.phoneFull,
         coordinates: [13.0827, 80.2707]
     },
     vellore: {

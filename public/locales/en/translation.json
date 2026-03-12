@@ -763,19 +763,18 @@
   "share_on_twitter": "Share on X (Twitter)",
   "share_on_whatsapp": "Share on WhatsApp",
   "short_lead_form": {
+    "title": "Get Expert Support Fast",
+    "subtitle": "25+ Years of IRDAI Certified Expertise",
+    "name_label": "Enter Full Name",
+    "mobile_label": "Enter Mobile Number",
+    "requirement_label": "Select Insurance Need",
+    "life_insurance": "Life Insurance / LIC",
     "health_insurance": "Health Insurance",
-    "life_insurance": "Life Insurance",
-    "loan_help": "Loan Assistance",
-    "mobile_label": "Mobile Number",
-    "motor_insurance": "Vehicle Insurance",
-    "name_label": "Your Name",
-    "policy_revival": "Policy Revival (LIC/Private)",
-    "privacy_note": "No spam. Expert calls only.",
-    "requirement_label": "What do you need?",
-    "select_insurance": "Select Insurance Type",
-    "submit_button": "Get Advice Now",
-    "subtitle": "Get expert advice in 2 mins",
-    "title": "Quick Quote"
+    "motor_insurance": "Motor / Vehicle Insurance",
+    "policy_revival": "Lapsed Policy Revival",
+    "loan_help": "Loan against Policy",
+    "submit_button": "Get Free Quote",
+    "privacy_note": "Your data is 100% secure"
   },
   "sme_insurance": "SME (Fire and Home) Insurance",
   "sme_insurance_benefit": "Safeguard your business assets from fire, theft, and liabilities.",
@@ -950,5 +949,145 @@
   "yes_have_it": "Yes, I have it",
   "your_full_name": "Your Full Name",
   "your_gender": "Your Gender",
-  "your_risk_score": "Your Risk Score"
+  "your_risk_score": "Your Risk Score",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "Life insurance is not just about protection; it's about legacy. Our advisors help you navigate complex claim settlement processes and policy revivals to ensure your family's financial stability is never compromised.",
+      "highlights": [
+        "Claim Recovery Specialists",
+        "Policy Revival Support",
+        "Doorstep Document Help"
+      ]
+    },
+    "health-insurance": {
+      "description": "Secure world-class healthcare with plans that offer cashless hospitalization, pre-existing disease coverage, and hassle-free claim processing for your entire family.",
+      "highlights": [
+        "Cashless Network Parks",
+        "No-Claim Bonus Clarity",
+        "Fast Pre-Auth Support"
+      ]
+    },
+    "motor-insurance": {
+      "description": "From third-party liability to comprehensive coverage, get the best IDV for your vehicle with 24/7 roadside assistance and swift accidental claim settlements.",
+      "highlights": [
+        "Instant Policy Issuance",
+        "Max IDV Assurance",
+        "Zero Dep Coverage"
+      ]
+    },
+    "term-insurance": {
+      "description": "The purest form of protection. Secure high-sum assured plans with affordable premiums, ensuring zero-hassle document processing for your nominees.",
+      "highlights": [
+        "High Sum Assured",
+        "Nominee Assistance",
+        "Tax Benefit Guidance"
+      ]
+    },
+    "sme-insurance": {
+      "description": "Protect your business assets, employees, and liability with customized insurance solutions designed for the unique risks of small and medium enterprises.",
+      "highlights": [
+        "Liability Protection",
+        "Asset Coverage",
+        "Employee Benefit Plans"
+      ]
+    },
+    "travel-insurance": {
+      "description": "Travel the world with peace of mind. Coverage for medical emergencies, trip cancellations, and lost baggage across international borders.",
+      "highlights": [
+        "Global Medical Cover",
+        "Loss of Baggage Help",
+        "Trip Cancellation Protection"
+      ]
+    },
+    "pension-plans": {
+      "description": "Plan a dignified retirement with guaranteed income streams and tax-efficient wealth accumulation strategies tailored for your post-work life.",
+      "highlights": [
+        "Guaranteed Retirement Income",
+        "Wealth Accumulation",
+        "Tax-Efficient Withdrawals"
+      ]
+    },
+    "ulip-plans": {
+      "description": "The power of investment combined with the security of insurance. Optimize your wealth growth while keeping your life cover intact.",
+      "highlights": [
+        "Market-Linked Growth",
+        "Insurance Security",
+        "Fund Switching Flexibility"
+      ]
+    },
+    "wedding-insurance": {
+      "description": "Shield your big day from unforeseen cancellations, property damage, or liability issues, ensuring your celebration remains stress-free.",
+      "highlights": [
+        "Cancellation Protection",
+        "Property Damage Cover",
+        "Liability Shield"
+      ]
+    },
+    "cyber-insurance": {
+      "description": "Protect your digital identity and finances against growing cyber threats, phishing attacks, and data breaches in an increasingly connected world.",
+      "highlights": [
+        "Phishing Attack Cover",
+        "Data Breach Protection",
+        "Digital ID Security"
+      ]
+    }
+  },
+  "location_page": {
+    "breadcrumb_home": "Home",
+    "best_support_in": "Best <0>{{service}} Support</0> in {{city}}",
+    "secure_future_fallback": "Secure your future with the most reliable {{service}} plans in {{city}}.",
+    "doorstep_service_note": "Whether you are in {{area1}} or {{area2}}, our expert advisors provide personalized support at your doorstep.",
+    "why_choose_title": "Why Choose Insurance Support for {{service}} in {{city}}?",
+    "specialist_title": "{{service}} Specialist",
+    "regional_presence_title": "Regional Presence",
+    "regional_presence_desc": "Direct doorstep service available in <0>{{area1}}</0>, <1>{{area2}}</1>, and throughout the {{city}} metropolitan region. Our advisors understand the local {{state}} insurance climate.",
+    "fast_processing_title": "Fast Local Processing",
+    "fast_processing_desc": "Most {{service}} documents in {{city}} are processed within 24-48 hours with our dedicated local coordinator.",
+    "trusted_families_title": "Trusted by 15k+ Families",
+    "trusted_families_desc": "Our {{state}} regional office has a 98% settlement ratio, ensuring {{city}} residents get their claims settled without stress.",
+    "local_advisory_hub_title": "{{city}} Local Advisory Hub",
+    "local_advisory_hub_desc": "Looking for a reliable <0>{{service}} agent in {{city}}</0>? Our team specializes in {{state}}-specific insurance regulations and has a deep understanding of the local landscape, ensuring you get the best possible claim support in areas like {{areas}}.",
+    "support_services_title": "Our {{service}} Support Services in {{city}}",
+    "service_list": {
+      "new_policy": "New {{service}} Policy Issuance in {{city}}",
+      "renewal": "Renewal of Existing {{service}} Policies",
+      "lapsed_revival": "Lapsed Policy Revival Support",
+      "claim_assistance": "Claim Intimation & Settlement Assistance",
+      "portability": "Portability for {{city}} Residents",
+      "nominee_updates": "Local Nominee & Address Updates"
+    },
+    "other_services_in_city": "Other Services in {{city}}",
+    "other_service_advisor": "{{service}} Advisor in {{city}}",
+    "service_in_nearby_cities": "{{service}} in Nearby Cities",
+    "nearby_service_advisor": "{{service}} Advisor in {{city}}",
+    "serving_every_corner": "Serving Every Corner of {{city}}",
+    "serving_every_corner_desc": "From {{area1}} to {{areaLast}}, our dedicated team ensures you don't have to travel for your insurance needs. We cover {{areas}} and surrounding regions with localized support for {{service}}.",
+    "helpful_guides": "Helpful {{service}} Guides",
+    "rejected_case_recovery": "Rejected Case Recovery",
+    "rejected_case_recovery_desc": "Learn how we help {{city}} residents recover rejected insurance claims.",
+    "duplicate_policy_guide": "Duplicate Policy Guide",
+    "duplicate_policy_guide_desc": "Getting a duplicate LIC policy in {{city}} without the hassle.",
+    "call_advisor_in_city": "Call Advisor in {{city}}",
+    "whatsapp_support": "WhatsApp Support",
+    "nearby_centers": "Nearby Insurance Support Centers",
+    "request_quote_title": "Request {{service}} Quote",
+    "request_quote_subtitle": "Verified support for {{city}} residents.",
+    "service_hours": "Service Hours",
+    "mon_sat": "Mon - Sat:",
+    "sundays": "Sundays:",
+    "on_appointment": "On Appointment"
+  },
+  "show_less": "Show Less",
+  "show_all": "Show All ({{count}})",
+  "hlv_calculator_new": "HLV Calculator (New)",
+  "insurance_support_guide": "Insurance Support Guide",
+  "view_all_locations": "View All 30+ Locations",
+  "trending_now": "Trending Now",
+  "site_map": "Site Map",
+  "xml_sitemap": "XML Sitemap",
+  "irdai_certified_advisors": "IRDAI CERTIFIED ADVISORS",
+  "disclaimer_label": "Disclaimer:",
+  "disclaimer_text": "Insurance is a subject matter of solicitation. Insurance Support is a professional advisory firm providing consultancy for IRDAI approved insurance products. All policy issuance and claim settlements are subject to the terms and conditions and underwriting of the respective insurance companies.",
+  "chat_on_whatsapp": "Chat on WhatsApp"
+
 }

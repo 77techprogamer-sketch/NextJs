@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ShieldAlert, FileSearch, Calculator, CheckCircle2, MessageCircle } from 'lucide-react';
+import { contactConfig } from '@/data/contact';
 import ShortLeadForm from '@/components/ShortLeadForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -78,7 +79,7 @@ const LICRevivalPage = () => {
                             <ShortLeadForm />
                             <div className="mt-6 flex items-center justify-center gap-4">
                                 <a
-                                    href="https://wa.me/918197711411?text=Help%20me%20revive%20my%20LIC%20policy"
+                                    href={contactConfig.whatsappUrl}
                                     className="w-full"
                                 >
                                     <Button variant="outline" className="w-full h-12 rounded-xl border-green-500/30 bg-green-500/5 text-green-500 hover:bg-green-500 hover:text-white transition-all font-bold">

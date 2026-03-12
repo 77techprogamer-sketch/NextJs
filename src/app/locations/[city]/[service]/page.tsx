@@ -1,3 +1,4 @@
+"use client";
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -5,8 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, MapPin, Phone, UserCheck, Clock, Shield, ArrowRight } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
+import { contactConfig } from '@/data/contact'
 import { getCityData, cityData } from '@/data/cityData'
-import { services, serviceLabels, serviceDescriptions, serviceHighlights } from '@/data/services'
+import { services, serviceLabels } from '@/data/services'
+import { useTranslation, Trans } from 'react-i18next'
 
 interface Props {
     params: { city: string; service: string }
@@ -61,6 +64,7 @@ export async function generateStaticParams() {
 }
 
 export default function ServiceLocationPage({ params }: Props) {
+    const { t } = useTranslation();
     const city = getCityData(params.city)
     const serviceLabel = serviceLabels[params.service]
     const serviceSlug = params.service
@@ -202,7 +206,7 @@ export default function ServiceLocationPage({ params }: Props) {
                 {/* Main Content */}
                 <div className="flex-1 max-w-3xl">
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
-                        <Link href="/" className="hover:text-primary">Home</Link>
+                        <Link href="/" className="hover:text-primary">{t('location_page.breadcrumb_home')}</Link>
                         <span>/</span>
                         <Link href={`/locations/${params.city}`} className="hover:text-primary">{city.name}</Link>
                         <span>/</span>
@@ -210,18 +214,30 @@ export default function ServiceLocationPage({ params }: Props) {
                     </div>
 
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
-                        Best <span className="text-primary">{serviceLabel} Support</span> in {city.name}
+                        <Trans
+                            i18nKey="location_page.best_support_in"
+                            values={{ service: serviceLabel, city: city.name }}
+                            components={[<span key="service" className="text-primary" />]}
+                        >
+                            Best <span className="text-primary">{serviceLabel} Support</span> in {city.name}
+                        </Trans>
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                        {serviceDescriptions[params.service] || `Secure your future with the most reliable ${serviceLabel} plans in ${city.name}.`}
-                        Whether you are in {city.areas[0]} or {city.areas[1] || 'nearby'}, our expert advisors provide personalized support at your doorstep.
+                        {t(`service_seo_content.${params.service}.description`, {
+                            defaultValue: t('location_page.secure_future_fallback', { service: serviceLabel, city: city.name })
+                        })}
+                        {t('location_page.doorstep_service_note', {
+                            area1: city.areas[0],
+                            area2: city.areas[1] || 'nearby',
+                            defaultValue: ` Whether you are in ${city.areas[0]} or ${city.areas[1] || 'nearby'}, our expert advisors provide personalized support at your doorstep.`
+                        })}
                     </p>
 
                     <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 mb-10">
                         <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
                             <Shield className="h-6 w-6 text-primary" />
-                            Why Choose Insurance Support for {serviceLabel} in {city.name}?
+                            {t('location_page.why_choose_title', { service: serviceLabel, city: city.name })}
                         </h2>
                         {city.description && (
                             <p className="text-slate-700 mb-6 italic border-l-4 border-primary/20 pl-4 py-1">
@@ -232,10 +248,10 @@ export default function ServiceLocationPage({ params }: Props) {
                             <div className="space-y-4">
                                 <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
                                     <CheckCircle2 className="h-5 w-5 text-primary" />
-                                    {serviceLabel} Specialist
+                                    {t('location_page.specialist_title', { service: serviceLabel })}
                                 </h3>
                                 <ul className="space-y-2">
-                                    {serviceHighlights[params.service]?.map((highlight, idx) => (
+                                    {(t(`service_seo_content.${params.service}.highlights`, { returnObjects: true }) as string[] || [])?.map((highlight, idx) => (
                                         <li key={idx} className="text-sm text-muted-foreground flex items-center gap-2">
                                             <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
                                             {highlight}
@@ -246,51 +262,63 @@ export default function ServiceLocationPage({ params }: Props) {
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
                                     <MapPin className="h-5 w-5 text-primary" />
-                                    Regional Presence
+                                    {t('location_page.regional_presence_title')}
                                 </h3>
                                 <p className="text-muted-foreground text-sm">
-                                    Direct doorstep service available in <strong>{city.areas[0]}</strong>, <strong>{city.areas[1]}</strong>, and throughout the {city.name} metropolitan region. Our advisors understand the local {city.state} insurance climate.
+                                    <Trans
+                                        i18nKey="location_page.regional_presence_desc"
+                                        values={{ area1: city.areas[0], area2: city.areas[1], city: city.name, state: city.state }}
+                                        components={[<strong key="a1" />, <strong key="a2" />]}
+                                    >
+                                        Direct doorstep service available in <strong>{city.areas[0]}</strong>, <strong>{city.areas[1]}</strong>, and throughout the {city.name} metropolitan region. Our advisors understand the local {city.state} insurance climate.
+                                    </Trans>
                                 </p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
                                     <Clock className="h-5 w-5 text-primary" />
-                                    Fast Local Processing
+                                    {t('location_page.fast_processing_title')}
                                 </h3>
                                 <p className="text-muted-foreground text-sm">
-                                    Most {serviceLabel} documents in {city.name} are processed within 24-48 hours with our dedicated local coordinator.
+                                    {t('location_page.fast_processing_desc', { service: serviceLabel, city: city.name })}
                                 </p>
                             </div>
                             <div className="space-y-2">
                                 <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
                                     <Shield className="h-5 w-5 text-primary" />
-                                    Trusted by 15k+ Families
+                                    {t('location_page.trusted_families_title')}
                                 </h3>
                                 <p className="text-muted-foreground text-sm">
-                                    Our {city.state} regional office has a 98% settlement ratio, ensuring {city.name} residents get their claims settled without stress.
+                                    {t('location_page.trusted_families_desc', { state: city.state, city: city.name })}
                                 </p>
                             </div>
                         </div>
                     </div>
 
                     <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 mb-10">
-                        <h3 className="text-lg font-bold mb-3">{city.name} Local Advisory Hub</h3>
+                        <h3 className="text-lg font-bold mb-3">{t('location_page.local_advisory_hub_title', { city: city.name })}</h3>
                         <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                            Looking for a reliable <strong>{serviceLabel} agent in {city.name}</strong>?
-                            Our team specializes in {city.state}-specific insurance regulations and has a deep understanding of the local landscape,
-                            ensuring you get the best possible claim support in areas like {city.areas.slice(-3).join(', ')}.
+                            <Trans
+                                i18nKey="location_page.local_advisory_hub_desc"
+                                values={{ service: serviceLabel, city: city.name, state: city.state, areas: city.areas.slice(-3).join(', ') }}
+                                components={[<strong key="a1" />]}
+                            >
+                                Looking for a reliable <strong>{serviceLabel} agent in {city.name}</strong>?
+                                Our team specializes in {city.state}-specific insurance regulations and has a deep understanding of the local landscape,
+                                ensuring you get the best possible claim support in areas like {city.areas.slice(-3).join(', ')}.
+                            </Trans>
                         </p>
                     </div>
 
-                    <h2 className="text-2xl font-bold mb-6">Our {serviceLabel} Support Services in {city.name}</h2>
+                    <h2 className="text-2xl font-bold mb-6">{t('location_page.support_services_title', { service: serviceLabel, city: city.name })}</h2>
                     <ul className="space-y-4 mb-10">
                         {[
-                            `New ${serviceLabel} Policy Issuance in ${city.name}`,
-                            `Renewal of Existing ${serviceLabel} Policies`,
-                            `Lapsed Policy Revival Support`,
-                            `Claim Intimation & Settlement Assistance`,
-                            `Portability for ${city.name} Residents`,
-                            `Local Nominee & Address Updates`
+                            t('location_page.service_list.new_policy', { service: serviceLabel, city: city.name }),
+                            t('location_page.service_list.renewal', { service: serviceLabel, city: city.name }),
+                            t('location_page.service_list.lapsed_revival'),
+                            t('location_page.service_list.claim_assistance'),
+                            t('location_page.service_list.portability', { city: city.name }),
+                            t('location_page.service_list.nominee_updates')
                         ].map((item, i) => (
                             <li key={i} className="flex items-center gap-3 text-lg bg-slate-50 p-3 rounded-lg border border-slate-100">
                                 <ArrowRight className="h-4 w-4 text-primary shrink-0" />
@@ -302,24 +330,24 @@ export default function ServiceLocationPage({ params }: Props) {
                     {/* Internal Linking for SEO */}
                     <div className="grid sm:grid-cols-2 gap-8 mb-12 py-8 border-y border-slate-100">
                         <div>
-                            <h4 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-xs text-primary">Other Services in {city.name}</h4>
+                            <h4 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-xs text-primary">{t('location_page.other_services_in_city', { city: city.name })}</h4>
                             <ul className="space-y-2 text-sm">
                                 {services.filter(s => s !== serviceSlug).slice(0, 5).map(s => (
                                     <li key={s}>
                                         <Link href={`/locations/${params.city}/${s}`} className="text-slate-600 hover:text-primary hover:underline">
-                                            {serviceLabels[s]} Advisor in {city.name}
+                                            {t('location_page.other_service_advisor', { service: serviceLabels[s], city: city.name })}
                                         </Link>
                                     </li>
                                 ))}
                             </ul>
                         </div>
                         <div>
-                            <h4 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-xs text-primary">{serviceLabel} in Nearby Cities</h4>
+                            <h4 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-xs text-primary">{t('location_page.service_in_nearby_cities', { service: serviceLabel })}</h4>
                             <ul className="space-y-2 text-sm">
                                 {Object.keys(cityData).filter(c => c !== params.city).slice(0, 5).map(c => (
                                     <li key={c}>
                                         <Link href={`/locations/${c}/${serviceSlug}`} className="text-slate-600 hover:text-primary hover:underline">
-                                            {serviceLabel} Advisor in {cityData[c].name}
+                                            {t('location_page.nearby_service_advisor', { service: serviceLabel, city: cityData[c].name })}
                                         </Link>
                                     </li>
                                 ))}
@@ -328,10 +356,15 @@ export default function ServiceLocationPage({ params }: Props) {
                     </div>
 
                     <div className="bg-slate-900 text-white p-8 rounded-2xl mb-12 shadow-2xl shadow-slate-200">
-                        <h3 className="text-2xl font-bold mb-4">Serving Every Corner of {city.name}</h3>
+                        <h3 className="text-2xl font-bold mb-4">{t('location_page.serving_every_corner', { city: city.name })}</h3>
                         <p className="text-slate-400 mb-6 leading-relaxed">
-                            From {city.areas[0]} to {city.areas[city.areas.length - 1]}, our dedicated team ensures you don&apos;t have to travel for your insurance needs.
-                            We cover {city.areas.join(', ')} and surrounding regions with localized support for {serviceLabel}.
+                            {t('location_page.serving_every_corner_desc', {
+                                area1: city.areas[0],
+                                areaLast: city.areas[city.areas.length - 1],
+                                areas: city.areas.slice(0, 5).join(', '),
+                                service: serviceLabel,
+                                city: city.name
+                            })}
                         </p>
                         <div className="flex flex-wrap gap-2 text-slate-200">
                             {city.areas.map(area => (
@@ -344,32 +377,36 @@ export default function ServiceLocationPage({ params }: Props) {
 
                     {/* Related Guides for Engagement */}
                     <div className="mb-12">
-                        <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Helpful {serviceLabel} Guides</h3>
+                        <h3 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">{t('location_page.helpful_guides', { service: serviceLabel })}</h3>
                         <div className="grid sm:grid-cols-2 gap-4">
                             <Link href="/guides/claim-recovery-process" className="group p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl hover:border-primary/50 transition-all shadow-sm">
-                                <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">Rejected Case Recovery</h4>
-                                <p className="text-sm text-muted-foreground">Learn how we help {city.name} residents recover rejected insurance claims.</p>
+                                <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">{t('location_page.rejected_case_recovery')}</h4>
+                                <p className="text-sm text-muted-foreground">{t('location_page.rejected_case_recovery_desc', { city: city.name })}</p>
                             </Link>
                             <Link href="/guides/lost-lic-policy-help" className="group p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl hover:border-primary/50 transition-all shadow-sm">
-                                <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">Duplicate Policy Guide</h4>
-                                <p className="text-sm text-muted-foreground">Getting a duplicate LIC policy in {city.name} without the hassle.</p>
+                                <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">{t('location_page.duplicate_policy_guide')}</h4>
+                                <p className="text-sm text-muted-foreground">{t('location_page.duplicate_policy_guide_desc', { city: city.name })}</p>
                             </Link>
                         </div>
                     </div>
 
                     <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                        <Button size="lg" className="w-full sm:w-auto h-12 text-lg shadow-lg shadow-primary/20">
-                            <Phone className="mr-2 h-4 w-4" />
-                            Call Advisor in {city.name}
-                        </Button>
-                        <Button size="lg" variant="outline" className="w-full sm:w-auto h-12 text-lg">
-                            WhatsApp Support
-                        </Button>
+                        <a href={contactConfig.getDialUrl()} className="w-full sm:w-auto">
+                            <Button size="lg" className="w-full h-12 text-lg shadow-lg shadow-primary/20">
+                                <Phone className="mr-2 h-4 w-4" />
+                                {t('location_page.call_advisor_in_city', { city: city.name })}
+                            </Button>
+                        </a>
+                        <a href={contactConfig.whatsappUrl} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                            <Button size="lg" variant="outline" className="w-full h-12 text-lg">
+                                {t('location_page.whatsapp_support')}
+                            </Button>
+                        </a>
                     </div>
 
                     {/* Nearby Support Centers for Crawl Depth */}
                     <div className="pt-8 border-t border-slate-100 dark:border-slate-800">
-                        <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">Nearby Insurance Support Centers</h3>
+                        <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">{t('location_page.nearby_centers')}</h3>
                         <div className="flex flex-wrap gap-x-6 gap-y-3">
                             {Object.values(cityData)
                                 .filter(c => c.state === city.state && c.name !== city.name)
@@ -393,19 +430,19 @@ export default function ServiceLocationPage({ params }: Props) {
                 <div className="w-full md:w-[400px]">
                     <div className="sticky top-24">
                         <div className="bg-white p-8 rounded-2xl shadow-2xl shadow-slate-100 border border-slate-100">
-                            <h3 className="text-2xl font-bold mb-2">Request {serviceLabel} Quote</h3>
-                            <p className="text-sm text-muted-foreground mb-8 italic">Verified support for {city.name} residents.</p>
+                            <h3 className="text-2xl font-bold mb-2">{t('location_page.request_quote_title', { service: serviceLabel })}</h3>
+                            <p className="text-sm text-muted-foreground mb-8 italic">{t('location_page.request_quote_subtitle', { city: city.name })}</p>
                             <QuoteForm insuranceType={serviceSlug.replace(/-/g, '_')} />
                         </div>
 
                         <div className="mt-8 p-6 bg-slate-50 rounded-xl border border-slate-100">
                             <h4 className="font-bold mb-4 flex items-center gap-2">
                                 <Clock className="h-4 w-4 text-primary" />
-                                Service Hours
+                                {t('location_page.service_hours')}
                             </h4>
                             <ul className="text-sm space-y-2 text-slate-600">
-                                <li className="flex justify-between"><span>Mon - Sat:</span> <span>9:30 AM - 6:30 PM</span></li>
-                                <li className="flex justify-between"><span>Sundays:</span> <span>On Appointment</span></li>
+                                <li className="flex justify-between"><span>{t('location_page.mon_sat')}</span> <span>9:30 AM - 6:30 PM</span></li>
+                                <li className="flex justify-between"><span>{t('location_page.sundays')}</span> <span>{t('location_page.on_appointment')}</span></li>
                             </ul>
                         </div>
                     </div>

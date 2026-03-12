@@ -18,6 +18,7 @@ interface CollapsibleListProps<T> {
 
 function CollapsibleList<T>({ items, renderItem, limit = 6 }: CollapsibleListProps<T>) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useTranslation();
 
   // SEO critical: We render ALL items in the DOM so crawlers see the links.
   // We use CSS to hide the extra items visually.
@@ -40,9 +41,9 @@ function CollapsibleList<T>({ items, renderItem, limit = 6 }: CollapsibleListPro
           className="text-xs font-semibold text-primary flex items-center gap-1 hover:underline focus:outline-none"
         >
           {isExpanded ? (
-            <>Show Less <ChevronUp className="h-3 w-3" /></>
+            <>{t('show_less')} <ChevronUp className="h-3 w-3" /></>
           ) : (
-            <>Show All ({items.length}) <ChevronDown className="h-3 w-3" /></>
+            <>{t('show_all', { count: items.length })} <ChevronDown className="h-3 w-3" /></>
           )}
         </button>
       )}
@@ -98,8 +99,8 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("quick_links")}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/tools/human-life-value-calculator" className="hover:text-primary transition-colors font-semibold text-primary" suppressHydrationWarning>HLV Calculator (New)</Link></li>
-              <li><Link href="/resources/insurance-support-guide" className="hover:text-primary transition-colors font-bold text-accent" suppressHydrationWarning>Insurance Support Guide</Link></li>
+              <li><Link href="/tools/human-life-value-calculator" className="hover:text-primary transition-colors font-semibold text-primary" suppressHydrationWarning>{t('hlv_calculator_new')}</Link></li>
+              <li><Link href="/resources/insurance-support-guide" className="hover:text-primary transition-colors font-bold text-accent" suppressHydrationWarning>{t('insurance_support_guide')}</Link></li>
               <li><Link href="/resources" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("resources")}</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("about_us")}</Link></li>
               <li><Link href="/support" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("support")}</Link></li>
@@ -122,7 +123,7 @@ const Footer = () => {
               )}
             />
             <Link href="/services" className="text-xs font-bold text-primary mt-2 flex items-center gap-1 hover:underline">
-              View All Services <ChevronRight className="h-3 w-3" />
+              {t('view_all_services')} <ChevronRight className="h-3 w-3" />
             </Link>
           </div>
 
@@ -141,21 +142,21 @@ const Footer = () => {
               }}
             />
             <Link href="/locations" className="text-xs font-bold text-primary mt-2 flex items-center gap-1 hover:underline">
-              View All 30+ Locations <ChevronRight className="h-3 w-3" />
+              {t('view_all_locations')} <ChevronRight className="h-3 w-3" />
             </Link>
           </div>
           <div className="text-center sm:text-left">
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("headquarters")}</h3>
             <p className="text-sm mb-6" suppressHydrationWarning>{t("bangalore_office")}</p>
 
-            <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs text-primary" suppressHydrationWarning>Trending Now</h3>
+            <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs text-primary" suppressHydrationWarning>{t('trending_now')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/locations/bangalore/health-insurance" className="hover:text-primary transition-colors">Health Insurance Bangalore</Link></li>
-              <li><Link href="/locations/hyderabad/life-insurance" className="hover:text-primary transition-colors">Life Insurance Hyderabad</Link></li>
-              <li><Link href="/locations/pune/term-insurance" className="hover:text-primary transition-colors">Term Insurance Pune</Link></li>
-              <li><Link href="/locations/chennai/motor-insurance" className="hover:text-primary transition-colors">Motor Insurance Chennai</Link></li>
-              <li><Link href="/locations/mumbai/lic-agent" className="hover:text-primary transition-colors">Insurance Advisor Mumbai</Link></li>
-              <li><Link href="/locations/delhi/sme-insurance" className="hover:text-primary transition-colors">SME Insurance Delhi</Link></li>
+              <li><Link href="/locations/bangalore/health-insurance" className="hover:text-primary transition-colors">{t('health_insurance')} Bangalore</Link></li>
+              <li><Link href="/locations/hyderabad/life-insurance" className="hover:text-primary transition-colors">{t('life_insurance')} Hyderabad</Link></li>
+              <li><Link href="/locations/pune/term-insurance" className="hover:text-primary transition-colors">{t('term_insurance')} Pune</Link></li>
+              <li><Link href="/locations/chennai/motor-insurance" className="hover:text-primary transition-colors">{t('motor_insurance')} Chennai</Link></li>
+              <li><Link href="/locations/mumbai/lic-agent" className="hover:text-primary transition-colors">{t('insurance_advisor')} Mumbai</Link></li>
+              <li><Link href="/locations/delhi/sme-insurance" className="hover:text-primary transition-colors">{t('sme_insurance')} Delhi</Link></li>
             </ul>
           </div>
         </div>
@@ -163,13 +164,13 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
             <p className="text-xs text-muted-foreground" suppressHydrationWarning>&copy; {new Date().getFullYear()} {t("insurance_support")}. {t("all_rights_reserved")}</p>
             <div className="flex items-center gap-3 text-[10px] text-muted-foreground/60">
-              <Link href="/sitemap-index" className="hover:text-primary transition-colors">Site Map</Link>
+              <Link href="/sitemap-index" className="hover:text-primary transition-colors">{t('site_map')}</Link>
               <span>|</span>
-              <a href="/sitemap.xml" className="hover:text-primary transition-colors">XML Sitemap</a>
+              <a href="/sitemap.xml" className="hover:text-primary transition-colors">{t('xml_sitemap')}</a>
             </div>
           </div>
           <div className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-widest text-primary/80">
-            <span title="Team of IRDAI Certified Insurance Advisors">IRDAI CERTIFIED ADVISORS</span>
+            <span title="Team of IRDAI Certified Insurance Advisors">{t('irdai_certified_advisors')}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
             <span suppressHydrationWarning>{t("legacy")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
@@ -180,8 +181,7 @@ const Footer = () => {
         </div>
         <div className="mt-8 text-center sm:text-left">
           <p className="text-[10px] text-muted-foreground/60 leading-relaxed max-w-4xl mx-auto sm:mx-0">
-            <strong>Disclaimer:</strong> Insurance is a subject matter of solicitation. Insurance Support is a professional advisory firm providing consultancy for IRDAI approved insurance products.
-            All policy issuance and claim settlements are subject to the terms and conditions and underwriting of the respective insurance companies.
+            <strong>{t('disclaimer_label')}</strong> {t('disclaimer_text')}
           </p>
         </div>
       </div>

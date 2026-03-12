@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Heart, MapPin, Hospital, Star, MessageCircle } from 'lucide-react';
+import { contactConfig } from '@/data/contact';
 import ShortLeadForm from '@/components/ShortLeadForm';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -61,7 +62,7 @@ const HealthBangalorePage = () => {
                             <ShortLeadForm />
                             <div className="mt-6">
                                 <a
-                                    href="https://wa.me/918197711411?text=I%20am%20looking%20for%20health%20insurance%20in%20Bangalore."
+                                    href={contactConfig.whatsappUrl}
                                     className="w-full"
                                 >
                                     <Button variant="outline" className="w-full h-14 rounded-2xl border-white/20 bg-white/5 text-white hover:bg-[#25D366] hover:border-[#25D366] transition-all font-bold group">

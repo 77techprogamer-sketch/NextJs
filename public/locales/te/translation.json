@@ -13,7 +13,7 @@
   "about_legacy_title": "నమ్మకం మరియు శ్రేష్ఠత యొక్క వారసత్వం",
   "about_meta_description": "బీమా మద్దతు గురించి తెలుసుకోండి, మా 25+ ఏళ్ల వారసత్వం మరియు కుటుంబాలను రక్షించే మా లక్ష్యం. 15,000+ కస్టమర్ల నమ్మకం.",
   "about_page_title": "బీమా మద్దతు గురించి | 25+ ఏళ్ల నమ్మకం",
-  "about_us": "About Us",
+  "about_us": "మా గురించి",
   "above_45": "Above 45",
   "acceptance_of_terms": "నిబంధనల అంగీకారం",
   "acceptance_of_terms_description": "మా సేవలను ఉపయోగించడం ద్వారా, ఈ సేవా నిబంధనలను మీరు అనుసరించడానికి మరియు చట్టబద్ధంగా బాధ్యులవడానికి అంగీకరిస్తున్నారు. మీరు ఈ నిబంధనలకు అంగీకరించకపోతే, మీరు మా సేవలను యాక్సెస్ చేయలేరు లేదా ఉపయోగించలేరు.",
@@ -237,7 +237,7 @@
   "get_insurance_iq": "Check Insurance IQ",
   "get_personalized_report": "Get Personalized Report",
   "get_plans_now": "Get Plans Now",
-  "get_quote": "Get Quote",
+  "get_quote": "కోట్ పొందండి",
   "get_support_now": "ఇప్పుడే మద్దతు పొందండి",
   "go_to_google": "గూగుల్‌కు వెళ్లండి",
   "governing_law": "7. Governing Law & Jurisdiction",
@@ -290,7 +290,7 @@
   "instant_analysis_desc": "Get your result in less than 30 seconds with our advanced algorithm.",
   "instant_quote": "Instant Quote",
   "insurance_company": "భీమా కంపెనీ",
-  "insurance_support": "బీమా మద్దతు",
+  "insurance_support": "ఇన్సూరెన్స్ సపోర్ట్",
   "insurance_support_contact": "సంప్రదింపు: హరి కోటియన్ | 9986634506",
   "intellectual_property": "బౌద్ధిక సంపత్తి",
   "intellectual_property_description": "ఈ వెబ్‌సైట్ లోని అన్ని కంటెంట్, దీనిలో టెక్స్ట్, గ్రాఫిక్స్, లోగోలు, చిత్రాలు మరియు సాఫ్ట్‌వేర్ ఉన్నాయి, ఇది బీమా మద్దతు లేదా దాని కంటెంట్ సరఫరాదారుల సంపత్తి మరియు అంతర్జాతీయ కాపీరైట్ చట్టాల చే రక్షించబడింది.",
@@ -656,7 +656,7 @@
   },
   "services_description": "మీకు అత్యంత ప్రాధాన్యత ఉన్న వాటిని రక్షించడానికి అభిరూపీకరించబడిన బీమా పరిష్కారాల విస్తృత శ్రేణిని మేము అందిస్తాము.",
   "services_offered": "మా సేవలు అందించబడ్డాయి",
-  "services_offered_link": "సేవలు అందించబడ్డాయి",
+  "services_offered_link": "మా సేవలు",
   "share_expertise": "నైపుణ్యాన్ని పంచుకోండి",
   "share_on_facebook": "ఫేస్‌బుక్‌లో షేర్ చేయండి",
   "share_on_linkedin": "లింక్డ్‌ఇన్‌లో షేర్ చేయండి",
@@ -769,7 +769,7 @@
   "third_party_liability_description": "Covers legal liability against damage to other people or property.",
   "tobacco_user": "పొగాకు వినియోగదారు",
   "toggle_theme": "థీమ్ మార్చండి",
-  "tools": "Tools",
+  "tools": "టూల్స్",
   "total_wedding_budget": "మొత్తం వివాహ బడ్జెట్",
   "trace_policy_numbers": "మేము ఆర్కైవ్‌లను ఉపయోగించి పోగొట్టుకున్న పాలసీ నంబర్లను గుర్తిస్తాము.",
   "travel_insurance": "ప్రయాణ బీమా",
@@ -850,5 +850,15 @@
   "yes_have_it": "అవును, నా దగ్గర ఉంది",
   "your_full_name": "మీ పూర్తి పేరు",
   "your_gender": "మీ లింగం",
-  "your_risk_score": "Your Risk Score"
+  "your_risk_score": "Your Risk Score",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
+      "highlights": [
+        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
+        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
+        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
+      ]
+    }
+  }
 }

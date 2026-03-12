@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
+import { contactConfig } from "@/data/contact";
 
 interface FloatingCTAProps {
     onGetQuote: () => void;
@@ -68,7 +69,7 @@ const FloatingCTA = ({ onGetQuote }: FloatingCTAProps) => {
         >
             {/* WhatsApp Pulse Button */}
             <a
-                href="https://wa.me/919986634506"
+                href={contactConfig.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="h-14 w-14 rounded-full bg-[#25D366] text-white shadow-lg flex items-center justify-center hover:scale-110 transition-transform relative group"

@@ -237,7 +237,7 @@
   "get_insurance_iq": "ವಿಮೆ IQ ಪರಿಶೀಲಿಸಿ",
   "get_personalized_report": "Get Personalized Report",
   "get_plans_now": "ಈಗಲೇ ಯೋಜನೆಗಳನ್ನು ಪಡೆಯಿರಿ",
-  "get_quote": "ಉದ್ಧರಣಿ ಪಡೆಯಿರಿ",
+  "get_quote": "ಕೋಟ್ ಪಡೆಯಿರಿ",
   "get_support_now": "ಈಗಲೇ ಬೆಂಬಲ ಪಡೆಯಿರಿ",
   "go_to_google": "ಗೂಗಲ್‌ಗೆ ಹೋಗಿ",
   "governing_law": "7. Governing Law & Jurisdiction",
@@ -290,7 +290,7 @@
   "instant_analysis_desc": "ನಮ್ಮ ಸುಧಾರಿತ ಅಲ್ಗಾರಿದಮ್‌ನೊಂದಿಗೆ 30 ಸೆಕೆಂಡ್‌ಗಳಿಗಿಂತ ಕಡಿಮೆ ಸಮಯದಲ್ಲಿ ನಿಮ್ಮ ಫಲಿತಾಂಶವನ್ನು ಪಡೆಯಿರಿ.",
   "instant_quote": "ತಕ್ಷಣದ ಉದ್ಧರಣಿ",
   "insurance_company": "Insurance Company",
-  "insurance_support": "ವಿಮೆ ಬೆಂಬಲ",
+  "insurance_support": "ಇನ್ಶೂರೆನ್ಸ್ ಸಪೋರ್ಟ್",
   "insurance_support_contact": "ಸಂಪರ್ಕ: ಹರಿ ಕೋಟಿಯನ್ | 9986634506",
   "intellectual_property": "ಬೌದ್ಧಿಕ ಸಂಪತ್ತು",
   "intellectual_property_description": "ಈ ಜಾಲತಾಣದಲ್ಲಿರುವ ಎಲ್ಲಾ ವಿಷಯಗಳು, ಇದರಲ್ಲಿ ಪಠ್ಯ, ಗ್ರಾಫಿಕ್ಸ್, ಲೋಗೊಗಳು, ಚಿತ್ರಗಳು ಮತ್ತು ತಂತ್ರಾಂಶ ಸೇರಿವೆ, ವಿಮೆ ಬೆಂಬಲ ಅಥವಾ ಅದರ ವಿಷಯ ಪೂರೈಕೆದಾರರ ಸಂಪತ್ತು ಮತ್ತು ಅಂತರರಾಷ್ಟ್ರೀಯ ಹಕ್ಕುಗಳ ಕಾನೂನುಗಳಿಂದ ರಕ್ಷಿಸಲ್ಪಟ್ಟಿವೆ.",
@@ -731,7 +731,7 @@
   },
   "services_description": "ನಿಮಗಾಗಿ ಅತ್ಯಂತ ಮುಖ್ಯವಾದುದನ್ನು ರಕ್ಷಿಸಲು ತಯಾರಿಸಲಾದ ವಿಮೆ ಪರಿಹಾರಗಳ ವಿಸ್ತೃತ ಶ್ರೇಣಿಯನ್ನು ನಾವು ಒದಗಿಸುತ್ತೇವೆ.",
   "services_offered": "ನಮ್ಮ ಸೇವೆಗಳು",
-  "services_offered_link": "ಸೇವೆಗಳನ್ನು ನೀಡಲಾಗುತ್ತಿದೆ",
+  "services_offered_link": "ಸೇವೆಗಳು",
   "share_expertise": "ಪರಿಣತಿಯನ್ನು ಹಂಚಿಕೊಳ್ಳಿ",
   "share_on_facebook": "ಫೇಸ್‌ಬುಕ್‌ನಲ್ಲಿ ಹಂಚಿಕೊಳ್ಳಿ",
   "share_on_linkedin": "ಲಿಂಕ್ಡ್‌ಇನ್‌ನಲ್ಲಿ ಹಂಚಿಕೊಳ್ಳಿ",
@@ -844,7 +844,7 @@
   "third_party_liability_description": "ಇತರ ವ್ಯಕ್ತಿಗಳು ಅಥವಾ ಆಸ್ತಿಗೆ ಆಗುವ ಹಾನಿಯ ವಿರುದ್ಧ ಕಾನೂನು ಹೊಣೆಗಾರಿಕೆಯನ್ನು ಒಳಗೊಳ್ಳುತ್ತದೆ.",
   "tobacco_user": "ತಂಬಾಕು ಬಳಕೆದಾರರೇ?",
   "toggle_theme": "ಥೀಮ್ ಬದಲಾಯಿಸಿ",
-  "tools": "ಉಪಕರಣಗಳು",
+  "tools": "ಪರಿಕರಗಳು (Tools)",
   "total_wedding_budget": "ಒಟ್ಟು ವಿವಾಹದ ಬಜೆಟ್",
   "trace_policy_numbers": "We trace lost policy numbers using archives.",
   "travel_insurance": "ಪ್ರವಾಸ ವಿಮೆ",
@@ -925,5 +925,16 @@
   "yes_have_it": "Yes, I have it",
   "your_full_name": "ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು",
   "your_gender": "ನಿಮ್ಮ ಲಿಂಗ",
-  "your_risk_score": "Your Risk Score"
+  "your_risk_score": "Your Risk Score",
+  "verified_advisor": "ಪರಿಶೀಲಿಸಿದ ಸಲಹೆಗಾರ",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
+      "highlights": [
+        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
+        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
+        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
+      ]
+    }
+  }
 }

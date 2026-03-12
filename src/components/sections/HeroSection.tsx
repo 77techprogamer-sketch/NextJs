@@ -12,6 +12,7 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import ShortLeadForm from '@/components/ShortLeadForm';
 import { MessageCircle } from 'lucide-react';
+import { contactConfig } from '@/data/contact';
 
 interface HeroSectionProps {
     city: string | null;
@@ -112,7 +113,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
 
                                 <ScrollReveal animation="elastic" delay={0.9}>
                                     <a
-                                        href="https://wa.me/918197711411?text=Hi%20Insurance%20Support,%20I%20need%20expert%20help%20with%20my%20policy."
+                                        href={contactConfig.whatsappUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex"
@@ -123,7 +124,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                                             className="bg-[#25D366]/10 border-[#25D366]/50 text-[#25D366] hover:bg-[#25D366] hover:text-white text-lg font-bold px-8 py-8 rounded-full backdrop-blur-sm transition-all transform hover:scale-105"
                                         >
                                             <MessageCircle className="w-6 h-6 mr-2 fill-current" />
-                                            Chat on WhatsApp
+                                            {t("chat_on_whatsapp", { defaultValue: "Chat on WhatsApp" })}
                                         </Button>
                                     </a>
                                 </ScrollReveal>
