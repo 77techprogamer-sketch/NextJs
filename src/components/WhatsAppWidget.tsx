@@ -22,7 +22,29 @@ const WhatsAppWidget = () => {
         };
     }, []);
 
-    const whatsappUrl = contactConfig.whatsappUrl;
+    const [whatsappUrl, setWhatsappUrl] = useState(contactConfig.whatsappUrl);
+
+    useEffect(() => {
+        if (typeof window === 'undefined') return;
+
+        const path = window.location.pathname;
+        let message = "Hi, I need help with insurance.";
+
+        if (path.includes('death-claim')) {
+            message = "Hi, I need urgent help with a Death Claim settlement.";
+        } else if (path.includes('maturity-claim')) {
+            message = "Hi, I need help with my LIC Maturity Claim settlement.";
+        } else if (path.includes('policy-revival')) {
+            message = "Hi, I want to revive my lapsed LIC policy. Can you help?";
+        } else if (path.includes('locations')) {
+            const city = path.split('/').pop()?.replace(/-/g, ' ');
+            message = `Hi, I am looking for insurance support in ${city}.`;
+        }
+
+        const encodedMessage = encodeURIComponent(message);
+        const baseUrl = contactConfig.whatsappUrl.split('?')[0];
+        setWhatsappUrl(`${baseUrl}?text=${encodedMessage}`);
+    }, []);
 
     return (
         <div className="fixed bottom-6 left-6 z-[100] flex flex-col items-start gap-3 pointer-events-none">

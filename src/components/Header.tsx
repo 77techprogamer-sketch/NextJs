@@ -188,6 +188,12 @@ const Header = () => {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
+                <Link href="/resources/guides/maturity-claim-guide" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold text-primary">{t("maturity_claim_guide")}</span>
+                  <span className="text-xs text-muted-foreground">{t("maturity_claim_guide_desc")}</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
                 <Link href="/resources/guides/death-claim-settlement" className="cursor-pointer flex flex-col items-start gap-1 p-2">
                   <span className="font-semibold">{t("death_claim_guide")}</span>
                   <span className="text-xs text-muted-foreground">{t("death_claim_guide_desc")}</span>
@@ -197,6 +203,12 @@ const Header = () => {
                 <Link href="/resources/guides/lapsed-policy-revival" className="cursor-pointer flex flex-col items-start gap-1 p-2">
                   <span className="font-semibold">{t("policy_revival_guide")}</span>
                   <span className="text-xs text-muted-foreground">{t("policy_revival_guide_desc")}</span>
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/guides/lost-lic-policy-help" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                  <span className="font-semibold">{t("lost_policy_guide")}</span>
+                  <span className="text-xs text-muted-foreground">{t("lost_policy_guide_desc")}</span>
                 </Link>
               </DropdownMenuItem>
               <div className="border-t border-slate-100 mt-2 pt-2">

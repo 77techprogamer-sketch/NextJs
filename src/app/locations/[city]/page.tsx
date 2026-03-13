@@ -23,16 +23,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         },
         description: `Looking for an Insurance Advisor in ${city.name}? We provide doorstep service for policy surrender, maturity claims, and new insurance quotes in ${city.name}.`,
         keywords: [
-            `Insurance Advisor ${city.name}`,
-            `Insurance Advisor ${city.name}`,
-            `LIC Policy Surrender ${city.name}`,
-            `General Insurance Renewal ${city.name}`,
-            `Health Insurance Advisor ${city.name}`,
+            `Insurance Support ${city.name}`,
+            `LIC Policy Maturity ${city.name}`,
+            `Death Claim Help ${city.name}`,
+            `Policy Revival ${city.name}`,
+            `Insurance Claim Recovery ${city.name}`,
+            `LIC Advisor in ${city.name}`,
+            `Health Insurance Claim ${city.name}`,
             `Motor Insurance Renewal ${city.name}`,
             `Best Insurance Advisor in ${city.name}`,
-            `Policy Claim Help ${city.name}`,
-            `Doorstep Insurance Service ${city.name}`,
-            ...city.areas.map(area => `Insurance Advisor in ${area}`),
             ...city.areas.map(area => `Insurance Advisor in ${area}`),
             ...city.areas.map(area => `Policy Renewal ${area}`)
         ],
@@ -195,16 +194,30 @@ export default function LocationPage({ params }: Props) {
                     />
 
                     {city.areas.length > 0 && (
-                        <div className="bg-slate-100 p-6 rounded-xl border border-slate-200 mb-10">
-                            <h2 className="text-xl font-bold mb-2 flex items-center gap-2">
-                                <MapPin className="h-5 w-5" />
-                                Areas We Serve in {city.name}
+                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-10">
+                            <h2 className="text-xl font-bold mb-2 flex items-center gap-2 text-slate-900">
+                                <MapPin className="h-5 w-5 text-primary" />
+                                Neighborhoods We Support in {city.name}
                             </h2>
-                            <p className="text-muted-foreground">
-                                We cover {city.areas.join(', ')}, and all major areas in {city.name}.
+                            <p className="text-muted-foreground text-sm leading-relaxed">
+                                Our advisors provide doorstep service across <strong>{city.areas.join(', ')}</strong>, and all surrounding localities in {city.name}. We handle the commute so you don&apos;t have to.
                             </p>
                         </div>
                     )}
+
+                    <div className="mb-12">
+                        <h2 className="text-2xl font-bold mb-6">Expert Insurance Guides</h2>
+                        <div className="grid sm:grid-cols-2 gap-4">
+                            <Link href="/resources/guides/maturity-claim-guide" className="p-4 bg-white border border-slate-200 rounded-xl hover:border-primary/50 hover:shadow-md transition-all group">
+                                <h3 className="font-bold text-slate-900 group-hover:text-primary transition-colors">LIC Maturity Guide</h3>
+                                <p className="text-xs text-muted-foreground mt-1">Learn the 2026 process for maturity claims.</p>
+                            </Link>
+                            <Link href="/resources/guides/lapsed-policy-revival" className="p-4 bg-white border border-slate-200 rounded-xl hover:border-primary/50 hover:shadow-md transition-all group">
+                                <h3 className="font-bold text-slate-900 group-hover:text-primary transition-colors">Policy Revival Guide</h3>
+                                <p className="text-xs text-muted-foreground mt-1">How to restore your old LIC policies.</p>
+                            </Link>
+                        </div>
+                    </div>
 
                     <div className="flex flex-col sm:flex-row gap-4">
                         <Button size="lg" className="w-full sm:w-auto h-12 text-lg">
