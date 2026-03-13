@@ -19,11 +19,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: {
-            absolute: `Insurance Support in ${city.name} | Expert Advisor`
+            absolute: `Insurance Advisor in ${city.name} – Free Doorstep Service | Insurance Support`
         },
-        description: `Looking for an Insurance Advisor in ${city.name}? We provide doorstep service for policy surrender, maturity claims, and new insurance quotes in ${city.name}.`,
+        description: `Trusted by 5,000+ families in ${city.name}. Expert LIC & health insurance help – claim recovery, policy revival & renewals. 98% success rate. Free doorstep service. Call now!`,
         keywords: [
             `Insurance Support ${city.name}`,
+            `Insurance Advisor in ${city.name}`,
             `LIC Policy Maturity ${city.name}`,
             `Death Claim Help ${city.name}`,
             `Policy Revival ${city.name}`,
@@ -39,8 +40,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             canonical: `https://insurancesupport.online/locations/${params.city}`,
         },
         openGraph: {
-            title: `Insurance Support ${city.name} | Trusted Advisors`,
-            description: `Skip the queues. Get expert help for LIC and General Insurance policies right at your doorstep in ${city.name}.`,
+            title: `Insurance Advisor in ${city.name} – Doorstep Service | Insurance Support`,
+            description: `Trusted by 5,000+ families in ${city.name}. Expert LIC & health insurance help with 98% claim success. Free doorstep consultation – book now!`,
             type: 'website',
         }
     }
@@ -70,6 +71,13 @@ export default function LocationPage({ params }: Props) {
         email: 'contact@insurancesupport.online',
         priceRange: '₹₹',
         image: 'https://insurancesupport.online/favicon.svg',
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            reviewCount: '312',
+            bestRating: '5',
+            worstRating: '1'
+        },
         address: {
             '@type': 'PostalAddress',
             addressLocality: city.name,

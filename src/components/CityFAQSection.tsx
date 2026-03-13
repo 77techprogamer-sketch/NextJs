@@ -5,7 +5,6 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion";
-import { FAQPage } from 'schema-dts';
 
 interface CityFAQSectionProps {
     cityName: string;
@@ -36,7 +35,8 @@ export default function CityFAQSection({ cityName, stateName, areas }: CityFAQSe
         }
     ];
 
-    const faqSchema: FAQPage = {
+    const faqSchema = {
+        '@context': 'https://schema.org',
         '@type': 'FAQPage',
         mainEntity: faqs.map(faq => ({
             '@type': 'Question',
