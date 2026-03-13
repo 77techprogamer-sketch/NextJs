@@ -9,6 +9,7 @@ import QuoteForm from '@/components/QuoteForm';
 import { contactConfig } from '@/data/contact';
 import { useTranslation, Trans } from 'react-i18next';
 import { services, serviceLabels } from '@/data/services';
+import ServiceFAQSection from '@/components/ServiceFAQSection';
 
 interface ServiceLocationClientProps {
     city: any;
@@ -202,6 +203,14 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel 
                         </Link>
                     </div>
                 </div>
+
+                <ServiceFAQSection
+                    cityName={city.name}
+                    stateName={city.state}
+                    areas={city.areas}
+                    serviceLabel={serviceLabel}
+                    serviceSlug={serviceSlug}
+                />
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                     <a href={contactConfig.getDialUrl()} className="w-full sm:w-auto">
