@@ -35,12 +35,44 @@ export async function GET(request: NextRequest) {
     const vCountry = request.headers.get('x-vercel-ip-country');
 
     if (vCity && vCountry) {
+        // Vercel headers give us city/country but NOT ISP/org.
+        // Use the real client IP to look up the ISP from ipapi.co separately.
+        const clientIp = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || null;
+        let asn: string | null = null;
+        let isp_name: string | null = null;
+
+        if (clientIp && clientIp !== '::1') {
+            try {
+                const ispRes = await fetch(`https://ipapi.co/${clientIp}/json/`, {
+                    headers: { 'User-Agent': 'InsuranceSupportApp/1.0' },
+                    signal: AbortSignal.timeout(3000), // 3-second timeout so it doesn't slow the page
+                });
+                if (ispRes.ok) {
+                    const ispData = await ispRes.json();
+                    // ipapi.co returns org as e.g. "AS12345 Jio Broadband Services"
+                    const orgRaw: string | null = ispData.org || null;
+                    if (orgRaw) {
+                        const spaceIdx = orgRaw.indexOf(' ');
+                        if (spaceIdx > -1 && orgRaw.startsWith('AS')) {
+                            asn = orgRaw.substring(0, spaceIdx);          // e.g. "AS12345"
+                            isp_name = orgRaw.substring(spaceIdx + 1);    // e.g. "Jio Broadband Services"
+                        } else {
+                            isp_name = orgRaw; // No ASN prefix — store full string as isp_name
+                        }
+                    }
+                }
+            } catch {
+                // ISP lookup timed out or failed — that's fine, city/country are still captured.
+            }
+        }
+
         return NextResponse.json({
             city: decodeURIComponent(vCity),
             region: vRegion ? decodeURIComponent(vRegion) : '',
-            country_name: vCountry === 'IN' ? 'India' : vCountry, // Simple mapping
+            country_name: vCountry === 'IN' ? 'India' : vCountry,
             country_code: vCountry,
-            org: 'Vercel Edge Network'
+            asn,
+            isp_name,
         });
     }
 

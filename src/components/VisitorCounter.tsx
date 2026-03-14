@@ -35,7 +35,8 @@ const VisitorCounter = () => {
 
   useEffect(() => {
     const logVisitorAndFetchInitialStats = async () => {
-      let visitorIsp: string | null = null;
+      let visitorAsn: string | null = null;
+      let visitorIspName: string | null = null;
       let visitorCity: string | null = null;
       let visitorRegion: string | null = null;
       let visitorCountry: string | null = null;
@@ -48,7 +49,8 @@ const VisitorCounter = () => {
           if (geoResponse.ok) {
             const geoData = await geoResponse.json();
             if (!geoData.error) {
-              visitorIsp = geoData.org || null;
+              visitorAsn = geoData.asn || null;
+              visitorIspName = geoData.isp_name || null;
               visitorCity = geoData.city || null;
               visitorRegion = geoData.region || null;
               visitorCountry = geoData.country_name || null;
@@ -62,7 +64,8 @@ const VisitorCounter = () => {
         // The Edge Function should detect the IP from request headers internally
         const { data: edgeFunctionData, error: edgeFunctionError } = await supabase.functions.invoke('log-visitor', {
           body: {
-            isp: visitorIsp,
+            isp: visitorIspName,
+            asn: visitorAsn,
             city: visitorCity,
             region: visitorRegion,
             country: visitorCountry,
