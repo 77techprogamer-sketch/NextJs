@@ -80,7 +80,22 @@ export const cityData: Record<string, CityData> = {
             name: "LIC Chennai Division I & II",
             address: "Jeevan Prakash, 102, Anna Salai, Chennai - 600002"
         },
-        nearbyCities: ['vellore', 'kanchipuram', 'pondicherry']
+        nearbyCities: ['vellore', 'kanchipuram', 'pondicherry'],
+        hubContent: {
+            itProfessionalFocus: "Chennai's IT corridor along OMR and the manufacturing hubs in Sriperumbudur require robust Employee Benefits and Group-to-Personal portable plans. We offer on-site consultations in Velachery, Adyar, and Anna Nagar to help you bridge the gap between corporate cover and personal security.",
+            seniorCitizenFocus: "Specialized assistance for the senior community in Mylapore and Besant Nagar. We handle LIC maturity claims and policy loan applications physically, ensuring our elders don't have to wait at the Mount Road office for their hard-earned money.",
+            localBranchDetails: "Proximity to the LIC Divisional Office at Mount Road (Anna Salai) and the Greams Road hub allows us to follow up personally on your pending claims and policy revivals across the Chennai metropolitan area.",
+            localFaqs: [
+                {
+                    q: "How to claim for flood damage in Chennai for motor insurance?",
+                    a: "Chennai's monsoon requires specific 'Engine Protect' riders. We assist in filing the claim with correct technical evidence (photos/videos) to ensure the insurer doesn't reject it as 'consequential damage'—a common issue in Velachery and Adyar."
+                },
+                {
+                    q: "Where is the main LIC office for policy revival in Chennai?",
+                    a: "The Mount Road (Jeevan Prakash) office is the primary hub, but we service all branches. We come to your home in Anna Nagar or T. Nagar to collect the Health Statement (Form 680) needed for revival."
+                }
+            ]
+        }
     },
     vellore: {
         name: 'Vellore',
@@ -147,7 +162,22 @@ export const cityData: Record<string, CityData> = {
             name: "LIC Hyderabad Divisional Office",
             address: "Jeevan Prakash, Saifabad, Hyderabad - 500063"
         },
-        nearbyCities: ['warangal', 'vijayawada', 'vizag']
+        nearbyCities: ['warangal', 'vijayawada', 'vizag'],
+        hubContent: {
+            itProfessionalFocus: "Catering to the massive IT workforce in Hitech City, Gachibowli, and the Financial District. We offer 'Corporate-to-Retail' health conversion strategies and Term insurance with Critical Illness riders tailored for the high-stress tech roles common in Cyberabad.",
+            seniorCitizenFocus: "Dedicated support for LIC pensioners in Secunderabad, Jubilee Hills, and Banjara Hills. We facilitate policy audits and doorstep survival certificate submissions to ensure your lifelong pension flows without interruption.",
+            localBranchDetails: "Strong presence near the LIC Saifabad and Basheerbagh hubs. We personally track your death claims and high-value maturity settlements through the Hyderabad Divisional Office, saving you from complex branch follow-ups.",
+            localFaqs: [
+                {
+                    q: "Are corporate top-ups better than personal health insurance in Hyderabad?",
+                    a: "While corporate top-ups are cheaper, personal plans offer lifelong renewability and no room-rent caps at premium hospitals like Apollo Health City or Care Banjara Hills. We recommend a balanced hybrid approach for Hyderabad families."
+                },
+                {
+                    q: "How to revive an old LIC policy in Secunderabad?",
+                    a: "Simply share your policy number with us. We will calculate the exact interest at the Saifabad branch and visit your home in Secunderabad or Uppal to collect the signed forms. No branch visit needed."
+                }
+            ]
+        }
     },
     pune: {
         name: 'Pune',
@@ -159,7 +189,22 @@ export const cityData: Record<string, CityData> = {
             'Hadapsar', 'Kharadi'
         ],
         description: "Pune's dynamic lifestyle demands robust Insurance Support. From motor insurance for your daily commute to Hinjewadi IT Park Phase 1-3 or Magarpatta City, to health plans for your family in Baner High Street or Pimple Saudagar, we cover all your needs. We provide specialized LIC policy services with proximity to the LIC Model Colony and Jeevan Tara Shivajinagar offices, ensuring fast-track claim processing in the Oxford of the East, including the premium residential corridors of Koregaon Park. We also focus on Professional Indemnity insurance for the city's extensive manufacturing and design consultant community.",
-        phone: "+91-9962536848"
+        phone: "+91-9962536848",
+        hubContent: {
+            itProfessionalFocus: "Pune's IT hubs in Hinjewadi, Magarpatta, and Kharadi demand high-performance insurance portfolios. We specialize in 'Loss of Income' covers and specialized motor insurance riders for the city's heavy commuters on the Pune-Bangalore highway corridor.",
+            seniorCitizenFocus: "Personalized service for retirees in Kothrud, Model Colony, and Shivajinagar. We manage your LIC portfolio, from dividend tracking to maturity alerts, with monthly physical touchpoints to ensure your peace of mind in the Oxford of the East.",
+            localBranchDetails: "Active coordination with LIC Model Colony and Jeevan Tara (Shivajinagar). We handle the technical documentation for claim appeals and policy revivals directly with the Zonal and Divisional offices in the city center.",
+            localFaqs: [
+                {
+                    q: "Which hospitals in Pune have the best cashless tie-ups?",
+                    a: "Hospitals like Sahyadri, Jehangir, and Ruby Hall have excellent cashless coordination with major insurers. We help you choose plans with the highest direct-settlement ratios at these specific Pune medical landmarks."
+                },
+                {
+                    q: "Is LIC policy loan available at the Hinjewadi branch?",
+                    a: "Yes, but for faster processing, we recommend central coordination. We handle the LIC loan application end-to-end, including original bond submission and branch follow-ups, at your doorstep in Wakad or Baner."
+                }
+            ]
+        }
     },
     mumbai: {
         name: 'Mumbai',
@@ -177,7 +222,22 @@ export const cityData: Record<string, CityData> = {
             name: "LIC Mumbai Divisional Office I, II, III & IV",
             address: "Jeevan Prakash, Sir P.M. Road, Fort, Mumbai - 400001"
         },
-        nearbyCities: ['thane', 'pune', 'nashik', 'aurangabad']
+        nearbyCities: ['thane', 'pune', 'nashik', 'aurangabad'],
+        hubContent: {
+            itProfessionalFocus: "Mumbai's tech and finance professionals in BKC, Powai (Hiranandani), and Malad IT parks require high-sum insured plans with global portability. We provide doorstep service to your residence in Bandra, Juhu, or Borivali, ensuring your family's protection matches the speed of the city.",
+            seniorCitizenFocus: "For our valued seniors in South Mumbai and elite residential areas like Cuffe Parade, Worli, and Dadar, we offer dedicated support for LIC pension schemes (PMVVY) and hassle-free health insurance renewals with physical document handling.",
+            localBranchDetails: "Direct coordination with LIC Yogakshema (Nariman Point) and the Divisional Offices at Fort and Santacruz to fast-track your death claims, maturity payouts, and policy revivals without you battling Mumbai's legendary traffic.",
+            localFaqs: [
+                {
+                    q: "How to handle a health insurance claim at Lilavati or Nanavati hospital?",
+                    a: "We provide physical liaison with the TPA desks at Mumbai's top multi-specialty hospitals. Simply call our Mumbai helpline, and we will coordinate the pre-authorization directly with insurers like Star Health, HDFC Ergo, or Niva Bupa."
+                },
+                {
+                    q: "Can I revive my LIC policy at any Mumbai branch?",
+                    a: "Yes, but for faster settlement, we recommend coordinating with your parent Divisional Office at Fort or Santacruz. We handle the technical paperwork for inter-branch transfers if you have moved from South Mumbai to the Suburbs."
+                }
+            ]
+        }
     },
     ahmedabad: {
         name: 'Ahmedabad',
@@ -320,7 +380,22 @@ export const cityData: Record<string, CityData> = {
             name: "LIC Delhi Divisional Office I, II & III",
             address: "Jeevan Prakash, 25, Kasturba Gandhi Marg, New Delhi - 110001"
         },
-        nearbyCities: ['jaipur', 'chandigarh', 'lucknow', 'agra', 'kanpur']
+        nearbyCities: ['jaipur', 'chandigarh', 'lucknow', 'agra', 'kanpur'],
+        hubContent: {
+            itProfessionalFocus: "Serving the IT and corporate professionals across Delhi-NCR, from Okhla Phase III to the Janakpuri and Dwarka business hubs. We specialize in Top-Up health plans and Term insurance audits that factor in the unique lifestyle and pollution-related health risks of the national capital.",
+            seniorCitizenFocus: "Personalized insurance audits for retirees in Vasant Kunj, Saket, and Rohini. We simplify the complex LIC paperwork for pension revivals and claim settlements, bringing the branch service directly to your drawing room in Delhi.",
+            localBranchDetails: "Active liaison with LIC Jeevan Deep (Parliament Street) and Jeevan Bharti (Connaught Place). We handle the logistical hurdles of government-backed policy settlements and death claims across all Delhi-NCR districts personally.",
+            localFaqs: [
+                {
+                    q: "What is the fastest way to settle an LIC claim in Delhi?",
+                    a: "Submission at the Divisional Office in Kasturba Gandhi Marg is usually fastest. We provide doorstep collection of original bonds, death certificates, and bank documents to ensure your payment is processed within 7-10 working days."
+                },
+                {
+                    q: "Does your health insurance support include hospitals like Max or Fortis in Delhi-NCR?",
+                    a: "Absolutely. We have direct coordination channels for cashless settlements at Max Saket, Fortis Shalimar Bagh, and Apollo Delhi. Our experts assist with the entire pre-auth documentation if your initial request is stuck at the hospital desk."
+                }
+            ]
+        }
     },
     agra: {
         name: 'Agra',

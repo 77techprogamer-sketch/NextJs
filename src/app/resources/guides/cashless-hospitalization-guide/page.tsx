@@ -147,15 +147,26 @@ export default function CashlessHospitalizationGuide() {
                                 </p>
                             </div>
                             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-12 not-prose">
-                                <p className="text-blue-900 font-bold mb-2 flex items-center gap-2">
+                                <p className="text-blue-900 font-bold mb-3 flex items-center gap-2">
                                     <MapPin className="h-4 w-4" />
-                                    Are you in Bangalore?
+                                    Get Cashless Coordination in Your City
                                 </p>
-                                <p className="text-blue-800 text-sm leading-relaxed">
-                                    Get dedicated physical support for cashless coordination at major Bangalore hospitals like Manipal, Apollo, and Fortis. 
-                                    <Link href="/locations/bangalore/health-insurance" className="ml-1 underline font-extrabold hover:text-primary">
-                                        View Bangalore Health Insurance Hub
+                                <div className="flex flex-wrap gap-4">
+                                    <Link href="/locations/bangalore/health-insurance" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Bangalore Hub
                                     </Link>
+                                    <Link href="/locations/chennai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Chennai Advisor
+                                    </Link>
+                                    <Link href="/locations/pune" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Pune Support
+                                    </Link>
+                                    <Link href="/locations/mumbai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Mumbai Expert
+                                    </Link>
+                                </div>
+                                <p className="text-blue-800 text-xs mt-4 italic">
+                                    Local coordination handles pre-authorization bottlenecks at Manipal, Apollo, Fortis, and Sahyadri network hospitals.
                                 </p>
                             </div>
                         </div>

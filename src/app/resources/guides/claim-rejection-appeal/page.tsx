@@ -158,15 +158,26 @@ export default function ClaimRejectionAppealGuide() {
                             </div>
 
                             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-12 not-prose">
-                                <p className="text-blue-900 font-bold mb-2 flex items-center gap-2">
+                                <p className="text-blue-900 font-bold mb-3 flex items-center gap-2">
                                     <MapPin className="h-4 w-4" />
-                                    Are you in Bangalore?
+                                    Get Expert Claim Help in Your City
                                 </p>
-                                <p className="text-blue-800 text-sm">
-                                    Our local experts specialize in coordinating with Bangalore hospitals and the Insurance Ombudsman office on Residency Road. 
-                                    <Link href="/locations/bangalore/health-insurance" className="ml-1 underline font-extrabold hover:text-primary">
-                                        Get Bangalore Claim Support
+                                <div className="flex flex-wrap gap-4">
+                                    <Link href="/locations/bangalore/health-insurance" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Bangalore Support
                                     </Link>
+                                    <Link href="/locations/mumbai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Mumbai Advisor
+                                    </Link>
+                                    <Link href="/locations/delhi" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Delhi NCR Help
+                                    </Link>
+                                    <Link href="/locations/hyderabad" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Hyderabad Expert
+                                    </Link>
+                                </div>
+                                <p className="text-blue-800 text-xs mt-4 italic">
+                                    Our local experts prioritize physical document liaison with TPAs and the Insurance Ombudsman in major metros.
                                 </p>
                             </div>
                         </div>

@@ -70,15 +70,26 @@ const SupportScopeSection: React.FC = () => {
                         </div>
                     </div>
                     <div className="mt-10 pt-8 border-t border-slate-100 dark:border-slate-800">
-                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Deep Local Solutions (Trending Bangalore)</h4>
-                        <div className="flex flex-wrap gap-4">
+                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Deep Local Solutions (Trending Cities)</h4>
+                        <div className="flex flex-wrap gap-y-4 gap-x-6">
                             <Link href="/locations/bangalore/health-insurance" className="flex items-center gap-2 group">
-                                <span className="text-sm font-bold text-primary group-hover:underline">Health Insurance Advisor Bangalore</span>
+                                <span className="text-sm font-bold text-primary group-hover:underline">Bangalore Health Hub</span>
                                 <ArrowRight className="w-3 h-3 text-primary group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <span className="text-slate-200 dark:text-slate-800">|</span>
-                            <Link href="/locations/bangalore/lic-agent" className="flex items-center gap-2 group">
-                                <span className="text-sm font-bold text-primary group-hover:underline">LIC Agent Bangalore</span>
+                            <Link href="/locations/mumbai" className="flex items-center gap-2 group">
+                                <span className="text-sm font-bold text-slate-600 dark:text-slate-400 group-hover:underline">Mumbai Advisor</span>
+                                <ArrowRight className="w-3 h-3 text-primary group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link href="/locations/delhi" className="flex items-center gap-2 group">
+                                <span className="text-sm font-bold text-slate-600 dark:text-slate-400 group-hover:underline">Delhi Claim Support</span>
+                                <ArrowRight className="w-3 h-3 text-primary group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link href="/locations/chennai" className="flex items-center gap-2 group">
+                                <span className="text-sm font-bold text-slate-600 dark:text-slate-400 group-hover:underline">Chennai LIC Agent</span>
+                                <ArrowRight className="w-3 h-3 text-primary group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <Link href="/locations/hyderabad" className="flex items-center gap-2 group">
+                                <span className="text-sm font-bold text-slate-600 dark:text-slate-400 group-hover:underline">Hyderabad Expert</span>
                                 <ArrowRight className="w-3 h-3 text-primary group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </div>

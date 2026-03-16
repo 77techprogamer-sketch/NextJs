@@ -57,15 +57,26 @@ export default function MaturityClaimGuide() {
                                 LIC usually sends a &quot;Maturity Intimation&quot; letter 2 months before the date of maturity. However, don&apos;t wait for the letter. You can start the process 30 days in advance.
                             </p>
                             <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
-                                <p className="text-blue-900 font-bold mb-2 flex items-center gap-2">
+                                <p className="text-blue-900 font-bold mb-3 flex items-center gap-2">
                                     <MapPin className="h-4 w-4" />
-                                    Are you in Bangalore?
+                                    Get Maturity Claim Support in Your City
                                 </p>
-                                <p className="text-blue-800 text-sm">
-                                    Get specialized physical support for maturity claims at J.C. Road or Residency Road. 
-                                    <Link href="/locations/bangalore/lic-agent" className="ml-1 underline font-extrabold hover:text-primary">
-                                        Connect with our LIC Agent in Bangalore
+                                <div className="flex flex-wrap gap-4">
+                                    <Link href="/locations/bangalore/lic-agent" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Bangalore Agent
                                     </Link>
+                                    <Link href="/locations/hyderabad" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Hyderabad Expert
+                                    </Link>
+                                    <Link href="/locations/mumbai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Mumbai Support
+                                    </Link>
+                                    <Link href="/locations/chennai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Chennai Advisor
+                                    </Link>
+                                </div>
+                                <p className="text-blue-800 text-xs mt-4 italic">
+                                    Our advisors provide doorstep document collection for Form 3825 and original policy bonds across major metros.
                                 </p>
                             </div>
 
