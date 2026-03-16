@@ -12,6 +12,7 @@ import { services, serviceLabels } from '@/data/services';
 import ServiceFAQSection from '@/components/ServiceFAQSection';
 import AuthorBio from '@/components/AuthorBio';
 import { cityData as allCityData } from '@/data/cityData';
+import { successStories } from '@/data/successStoriesData';
 
 interface ServiceLocationClientProps {
     city: any;
@@ -229,6 +230,42 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel 
                     serviceLabel={serviceLabel}
                     serviceSlug={serviceSlug}
                 />
+
+                {/* Localized Success Story for Proof of Expertise */}
+                {(() => {
+                    const story = successStories.find(s => 
+                        s.category.toLowerCase().includes(serviceLabel.toLowerCase()) || 
+                        serviceLabel.toLowerCase().includes(s.category.toLowerCase().replace(' insurance', ''))
+                    ) || successStories[0]; // Fallback to first if no match
+
+                    return (
+                        <div className="mb-12 bg-slate-50 border border-slate-100 rounded-3xl p-8 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-4 opacity-5">
+                                <Shield className="h-24 w-24" />
+                            </div>
+                            <div className="relative z-10">
+                                <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold mb-4 uppercase tracking-widest">
+                                    Real Case Study: {story.location}
+                                </div>
+                                <h3 className="text-2xl font-bold mb-4 text-slate-900">{story.title}</h3>
+                                <div className="grid md:grid-cols-2 gap-8">
+                                    <div>
+                                        <h4 className="font-bold text-sm uppercase text-slate-500 mb-2">The Challenge</h4>
+                                        <p className="text-slate-600 text-sm leading-relaxed">{story.challenge}</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-sm uppercase text-slate-500 mb-2">Our Solution</h4>
+                                        <p className="text-slate-600 text-sm leading-relaxed">{story.solution}</p>
+                                    </div>
+                                </div>
+                                <div className="mt-6 pt-6 border-t border-slate-200 flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-green-500" />
+                                    <p className="font-bold text-green-700">Outcome: {story.outcome}</p>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })()}
 
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                     <a href={contactConfig.getDialUrl()} className="w-full sm:w-auto">

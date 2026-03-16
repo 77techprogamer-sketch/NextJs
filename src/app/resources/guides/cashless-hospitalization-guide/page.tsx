@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, Search, Hospital, ShieldCheck, ArrowRight } from 'lucide-react';
+import { Phone, CheckCircle2, Search, Hospital, ShieldCheck, ArrowRight, Clock, AlertCircle } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
@@ -113,6 +113,39 @@ export default function CashlessHospitalizationGuide() {
                                 <li><strong>Inadequate Sum Insured:</strong> Remaining limit is lower than the expected bill amount.</li>
                                 <li><strong>Policy Exclusions:</strong> Treatment is for diagnostic purposes or cosmetic reasons.</li>
                             </ul>
+
+                            <div className="my-12 p-8 border-2 border-dashed border-green-200 rounded-3xl bg-green-50/30">
+                                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-900">
+                                    <Clock className="h-6 w-6 text-green-600" />
+                                    Expected Approval Timeline
+                                </h3>
+                                <div className="space-y-6">
+                                    <div className="flex gap-4 items-start">
+                                        <div className="px-3 py-1 bg-white border border-green-100 rounded-lg font-bold text-green-600 shrink-0">2-6 Hours</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Initial Pre-Authorization</h4>
+                                            <p className="text-sm text-slate-600">The time taken by the TPA to issue the 'Credit Letter' after receiving the doctor's note and policy details.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 items-start">
+                                        <div className="px-3 py-1 bg-white border border-green-100 rounded-lg font-bold text-green-600 shrink-0">3-4 Hours</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Discharge Final Approval</h4>
+                                            <p className="text-sm text-slate-600">Once the doctor signs the discharge summary, the hospital sends final bills. Expect a wait time at the hospital during this phase.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 my-10">
+                                <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-3">
+                                    <AlertCircle className="h-5 w-5" />
+                                    Important: Cashless Denied != Claim Rejected
+                                </h4>
+                                <p className="text-amber-800 text-sm leading-relaxed">
+                                    If the TPA refuses cashless authorization, it doesn't mean your claim is illegitimate. It simply means they need more documentation or want to process it as a <strong>reimbursement claim</strong>. In such cases, pay the bill, collect all original documents, and we will help you file for a full refund.
+                                </p>
+                            </div>
                         </div>
 
                         <ComparisonTable 
@@ -151,7 +184,7 @@ export default function CashlessHospitalizationGuide() {
                             <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100">
                                 <h4 className="font-bold text-blue-900 mb-3 flex items-center gap-2">
                                     <Hospital className="h-5 w-5" />
-                                    Preferred Netowrk
+                                    Preferred Network
                                 </h4>
                                 <p className="text-blue-800 text-sm">
                                     We have direct coordination channels with Star Health, HDFC Ergo, and Care Insurance to expedite pre-authorizations for our clients.

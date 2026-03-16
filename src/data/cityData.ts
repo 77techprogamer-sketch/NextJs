@@ -13,6 +13,12 @@ export interface CityData {
         address: string;
     };
     nearbyCities?: string[];
+    hubContent?: {
+        itProfessionalFocus?: string;
+        seniorCitizenFocus?: string;
+        localBranchDetails?: string;
+        localFaqs?: { q: string, a: string }[];
+    };
 }
 
 export const cityData: Record<string, CityData> = {
@@ -37,7 +43,26 @@ export const cityData: Record<string, CityData> = {
             name: "LIC Bangalore Division I & II",
             address: "Jeevan Prakash, J.C. Road, Bangalore - 560002"
         },
-        nearbyCities: ['mysore', 'hosur', 'tumkur', 'belagavi']
+        nearbyCities: ['mysore', 'hosur', 'tumkur', 'belagavi'],
+        hubContent: {
+            itProfessionalFocus: "Bangalore's IT corridor—from Electronic City and Whitefield to the tech parks of Manyata and Bagmane—requires specialized Employee Benefits and International Health Covers. We provide DOORSTEP service to your office or residence in HSR Layout, Koramangala, and Hebbal, ensuring your high-value policies are managed without city traffic hurdles.",
+            seniorCitizenFocus: "For the retired professionals in Jayanagar, JP Nagar, and Malleshwaram, we offer personalized pension planning and premium-waiver health insurance strategies that ensure a dignified, worry-free retirement in the Garden City.",
+            localBranchDetails: "Our team maintains direct coordination with the LIC Divisional Office at J.C. Road (Jeevan Prakash) and active Liaison with Jayanagar, Rajajinagar, and Jeevan Bima Nagar branches to fast-track your maturity claims and policy revivals.",
+            localFaqs: [
+                {
+                    q: "Which is the best health insurance plan for IT employees in Bangalore?",
+                    a: "IT professionals in Bangalore should look for plans with high sum assured, restoration benefits, and wellness incentives. Since most companies provide basic group cover, we recommend a 'Top-Up' or 'Super Top-Up' plan to cover major surgeries and critical illnesses not fully covered by employer plans."
+                },
+                {
+                    q: "How to settle an LIC death claim if the branch is in another city but I stay in Bangalore?",
+                    a: "You don't need to travel! We facilitate the 'Transfer of Records' or local facilitation through the Bangalore Divisional Office on J.C. Road. Our advisors handle the inter-branch communication and documentation at your doorstep."
+                },
+                {
+                    q: "Can I get doorstep insurance service in areas like Sarjapur or Whitefield?",
+                    a: "Yes, we provide guaranteed home visits for all insurance-related paperwork across Sarjapur, Whitefield, Marathahalli, and Varthur. You skip the Silk Board or ORR traffic; our certified advisor comes to you."
+                }
+            ]
+        }
     },
     chennai: {
         name: 'Chennai',

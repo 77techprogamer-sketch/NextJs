@@ -117,6 +117,46 @@ export default function ClaimRejectionAppealGuide() {
                                     </div>
                                 </div>
                             </div>
+
+                            <div className="my-12 p-8 border-2 border-dashed border-red-200 rounded-3xl bg-red-50/30">
+                                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-900">
+                                    <Scale className="h-6 w-6 text-red-600" />
+                                    Expected Appeal Timeline
+                                </h3>
+                                <div className="space-y-6">
+                                    <div className="flex gap-4 items-start">
+                                        <div className="px-3 py-1 bg-white border border-red-100 rounded-lg font-bold text-red-600 shrink-0">15 Days</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Insurer Internal Grievance</h4>
+                                            <p className="text-sm text-slate-600">The first step where the Company's GRO reviews your evidence. High success rate for documentation errors.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 items-start">
+                                        <div className="px-3 py-1 bg-white border border-red-100 rounded-lg font-bold text-red-600 shrink-0">30 Days</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">IRDAI Bima Bharosa Escalation</h4>
+                                            <p className="text-sm text-slate-600">If the company ignores the grievance, the regulator intervenes to force a response.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 items-start">
+                                        <div className="px-3 py-1 bg-white border border-red-100 rounded-lg font-bold text-red-600 shrink-0">4-6 Months</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Ombudsman Hearing</h4>
+                                            <p className="text-sm text-slate-600">The gold standard for fair play. Most valid appeals are settled here without going to court.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 my-10">
+                                <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-3">
+                                    <AlertTriangle className="h-5 w-5" />
+                                    What if the Ombudsman rejects the case?
+                                </h4>
+                                <p className="text-amber-800 text-sm leading-relaxed">
+                                    While an Ombudsman's award is binding on the insurance company, it is <strong>not binding on the policyholder</strong>. If you are dissatisfied, you still have the legal right to approach the Consumer Forum. However, ensure you have strong medical evidence to avoid the 1-3 year court delay.
+                                </p>
+                            </div>
                         </div>
 
                         <AuthorBio />

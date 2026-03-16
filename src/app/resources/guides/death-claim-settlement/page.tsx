@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, AlertTriangle, FileText, Scale } from 'lucide-react';
+import { Phone, CheckCircle2, AlertTriangle, FileText, Scale, ShieldCheck, History } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'How to File LIC Death Claim in India (2026 Guide) | Expert Help',
@@ -96,7 +97,42 @@ export default function DeathClaimGuide() {
                             <p>
                                 Do not lose hope. Section 45 of the Insurance Act protects policyholders from arbitrary rejections after 3 years. Even for early claims, if the rejection is based on non-material facts, it can be challenged at the Insurance Ombudsman or via IRDAI Grievance cell.
                             </p>
+
+                            <div className="my-12 p-8 border-2 border-dashed border-primary/20 rounded-3xl bg-primary/5">
+                                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-900">
+                                    <History className="h-6 w-6 text-primary" />
+                                    Expected Settlement Timeline
+                                </h3>
+                                <div className="space-y-6">
+                                    <div className="flex gap-4 items-start">
+                                        <div className="px-3 py-1 bg-white border border-primary/10 rounded-lg font-bold text-primary shrink-0">15-30 Days</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Normal Death Claims</h4>
+                                            <p className="text-sm text-slate-600">For policies older than 3 years with natural causes, settlements are usually swift once documents are verified.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 items-start">
+                                        <div className="px-3 py-1 bg-white border border-primary/10 rounded-lg font-bold text-primary shrink-0">90-180 Days</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Early Death Claims (Investigated)</h4>
+                                            <p className="text-sm text-slate-600">If death occurs within 3 years of policy start, the insurer conducts a mandatory investigation to rule out non-disclosure.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-red-50 p-6 rounded-2xl border border-red-100 my-10">
+                                <h4 className="font-bold text-red-900 flex items-center gap-2 mb-3">
+                                    <AlertTriangle className="h-5 w-5" />
+                                    Section 45: The 3-Year Incontestability Clause
+                                </h4>
+                                <p className="text-red-800 text-sm leading-relaxed">
+                                    According to Section 45 of the Insurance Act 1938, no life insurance policy can be called in question by an insurer on any ground whatsoever after the expiry of <strong>3 years</strong> from the date of issuance or revival. If your claim is rejected after this period, you have a massive legal advantage.
+                                </p>
+                            </div>
                         </div>
+
+                        <AuthorBio />
 
                         <div className="mt-16 p-8 bg-slate-900 rounded-3xl text-white">
                             <h3 className="text-2xl font-bold mb-4">Struggling with a Rejected Claim?</h3>
@@ -134,22 +170,3 @@ export default function DeathClaimGuide() {
     );
 }
 
-function ShieldCheck(props: any) {
-    return (
-        <svg
-            {...props}
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-        >
-            <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
-            <path d="m9 12 2 2 4-4" />
-        </svg>
-    )
-}

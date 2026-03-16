@@ -63,7 +63,7 @@ export default function LapsedPolicyRevivalGuide() {
                                         <RefreshCcw className="h-5 w-5 text-primary" />
                                         Ordinary Revival
                                     </h3>
-                                    <p className="text-slate-600">If the policy is revived within 6 months of the first unpaid premium. No medical requirements are usually needed; just pay the arrears with interest.</p>
+                                    <p className="text-slate-600">If the policy is revived within 6 months to 2 years of the first unpaid premium. No medical requirements are usually needed for shorter periods; just pay the arrears with interest.</p>
                                 </div>
                                 <div className="p-6 border border-slate-200 rounded-2xl bg-blue-50/50 hover:border-primary/30 transition-colors">
                                     <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
@@ -95,6 +95,53 @@ export default function LapsedPolicyRevivalGuide() {
                             <p>
                                 Calculating the interest and identifying the best revival scheme (SRS vs Survival Benefit adjustment) can save you thousands of rupees. We handle the branch visits, document verification, and medical appointments to ensure your policy is back &quot;In-Force&quot; without any hassle.
                             </p>
+
+                            <div className="my-12 p-8 border-2 border-dashed border-primary/20 rounded-3xl bg-primary/5">
+                                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-900">
+                                    <Calendar className="h-6 w-6 text-primary" />
+                                    Expected Resolution Timeline
+                                </h3>
+                                <div className="space-y-4">
+                                    <div className="flex gap-4 items-start">
+                                        <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">1</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Day 1: Initial Assessment</h4>
+                                            <p className="text-sm text-slate-600">We verify your policy number and current status with our internal records.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 items-start">
+                                        <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">2</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Day 2-3: Official Revival Quote</h4>
+                                            <p className="text-sm text-slate-600">We liaise with the LIC branch to get the exact premium arrears, interest, and required medical forms.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 items-start">
+                                        <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">3</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Day 4-7: Document Processing</h4>
+                                            <p className="text-sm text-slate-600">Submission of Form 680, medical reports, and payment to the branch.</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-4 items-start">
+                                        <div className="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold shrink-0">4</div>
+                                        <div>
+                                            <h4 className="font-bold text-slate-900">Day 10-15: Policy In-Force</h4>
+                                            <p className="text-sm text-slate-600">Confirmation from LIC and restoration of your life cover and bonus eligibility.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="bg-red-50 p-6 rounded-2xl border border-red-100 my-10">
+                                <h4 className="font-bold text-red-900 flex items-center gap-2 mb-3">
+                                    <AlertCircle className="h-5 w-5" />
+                                    What if the branch refuses revival?
+                                </h4>
+                                <p className="text-red-800 text-sm leading-relaxed">
+                                    If a branch claims your policy is &quot;Not Revivable&quot; due to its age (e.g., lapsed 10+ years), don&apos;t panic. There are often <strong>Special Revival Campaigns</strong> or possibilities for <strong>Paid-Up Conversion</strong> where you can still claim the accumulated value. Our experts specialize in these &quot;dead-end&quot; cases.
+                                </p>
+                            </div>
                         </div>
 
                         <div className="mt-16 p-8 bg-primary rounded-3xl text-white">

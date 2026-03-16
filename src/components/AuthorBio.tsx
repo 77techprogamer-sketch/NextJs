@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Award, ShieldCheck, CheckCircle, ExternalLink } from 'lucide-react';
 
 const AuthorBio = () => {
@@ -7,7 +8,7 @@ const AuthorBio = () => {
         <div className="bg-slate-50 dark:bg-slate-900 rounded-3xl p-6 md:p-8 border border-slate-200 dark:border-slate-800 my-12">
             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
                 <div className="relative shrink-0">
-                    <div className="w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-xl">
+                    <Link href="/about-hari-kotian" className="block w-32 h-32 md:w-40 md:h-40 rounded-2xl overflow-hidden border-4 border-white shadow-xl hover:scale-105 transition-transform">
                         <Image 
                             src="/team/hari-kotian.png" 
                             alt="Hari Kotian - Insurance Expert" 
@@ -15,7 +16,7 @@ const AuthorBio = () => {
                             height={160}
                             className="object-cover"
                         />
-                    </div>
+                    </Link>
                     <div className="absolute -bottom-3 -right-3 bg-primary text-white p-2 rounded-lg shadow-lg">
                         <Award className="w-5 h-5" />
                     </div>
@@ -23,7 +24,9 @@ const AuthorBio = () => {
                 
                 <div className="flex-1 space-y-4">
                     <div>
-                        <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Hari Kotian</h3>
+                        <Link href="/about-hari-kotian" className="hover:text-primary transition-colors">
+                            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Hari Kotian</h3>
+                        </Link>
                         <p className="text-primary font-semibold flex items-center justify-center md:justify-start gap-2">
                             IRDAI Certified Insurance Advisor | 25+ Years Experience
                         </p>
@@ -53,6 +56,10 @@ const AuthorBio = () => {
                         >
                             Verify IRDAI License <ExternalLink className="w-3 h-3" />
                         </a>
+                        <span className="text-slate-300">|</span>
+                        <Link href="/about-hari-kotian" className="text-xs font-bold text-primary hover:underline">
+                            View Full Expert Profile
+                        </Link>
                         <span className="text-slate-300">|</span>
                         <span className="text-xs font-medium text-slate-500 italic">
                             Expert Reviewer & Author

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, PiggyBank, Calendar, FileCheck, ArrowRight } from 'lucide-react';
+import { Phone, CheckCircle2, PiggyBank, Calendar, FileCheck, ArrowRight, History } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'How to Settle LIC Maturity Claim (2026 Step-by-Step Guide)',

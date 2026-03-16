@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle2, MapPin, Phone, UserCheck, Clock } from 'lucide-react'
+import { CheckCircle2, MapPin, Phone, UserCheck, Clock, Shield } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
 import { getCityData, cityData } from '@/data/cityData'
 import { ServiceLinksForCity } from '@/components/KeywordLinkBlocks'
@@ -147,7 +147,11 @@ export default function LocationPage({ params }: Props) {
                     </Link>
 
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
-                        Insurance Advisor in <span className="text-primary">{city.name}</span> | LIC &amp; Health Insurance Help
+                        {params.city === 'bangalore' ? (
+                            <>Health & LIC Insurance Advisor in <span className="text-primary">Bangalore</span> | Doorstep Claim Support</>
+                        ) : (
+                            <>Insurance Advisor in <span className="text-primary">{city.name}</span> | LIC &amp; Health Insurance Help</>
+                        )}
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
@@ -172,6 +176,11 @@ export default function LocationPage({ params }: Props) {
                                     <div className="mb-4">
                                         <p className="text-amber-900 font-semibold mb-1">{city.licOffice.name}</p>
                                         <p className="text-amber-800 text-sm">{city.licOffice.address}</p>
+                                        {city.hubContent?.localBranchDetails && (
+                                            <p className="text-amber-800 text-sm mt-2 pt-2 border-t border-amber-200/50 italic">
+                                                {city.hubContent.localBranchDetails}
+                                            </p>
+                                        )}
                                     </div>
                                 ) : (
                                     <p className="text-amber-800 dark:text-amber-200 mb-4">
@@ -186,6 +195,34 @@ export default function LocationPage({ params }: Props) {
                             </div>
                         </div>
                     </div>
+
+                    {city.hubContent && (
+                        <div className="space-y-8 mb-12">
+                            {city.hubContent.itProfessionalFocus && (
+                                <div className="bg-blue-50 dark:bg-blue-900/10 p-6 rounded-2xl border border-blue-100 dark:border-blue-800/50">
+                                    <h3 className="text-xl font-bold text-blue-900 dark:text-blue-100 mb-3 flex items-center gap-2">
+                                        <Shield className="h-5 w-5 text-blue-600" />
+                                        Insurance Support for IT Professionals
+                                    </h3>
+                                    <p className="text-blue-800/80 dark:text-blue-200/80 leading-relaxed">
+                                        {city.hubContent.itProfessionalFocus}
+                                    </p>
+                                </div>
+                            )}
+
+                            {city.hubContent.seniorCitizenFocus && (
+                                <div className="bg-emerald-50 dark:bg-emerald-900/10 p-6 rounded-2xl border border-emerald-100 dark:border-emerald-800/50">
+                                    <h3 className="text-xl font-bold text-emerald-900 dark:text-emerald-100 mb-3 flex items-center gap-2">
+                                        <UserCheck className="h-5 w-5 text-emerald-600" />
+                                        Senior Citizen Health & Pension Priority
+                                    </h3>
+                                    <p className="text-emerald-800/80 dark:text-emerald-200/80 leading-relaxed">
+                                        {city.hubContent.seniorCitizenFocus}
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    )}
 
                     <div className="grid sm:grid-cols-2 gap-6 mb-12">
                         <Card>
@@ -278,6 +315,25 @@ export default function LocationPage({ params }: Props) {
                         stateName={city.state}
                         areas={city.areas}
                     />
+
+                    {city.hubContent?.localFaqs && (
+                        <div className="mt-12 bg-white p-8 rounded-3xl border border-slate-100 shadow-sm">
+                            <h2 className="text-2xl font-bold mb-6 text-slate-900">Dedicated {city.name} Insurance FAQs</h2>
+                            <div className="space-y-6">
+                                {city.hubContent.localFaqs.map((faq, idx) => (
+                                    <div key={idx} className="border-b border-slate-50 pb-6 last:border-0 last:pb-0">
+                                        <h4 className="font-bold text-slate-800 mb-2 flex items-start gap-2">
+                                            <span className="text-primary">Q:</span>
+                                            {faq.q}
+                                        </h4>
+                                        <p className="text-slate-600 pl-6 leading-relaxed">
+                                            {faq.a}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
 
                 </div>
 
