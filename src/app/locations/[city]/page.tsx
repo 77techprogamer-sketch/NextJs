@@ -231,6 +231,28 @@ export default function LocationPage({ params }: Props) {
                                     )}
                                 </div>
                             )}
+
+                            {/* Flagship Bangalore Solutions */}
+                            {params.city === 'bangalore' && (
+                                <div className="grid sm:grid-cols-2 gap-4">
+                                    <Link href="/locations/bangalore/health-insurance" className="p-6 bg-slate-900 rounded-2xl border border-slate-800 shadow-xl group hover:border-primary/50 transition-all">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <Shield className="h-8 w-8 text-primary" />
+                                            <ArrowRight className="h-5 w-5 text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </div>
+                                        <h4 className="text-white font-bold text-lg mb-2">Bangalore Health Hub</h4>
+                                        <p className="text-slate-400 text-xs leading-relaxed">Specialized support for IT top-ups and cashless coordination at Manipal/Apollo.</p>
+                                    </Link>
+                                    <Link href="/locations/bangalore/lic-agent" className="p-6 bg-blue-900 rounded-2xl border border-blue-800 shadow-xl group hover:border-primary/50 transition-all">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <UserCheck className="h-8 w-8 text-primary" />
+                                            <ArrowRight className="h-5 w-5 text-primary opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                        </div>
+                                        <h4 className="text-white font-bold text-lg mb-2">LIC Bangalore Flagship</h4>
+                                        <p className="text-blue-200/60 text-xs leading-relaxed">Expert death claim support and policy revival at JC Road & Residency Road offices.</p>
+                                    </Link>
+                                </div>
+                            )}
                         </div>
                     )}
 

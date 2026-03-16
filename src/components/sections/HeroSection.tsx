@@ -9,6 +9,7 @@ import { Star, ShieldCheck } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SocialShareButtons from '@/components/SocialShareButtons';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import Image from 'next/image';
 import ShortLeadForm from '@/components/ShortLeadForm';
 import { MessageCircle } from 'lucide-react';
@@ -171,7 +172,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                     </div>
 
                     <ScrollReveal animation="fade-in" delay={1.2}>
-                        <div className="pt-4 flex flex-wrap justify-center gap-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <div className="pt-4 flex flex-wrap justify-center gap-x-8 gap-y-4 opacity-70 hover:opacity-100 transition-opacity">
                             <div className="flex items-center gap-2">
                                 <ShieldCheck className="w-4 h-4 text-accent" />
                                 <span className="text-[10px] font-bold tracking-widest uppercase">{t("trust_signals.licensed_badge")}</span>
@@ -187,6 +188,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                                 <span className="text-[10px] font-bold tracking-widest uppercase">{t("trust_signals.secure_badge")}</span>
                             </div>
                         </div>
+                        
+                        {/* Flagship Trending Links */}
+                        <div className="mt-8 flex flex-wrap justify-center gap-3">
+                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] w-full mb-1">Trending in Bangalore:</span>
+                            {[
+                                { label: "LIC Agent Bangalore", href: "/locations/bangalore/lic-agent" },
+                                { label: "Best Health Insurance Bangalore", href: "/locations/bangalore/health-insurance" },
+                                { label: "Policy Revival Help", href: "/resources/guides/lapsed-policy-revival" },
+                                { label: "Death Claim Expert", href: "/resources/guides/death-claim-settlement" }
+                            ].map((link, i) => (
+                                <Link 
+                                    key={i} 
+                                    href={link.href}
+                                    className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-bold text-gray-300 hover:bg-accent hover:text-primary hover:border-accent transition-all duration-300"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </div>
+                        
                         <p className="text-[10px] text-gray-500 mt-4 italic">{t("trust_signals.privacy_promise")}</p>
                     </ScrollReveal>
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, AlertTriangle, FileText, Scale, ShieldCheck, History } from 'lucide-react';
+import { Phone, CheckCircle2, AlertTriangle, FileText, Scale, ShieldCheck, History, MapPin } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
@@ -128,6 +128,30 @@ export default function DeathClaimGuide() {
                                 </h4>
                                 <p className="text-red-800 text-sm leading-relaxed">
                                     According to Section 45 of the Insurance Act 1938, no life insurance policy can be called in question by an insurer on any ground whatsoever after the expiry of <strong>3 years</strong> from the date of issuance or revival. If your claim is rejected after this period, you have a massive legal advantage.
+                                </p>
+                            </div>
+
+                            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-12 not-prose">
+                                <p className="text-blue-900 font-bold mb-3 flex items-center gap-2">
+                                    <MapPin className="h-4 w-4" />
+                                    Get Expert Claim Support in Your City
+                                </p>
+                                <div className="flex flex-wrap gap-4">
+                                    <Link href="/locations/bangalore/lic-agent" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Bangalore Flagship Hub
+                                    </Link>
+                                    <Link href="/locations/mumbai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Mumbai Expert
+                                    </Link>
+                                    <Link href="/locations/hyderabad" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Hyderabad Support
+                                    </Link>
+                                    <Link href="/locations/chennai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Chennai Advisor
+                                    </Link>
+                                </div>
+                                <p className="text-blue-800 text-xs mt-4 italic">
+                                    Direct liaison support at Residency Road, JC Road, and Dadar/Nariman Point LIC offices for claim escalation.
                                 </p>
                             </div>
                         </div>

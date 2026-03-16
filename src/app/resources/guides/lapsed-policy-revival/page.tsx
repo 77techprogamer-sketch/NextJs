@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, AlertCircle, RefreshCcw, Calendar, TrendingUp } from 'lucide-react';
+import { Phone, CheckCircle2, AlertCircle, RefreshCcw, Calendar, TrendingUp, MapPin } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
 
@@ -131,6 +131,30 @@ export default function LapsedPolicyRevivalGuide() {
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-12 not-prose">
+                                <p className="text-blue-900 font-bold mb-3 flex items-center gap-2">
+                                    <MapPin className="h-4 w-4" />
+                                    Get Professional Policy Revival in Your City
+                                </p>
+                                <div className="flex flex-wrap gap-4">
+                                    <Link href="/locations/bangalore/lic-agent" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Bangalore Flagship
+                                    </Link>
+                                    <Link href="/locations/hyderabad" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Hyderabad Expert
+                                    </Link>
+                                    <Link href="/locations/mumbai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Mumbai Support
+                                    </Link>
+                                    <Link href="/locations/chennai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
+                                        Chennai Advisor
+                                    </Link>
+                                </div>
+                                <p className="text-blue-800 text-xs mt-4 italic">
+                                    Doorstep service available for Form 680, medical reports collection, and branch coordination at DO-1 and DO-2 offices.
+                                </p>
                             </div>
 
                             <div className="bg-red-50 p-6 rounded-2xl border border-red-100 my-10">

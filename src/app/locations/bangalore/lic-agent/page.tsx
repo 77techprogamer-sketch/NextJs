@@ -52,16 +52,48 @@ const licSpecificFAQs = [
         answer: "If your LIC policy has lapsed for more than 6 months, you need to submit a 'Personal Statement of Health' (Form 680) and pay the arrears with interest. We assist with doorstep collection of forms and coordination with your base branch in Bangalore for a swift revival."
     },
     {
+        question: "Why is the J.C. Road office considered the hub for LIC in Bangalore?",
+        answer: "The J.C. Road office houses the Divisional Office 1 & 2. Most complex approvals, death claim investigations, and legal appeals (Ombudsman) are processed here. Having a physical presence near J.C. Road allows us to fast-track file movement for our clients."
+    },
+    {
         question: "How long does a maturity claim take at the LIC J.C. Road office?",
         answer: "Maturity claims at J.C. Road usually take 7-15 working days if the Discharge Voucher (Form 3825) and NEFT mandate are submitted 30 days in advance. We handle the physical submission to ensure your payment hits the bank on the maturity date."
     },
     {
-        question: "Can I transfer my LIC policy from another city to Bangalore?",
-        answer: "Yes, we facilitate policy transfers to any Bangalore branch. This makes servicing, loan application, and claim settlement much easier. You'll need to submit a transfer request form which we can help you draft."
+        question: "What should I do if I have lost my original LIC policy bond in Bangalore?",
+        answer: "Don't worry. You need to file a 'Loss of Policy' advertisement or submit an Indemnity Bond (Form 3756) on non-judicial stamp paper. We assist Bangalore residents in drafting this bond and getting it franked at the nearest Sub-registrar office."
     },
     {
-        question: "What is the process for LIC death claim settlement in Bangalore?",
-        answer: "In case of a death claim, the nominee must submit Claim Form A (Form 3783) along with the original policy bond and death certificate. For 'Early Claims' (death within 3 years), additional investigation is done. We specialize in escalating these cases with a 98% success rate."
+        question: "Can I pay my LIC premiums at Bangalore One centers?",
+        answer: "Yes, Bangalore One centers accept LIC premiums. However, for 'Lapsed Policies' or 'Loan Interest,' you must visit a branch or use authorized portals. We recommend digital payments to avoid the 2-day reconciliation delay at physical centers."
+    },
+    {
+        question: "What is the current interest rate for a loan against an LIC policy in Bangalore?",
+        answer: "Currently, LIC charges 9% interest (per annum) for loans against policies, payable half-yearly. This is often cheaper than personal loans. We help calculate your 'Loan Eligibility' and handle the lien marking at the branch."
+    },
+    {
+        question: "How do I change the nominee for my LIC policy in Bangalore?",
+        answer: "Nominee changes require Form 3750. In Bangalore, this is typically processed in 2-3 days if you visit the branch. We provide doorstep service for nominee updates, ensuring your family's future is legally secure."
+    },
+    {
+        question: "Can I transfer my LIC policy from another city (like Mumbai) to Bangalore?",
+        answer: "Absolutely. Policy transfer ensures you can avail loans and survival benefits locally. You'll need to submit a written request to your current branch. We facilitate the file tracking to ensure it reaches your preferred Bangalore branch (e.g., Indiranagar or Jayanagar) safely."
+    },
+    {
+        question: "What is an 'Early Claim' and why does it take longer in Bangalore?",
+        answer: "An 'Early Claim' occurs if the policyholder passes away within 3 years of policy inception/revival. These cases undergo mandatory investigation. Our expertise lies in preparing the 'Inquiry Response' to ensure genuine Bangalore claimants get paid without harassment."
+    },
+    {
+        question: "Why is the NEFT mandate mandatory for LIC payouts now?",
+        answer: "LIC has moved away from physical cheques to curb fraud and ensure instant transfers. A cancelled cheque and the NEFT form must be on record. We help senior citizens in Bangalore update their bank details to avoid payment bounces."
+    },
+    {
+        question: "How to track LIC survival benefits if my agent is no longer active?",
+        answer: "Many older agents in Bangalore have retired. We act as your 'Service Agent' to track 'Money Back' installments. We check the LIC 'Customer Portal' and branch records to ensure your due amounts are credited on time."
+    },
+    {
+        question: "Why choose Hari Kotian for complex LIC claims in Bangalore?",
+        answer: "With 25+ years of experience and deep roots in the Bangalore LIC ecosystem, Hari Kotian understands the 'unwritten' procedural nuances of local branches. We bridge the gap between bureaucratic requirements and your family's urgent needs."
     }
 ];
 
@@ -131,19 +163,41 @@ export default function BangaloreLICHub() {
                             </p>
 
                             <div className="grid md:grid-cols-2 gap-8 my-16">
-                                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                                    <History className="h-10 w-10 text-primary mb-6" />
-                                    <h3 className="text-xl font-bold text-slate-900 mb-4">Lapsed Policy Revival</h3>
-                                    <p className="text-slate-600 text-sm leading-relaxed">
-                                        Has your policy lapsed due to unpaid premiums? We specialize in reviving old policies with minimal medical requirements. We handle the Interest calculations and bank coordination across all Bangalore DOs.
-                                    </p>
+                                <div className="bg-gradient-to-br from-blue-900 to-blue-800 p-8 rounded-3xl border border-blue-800 shadow-xl shadow-blue-900/20 relative overflow-hidden group text-white">
+                                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+                                        <History className="h-20 w-20" />
+                                    </div>
+                                    <div className="relative z-10">
+                                        <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
+                                            <Shield className="h-5 w-5" />
+                                            The Legacy of J.C. Road
+                                        </h3>
+                                        <p className="text-blue-100 text-sm leading-relaxed mb-6">
+                                            Bangalore&apos;s LIC history started at the iconic <strong>Jeevan Prakash</strong> building on J.C. Road. We leverage our 25+ years of proximity to DO-1 and DO-2 to track your physical files through the massive LIC archive systems.
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["DO-1", "DO-2", "Residency Rd"].map((tag, i) => (
+                                                <span key={i} className="text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-primary border border-white/20 uppercase tracking-tighter">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                                    <TrendingUp className="h-10 w-10 text-primary mb-6" />
-                                    <h3 className="text-xl font-bold text-slate-900 mb-4">High-Value Portfolio</h3>
-                                    <p className="text-slate-600 text-sm leading-relaxed">
-                                        Managing multiple policies? We provide a consolidated LIC portfolio review. We help you track Maturity dates, Bonus accumulation, and Loan eligibility for all your <strong>Jeevan Anand</strong>, <strong>Umang</strong>, and <strong>Labh</strong> plans.
-                                    </p>
+                                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
+                                        <Clock className="h-20 w-20 text-slate-900" />
+                                    </div>
+                                    <div className="relative z-10">
+                                        <h3 className="text-xl font-bold text-slate-900 mb-4">30-Day Maturity Walkthrough</h3>
+                                        <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                                            Don&apos;t wait for your policy to mature. We start the <strong>Form 3825</strong> and NEFT processing 30 days early to ensure the funds hit your bank account on the exact maturity date.
+                                        </p>
+                                        <ul className="text-xs space-y-2 text-slate-500 font-medium">
+                                            <li className="flex items-center gap-2 underline decoration-primary/30">Step 1: DV Signing (Doorstep)</li>
+                                            <li className="flex items-center gap-2 underline decoration-primary/30">Step 2: Branch Submission (We Handle)</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
 

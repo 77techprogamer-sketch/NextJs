@@ -53,16 +53,48 @@ const bangaloreSpecificFAQs = [
         answer: "Most IT companies in Bangalore provide group health insurance (GHI). However, these corporate policies often have 'Room Rent Caps' or 'Co-payment clauses' that lead to major out-of-pocket expenses during a claim. A personal health policy ensures continuity if you change jobs and provides a higher sum insured for high-cost Bangalore hospitals."
     },
     {
+        question: "How do I add a top-up to my existing corporate insurance in Bangalore?",
+        answer: "A 'Super Top-up' is the most cost-effective way for Bangalore techies to enhance their cover. For instance, you can add a ₹20 Lakh top-up with a ₹5 Lakh deductible for as low as ₹4,000/year. This ensures that even if you leave your job, your large medical cover remains intact."
+    },
+    {
         question: "Which are the top hospitals for cashless treatment in Bangalore?",
         answer: "Bangalore has world-class network hospitals like Manipal, Apollo, Fortis, and Sakra. Most major insurers like Star Health, HDFC Ergo, and Care have cashless tie-ups with these hospitals. We help you coordinate the pre-authorization process to ensured a smooth admission."
     },
     {
-        question: "Is there doorstep service available for health insurance in Bangalore?",
-        answer: "Yes, we provide doorstep consultation across Bangalore, including Indiranagar, HSR Layout, Koramangala, Whitefield, and Jayanagar. Our experts visit you to explain plans, assist with documentation, and perform policy audits."
+        question: "Do you provide doorstep coordination for senior citizen health insurance?",
+        answer: "Yes, we specialize in senior citizen health insurance in Bangalore. We offer doorstep document collection and physical policy audits in areas like Jayanagar, Malleshwaram, and Basavanagudi to ensure elderly parents don't have to navigate complex online portals."
+    },
+    {
+        question: "What is the process for TPA pre-authorization at Manipal Hospital Old Airport Road?",
+        answer: "Manipal Hospital has a dedicated TPA desk. For planned surgeries, you must submit the 'Intimation Letter' 48 hours in advance. Our local coordinators physically follow up with the TPA desk to expedite approvals, often securing them in under 3 hours."
+    },
+    {
+        question: "How can I get the latest list of network hospitals for Star Health in Bangalore?",
+        answer: "The hospital network changes frequently. We maintain a real-time list of 500+ network hospitals in Bangalore for Star Health, HDFC Ergo, and Care Insurance. Contact us for the latest PDF for your specific pincode."
+    },
+    {
+        question: "What should I do if my health insurance claim is rejected in Bangalore?",
+        answer: "If a Bangalore-based TPA rejects your claim, do not sign the discharge papers without a 'Medical Necessity Note' from your doctor. We specialize in appealing rejected claims at the Insurance Ombudsman office on Residency Road."
+    },
+    {
+        question: "Does health insurance cover maternity and dental in Bangalore?",
+        answer: "Maternity cover usually has a 2-4 year waiting period in Bangalore. Some new-age plans for IT employees offer 'Day 1' maternity. Dental is usually covered only if it involves hospitalization due to an accident."
+    },
+    {
+        question: "How to claim 80D tax benefits for my parents living in Bangalore?",
+        answer: "You can claim up to ₹50,000 under Section 80D for health insurance premiums paid for parents (above 60). We provide the specific 'Section 80D Certificate' along with your policy bond during our doorstep delivery."
+    },
+    {
+        question: "Can I port my health insurance from another city to Bangalore?",
+        answer: "Yes, you can port without losing 'Waiting Period' credits. Porting to a Bangalore-centric plan is recommended to ensure higher 'Room Rent' limits, matching the local hospital charges in Electronic City or Whitefield."
     },
     {
         question: "How can I upgrade my existing LIC health policy in Bangalore?",
         answer: "If you have an older LIC health plan like Jeevan Arogya, we help you understand the 'Fixed Benefit' payouts vs 'Indemnity' plans. We can advise on adding top-up covers to enhance your protection without high premiums."
+    },
+    {
+        question: "What is the 'Insurance Support' advantage at hospital discharge?",
+        answer: "The final discharge approval usually takes 4-6 hours. Our coordinators coordinate with the hospital billing department to ensure documents aren't stuck, helping Bangalore families get home faster."
     }
 ];
 
@@ -154,19 +186,41 @@ export default function BangaloreHealthHub() {
                             </p>
 
                             <div className="grid md:grid-cols-2 gap-8 my-16">
-                                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                                    <Briefcase className="h-10 w-10 text-primary mb-6" />
-                                    <h3 className="text-xl font-bold text-slate-900 mb-4">For IT Professionals</h3>
-                                    <p className="text-slate-600 text-sm leading-relaxed">
-                                        Don&apos;t rely solely on corporate GHI. We specialize in identifying &apos;Corporate Buffers&apos; vs &apos;Personal Covers&apos; and help you setup top-ups that save lakhs during critical emergencies. Focus on Manyata, Bagmane, and Electronic City tech employees.
-                                    </p>
+                                <div className="bg-gradient-to-br from-slate-900 to-slate-800 p-8 rounded-3xl border border-slate-800 shadow-xl shadow-slate-900/20 relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+                                        <Briefcase className="h-20 w-20 text-white" />
+                                    </div>
+                                    <div className="relative z-10">
+                                        <h3 className="text-xl font-bold text-primary mb-4 flex items-center gap-2">
+                                            <ShieldCheck className="h-5 w-5" />
+                                            IT Corridor Protection Plan
+                                        </h3>
+                                        <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                                            Specialized for techies in <strong>Manyata</strong>, <strong>Bagmane</strong>, and <strong>Electronic City</strong>. We map your corporate GHI gaps and setup &quot;Super Top-ups&quot; that act as a primary cover if you switch companies or face layoffs.
+                                        </p>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["E-City", "Whitefield", "Bellandur"].map((tag, i) => (
+                                                <span key={i} className="text-[10px] font-bold px-2 py-0.5 rounded bg-primary/20 text-primary border border-primary/20 uppercase tracking-tighter">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
-                                    <MapPin className="h-10 w-10 text-primary mb-6" />
-                                    <h3 className="text-xl font-bold text-slate-900 mb-4">Doorstep Policy Audits</h3>
-                                    <p className="text-slate-600 text-sm leading-relaxed">
-                                        We visit your home in HSR, Koramangala, or Indiranagar for a free physical audit of your current policies. No more confusing fine print or hidden sub-limits.
-                                    </p>
+                                <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+                                    <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:rotate-12 transition-transform">
+                                        <MapPin className="h-20 w-20 text-slate-900" />
+                                    </div>
+                                    <div className="relative z-10">
+                                        <h3 className="text-xl font-bold text-slate-900 mb-4">Pincode-level Doorstep Audit</h3>
+                                        <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                                            No more online guesswork. We visit your home in <strong>HSR (560102)</strong>, <strong>Koramangala (560034)</strong>, or <strong>Indiranagar (560038)</strong> for a free physical audit of your existing policy bonds.
+                                        </p>
+                                        <ul className="text-xs space-y-2 text-slate-500 font-medium">
+                                            <li className="flex items-center gap-2 underline decoration-primary/30">560001 - 560100 Covered</li>
+                                            <li className="flex items-center gap-2 underline decoration-primary/30">Same-day Document Pickup</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
 
