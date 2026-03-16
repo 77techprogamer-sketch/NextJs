@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, ClipboardCheck, FileText, Stethoscope, ArrowRight } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'Health Insurance Claim Checklist — Documents & Process (2026)',
@@ -99,6 +100,8 @@ export default function HealthClaimChecklistGuide() {
                                 <li><strong>Stickers:</strong> Ensure the &quot;Implant Sticker&quot; is attached for surgeries like Stents or Knee replacements.</li>
                             </ul>
                         </div>
+
+                        <AuthorBio />
 
                         <div className="mt-16 p-8 bg-slate-900 rounded-3xl text-white">
                             <h3 className="text-2xl font-bold mb-4">Worrying About Deductions?</h3>

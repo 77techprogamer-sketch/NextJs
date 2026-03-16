@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, FileText, ClipboardList, Briefcase, ArrowRight } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'Documents Required for LIC Death Claim Settlement (2026 Checklist)',
@@ -108,6 +109,8 @@ export default function DeathClaimDocumentsGuide() {
                                 <li>Final Police Closure Report</li>
                             </ul>
                         </div>
+
+                        <AuthorBio />
 
                         <div className="mt-16 p-8 bg-slate-900 rounded-3xl text-white">
                             <h3 className="text-2xl font-bold mb-4">Need Help with Paperwork?</h3>

@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, Search, Hospital, ShieldCheck, ArrowRight } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
+import ComparisonTable from '@/components/ComparisonTable';
 
 export const metadata: Metadata = {
     title: 'Cashless Hospitalization Process — Step-by-Step Guide (2026)',
@@ -23,6 +25,14 @@ export const metadata: Metadata = {
 };
 
 export default function CashlessHospitalizationGuide() {
+    const processComparison = [
+        { feature: 'Intimation Window', col1: '48-72 Hours Before', col2: 'Within 24 Hours After', highlight: true },
+        { feature: 'Approval Time', col1: 'Pre-Approved (Fast)', col2: '2-6 Hours Post-Admission', highlight: true },
+        { feature: 'Documentation', col1: 'Doctor Advice + Lab Reports', col2: 'Emergency Summary + FIR (if accident)' },
+        { feature: 'Bed Guarantee', col1: true, col2: 'Subject to Availability' },
+        { feature: 'TPA Desk Check-in', col1: 'Mandatory', col2: 'Immediate' },
+    ];
+
     return (
         <div className="bg-white min-h-screen">
             <div className="container px-4 py-12 mx-auto">
@@ -104,6 +114,15 @@ export default function CashlessHospitalizationGuide() {
                                 <li><strong>Policy Exclusions:</strong> Treatment is for diagnostic purposes or cosmetic reasons.</li>
                             </ul>
                         </div>
+
+                        <ComparisonTable 
+                            title="Planned vs. Emergency Cashless Admission"
+                            headers={["Feature", "Planned Admission", "Emergency Admission"]}
+                            rows={processComparison}
+                            note="Always carry your physical health card and a copy of the manager's contact details for faster processing."
+                        />
+
+                        <AuthorBio />
 
                         <div className="mt-16 p-8 bg-slate-900 rounded-3xl text-white">
                             <h3 className="text-2xl font-bold mb-4">Cashless Denied? We Can Help</h3>

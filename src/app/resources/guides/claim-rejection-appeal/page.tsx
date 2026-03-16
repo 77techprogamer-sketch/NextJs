@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, AlertTriangle, FileText, Scale, ArrowRight } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
 
 export const metadata: Metadata = {
     title: 'How to Appeal a Rejected Health Insurance Claim in India (2026 Guide)',
@@ -117,6 +118,8 @@ export default function ClaimRejectionAppealGuide() {
                                 </div>
                             </div>
                         </div>
+
+                        <AuthorBio />
 
                         <div className="mt-16 p-8 bg-slate-900 rounded-3xl text-white">
                             <h3 className="text-2xl font-bold mb-4">Struggling with a Rejected Claim?</h3>

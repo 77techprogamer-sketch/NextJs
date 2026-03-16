@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, Info, Scale, ShieldCheck, ArrowRight } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
+import ComparisonTable from '@/components/ComparisonTable';
 
 export const metadata: Metadata = {
     title: 'Term Insurance vs Life Insurance — Which Should You Choose in 2026?',
@@ -22,6 +24,15 @@ export const metadata: Metadata = {
 };
 
 export default function TermVsLifeGuide() {
+    const comparisonRows = [
+        { feature: 'Primary Purpose', col1: 'Pure Protection', col2: 'Savings + Protection', highlight: true },
+        { feature: 'Premium Cost', col1: 'Very Low (Affordable)', col2: 'Higher', highlight: true },
+        { feature: 'Maturity Benefit', col1: false, col2: true },
+        { feature: 'Policy Term', col1: 'Fixed (e.g., 20-40 years)', col2: 'Whole Life (till age 99/100)' },
+        { feature: 'Ideal For', col1: 'High Liabilities (Home Loan)', col2: 'Legacy Planning' },
+        { feature: 'Tax Benefit (80C)', col1: true, col2: true },
+    ];
+
     return (
         <div className="bg-white min-h-screen">
             <div className="container px-4 py-12 mx-auto">
@@ -110,6 +121,15 @@ export default function TermVsLifeGuide() {
                                 </li>
                             </ul>
                         </div>
+
+                        <ComparisonTable 
+                            title="Side-by-Side: Term vs. Whole Life Insurance"
+                            headers={["Feature", "Term Insurance", "Whole Life Insurance"]}
+                            rows={comparisonRows}
+                            note="Term insurance is generally the first priority for breadwinners with active liabilities."
+                        />
+
+                        <AuthorBio />
 
                         <div className="mt-16 p-8 bg-slate-900 rounded-3xl text-white">
                             <h3 className="text-2xl font-bold mb-4">Unsure Which One Fits Your Needs?</h3>

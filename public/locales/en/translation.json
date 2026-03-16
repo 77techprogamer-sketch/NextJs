@@ -43,7 +43,7 @@
   "baggage_loss": "Baggage Loss",
   "baggage_loss_description": "Financial assistance if your checked-in baggage is delayed or lost.",
   "balanced": "Balanced",
-  "bangalore_office": "Bangalore Office",
+  "bangalore_office": "No. 12, 2nd Floor, Residency Road, Near LIC Building, Bangalore - 560001",
   "bike": "Bike",
   "blocked_page_meta_description": "Access to Insurance Support is restricted from your current location due to regulatory requirements.",
   "blocked_page_title": "Access Restricted - Insurance Support",
@@ -61,6 +61,7 @@
   "cashless_hospitalization": "Cashless Hospitalization",
   "cashless_hospitalization_description": "Focus on recovery while we handle the payments at network hospitals.",
   "chat_now": "Chat Now",
+  "chat_on_whatsapp": "Chat on WhatsApp",
   "chat_with_expert": "Consult with an Expert Advisor",
   "chatbot_24_7": "Available 24/7",
   "check_eligibility_revival": "Check your eligibility for policy revival",
@@ -114,10 +115,10 @@
   "date_of_birth": "Date of Birth",
   "death_claim_guide": "Death Claim Guide",
   "death_claim_guide_desc": "Step-by-step LIC claim process",
-  "maturity_claim_guide": "Maturity Claim Guide",
-  "maturity_claim_guide_desc": "LIC discharge and NEFT process",
   "destination": "Destination",
   "details": "Details",
+  "disclaimer_label": "Disclaimer:",
+  "disclaimer_text": "Insurance is a subject matter of solicitation. Insurance Support is a professional advisory firm providing consultancy for IRDAI approved insurance products. All policy issuance and claim settlements are subject to the terms and conditions and underwriting of the respective insurance companies.",
   "disclosure_of_your_information": "3. Confidentiality & Disclosure Protocols",
   "disclosure_of_your_information_description": "We enforce a zero-compromise confidentiality protocol. Your data is never sold, traded, or shared for third-party marketing. Disclosure is limited strictly to:\n• Authorized Insurers: Sharing only essential data with chosen providers to facilitate your coverage.\n• Law Enforcement: Only upon receiving valid, legally binding court orders.\n• Claims Specialists: Only when necessary to ensure the successful processing of an active claim.",
   "dont_item_payout": "We do not issue claim payouts directly",
@@ -222,7 +223,7 @@
   "financial_security_description": "Ensure your family's financial stability in your absence.",
   "find_answers_to_common_questions": "Find answers to common questions about our services and policies.",
   "find_perfect_coverage": "Find the perfect coverage for your unique needs",
-  "footer_description": "Providing strategic insurance advisory and risk management solutions with over 25 years of industry excellence.",
+  "footer_description": "Legacy-driven Insurance Support specializing in IRDAI-certified claim recovery, policy management, and comprehensive family protection across India.",
   "free_risk_assessment": "Free Risk Assessment",
   "free_tools": "Free Tools",
   "frequently_asked_questions": "Frequently Asked Questions",
@@ -271,6 +272,7 @@
   "high_risk": "HIGH RISK",
   "hlv_calculator": "HLV Calculator",
   "hlv_calculator_desc": "Calculate your ideal insurance cover",
+  "hlv_calculator_new": "HLV Calculator (New)",
   "home_loan": "Home Loan",
   "home_page_meta_description": "Reliable Insurance Support. Decades of expertise in claims assistance, policy renewals, and high-value insurance solutions in India.",
   "home_page_title": "Insurance Support | Expert Claim Recovery & Policy Advice India",
@@ -294,6 +296,7 @@
   "insurance_company": "Insurance Company",
   "insurance_support": "Insurance Support",
   "insurance_support_contact": "Contact: Hari Kotian | 9986634506",
+  "insurance_support_guide": "Insurance Support Guide",
   "intellectual_property": "6. Intellectual Property Rights",
   "intellectual_property_description": "All content, logos, and proprietary tools on this website are the property of Insurance Support and are protected by international copyright and intellectual property laws.",
   "interactive_tools_desc": "Engage with our pro tools to evaluate your risk or recover your lost investments instantly.",
@@ -302,6 +305,7 @@
   "investment_growth": "Investment Growth",
   "investment_growth_description": "Opportunity to earn high returns through market-linked funds.",
   "irdai_advisory": "IRDAI Certified Advisory",
+  "irdai_certified_advisors": "IRDAI Certified Advisors",
   "island_recovery_desc": "Is there a hidden policy in your family archives? Let us help you find and reclaim it.",
   "island_recovery_title": "Lost Policy Recovery",
   "island_risk_desc": "Test your financial immunity and find the gaps in your family protection plan.",
@@ -345,7 +349,54 @@
   "loans_hero_description": "From home and personal loans to business financing, we provide tailored solutions with competitive interest rates and quick approvals.",
   "loans_hero_title": "Smart Loans for Your Every Need",
   "loans_offered": "Loans & Financial Services",
+  "location_page": {
+    "best_support_in": "Best <0>{{service}} Support</0> in {{city}}",
+    "breadcrumb_home": "Home",
+    "call_advisor_in_city": "Call Advisor in {{city}}",
+    "doorstep_service_note": "Whether you are in {{area1}} or {{area2}}, our expert advisors provide personalized support at your doorstep.",
+    "duplicate_policy_guide": "Duplicate Policy Guide",
+    "duplicate_policy_guide_desc": "Getting a duplicate LIC policy in {{city}} without the hassle.",
+    "fast_processing_desc": "Most {{service}} documents in {{city}} are processed within 24-48 hours with our dedicated local coordinator.",
+    "fast_processing_title": "Fast Local Processing",
+    "helpful_guides": "Helpful {{service}} Guides",
+    "local_advisory_hub_desc": "Looking for a reliable <0>{{service}} agent in {{city}}</0>? Our team specializes in {{state}}-specific insurance regulations and has a deep understanding of the local landscape, ensuring you get the best possible claim support in areas like {{areas}}.",
+    "local_advisory_hub_title": "{{city}} Local Advisory Hub",
+    "mon_sat": "Mon - Sat:",
+    "nearby_centers": "Nearby Insurance Support Centers",
+    "nearby_service_advisor": "{{service}} Advisor in {{city}}",
+    "on_appointment": "On Appointment",
+    "other_service_advisor": "{{service}} Advisor in {{city}}",
+    "other_services_in_city": "Other Services in {{city}}",
+    "regional_presence_desc": "Direct doorstep service available in <0>{{area1}}</0>, <1>{{area2}}</1>, and throughout the {{city}} metropolitan region. Our advisors understand the local {{state}} insurance climate.",
+    "regional_presence_title": "Regional Presence",
+    "rejected_case_recovery": "Rejected Case Recovery",
+    "rejected_case_recovery_desc": "Learn how we help {{city}} residents recover rejected insurance claims.",
+    "request_quote_subtitle": "Verified support for {{city}} residents.",
+    "request_quote_title": "Request {{service}} Quote",
+    "secure_future_fallback": "Secure your future with the most reliable {{service}} plans in {{city}}.",
+    "service_hours": "Service Hours",
+    "service_in_nearby_cities": "{{service}} in Nearby Cities",
+    "service_list": {
+      "claim_assistance": "Claim Intimation & Settlement Assistance",
+      "lapsed_revival": "Lapsed Policy Revival Support",
+      "new_policy": "New {{service}} Policy Issuance in {{city}}",
+      "nominee_updates": "Local Nominee & Address Updates",
+      "portability": "Portability for {{city}} Residents",
+      "renewal": "Renewal of Existing {{service}} Policies"
+    },
+    "serving_every_corner": "Serving Every Corner of {{city}}",
+    "serving_every_corner_desc": "From {{area1}} to {{areaLast}}, our dedicated team ensures you don't have to travel for your insurance needs. We cover {{areas}} and surrounding regions with localized support for {{service}}.",
+    "specialist_title": "{{service}} Specialist",
+    "sundays": "Sundays:",
+    "support_services_title": "Our {{service}} Support Services in {{city}}",
+    "trusted_families_desc": "Our {{state}} regional office has a 98% settlement ratio, ensuring {{city}} residents get their claims settled without stress.",
+    "trusted_families_title": "Trusted by 15k+ Families",
+    "whatsapp_support": "WhatsApp Support",
+    "why_choose_title": "Why Choose Insurance Support for {{service}} in {{city}}?"
+  },
   "lost_completely": "Lost completely",
+  "lost_policy_guide": "Lost Policy Help",
+  "lost_policy_guide_desc": "How to get a duplicate policy bond",
   "lost_policy_recovery": "Lost Policy Recovery",
   "lost_policy_recovery_desc": "Find details of lost insurance policies",
   "lost_policy_recovery_tool": "Lost Policy Recovery Tool",
@@ -354,6 +405,8 @@
   "manufacturing": "Manufacturing",
   "market_linked_risks": "4. Market-Linked Products (ULIPs)",
   "market_linked_risks_description": "• Investment Risk: For market-linked products like ULIPs, the investment risk in the investment portfolio is borne by the policyholder.\n• Non-Guaranteed Returns: Past performance is not indicative of future results. Fund returns are subject to market volatility.",
+  "maturity_claim_guide": "Maturity Claim Guide",
+  "maturity_claim_guide_desc": "LIC discharge and NEFT process",
   "medical_emergencies": "Medical Emergencies",
   "medical_emergencies_description": "Coverage for unexpected illness or injury while traveling abroad.",
   "medical_expenses": "Medical Expenses",
@@ -421,8 +474,6 @@
   "policy_revival_checklist_title": "Policy Revival Checklist",
   "policy_revival_guide": "Policy Revival Guide",
   "policy_revival_guide_desc": "How to restore old LIC policies",
-  "lost_policy_guide": "Lost Policy Help",
-  "lost_policy_guide_desc": "How to get a duplicate policy bond",
   "policy_revival_step_1": "Request a 'Revival Quote' from the insurance branch.",
   "policy_revival_step_2": "Submit a Declaration of Good Health (DGH) if required.",
   "policy_revival_step_3": "Complete outstanding premium payments with interest.",
@@ -506,6 +557,88 @@
   "service_not_found_meta_description": "The requested insurance service page was not found on Insurance Support.",
   "service_not_found_page_title": "Service Not Found - Insurance Support",
   "service_quote_cta": "Interested in this service? Fill out our quick form to get a personalized quote.",
+  "service_seo_content": {
+    "cyber-insurance": {
+      "description": "Protect your digital identity and finances against growing cyber threats, phishing attacks, and data breaches in an increasingly connected world.",
+      "highlights": [
+        "Phishing Attack Cover",
+        "Data Breach Protection",
+        "Digital ID Security"
+      ]
+    },
+    "health-insurance": {
+      "description": "Secure world-class healthcare with plans that offer cashless hospitalization, pre-existing disease coverage, and hassle-free claim processing for your entire family.",
+      "highlights": [
+        "Cashless Network Parks",
+        "No-Claim Bonus Clarity",
+        "Fast Pre-Auth Support"
+      ]
+    },
+    "life-insurance": {
+      "description": "Life insurance is not just about protection; it's about legacy. Our advisors help you navigate complex claim settlement processes and policy revivals to ensure your family's financial stability is never compromised.",
+      "highlights": [
+        "Claim Recovery Specialists",
+        "Policy Revival Support",
+        "Doorstep Document Help"
+      ]
+    },
+    "motor-insurance": {
+      "description": "From third-party liability to comprehensive coverage, get the best IDV for your vehicle with 24/7 roadside assistance and swift accidental claim settlements.",
+      "highlights": [
+        "Instant Policy Issuance",
+        "Max IDV Assurance",
+        "Zero Dep Coverage"
+      ]
+    },
+    "pension-plans": {
+      "description": "Plan a dignified retirement with guaranteed income streams and tax-efficient wealth accumulation strategies tailored for your post-work life.",
+      "highlights": [
+        "Guaranteed Retirement Income",
+        "Wealth Accumulation",
+        "Tax-Efficient Withdrawals"
+      ]
+    },
+    "sme-insurance": {
+      "description": "Protect your business assets, employees, and liability with customized insurance solutions designed for the unique risks of small and medium enterprises.",
+      "highlights": [
+        "Liability Protection",
+        "Asset Coverage",
+        "Employee Benefit Plans"
+      ]
+    },
+    "term-insurance": {
+      "description": "The purest form of protection. Secure high-sum assured plans with affordable premiums, ensuring zero-hassle document processing for your nominees.",
+      "highlights": [
+        "High Sum Assured",
+        "Nominee Assistance",
+        "Tax Benefit Guidance"
+      ]
+    },
+    "travel-insurance": {
+      "description": "Travel the world with peace of mind. Coverage for medical emergencies, trip cancellations, and lost baggage across international borders.",
+      "highlights": [
+        "Global Medical Cover",
+        "Loss of Baggage Help",
+        "Trip Cancellation Protection"
+      ]
+    },
+    "ulip-plans": {
+      "description": "The power of investment combined with the security of insurance. Optimize your wealth growth while keeping your life cover intact.",
+      "highlights": [
+        "Market-Linked Growth",
+        "Insurance Security",
+        "Fund Switching Flexibility"
+      ]
+    },
+    "wedding-insurance": {
+      "description": "Shield your big day from unforeseen cancellations, property damage, or liability issues, ensuring your celebration remains stress-free.",
+      "highlights": [
+        "Cancellation Protection",
+        "Property Damage Cover",
+        "Liability Shield"
+      ]
+    }
+  },
   "services_data": {
     "cyber-insurance": {
       "content": "In the digital era, cyber threats are a daily reality. From phishing attacks to ransomware, individuals and businesses across India are at constant risk. Cyber Insurance provides a safety net against financial losses caused by cybercrimes.\n\n**Coverage for Individuals:**\n*   **Theft of Funds:** Reimbursement for money stolen via phishing or bank fraud.\n*   **Identity Theft:** Legal costs and expenses to restore your identity.\n*   **Cyber Bullying:** Consultation costs for psychological trauma.\n*   **Device Value:** Data restoration costs if your device is infected by malware.",
@@ -533,6 +666,15 @@
       "title": "Cyber Insurance"
     },
     "health-insurance": {
+      "claim_process": [
+        "Notify your insurer (or call us) within 24–48 hours of admission.",
+        "At network hospitals: show your health insurance card to the TPA desk to start cashless pre-authorisation.",
+        "Insurer reviews the pre-auth request — approval usually comes within 2–6 hours for planned procedures.",
+        "At discharge, pay only the non-covered amounts (co-pay, room rent excess, exclusions).",
+        "For reimbursement: collect all original bills, discharge summary, and doctor reports.",
+        "Submit the claim form + documents to your insurer within 30 days of discharge.",
+        "Insurer processes within 30 days — we follow up on your behalf if delayed."
+      ],
       "content": "With medical inflation in India growing at over 14% annually, a single hospitalization can wipe out your entire life's savings. **Health Insurance** is not a luxury; it is a necessity. At Insurance Support, we don't just sell you a policy; we ensure you have access to the best medical care without the financial stress.\n\n**Why We Are the Best Health Insurance Advisors:**\nChoosing a health plan is tricky. There are hidden clauses like \"Room Rent Capping,\" \"Co-payment,\" and \"Waiting Periods.\" We decode the fine print for you.\n*   **No Hidden Clauses:** We recommend plans with No Room Rent Capping and Zero Co-payment.\n*   **Restoration Benefits:** We ensure your plan refills the sum assured if it gets exhausted during a treatment.\n*   **Lifetime Renewability:** We place you with insurers who guarantee coverage for life.\n\n**Types of Plans We specialize In:**\n*   **Individual & Family Floater:** Comprehensive coverage for you, your spouse, and children under a single premium.\n*   **Senior Citizen Plans:** Specialized plans covering pre-existing diseases (Diabetes, BP) with minimal waiting periods.\n*   **Critical Illness Covers:** Lumpsum payout for Cancer, Heart Attack, Kidney Failure, etc.\n*   **Top-Up & Super Top-Up:** An incredibly cheap way to increase your cover (e.g., adding ₹20 Lakhs cover for just ₹5,000/year).\n\n**The \"Cashless\" Advantage**\nWe have tie-ups with Star Health, HDFC Ergo, Niva Bupa, and Care to give you access to 10,000+ network hospitals. In an emergency, **you call us**, and we coordinate the cashless approval with the TPA/Insurer while you focus on your loved one's recovery.",
       "description": "Get comprehensive Health Insurance with cashless treatment at top hospitals. Plans cover pre-existing diseases, maternity, and critical illness with no hidden clauses.",
       "faqs": [
@@ -555,30 +697,39 @@
         "AYUSH Treatment Cover",
         "Tax Benefit under 80D"
       ],
-      "claim_process": [
-        "Notify your insurer (or call us) within 24–48 hours of admission.",
-        "At network hospitals: show your health insurance card to the TPA desk to start cashless pre-authorisation.",
-        "Insurer reviews the pre-auth request — approval usually comes within 2–6 hours for planned procedures.",
-        "At discharge, pay only the non-covered amounts (co-pay, room rent excess, exclusions).",
-        "For reimbursement: collect all original bills, discharge summary, and doctor reports.",
-        "Submit the claim form + documents to your insurer within 30 days of discharge.",
-        "Insurer processes within 30 days — we follow up on your behalf if delayed."
+      "related_guides": [
+        {
+          "href": "/resources/guides/cashless-hospitalization-guide",
+          "label": "Cashless Hospitalization Step-by-Step Guide"
+        },
+        {
+          "href": "/resources/guides/health-insurance-claim-checklist",
+          "label": "Health Insurance Claim Checklist (2026)"
+        },
+        {
+          "href": "/resources/guides/claim-rejection-appeal",
+          "label": "How to Appeal a Rejected Health Insurance Claim"
+        }
       ],
+      "title": "Health Insurance",
       "who_should_buy": [
         "Salaried professionals without employer group health cover (or who want top-up cover).",
         "Self-employed individuals and business owners who bear 100% of medical costs.",
         "Families with senior parents — cover them before pre-existing diseases become exclusions.",
         "Anyone with diabetes, hypertension, or a family history of heart disease.",
         "Young couples planning a family who need maternity cover (buy early to beat waiting period)."
-      ],
-      "related_guides": [
-        { "label": "Cashless Hospitalization Step-by-Step Guide", "href": "/resources/guides/cashless-hospitalization-guide" },
-        { "label": "Health Insurance Claim Checklist (2026)", "href": "/resources/guides/health-insurance-claim-checklist" },
-        { "label": "How to Appeal a Rejected Health Insurance Claim", "href": "/resources/guides/claim-rejection-appeal" }
-      ],
-      "title": "Health Insurance"
+      ]
     },
     "life-insurance": {
+      "claim_process": [
+        "Nominee gathers the death certificate (original + 5 attested copies) and the original policy bond.",
+        "Fill LIC/insurer claim forms: Form 3783 (Claimant's Statement) and Form 3801 (Certificate of Death).",
+        "Submit documents to the servicing LIC branch or the private insurer's claims department (we assist with this).",
+        "Insurer acknowledges within 3 working days and assigns a claim number.",
+        "Medical investigation (if any) is completed within 6 months of claim submission for older policies.",
+        "Claim decision issued — if approved, payment via NEFT within 30 days.",
+        "If rejected, we file a written appeal and escalate to the Insurance Ombudsman if needed."
+      ],
       "content": "Life insurance is the foundation of financial security for any family. It is not just an investment; it is a shield that protects your loved ones from financial instability in your absence. At **Insurance Support India**, we believe that the right life insurance policy ensures that your family's dreams—whether it's your child's education, your spouse's retirement, or paying off a home loan—are never compromised.\n\n**Why Choose Insurance Support India?**\nUnlike automated online comparison tools, we provide **personalized, human advisory** based on 25+ years of experience. We don't just sell a policy; we manage your portfolio for life.\n*   **Legacy of Trust:** We have served thousands of families across India, ensuring their claims are settled priority.\n*   **Unbiased Advice:** We work with top insurers (LIC, HDFC Life, ICICI Pru, Tata AIA) but work *for* you. We recommend plans that suit *your* needs, not the highest commission ones.\n*   **Claim Settlement Ratio:** We only partner with insurers who have a CSR of 98% and above.\n\n**Comprehensive Life Insurance Solutions:**\n*   **Term Insurance (Pure Protection):** The most affordable way to get high cover (e.g., ₹1 Crore cover for ~₹1000/month). Crucial for every breadwinner.\n*   **Whole Life Policy:** Coverage that lasts up to age 100, leaving a tax-free legacy for your heirs.\n*   **Endowment & Savings Plans:** Guaranteed return plans that help you save systematically for goals like marriage or education, unaffected by market volatility.\n*   **ULIPs (Wealth Creation):** Market-linked plans that offer the dual benefit of insurance + high returns from equity/debt markets.\n\n**Our \"Claim-First\" Approach**\nThe true test of insurance is at the time of a claim. Our dedicated claim settlement team handles everything—from documentation to coordinating with the insurer. Your family will never have to run around offices; we stand simply by their side.",
       "description": "Secure your family's future with the best Life Insurance plans in India. Compare Term, Whole Life, and Endowment policies with high claim settlement ratios.",
       "faqs": [
@@ -601,30 +752,39 @@
         "Wealth Creation Options",
         "Loan Liability Cover"
       ],
-      "claim_process": [
-        "Nominee gathers the death certificate (original + 5 attested copies) and the original policy bond.",
-        "Fill LIC/insurer claim forms: Form 3783 (Claimant's Statement) and Form 3801 (Certificate of Death).",
-        "Submit documents to the servicing LIC branch or the private insurer's claims department (we assist with this).",
-        "Insurer acknowledges within 3 working days and assigns a claim number.",
-        "Medical investigation (if any) is completed within 6 months of claim submission for older policies.",
-        "Claim decision issued — if approved, payment via NEFT within 30 days.",
-        "If rejected, we file a written appeal and escalate to the Insurance Ombudsman if needed."
+      "related_guides": [
+        {
+          "href": "/resources/guides/documents-for-death-claim",
+          "label": "Documents Required for Death Claim Settlement"
+        },
+        {
+          "href": "/resources/guides/death-claim-settlement",
+          "label": "LIC Death Claim Settlement — Full Guide"
+        },
+        {
+          "href": "/resources/guides/lapsed-policy-revival",
+          "label": "LIC Lapsed Policy Revival Guide"
+        }
       ],
+      "title": "Life Insurance",
       "who_should_buy": [
         "Any breadwinner with financial dependants (spouse, children, parents).",
         "Individuals with outstanding home loans, personal loans, or business debt.",
         "Parents who want to fund their children's education even in their absence.",
         "Business partners who need key-person insurance to protect the business.",
         "NRIs who want to leave a tax-free financial legacy for family in India."
-      ],
-      "related_guides": [
-        { "label": "Documents Required for Death Claim Settlement", "href": "/resources/guides/documents-for-death-claim" },
-        { "label": "LIC Death Claim Settlement — Full Guide", "href": "/resources/guides/death-claim-settlement" },
-        { "label": "LIC Lapsed Policy Revival Guide", "href": "/resources/guides/lapsed-policy-revival" }
-      ],
-      "title": "Life Insurance"
+      ]
     },
     "motor-insurance": {
+      "claim_process": [
+        "Immediately after the accident: don't move the vehicle; document the scene with photos/videos.",
+        "File an FIR at the nearest police station (mandatory for third-party claims or theft).",
+        "Inform your insurer within 24 hours via their app, website, or by calling us — we file the intimation for you.",
+        "A surveyor is assigned — do NOT repair the vehicle until the surveyor has inspected it.",
+        "For cashless repairs: take the vehicle to a network garage; the insurer settles the bill directly.",
+        "For reimbursement: repair at your chosen garage, collect all original bills and claim forms.",
+        "Claim settled within 7–15 working days for straightforward cases — we track the status for you."
+      ],
       "content": "Driving on Indian roads is unpredictable. Whether it's a scratch in traffic or a flood in the monsoon, your vehicle needs robust protection. We provide **Instant Motor Insurance** that protects not just your car/bike but also your wallet from heavy repair bills and third-party liabilities.\n\n**Why Renew With Insurance Support?**\nMany people buy the cheapest policy online, only to realize later that the \"IDV\" (Vehicle Value) was too low or critical add-ons were missing.\n*   **Maximum IDV:** We ensure your vehicle is insured for its correct market value, so you don't lose money in case of theft or total loss.\n*   **Claim Assistance:** In case of an accident, we guide you on how to file an FIR, take photos, and get the vehicle to a cashless garage.\n*   **Keep Your NCB:** We verify your No Claim Bonus (NCB) eligibility to save you up to 50% on premiums legally.\n\n**Essential Add-Ons We Recommend:**\n*   **Zero Depreciation (Bumper-to-Bumper):** Mandatory for cars <5 years old. The insurer pays 100% of the parts cost, including plastic and rubber.\n*   **Engine Protection:** Covers engine seizure due to water logging (crucial for cities like Bangalore, Mumbai, Chennai).\n*   **Roadside Assistance:** 24/7 help for flat tires, towing, or battery jumpstarts anywhere in India.\n*   **Return to Invoice:** In case of theft, get the full on-road price back, not just the depreciated value.\n\n**Coverage for All Vehicles**\n*   Private Cars & SUVs\n*   Two-Wheelers (Bikes & Scooters)\n*   Commercial Vehicles (Taxis, Trucks, Buses)",
       "description": "Renew your Car or Bike insurance instantly with maximum IDV and lowest premiums. Enjoy cashless claims, zero depreciation, and 24/7 roadside assistance.",
       "faqs": [
@@ -647,27 +807,24 @@
         "Engine Protection",
         "Consumables Cover"
       ],
-      "claim_process": [
-        "Immediately after the accident: don't move the vehicle; document the scene with photos/videos.",
-        "File an FIR at the nearest police station (mandatory for third-party claims or theft).",
-        "Inform your insurer within 24 hours via their app, website, or by calling us — we file the intimation for you.",
-        "A surveyor is assigned — do NOT repair the vehicle until the surveyor has inspected it.",
-        "For cashless repairs: take the vehicle to a network garage; the insurer settles the bill directly.",
-        "For reimbursement: repair at your chosen garage, collect all original bills and claim forms.",
-        "Claim settled within 7–15 working days for straightforward cases — we track the status for you."
+      "related_guides": [
+        {
+          "href": "/resources/guides/maturity-claim-guide",
+          "label": "LIC Maturity Claim Guide"
+        },
+        {
+          "href": "/resources/general-insurance-claim-process",
+          "label": "General Insurance Claim Process"
+        }
       ],
+      "title": "Motor Insurance",
       "who_should_buy": [
         "Every vehicle owner — Third-Party insurance is legally mandatory in India.",
         "New car / bike owners who want Comprehensive cover to protect their investment.",
         "Vehicle owners in flood-prone cities (Bangalore, Mumbai, Chennai) who need Engine Protection.",
         "Anyone with a car loan — banks require Comprehensive insurance as a loan condition.",
         "Fleet owners and commercial vehicle operators needing multi-vehicle policies."
-      ],
-      "related_guides": [
-        { "label": "LIC Maturity Claim Guide", "href": "/resources/guides/maturity-claim-guide" },
-        { "label": "General Insurance Claim Process", "href": "/resources/general-insurance-claim-process" }
-      ],
-      "title": "Motor Insurance"
+      ]
     },
     "pension-plans": {
       "content": "Retirement should be the golden phase of life, not a time of financial stress. Our Pension Plans help you build a substantial corpus during your working years, ensuring a steady stream of income post-retirement.\n\n**Why Start Early?**\nWith the rising cost of living across Indian metro cities, reliance on savings alone is not enough. You need a dedicated pension plan that beats inflation.\n\n**Types of Plans:**\n*   **Deferred Annuity:** Accumulate now, get pension later (e.g., NPS, private pension plans).\n*   **Immediate Annuity:** Pay a lump sum and get pension immediately (suitable for retirees).\n*   **NPS Assistance:** We guide you on National Pension System tier selection and fund management.",
@@ -720,6 +877,15 @@
       "title": "SME Insurance"
     },
     "term-insurance": {
+      "claim_process": [
+        "Nominee notifies the insurer immediately after the death of the life assured.",
+        "Gather the original policy bond, death certificate, and the nominee's KYC documents.",
+        "Fill out the death claim form provided by the insurer (we assist you with this).",
+        "Submit all documents at the insurer's branch or via their online portal.",
+        "Insurer may conduct a quick verification for early claims (within 3 years of policy start).",
+        "Once approved, the sum assured is transferred to the nominee's registered bank account via NEFT.",
+        "We provide end-to-end support to ensure your family's claim is settled without stress."
+      ],
       "content": "**Term Insurance is the most important financial product you will ever buy.** Period. It is a pure risk protection plan that guarantees a large sum of money (e.g., ₹1 Crore, ₹5 Crore) to your family if you pass away untimely. It ensures your family lifestyle, children's education, and home loans are taken care of.\n\n**Top Features of Our Term Plans:**\n*   **Unbeatable Premiums:** We source plans that offer ₹1 Crore cover for as low as ₹500 - ₹800 per month (depending on age).\n*   **Lengthy Coverage:** Lock your premiums today and get coverage up to age 85 or even 99 (Whole Life Term).\n*   **Riders for Extra Protection:**\n    *   *Critical Illness Rider:* Get a payout if diagnosed with Cancer, Heart issues, etc., to cover treatment costs.\n    *   *Accidental Disability:* Monthly income replacement if an accident leaves you disabled.\n\n**Why Buy Term Insurance Through an Advisor?**\nBuying online is easy, but claim settlement is hard. If your family faces a rejection due to a technicality in the proposal form filled years ago, the policy is useless.\n*   **Zero-Error Proposal:** We fill out the proposal form with professional precision to eliminate chances of \"Non-Disclosure\" rejection.\n*   **Medical Coordination:** We arrange your medical tests at your convenience.\n*   **The \"3-Day\" Claim Guarantee:** In the unfortunate event of a claim, we personally handle the paperwork to ensure the money reaches your nominee's bank account within the shortest possible time.\n\n**Tax Benefits**\nPremiums paid for Term Insurance are eligible for tax deductions of up to ₹1.5 Lakhs under Section 80C of the Income Tax Act.",
       "description": "Get high life cover at affordable premiums with pure Term Insurance. Protect your family's financial future with critical illness and accidental death benefits.",
       "faqs": [
@@ -742,28 +908,28 @@
         "Accidental Death Benefit",
         "Tax Savings"
       ],
-      "claim_process": [
-        "Nominee notifies the insurer immediately after the death of the life assured.",
-        "Gather the original policy bond, death certificate, and the nominee's KYC documents.",
-        "Fill out the death claim form provided by the insurer (we assist you with this).",
-        "Submit all documents at the insurer's branch or via their online portal.",
-        "Insurer may conduct a quick verification for early claims (within 3 years of policy start).",
-        "Once approved, the sum assured is transferred to the nominee's registered bank account via NEFT.",
-        "We provide end-to-end support to ensure your family's claim is settled without stress."
+      "related_guides": [
+        {
+          "href": "/resources/guides/term-vs-life-insurance",
+          "label": "Term vs. Whole Life Insurance — Which is Better?"
+        },
+        {
+          "href": "/resources/guides/documents-for-death-claim",
+          "label": "Documents Required for LIC Death Claim"
+        },
+        {
+          "href": "/resources/guides/claim-rejection-appeal",
+          "label": "How to Appeal a Rejected Insurance Claim"
+        }
       ],
+      "title": "Term Insurance",
       "who_should_buy": [
         "Young parents with dependent children who need a large financial safety net.",
         "Individuals with home loans or other significant liabilities.",
         "Newly married couples starting their financial journey together.",
         "Self-employed professionals whose families depend solely on their income.",
         "Anyone looking for the most cost-effective way to get high life insurance coverage."
-      ],
-      "related_guides": [
-        { "label": "Term vs. Whole Life Insurance — Which is Better?", "href": "/resources/guides/term-vs-life-insurance" },
-        { "label": "Documents Required for LIC Death Claim", "href": "/resources/guides/documents-for-death-claim" },
-        { "label": "How to Appeal a Rejected Insurance Claim", "href": "/resources/guides/claim-rejection-appeal" }
-      ],
-      "title": "Term Insurance"
+      ]
     },
     "travel-insurance": {
       "content": "Whether you are flying out of Kempegowda International Airport for a holiday or a business trip, unforeseen events can disrupt your plans. Travel Insurance protects you against medical emergencies, flight delays, and lost luggage.\n\n**Essential for International Travel**\nMany countries (like Schengen states) mandate travel insurance for visa approval. Our plans are 100% visa compliant.\n\n**Coverage Highlights:**\n*   **Medical Expenses:** Covers hospitalization costs abroad, which can be astronomically high.\n*   **Trip Cancellation:** Reimburses non-refundable bookings if you cancel due to medical/emergency reasons.\n*   **Baggage Loss/Delay:** Compensation for essential items if your bags are delayed.\n*   **Passport Loss:** Assistance and coverage for obtaining a duplicate passport.",
@@ -850,19 +1016,22 @@
   "share_on_twitter": "Share on X (Twitter)",
   "share_on_whatsapp": "Share on WhatsApp",
   "short_lead_form": {
-    "title": "Get Expert Support Fast",
-    "subtitle": "25+ Years of IRDAI Certified Expertise",
-    "name_label": "Enter Full Name",
-    "mobile_label": "Enter Mobile Number",
-    "requirement_label": "Select Insurance Need",
-    "life_insurance": "Life Insurance / LIC",
     "health_insurance": "Health Insurance",
-    "motor_insurance": "Motor / Vehicle Insurance",
-    "policy_revival": "Lapsed Policy Revival",
+    "life_insurance": "Life Insurance / LIC",
     "loan_help": "Loan against Policy",
+    "mobile_label": "Enter Mobile Number",
+    "motor_insurance": "Motor / Vehicle Insurance",
+    "name_label": "Enter Full Name",
+    "policy_revival": "Lapsed Policy Revival",
+    "privacy_note": "Your data is 100% secure",
+    "requirement_label": "Select Insurance Need",
     "submit_button": "Get Free Quote",
-    "privacy_note": "Your data is 100% secure"
+    "subtitle": "25+ Years of IRDAI Certified Expertise",
+    "title": "Get Expert Support Fast"
   },
+  "show_all": "Show all {{count}} items",
+  "show_less": "Show less",
+  "site_map": "Site Map",
   "sme_insurance": "SME (Fire and Home) Insurance",
   "sme_insurance_benefit": "Safeguard your business assets from fire, theft, and liabilities.",
   "sme_insurance_long_description": "SME (Small and Medium Enterprise) insurance, including fire and home insurance, protects your business assets and property from various risks. Fire insurance covers damages due to fire, lightning, and explosions, while home insurance protects your residential property and its contents. These policies are vital for business continuity and personal asset protection.",
@@ -964,6 +1133,7 @@
   "travel_insurance_meta_description": "Travel with peace of mind with comprehensive travel insurance from Insurance Support. Coverage for medical emergencies, trip cancellations, and lost luggage.",
   "travel_insurance_page_title": "Travel Insurance - Explore Worry-Free | Insurance Support",
   "travel_start_date": "Travel Start Date",
+  "trending_now": "Trending Now",
   "trip_cancellation": "Trip Cancellation",
   "trip_cancellation_description": "Reimbursement for non-refundable trip costs due to emergencies.",
   "trip_duration_days": "Trip Duration (Days)",
@@ -1004,6 +1174,7 @@
   "verified_expert_callback": "Request a Verified Expert Callback",
   "veteran_advantage": "The Veteran Advantage",
   "veteran_lead_team": "A Team led by Veterans",
+  "view_all_locations": "View All 30+ Locations",
   "view_all_services": "View All Services",
   "view_map": "View Map",
   "visit_us": "Visit Us",
@@ -1028,6 +1199,7 @@
   "why_use_service": "Why use our service?",
   "wife": "Wife",
   "worldwide": "Worldwide",
+  "xml_sitemap": "XML Sitemap",
   "years_experience": "25+ Years Experience",
   "years_lapse_question": "Approximately how many years ago did it lapse?",
   "years_since_lapse_label": "Years Since Lapse",
@@ -1036,145 +1208,5 @@
   "yes_have_it": "Yes, I have it",
   "your_full_name": "Your Full Name",
   "your_gender": "Your Gender",
-  "your_risk_score": "Your Risk Score",
-  "service_seo_content": {
-    "life-insurance": {
-      "description": "Life insurance is not just about protection; it's about legacy. Our advisors help you navigate complex claim settlement processes and policy revivals to ensure your family's financial stability is never compromised.",
-      "highlights": [
-        "Claim Recovery Specialists",
-        "Policy Revival Support",
-        "Doorstep Document Help"
-      ]
-    },
-    "health-insurance": {
-      "description": "Secure world-class healthcare with plans that offer cashless hospitalization, pre-existing disease coverage, and hassle-free claim processing for your entire family.",
-      "highlights": [
-        "Cashless Network Parks",
-        "No-Claim Bonus Clarity",
-        "Fast Pre-Auth Support"
-      ]
-    },
-    "motor-insurance": {
-      "description": "From third-party liability to comprehensive coverage, get the best IDV for your vehicle with 24/7 roadside assistance and swift accidental claim settlements.",
-      "highlights": [
-        "Instant Policy Issuance",
-        "Max IDV Assurance",
-        "Zero Dep Coverage"
-      ]
-    },
-    "term-insurance": {
-      "description": "The purest form of protection. Secure high-sum assured plans with affordable premiums, ensuring zero-hassle document processing for your nominees.",
-      "highlights": [
-        "High Sum Assured",
-        "Nominee Assistance",
-        "Tax Benefit Guidance"
-      ]
-    },
-    "sme-insurance": {
-      "description": "Protect your business assets, employees, and liability with customized insurance solutions designed for the unique risks of small and medium enterprises.",
-      "highlights": [
-        "Liability Protection",
-        "Asset Coverage",
-        "Employee Benefit Plans"
-      ]
-    },
-    "travel-insurance": {
-      "description": "Travel the world with peace of mind. Coverage for medical emergencies, trip cancellations, and lost baggage across international borders.",
-      "highlights": [
-        "Global Medical Cover",
-        "Loss of Baggage Help",
-        "Trip Cancellation Protection"
-      ]
-    },
-    "pension-plans": {
-      "description": "Plan a dignified retirement with guaranteed income streams and tax-efficient wealth accumulation strategies tailored for your post-work life.",
-      "highlights": [
-        "Guaranteed Retirement Income",
-        "Wealth Accumulation",
-        "Tax-Efficient Withdrawals"
-      ]
-    },
-    "ulip-plans": {
-      "description": "The power of investment combined with the security of insurance. Optimize your wealth growth while keeping your life cover intact.",
-      "highlights": [
-        "Market-Linked Growth",
-        "Insurance Security",
-        "Fund Switching Flexibility"
-      ]
-    },
-    "wedding-insurance": {
-      "description": "Shield your big day from unforeseen cancellations, property damage, or liability issues, ensuring your celebration remains stress-free.",
-      "highlights": [
-        "Cancellation Protection",
-        "Property Damage Cover",
-        "Liability Shield"
-      ]
-    },
-    "cyber-insurance": {
-      "description": "Protect your digital identity and finances against growing cyber threats, phishing attacks, and data breaches in an increasingly connected world.",
-      "highlights": [
-        "Phishing Attack Cover",
-        "Data Breach Protection",
-        "Digital ID Security"
-      ]
-    }
-  },
-  "location_page": {
-    "breadcrumb_home": "Home",
-    "best_support_in": "Best <0>{{service}} Support</0> in {{city}}",
-    "secure_future_fallback": "Secure your future with the most reliable {{service}} plans in {{city}}.",
-    "doorstep_service_note": "Whether you are in {{area1}} or {{area2}}, our expert advisors provide personalized support at your doorstep.",
-    "why_choose_title": "Why Choose Insurance Support for {{service}} in {{city}}?",
-    "specialist_title": "{{service}} Specialist",
-    "regional_presence_title": "Regional Presence",
-    "regional_presence_desc": "Direct doorstep service available in <0>{{area1}}</0>, <1>{{area2}}</1>, and throughout the {{city}} metropolitan region. Our advisors understand the local {{state}} insurance climate.",
-    "fast_processing_title": "Fast Local Processing",
-    "fast_processing_desc": "Most {{service}} documents in {{city}} are processed within 24-48 hours with our dedicated local coordinator.",
-    "trusted_families_title": "Trusted by 15k+ Families",
-    "trusted_families_desc": "Our {{state}} regional office has a 98% settlement ratio, ensuring {{city}} residents get their claims settled without stress.",
-    "local_advisory_hub_title": "{{city}} Local Advisory Hub",
-    "local_advisory_hub_desc": "Looking for a reliable <0>{{service}} agent in {{city}}</0>? Our team specializes in {{state}}-specific insurance regulations and has a deep understanding of the local landscape, ensuring you get the best possible claim support in areas like {{areas}}.",
-    "support_services_title": "Our {{service}} Support Services in {{city}}",
-    "service_list": {
-      "new_policy": "New {{service}} Policy Issuance in {{city}}",
-      "renewal": "Renewal of Existing {{service}} Policies",
-      "lapsed_revival": "Lapsed Policy Revival Support",
-      "claim_assistance": "Claim Intimation & Settlement Assistance",
-      "portability": "Portability for {{city}} Residents",
-      "nominee_updates": "Local Nominee & Address Updates"
-    },
-    "other_services_in_city": "Other Services in {{city}}",
-    "other_service_advisor": "{{service}} Advisor in {{city}}",
-    "service_in_nearby_cities": "{{service}} in Nearby Cities",
-    "nearby_service_advisor": "{{service}} Advisor in {{city}}",
-    "serving_every_corner": "Serving Every Corner of {{city}}",
-    "serving_every_corner_desc": "From {{area1}} to {{areaLast}}, our dedicated team ensures you don't have to travel for your insurance needs. We cover {{areas}} and surrounding regions with localized support for {{service}}.",
-    "helpful_guides": "Helpful {{service}} Guides",
-    "rejected_case_recovery": "Rejected Case Recovery",
-    "rejected_case_recovery_desc": "Learn how we help {{city}} residents recover rejected insurance claims.",
-    "duplicate_policy_guide": "Duplicate Policy Guide",
-    "duplicate_policy_guide_desc": "Getting a duplicate LIC policy in {{city}} without the hassle.",
-    "call_advisor_in_city": "Call Advisor in {{city}}",
-    "whatsapp_support": "WhatsApp Support",
-    "nearby_centers": "Nearby Insurance Support Centers",
-    "request_quote_title": "Request {{service}} Quote",
-    "request_quote_subtitle": "Verified support for {{city}} residents.",
-    "service_hours": "Service Hours",
-    "mon_sat": "Mon - Sat:",
-    "sundays": "Sundays:",
-    "on_appointment": "On Appointment"
-  },
-  "show_less": "Show Less",
-  "show_all": "Show All ({{count}})",
-  "hlv_calculator_new": "HLV Calculator (New)",
-  "insurance_support_guide": "Insurance Support Guide",
-  "view_all_locations": "View All 30+ Locations",
-  "trending_now": "Trending Now",
-  "site_map": "Site Map",
-  "xml_sitemap": "XML Sitemap",
-  "irdai_certified_advisors": "IRDAI CERTIFIED ADVISORS",
-  "disclaimer_label": "Disclaimer:",
-  "disclaimer_text": "Insurance is a subject matter of solicitation. Insurance Support is a professional advisory firm providing consultancy for IRDAI approved insurance products. All policy issuance and claim settlements are subject to the terms and conditions and underwriting of the respective insurance companies.",
-  "chat_on_whatsapp": "Chat on WhatsApp"
-
+  "your_risk_score": "Your Risk Score"
 }
