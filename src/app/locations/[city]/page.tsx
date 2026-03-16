@@ -161,14 +161,30 @@ export default function LocationPage({ params }: Props) {
                         </div>
                     )}
 
-                    <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 mb-8 rounded-r-lg">
-                        <h2 className="text-lg font-bold text-amber-900 dark:text-amber-100 flex items-center gap-2 mb-2">
-                            <MapPin className="h-5 w-5" />
-                            Looking for the LIC Office in {city.name}?
-                        </h2>
-                        <p className="text-amber-800 dark:text-amber-200">
-                            <strong>Skip the long queues!</strong> You don&apos;t need to visit the branch. Our authorized advisors provide full support for policy surrender, claims, and renewals right at your home in {city.name}.
-                        </p>
+                    <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-6 mb-8 rounded-r-lg">
+                        <div className="flex items-start gap-4">
+                            <MapPin className="h-6 w-6 text-amber-600 mt-1 flex-shrink-0" />
+                            <div>
+                                <h2 className="text-xl font-bold text-amber-900 dark:text-amber-100 mb-2">
+                                    Looking for the LIC Office in {city.name}?
+                                </h2>
+                                {city.licOffice ? (
+                                    <div className="mb-4">
+                                        <p className="text-amber-900 font-semibold mb-1">{city.licOffice.name}</p>
+                                        <p className="text-amber-800 text-sm">{city.licOffice.address}</p>
+                                    </div>
+                                ) : (
+                                    <p className="text-amber-800 dark:text-amber-200 mb-4">
+                                        Primary LIC Divisional offices and satellite branches are located centrally in the city. 
+                                    </p>
+                                )}
+                                <div className="p-3 bg-white/50 rounded-lg border border-amber-200/50">
+                                    <p className="text-amber-800 text-sm leading-relaxed">
+                                        <strong>Pro Tip:</strong> Skip the long queues at Jeevan Prakash or branch offices! Our authorized advisors provide full support for policy surrender, death claims, and renewals right at your home in {city.name}. 
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-6 mb-12">
@@ -202,14 +218,34 @@ export default function LocationPage({ params }: Props) {
                     />
 
                     {city.areas.length > 0 && (
-                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-10">
+                        <div className="bg-slate-50 p-6 rounded-xl border border-slate-200 mb-6">
                             <h2 className="text-xl font-bold mb-2 flex items-center gap-2 text-slate-900">
                                 <MapPin className="h-5 w-5 text-primary" />
-                                Neighborhoods We Support in {city.name}
+                                Doorstep Service Across {city.name}
                             </h2>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                Our advisors provide doorstep service across <strong>{city.areas.join(', ')}</strong>, and all surrounding localities in {city.name}. We handle the commute so you don&apos;t have to.
+                                Our qualified insurance advisors provide doorstep service across <strong>{city.areas.join(', ')}</strong>, and all surrounding localities in {city.name}. We handle the commute so you don&apos;t have to.
                             </p>
+                        </div>
+                    )}
+
+                    {city.nearbyCities && city.nearbyCities.length > 0 && (
+                        <div className="mb-10">
+                            <h3 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-4">Nearby Expert Advisors</h3>
+                            <div className="flex flex-wrap gap-2">
+                                {city.nearbyCities.map(slug => {
+                                    const nearby = cityData[slug];
+                                    return nearby ? (
+                                        <Link 
+                                            key={slug} 
+                                            href={`/locations/${slug}`}
+                                            className="text-xs px-3 py-1 bg-white border border-slate-200 rounded-full hover:border-primary/30 hover:text-primary transition-all"
+                                        >
+                                            {nearby.name} Advisor
+                                        </Link>
+                                    ) : null;
+                                })}
+                            </div>
                         </div>
                     )}
 

@@ -10,6 +10,8 @@ import { contactConfig } from '@/data/contact';
 import { useTranslation, Trans } from 'react-i18next';
 import { services, serviceLabels } from '@/data/services';
 import ServiceFAQSection from '@/components/ServiceFAQSection';
+import AuthorBio from '@/components/AuthorBio';
+import { cityData as allCityData } from '@/data/cityData';
 
 interface ServiceLocationClientProps {
     city: any;
@@ -163,8 +165,20 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel 
                     <div>
                         <h4 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-xs text-primary">{t('location_page.service_in_nearby_cities', { service: serviceLabel })}</h4>
                         <ul className="space-y-2 text-sm">
-                            {/* Note: This logic assumes cityData is available or we pass relevant nearby cities */}
-                            <li className="text-slate-400 italic">Explore our advisors in nearby regions for expert second opinions.</li>
+                            {city.nearbyCities && city.nearbyCities.length > 0 ? (
+                                city.nearbyCities.map((slug: string) => {
+                                    const nearby = allCityData[slug];
+                                    return nearby ? (
+                                        <li key={slug}>
+                                            <Link href={`/locations/${slug}/${serviceSlug}`} className="text-slate-600 hover:text-primary hover:underline">
+                                                {t('location_page.nearby_service_advisor', { service: serviceLabel, city: nearby.name })}
+                                            </Link>
+                                        </li>
+                                    ) : null;
+                                })
+                            ) : (
+                                <li className="text-slate-400 italic">Explore our advisors in nearby regions for expert second opinions.</li>
+                            )}
                         </ul>
                     </div>
                 </div>
@@ -202,6 +216,10 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel 
                             <p className="text-sm text-muted-foreground">{t('location_page.duplicate_policy_guide_desc', { city: city.name })}</p>
                         </Link>
                     </div>
+                </div>
+
+                <div className="mb-12">
+                    <AuthorBio />
                 </div>
 
                 <ServiceFAQSection

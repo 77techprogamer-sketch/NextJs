@@ -10,14 +10,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, CheckCircle2 } from 'lucide-react';
 import { TranslateWrapper } from '@/components/TranslateWrapper';
 
-// Mock translation for server metadata (since we can't easily access client i18n here)
-// In a production app, you might read the translation JSON file directly from the filesystem.
-const t_server_fallback = (key: string) => {
-    // Return a human-readable fallback derived from the key if possible, or just the key
-    // For now, returning the key is the safest "no-crash" option, though suboptimal for SEO title if not replaced.
-    // A better approach for the future: Load common.json/translation.json here.
-    return key;
-};
+import enTranslations from '@/../public/locales/en/translation.json';
 
 type Props = {
     params: { slug: string }
@@ -27,9 +20,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const faq = getFaqBySlug(params.slug);
     if (!faq) return { title: 'FAQ Not Found' };
 
+    const question = (enTranslations as any)[faq.questionKey] || faq.slug.replace(/-/g, ' ');
+    const description = (enTranslations as any)[faq.answerKey]?.substring(0, 160) || `Expert answer to: ${question}`;
+
     return {
-        title: `${faq.slug.replace(/-/g, ' ')} | Insurance Support`, // Fallback title
-        description: `Expert answer to: ${faq.slug.replace(/-/g, ' ')}`,
+        title: `${question} | Insurance Support`,
+        description: description,
         alternates: {
             canonical: `https://insurancesupport.online/resources/faq/${params.slug}`,
         }
@@ -49,16 +45,19 @@ export default function FAQPage({ params }: Props) {
         notFound();
     }
 
+    const question = (enTranslations as any)[faq.questionKey];
+    const answer = (enTranslations as any)[faq.answerKey];
+
     // JSON-LD Schema
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         'mainEntity': [{
             '@type': 'Question',
-            'name': faq.questionKey, // Ideally translated
+            'name': question,
             'acceptedAnswer': {
                 '@type': 'Answer',
-                'text': faq.answerKey // Ideally translated
+                'text': answer
             }
         }]
     };

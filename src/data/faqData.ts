@@ -71,6 +71,96 @@ export const faqData: FAQItem[] = [
         questionKey: 'faq_death_claim_docs_q',
         answerKey: 'faq_death_claim_docs_a',
         category: 'Life'
+    },
+    {
+        slug: 'how-to-get-duplicate-lic-policy',
+        questionKey: 'faq_duplicate_policy_q',
+        answerKey: 'faq_duplicate_policy_a',
+        category: 'Life'
+    },
+    {
+        slug: 'change-nominee-lic-policy',
+        questionKey: 'faq_change_nominee_q',
+        answerKey: 'faq_change_nominee_a',
+        category: 'Life'
+    },
+    {
+        slug: 'health-insurance-maternity-cover',
+        questionKey: 'faq_maternity_cover_q',
+        answerKey: 'faq_maternity_cover_a',
+        category: 'Health'
+    },
+    {
+        slug: 'covid-19-health-insurance-coverage',
+        questionKey: 'faq_covid_coverage_q',
+        answerKey: 'faq_covid_coverage_a',
+        category: 'Health'
+    },
+    {
+        slug: 'lic-aadhaar-link-process',
+        questionKey: 'faq_aadhaar_link_q',
+        answerKey: 'faq_aadhaar_link_a',
+        category: 'Life'
+    },
+    {
+        slug: 'insurance-claim-rejection-reasons',
+        questionKey: 'faq_rejection_reasons_q',
+        answerKey: 'faq_rejection_reasons_a',
+        category: 'General'
+    },
+    {
+        slug: 'zero-dep-car-insurance-benefits',
+        questionKey: 'faq_zero_dep_q',
+        answerKey: 'faq_zero_dep_a',
+        category: 'Motor'
+    },
+    {
+        slug: 'tpa-vs-insurance-company',
+        questionKey: 'faq_tpa_vs_ins_q',
+        answerKey: 'faq_tpa_vs_ins_a',
+        category: 'Health'
+    },
+    {
+        slug: 'claim-without-nominee',
+        questionKey: 'faq_no_nominee_claim_q',
+        answerKey: 'faq_no_nominee_claim_a',
+        category: 'General'
+    },
+    {
+        slug: 'term-insurance-maximum-age',
+        questionKey: 'faq_max_age_term_q',
+        answerKey: 'faq_max_age_term_a',
+        category: 'Term'
+    },
+    {
+        slug: 'multiple-life-insurance-policies',
+        questionKey: 'faq_multiple_policies_q',
+        answerKey: 'faq_multiple_policies_a',
+        category: 'Life'
+    },
+    {
+        slug: 'car-insurance-transfer-process',
+        questionKey: 'faq_car_transfer_q',
+        answerKey: 'faq_car_transfer_a',
+        category: 'Motor'
+    },
+    {
+        slug: 'insurance-grace-period-explained',
+        questionKey: 'faq_grace_period_q',
+        answerKey: 'faq_grace_period_a',
+        category: 'General'
+    },
+    {
+        slug: 'lost-lic-policy-bond-maturity-claim',
+        questionKey: 'faq_lost_bond_maturity_q',
+        answerKey: 'faq_lost_bond_maturity_a',
+        category: 'Life'
+    },
+    {
+        slug: 'health-insurance-renewal-missed',
+        questionKey: 'faq_missed_renewal_q',
+        answerKey: 'faq_missed_renewal_a',
+        category: 'Health'
     }
 ];
 
