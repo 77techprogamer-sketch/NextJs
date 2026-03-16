@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, Search, Hospital, ShieldCheck, ArrowRight, Clock, AlertCircle } from 'lucide-react';
+import { Phone, CheckCircle2, Search, Hospital, ShieldCheck, ArrowRight, Clock, AlertCircle, MapPin } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
@@ -124,7 +124,7 @@ export default function CashlessHospitalizationGuide() {
                                         <div className="px-3 py-1 bg-white border border-green-100 rounded-lg font-bold text-green-600 shrink-0">2-6 Hours</div>
                                         <div>
                                             <h4 className="font-bold text-slate-900">Initial Pre-Authorization</h4>
-                                            <p className="text-sm text-slate-600">The time taken by the TPA to issue the 'Credit Letter' after receiving the doctor's note and policy details.</p>
+                                            <p className="text-sm text-slate-600">The time taken by the TPA to issue the &apos;Credit Letter&apos; after receiving the doctor&apos;s note and policy details.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4 items-start">
@@ -143,7 +143,19 @@ export default function CashlessHospitalizationGuide() {
                                     Important: Cashless Denied != Claim Rejected
                                 </h4>
                                 <p className="text-amber-800 text-sm leading-relaxed">
-                                    If the TPA refuses cashless authorization, it doesn't mean your claim is illegitimate. It simply means they need more documentation or want to process it as a <strong>reimbursement claim</strong>. In such cases, pay the bill, collect all original documents, and we will help you file for a full refund.
+                                    If the TPA refuses cashless authorization, it doesn&apos;t mean your claim is illegitimate. It simply means they need more documentation or want to process it as a <strong>reimbursement claim</strong>. In such cases, pay the bill, collect all original documents, and we will help you file for a full refund.
+                                </p>
+                            </div>
+                            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-12 not-prose">
+                                <p className="text-blue-900 font-bold mb-2 flex items-center gap-2">
+                                    <MapPin className="h-4 w-4" />
+                                    Are you in Bangalore?
+                                </p>
+                                <p className="text-blue-800 text-sm leading-relaxed">
+                                    Get dedicated physical support for cashless coordination at major Bangalore hospitals like Manipal, Apollo, and Fortis. 
+                                    <Link href="/locations/bangalore/health-insurance" className="ml-1 underline font-extrabold hover:text-primary">
+                                        View Bangalore Health Insurance Hub
+                                    </Link>
                                 </p>
                             </div>
                         </div>

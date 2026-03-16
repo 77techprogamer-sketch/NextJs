@@ -2,7 +2,8 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { CheckCircle2, XCircle, Info } from 'lucide-react';
+import { CheckCircle2, XCircle, Info, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 const SupportScopeSection: React.FC = () => {
     const { t } = useTranslation();
@@ -66,6 +67,20 @@ const SupportScopeSection: React.FC = () => {
                                     </li>
                                 ))}
                             </ul>
+                        </div>
+                    </div>
+                    <div className="mt-10 pt-8 border-t border-slate-100 dark:border-slate-800">
+                        <h4 className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Deep Local Solutions (Trending Bangalore)</h4>
+                        <div className="flex flex-wrap gap-4">
+                            <Link href="/locations/bangalore/health-insurance" className="flex items-center gap-2 group">
+                                <span className="text-sm font-bold text-primary group-hover:underline">Health Insurance Advisor Bangalore</span>
+                                <ArrowRight className="w-3 h-3 text-primary group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                            <span className="text-slate-200 dark:text-slate-800">|</span>
+                            <Link href="/locations/bangalore/lic-agent" className="flex items-center gap-2 group">
+                                <span className="text-sm font-bold text-primary group-hover:underline">LIC Agent Bangalore</span>
+                                <ArrowRight className="w-3 h-3 text-primary group-hover:translate-x-1 transition-transform" />
+                            </Link>
                         </div>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, PiggyBank, Calendar, FileCheck, ArrowRight, History } from 'lucide-react';
+import { Phone, CheckCircle2, PiggyBank, Calendar, FileCheck, ArrowRight, History, MapPin } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
@@ -56,6 +56,18 @@ export default function MaturityClaimGuide() {
                             <p>
                                 LIC usually sends a &quot;Maturity Intimation&quot; letter 2 months before the date of maturity. However, don&apos;t wait for the letter. You can start the process 30 days in advance.
                             </p>
+                            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-8">
+                                <p className="text-blue-900 font-bold mb-2 flex items-center gap-2">
+                                    <MapPin className="h-4 w-4" />
+                                    Are you in Bangalore?
+                                </p>
+                                <p className="text-blue-800 text-sm">
+                                    Get specialized physical support for maturity claims at J.C. Road or Residency Road. 
+                                    <Link href="/locations/bangalore/lic-agent" className="ml-1 underline font-extrabold hover:text-primary">
+                                        Connect with our LIC Agent in Bangalore
+                                    </Link>
+                                </p>
+                            </div>
 
                             <h2 className="text-3xl font-bold mt-16 mb-6">Essential Documents Checklist</h2>
                             <div className="grid md:grid-cols-2 gap-4 mt-8">

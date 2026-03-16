@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, AlertTriangle, FileText, Scale, ArrowRight } from 'lucide-react';
+import { Phone, CheckCircle2, AlertTriangle, FileText, Scale, ArrowRight, MapPin } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
@@ -128,7 +128,7 @@ export default function ClaimRejectionAppealGuide() {
                                         <div className="px-3 py-1 bg-white border border-red-100 rounded-lg font-bold text-red-600 shrink-0">15 Days</div>
                                         <div>
                                             <h4 className="font-bold text-slate-900">Insurer Internal Grievance</h4>
-                                            <p className="text-sm text-slate-600">The first step where the Company's GRO reviews your evidence. High success rate for documentation errors.</p>
+                                            <p className="text-sm text-slate-600">The first step where the Company&apos;s GRO reviews your evidence. High success rate for documentation errors.</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4 items-start">
@@ -151,10 +151,22 @@ export default function ClaimRejectionAppealGuide() {
                             <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 my-10">
                                 <h4 className="font-bold text-amber-900 flex items-center gap-2 mb-3">
                                     <AlertTriangle className="h-5 w-5" />
-                                    What if the Ombudsman rejects the case?
                                 </h4>
                                 <p className="text-amber-800 text-sm leading-relaxed">
-                                    While an Ombudsman's award is binding on the insurance company, it is <strong>not binding on the policyholder</strong>. If you are dissatisfied, you still have the legal right to approach the Consumer Forum. However, ensure you have strong medical evidence to avoid the 1-3 year court delay.
+                                    While an Ombudsman&apos;s award is binding on the insurance company, it is <strong>not binding on the policyholder</strong>. If you are dissatisfied, you still have the legal right to approach the Consumer Forum. However, ensure you have strong medical evidence to avoid the 1-3 year court delay.
+                                </p>
+                            </div>
+
+                            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-12 not-prose">
+                                <p className="text-blue-900 font-bold mb-2 flex items-center gap-2">
+                                    <MapPin className="h-4 w-4" />
+                                    Are you in Bangalore?
+                                </p>
+                                <p className="text-blue-800 text-sm">
+                                    Our local experts specialize in coordinating with Bangalore hospitals and the Insurance Ombudsman office on Residency Road. 
+                                    <Link href="/locations/bangalore/health-insurance" className="ml-1 underline font-extrabold hover:text-primary">
+                                        Get Bangalore Claim Support
+                                    </Link>
                                 </p>
                             </div>
                         </div>

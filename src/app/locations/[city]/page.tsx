@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle2, MapPin, Phone, UserCheck, Clock, Shield } from 'lucide-react'
+import { CheckCircle2, MapPin, Phone, UserCheck, Clock, Shield, ArrowRight } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
 import { getCityData, cityData } from '@/data/cityData'
 import { ServiceLinksForCity } from '@/components/KeywordLinkBlocks'
@@ -204,9 +204,14 @@ export default function LocationPage({ params }: Props) {
                                         <Shield className="h-5 w-5 text-blue-600" />
                                         Insurance Support for IT Professionals
                                     </h3>
-                                    <p className="text-blue-800/80 dark:text-blue-200/80 leading-relaxed">
+                                    <p className="text-blue-800/80 dark:text-blue-200/80 leading-relaxed mb-4">
                                         {city.hubContent.itProfessionalFocus}
                                     </p>
+                                    {params.city === 'bangalore' && (
+                                        <Link href="/locations/bangalore/health-insurance" className="inline-flex items-center gap-2 text-sm font-bold text-blue-700 hover:underline">
+                                            View Health Insurance Hub for Bangalore <ArrowRight className="h-3 w-3" />
+                                        </Link>
+                                    )}
                                 </div>
                             )}
 
@@ -216,9 +221,14 @@ export default function LocationPage({ params }: Props) {
                                         <UserCheck className="h-5 w-5 text-emerald-600" />
                                         Senior Citizen Health & Pension Priority
                                     </h3>
-                                    <p className="text-emerald-800/80 dark:text-emerald-200/80 leading-relaxed">
+                                    <p className="text-emerald-800/80 dark:text-emerald-200/80 leading-relaxed mb-4">
                                         {city.hubContent.seniorCitizenFocus}
                                     </p>
+                                    {params.city === 'bangalore' && (
+                                        <Link href="/locations/bangalore/lic-agent" className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 hover:underline">
+                                            Connect with LIC Advisor in Bangalore <ArrowRight className="h-3 w-3" />
+                                        </Link>
+                                    )}
                                 </div>
                             )}
                         </div>

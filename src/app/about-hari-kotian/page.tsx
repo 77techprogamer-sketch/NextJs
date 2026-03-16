@@ -79,7 +79,7 @@ const ExpertProfilePage = () => {
 
                                 <h2 className="text-2xl font-bold mt-10 mb-4">My Philosophy</h2>
                                 <blockquote className="border-l-4 border-primary pl-6 py-2 italic text-slate-700 bg-slate-50 rounded-r-xl">
-                                    &quot;Insurance is not just a contract; it's a promise to a family's future. My job is to make sure that promise is kept, especially when times are tough.&quot;
+                                    &quot;Insurance is not just a contract; it&apos;s a promise to a family&apos;s future. My job is to make sure that promise is kept, especially when times are tough.&quot;
                                 </blockquote>
                             </div>
                         </div>
