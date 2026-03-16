@@ -40,6 +40,9 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
     const content = t(`services_data.${serviceType}.content`);
     const features = getList(`services_data.${serviceType}.features`);
     const faqs = getList(`services_data.${serviceType}.faqs`) as Array<{ question: string, answer: string }>;
+    const claimProcess = getList(`services_data.${serviceType}.claim_process`) as string[];
+    const whoShouldBuy = getList(`services_data.${serviceType}.who_should_buy`) as string[];
+    const relatedGuides = getList(`services_data.${serviceType}.related_guides`) as Array<{ label: string; href: string }>;
 
 
     return (
@@ -53,7 +56,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         <div className="p-3 bg-primary/10 rounded-lg text-primary">
                             <Icon className="w-8 h-8" />
                         </div>
-                        <h1 className="text-4xl font-bold">{title}</h1>
+                        <h1 className="text-4xl font-bold">{title} Advisor in India | Expert Plans &amp; Claim Support</h1>
                     </div>
                     <p className="text-xl text-muted-foreground leading-relaxed">
                         <AutoLinker text={description} />
@@ -63,7 +66,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                 <div className="mb-12">
                     <Image
                         src={imagePath}
-                        alt={title}
+                        alt={`${title} advisor and claim support India`}
                         width={1200}
                         height={600}
                         className="w-full h-auto rounded-xl shadow-lg bg-muted"
@@ -95,7 +98,38 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                                 ))}
                             </div>
                         </section>
-                        {/* FAQs Section - Added for completeness */}
+
+                        {/* Claim Process Section */}
+                        {claimProcess.length > 0 && (
+                            <section className="bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900 rounded-lg p-6">
+                                <h2 className="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-100">How to File a {title} Claim — Step by Step</h2>
+                                <ol className="space-y-3">
+                                    {claimProcess.map((step: string, idx: number) => (
+                                        <li key={idx} className="flex gap-3 text-slate-700 dark:text-slate-300">
+                                            <span className="flex-shrink-0 w-7 h-7 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">{idx + 1}</span>
+                                            <span>{step}</span>
+                                        </li>
+                                    ))}
+                                </ol>
+                            </section>
+                        )}
+
+                        {/* Who Should Buy Section */}
+                        {whoShouldBuy.length > 0 && (
+                            <section>
+                                <h2 className="text-2xl font-semibold mb-4">Who Should Buy {title}?</h2>
+                                <ul className="space-y-3">
+                                    {whoShouldBuy.map((persona: string, idx: number) => (
+                                        <li key={idx} className="flex items-start gap-3 bg-slate-50 dark:bg-slate-800 p-3 rounded-lg border">
+                                            <CheckCircle2 className="w-5 h-5 mt-0.5 text-green-600 flex-shrink-0" />
+                                            <span className="text-slate-700 dark:text-slate-300">{persona}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </section>
+                        )}
+
+                        {/* FAQs Section */}
                         {faqs.length > 0 && (
                             <section className="mt-8">
                                 <h2 className="text-2xl font-semibold mb-6">{t('frequently_asked_questions')}</h2>
@@ -105,6 +139,24 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                                             <h3 className="font-semibold mb-2">{faq.question}</h3>
                                             <p className="text-muted-foreground"><AutoLinker text={faq.answer} /></p>
                                         </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
+
+                        {/* Related Guides Internal Links */}
+                        {relatedGuides.length > 0 && (
+                            <section className="mt-8">
+                                <h2 className="text-xl font-semibold mb-4">Related Insurance Guides</h2>
+                                <div className="grid sm:grid-cols-2 gap-3">
+                                    {relatedGuides.map((guide, idx) => (
+                                        <Link
+                                            key={idx}
+                                            href={guide.href}
+                                            className="block p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-primary/50 hover:shadow-md transition-all group"
+                                        >
+                                            <span className="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-primary transition-colors text-sm">{guide.label} →</span>
+                                        </Link>
                                     ))}
                                 </div>
                             </section>

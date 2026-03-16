@@ -4,7 +4,8 @@ import { services } from '@/data/services'
 import { faqData } from '@/data/faqData'
 
 const BASE_url = 'https://insurancesupport.online'
-const LAST_MOD = new Date().toISOString()
+// Static date — update this when content is significantly changed
+const LAST_MOD = '2026-03-16T00:00:00.000Z'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const staticRoutes = [
@@ -53,6 +54,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/success-stories',
         '/resources/guides/death-claim-settlement',
         '/resources/guides/lapsed-policy-revival',
+        '/resources/guides/maturity-claim-guide',
+        '/resources/guides/claim-rejection-appeal',
+        '/resources/guides/term-vs-life-insurance',
+        '/resources/guides/documents-for-death-claim',
+        '/resources/guides/cashless-hospitalization-guide',
+        '/resources/guides/health-insurance-claim-checklist',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: LAST_MOD,

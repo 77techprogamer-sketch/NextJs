@@ -147,7 +147,7 @@ export default function LocationPage({ params }: Props) {
                     </Link>
 
                     <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
-                        Insurance Support in <span className="text-primary">{city.name}</span> | Expert Claim Help
+                        Insurance Advisor in <span className="text-primary">{city.name}</span> | LIC &amp; Health Insurance Help
                     </h1>
 
                     <p className="text-xl text-muted-foreground mb-8 leading-relaxed">

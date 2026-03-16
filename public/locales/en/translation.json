@@ -260,10 +260,10 @@
   "help_item_legal": "Ombudsman Representation Support",
   "help_item_policy": "LIC Policy Revival & Status Recovery",
   "hero_fallback_description": "Comprehensive coverage for life, health, and vehicle tailored to your needs.",
-  "hero_title": "Insurance Support: Expert Claim Recovery & Policy Help India",
+  "hero_title": "Expert Insurance Advisor in India | LIC, Health & Claim Recovery",
   "hero_title_end": "With Expert Guidance",
   "hero_title_highlight": "Future",
-  "hero_title_local": "Insurance Support in {{city}} | Expert Claim Help by Kotian",
+  "hero_title_local": "Insurance Advisor in {{city}} | LIC & Health Insurance Help",
   "hero_title_start": "Secure Your",
   "high_cover_low_premium": "High Cover, Low Premium",
   "high_cover_low_premium_description": "Get significant life cover at an extremely affordable price.",
@@ -555,6 +555,27 @@
         "AYUSH Treatment Cover",
         "Tax Benefit under 80D"
       ],
+      "claim_process": [
+        "Notify your insurer (or call us) within 24–48 hours of admission.",
+        "At network hospitals: show your health insurance card to the TPA desk to start cashless pre-authorisation.",
+        "Insurer reviews the pre-auth request — approval usually comes within 2–6 hours for planned procedures.",
+        "At discharge, pay only the non-covered amounts (co-pay, room rent excess, exclusions).",
+        "For reimbursement: collect all original bills, discharge summary, and doctor reports.",
+        "Submit the claim form + documents to your insurer within 30 days of discharge.",
+        "Insurer processes within 30 days — we follow up on your behalf if delayed."
+      ],
+      "who_should_buy": [
+        "Salaried professionals without employer group health cover (or who want top-up cover).",
+        "Self-employed individuals and business owners who bear 100% of medical costs.",
+        "Families with senior parents — cover them before pre-existing diseases become exclusions.",
+        "Anyone with diabetes, hypertension, or a family history of heart disease.",
+        "Young couples planning a family who need maternity cover (buy early to beat waiting period)."
+      ],
+      "related_guides": [
+        { "label": "Cashless Hospitalization Step-by-Step Guide", "href": "/resources/guides/cashless-hospitalization-guide" },
+        { "label": "Health Insurance Claim Checklist (2026)", "href": "/resources/guides/health-insurance-claim-checklist" },
+        { "label": "How to Appeal a Rejected Health Insurance Claim", "href": "/resources/guides/claim-rejection-appeal" }
+      ],
       "title": "Health Insurance"
     },
     "life-insurance": {
@@ -580,6 +601,27 @@
         "Wealth Creation Options",
         "Loan Liability Cover"
       ],
+      "claim_process": [
+        "Nominee gathers the death certificate (original + 5 attested copies) and the original policy bond.",
+        "Fill LIC/insurer claim forms: Form 3783 (Claimant's Statement) and Form 3801 (Certificate of Death).",
+        "Submit documents to the servicing LIC branch or the private insurer's claims department (we assist with this).",
+        "Insurer acknowledges within 3 working days and assigns a claim number.",
+        "Medical investigation (if any) is completed within 6 months of claim submission for older policies.",
+        "Claim decision issued — if approved, payment via NEFT within 30 days.",
+        "If rejected, we file a written appeal and escalate to the Insurance Ombudsman if needed."
+      ],
+      "who_should_buy": [
+        "Any breadwinner with financial dependants (spouse, children, parents).",
+        "Individuals with outstanding home loans, personal loans, or business debt.",
+        "Parents who want to fund their children's education even in their absence.",
+        "Business partners who need key-person insurance to protect the business.",
+        "NRIs who want to leave a tax-free financial legacy for family in India."
+      ],
+      "related_guides": [
+        { "label": "Documents Required for Death Claim Settlement", "href": "/resources/guides/documents-for-death-claim" },
+        { "label": "LIC Death Claim Settlement — Full Guide", "href": "/resources/guides/death-claim-settlement" },
+        { "label": "LIC Lapsed Policy Revival Guide", "href": "/resources/guides/lapsed-policy-revival" }
+      ],
       "title": "Life Insurance"
     },
     "motor-insurance": {
@@ -604,6 +646,26 @@
         "24x7 Roadside Assistance",
         "Engine Protection",
         "Consumables Cover"
+      ],
+      "claim_process": [
+        "Immediately after the accident: don't move the vehicle; document the scene with photos/videos.",
+        "File an FIR at the nearest police station (mandatory for third-party claims or theft).",
+        "Inform your insurer within 24 hours via their app, website, or by calling us — we file the intimation for you.",
+        "A surveyor is assigned — do NOT repair the vehicle until the surveyor has inspected it.",
+        "For cashless repairs: take the vehicle to a network garage; the insurer settles the bill directly.",
+        "For reimbursement: repair at your chosen garage, collect all original bills and claim forms.",
+        "Claim settled within 7–15 working days for straightforward cases — we track the status for you."
+      ],
+      "who_should_buy": [
+        "Every vehicle owner — Third-Party insurance is legally mandatory in India.",
+        "New car / bike owners who want Comprehensive cover to protect their investment.",
+        "Vehicle owners in flood-prone cities (Bangalore, Mumbai, Chennai) who need Engine Protection.",
+        "Anyone with a car loan — banks require Comprehensive insurance as a loan condition.",
+        "Fleet owners and commercial vehicle operators needing multi-vehicle policies."
+      ],
+      "related_guides": [
+        { "label": "LIC Maturity Claim Guide", "href": "/resources/guides/maturity-claim-guide" },
+        { "label": "General Insurance Claim Process", "href": "/resources/general-insurance-claim-process" }
       ],
       "title": "Motor Insurance"
     },
@@ -679,6 +741,27 @@
         "Critical Illness Riders",
         "Accidental Death Benefit",
         "Tax Savings"
+      ],
+      "claim_process": [
+        "Nominee notifies the insurer immediately after the death of the life assured.",
+        "Gather the original policy bond, death certificate, and the nominee's KYC documents.",
+        "Fill out the death claim form provided by the insurer (we assist you with this).",
+        "Submit all documents at the insurer's branch or via their online portal.",
+        "Insurer may conduct a quick verification for early claims (within 3 years of policy start).",
+        "Once approved, the sum assured is transferred to the nominee's registered bank account via NEFT.",
+        "We provide end-to-end support to ensure your family's claim is settled without stress."
+      ],
+      "who_should_buy": [
+        "Young parents with dependent children who need a large financial safety net.",
+        "Individuals with home loans or other significant liabilities.",
+        "Newly married couples starting their financial journey together.",
+        "Self-employed professionals whose families depend solely on their income.",
+        "Anyone looking for the most cost-effective way to get high life insurance coverage."
+      ],
+      "related_guides": [
+        { "label": "Term vs. Whole Life Insurance — Which is Better?", "href": "/resources/guides/term-vs-life-insurance" },
+        { "label": "Documents Required for LIC Death Claim", "href": "/resources/guides/documents-for-death-claim" },
+        { "label": "How to Appeal a Rejected Insurance Claim", "href": "/resources/guides/claim-rejection-appeal" }
       ],
       "title": "Term Insurance"
     },

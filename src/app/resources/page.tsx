@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, FileText, MapPin, Download } from 'lucide-react'
+import { BookOpen, FileText, MapPin, Download, Scale, ShieldCheck, FileCheck, ClipboardList, Hospital, ClipboardCheck, UserCheck, RefreshCw } from 'lucide-react'
 
 export const metadata: Metadata = {
     title: {
@@ -30,8 +30,7 @@ export default function ResourcesPage() {
                 Everything you need to know about managing your insurance policies, filing claims, and getting support.
             </p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
                 <Link href="/resources/general-insurance-claim-process" className="group">
                     <Card className="h-full hover:shadow-lg transition-shadow border-slate-200">
                         <CardHeader>
@@ -67,7 +66,29 @@ export default function ResourcesPage() {
                         </CardHeader>
                     </Card>
                 </Link>
+            </div>
 
+            <h2 className="text-3xl font-bold mb-8">Expert Insurance Guides</h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {[
+                    { title: "Claim Rejection Appeal", desc: "How to reverse a rejected health insurance claim.", href: "/resources/guides/claim-rejection-appeal", icon: Scale },
+                    { title: "Term vs Life Insurance", desc: "Which one is better for your family?", href: "/resources/guides/term-vs-life-insurance", icon: ShieldCheck },
+                    { title: "LIC Maturity Claim", desc: "Step-by-step guide to LIC maturity settlement.", href: "/resources/guides/maturity-claim-guide", icon: FileCheck },
+                    { title: "Death Claim Documents", desc: "Checklist of forms for LIC & private claims.", href: "/resources/guides/documents-for-death-claim", icon: ClipboardList },
+                    { title: "Cashless Hospitalization", desc: "Protocol for planned and emergency cases.", href: "/resources/guides/cashless-hospitalization-guide", icon: Hospital },
+                    { title: "Health Claim Checklist", desc: "Don't miss these documents for reimbursement.", href: "/resources/guides/health-insurance-claim-checklist", icon: ClipboardCheck },
+                    { title: "LIC Death Claim", desc: "Detailed LIC-specific death claim settlement.", href: "/resources/guides/death-claim-settlement", icon: UserCheck },
+                    { title: "Lapsed Policy Revival", desc: "How to restore an old or lapsed LIC policy.", href: "/resources/guides/lapsed-policy-revival", icon: RefreshCw }
+                ].map((guide, idx) => (
+                    <Link key={idx} href={guide.href} className="group">
+                        <Card className="h-full hover:shadow-lg transition-shadow border-slate-200">
+                            <CardHeader>
+                                <CardTitle className="group-hover:text-primary transition-colors text-lg">{guide.title} →</CardTitle>
+                                <CardDescription>{guide.desc}</CardDescription>
+                            </CardHeader>
+                        </Card>
+                    </Link>
+                ))}
             </div>
         </div>
     )

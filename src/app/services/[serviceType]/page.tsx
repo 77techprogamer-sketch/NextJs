@@ -83,7 +83,7 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
 
     return {
         title: {
-            absolute: `${service.title} Plans: Compare & Buy India`
+            absolute: `${service.title} Advisor in India | Plans, Claims & Support – Insurance Support`
         },
         description: service.description,
         keywords: [

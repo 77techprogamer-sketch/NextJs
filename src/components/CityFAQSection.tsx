@@ -19,7 +19,7 @@ export default function CityFAQSection({ cityName, stateName, areas }: CityFAQSe
     const faqs = [
         {
             question: `What insurance services do you provide in ${cityName}?`,
-            answer: `We provide end-to-end insurance support across ${cityName}, including LIC policy revival, health insurance claim recovery, motor insurance renewals, and term plans. Instead of visiting a physical branch, our certified local advisors come directly to your doorstep.`
+            answer: `We provide end-to-end insurance support across ${cityName}, including LIC policy revival, health insurance claim recovery, motor insurance renewals, and term plans. Instead of visiting a physical branch, our certified local advisors come directly to your doorstep in ${area1} or ${area2}.`
         },
         {
             question: `Can you help with rejected health insurance claims in ${stateName}?`,
@@ -32,6 +32,30 @@ export default function CityFAQSection({ cityName, stateName, areas }: CityFAQSe
         {
             question: `How quickly can I get motor insurance renewed in ${cityName}?`,
             answer: `Motor insurance renewals for cars and two-wheelers in ${cityName} can be processed digitally within hours. We compare multiple quotes from top IRDAI-approved insurers to get you the best premium without any complex paperwork.`
+        },
+        {
+            question: `Is term insurance available for IT professionals in ${cityName}?`,
+            answer: `Yes, we specialize in high-value term insurance plans for IT and corporate professionals in ${cityName} (especially in areas like ${area1}). These plans offer high coverage at low premiums, often with extra benefits for low-risk lifestyles and corporate health history.`
+        },
+        {
+            question: `What are the best health insurance plans for senior citizens in ${cityName}?`,
+            answer: `For seniors in ${cityName}, we recommend plans with shorter waiting periods for pre-existing diseases and no co-payment clauses. Many hospitals in ${cityName} offer cashless facilities for these specific plans, which we can help you identify.`
+        },
+        {
+            question: `How do I file an LIC death claim from ${cityName} without visiting the branch?`,
+            answer: `Our doorstep service in ${cityName} handles the entire death claim process. We collect all necessary documents from your home in ${area1} or ${area2}, coordinate with the servicing LIC branch, and ensure the payout reaches the nominee's bank account directly.`
+        },
+        {
+            question: `LIC policy surrender vs. revival: which is better for a lapsed policy in ${cityName}?`,
+            answer: `Reviving a lapsed LIC policy is usually better than surrendering it, as you retain the full life cover and insurance benefits. We can help you calculate the exact revival amount and interest at your home in ${cityName}.`
+        },
+        {
+            question: `How can I find network hospitals for cashless insurance near ${cityName}?`,
+            answer: `Most major hospitals in ${cityName} have tie-ups with top insurers. We provide a localized list of network hospitals and help you understand the cashless pre-authorization process so you don't have to pay out-of-pocket during emergencies.`
+        },
+        {
+            question: `Can NRIs buy Indian insurance for family members in ${cityName}?`,
+            answer: `Yes, NRIs can easily purchase health or life insurance for their parents or spouse residing in ${cityName}. We help with the remote documentation, foreign remittance verification, and localized health check-ups if required for the plan.`
         }
     ];
 

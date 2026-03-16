@@ -19,10 +19,28 @@ export default function robots(): MetadataRoute.Robots {
                 ],
             },
             {
-                userAgent: 'Google-InspectionTool',
+                userAgent: 'Googlebot',
                 allow: '/',
-            }
+                disallow: [
+                    '/engagement/',
+                    '/blocked/',
+                ],
+            },
+            {
+                userAgent: 'Bingbot',
+                allow: [
+                    '/',
+                    '/api/location',
+                ],
+                disallow: [
+                    '/engagement/',
+                    '/blocked/',
+                ],
+            },
         ],
-        sitemap: 'https://insurancesupport.online/sitemap.xml',
+        sitemap: [
+            'https://insurancesupport.online/sitemap.xml',
+            'https://insurancesupport.online/sitemap-index.xml',
+        ],
     }
 }
