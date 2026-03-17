@@ -12,6 +12,7 @@ import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import ShortLeadForm from '@/components/ShortLeadForm';
+import { trackCTAClick } from '@/utils/trackCta';
 import { MessageCircle } from 'lucide-react';
 import { contactConfig } from '@/data/contact';
 
@@ -36,6 +37,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
             origin: { y: 0.6 },
             scalar: 1.2
         });
+        trackCTAClick('Hero: Buy New Policy');
         onGetQuote();
     };
 
@@ -119,6 +121,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                                             size="lg"
                                             className="bg-white/10 lg:bg-transparent border-white/30 text-white hover:bg-white hover:text-primary text-xl font-bold px-8 py-8 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all transform hover:scale-105 active:scale-95 backdrop-blur-sm"
                                             onClick={() => {
+                                                trackCTAClick('Hero: Get Claim Support');
                                                 const servicesSection = document.getElementById('services');
                                                 if (servicesSection) {
                                                     servicesSection.scrollIntoView({ behavior: 'smooth' });

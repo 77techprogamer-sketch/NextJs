@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { contactConfig } from '@/data/contact';
+import { trackCTAClick } from '@/utils/trackCta';
 
 const WhatsAppWidget = () => {
     const { t } = useTranslation();
@@ -79,6 +80,7 @@ const WhatsAppWidget = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={() => {
+                                trackCTAClick('WhatsApp Widget');
                                 if (typeof window !== 'undefined' && (window as any).gtag) {
                                     (window as any).gtag('event', 'contact', {
                                         method: 'WhatsApp',

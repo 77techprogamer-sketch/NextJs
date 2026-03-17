@@ -6,6 +6,7 @@ import { Phone, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { cn } from "@/lib/utils";
 import { contactConfig } from "@/data/contact";
+import { trackCTAClick } from "@/utils/trackCta";
 
 interface FloatingCTAProps {
     onGetQuote: () => void;
@@ -70,7 +71,10 @@ const FloatingCTA = ({ onGetQuote }: FloatingCTAProps) => {
 
             <Button
                 size="lg"
-                onClick={onGetQuote}
+                onClick={() => {
+                    trackCTAClick('Floating: Buy Policy / Get Quote');
+                    onGetQuote();
+                }}
                 className="rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.2)] bg-accent hover:bg-accent/90 text-primary font-bold px-6 py-7 group relative overflow-hidden"
             >
                 <span className="mr-2 relative z-10">{t("buy_insurance_cta", "Buy Policy / Get Quote")}</span>
