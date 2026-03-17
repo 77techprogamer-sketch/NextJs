@@ -48,7 +48,7 @@ const FloatingToolDock = () => {
     ];
 
     return (
-        <div className="fixed bottom-8 left-8 z-[100] flex flex-col items-start gap-4">
+        <div className="fixed bottom-[104px] left-6 z-[100] flex flex-col items-start gap-4">
             <AnimatePresence>
                 {isOpen && (
                     <div className="flex flex-col gap-3 items-start mb-2">
