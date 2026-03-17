@@ -165,6 +165,9 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
 
                     <div className="space-y-6">
                         <div className="sticky top-24">
+                            <div className="bg-gradient-to-r from-primary to-accent/90 text-white text-center py-4 px-4 rounded-t-2xl font-extrabold shadow-lg relative z-10 translate-y-3">
+                                Compare & Buy {title}
+                            </div>
                             <QuoteForm
                                 insuranceType={serviceType}
                             />

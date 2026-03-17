@@ -73,7 +73,7 @@ const FloatingCTA = ({ onGetQuote }: FloatingCTAProps) => {
                 onClick={onGetQuote}
                 className="rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.2)] bg-accent hover:bg-accent/90 text-primary font-bold px-6 py-7 group relative overflow-hidden"
             >
-                <span className="mr-2 relative z-10">{t("get_a_free_quote", "Get a Quote")}</span>
+                <span className="mr-2 relative z-10">{t("buy_insurance_cta", "Buy Policy / Get Quote")}</span>
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1 relative z-10" />
                 {/* Subtle pulse background */}
                 <span className="absolute inset-0 bg-white/20 scale-0 group-hover:scale-150 group-hover:opacity-0 transition-all duration-700 rounded-full"></span>

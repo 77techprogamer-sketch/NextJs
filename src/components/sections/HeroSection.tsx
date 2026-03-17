@@ -25,8 +25,8 @@ interface HeroSectionProps {
 const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: propTitle, description: propDescription }) => {
     const { t } = useTranslation();
     const currentUrl = "https://insurancesupport.online/";
-    const shareTitle = propTitle || t("hero_title");
-    const dynamicOneLiner = propDescription || t("secure_family_future") || "Comprehensive coverage for life, health, and vehicle tailored to your needs.";
+    const shareTitle = propTitle || "Protect Your Future & Recover Your Claims";
+    const dynamicOneLiner = propDescription || "Buy premium Life, Health & Motor insurance, or get 25+ years of expert help recovering rejected claims and lost policies.";
 
     const handleVote = async () => {
         const confetti = (await import('canvas-confetti')).default;
@@ -96,11 +96,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                                     <MagneticButton>
                                         <Button
                                             size="lg"
-                                            className="bg-accent hover:bg-accent/90 text-primary text-xl font-extrabold px-10 py-8 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all transform hover:scale-105 active:scale-95"
+                                            className="bg-accent hover:bg-accent/90 text-primary text-xl font-extrabold px-8 py-8 rounded-full shadow-[0_0_40px_-10px_rgba(234,179,8,0.5)] transition-all transform hover:scale-105 active:scale-95"
                                             onClick={handleVote}
                                         >
-                                            <span suppressHydrationWarning className="flex items-center gap-3">
-                                                {t("get_a_free_quote")}
+                                            <span suppressHydrationWarning className="flex items-center gap-2">
+                                                Buy New Policy
                                                 <motion.div
                                                     animate={{ x: [0, 5, 0] }}
                                                     transition={{ repeat: Infinity, duration: 1.5 }}
@@ -113,21 +113,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                                 </ScrollReveal>
 
                                 <ScrollReveal animation="elastic" delay={0.9}>
-                                    <a
-                                        href={contactConfig.whatsappUrl}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex"
-                                    >
+                                    <MagneticButton>
                                         <Button
                                             variant="outline"
                                             size="lg"
-                                            className="bg-[#25D366]/10 border-[#25D366]/50 text-[#25D366] hover:bg-[#25D366] hover:text-white text-lg font-bold px-8 py-8 rounded-full backdrop-blur-sm transition-all transform hover:scale-105"
+                                            className="bg-white/10 lg:bg-transparent border-white/30 text-white hover:bg-white hover:text-primary text-xl font-bold px-8 py-8 rounded-full shadow-[0_4px_20px_rgba(0,0,0,0.1)] transition-all transform hover:scale-105 active:scale-95 backdrop-blur-sm"
+                                            onClick={() => {
+                                                const servicesSection = document.getElementById('services');
+                                                if (servicesSection) {
+                                                    servicesSection.scrollIntoView({ behavior: 'smooth' });
+                                                }
+                                            }}
                                         >
-                                            <MessageCircle className="w-6 h-6 mr-2 fill-current" />
-                                            {t("chat_on_whatsapp", { defaultValue: "Chat on WhatsApp" })}
+                                            <span suppressHydrationWarning className="flex items-center gap-2">
+                                                <ShieldCheck className="w-5 h-5" />
+                                                Get Claim Support
+                                            </span>
                                         </Button>
-                                    </a>
+                                    </MagneticButton>
                                 </ScrollReveal>
                             </div>
 
@@ -193,8 +196,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                         <div className="mt-8 flex flex-wrap justify-center gap-3">
                             <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] w-full mb-1">Trending in Bangalore:</span>
                             {[
-                                { label: "LIC Agent Bangalore", href: "/locations/bangalore/lic-agent" },
-                                { label: "Best Health Insurance Bangalore", href: "/locations/bangalore/health-insurance" },
+                                { label: "Buy Health Insurance Bangalore", href: "/locations/bangalore/health-insurance" },
+                                { label: "Buy Term Insurance", href: "/services/term-insurance" },
                                 { label: "Policy Revival Help", href: "/resources/guides/lapsed-policy-revival" },
                                 { label: "Death Claim Expert", href: "/resources/guides/death-claim-settlement" }
                             ].map((link, i) => (

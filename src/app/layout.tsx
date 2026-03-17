@@ -25,12 +25,16 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'Insurance Support | Expert Claim Recovery & Policy Help India',
+        default: 'Buy Insurance & Claim Support India | Expert Advice',
         template: '%s | Insurance Support'
     },
     applicationName: 'Insurance Support',
-    description: 'Struggling with rejected claims or lost LIC policies? Get 25+ years of expert help. We fight for your money. Free Consultation. Call Now! Serving All India.',
+    description: 'Buy premium Life, Health, and Motor Insurance. Struggling with rejected claims or lost LIC policies? Get expert help to fight for your money. Free Consultation.',
     keywords: [
+        'Buy Life Insurance Online',
+        'Buy Health Insurance India',
+        'Buy Term Insurance',
+        'Buy Motor Insurance',
         'Insurance Support',
         'LIC Insurance Support',
         'Insurance Claim Recovery India',
@@ -91,8 +95,8 @@ export const metadata: Metadata = {
         type: 'website',
         locale: 'en_IN',
         url: 'https://insurancesupport.online',
-        title: 'Insurance Support | Expert Claim Recovery',
-        description: 'Get free quotes and expert help for Life, Health, and Motor insurance claims. We are your partner in securing your familys future.',
+        title: 'Buy Top Insurance & Expert Claim Support',
+        description: 'Get free quotes and buy premium Life, Health, and Motor insurance. Facing claim issues? We help you recover your money.',
         siteName: 'Insurance Support',
         images: [
             {
@@ -105,8 +109,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Insurance Support - Expert Claims Help',
-        description: 'Expert insurance advice and claims support across India. Don\'t let your claim be rejected.',
+        title: 'Buy Insurance & Claim Support - Expert Advice',
+        description: 'Expert advice to buy the right policy and claims support across India. Don\'t let your claim be rejected.',
         images: ['/og-image.png'],
         creator: '@insurancesupport',
     },

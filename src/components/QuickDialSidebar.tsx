@@ -50,7 +50,7 @@ const QuickDialSidebar = () => {
         { id: "hero", icon: Home, label: "Home" },
         { id: "/tools/human-life-value-calculator", icon: Calculator, label: "HLV Calc" },
         { id: "/tools/investment-returns", icon: TrendingUp, label: "Wealth Calc" },
-        { id: "services", icon: Layers, label: "Services" },
+        { id: "services", icon: Layers, label: "Buy Policy" },
         { id: "/loans", icon: Banknote, label: "Loans" },
         { id: "features", icon: Star, label: "Features" },
         { id: "blog", icon: BookOpen, label: "Blog" },

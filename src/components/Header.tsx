@@ -61,15 +61,15 @@ const Header = () => {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <button
+                <button
                 // The main dropdown trigger still scrolls to services section on the home page
                 // If on a service detail page, it will navigate to home and then scroll
                 onClick={handleScrollToServices}
-                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
-                aria-label={t("services_offered_link")}
+                className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label={t("buy_insurance", "Buy Insurance")}
                 suppressHydrationWarning
               >
-                {t("services_offered_link")}
+                {t("buy_insurance", "Buy Insurance")}
                 <ChevronDown className="h-4 w-4" />
               </button>
             </DropdownMenuTrigger>
@@ -240,10 +240,10 @@ const Header = () => {
           </Link>
           <Link
             href="/get-started"
-            className="hidden sm:inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2"
+            className="hidden sm:inline-flex items-center justify-center rounded-md text-sm font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-accent text-primary hover:bg-accent/90 h-10 px-6 shadow-sm"
             suppressHydrationWarning
           >
-            {t("get_quote")}
+            {t("buy_policy", "Buy Policy")}
           </Link>
           <LanguageSwitcher />
           <ThemeToggle />
