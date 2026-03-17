@@ -95,6 +95,22 @@ const bangaloreSpecificFAQs = [
     {
         question: "What is the 'Insurance Support' advantage at hospital discharge?",
         answer: "The final discharge approval usually takes 4-6 hours. Our coordinators coordinate with the hospital billing department to ensure documents aren't stuck, helping Bangalore families get home faster."
+    },
+    {
+        question: "How do I choose the best health insurance advisor in Bangalore?",
+        answer: "A good health insurance advisor in Bangalore should have deep knowledge of local hospital networks, TPA desk procedures at places like Apollo or Manipal, and a physical presence to assist with doorstep documentation and dispute resolutions."
+    },
+    {
+        question: "Can a health insurance advisor in Bangalore help with corporate policy disputes?",
+        answer: "Yes, as an experienced health insurance advisor in Bangalore, we often mediate between corporate HRs, TPA desks, and employees to ensure seamless admission during emergencies, bypassing red tape safely."
+    },
+    {
+        question: "Is it worth paying a premium to a health insurance advisor in Bangalore instead of buying online?",
+        answer: "We do not charge extra premiums. As an IRDAI-certified health insurance advisor in Bangalore, we get remunerated by the insurer. You pay the exact same premium as online, but you gain our 25+ years of local claim settlement expertise completely free of charge."
+    },
+    {
+        question: "Can a health insurance advisor in Bangalore help with porting my policy?",
+        answer: "Absolutely. A dedicated health insurance advisor in Bangalore will evaluate the local room rent caps and help port your policy to a provider like HDFC Ergo or Star Health without losing your crucial waiting period benefits."
     }
 ];
 
@@ -225,6 +241,27 @@ export default function BangaloreHealthHub() {
                             </div>
 
                             <h2 className="text-3xl font-bold text-slate-900 mt-20 mb-8 tracking-tight">
+                                Comprehensive Health Coverage for Bangalore Families
+                            </h2>
+                            <p className="text-slate-600 leading-relaxed mb-6">
+                                Securing a robust family floater health insurance plan in Bangalore requires an intimate understanding of local pediatric, maternity, and emergency care costs. Corporate hospitals like Cloudnine and Motherhood have specialized—and often premium—pricing structures that can easily exhaust a standard policy&apos;s limits. As your dedicated <strong>health insurance advisor in Bangalore</strong>, we help you structure family floater policies that offer adequate room rent limits for these premium hospitals without exorbitant premium spikes. We analyze your family&apos;s medical history line-by-line, ensure essential pediatric consultations and vaccination covers are properly evaluated, and select general insurers with the most reliable local TPA networks. 
+                            </p>
+
+                            <h2 className="text-3xl font-bold text-slate-900 mt-16 mb-8 tracking-tight">
+                                Senior Citizen Health Insurance: A Localized Bangalore Approach
+                            </h2>
+                            <p className="text-slate-600 leading-relaxed mb-6">
+                                Finding the right health cover for elderly parents living in Bangalore—especially those managing pre-existing conditions like diabetes or hypertension—can be uniquely daunting. Many older policies carry severe co-payment clauses and unreasonable room sub-limits. We specialize in comprehensive senior citizen health insurance audits. Our team physically checks on clients in classic residential neighborhoods like <strong>Malleswaram, Basavanagudi, and Jayanagar</strong> to review existing policy bonds. We decode the complex fine print regarding cataract limits, joint-replacement waiting periods, or robotic surgery caps, and help upgrade coverage to modern, comprehensive plans (such as Star Health Assure or Care Supreme). Best of all, our white-glove doorstep service ensures your parents never have to struggle with navigating confusing online health portals or customer care IVR systems.
+                            </p>
+
+                            <h2 className="text-3xl font-bold text-slate-900 mt-16 mb-8 tracking-tight">
+                                Overcoming Local Claim Issues in Bangalore Hospitals
+                            </h2>
+                            <p className="text-slate-600 leading-relaxed mb-16">
+                                The most significant pain point for patients in Bangalore is claim rejection or partial settlement due to &quot;non-disclosure of pre-existing diseases&quot; or &quot;unreasonable billing&quot; by hospitals. It is highly common for a TPA desk in prominent hubs like Marathahalli or Hebbal to arbitrarily deny specific consumable charges or PPE kits. Having an expert, street-smart <strong>health insurance advisor in Bangalore</strong> by your side fundamentally shifts the dynamic of power. We intervene directly with the local TPA desk, provide the mandatory &quot;Medical Necessity&quot; justifications directly from treating doctors, and fiercely challenge unfair proportionate deductions. If an insurance claim is wrongly repudiated by the insurer, we meticulously prepare the grievance file and guide you through navigating the legal appeal at the Insurance Ombudsman office situated locally on Residency Road, ensuring justice, peace of mind, and financial recovery.
+                            </p>
+
+                            <h2 className="text-3xl font-bold text-slate-900 mb-8 tracking-tight">
                                 Cashless Hospitalization & Claim Support in Bangalore
                             </h2>
                             <p className="text-slate-600 leading-relaxed">
