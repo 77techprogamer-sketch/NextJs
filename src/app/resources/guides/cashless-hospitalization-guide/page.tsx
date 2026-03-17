@@ -153,7 +153,7 @@ export default function CashlessHospitalizationGuide() {
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <Link href="/locations/bangalore/health-insurance" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
-                                        Bangalore Hub
+                                        health insurance advisor in Bangalore
                                     </Link>
                                     <Link href="/locations/chennai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
                                         Chennai Advisor

@@ -199,7 +199,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                         <div className="mt-8 flex flex-wrap justify-center gap-3">
                             <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] w-full mb-1">Trending in Bangalore:</span>
                             {[
-                                { label: "Buy Health Insurance Bangalore", href: "/locations/bangalore/health-insurance" },
+                                { label: "Health Insurance Advisor in Bangalore", href: "/locations/bangalore/health-insurance" },
+                                { label: "LIC Agent in Bangalore", href: "/locations/bangalore/lic-agent" },
                                 { label: "Buy Term Insurance", href: "/services/term-insurance" },
                                 { label: "Policy Revival Help", href: "/resources/guides/lapsed-policy-revival" },
                                 { label: "Death Claim Expert", href: "/resources/guides/death-claim-settlement" }

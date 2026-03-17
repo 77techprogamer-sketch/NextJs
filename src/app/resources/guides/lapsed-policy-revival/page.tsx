@@ -140,7 +140,7 @@ export default function LapsedPolicyRevivalGuide() {
                                 </p>
                                 <div className="flex flex-wrap gap-4">
                                     <Link href="/locations/bangalore/lic-agent" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
-                                        Bangalore Flagship
+                                        LIC agent in Bangalore
                                     </Link>
                                     <Link href="/locations/hyderabad" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
                                         Hyderabad Expert

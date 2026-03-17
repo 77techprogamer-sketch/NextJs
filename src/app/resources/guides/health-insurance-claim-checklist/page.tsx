@@ -99,6 +99,11 @@ export default function HealthClaimChecklistGuide() {
                                 <li><strong>Doctor Consultation:</strong> Every bill must have a matching doctor&apos;s prescription.</li>
                                 <li><strong>Stickers:</strong> Ensure the &quot;Implant Sticker&quot; is attached for surgeries like Stents or Knee replacements.</li>
                             </ul>
+                            <div className="bg-blue-50 p-6 rounded-2xl border border-blue-100 my-8">
+                                <p className="text-blue-900 text-sm">
+                                    Based in Karnataka? Our <Link href="/locations/bangalore/health-insurance" className="font-bold border-b-2 border-blue-200 hover:border-blue-500 transition-colors">health insurance advisor in Bangalore</Link> provides comprehensive assistance handling and submitting these documents.
+                                </p>
+                            </div>
                         </div>
 
                         <AuthorBio />
