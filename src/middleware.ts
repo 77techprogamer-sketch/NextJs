@@ -136,12 +136,50 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
             );
         }
 
-        // We now ALLOW the request to proceed to the homepage (status 200) instead of redirecting
-        // This is crucial for Google Search Console (GSC) to verify HTTPS and index the root domain.
         // The display logic in HomeClient.tsx will still dynamically show the local city.
     }
 
-    return NextResponse.next();
+    // 7. Geolocation-based Routing and Client Cookies
+    const vCountry = request.headers.get('x-vercel-ip-country') || '';
+    const isIndia = vCountry === 'IN';
+    
+    const currentCityRaw = request.headers.get('x-vercel-ip-city') || '';
+    const currentCity = currentCityRaw ? decodeURIComponent(currentCityRaw).trim().toLowerCase() : '';
+
+    let response = NextResponse.next();
+
+    if (isIndia) {
+        let allowedCities: string[] = [];
+        if (currentCity) {
+            allowedCities = Object.keys(cityData).filter(slug => {
+                if (slug === currentCity) return true;
+                const city = cityData[slug];
+                if (city.nearbyCities?.includes(currentCity)) return true;
+                const userCityData = cityData[currentCity];
+                if (userCityData?.nearbyCities?.includes(slug)) return true;
+                return false;
+            });
+        }
+
+        // Restrict access to /locations/...
+        const match = request.nextUrl.pathname.match(/^\/locations\/([^/]+)/);
+        if (match) {
+            const targetCity = match[1].toLowerCase();
+            // Allow if targetCity is in allowedCities, or if we couldn't determine their city (currentCity is empty)
+            if (currentCity && !allowedCities.includes(targetCity)) {
+                return NextResponse.redirect(new URL('/', request.url));
+            }
+        }
+
+        // Pass the geo information to the frontend via cookies
+        if (currentCity) {
+            const cookieVal = allowedCities.length > 0 ? allowedCities.join(',') : 'NONE';
+            response.cookies.set('user-allowed-cities', cookieVal, { path: '/', maxAge: 86400 * 30 });
+        }
+        response.cookies.set('user-geo-country', 'IN', { path: '/', maxAge: 86400 * 30 });
+    }
+
+    return response;
 }
 
 export const config = {

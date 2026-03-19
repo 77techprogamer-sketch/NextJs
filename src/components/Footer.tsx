@@ -67,8 +67,23 @@ const Footer = () => {
     "cyber_insurance",
   ];
 
+  const [allowedCities, setAllowedCities] = useState<string[] | null>(null);
+
+  React.useEffect(() => {
+    if (typeof document !== 'undefined') {
+      const match = document.cookie.match(new RegExp('(^| )user-allowed-cities=([^;]+)'));
+      if (match) {
+        const val = match[2];
+        if (val === 'NONE') setAllowedCities([]);
+        else setAllowedCities(val.split(','));
+      }
+    }
+  }, []);
+
   // Manually defined city list merged with dynamic checks or just hardcoded to ensure order
-  const locations = Object.keys(cityData);
+  const locations = allowedCities !== null 
+    ? Object.keys(cityData).filter(city => allowedCities.includes(city))
+    : Object.keys(cityData);
 
   return (
     <footer className="w-full bg-slate-50 dark:bg-slate-950 text-foreground border-t pb-12 overflow-x-hidden">
@@ -151,12 +166,12 @@ const Footer = () => {
 
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs text-primary" suppressHydrationWarning>{t('trending_now')}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/locations/bangalore/health-insurance" className="hover:text-primary transition-colors">{t('health_insurance')} Bangalore</Link></li>
-              <li><Link href="/locations/hyderabad/life-insurance" className="hover:text-primary transition-colors">{t('life_insurance')} Hyderabad</Link></li>
-              <li><Link href="/locations/pune/term-insurance" className="hover:text-primary transition-colors">{t('term_insurance')} Pune</Link></li>
-              <li><Link href="/locations/chennai/motor-insurance" className="hover:text-primary transition-colors">{t('motor_insurance')} Chennai</Link></li>
-              <li><Link href="/locations/mumbai/lic-agent" className="hover:text-primary transition-colors">{t('insurance_advisor')} Mumbai</Link></li>
-              <li><Link href="/locations/delhi/sme-insurance" className="hover:text-primary transition-colors">{t('sme_insurance')} Delhi</Link></li>
+              {(!allowedCities || allowedCities.includes('bangalore')) && <li><Link href="/locations/bangalore/health-insurance" className="hover:text-primary transition-colors">{t('health_insurance')} Bangalore</Link></li>}
+              {(!allowedCities || allowedCities.includes('hyderabad')) && <li><Link href="/locations/hyderabad/life-insurance" className="hover:text-primary transition-colors">{t('life_insurance')} Hyderabad</Link></li>}
+              {(!allowedCities || allowedCities.includes('pune')) && <li><Link href="/locations/pune/term-insurance" className="hover:text-primary transition-colors">{t('term_insurance')} Pune</Link></li>}
+              {(!allowedCities || allowedCities.includes('chennai')) && <li><Link href="/locations/chennai/motor-insurance" className="hover:text-primary transition-colors">{t('motor_insurance')} Chennai</Link></li>}
+              {(!allowedCities || allowedCities.includes('mumbai')) && <li><Link href="/locations/mumbai/lic-agent" className="hover:text-primary transition-colors">{t('insurance_advisor')} Mumbai</Link></li>}
+              {(!allowedCities || allowedCities.includes('delhi')) && <li><Link href="/locations/delhi/sme-insurance" className="hover:text-primary transition-colors">{t('sme_insurance')} Delhi</Link></li>}
             </ul>
           </div>
         </div>

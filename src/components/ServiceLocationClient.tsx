@@ -22,6 +22,18 @@ interface ServiceLocationClientProps {
 
 export default function ServiceLocationClient({ city, serviceSlug, serviceLabel }: ServiceLocationClientProps) {
     const { t } = useTranslation();
+    const [allowedCities, setAllowedCities] = React.useState<string[] | null>(null);
+
+    React.useEffect(() => {
+        if (typeof document !== 'undefined') {
+            const match = document.cookie.match(new RegExp('(^| )user-allowed-cities=([^;]+)'));
+            if (match) {
+                const val = match[2];
+                if (val === 'NONE') setAllowedCities([]);
+                else setAllowedCities(val.split(','));
+            }
+        }
+    }, []);
 
     return (
         <div className="flex flex-col md:flex-row gap-12">
@@ -167,18 +179,20 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel 
                         <h4 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-xs text-primary">{t('location_page.service_in_nearby_cities', { service: serviceLabel })}</h4>
                         <ul className="space-y-2 text-sm">
                             {city.nearbyCities && city.nearbyCities.length > 0 ? (
-                                city.nearbyCities.map((slug: string) => {
-                                    const nearby = allCityData[slug];
-                                    return nearby ? (
-                                        <li key={slug}>
-                                            <Link href={`/locations/${slug}/${serviceSlug}`} className="text-slate-600 hover:text-primary hover:underline">
-                                                {t('location_page.nearby_service_advisor', { service: serviceLabel, city: nearby.name })}
-                                            </Link>
-                                        </li>
-                                    ) : null;
-                                })
+                                city.nearbyCities
+                                    .filter((slug: string) => allowedCities === null || allowedCities.includes(slug))
+                                    .map((slug: string) => {
+                                        const nearby = allCityData[slug];
+                                        return nearby ? (
+                                            <li key={slug}>
+                                                <Link href={`/locations/${slug}/${serviceSlug}`} className="text-slate-600 hover:text-primary hover:underline">
+                                                    {t('location_page.nearby_service_advisor', { service: serviceLabel, city: nearby.name })}
+                                                </Link>
+                                            </li>
+                                        ) : null;
+                                    })
                             ) : (
-                                <li className="text-slate-400 italic">Explore our advisors in nearby regions for expert second opinions.</li>
+                                <li className="text-slate-400 italic">Explore our local advisors for expert support in your area.</li>
                             )}
                         </ul>
                     </div>

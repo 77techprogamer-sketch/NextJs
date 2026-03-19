@@ -8,6 +8,27 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 
 const ServiceAreasSection = () => {
+    const [allowedCities, setAllowedCities] = React.useState<string[] | null>(null);
+
+    React.useEffect(() => {
+        if (typeof document !== 'undefined') {
+            const match = document.cookie.match(new RegExp('(^| )user-allowed-cities=([^;]+)'));
+            if (match) {
+                const val = match[2];
+                if (val === 'NONE') setAllowedCities([]);
+                else setAllowedCities(val.split(','));
+            }
+        }
+    }, []);
+
+    const visibleCities = Object.values(cityData).filter(city => 
+        allowedCities === null || allowedCities.includes(city.slug)
+    );
+
+    if (visibleCities.length === 0) {
+        return null;
+    }
+
     return (
         <section className="py-12 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
             <div className="container mx-auto px-4">
@@ -23,7 +44,7 @@ const ServiceAreasSection = () => {
                 </div>
 
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                    {Object.values(cityData).map((city, index) => (
+                    {visibleCities.map((city, index) => (
                         <Link
                             key={city.slug}
                             href={`/locations/${city.slug}`}
