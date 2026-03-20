@@ -48,14 +48,25 @@ export function GlobalJsonLd() {
                 // Person schema — critical E-E-A-T for YMYL insurance niche
                 '@type': 'Person',
                 '@id': 'https://insurancesupport.online/#advisor',
-                name: 'Kotian',
+                name: 'Hari Kotian',
+                givenName: 'Hari',
+                familyName: 'Kotian',
                 jobTitle: 'Certified Insurance Advisor & Claim Recovery Specialist',
-                description: 'Licensed insurance advisor with 25+ years of experience in LIC, health, motor, and life insurance claim recovery across India.',
-                url: 'https://insurancesupport.online/about',
+                description: 'IRDAI-certified insurance advisor with 25+ years of experience serving 15,000+ clients in LIC, health, motor, and life insurance claim recovery across India.',
+                url: 'https://insurancesupport.online/about-hari-kotian',
                 telephone: '+919986634506',
                 email: 'contact@insurancesupport.online',
                 worksFor: {
                     '@id': 'https://insurancesupport.online/#organization'
+                },
+                hasCredential: {
+                    '@type': 'EducationalOccupationalCredential',
+                    credentialCategory: 'Certification',
+                    name: 'IRDAI Insurance Advisor License',
+                    recognizedBy: {
+                        '@type': 'Organization',
+                        name: 'Insurance Regulatory and Development Authority of India'
+                    }
                 },
                 knowsAbout: [
                     'Life Insurance',
@@ -64,10 +75,14 @@ export function GlobalJsonLd() {
                     'Insurance Claim Recovery',
                     'Motor Insurance',
                     'Term Insurance',
-                    'Pension Plans'
+                    'Pension Plans',
+                    'Policy Revival',
+                    'Death Claim Settlement',
+                    'IRDAI Grievance Escalation'
                 ],
                 sameAs: [
-                    'https://www.instagram.com/insurancesupport'
+                    'https://www.instagram.com/insurancesupport',
+                    'https://insurancesupport.online/about-hari-kotian'
                 ]
             },
             {

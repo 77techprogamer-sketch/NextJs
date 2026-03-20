@@ -81,11 +81,40 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
 
     if (!service || !assets) return {}
 
+    // Intent-specific titles for better SERP appeal
+    const titleMap: Record<string, string> = {
+        'life-insurance': `Best Life Insurance Plans in India | LIC & Private Policies – Insurance Support`,
+        'health-insurance': `Health Insurance Advisor India | Cashless & Claim Recovery Support`,
+        'term-insurance': `Term Insurance Plans India | High Cover at Low Premium – Free Quote`,
+        'motor-insurance': `Motor Insurance Renewal & Claims India | Instant Quotes – Insurance Support`,
+        'cyber-insurance': `Cyber Insurance in India | Data Breach & Fraud Protection Plans`,
+        'sme-insurance': `SME & Business Insurance India | Protect Your Company – Insurance Support`,
+        'travel-insurance': `Travel Insurance India | Trip Cancellation & Medical Coverage`,
+        'pension-plans': `Pension & Retirement Plans India | Secure Post-Retirement Income`,
+        'ulip-plans': `ULIP Plans India | Investment + Life Cover Advisor – Insurance Support`,
+        'wedding-insurance': `Wedding Insurance India | Event Cancellation & Venue Coverage`,
+    };
+    const descriptionMap: Record<string, string> = {
+        'life-insurance': `Compare top LIC & private life insurance plans in India. Get free expert advice on payouts, nominees, and policy revival from our IRDAI-certified team. Free doorstep consultation.`,
+        'health-insurance': `Get cashless health insurance tailored for you. We help resolve rejected claims, find network hospitals, and secure the best premium. 25+ years experience. Call now for a free review.`,
+        'term-insurance': `Buy high-coverage term insurance at the lowest premium in India. Our advisors compare all top plans and ensure claim settlement support. Get a free quote today.`,
+        'motor-insurance': `Renew motor insurance in minutes. We compare all IRDAI-approved insurers, protect your IDV, and assist with zero-dep claims across India. Instant digital renewal.`,
+        'cyber-insurance': `Protect your business and personal data with India-specific cyber insurance. Coverage for ransomware, phishing, identity theft & data breach. Get a free risk assessment now.`,
+        'sme-insurance': `Comprehensive business insurance for SMEs in India. Covers fire, liability, employee health, and trade credit risks. Expert advice for your industry. Call for a free consultation.`,
+        'travel-insurance': `Secure your international and domestic trips. We provide travel insurance covering medical emergencies, trip cancellations, and lost baggage. Instant plans, 24/7 support.`,
+        'pension-plans': `Plan a worry-free retirement. Compare NPS, LIC pension, and annuity plans with expert guidance to maximize your post-retirement income. Book a free financial review.`,
+        'ulip-plans': `Maximize wealth with ULIP plans combining life cover + market-linked returns. Our advisors benchmark fund performance and switch strategies for you. Free portfolio review.`,
+        'wedding-insurance': `Protect your big day with wedding insurance in India. Coverage for cancellations, vendor no-shows, fire, and accidental damage. Get quotes in minutes.`,
+    };
+
+    const title = titleMap[serviceKey] || `${service.title} Advisor in India | Plans, Claims & Support – Insurance Support`;
+    const description = descriptionMap[serviceKey] || service.description;
+
     return {
         title: {
-            absolute: `${service.title} Advisor in India | Plans, Claims & Support – Insurance Support`
+            absolute: title
         },
-        description: service.description,
+        description: description,
         keywords: [
             service.title,
             `${service.title} Quotes India`,

@@ -19,9 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: {
-            absolute: `Insurance Advisor in ${city.name} – Free Doorstep Service | Insurance Support`
+            absolute: `Top Insurance Advisor in ${city.name} | Expert Claim & Policy Support`
         },
-        description: `Trusted by 5,000+ families in ${city.name}. Expert LIC & health insurance help – claim recovery, policy revival & renewals. 98% success rate. Free doorstep service. Call now!`,
+        description: `Trusted Insurance Advisor in ${city.name} (25+ years experience, 98% success rate). We offer doorstep assistance for LIC revivals, health claims, and comprehensive policy planning. Book your free consultation.`,
         keywords: [
             `Insurance Support ${city.name}`,
             `Insurance Advisor in ${city.name}`,

@@ -6,17 +6,77 @@ import Link from 'next/link';
 import QuoteForm from '@/components/QuoteForm';
 
 export const metadata: Metadata = {
-    title: 'Mr. Hari Kotian | IRDAI Certified Insurance Expert & Claim Specialist',
-    description: 'Learn about Mr. Hari Kotian, a veteran insurance advisor with 25+ years of experience in LIC, health, and motor insurance claim recovery across India.',
-    keywords: ['Hari Kotian Insurance', 'Insurance Expert Bangalore', 'LIC Claim Specialist', 'Certified Insurance Advisor India'],
+    title: 'Hari Kotian | IRDAI Certified Insurance Expert & Claim Specialist',
+    description: 'Meet Hari Kotian, IRDAI-certified insurance advisor with 25+ years of experience and 15,000+ clients served. Specializing in LIC claim recovery, policy revival, and health insurance disputes across India.',
+    keywords: ['Hari Kotian Insurance', 'Insurance Expert Bangalore', 'LIC Claim Specialist', 'Certified Insurance Advisor India', 'IRDAI Advisor India'],
     alternates: {
         canonical: 'https://insurancesupport.online/about-hari-kotian',
     }
 };
 
+const advisorSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    mainEntity: {
+        '@type': 'Person',
+        '@id': 'https://insurancesupport.online/#advisor',
+        name: 'Hari Kotian',
+        givenName: 'Hari',
+        familyName: 'Kotian',
+        jobTitle: 'Certified Insurance Advisor & Claim Recovery Specialist',
+        description: 'IRDAI-certified insurance advisor based in Bangalore with 25+ years of experience, serving over 15,000 clients across India in LIC, health, motor, and life insurance.',
+        url: 'https://insurancesupport.online/about-hari-kotian',
+        telephone: '+919986634506',
+        email: 'contact@insurancesupport.online',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: 'Bangalore',
+            addressRegion: 'Karnataka',
+            addressCountry: 'IN'
+        },
+        worksFor: {
+            '@type': 'Organization',
+            '@id': 'https://insurancesupport.online/#organization',
+            name: 'Insurance Support',
+            url: 'https://insurancesupport.online'
+        },
+        hasCredential: {
+            '@type': 'EducationalOccupationalCredential',
+            credentialCategory: 'Certification',
+            name: 'IRDAI Insurance Advisor License',
+            recognizedBy: {
+                '@type': 'Organization',
+                name: 'Insurance Regulatory and Development Authority of India'
+            }
+        },
+        knowsAbout: [
+            'Life Insurance',
+            'Health Insurance',
+            'Motor Insurance',
+            'Term Insurance',
+            'LIC Policy Revival',
+            'Death Claim Settlement',
+            'Pension Plans',
+            'Insurance Claim Recovery',
+            'IRDAI Grievance Escalation',
+            'Policy Bond Recovery'
+        ],
+        sameAs: [
+            'https://www.instagram.com/insurancesupport',
+            'https://insurancesupport.online/about-hari-kotian'
+        ]
+    }
+};
+
+
+
 const ExpertProfilePage = () => {
     return (
         <div className="bg-slate-50 min-h-screen">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(advisorSchema) }}
+            />
             <div className="container mx-auto px-4 py-16">
                 <div className="flex flex-col lg:flex-row gap-12">
                     {/* Left Column: Bio */}

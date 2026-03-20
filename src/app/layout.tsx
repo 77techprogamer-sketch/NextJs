@@ -17,7 +17,7 @@ import { GlobalJsonLd } from '@/components/ServerJsonLd'
 import DynamicKeywordLinks from '@/components/DynamicKeywordLinks'
 const ShareNudge = dynamic(() => import('@/components/ShareNudge'), { ssr: false });
 const ActivityTicker = dynamic(() => import('@/components/ActivityTicker'), { ssr: false });
-import WhatsAppWidget from "@/components/WhatsAppWidget";
+const WhatsAppWidget = dynamic(() => import('@/components/WhatsAppWidget'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })

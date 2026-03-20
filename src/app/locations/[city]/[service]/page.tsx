@@ -15,15 +15,28 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!city || !serviceLabel) return {}
 
     const isLicRelated = params.service.includes('lic') || params.service.includes('life');
-    const title = isLicRelated
-        ? `Best ${serviceLabel} in ${city.name} – Free Doorstep Help | Insurance Support`
-        : `${serviceLabel} in ${city.name} – 98% Success, Free Quote | Insurance Support`;
+    const isHealthRelated = params.service.includes('health');
+    const isMotor = params.service.includes('motor');
+    
+    let title = `${serviceLabel} Advisor in ${city.name} | Free Quote & Consult`;
+    let description = `Get expert ${serviceLabel} advice in ${city.name}. 25+ years experience & free doorstep consultation.`;
+    
+    if (isLicRelated) {
+        title = `Best ${serviceLabel} in ${city.name} | Claim Help & Policy Revival`;
+        description = `Trusted by 5,000+ families for ${serviceLabel} in ${city.name}. Expert help with death claims, policy revival, and surrendered policies. Call now!`;
+    } else if (isHealthRelated) {
+        title = `${serviceLabel} Advisor in ${city.name} | Cashless & Claim Support`;
+        description = `Looking for ${serviceLabel} in ${city.name}? Get expert advice, find cashless hospitals, and resolve claim rejections quickly with our 25+ years of experience.`;
+    } else if (isMotor) {
+        title = `${serviceLabel} Agent in ${city.name} | Instant Renewal & Claims`;
+        description = `Quick ${serviceLabel} renewal in ${city.name}. We handle all the paperwork, claims, and ensure you get the best IDV value.`;
+    }
 
     return {
         title: {
             absolute: title
         },
-        description: `5,000+ families trust Insurance Support for ${serviceLabel} in ${city.name}. ✔ 98% claim success ✔ 25+ yrs experience ✔ Free doorstep consultation. Call now!`,
+        description: description,
         keywords: [
             `${serviceLabel} ${city.name}`,
             `Best ${serviceLabel} Advisor in ${city.name}`,
