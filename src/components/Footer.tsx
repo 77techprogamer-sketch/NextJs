@@ -162,7 +162,15 @@ const Footer = () => {
           </div>
           <div className="text-center sm:text-left">
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("headquarters")}</h3>
-            <p className="text-sm mb-6" suppressHydrationWarning>{t("bangalore_office")}</p>
+            <a 
+              href="https://share.google/51GhSReNvheO3MV7t" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-sm mb-6 hover:text-primary hover:underline transition-colors block"
+              suppressHydrationWarning
+            >
+              {t("bangalore_office")}
+            </a>
 
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs text-primary" suppressHydrationWarning>{t('trending_now')}</h3>
             <ul className="space-y-2 text-sm">
@@ -194,10 +202,16 @@ const Footer = () => {
             <span suppressHydrationWarning>{t("excellence")}</span>
           </div>
         </div>
-        <div className="mt-8 text-center sm:text-left">
+        <div className="mt-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-[10px] text-muted-foreground/60 leading-relaxed max-w-4xl mx-auto sm:mx-0">
             <strong>{t('disclaimer_label')}</strong> {t('disclaimer_text')}
           </p>
+          <div className="shrink-0">
+            <a href="https://webmaster.yandex.ru/siteinfo/?site=https://insurancesupport.online" target="_blank" rel="noopener noreferrer" title="Yandex Site Info">
+              {/* @next/next/no-img-element is acceptable for external tracking badges */}
+              <img width={88} height={31} alt="" style={{ border: 0, borderRadius: 8 }} src="https://yandex.ru/cycounter?https://insurancesupport.online&theme=dark&lang=en"/>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

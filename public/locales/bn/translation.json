@@ -61,6 +61,7 @@
   "cashless_hospitalization": "Cashless Hospitalization",
   "cashless_hospitalization_description": "Focus on recovery while we handle the payments at network hospitals.",
   "chat_now": "চ্যাট করুন",
+  "chat_on_whatsapp": "হোয়াটসঅ্যাপে চ্যাট করুন",
   "chat_with_expert": "একজন বিশেষজ্ঞের সাথে চ্যাট করুন",
   "chatbot_24_7": "Available 24/7",
   "check_eligibility_revival": "Check your eligibility for policy revival",
@@ -69,6 +70,7 @@
   "claim_filing_step_1": "Notify your insurer within 24 hours of the incident.",
   "claim_filing_step_2": "Collect all original hospital bills and discharge summaries.",
   "claim_filing_step_3": "Obtain a certified copy of the FIR (for motor or accident claims).",
+  "claim_settlement": "ক্লেইম সেটলমেন্ট",
   "claims_assistance": "Claims Assistance",
   "claims_desc": "Hassle-free recovery and claim settlement support when you need it most.",
   "claims_settled_stat": "নিষ্পত্তিকৃত দাবি",
@@ -116,10 +118,13 @@
   "death_claim_guide_desc": "Step-by-step LIC claim process",
   "destination": "Destination",
   "details": "Details",
+  "disclaimer_label": "দাবিত্যাগ (Disclaimer):",
+  "disclaimer_text": "বীমা একটি অনুরোধের বিষয়। ইনস্যুরেন্স সাপোর্ট একটি পেশাদার উপদেষ্টা সংস্থা যা IRDAI অনুমোদিত বীমা পণ্যগুলির জন্য পরামর্শ প্রদান করে। সমস্ত পলিসি ইস্যু এবং ক্লেইম সেটলমেন্ট সংশ্লিষ্ট বীমা কোম্পানিগুলির শর্তাবলী এবং আন্ডাররাইটিংয়ের অধীনে।",
   "disclosure_of_your_information": "আপনার তথ্যের প্রকাশ",
   "disclosure_of_your_information_description": "আমরা আপনার তথ্য তৃতীয় পক্ষের সাথে ভাগ করে নিতে পারি যারা আমাদের জন্য বা আমাদের পক্ষে পরিষেবা সরবরাহ করে, যার মধ্যে রয়েছে অর্থ প্রক্রিয়াকরণ, ডেটা বিশ্লেষণ, ইমেল ডেলিভারি, হোস্টিং পরিষেবা, গ্রাহক পরিষেবা এবং বিপণন সহায়তা।",
   "dont_item_payout": "We do not issue claim payouts directly",
   "dont_item_underwrite": "We do not sell or underwrite policies",
+  "doorstep_service": "ডোরস্টেপ সার্ভিস",
   "drive_with_confidence": "আত্মবিশ্বাসের সাথে ড্রাইভ করুন যে আপনি সুরক্ষিত",
   "editorial_policy_text": "Our content is authored and reviewed by IRDAI-certified advisors with decades of industry experience. We rely on official documentation from regulatory bodies like IRDAI and LIC to ensure accurate, up-to-date guidance.",
   "editorial_policy_title": "Our Editorial Commitment",
@@ -221,6 +226,7 @@
   "find_answers_to_common_questions": "Find answers to common questions about our services and policies.",
   "find_perfect_coverage": "আপনার অনন্য চাহিদার জন্য নিখুঁত কভারেজ খুঁজুন",
   "footer_description": "Providing strategic insurance advisory and risk management solutions with over 25 years of industry excellence.",
+  "free_consultation": "বিনামূল্যে পরামর্শ",
   "free_risk_assessment": "Free Risk Assessment",
   "free_tools": "বিনামূল্যে টুলস",
   "frequently_asked_questions": "সচরাচর জিজ্ঞাস্য প্রশ্নাবলী",
@@ -269,6 +275,7 @@
   "high_risk": "HIGH RISK",
   "hlv_calculator": "HLV Calculator",
   "hlv_calculator_desc": "Calculate your ideal insurance cover",
+  "hlv_calculator_new": "HLV ক্যালকুলেটর (নতুন)",
   "home_loan": "Home Loan",
   "home_page_meta_description": "বিস্তৃত বীমা সমাধানগুলির জন্য আপনার বিশ্বস্ত অংশীদার। জীবন, স্বাস্থ্য, মোটর, বাড়ি, ভ্রমণ এবং অগ্নি বীমার জন্য বিনামূল্যে উদ্ধৃতি পান। বিশেষজ্ঞদের সাথে চ্যাট করুন।",
   "home_page_title": "বীমা সমর্থন",
@@ -292,6 +299,7 @@
   "insurance_company": "Insurance Company",
   "insurance_support": "ইন্সুরেন্স সাপোর্ট",
   "insurance_support_contact": "যোগাযোগ: হরি কোটিয়ান | 9986634506",
+  "insurance_support_guide": "ইনস্যুরেন্স সাপোর্ট গাইড",
   "intellectual_property": "বৌদ্ধিক संपदा",
   "intellectual_property_description": "এই ওয়েবসাইটের সমস্ত সামগ্রী, যার মধ্যে রয়েছে পাঠ্য, গ্রাফিক্স, লোগো, চিত্র এবং সফ্টওয়্যার অন্তর্ভুক্ত, বীমা সমর্থন বা এর সামগ্রী সরবরাহকারীদের সম্পত্তি এবং আন্তর্জাতিক কপিরাইট আইন দ্বারা সুরক্ষিত।",
   "interactive_tools_desc": "Engage with our pro tools to evaluate your risk or recover your lost investments instantly.",
@@ -300,6 +308,7 @@
   "investment_growth": "Investment Growth",
   "investment_growth_description": "Opportunity to earn high returns through market-linked funds.",
   "irdai_advisory": "IRDAI Certified Advisory",
+  "irdai_certified_advisors": "IRDAI প্রত্যয়িত উপদেষ্টা",
   "island_recovery_desc": "Is there a hidden policy in your family archives? Let us help you find and reclaim it.",
   "island_recovery_title": "Lost Policy Recovery",
   "island_risk_desc": "Test your financial immunity and find the gaps in your family protection plan.",
@@ -343,6 +352,51 @@
   "loans_hero_description": "From home and personal loans to business financing, we provide tailored solutions with competitive interest rates and quick approvals.",
   "loans_hero_title": "Smart Loans for Your Every Need",
   "loans_offered": "Loans & Financial Services",
+  "location_page": {
+    "breadcrumb_home": "হোম (Home)",
+    "best_support_in": "সেরা <0>{{service}} সহায়তা</0> - {{city}}",
+    "secure_future_fallback": "{{city}}-এ সবচেয়ে নির্ভরযোগ্য {{service}} পরিকল্পনার সাথে আপনার ভবিষ্যৎ সুরক্ষিত করুন।",
+    "doorstep_service_note": "আপনি {{area1}} বা {{area2}}-এ যেখানেই থাকুন না কেন, আমাদের বিশেষজ্ঞ উপদেষ্টারা আপনার দোরগোড়ায় ব্যক্তিগত সহায়তা প্রদান করবেন।",
+    "why_choose_title": "{{city}}-এ {{service}}-এর জন্য কেন ইনস্যুরেন্স সাপোর্ট বেছে নেবেন?",
+    "specialist_title": "{{service}} বিশেষজ্ঞ",
+    "regional_presence_title": "আঞ্চলিক উপস্থিতি",
+    "regional_presence_desc": "<0>{{area1}}</0>, <1>{{area2}}</1> এবং পুরো {{city}} মেট্রোপলিটন অঞ্চলে সরাসরি ডোরস্টেপ পরিষেবা উপলব্ধ। আমাদের উপদেষ্টারা স্থানীয় {{state}} ইনস্যুরেন্স পরিস্থিতি বোঝেন।",
+    "fast_processing_title": "দ্রুত স্থানীয় প্রসেসিং",
+    "fast_processing_desc": "{{city}}-এ বেশিরভাগ {{service}} নথি আমাদের নিবেদিত স্থানীয় সমন্বয়কারীর মাধ্যমে ২৪-৪৮ ঘণ্টার মধ্যে প্রসেস করা হয়।",
+    "trusted_families_title": "১৫ হাজারেরও বেশি পরিবারের বিশ্বস্ত",
+    "trusted_families_desc": "আমাদের {{state}} আঞ্চলিক অফিসের ৯৮% ক্লেইম সেটলমেন্ট রেশিও রয়েছে, যা নিশ্চিত করে যে {{city}}-এর বাসিন্দারা কোনো মানসিক চাপ ছাড়াই তাদের ক্লেইম সেটল করতে পারেন।",
+    "local_advisory_hub_title": "{{city}} স্থানীয় বিশেষজ্ঞ কেন্দ্র",
+    "local_advisory_hub_desc": "{{city}}-এ একটি নির্ভরযোগ্য <0>{{service}} এজেন্ট</0> খুঁজছেন? আমাদের দল {{state}}-নির্দিষ্ট ইনস্যুরেন্স নিয়মে বিশেষজ্ঞ এবং স্থানীয় পরিস্থিতি সম্পর্কে গভীর ধারণা রাখে, যা {{areas}}-এর মতো এলাকায় আপনার সেরা ক্লেইম সাপোর্ট পাওয়া নিশ্চিত করে।",
+    "support_services_title": "{{city}}-এ আমাদের {{service}} সহায়তা পরিষেবা",
+    "service_list": {
+      "new_policy": "{{city}}-এ নতুন {{service}} পলিসি ইস্যু",
+      "renewal": "বিদ্যমান {{service}} পলিসি নবায়ন",
+      "lapsed_revival": "মেয়াদোত্তীর্ণ পলিসি পুনরুজ্জীবন (Revival) সাপোর্ট",
+      "claim_assistance": "ক্লেইম ইনটিমেশন এবং সেটলমেন্ট সহায়তা",
+      "portability": "{{city}}-এর বাসিন্দাদের জন্য পোর্টেবিলিটি সুবিধা",
+      "nominee_updates": "স্থানীয় মনোনীত ব্যক্তি (Nominee) এবং ঠিকানা আপডেট"
+    },
+    "other_services_in_city": "{{city}}-এ অন্যান্য পরিষেবা",
+    "other_service_advisor": "{{city}}-এ {{service}} উপদেষ্টা",
+    "service_in_nearby_cities": "নিকটস্থ শহরগুলিতে {{service}}",
+    "nearby_service_advisor": "{{city}}-এ {{service}} উপদেষ্টা",
+    "serving_every_corner": "{{city}}-এর প্রতিটি কোণায় আমাদের সেবা",
+    "serving_every_corner_desc": "{{area1}} থেকে {{areaLast}} পর্যন্ত, আমাদের নিবেদিত দল নিশ্চিত করে যে আপনার ইনস্যুরেন্স প্রয়োজনের জন্য আপনাকে কোথাও ভ্রমণ করতে হবে না। আমরা {{areas}} এবং পার্শ্ববর্তী অঞ্চলে {{service}}-এর জন্য স্থানীয় সহায়তা প্রদান করি।",
+    "helpful_guides": "সহায়ক {{service}} নির্দেশিকা",
+    "rejected_case_recovery": "বাতিল ক্লেইম রিকভারি",
+    "rejected_case_recovery_desc": "শিখুন কীভাবে আমরা {{city}}-এর বাসিন্দাদের বাতিল করা ইনস্যুরেন্স ক্লেইম ফিরে পেতে সাহায্য করি।",
+    "duplicate_policy_guide": "ডুপ্লিকেট পলিসি গাইড",
+    "duplicate_policy_guide_desc": "ঝামেলা ছাড়াই {{city}}-এ ডুপ্লিকেট LIC পলিসি পাওয়ার উপায়।",
+    "call_advisor_in_city": "{{city}}-এ উপদেষ্টাকে কল করুন",
+    "whatsapp_support": "হোয়াটসঅ্যাপ সাপোর্ট",
+    "nearby_centers": "নিকটস্থ ইনস্যুরেন্স সাপোর্ট সেন্টার",
+    "request_quote_title": "{{service}} কোটেশনের জন্য আবেদন করুন",
+    "request_quote_subtitle": "{{city}}-এর বাসিন্দাদের জন্য যাচাইকৃত সহায়তা।",
+    "service_hours": "সেবার সময়",
+    "mon_sat": "সোম - শনি:",
+    "sundays": "রবিবার:",
+    "on_appointment": "অ্যাপয়েন্টমেন্ট অনুযায়ী"
+  },
   "lost_completely": "Lost completely",
   "lost_policy_recovery": "Lost Policy Recovery",
   "lost_policy_recovery_desc": "Find details of lost insurance policies",
@@ -502,6 +556,40 @@
   "service_not_found_meta_description": "অনুরোধ করা বীমা পরিষেবা পৃষ্ঠা বীমা সমর্থনে খুঁজে পাওয়া যায়নি।",
   "service_not_found_page_title": "পরিষেবা খুঁজে পাওয়া যায়নি - বীমা সমর্থন",
   "service_quote_cta": "এই পরিষেবাতে আগ্রহী? একটি ব্যক্তিগতকৃত উদ্ধৃতি পেতে আমাদের দ্রুত ফর্মটি পূরণ করুন।",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "জীবন বীমা শুধু সুরক্ষার জন্য নয়; এটি আপনার উত্তরাধিকার। আমাদের উপদেষ্টারা আপনাকে জটিল ক্লেইম সেটলমেন্ট প্রক্রিয়া এবং পলিসি রিভাইভালে সহায়তা করে যাতে আপনার পরিবারের আর্থিক স্থিতিশীলতা বজায় থাকে।",
+      "highlights": [
+        "ক্লেইম রিকভারি বিশেষজ্ঞ",
+        "পলিসি রিভাইভাল সাপোর্ট",
+        "ডোরস্টেপ ডকুমেন্ট সাহায্য"
+      ]
+    },
+    "health-insurance": {
+      "description": "ক্যাশলেস হসপিটালাইজেশন, পলিসি কভারেজ এবং ঝামেলাহীন ক্লেইম প্রসেসিং সহ বিশ্বমানের স্বাস্থ্যসেবা নিশ্চিত করুন আপনার পুরো পরিবারের জন্য।",
+      "highlights": [
+        "ক্যাশলেস নেটওয়ার্ক সুবিধা",
+        "নো-ক্লেইম বোনাস স্পষ্টতা",
+        "দ্রুত প্রি-অথ সাপোর্ট"
+      ]
+    },
+    "motor-insurance": {
+      "description": "থার্ড-পার্টি লায়াবিলিটি থেকে কম্প্রিহেনসিভ কভারেজ পর্যন্ত, আপনার গাড়ির জন্য সেরা IDV পান এবং সাথে ২৪/৭ রোডসাইড অ্যাসিস্ট্যান্স।",
+      "highlights": [
+        "তাৎক্ষণিক পলিসি ইস্যু",
+        "সর্বোচ্চ IDV নিশ্চয়তা",
+        "জিরো ডেপ কভারেজ"
+      ]
+    },
+    "term-insurance": {
+      "description": "সুরক্ষার সবচেয়ে বিশুদ্ধ রূপ। সাশ্রয়ী প্রিমিয়ামে উচ্চ বিমা কভারেজ নিশ্চিত করুন এবং আপনার মনোনীতদের জন্য ঝামেলাহীন প্রক্রিয়া পান।",
+      "highlights": [
+        "উচ্চ বিমা কভারেজ",
+        "মনোনীত ব্যক্তি সহায়তা",
+        "ট্যাক্স বেনিফিট নির্দেশিকা"
+      ]
+    }
+  },
   "services_data": {
     "cyber-insurance": {
       "content": "In the digital era, cyber threats are a daily reality. From phishing attacks to ransomware, individuals and businesses across India are at constant risk. Cyber Insurance provides a safety net against financial losses caused by cybercrimes.\n\n**Coverage for Individuals:**\n*   **Theft of Funds:** Reimbursement for money stolen via phishing or bank fraud.\n*   **Identity Theft:** Legal costs and expenses to restore your identity.\n*   **Cyber Bullying:** Consultation costs for psychological trauma.\n*   **Device Value:** Data restoration costs if your device is infected by malware.",
@@ -776,6 +864,9 @@
     "submit_button": "বিনামূল্যে উদ্ধৃতি পান",
     "privacy_note": "আপনার তথ্য ১০০% সুরক্ষিত"
   },
+  "show_all": "সব দেখুন ({{count}})",
+  "show_less": "কম দেখুন",
+  "site_map": "সাইট ম্যাপ",
   "sme_insurance": "এসএমই (ফায়ার এবং হোম) বীমা",
   "sme_insurance_benefit": "Safeguard your business assets from fire, theft, and liabilities.",
   "sme_insurance_long_description": "এসএমই (ক্ষুদ্র ও মাঝারি উদ্যোগ) বীমা, যার মধ্যে অগ্নি এবং গৃহ বীমা অন্তর্ভুক্ত, আপনার ব্যবসার সম্পদ এবং সম্পত্তিকে বিভিন্ন ঝুঁকি থেকে রক্ষা করে। অগ্নি বীমা আগুন, বজ্রপাত এবং বিস্ফোরণের কারণে সৃষ্ট ক্ষতি কভার করে, যখন গৃহ বীমা আপনার আবাসিক সম্পত্তি এবং এর বিষয়বস্তু রক্ষা করে। এই নীতিগুলি ব্যবসার ধারাবাহিকতা এবং ব্যক্তিগত সম্পদ সুরক্ষার জন্য অত্যাবশ্যক।",
@@ -877,6 +968,7 @@
   "travel_insurance_meta_description": "বীমা সমর্থন থেকে ব্যাপক ভ্রমণ বীমার সাথে মনের শান্তি নিয়ে ভ্রমণ করুন। চিকিৎসা জরুরি অবস্থা, ভ্রমণ বাতিল এবং হারানো লাগেজের জন্য কভারেজ।",
   "travel_insurance_page_title": "ভ্রমণ বীমা - চিন্তামুক্ত অন্বেষণ করুন | বীমা সমর্থন",
   "travel_start_date": "Travel Start Date",
+  "trending_now": "ট্রেন্ডিং",
   "trip_cancellation": "Trip Cancellation",
   "trip_cancellation_description": "Reimbursement for non-refundable trip costs due to emergencies.",
   "trip_duration_days": "Trip Duration (Days)",
@@ -912,11 +1004,13 @@
   "vehicle_loan": "Vehicle Loan",
   "vehicle_number": "Vehicle Number",
   "vehicle_type": "Vehicle Type",
+  "verified_advisor": "ভেরিফাইড উপদেষ্টা",
   "verified_advisor_active": "Verified Advisor Active",
   "verified_client": "Verified Client",
   "verified_expert_callback": "Request a Verified Expert Callback",
   "veteran_advantage": "অভিজ্ঞতার সুবিধা",
   "veteran_lead_team": "A Team led by Veterans",
+  "view_all_locations": "সব ৩০+ লোকেশন দেখুন",
   "view_all_services": "সব পরিষেবা দেখুন",
   "view_map": "ম্যাপ দেখুন",
   "visit_us": "আমাদের পরিদর্শন করুন",
@@ -934,13 +1028,16 @@
   "wedding_insurance_page_title": "বিবাহ এবং হানিমুন বীমা - আপনার বিশেষ দিন রক্ষা করুন | বীমা সমর্থন",
   "what_we_dont_do": "What We Don't Do",
   "what_we_help_with": "What We Help With",
+  "whatsapp_support": "হোয়াটসঅ্যাপ সাপোর্ট",
   "whatsapp_us": "আমাদের হোয়াটসঅ্যাপ করুন",
+  "whatsapp_widget_hook": "Need help with a rejected claim? Chat with us!",
   "which_insurance_company": "Which Insurance Company?",
   "who_needs_coverage": "Who needs coverage?",
   "why_choose_us": "আমাদের কেন বেছে নিন?",
   "why_use_service": "Why use our service?",
   "wife": "স্ত্রী",
   "worldwide": "Worldwide",
+  "xml_sitemap": "XML সাইটম্যাপ",
   "years_experience": "25+ বছরের অভিজ্ঞতা",
   "years_lapse_question": "Approximately how many years ago did it lapse?",
   "years_since_lapse_label": "Years Since Lapse",
@@ -949,101 +1046,5 @@
   "yes_have_it": "Yes, I have it",
   "your_full_name": "আপনার পূর্ণ নাম",
   "your_gender": "আপনার লিঙ্গ",
-  "your_risk_score": "Your Risk Score",
-  "service_seo_content": {
-    "life-insurance": {
-      "description": "জীবন বীমা শুধু সুরক্ষার জন্য নয়; এটি আপনার উত্তরাধিকার। আমাদের উপদেষ্টারা আপনাকে জটিল ক্লেইম সেটলমেন্ট প্রক্রিয়া এবং পলিসি রিভাইভালে সহায়তা করে যাতে আপনার পরিবারের আর্থিক স্থিতিশীলতা বজায় থাকে।",
-      "highlights": [
-        "ক্লেইম রিকভারি বিশেষজ্ঞ",
-        "পলিসি রিভাইভাল সাপোর্ট",
-        "ডোরস্টেপ ডকুমেন্ট সাহায্য"
-      ]
-    },
-    "health-insurance": {
-      "description": "ক্যাশলেস হসপিটালাইজেশন, পলিসি কভারেজ এবং ঝামেলাহীন ক্লেইম প্রসেসিং সহ বিশ্বমানের স্বাস্থ্যসেবা নিশ্চিত করুন আপনার পুরো পরিবারের জন্য।",
-      "highlights": [
-        "ক্যাশলেস নেটওয়ার্ক সুবিধা",
-        "নো-ক্লেইম বোনাস স্পষ্টতা",
-        "দ্রুত প্রি-অথ সাপোর্ট"
-      ]
-    },
-    "motor-insurance": {
-      "description": "থার্ড-পার্টি লায়াবিলিটি থেকে কম্প্রিহেনসিভ কভারেজ পর্যন্ত, আপনার গাড়ির জন্য সেরা IDV পান এবং সাথে ২৪/৭ রোডসাইড অ্যাসিস্ট্যান্স।",
-      "highlights": [
-        "তাৎক্ষণিক পলিসি ইস্যু",
-        "সর্বোচ্চ IDV নিশ্চয়তা",
-        "জিরো ডেপ কভারেজ"
-      ]
-    },
-    "term-insurance": {
-      "description": "সুরক্ষার সবচেয়ে বিশুদ্ধ রূপ। সাশ্রয়ী প্রিমিয়ামে উচ্চ বিমা কভারেজ নিশ্চিত করুন এবং আপনার মনোনীতদের জন্য ঝামেলাহীন প্রক্রিয়া পান।",
-      "highlights": [
-        "উচ্চ বিমা কভারেজ",
-        "মনোনীত ব্যক্তি সহায়তা",
-        "ট্যাক্স বেনিফিট নির্দেশিকা"
-      ]
-    }
-  },
-  "whatsapp_support": "হোয়াটসঅ্যাপ সাপোর্ট",
-  "verified_advisor": "ভেরিফাইড উপদেষ্টা",
-  "claim_settlement": "ক্লেইম সেটলমেন্ট",
-  "doorstep_service": "ডোরস্টেপ সার্ভিস",
-  "free_consultation": "বিনামূল্যে পরামর্শ",
-  "location_page": {
-    "breadcrumb_home": "হোম (Home)",
-    "best_support_in": "সেরা <0>{{service}} সহায়তা</0> - {{city}}",
-    "secure_future_fallback": "{{city}}-এ সবচেয়ে নির্ভরযোগ্য {{service}} পরিকল্পনার সাথে আপনার ভবিষ্যৎ সুরক্ষিত করুন।",
-    "doorstep_service_note": "আপনি {{area1}} বা {{area2}}-এ যেখানেই থাকুন না কেন, আমাদের বিশেষজ্ঞ উপদেষ্টারা আপনার দোরগোড়ায় ব্যক্তিগত সহায়তা প্রদান করবেন।",
-    "why_choose_title": "{{city}}-এ {{service}}-এর জন্য কেন ইনস্যুরেন্স সাপোর্ট বেছে নেবেন?",
-    "specialist_title": "{{service}} বিশেষজ্ঞ",
-    "regional_presence_title": "আঞ্চলিক উপস্থিতি",
-    "regional_presence_desc": "<0>{{area1}}</0>, <1>{{area2}}</1> এবং পুরো {{city}} মেট্রোপলিটন অঞ্চলে সরাসরি ডোরস্টেপ পরিষেবা উপলব্ধ। আমাদের উপদেষ্টারা স্থানীয় {{state}} ইনস্যুরেন্স পরিস্থিতি বোঝেন।",
-    "fast_processing_title": "দ্রুত স্থানীয় প্রসেসিং",
-    "fast_processing_desc": "{{city}}-এ বেশিরভাগ {{service}} নথি আমাদের নিবেদিত স্থানীয় সমন্বয়কারীর মাধ্যমে ২৪-৪৮ ঘণ্টার মধ্যে প্রসেস করা হয়।",
-    "trusted_families_title": "১৫ হাজারেরও বেশি পরিবারের বিশ্বস্ত",
-    "trusted_families_desc": "আমাদের {{state}} আঞ্চলিক অফিসের ৯৮% ক্লেইম সেটলমেন্ট রেশিও রয়েছে, যা নিশ্চিত করে যে {{city}}-এর বাসিন্দারা কোনো মানসিক চাপ ছাড়াই তাদের ক্লেইম সেটল করতে পারেন।",
-    "local_advisory_hub_title": "{{city}} স্থানীয় বিশেষজ্ঞ কেন্দ্র",
-    "local_advisory_hub_desc": "{{city}}-এ একটি নির্ভরযোগ্য <0>{{service}} এজেন্ট</0> খুঁজছেন? আমাদের দল {{state}}-নির্দিষ্ট ইনস্যুরেন্স নিয়মে বিশেষজ্ঞ এবং স্থানীয় পরিস্থিতি সম্পর্কে গভীর ধারণা রাখে, যা {{areas}}-এর মতো এলাকায় আপনার সেরা ক্লেইম সাপোর্ট পাওয়া নিশ্চিত করে।",
-    "support_services_title": "{{city}}-এ আমাদের {{service}} সহায়তা পরিষেবা",
-    "service_list": {
-      "new_policy": "{{city}}-এ নতুন {{service}} পলিসি ইস্যু",
-      "renewal": "বিদ্যমান {{service}} পলিসি নবায়ন",
-      "lapsed_revival": "মেয়াদোত্তীর্ণ পলিসি পুনরুজ্জীবন (Revival) সাপোর্ট",
-      "claim_assistance": "ক্লেইম ইনটিমেশন এবং সেটলমেন্ট সহায়তা",
-      "portability": "{{city}}-এর বাসিন্দাদের জন্য পোর্টেবিলিটি সুবিধা",
-      "nominee_updates": "স্থানীয় মনোনীত ব্যক্তি (Nominee) এবং ঠিকানা আপডেট"
-    },
-    "other_services_in_city": "{{city}}-এ অন্যান্য পরিষেবা",
-    "other_service_advisor": "{{city}}-এ {{service}} উপদেষ্টা",
-    "service_in_nearby_cities": "নিকটস্থ শহরগুলিতে {{service}}",
-    "nearby_service_advisor": "{{city}}-এ {{service}} উপদেষ্টা",
-    "serving_every_corner": "{{city}}-এর প্রতিটি কোণায় আমাদের সেবা",
-    "serving_every_corner_desc": "{{area1}} থেকে {{areaLast}} পর্যন্ত, আমাদের নিবেদিত দল নিশ্চিত করে যে আপনার ইনস্যুরেন্স প্রয়োজনের জন্য আপনাকে কোথাও ভ্রমণ করতে হবে না। আমরা {{areas}} এবং পার্শ্ববর্তী অঞ্চলে {{service}}-এর জন্য স্থানীয় সহায়তা প্রদান করি।",
-    "helpful_guides": "সহায়ক {{service}} নির্দেশিকা",
-    "rejected_case_recovery": "বাতিল ক্লেইম রিকভারি",
-    "rejected_case_recovery_desc": "শিখুন কীভাবে আমরা {{city}}-এর বাসিন্দাদের বাতিল করা ইনস্যুরেন্স ক্লেইম ফিরে পেতে সাহায্য করি।",
-    "duplicate_policy_guide": "ডুপ্লিকেট পলিসি গাইড",
-    "duplicate_policy_guide_desc": "ঝামেলা ছাড়াই {{city}}-এ ডুপ্লিকেট LIC পলিসি পাওয়ার উপায়।",
-    "call_advisor_in_city": "{{city}}-এ উপদেষ্টাকে কল করুন",
-    "whatsapp_support": "হোয়াটসঅ্যাপ সাপোর্ট",
-    "nearby_centers": "নিকটস্থ ইনস্যুরেন্স সাপোর্ট সেন্টার",
-    "request_quote_title": "{{service}} কোটেশনের জন্য আবেদন করুন",
-    "request_quote_subtitle": "{{city}}-এর বাসিন্দাদের জন্য যাচাইকৃত সহায়তা।",
-    "service_hours": "সেবার সময়",
-    "mon_sat": "সোম - শনি:",
-    "sundays": "রবিবার:",
-    "on_appointment": "অ্যাপয়েন্টমেন্ট অনুযায়ী"
-  },
-  "show_less": "কম দেখুন",
-  "show_all": "সব দেখুন ({{count}})",
-  "hlv_calculator_new": "HLV ক্যালকুলেটর (নতুন)",
-  "insurance_support_guide": "ইনস্যুরেন্স সাপোর্ট গাইড",
-  "view_all_locations": "সব ৩০+ লোকেশন দেখুন",
-  "trending_now": "ট্রেন্ডিং",
-  "site_map": "সাইট ম্যাপ",
-  "xml_sitemap": "XML সাইটম্যাপ",
-  "irdai_certified_advisors": "IRDAI প্রত্যয়িত উপদেষ্টা",
-  "disclaimer_label": "দাবিত্যাগ (Disclaimer):",
-  "disclaimer_text": "বীমা একটি অনুরোধের বিষয়। ইনস্যুরেন্স সাপোর্ট একটি পেশাদার উপদেষ্টা সংস্থা যা IRDAI অনুমোদিত বীমা পণ্যগুলির জন্য পরামর্শ প্রদান করে। সমস্ত পলিসি ইস্যু এবং ক্লেইম সেটলমেন্ট সংশ্লিষ্ট বীমা কোম্পানিগুলির শর্তাবলী এবং আন্ডাররাইটিংয়ের অধীনে।",
-  "chat_on_whatsapp": "হোয়াটসঅ্যাপে চ্যাট করুন"
+  "your_risk_score": "Your Risk Score"
 }

@@ -502,6 +502,16 @@
   "service_not_found_meta_description": "ವಿನಂತಿಸಿದ ವಿಮಾ ಸೇವಾ ಪುಟ ವಿಮಾ ಬೆಂಬಲದಲ್ಲಿ ಕಂಡುಬಂದಿಲ್ಲ.",
   "service_not_found_page_title": "ಸೇವೆ ಕಂಡುಬಂದಿಲ್ಲ - ವಿಮಾ ಬೆಂಬಲ",
   "service_quote_cta": "ಈ ಸೇವೆಯಲ್ಲಿ ಆಸಕ್ತಿ ಇದೆಯೇ? ವೈಯಕ್ತಿಕ ಉದ್ಧರಣಿಯನ್ನು ಪಡೆಯಲು ನಮ್ಮ ತ್ವರಿತ ಫಾರ್ಮ್ ಅನ್ನು ಭರ್ತಿ ಮಾಡಿ.",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
+      "highlights": [
+        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
+        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
+        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
+      ]
+    }
+  },
   "services_data": {
     "1_3_years": "1 - 3 ವರ್ಷಗಳು",
     "3_10_years": "3 - 10 ವರ್ಷಗಳು",
@@ -888,6 +898,7 @@
   "vehicle_loan": "ವಾಹನ ಸಾಲ",
   "vehicle_number": "ವಾಹನ ಸಂಖ್ಯೆ",
   "vehicle_type": "ವಾಹನದ ಪ್ರಕಾರ",
+  "verified_advisor": "ಪರಿಶೀಲಿಸಿದ ಸಲಹೆಗಾರ",
   "verified_advisor_active": "ಪರಿಶೀಲಿಸಿದ ಸಲಹೆಗಾರರು ಸಕ್ರಿಯರಾಗಿದ್ದಾರೆ",
   "verified_client": "ಪರಿಶೀಲಿಸಿದ ಗ್ರಾಹಕ",
   "verified_expert_callback": "ಪರಿಶೀಲಿಸಿದ ತಜ್ಞರ ಕಾಲ್‌ಬ್ಯಾಕ್ ವಿನಂತಿಸಿ",
@@ -911,6 +922,7 @@
   "what_we_dont_do": "What We Don't Do",
   "what_we_help_with": "What We Help With",
   "whatsapp_us": "ನಮಗೆ ವಾಟ್ಸಾಪ್ ಮಾಡಿ",
+  "whatsapp_widget_hook": "Need help with a rejected claim? Chat with us!",
   "which_insurance_company": "Which Insurance Company?",
   "who_needs_coverage": "ಯಾರಿಗೆ ಕವರೇಜ್ ಅಗತ್ಯವಿದೆ?",
   "why_choose_us": "ನಮ್ಮನ್ನು ಏಕೆ ಆಯ್ಕೆ ಮಾಡಬೇಕು?",
@@ -925,16 +937,5 @@
   "yes_have_it": "Yes, I have it",
   "your_full_name": "ನಿಮ್ಮ ಪೂರ್ಣ ಹೆಸರು",
   "your_gender": "ನಿಮ್ಮ ಲಿಂಗ",
-  "your_risk_score": "Your Risk Score",
-  "verified_advisor": "ಪರಿಶೀಲಿಸಿದ ಸಲಹೆಗಾರ",
-  "service_seo_content": {
-    "life-insurance": {
-      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
-      "highlights": [
-        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
-        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
-        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
-      ]
-    }
-  }
+  "your_risk_score": "Your Risk Score"
 }

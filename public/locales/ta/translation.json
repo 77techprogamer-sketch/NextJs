@@ -502,6 +502,16 @@
   "service_not_found_meta_description": "கோரப்பட்ட காப்பீட்டு சேவை பக்கம் காப்பீட்டு ஆதரவில் கிடைக்கவில்லை.",
   "service_not_found_page_title": "சேவை கிடைக்கவில்லை - காப்பீட்டு ஆதரவு",
   "service_quote_cta": "இந்த சேவையில் ஆர்வமா? தனிப்பயனாக்கப்பட்ட விலை கோர எங்கள் விரைவான படிவத்தை நிரப்பவும்.",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
+      "highlights": [
+        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
+        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
+        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
+      ]
+    }
+  },
   "services_data": {
     "cyber": {
       "benefits": [
@@ -836,6 +846,7 @@
   "what_we_dont_do": "What We Don't Do",
   "what_we_help_with": "What We Help With",
   "whatsapp_us": "எங்களுக்கு வாட்ஸ்ஆப் செய்யுங்கள்",
+  "whatsapp_widget_hook": "Need help with a rejected claim? Chat with us!",
   "which_insurance_company": "எந்த காப்பீட்டு நிறுவனம்?",
   "who_needs_coverage": "யாருக்கு பாதுகாப்பு தேவை?",
   "why_choose_us": "ஏன் நம்மை தேர்வு செய்வது?",
@@ -850,15 +861,5 @@
   "yes_have_it": "ஆம், என்னிடம் உள்ளது",
   "your_full_name": "உங்கள் முழு பெயர்",
   "your_gender": "உங்கள் பாலினம்",
-  "your_risk_score": "Your Risk Score",
-  "service_seo_content": {
-    "life-insurance": {
-      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
-      "highlights": [
-        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
-        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
-        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
-      ]
-    }
-  }
+  "your_risk_score": "Your Risk Score"
 }

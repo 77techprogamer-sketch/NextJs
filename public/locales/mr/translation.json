@@ -61,6 +61,7 @@
   "cashless_hospitalization": "Cashless Hospitalization",
   "cashless_hospitalization_description": "Focus on recovery while we handle the payments at network hospitals.",
   "chat_now": "चॅट करा",
+  "chat_on_whatsapp": "व्हॉट्सॲपवर चॅट करा",
   "chat_with_expert": "एका तज्ज्ञाशी चॅट करा",
   "chatbot_24_7": "24/7 उपलब्ध",
   "check_eligibility_revival": "पॉलिसी पुनरुज्जीवनासाठी तुमची पात्रता तपासा",
@@ -116,6 +117,8 @@
   "death_claim_guide_desc": "स्टेप-बाय-स्टेप LIC दावा प्रक्रिया",
   "destination": "गंतव्यस्थान",
   "details": "तपशील",
+  "disclaimer_label": "अस्वीकरण:",
+  "disclaimer_text": "विमा हा विनंतीचा विषय आहे. इन्शुरन्स सपोर्ट ही एक व्यावसायिक सल्लागार संस्था आहे जी IRDAI मंजूर विमा उत्पादनांसाठी सल्ला प्रदान करते. सर्व पॉलिसी जारी करणे आणि दाव्यांचे सेटलमेंट संबंधित विमा कंपन्यांच्या अटी आणि शर्तींच्या अधीन आहे।",
   "disclosure_of_your_information": "आपल्या माहितीचे प्रकटीकरण",
   "disclosure_of_your_information_description": "आम्ही आपली माहिती त्या तृतीय पक्षांशी सामायिक करू शकतो जे आमच्यासाठी किंवा आमच्या तर्फे सेवा प्रदान करतात, ज्यामध्ये पेमेंट प्रक्रिया, डेटा विश्लेषण, ईमेल वितरण, होस्टिंग सेवा, ग्राहक सेवा आणि विपणन सहाय्य यांचा समावेश आहे.",
   "dont_item_payout": "We do not issue claim payouts directly",
@@ -300,6 +303,7 @@
   "investment_growth": "Investment Growth",
   "investment_growth_description": "Opportunity to earn high returns through market-linked funds.",
   "irdai_advisory": "IRDAI प्रमाणित सल्लागार",
+  "irdai_certified_advisors": "IRDAI प्रमाणित सल्लागार",
   "island_recovery_desc": "Is there a hidden policy in your family archives? Let us help you find and reclaim it.",
   "island_recovery_title": "Lost Policy Recovery",
   "island_risk_desc": "Test your financial immunity and find the gaps in your family protection plan.",
@@ -356,6 +360,37 @@
   "loans_hero_description": "होम आणि पर्सनल लोनपासून ते बिझनेस फायनान्सपर्यंत, आम्ही स्पर्धात्मक व्याजदर आणि जलद मंजुरीसह तयार उपाय प्रदान करतो.",
   "loans_hero_title": "तुमच्या प्रत्येक गरजेसाठी स्मार्ट कर्जे",
   "loans_offered": "कर्ज आणि आर्थिक सेवा",
+  "location_page": {
+    "breadcrumb_home": "होम",
+    "best_support_in": "{{city}} मधील सर्वोत्तम <0>{{service}} मदत</0>",
+    "secure_future_fallback": "{{city}} मधील सर्वात विश्वसनीय {{service}} योजनांसह आपले भविष्य सुरक्षित करा।",
+    "doorstep_service_note": "तुम्ही {{area1}} किंवा {{area2}} मध्ये कुठेही असाल, आमचे तज्ञ सल्लागार तुमच्या दारापर्यंत वैयक्तिक मदत देतात।",
+    "why_choose_title": "{{city}} मध्ये {{service}} साठी इन्शुरन्स सपोर्ट का निवडावा?",
+    "specialist_title": "{{service}} तज्ञ",
+    "regional_presence_title": "प्रादेशिक उपस्थिती",
+    "regional_presence_desc": "<0>{{area1}}</0>, <1>{{area2}}</1> आणि पूर्ण {{city}} महानगर क्षेत्रात थेट डोरस्टेप सेवा उपलब्ध आहे। आमचे सल्लागार स्थानिक {{state}} विमा परिस्थिती समजून घेतात।",
+    "fast_processing_title": "जलद स्थानिक प्रक्रिया",
+    "fast_processing_desc": "{{city}} मधील बहुतेक {{service}} दस्तऐवज आमच्या समर्पित स्थानिक समन्वयकासह 24-48 तासांच्या आत पूर्ण केले जातात।",
+    "trusted_families_title": "15 हजार कुटुंबांचा विश्वास",
+    "trusted_families_desc": "आमच्या {{state}} प्रादेशिक कार्यालयात 98% क्लेम सेटलमेंट गुणोत्तर आहे, ज्यामुळे {{city}} मधील रहिवाशांना ताणमुक्त क्लेम मिळण्याची खात्री मिळते।",
+    "local_advisory_hub_title": "{{city}} स्थानिक सल्ला केंद्र",
+    "local_advisory_hub_desc": "{{city}} मध्ये विश्वसनीय <0>{{service}} एजंट</0> शोधत आहात? आमची टीम {{state}}-विशिष्ट विमा नियमांमध्ये तज्ञ आहे आणि स्थानिक परिस्थितीची सखोल समज आहे, ज्यामुळे तुम्हाला {{areas}} सारख्या भागात सर्वोत्तम क्लेम मदत मिळेल।",
+    "support_services_title": "{{city}} मधील आमची {{service}} मदत सेवा",
+    "service_list": {
+      "new_policy": "{{city}} मध्ये नवीन {{service}} पॉलिसी",
+      "renewal": "विद्यमान {{service}} पॉलिसी नूतनीकरण",
+      "lapsed_revival": "लॅप्स पॉलिसी पुनरुज्जीवन मदत",
+      "claim_assistance": "क्लेम माहिती आणि सेटलमेंट मदत",
+      "portability": "{{city}} रहिवाशांसाठी पोर्टेबिलिटी",
+      "nominee_updates": "स्थानिक नॉमिनी आणि पत्ता अपडेट"
+    },
+    "other_services_in_city": "{{city}} मधील इतर सेवा",
+    "service_in_nearby_cities": "जवळील शहरांमध्ये {{service}}",
+    "serving_every_corner": "{{city}} च्या प्रत्येक कोपऱ्यात सेवा",
+    "helpful_guides": "उपयुक्त {{service}} मार्गदर्शक",
+    "call_advisor_in_city": "{{city}} मधील सल्लागाराला कॉल करा",
+    "whatsapp_support": "व्हाट्सॲप सपोर्ट"
+  },
   "lost_completely": "पूर्णपणे हरवले आहे",
   "lost_policy_recovery": "हरवलेली पॉलिसी रिकव्हरी",
   "lost_policy_recovery_desc": "हरवलेल्या विमा पॉलिसींचे तपशील शोधा",
@@ -515,6 +550,24 @@
   "service_not_found_meta_description": "विनंती केलेले विमा सेवा पृष्ठ विमा समर्थनावर सापडले नाही.",
   "service_not_found_page_title": "सेवा सापडली नाही - विमा समर्थन",
   "service_quote_cta": "या सेवेत स्वारस्य आहे? वैयक्तिकृत कोटेशन मिळवण्यासाठी आमचा त्वरित फॉर्म भरा.",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "जीवन विमा फक्त संरक्षणासाठी नाही; हे वारशाबद्दल आहे. आमचे सल्लागार तुम्हाला जटिल दावा सेटलमेंट प्रक्रिया आणि पॉलिसी पुनरुज्जीवनामध्ये मदत करतात.",
+      "highlights": [
+        "क्लेम रिकव्हरी तज्ञ",
+        "पॉलिसी पुनरुज्जीवन समर्थन",
+        "डोरस्टेप डॉक्युमेंट मदत"
+      ]
+    },
+    "health-insurance": {
+      "description": "कॅशलेस हॉस्पिटलायझेशन, आधीपासून असलेल्या आजारांचे कव्हरेज आणि आपल्या संपूर्ण कुटुंबासाठी त्रासमुक्त क्लेम प्रोसेसिंगसह जागतिक दर्जाची आरोग्यसेवा सुरक्षित करा.",
+      "highlights": [
+        "कॅशलेस नेटवर्क पार्क्स",
+        "नो-क्लेम बोनस क्लिअरिटी",
+        "फास्ट प्री-ऑथ सपोर्ट"
+      ]
+    }
+  },
   "services_data": {
     "cyber_insurance": {
       "description": "आजच्या डिजिटल जगात ऑनलाइन फसवणूक आणि हॅकिंगचे प्रमाण वाढले आहे. सायबर विमा तुम्हाला आर्थिक तोटा आणि कायदेशीर वादांपासून वाचवतो.",
@@ -731,6 +784,9 @@
     "submit_button": "मोफत कोट मिळवा",
     "privacy_note": "तुमचा डेटा १००% सुरक्षित आहे"
   },
+  "show_all": "सर्व दाखवा ({{count}})",
+  "show_less": "कमी दाखवा",
+  "site_map": "साइट मॅप",
   "sme_insurance": "એસએમई (अग्नी आणि घर) विमा",
   "sme_insurance_benefit": "आपल्या व्यवसायाची मालमत्ता आग, चोरी आणि दायित्वापासून सुरक्षित करा.",
   "sme_insurance_long_description": "एसएमई (लघु आणि मध्यम उद्योग) विमा, ज्यात अग्नि आणि गृह विमा समाविष्ट आहे, आपल्या व्यावसायिक मालमत्ता आणि मालमत्तेला विविध जोखमींपासून वाचवतो. अग्नि विमा आग, वीज आणि स्फोटांमुळे होणारे नुकसान कव्हर करतो, तर गृह विमा आपली निवासी मालमत्ता आणि त्यातील सामग्रीचे संरक्षण करतो. या धोरणे व्यावसायिक सातत्य आणि वैयक्तिक मालमत्ता संरक्षणासाठी महत्त्वपूर्ण आहेत.",
@@ -832,6 +888,7 @@
   "travel_insurance_meta_description": "विमा समर्थनाकडून व्यापक प्रवास विमासह मनःशांतीने प्रवास करा. वैद्यकीय आपत्कालीन परिस्थिती, प्रवास रद्द करणे आणि हरवलेल्या सामानासाठी कव्हरेज.",
   "travel_insurance_page_title": "प्रवास विमा - चिंतामुक्तपणे प्रवास करा | विमा समर्थन",
   "travel_start_date": "प्रवास सुरू होण्याची तारीख",
+  "trending_now": "आता ट्रेंडिंग",
   "trip_cancellation": "Trip Cancellation",
   "trip_cancellation_description": "Reimbursement for non-refundable trip costs due to emergencies.",
   "trip_duration_days": "प्रवासाचा कालावधी (दिवस)",
@@ -867,11 +924,13 @@
   "vehicle_loan": "वाहन कर्ज",
   "vehicle_number": "वाहन क्रमांक",
   "vehicle_type": "वाहन प्रकार",
+  "verified_advisor": "व्हेरिफाईड सल्लागार",
   "verified_advisor_active": "सत्यापित सल्लागार सक्रिय",
   "verified_client": "Verified Client",
   "verified_expert_callback": "सत्यापित तज्ञ कॉल-बॅकची विनंती करा",
   "veteran_advantage": "अनुभवी फायदा",
   "veteran_lead_team": "A Team led by Veterans",
+  "view_all_locations": "सर्व ३०+ ठिकाणे पहा",
   "view_all_services": "सर्व सेवा पहा",
   "view_map": "नकाशा पहा",
   "visit_us": "आमच्याकडे भेट द्या",
@@ -889,13 +948,16 @@
   "wedding_insurance_page_title": "विवाह आणि हनीमून विमा - आपला विशेष दिवस सुरक्षित करा | विमा समर्थन",
   "what_we_dont_do": "What We Don't Do",
   "what_we_help_with": "What We Help With",
+  "whatsapp_support": "व्हॉट्सॲप सपोर्ट",
   "whatsapp_us": "आम्हाला व्हॉट्सॲप करा",
+  "whatsapp_widget_hook": "Need help with a rejected claim? Chat with us!",
   "which_insurance_company": "कोणती विमा कंपनी?",
   "who_needs_coverage": "कोणाला कव्हरेज हवे आहे?",
   "why_choose_us": "आम्हाला का निवडायचे?",
   "why_use_service": "आमची सेवा का वापरावी?",
   "wife": "पत्नी",
   "worldwide": "जगभर",
+  "xml_sitemap": "XML साइटमॅप",
   "years_experience": "25+ वर्षांचा अनुभव",
   "years_lapse_question": "साधारण किती वर्षांपूर्वी ती लॅप्स झाली?",
   "years_since_lapse_label": "लॅप्स झाल्यापासूनची वर्षे",
@@ -904,66 +966,5 @@
   "yes_have_it": "होय, माझ्याकडे आहे",
   "your_full_name": "तुमचे पूर्ण नाव",
   "your_gender": "तुमचे लिंग",
-  "your_risk_score": "तुमचा जोखीम स्कोअर",
-  "whatsapp_support": "व्हॉट्सॲप सपोर्ट",
-  "verified_advisor": "व्हेरिफाईड सल्लागार",
-  "service_seo_content": {
-    "life-insurance": {
-      "description": "जीवन विमा फक्त संरक्षणासाठी नाही; हे वारशाबद्दल आहे. आमचे सल्लागार तुम्हाला जटिल दावा सेटलमेंट प्रक्रिया आणि पॉलिसी पुनरुज्जीवनामध्ये मदत करतात.",
-      "highlights": [
-        "क्लेम रिकव्हरी तज्ञ",
-        "पॉलिसी पुनरुज्जीवन समर्थन",
-        "डोरस्टेप डॉक्युमेंट मदत"
-      ]
-    },
-    "health-insurance": {
-      "description": "कॅशलेस हॉस्पिटलायझेशन, आधीपासून असलेल्या आजारांचे कव्हरेज आणि आपल्या संपूर्ण कुटुंबासाठी त्रासमुक्त क्लेम प्रोसेसिंगसह जागतिक दर्जाची आरोग्यसेवा सुरक्षित करा.",
-      "highlights": [
-        "कॅशलेस नेटवर्क पार्क्स",
-        "नो-क्लेम बोनस क्लिअरिटी",
-        "फास्ट प्री-ऑथ सपोर्ट"
-      ]
-    }
-  },
-  "location_page": {
-    "breadcrumb_home": "होम",
-    "best_support_in": "{{city}} मधील सर्वोत्तम <0>{{service}} मदत</0>",
-    "secure_future_fallback": "{{city}} मधील सर्वात विश्वसनीय {{service}} योजनांसह आपले भविष्य सुरक्षित करा।",
-    "doorstep_service_note": "तुम्ही {{area1}} किंवा {{area2}} मध्ये कुठेही असाल, आमचे तज्ञ सल्लागार तुमच्या दारापर्यंत वैयक्तिक मदत देतात।",
-    "why_choose_title": "{{city}} मध्ये {{service}} साठी इन्शुरन्स सपोर्ट का निवडावा?",
-    "specialist_title": "{{service}} तज्ञ",
-    "regional_presence_title": "प्रादेशिक उपस्थिती",
-    "regional_presence_desc": "<0>{{area1}}</0>, <1>{{area2}}</1> आणि पूर्ण {{city}} महानगर क्षेत्रात थेट डोरस्टेप सेवा उपलब्ध आहे। आमचे सल्लागार स्थानिक {{state}} विमा परिस्थिती समजून घेतात।",
-    "fast_processing_title": "जलद स्थानिक प्रक्रिया",
-    "fast_processing_desc": "{{city}} मधील बहुतेक {{service}} दस्तऐवज आमच्या समर्पित स्थानिक समन्वयकासह 24-48 तासांच्या आत पूर्ण केले जातात।",
-    "trusted_families_title": "15 हजार कुटुंबांचा विश्वास",
-    "trusted_families_desc": "आमच्या {{state}} प्रादेशिक कार्यालयात 98% क्लेम सेटलमेंट गुणोत्तर आहे, ज्यामुळे {{city}} मधील रहिवाशांना ताणमुक्त क्लेम मिळण्याची खात्री मिळते।",
-    "local_advisory_hub_title": "{{city}} स्थानिक सल्ला केंद्र",
-    "local_advisory_hub_desc": "{{city}} मध्ये विश्वसनीय <0>{{service}} एजंट</0> शोधत आहात? आमची टीम {{state}}-विशिष्ट विमा नियमांमध्ये तज्ञ आहे आणि स्थानिक परिस्थितीची सखोल समज आहे, ज्यामुळे तुम्हाला {{areas}} सारख्या भागात सर्वोत्तम क्लेम मदत मिळेल।",
-    "support_services_title": "{{city}} मधील आमची {{service}} मदत सेवा",
-    "service_list": {
-      "new_policy": "{{city}} मध्ये नवीन {{service}} पॉलिसी",
-      "renewal": "विद्यमान {{service}} पॉलिसी नूतनीकरण",
-      "lapsed_revival": "लॅप्स पॉलिसी पुनरुज्जीवन मदत",
-      "claim_assistance": "क्लेम माहिती आणि सेटलमेंट मदत",
-      "portability": "{{city}} रहिवाशांसाठी पोर्टेबिलिटी",
-      "nominee_updates": "स्थानिक नॉमिनी आणि पत्ता अपडेट"
-    },
-    "other_services_in_city": "{{city}} मधील इतर सेवा",
-    "service_in_nearby_cities": "जवळील शहरांमध्ये {{service}}",
-    "serving_every_corner": "{{city}} च्या प्रत्येक कोपऱ्यात सेवा",
-    "helpful_guides": "उपयुक्त {{service}} मार्गदर्शक",
-    "call_advisor_in_city": "{{city}} मधील सल्लागाराला कॉल करा",
-    "whatsapp_support": "व्हाट्सॲप सपोर्ट"
-  },
-  "show_less": "कमी दाखवा",
-  "show_all": "सर्व दाखवा ({{count}})",
-  "chat_on_whatsapp": "व्हॉट्सॲपवर चॅट करा",
-  "disclaimer_label": "अस्वीकरण:",
-  "disclaimer_text": "विमा हा विनंतीचा विषय आहे. इन्शुरन्स सपोर्ट ही एक व्यावसायिक सल्लागार संस्था आहे जी IRDAI मंजूर विमा उत्पादनांसाठी सल्ला प्रदान करते. सर्व पॉलिसी जारी करणे आणि दाव्यांचे सेटलमेंट संबंधित विमा कंपन्यांच्या अटी आणि शर्तींच्या अधीन आहे।",
-  "view_all_locations": "सर्व ३०+ ठिकाणे पहा",
-  "trending_now": "आता ट्रेंडिंग",
-  "site_map": "साइट मॅप",
-  "xml_sitemap": "XML साइटमॅप",
-  "irdai_certified_advisors": "IRDAI प्रमाणित सल्लागार"
+  "your_risk_score": "तुमचा जोखीम स्कोअर"
 }

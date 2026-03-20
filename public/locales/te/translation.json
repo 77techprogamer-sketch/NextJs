@@ -502,6 +502,16 @@
   "service_not_found_meta_description": "అభ్యర్థించిన బీమా సేవ పేజీ బీమా మద్దతులో కనబడలేదు.",
   "service_not_found_page_title": "సేవ కనబడలేదు - బీమా మద్దతు",
   "service_quote_cta": "ఈ సేవలో ఆసక్తి ఉందా? వ్యక్తిగత కోట్ పొందడానికి మా త్వరిత ఫారమ్‌ను పూరించండి.",
+  "service_seo_content": {
+    "life-insurance": {
+      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
+      "highlights": [
+        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
+        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
+        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
+      ]
+    }
+  },
   "services_data": {
     "cyber": {
       "benefits": [
@@ -836,6 +846,7 @@
   "what_we_dont_do": "What We Don't Do",
   "what_we_help_with": "What We Help With",
   "whatsapp_us": "మమల్ని వాట్సాప్ చేయండి",
+  "whatsapp_widget_hook": "Need help with a rejected claim? Chat with us!",
   "which_insurance_company": "ఏ భీమా కంపెనీ?",
   "who_needs_coverage": "ఎవరికి కవరేజీ కావాలి?",
   "why_choose_us": "మమల్ని ఎందుకు ఎంచుకోవాలి?",
@@ -850,15 +861,5 @@
   "yes_have_it": "అవును, నా దగ్గర ఉంది",
   "your_full_name": "మీ పూర్తి పేరు",
   "your_gender": "మీ లింగం",
-  "your_risk_score": "Your Risk Score",
-  "service_seo_content": {
-    "life-insurance": {
-      "description": "ಜೀವ ವಿಮೆ ಕೇವಲ ರಕ್ಷಣೆಯಲ್ಲ; ಇದು ಪರಂಪರೆಯ ಬಗ್ಗೆ. ನಮ್ಮ ಸಲಹೆಗಾರರು ಜಟಿಲವಾದ ಕ್ಲೈಮ್ ಸೆಟಲ್ಮೆಂಟ್ ಪ್ರಕ್ರಿಯೆಗಳಿಗೆ ಸಹಾಯ ಮಾಡುತ್ತಾರೆ.",
-      "highlights": [
-        "ಕ್ಲೈಮ್ ರಿಕವರಿ ತಜ್ಞರು",
-        "ಪಾಲಿಸಿ ಪುನಶ್ಚೇತನ ಬೆಂಬಲ",
-        "ಡೋರ್‌ಸ್ಟೆಪ್ ಡಾಕ್ಯುಮೆಂಟ್ ಸಹಾಯ"
-      ]
-    }
-  }
+  "your_risk_score": "Your Risk Score"
 }
