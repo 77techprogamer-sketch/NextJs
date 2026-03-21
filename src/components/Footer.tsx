@@ -117,6 +117,9 @@ const Footer = () => {
               <li><Link href="/tools/human-life-value-calculator" className="hover:text-primary transition-colors font-semibold text-primary" suppressHydrationWarning>{t('hlv_calculator_new')}</Link></li>
               <li><Link href="/resources/insurance-support-guide" className="hover:text-primary transition-colors font-bold text-accent" suppressHydrationWarning>{t('insurance_support_guide')}</Link></li>
               <li><Link href="/resources" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("resources")}</Link></li>
+              <li><Link href="/resources/how-it-works" className="hover:text-primary transition-colors text-slate-500" suppressHydrationWarning>How It Works</Link></li>
+              <li><Link href="/resources/veteran-advantage" className="hover:text-primary transition-colors text-slate-500" suppressHydrationWarning>Veteran Advantage</Link></li>
+              <li><Link href="/resources/faq" className="hover:text-primary transition-colors text-slate-500" suppressHydrationWarning>Detailed FAQs</Link></li>
               <li><Link href="/about" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("about_us")}</Link></li>
               <li><Link href="/support" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("support")}</Link></li>
               <li><Link href="/get-started" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("get_quote")}</Link></li>

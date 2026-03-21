@@ -59,6 +59,15 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescriptio
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
     const [initialFormData, setInitialFormData] = useState<any>(null);
+    const [showMoreMobile, setShowMoreMobile] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         // Force i18n initialization if needed
@@ -132,48 +141,63 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescriptio
 
             <BlogSection />
 
-            <ToolIslands />
-
-            <LoansSection onGetQuote={handleGetQuote} />
-
-            <WhyChooseUsSection />
-
             <ServiceAreasSection />
 
             <FAQSection />
 
             <ContactSection />
 
-            {/* Customer Testimonials Section */}
-            <React.Suspense fallback={
-                <section className="py-12 sm:py-16 bg-white dark:bg-gray-800">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-12 sm:mb-16 space-y-4">
-                            <Skeleton className="h-8 w-64 mx-auto" />
-                            <Skeleton className="h-1 w-24 mx-auto rounded-full" />
-                            <Skeleton className="h-4 w-full max-w-2xl mx-auto" />
+            {(!isMobile || showMoreMobile) && (
+                <>
+                    <ToolIslands />
+
+                    <LoansSection onGetQuote={handleGetQuote} />
+
+                    <WhyChooseUsSection />
+
+                    {/* Customer Testimonials Section */}
+                    <React.Suspense fallback={
+                        <section className="py-12 sm:py-16 bg-white dark:bg-gray-800">
+                            <div className="container mx-auto px-4">
+                                <div className="text-center mb-12 sm:mb-16 space-y-4">
+                                    <Skeleton className="h-8 w-64 mx-auto" />
+                                    <Skeleton className="h-1 w-24 mx-auto rounded-full" />
+                                    <Skeleton className="h-4 w-full max-w-2xl mx-auto" />
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                    {[...Array(6)].map((_, i) => (
+                                        <Card key={i} className="h-64 bg-slate-50 dark:bg-gray-900 border-none shadow-lg">
+                                            <CardContent className="p-6 space-y-4">
+                                                <Skeleton className="h-4 w-24 mb-4" />
+                                                <Skeleton className="h-20 w-full" />
+                                                <div className="pt-4 border-t border-slate-200 dark:border-gray-700">
+                                                    <Skeleton className="h-4 w-32 mb-2" />
+                                                    <Skeleton className="h-3 w-20" />
+                                                </div>
+                                            </CardContent>
+                                        </Card>
+                                    ))}
+                                </div>
+                            </div>
+                        </section>
+                    }>
+                        <div id="testimonials">
+                            <Testimonials />
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                            {[...Array(6)].map((_, i) => (
-                                <Card key={i} className="h-64 bg-slate-50 dark:bg-gray-900 border-none shadow-lg">
-                                    <CardContent className="p-6 space-y-4">
-                                        <Skeleton className="h-4 w-24 mb-4" />
-                                        <Skeleton className="h-20 w-full" />
-                                        <div className="pt-4 border-t border-slate-200 dark:border-gray-700">
-                                            <Skeleton className="h-4 w-32 mb-2" />
-                                            <Skeleton className="h-3 w-20" />
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            }>
-                <div id="testimonials">
-                    <Testimonials />
+                    </React.Suspense>
+                </>
+            )}
+
+            {isMobile && !showMoreMobile && (
+                <div className="flex justify-center py-8">
+                    <button 
+                        onClick={() => setShowMoreMobile(true)}
+                        className="px-6 py-3 bg-primary text-white font-medium rounded-lg shadow-md hover:bg-primary/90 transition-colors"
+                    >
+                        {t('show_more', 'Show More')}
+                    </button>
                 </div>
-            </React.Suspense>
+            )}
 
 
             <React.Suspense fallback={null}>

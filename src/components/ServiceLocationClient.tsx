@@ -233,6 +233,26 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel 
                     </div>
                 </div>
 
+                {/* Extended Content Sections (SEO 1500+ words guides) */}
+                {city.longContent && (
+                    <div className="mb-12 space-y-10">
+                        {city.longContent.map((section: any, idx: number) => (
+                            <section key={idx} className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-8">
+                                <h2 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">
+                                    {section.title}
+                                </h2>
+                                <div className="space-y-4">
+                                    {section.paragraphs.map((para: string, pIdx: number) => (
+                                        <p key={pIdx} className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
+                                            {para}
+                                        </p>
+                                    ))}
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+                )}
+
                 <div className="mb-12">
                     <AuthorBio />
                 </div>

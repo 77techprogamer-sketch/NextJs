@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Globe, Check, ArrowRight, LogOut } from 'lucide-react';
 import { useUserLocation } from '@/hooks/useUserLocation';
 import { usePathname } from 'next/navigation';
 
@@ -52,9 +51,8 @@ const REGION_TO_LANG: Record<string, string> = {
     'Gujarat': 'gu',
     'Kerala': 'ml',
     'Punjab': 'pa',
-    'Odisha': 'bn', // Closest available if Oriya not present
-    'Assam': 'bn',   // Closest available
-    // Hindi Belt
+    'Odisha': 'bn',
+    'Assam': 'bn',
     'Delhi': 'hi',
     'Uttar Pradesh': 'hi',
     'Madhya Pradesh': 'hi',
@@ -67,331 +65,93 @@ const REGION_TO_LANG: Record<string, string> = {
     'Uttarakhand': 'hi',
 };
 
-// Language configurations with native names and greetings
-const LANGUAGES = [
-    { code: 'en', name: 'English', native: 'English', greeting: 'Welcome' },
-    { code: 'hi', name: 'Hindi', native: 'हिंदी', greeting: 'स्वागत है' },
-    { code: 'kn', name: 'Kannada', native: 'ಕನ್ನಡ', greeting: 'ಸ್ವಾಗತ' },
-    { code: 'ta', name: 'Tamil', native: 'தமிழ்', greeting: 'வரவேற்கிறோம்' },
-    { code: 'te', name: 'Telugu', native: 'తెలుగు', greeting: 'స్వాగతం' },
-    { code: 'mr', name: 'Marathi', native: 'मराठी', greeting: 'स्वागत आहे' },
-    { code: 'bn', name: 'Bengali', native: 'বাংলা', greeting: 'স্বাগতম' },
-    { code: 'gu', name: 'Gujarati', native: 'ગુજરાતી', greeting: 'સ્વાગત છે' },
-    { code: 'ml', name: 'Malayalam', native: 'മലയാളം', greeting: 'സ്വാഗതം' },
-    { code: 'pa', name: 'Punjabi', native: 'ਪੰਜਾਬੀ', greeting: 'ਜੀ ਆਇਆਂ ਨੂੰ' },
-];
-
-type FlowState = 'LOADING' | 'LANGUAGE_SELECT' | 'NATIVE_CHECK' | 'DISMISSED';
-
 const SmartLanguageSelector = () => {
     const { i18n } = useTranslation();
-    const [flowState, setFlowState] = useState<FlowState>('LOADING');
-    const [suggestedLang, setSuggestedLang] = useState('en');
-    const [isAnimating, setIsAnimating] = useState(false);
-    const [mounted, setMounted] = useState(false);
-
-    // Use the unified location hook
-    const { city, region, country_code, loading: locationLoading, error: locationError } = useUserLocation();
-    const [isLocationProcessed, setIsLocationProcessed] = useState(false);
-    const [detectedRegionName, setDetectedRegionName] = useState('');
+    const { city, region, country_code, loading: locationLoading } = useUserLocation();
     const pathname = usePathname();
+    const [isProcessed, setIsProcessed] = useState(false);
 
     useEffect(() => {
-        setMounted(true);
-    }, []);
+        if (isProcessed) return;
 
-    useEffect(() => {
-        // Prevent re-processing
-        if (isLocationProcessed) return;
-
-        const checkAndPromptLanguage = async () => {
-            // Check if already prompted (Session constrained)
-            const hasPrompted = sessionStorage.getItem('language_prompt_shown');
-            if (hasPrompted) {
-                setFlowState('DISMISSED');
+        const setLanguage = () => {
+            const hasSetLanguage = sessionStorage.getItem('language_auto_set');
+            if (hasSetLanguage) {
+                setIsProcessed(true);
                 return;
             }
 
-            // 1. URL-based detection (Priority)
+            // 1. URL-based detection
             if (pathname?.startsWith('/locations/')) {
                 const urlCitySlug = pathname.split('/locations/')[1]?.split('/')[0];
                 if (urlCitySlug) {
                     const normalizedUrlCity = urlCitySlug.replace(/-/g, ' ').toLowerCase().trim();
-
-                    // Check City Map
                     const cityMatch = Object.keys(CITY_TO_LANG).find(key =>
                         key.toLowerCase() === normalizedUrlCity ||
                         normalizedUrlCity.includes(key.toLowerCase())
                     );
 
                     if (cityMatch) {
-                        const langCode = CITY_TO_LANG[cityMatch];
-                        console.log(`URL Location Match: ${cityMatch} -> ${langCode}`);
-
-                        setSuggestedLang(langCode);
-                        setDetectedRegionName(cityMatch);
-                        setFlowState('LANGUAGE_SELECT');
-                        setIsRefAnimating(true);
-                        setIsLocationProcessed(true);
-                        return; // Stop here, use URL source
+                        i18n.changeLanguage(CITY_TO_LANG[cityMatch]);
+                        sessionStorage.setItem('language_auto_set', 'true');
+                        setIsProcessed(true);
+                        return;
                     }
                 }
             }
 
-            // 2. Fallback to IP Geolocation
-            // Wait for location to load
+            // 2. IP Geolocation Fallback
             if (locationLoading) return;
 
             try {
-                // Use data from hook
-                console.log('Geolocation detected:', { city, region, country_code });
-
-                // Handle International Users
                 if (country_code && country_code !== 'IN') {
-                    setFlowState('NATIVE_CHECK');
-                    setIsAnimating(true);
-                    setIsLocationProcessed(true);
+                    // English default for international
+                    i18n.changeLanguage('en');
+                    sessionStorage.setItem('language_auto_set', 'true');
+                    setIsProcessed(true);
                     return;
                 }
 
-                // Handle Domestic Users
-                let suggestedLangCode = null;
                 const normalizedCity = (city || '').toLowerCase().trim();
                 const normalizedRegion = (region || '').toLowerCase().trim();
 
-                // Check City First (More specific & Case Insensitive)
+                let newLang = 'en'; // default
+                
                 const cityMatch = Object.keys(CITY_TO_LANG).find(key =>
                     key.toLowerCase() === normalizedCity ||
                     normalizedCity.includes(key.toLowerCase())
                 );
 
                 if (cityMatch) {
-                    suggestedLangCode = CITY_TO_LANG[cityMatch];
-                    console.log(`Matched City: ${cityMatch} -> ${suggestedLangCode}`);
-                }
-                // Fallback to Region (Case Insensitive)
-                else {
+                    newLang = CITY_TO_LANG[cityMatch];
+                } else {
                     const regionMatch = Object.keys(REGION_TO_LANG).find(key =>
                         key.toLowerCase() === normalizedRegion ||
                         normalizedRegion.includes(key.toLowerCase())
                     );
-
                     if (regionMatch) {
-                        suggestedLangCode = REGION_TO_LANG[regionMatch];
-                        console.log(`Matched Region: ${regionMatch} -> ${suggestedLangCode}`);
+                        newLang = REGION_TO_LANG[regionMatch];
                     }
                 }
 
-                if (suggestedLangCode) {
-                    setSuggestedLang(suggestedLangCode);
+                if (newLang !== 'en') {
+                   i18n.changeLanguage(newLang);
                 }
-
-                if (city || region) {
-                    setDetectedRegionName(city || region || '');
-                }
-
-                setFlowState('LANGUAGE_SELECT');
-                setIsRefAnimating(true);
-                setIsLocationProcessed(true);
+                
+                sessionStorage.setItem('language_auto_set', 'true');
+                setIsProcessed(true);
 
             } catch (error) {
-                console.error('Language detection processing failed:', error);
-                // On error, show language selection anyway
-                setFlowState('LANGUAGE_SELECT');
-                setIsAnimating(true);
-                setIsLocationProcessed(true);
+                console.error('Language auto-detection failed:', error);
+                setIsProcessed(true);
             }
         };
 
-        checkAndPromptLanguage();
-    }, [locationLoading, city, region, country_code, isLocationProcessed, pathname]);
+        setLanguage();
+    }, [locationLoading, city, region, country_code, isProcessed, pathname, i18n]);
 
-    const setIsRefAnimating = (val: boolean) => {
-        setIsAnimating(val);
-    }
-
-    const selectLanguage = (langCode: string) => {
-        i18n.changeLanguage(langCode);
-        dismiss();
-    };
-
-    const dismiss = () => {
-        sessionStorage.setItem('language_prompt_shown', 'true');
-        setIsAnimating(false);
-        setTimeout(() => setFlowState('DISMISSED'), 300);
-    };
-
-    const handleNativeConfirm = (isNative: boolean) => {
-        if (isNative) {
-            setFlowState('LANGUAGE_SELECT');
-        } else {
-            window.location.href = 'https://www.google.com';
-        }
-    };
-
-    // Get suggestion details
-    const suggestedLangData = LANGUAGES.find(l => l.code === suggestedLang) || LANGUAGES[0];
-
-    // Prevent hydration mismatch by not rendering until mounted
-    if (!mounted) return null;
-
-    if (flowState === 'DISMISSED' || flowState === 'LOADING') {
-        return null;
-    }
-
-    return (
-        <div
-            className={`fixed inset-0 z-[500] flex items-center justify-center p-4 transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'
-                }`}
-            style={{
-                background: 'linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%)',
-            }}
-        >
-            {/* Decorative background elements */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
-            </div>
-
-            {/* Main Content Card */}
-            <div
-                className={`relative w-full max-w-2xl bg-white/10 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl p-8 md:p-10 transition-all duration-500 ${isAnimating ? 'translate-y-0 scale-100' : 'translate-y-8 scale-95'
-                    }`}
-            >
-                {/* International User Check */}
-                {flowState === 'NATIVE_CHECK' && (
-                    <div className="text-center">
-                        <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                            <Globe className="w-8 h-8 text-white" />
-                        </div>
-
-                        <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                            Welcome to Insurance Support
-                        </h2>
-                        <p className="text-white/70 mb-8">
-                            We detected you are visiting from outside India.<br />
-                            <span className="font-medium text-white/90">Are you a native of India?</span>
-                        </p>
-
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button
-                                onClick={() => handleNativeConfirm(false)}
-                                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl border border-white/20 text-white/80 hover:bg-white/10 transition-all"
-                            >
-                                <LogOut className="w-4 h-4" />
-                                No, I am not
-                            </button>
-                            <button
-                                onClick={() => handleNativeConfirm(true)}
-                                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-500 text-white font-medium hover:from-blue-500 hover:to-blue-400 transition-all shadow-lg"
-                            >
-                                Yes, I am an Indian Native
-                                <ArrowRight className="w-4 h-4" />
-                            </button>
-                        </div>
-                    </div>
-                )}
-
-                {/* Language Selection */}
-                {flowState === 'LANGUAGE_SELECT' && (
-                    <>
-                        {/* Header */}
-                        <div className="text-center mb-8">
-                            <div className="w-16 h-16 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                                <Globe className="w-8 h-8 text-white" />
-                            </div>
-
-                            <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                                {suggestedLangData.greeting} / Welcome
-                            </h2>
-
-                            {detectedRegionName && (
-                                <p className="text-white/70 text-sm">
-                                    We see you&apos;re from <span className="text-blue-300 font-medium">{detectedRegionName}</span>
-                                </p>
-                            )}
-
-                            <p className="text-white/60 text-sm mt-2">
-                                Choose your preferred language
-                            </p>
-                        </div>
-
-                        {/* Language Grid */}
-                        {/* Language Grid */}
-                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6 max-w-3xl mx-auto">
-                            {(() => {
-                                const targetCodes: string[] = ['en', 'hi'];
-                                if (suggestedLang && !targetCodes.includes(suggestedLang)) {
-                                    targetCodes.push(suggestedLang);
-                                } else {
-                                    // If suggested is already 'en' or 'hi', add a 3rd local language to keep the grid consistent
-                                    // We'll pick Marathi (mr) or Kannada (kn) or Bengali (bn) as high-value fallbacks for India
-                                    const fallback = ['kn', 'mr', 'bn', 'ta'].find(c => !targetCodes.includes(c));
-                                    if (fallback) targetCodes.push(fallback);
-                                }
-
-                                const displayLanguages = targetCodes
-                                    .map(code => LANGUAGES.find(l => l.code === code))
-                                    .filter((l): l is typeof LANGUAGES[0] => !!l);
-
-                                return displayLanguages.map((lang) => {
-                                    const isSuggested = lang.code === suggestedLang;
-                                    const isSelected = lang.code === i18n.language;
-
-                                    return (
-                                        <button
-                                            key={lang.code}
-                                            onClick={() => selectLanguage(lang.code)}
-                                            className={`relative group p-4 rounded-xl border transition-all duration-200 text-center ${isSuggested
-                                                ? 'bg-gradient-to-br from-blue-600/40 to-purple-600/40 border-blue-400/50 ring-2 ring-blue-400/30'
-                                                : 'bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20'
-                                                }`}
-                                        >
-                                            {isSuggested && (
-                                                <span className="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 text-[10px] font-medium bg-blue-500 text-white rounded-full">
-                                                    Suggested
-                                                </span>
-                                            )}
-
-                                            <div className="text-lg font-bold text-white mb-1">
-                                                {lang.native}
-                                            </div>
-                                            <div className="text-xs text-white/60">
-                                                {lang.name}
-                                            </div>
-
-                                            {isSelected && (
-                                                <div className="absolute top-2 right-2">
-                                                    <Check className="w-4 h-4 text-green-400" />
-                                                </div>
-                                            )}
-                                        </button>
-                                    );
-                                });
-                            })()}
-                        </div>
-
-                        {/* Skip option */}
-                        <div className="text-center">
-                            <button
-                                onClick={dismiss}
-                                className="text-white/50 hover:text-white/80 text-sm transition-colors"
-                            >
-                                Skip and continue in English
-                            </button>
-                        </div>
-                    </>
-                )}
-            </div>
-
-            {/* Brand Footer */}
-            <div className="absolute bottom-6 left-0 right-0 text-center">
-                <p className="text-white/30 text-xs">
-                    Insurance Support • Your Trusted Partner
-                </p>
-            </div>
-        </div>
-    );
+    // This component is now invisible
+    return null;
 };
 
 export default SmartLanguageSelector;

@@ -18,6 +18,7 @@ import DynamicKeywordLinks from '@/components/DynamicKeywordLinks'
 const ShareNudge = dynamic(() => import('@/components/ShareNudge'), { ssr: false });
 const ActivityTicker = dynamic(() => import('@/components/ActivityTicker'), { ssr: false });
 const WhatsAppWidget = dynamic(() => import('@/components/WhatsAppWidget'), { ssr: false });
+import DelayedLoader from '@/components/DelayedLoader';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -204,16 +205,18 @@ export default function RootLayout({
                             <DynamicKeywordLinks />
 
                             <Footer />
-                            <QuickDialSidebar />
-                            <React.Suspense fallback={null}>
-                                <ChatbotWidget />
-                            </React.Suspense>
-                            <ShareNudge />
-                            <ActivityTicker />
+                            <DelayedLoader>
+                                <QuickDialSidebar />
+                                <React.Suspense fallback={null}>
+                                    <ChatbotWidget />
+                                </React.Suspense>
+                                <ShareNudge />
+                                <ActivityTicker />
+                                <FloatingToolDock />
+                                <GlobalForms />
+                                <WhatsAppWidget />
+                            </DelayedLoader>
                             <Toaster />
-                            <FloatingToolDock />
-                            <GlobalForms />
-                            <WhatsAppWidget />
                         </div>
                     </I18nProvider>
                 </ThemeProvider>
