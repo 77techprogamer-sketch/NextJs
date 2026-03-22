@@ -102,6 +102,90 @@ export const cityData: Record<string, CityData> = {
             }
         ]
     },
+    'bangalore-indiranagar': {
+        name: 'Indiranagar, Bangalore',
+        slug: 'bangalore-indiranagar',
+        state: 'Karnataka',
+        areas: ['HAL 2nd Stage', 'Domlur', 'Tippasandra', 'Doopanahalli'],
+        description: "In the bustling heart of Indiranagar, Bangalore, we provide premium localized Insurance Support. From health covers tailored for startup founders to doorstep LIC policy revivals for long-time residents, our team near 100 Feet Road ensures you skip the traffic and get expert advice at your home or office.",
+        phone: "+91-9986634506",
+        coordinates: [12.9784, 77.6408],
+        nearbyCities: ['bangalore', 'bangalore-koramangala', 'bangalore-whitefield'],
+        hubContent: {
+            itProfessionalFocus: "Indiranagar is a startup hub. We specialize in configuring Group Health Insurance for growing teams and portable individual policies for mobile founders.",
+            seniorCitizenFocus: "For the established residents of HAL 2nd Stage and Domlur, we offer personalized pension revivals and doorstep assistance for medical claims without navigating 100FT Road traffic.",
+            localBranchDetails: "We coordinate with the Jeevan Bima Nagar and Domlur LIC branches to expedite your paperwork locally.",
+            localFaqs: [
+                {
+                    q: "Do you service the entire Indiranagar area including Domlur?",
+                    a: "Yes, our advisors provide guaranteed doorstep service across all stages of Indiranagar, Domlur, and Tippasandra."
+                }
+            ]
+        }
+    },
+    'bangalore-koramangala': {
+        name: 'Koramangala, Bangalore',
+        slug: 'bangalore-koramangala',
+        state: 'Karnataka',
+        areas: ['Ejipura', 'Vivek Nagar', 'BTM Layout 1st Stage', 'Venkatapura'],
+        description: "Serving the startup and residential hub of Koramangala, we offer hyper-local Insurance Support. Whether you need an Employee Benefits plan for your new tech venture or personal health insurance for your family, our advisors provide fast-track doorstep service across all Koramangala blocks.",
+        phone: "+91-9986634506",
+        coordinates: [12.9279, 77.6271],
+        nearbyCities: ['bangalore', 'bangalore-indiranagar', 'bangalore-jayanagar'],
+        hubContent: {
+            itProfessionalFocus: "Koramangala demands high-flexibility insurance. We offer specialized 'Loss of Income' covers and Super Top-Up health plans tailored for tech professionals in Ejipura and BTM Layout.",
+            seniorCitizenFocus: "We assist Koramangala's senior residents with complicated life insurance maturity claims, bringing the branch office to your living room.",
+            localBranchDetails: "Strong ties with South Bangalore LIC divisional offices ensure your policy revivals are processed rapidly.",
+            localFaqs: [
+                {
+                    q: "Can I get help with a rejected health claim in Koramangala?",
+                    a: "Absolutely. We specialize in auditing and overturning rejected claims at major cashless hospitals servicing the Koramangala and BTM areas."
+                }
+            ]
+        }
+    },
+    'bangalore-jayanagar': {
+        name: 'Jayanagar, Bangalore',
+        slug: 'bangalore-jayanagar',
+        state: 'Karnataka',
+        areas: ['JP Nagar', 'Banashankari', 'Basavanagudi', 'BTM Layout'],
+        description: "For the established families and businesses in Jayanagar, we offer traditional trust with modern convenience. Our experts handle LIC policy tracking, life insurance queries, and comprehensive health portfolio audits with guaranteed doorstep visits across Jayanagar and JP Nagar.",
+        phone: "+91-9986634506",
+        coordinates: [12.9299, 77.5826],
+        nearbyCities: ['bangalore', 'bangalore-koramangala'],
+        hubContent: {
+            itProfessionalFocus: "For the business community and professionals in Jayanagar, we structure comprehensive family floater plans with extensive cashless networks.",
+            seniorCitizenFocus: "Jayanagar's retirees rely on us for seamless pension certificates and LIC survival benefits tracking right at their doorstep.",
+            localBranchDetails: "We work directly with the Jayanagar and Basavanagudi LIC branches to ensure your legacy policies are up-to-date.",
+            localFaqs: [
+                {
+                    q: "How to handle a death claim if the policy is registered at the Jayanagar branch?",
+                    a: "We collect all original documents from your home and process the death claim directly with the Jayanagar branch manager, ensuring payout within 14 days."
+                }
+            ]
+        }
+    },
+    'bangalore-whitefield': {
+        name: 'Whitefield, Bangalore',
+        slug: 'bangalore-whitefield',
+        state: 'Karnataka',
+        areas: ['ITPL', 'Brookefield', 'Kundalahalli', 'Kadugodi', 'Marathahalli'],
+        description: "For the IT professionals and families in Whitefield, we bring Insurance Support right to your apartment complex. Skip the ORR traffic—our experts handle LIC claim settlements and health insurance queries with guaranteed doorstep visits across Whitefield.",
+        phone: "+91-9986634506",
+        coordinates: [12.9698, 77.7499],
+        nearbyCities: ['bangalore', 'bangalore-indiranagar'],
+        hubContent: {
+            itProfessionalFocus: "Whitefield's IT park professionals require global coverage. We provide International Health Covers and high-value Term Insurance tailored for software engineers in ITPL and Brookefield.",
+            seniorCitizenFocus: "We offer dedicated support for parents of IT professionals, ensuring their mediclaim policies are robust enough to cover premium hospitals in the Whitefield area.",
+            localBranchDetails: "We handle the logistical hurdles of inter-branch policy transfers for families who have recently relocated to Whitefield.",
+            localFaqs: [
+                {
+                    q: "Do you provide insurance advice for Whitefield residents outside office hours?",
+                    a: "Yes, we understand IT schedules. We offer weekend and evening doorstep consultations across Whitefield, Kadugodi, and Marathahalli."
+                }
+            ]
+        }
+    },
     chennai: {
         name: 'Chennai',
         slug: 'chennai',
@@ -682,6 +766,69 @@ export const cityData: Record<string, CityData> = {
         description: "As Karnataka's premier port city, Mangalore (Kudla) has a unique insurance landscape blending maritime commerce, banking, and a growing IT sector. We provide hyper-local support for Mangaloreans, ranging from health insurance for families in Kadri and Bejai to claim assistance for the industrial hubs of Surathkal and Panambur. We are deeply familiar with the LIC Pandeshwar branch operations and major private insurers in the city, offering doorstep service for policy renewals and maturity claims so you don't have to navigate the city's hilly terrain or monsoon rains just for paperwork.",
         phone: "+91-9986634506",
         coordinates: [12.9141, 74.8560]
+    },
+    'mangalore-kadri': {
+        name: 'Kadri, Mangalore',
+        slug: 'mangalore-kadri',
+        state: 'Karnataka',
+        areas: ['Kadri Kambla', 'Mallikatte', 'Bendoorwell', 'Nanthoor', 'Shivbagh'],
+        description: "In the cultural and residential heart of Mangalore, our Kadri Insurance Support team provides trusted advice. We manage LIC policies and offer family health insurance guidance with doorstep assistance, coordinating efficiently with the main Pandeshwar branches to serve residents of Kadri and Nanthoor seamlessly.",
+        phone: "+91-9986634506",
+        coordinates: [12.8831, 74.8550],
+        nearbyCities: ['mangalore', 'mangalore-bejai', 'mangalore-surathkal'],
+        hubContent: {
+            itProfessionalFocus: "For professionals residing in Kadri and Nanthoor, we offer high-coverage health plans that complement corporate policies.",
+            seniorCitizenFocus: "We assist the senior community in Mallikatte and Bendoorwell with doorstep LIC policy loan processing and maturity claims.",
+            localBranchDetails: "Direct coordination with the nearby Pandeshwar LIC divisional office for fast-track claim settlement.",
+            localFaqs: [
+                {
+                    q: "How fast can you process a health claim in Kadri?",
+                    a: "We offer immediate physical liaison with TPA desks at major Mangalore hospitals like KMC and Father Muller's to ensure smooth cashless approvals."
+                }
+            ]
+        }
+    },
+    'mangalore-bejai': {
+        name: 'Bejai, Mangalore',
+        slug: 'mangalore-bejai',
+        state: 'Karnataka',
+        areas: ['Kapikad', 'Lalbagh', 'Derebail', 'Karangalpady', 'Kuntikan'],
+        description: "Providing targeted Insurance Support for the fast-growing neighborhoods of Bejai and Derebail. We specialize in motor and health insurance, offering seamless local claim assistance and paperwork collection directly from your home or office in Mangalore.",
+        phone: "+91-9986634506",
+        coordinates: [12.8879, 74.8436],
+        nearbyCities: ['mangalore', 'mangalore-kadri'],
+        hubContent: {
+            itProfessionalFocus: "Bejai's growing commercial sector needs robust asset protection. We provide tailored shop-owner and professional indemnity insurance.",
+            seniorCitizenFocus: "For elderly residents in Kapikad and Derebail, we handle the physical submission of life certificates for uninterrupted pension flow.",
+            localBranchDetails: "Our local presence allows us to follow up personally on your pending claims across all Mangalore zonal branches.",
+            localFaqs: [
+                {
+                    q: "Can I renew my lapsed LIC policy from Bejai without visiting the branch?",
+                    a: "Yes, we provide doorstep collection of the health declaration forms and arrange the medical check-ups locally in Bejai if required."
+                }
+            ]
+        }
+    },
+    'mangalore-surathkal': {
+        name: 'Surathkal, Mangalore',
+        slug: 'mangalore-surathkal',
+        state: 'Karnataka',
+        areas: ['NITK', 'Katipalla', 'Krishnapura', 'Hosabettu', 'Panambur'],
+        description: "Serving the industrial and educational hub of Surathkal, our specialized advisors understand the unique needs of professionals and businesses here. We ensure your assets and health are protected with robust, localized Insurance Support.",
+        phone: "+91-9986634506",
+        coordinates: [13.0068, 74.7946],
+        nearbyCities: ['mangalore', 'mangalore-kadri'],
+        hubContent: {
+            itProfessionalFocus: "Surathkal's industrial and NITK community requires specialized coverage including Workmen's Compensation and student health plans.",
+            seniorCitizenFocus: "We bring the city-center branch services to Surathkal, ensuring retirees in Hosabettu and Katipalla receive comprehensive policy support.",
+            localBranchDetails: "We bridge the geographical gap to the main LIC offices in Mangalore, saving you the commute.",
+            localFaqs: [
+                {
+                    q: "Do you offer motor insurance claim support in Surathkal?",
+                    a: "Yes, we coordinate directly with authorized garages in the Surathkal and Panambur industrial areas for zero-depreciation cashless repairs."
+                }
+            ]
+        }
     },
     warangal: {
         name: 'Warangal',

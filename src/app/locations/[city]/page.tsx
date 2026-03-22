@@ -293,7 +293,23 @@ export default function LocationPage({ params }: Props) {
                                 Doorstep Service Across {city.name}
                             </h2>
                             <p className="text-muted-foreground text-sm leading-relaxed">
-                                Our qualified insurance advisors provide doorstep service across <strong>{city.areas.join(', ')}</strong>, and all surrounding localities in {city.name}. We handle the commute so you don&apos;t have to.
+                                Our qualified insurance advisors provide doorstep service across <strong>
+                                    {city.areas.map((area, i) => {
+                                        const areaSlug = `${city.slug}-${area.toLowerCase().replace(/\s+/g, '-')}`;
+                                        const hasHub = cityData[areaSlug];
+                                        const isLast = i === city.areas.length - 1;
+                                        return hasHub ? (
+                                            <span key={area}>
+                                                <Link href={`/locations/${areaSlug}`} className="text-primary hover:underline">
+                                                    {area}
+                                                </Link>
+                                                {!isLast && ', '}
+                                            </span>
+                                        ) : (
+                                            <span key={area}>{area}{!isLast && ', '}</span>
+                                        );
+                                    })}
+                                </strong>, and all surrounding localities in {city.name}. We handle the commute so you don&apos;t have to.
                             </p>
                         </div>
                     )}
