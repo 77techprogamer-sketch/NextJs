@@ -830,6 +830,41 @@ export const cityData: Record<string, CityData> = {
             ]
         }
     },
+    udupi: {
+        name: 'Udupi',
+        slug: 'udupi',
+        state: 'Karnataka',
+        areas: ['Manipal', 'Malpe', 'Brahmagiri', 'Ambalpady', 'Kinnimulki', 'Ajjarkad'],
+        description: "Known for its iconic temple and educational institutions, Udupi's insurance needs balance tradition with modern lifestyles. We provide hyper-local Insurance Support for families and students alike. Our advisors offer doorstep services for health and life insurance, coordinating with the LIC Divisional Office in Udupi to handle policy renewals, claims, and investments.",
+        phone: "+91-9986634506",
+        coordinates: [13.3409, 74.7421],
+        licOffice: {
+            name: "LIC Udupi Divisional Office",
+            address: "Jeevan Prakash, Ajjarkad, Udupi - 576101"
+        },
+        nearbyCities: ['mangalore', 'udupi-manipal']
+    },
+    'udupi-manipal': {
+        name: 'Manipal, Udupi',
+        slug: 'udupi-manipal',
+        state: 'Karnataka',
+        areas: ['Eshwar Nagar', 'Vidyaratna Nagar', 'Ananth Nagar', 'Perampalli'],
+        description: "As a bustling educational and medical hub, Manipal demands specialized Insurance Support. We assist students, faculty, and medical professionals with tailored health and life insurance coverage. Our advisors provide seamless doorstep service, coordinating with the Udupi LIC offices to ensure your financial security while you focus on academics and healthcare.",
+        phone: "+91-9986634506",
+        coordinates: [13.3486, 74.7895],
+        nearbyCities: ['udupi', 'mangalore'],
+        hubContent: {
+            itProfessionalFocus: "For the academic and medical professionals in Manipal, we offer high-coverage health plans and professional indemnity insurance.",
+            seniorCitizenFocus: "We support retired professionals with robust pension plans and doorstep LIC services.",
+            localBranchDetails: "Close coordination with Udupi LIC branch ensures fast policy revivals and claim settlements.",
+            localFaqs: [
+                {
+                    q: "Can students get customized health insurance in Manipal?",
+                    a: "Yes, we provide student-focused health plans that cover treatments at premium hospitals like KMC."
+                }
+            ]
+        }
+    },
     warangal: {
         name: 'Warangal',
         slug: 'warangal',
