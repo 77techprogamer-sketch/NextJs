@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { cityData } from '@/data/cityData'
+import { cityData, isCityContentRich } from '@/data/cityData'
 import { services } from '@/data/services'
 import { faqData } from '@/data/faqData'
 
@@ -28,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: route === '' || route === '/locations' || route === '/services' ? 1 : 0.8,
     }))
 
-    const locations = Object.keys(cityData)
+    const locations = Object.keys(cityData).filter(city => isCityContentRich(cityData[city]))
 
     const serviceRoutes = services.map((slug: string) => ({
         url: `${BASE_url}/services/${slug}`,

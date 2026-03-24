@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, MapPin, Phone, UserCheck, Clock, Shield, ArrowRight } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
-import { getCityData, cityData } from '@/data/cityData'
+import { getCityData, cityData, isCityContentRich } from '@/data/cityData'
 import { ServiceLinksForCity } from '@/components/KeywordLinkBlocks'
 import CityFAQSection from '@/components/CityFAQSection'
 
@@ -18,6 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     if (!city) return {}
 
     return {
+        ...(isCityContentRich(city) ? {} : { robots: { index: false, follow: true } }),
         title: {
             absolute: `Top Insurance Advisor in ${city.name} | Expert Claim & Policy Support`
         },

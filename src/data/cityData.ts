@@ -25,6 +25,10 @@ export interface CityData {
     }[];
 }
 
+export function isCityContentRich(city: CityData): boolean {
+    return !!(city.longContent || city.hubContent);
+}
+
 export const cityData: Record<string, CityData> = {
     bangalore: {
         name: 'Bangalore',

@@ -334,14 +334,14 @@ export function GuideHowToJsonLd() {
                 '@type': 'HowToStep',
                 position: 3,
                 name: 'Submit the Claim Form',
-                text: 'Fill out the insurer\\'s claim form accurately. Attach all supporting documents. Submit online or at the nearest branch.',
+                text: "Fill out the insurer's claim form accurately. Attach all supporting documents. Submit online or at the nearest branch.",
                 url: 'https://insurancesupport.online/support'
             },
             {
                 '@type': 'HowToStep',
                 position: 4,
                 name: 'Track Your Claim Status',
-                text: 'Note down your claim reference number and track status via the insurer\\'s portal or helpline.',
+                text: "Note down your claim reference number and track status via the insurer's portal or helpline.",
                 url: 'https://insurancesupport.online/support'
             },
             {

@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getCityData, cityData } from '@/data/cityData'
+import { getCityData, cityData, isCityContentRich } from '@/data/cityData'
 import { services, serviceLabels } from '@/data/services'
 import ServiceLocationClient from '@/components/ServiceLocationClient'
 
@@ -33,6 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     }
 
     return {
+        ...(isCityContentRich(city) ? {} : { robots: { index: false, follow: true } }),
         title: {
             absolute: title
         },

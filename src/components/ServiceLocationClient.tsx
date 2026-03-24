@@ -78,6 +78,25 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel 
                             &quot;{city.description}&quot;
                         </p>
                     )}
+                    {city.hubContent && (
+                        <div className="mb-6 space-y-4">
+                            {serviceSlug.includes('health') && city.hubContent.itProfessionalFocus && (
+                                <p className="text-blue-800 dark:text-blue-200 bg-blue-50 dark:bg-blue-900/10 p-4 rounded-xl border border-blue-100 text-sm leading-relaxed">
+                                    <strong>Focus:</strong> {city.hubContent.itProfessionalFocus}
+                                </p>
+                            )}
+                            {(serviceSlug.includes('lic') || serviceSlug.includes('life')) && city.hubContent.seniorCitizenFocus && (
+                                <p className="text-emerald-800 dark:text-emerald-200 bg-emerald-50 dark:bg-emerald-900/10 p-4 rounded-xl border border-emerald-100 text-sm leading-relaxed">
+                                    <strong>Senior Priority:</strong> {city.hubContent.seniorCitizenFocus}
+                                </p>
+                            )}
+                            {city.hubContent.localBranchDetails && (
+                                <p className="text-amber-800 dark:text-amber-200 bg-amber-50 dark:bg-amber-900/10 p-4 rounded-xl border border-amber-100 text-sm leading-relaxed">
+                                    <strong>Branch Liaison:</strong> {city.hubContent.localBranchDetails}
+                                </p>
+                            )}
+                        </div>
+                    )}
                     <div className="grid sm:grid-cols-2 gap-6">
                         <div className="space-y-4">
                             <h3 className="font-semibold text-lg flex items-center gap-2 text-slate-900 dark:text-white">
