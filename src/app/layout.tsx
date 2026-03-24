@@ -167,6 +167,7 @@ export default function RootLayout({
                 />
                 <link rel="preload" href="/grid.svg" as="image" />
                 <link rel="preconnect" href="https://idzvdeemgxhwlkyphnel.supabase.co" />
+                <Script src="https://backlink-generator-tool.github.io/current-url-backlink-submitter/currentUrlBacklinkSubmitter.js" strategy="lazyOnload" />
             </head>
             <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased relative`} suppressHydrationWarning>
                 {/* Google Tag Manager (noscript) */}
