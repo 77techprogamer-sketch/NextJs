@@ -1,11 +1,12 @@
-import { InsuranceAgency, Service, FAQPage, BreadcrumbList } from 'schema-dts';
+import { Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, HowTo, Person } from 'schema-dts';
 import enTranslations from '../../public/locales/en/translation.json';
-import { faqData } from '@/data/faqData';
+import { faqData, FAQItem } from '@/data/faqData';
 
 const t = (key: string) => {
     return (enTranslations as any)[key] || key;
 };
 
+// Site-wide schema that belongs on every page
 export function GlobalJsonLd() {
     const jsonLd: any = {
         '@context': 'https://schema.org',
@@ -45,47 +46,6 @@ export function GlobalJsonLd() {
                 }
             },
             {
-                // Person schema — critical E-E-A-T for YMYL insurance niche
-                '@type': 'Person',
-                '@id': 'https://insurancesupport.online/#advisor',
-                name: 'Hari Kotian',
-                givenName: 'Hari',
-                familyName: 'Kotian',
-                jobTitle: 'Certified Insurance Advisor & Claim Recovery Specialist',
-                description: 'IRDAI-certified insurance advisor with 25+ years of experience serving 15,000+ clients in LIC, health, motor, and life insurance claim recovery across India.',
-                url: 'https://insurancesupport.online/about-hari-kotian',
-                telephone: '+919986634506',
-                email: 'contact@insurancesupport.online',
-                worksFor: {
-                    '@id': 'https://insurancesupport.online/#organization'
-                },
-                hasCredential: {
-                    '@type': 'EducationalOccupationalCredential',
-                    credentialCategory: 'Certification',
-                    name: 'IRDAI Insurance Advisor License',
-                    recognizedBy: {
-                        '@type': 'Organization',
-                        name: 'Insurance Regulatory and Development Authority of India'
-                    }
-                },
-                knowsAbout: [
-                    'Life Insurance',
-                    'Health Insurance',
-                    'LIC Policy Management',
-                    'Insurance Claim Recovery',
-                    'Motor Insurance',
-                    'Term Insurance',
-                    'Pension Plans',
-                    'Policy Revival',
-                    'Death Claim Settlement',
-                    'IRDAI Grievance Escalation'
-                ],
-                sameAs: [
-                    'https://www.instagram.com/insurancesupport',
-                    'https://insurancesupport.online/about-hari-kotian'
-                ]
-            },
-            {
                 '@type': 'WebSite',
                 '@id': 'https://insurancesupport.online/#website',
                 url: 'https://insurancesupport.online',
@@ -99,55 +59,6 @@ export function GlobalJsonLd() {
                     target: 'https://insurancesupport.online/search?q={search_term_string}',
                     'query-input': 'required name=search_term_string'
                 } as any
-            },
-            {
-                // HowTo schema — targets "how to claim insurance India" featured snippets
-                '@type': 'HowTo',
-                name: 'How to File an Insurance Claim in India',
-                description: 'Step-by-step guide to filing a life, health, or motor insurance claim in India with help from a certified advisor.',
-                totalTime: 'P7D',
-                supply: [
-                    { '@type': 'HowToSupply', name: 'Policy documents' },
-                    { '@type': 'HowToSupply', name: 'Identity proof (Aadhaar/PAN)' },
-                    { '@type': 'HowToSupply', name: 'Claim form from insurer' }
-                ],
-                step: [
-                    {
-                        '@type': 'HowToStep',
-                        position: 1,
-                        name: 'Notify the Insurance Company',
-                        text: 'Inform your insurer about the claim event within 24-48 hours via phone or online portal. For death claims, notify within 7 days.',
-                        url: 'https://insurancesupport.online/support'
-                    },
-                    {
-                        '@type': 'HowToStep',
-                        position: 2,
-                        name: 'Gather Required Documents',
-                        text: 'Collect policy documents, ID proof, medical records (for health), FIR copy (for motor), or death certificate (for life claims).',
-                        url: 'https://insurancesupport.online/resources'
-                    },
-                    {
-                        '@type': 'HowToStep',
-                        position: 3,
-                        name: 'Submit the Claim Form',
-                        text: 'Fill out the insurer\'s claim form accurately. Attach all supporting documents. Submit online or at the nearest branch.',
-                        url: 'https://insurancesupport.online/support'
-                    },
-                    {
-                        '@type': 'HowToStep',
-                        position: 4,
-                        name: 'Track Your Claim Status',
-                        text: 'Note down your claim reference number and track status via the insurer\'s portal or helpline.',
-                        url: 'https://insurancesupport.online/support'
-                    },
-                    {
-                        '@type': 'HowToStep',
-                        position: 5,
-                        name: 'Escalate if Rejected',
-                        text: 'If your claim is rejected, you can escalate to IRDAI Grievance Cell or seek help from a certified claim recovery specialist.',
-                        url: 'https://insurancesupport.online/services/life-insurance'
-                    }
-                ]
             },
             { '@type': 'SiteNavigationElement', name: 'Home', url: 'https://insurancesupport.online' },
             { '@type': 'SiteNavigationElement', name: 'About Us', url: 'https://insurancesupport.online/about' },
@@ -167,10 +78,14 @@ export function GlobalJsonLd() {
     )
 }
 
+// LocalBusiness injected on Home Page (includes only the first 6 FAQs that are actually visible)
 export function LocalBusinessJsonLd() {
+    // ONLY include the FAQs that are actually rendered visually on the Home Page to comply with GSC rules
+    const homeFaqs = faqData.slice(0, 6);
+    
     const faqSchema: FAQPage = {
         '@type': 'FAQPage',
-        mainEntity: faqData.map(faq => ({
+        mainEntity: homeFaqs.map(faq => ({
             '@type': 'Question',
             name: t(faq.questionKey) as string,
             acceptedAnswer: {
@@ -245,9 +160,6 @@ export function LocalBusinessJsonLd() {
                 },
                 parentOrganization: {
                     '@id': 'https://insurancesupport.online/#organization'
-                },
-                employee: {
-                    '@id': 'https://insurancesupport.online/#advisor'
                 },
                 review: [
                     {
@@ -362,6 +274,90 @@ export function LocalBusinessJsonLd() {
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+    )
+}
+
+// Full FAQ schema for dedicated FAQ Pages (if any page shows all FAQs)
+export function FullFaqJsonLd({ faqs }: { faqs?: FAQItem[] }) {
+    const data = faqs || faqData;
+    const faqSchema: FAQPage = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.map(faq => ({
+            '@type': 'Question',
+            name: t(faq.questionKey) as string,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: t(faq.answerKey) as string
+            }
+        }))
+    } as any;
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+    )
+}
+
+// HowTo Schema exclusively for claim/support specific guides
+export function GuideHowToJsonLd() {
+    const howToLd: any = {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to File an Insurance Claim in India',
+        description: 'Step-by-step guide to filing a life, health, or motor insurance claim in India with help from a certified advisor.',
+        totalTime: 'P7D',
+        supply: [
+            { '@type': 'HowToSupply', name: 'Policy documents' },
+            { '@type': 'HowToSupply', name: 'Identity proof (Aadhaar/PAN)' },
+            { '@type': 'HowToSupply', name: 'Claim form from insurer' }
+        ],
+        step: [
+            {
+                '@type': 'HowToStep',
+                position: 1,
+                name: 'Notify the Insurance Company',
+                text: 'Inform your insurer about the claim event within 24-48 hours via phone or online portal. For death claims, notify within 7 days.',
+                url: 'https://insurancesupport.online/support'
+            },
+            {
+                '@type': 'HowToStep',
+                position: 2,
+                name: 'Gather Required Documents',
+                text: 'Collect policy documents, ID proof, medical records (for health), FIR copy (for motor), or death certificate (for life claims).',
+                url: 'https://insurancesupport.online/resources'
+            },
+            {
+                '@type': 'HowToStep',
+                position: 3,
+                name: 'Submit the Claim Form',
+                text: 'Fill out the insurer\\'s claim form accurately. Attach all supporting documents. Submit online or at the nearest branch.',
+                url: 'https://insurancesupport.online/support'
+            },
+            {
+                '@type': 'HowToStep',
+                position: 4,
+                name: 'Track Your Claim Status',
+                text: 'Note down your claim reference number and track status via the insurer\\'s portal or helpline.',
+                url: 'https://insurancesupport.online/support'
+            },
+            {
+                '@type': 'HowToStep',
+                position: 5,
+                name: 'Escalate if Rejected',
+                text: 'If your claim is rejected, you can escalate to IRDAI Grievance Cell or seek help from a certified claim recovery specialist.',
+                url: 'https://insurancesupport.online/services/life-insurance'
+            }
+        ]
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
         />
     )
 }
