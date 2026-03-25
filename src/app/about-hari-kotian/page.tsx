@@ -4,6 +4,7 @@ import { ShieldCheck, Award, History, CheckCircle2, Phone, Mail, Linkedin, MapPi
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import QuoteForm from '@/components/QuoteForm';
+import { contactConfig } from '@/data/contact';
 
 export const metadata: Metadata = {
     title: 'Hari Kotian | IRDAI Certified Insurance Expert & Claim Specialist',
@@ -26,8 +27,8 @@ const advisorSchema = {
         jobTitle: 'Certified Insurance Advisor & Claim Recovery Specialist',
         description: 'IRDAI-certified insurance advisor based in Bangalore with 25+ years of experience, serving over 15,000 clients across India in LIC, health, motor, and life insurance.',
         url: 'https://insurancesupport.online/about-hari-kotian',
-        telephone: '+919986634506',
-        email: 'contact@insurancesupport.online',
+        telephone: contactConfig.phoneFull,
+        email: contactConfig.email,
         address: {
             '@type': 'PostalAddress',
             addressLocality: 'Bangalore',
@@ -152,7 +153,7 @@ const ExpertProfilePage = () => {
                                 <h3 className="text-2xl font-bold mb-6">Expert Consultation</h3>
                                 <p className="text-slate-400 mb-8 text-sm">Need a second opinion on a claim or a complex policy? Connect with me directly for a professional audit.</p>
                                 <div className="space-y-4 mb-8">
-                                    <a href="tel:+919986634506" className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
+                                    <a href={`tel:${contactConfig.phoneFull}`} className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors">
                                         <Phone className="w-5 h-5 text-primary" />
                                         <div>
                                             <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">Call Directly</div>
@@ -163,7 +164,7 @@ const ExpertProfilePage = () => {
                                         <Mail className="w-5 h-5 text-primary" />
                                         <div>
                                             <div className="text-xs text-slate-500 font-bold uppercase tracking-wider">Professional Email</div>
-                                            <div className="font-medium">contact@insurancesupport.online</div>
+                                            <div className="font-medium">{contactConfig.email}</div>
                                         </div>
                                     </div>
                                 </div>

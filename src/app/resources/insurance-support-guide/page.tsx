@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Shield, CheckCircle2, Phone, MessageSquare, ArrowRight, HelpCircle, Search, FileText, Scale } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { contactConfig } from '@/data/contact';
 
 export const metadata: Metadata = {
     title: 'What is Insurance Support? | Complete Guide to Claim Recovery & Policy Help',
@@ -191,7 +192,7 @@ export default function InsuranceSupportGuide() {
                             <MessageSquare className="h-5 w-5" />
                             Get a Free Consultation
                         </Link>
-                        <a href="tel:+919986634506" className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-slate-200 text-slate-900 font-bold rounded-xl hover:bg-slate-50 transition-all gap-2">
+                        <a href={`tel:${contactConfig.phoneFull}`} className="inline-flex items-center justify-center px-8 py-4 bg-white border-2 border-slate-200 text-slate-900 font-bold rounded-xl hover:bg-slate-50 transition-all gap-2">
                             <Phone className="h-5 w-5" />
                             Call +91 99866 34506
                         </a>

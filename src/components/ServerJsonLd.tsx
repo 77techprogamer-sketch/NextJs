@@ -1,6 +1,7 @@
 import { Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, HowTo, Person } from 'schema-dts';
 import enTranslations from '../../public/locales/en/translation.json';
 import { faqData, FAQItem } from '@/data/faqData';
+import { contactConfig } from '@/data/contact';
 
 const t = (key: string) => {
     return (enTranslations as any)[key] || key;
@@ -17,7 +18,7 @@ export function GlobalJsonLd() {
                 name: 'Insurance Support',
                 url: 'https://insurancesupport.online',
                 logo: 'https://insurancesupport.online/favicon.svg',
-                email: 'contact@insurancesupport.online',
+                email: contactConfig.email,
                 address: {
                     '@type': 'PostalAddress',
                     addressLocality: 'Bangalore',
@@ -26,7 +27,7 @@ export function GlobalJsonLd() {
                 },
                 contactPoint: {
                     '@type': 'ContactPoint',
-                    telephone: '+919986634506',
+                    telephone: contactConfig.phoneFull,
                     contactType: 'customer service',
                     areaServed: 'IN',
                     availableLanguage: ['en', 'hi', 'kn', 'ta', 'te', 'mr', 'gu']
@@ -120,8 +121,8 @@ export function LocalBusinessJsonLd() {
                 image: 'https://insurancesupport.online/favicon.svg',
                 hasMap: 'https://maps.google.com/?q=Bangalore,Karnataka,India',
                 description: (t('services_description') as string) || 'Expert insurance support for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
-                telephone: '+919986634506',
-                email: 'contact@insurancesupport.online',
+                telephone: contactConfig.phoneFull,
+                email: contactConfig.email,
                 priceRange: '₹₹',
                 aggregateRating: {
                     '@type': 'AggregateRating',

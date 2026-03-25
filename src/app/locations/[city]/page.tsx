@@ -8,6 +8,7 @@ import QuoteForm from '@/components/QuoteForm'
 import { getCityData, cityData, isCityContentRich } from '@/data/cityData'
 import { ServiceLinksForCity } from '@/components/KeywordLinkBlocks'
 import CityFAQSection from '@/components/CityFAQSection'
+import { contactConfig } from '@/data/contact';
 
 interface Props {
     params: { city: string }
@@ -68,8 +69,8 @@ export default function LocationPage({ params }: Props) {
         name: `Insurance Support ${city.name}`,
         description: `Certified insurance advisor providing LIC, health, motor, and life insurance support in ${city.name}, ${city.state}. Doorstep service for claims, policy revival, and renewals.`,
         url: `https://insurancesupport.online/locations/${params.city}`,
-        telephone: '+919986634506',
-        email: 'contact@insurancesupport.online',
+        telephone: contactConfig.phoneFull,
+        email: contactConfig.email,
         priceRange: '₹₹',
         image: 'https://insurancesupport.online/favicon.svg',
         aggregateRating: {

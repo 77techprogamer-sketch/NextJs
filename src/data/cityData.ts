@@ -23,6 +23,11 @@ export interface CityData {
         title: string;
         paragraphs: string[];
     }[];
+    localAnchors?: {
+        hospitals?: string[];
+        rtoZones?: string[];
+        landmarks?: string[];
+    };
 }
 
 export function isCityContentRich(city: CityData): boolean {
@@ -52,6 +57,11 @@ export const cityData: Record<string, CityData> = {
             address: "Jeevan Prakash, J.C. Road, Bangalore - 560002"
         },
         nearbyCities: ['mysore', 'hosur', 'tumkur', 'belagavi'],
+        localAnchors: {
+            hospitals: ["Manipal Hospital (HAL Airport Road)", "Fortis Hospital (Bannerghatta Road)", "Apollo Hospitals (Jayanagar)"],
+            rtoZones: ["KA-01 (Koramangala)", "KA-05 (Jayanagar)", "KA-51 (Electronic City)", "KA-03 (Indiranagar)"],
+            landmarks: ["Vidhana Soudha", "UB City", "Manyata Tech Park", "Lalbagh Botanical Garden"]
+        },
         hubContent: {
             itProfessionalFocus: "Bangalore's IT corridor—from Electronic City and Whitefield to the tech parks of Manyata and Bagmane—requires specialized Employee Benefits and International Health Covers. We provide DOORSTEP service to your office or residence in HSR Layout, Koramangala, and Hebbal, ensuring your high-value policies are managed without city traffic hurdles.",
             seniorCitizenFocus: "For the retired professionals in Jayanagar, JP Nagar, and Malleshwaram, we offer personalized pension planning and premium-waiver health insurance strategies that ensure a dignified, worry-free retirement in the Garden City.",
@@ -112,7 +122,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['HAL 2nd Stage', 'Domlur', 'Tippasandra', 'Doopanahalli'],
         description: "In the bustling heart of Indiranagar, Bangalore, we provide premium localized Insurance Support. From health covers tailored for startup founders to doorstep LIC policy revivals for long-time residents, our team near 100 Feet Road ensures you skip the traffic and get expert advice at your home or office.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [12.9784, 77.6408],
         nearbyCities: ['bangalore', 'bangalore-koramangala', 'bangalore-whitefield'],
         hubContent: {
@@ -133,7 +143,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['Ejipura', 'Vivek Nagar', 'BTM Layout 1st Stage', 'Venkatapura'],
         description: "Serving the startup and residential hub of Koramangala, we offer hyper-local Insurance Support. Whether you need an Employee Benefits plan for your new tech venture or personal health insurance for your family, our advisors provide fast-track doorstep service across all Koramangala blocks.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [12.9279, 77.6271],
         nearbyCities: ['bangalore', 'bangalore-indiranagar', 'bangalore-jayanagar'],
         hubContent: {
@@ -154,7 +164,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['JP Nagar', 'Banashankari', 'Basavanagudi', 'BTM Layout'],
         description: "For the established families and businesses in Jayanagar, we offer traditional trust with modern convenience. Our experts handle LIC policy tracking, life insurance queries, and comprehensive health portfolio audits with guaranteed doorstep visits across Jayanagar and JP Nagar.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [12.9299, 77.5826],
         nearbyCities: ['bangalore', 'bangalore-koramangala'],
         hubContent: {
@@ -175,7 +185,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['ITPL', 'Brookefield', 'Kundalahalli', 'Kadugodi', 'Marathahalli'],
         description: "For the IT professionals and families in Whitefield, we bring Insurance Support right to your apartment complex. Skip the ORR traffic—our experts handle LIC claim settlements and health insurance queries with guaranteed doorstep visits across Whitefield.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [12.9698, 77.7499],
         nearbyCities: ['bangalore', 'bangalore-indiranagar'],
         hubContent: {
@@ -410,6 +420,11 @@ export const cityData: Record<string, CityData> = {
             address: "Jeevan Prakash, Sir P.M. Road, Fort, Mumbai - 400001"
         },
         nearbyCities: ['thane', 'pune', 'nashik', 'aurangabad'],
+        localAnchors: {
+            hospitals: ["Lilavati Hospital (Bandra)", "Nanavati Max (Vile Parle)", "Kokilaben Dhirubhai Ambani Hospital (Andheri)"],
+            rtoZones: ["MH-01 (South Mumbai)", "MH-02 (Andheri)", "MH-03 (Worli)"],
+            landmarks: ["Gateway of India", "Bandra-Worli Sea Link", "Marine Drive", "Chhatrapati Shivaji Maharaj Terminus"]
+        },
         hubContent: {
             itProfessionalFocus: "Mumbai's tech and finance professionals in BKC, Powai (Hiranandani), and Malad IT parks require high-sum insured plans with global portability. We provide doorstep service to your residence in Bandra, Juhu, or Borivali, ensuring your family's protection matches the speed of the city.",
             seniorCitizenFocus: "For our valued seniors in South Mumbai and elite residential areas like Cuffe Parade, Worli, and Dadar, we offer dedicated support for LIC pension schemes (PMVVY) and hassle-free health insurance renewals with physical document handling.",
@@ -768,7 +783,7 @@ export const cityData: Record<string, CityData> = {
             'Panambur', 'Surathkal', 'Ullal', 'Bajpe', 'Pandeshwar', 'Maryhill', 'Bondel'
         ],
         description: "As Karnataka's premier port city, Mangalore (Kudla) has a unique insurance landscape blending maritime commerce, banking, and a growing IT sector. We provide hyper-local support for Mangaloreans, ranging from health insurance for families in Kadri and Bejai to claim assistance for the industrial hubs of Surathkal and Panambur. We are deeply familiar with the LIC Pandeshwar branch operations and major private insurers in the city, offering doorstep service for policy renewals and maturity claims so you don't have to navigate the city's hilly terrain or monsoon rains just for paperwork.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [12.9141, 74.8560]
     },
     'mangalore-kadri': {
@@ -777,7 +792,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['Kadri Kambla', 'Mallikatte', 'Bendoorwell', 'Nanthoor', 'Shivbagh'],
         description: "In the cultural and residential heart of Mangalore, our Kadri Insurance Support team provides trusted advice. We manage LIC policies and offer family health insurance guidance with doorstep assistance, coordinating efficiently with the main Pandeshwar branches to serve residents of Kadri and Nanthoor seamlessly.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [12.8831, 74.8550],
         nearbyCities: ['mangalore', 'mangalore-bejai', 'mangalore-surathkal'],
         hubContent: {
@@ -798,7 +813,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['Kapikad', 'Lalbagh', 'Derebail', 'Karangalpady', 'Kuntikan'],
         description: "Providing targeted Insurance Support for the fast-growing neighborhoods of Bejai and Derebail. We specialize in motor and health insurance, offering seamless local claim assistance and paperwork collection directly from your home or office in Mangalore.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [12.8879, 74.8436],
         nearbyCities: ['mangalore', 'mangalore-kadri'],
         hubContent: {
@@ -819,7 +834,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['NITK', 'Katipalla', 'Krishnapura', 'Hosabettu', 'Panambur'],
         description: "Serving the industrial and educational hub of Surathkal, our specialized advisors understand the unique needs of professionals and businesses here. We ensure your assets and health are protected with robust, localized Insurance Support.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [13.0068, 74.7946],
         nearbyCities: ['mangalore', 'mangalore-kadri'],
         hubContent: {
@@ -840,7 +855,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['Manipal', 'Malpe', 'Brahmagiri', 'Ambalpady', 'Kinnimulki', 'Ajjarkad'],
         description: "Known for its iconic temple and educational institutions, Udupi's insurance needs balance tradition with modern lifestyles. We provide hyper-local Insurance Support for families and students alike. Our advisors offer doorstep services for health and life insurance, coordinating with the LIC Divisional Office in Udupi to handle policy renewals, claims, and investments.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [13.3409, 74.7421],
         licOffice: {
             name: "LIC Udupi Divisional Office",
@@ -854,7 +869,7 @@ export const cityData: Record<string, CityData> = {
         state: 'Karnataka',
         areas: ['Eshwar Nagar', 'Vidyaratna Nagar', 'Ananth Nagar', 'Perampalli'],
         description: "As a bustling educational and medical hub, Manipal demands specialized Insurance Support. We assist students, faculty, and medical professionals with tailored health and life insurance coverage. Our advisors provide seamless doorstep service, coordinating with the Udupi LIC offices to ensure your financial security while you focus on academics and healthcare.",
-        phone: "+91-9986634506",
+        phone: contactConfig.phoneFull,
         coordinates: [13.3486, 74.7895],
         nearbyCities: ['udupi', 'mangalore'],
         hubContent: {

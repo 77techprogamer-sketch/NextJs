@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import AboutContent from '@/components/AboutContent';
 import translations from '@/../public/locales/en/translation.json';
+import { contactConfig } from '@/data/contact';
 
 export const metadata: Metadata = {
     title: {
@@ -39,8 +40,8 @@ const advisorSchema = {
     jobTitle: 'Certified Insurance Advisor & Claim Recovery Specialist',
     description: 'Licensed insurance advisor with 25+ years of experience in LIC, health, motor, and life insurance claim recovery across India. Expert in rejected claim escalation and policy revival.',
     url: 'https://insurancesupport.online/about',
-    telephone: '+919986634506',
-    email: 'contact@insurancesupport.online',
+    telephone: contactConfig.phoneFull,
+    email: contactConfig.email,
     worksFor: {
         '@type': 'InsuranceAgency',
         name: 'Insurance Support',

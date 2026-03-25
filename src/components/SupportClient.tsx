@@ -14,6 +14,7 @@ import dynamic from 'next/dynamic';
 
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
 import { AutoLinker } from '@/components/AutoLinker';
+import { contactConfig } from '@/data/contact';
 
 export default function SupportClient() {
     const { t } = useTranslation();
@@ -68,7 +69,7 @@ export default function SupportClient() {
                             className="bg-transparent border-white text-white hover:bg-white/10"
                             asChild
                         >
-                            <a href="tel:+919986634506">
+                            <a href={`tel:${contactConfig.phoneFull}`}>
                                 <Phone className="w-5 h-5 mr-2" />
                                 {t("call_us")}
                             </a>
@@ -217,7 +218,7 @@ export default function SupportClient() {
                     </p>
                     <div className="flex justify-center gap-4">
                         <Button size="lg" asChild>
-                            <a href="tel:+919986634506">
+                            <a href={`tel:${contactConfig.phoneFull}`}>
                                 <Phone className="w-4 h-4 mr-2" />
                                 +91 99866 34506
                             </a>

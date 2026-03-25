@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { getCityData, cityData, isCityContentRich } from '@/data/cityData'
 import { services, serviceLabels } from '@/data/services'
 import ServiceLocationClient from '@/components/ServiceLocationClient'
+import { contactConfig } from '@/data/contact';
+import { generateUniqueContent } from '@/utils/contentEngine'
 
 interface Props {
     params: { city: string; service: string }
@@ -19,25 +21,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const isMotor = params.service.includes('motor');
     
     let title = `${serviceLabel} Advisor in ${city.name} | Free Quote & Consult`;
-    let description = `Get expert ${serviceLabel} advice in ${city.name}. 25+ years experience & free doorstep consultation.`;
     
     if (isLicRelated) {
         title = `Best ${serviceLabel} in ${city.name} | Claim Help & Policy Revival`;
-        description = `Trusted by 5,000+ families for ${serviceLabel} in ${city.name}. Expert help with death claims, policy revival, and surrendered policies. Call now!`;
     } else if (isHealthRelated) {
         title = `${serviceLabel} Advisor in ${city.name} | Cashless & Claim Support`;
-        description = `Looking for ${serviceLabel} in ${city.name}? Get expert advice, find cashless hospitals, and resolve claim rejections quickly with our 25+ years of experience.`;
     } else if (isMotor) {
         title = `${serviceLabel} Agent in ${city.name} | Instant Renewal & Claims`;
-        description = `Quick ${serviceLabel} renewal in ${city.name}. We handle all the paperwork, claims, and ensure you get the best IDV value.`;
     }
+
+    const uniqueMetaDescription = generateUniqueContent(params.service, city);
 
     return {
         ...(isCityContentRich(city) ? {} : { robots: { index: false, follow: true } }),
         title: {
             absolute: title
         },
-        description: description,
+        description: uniqueMetaDescription.substring(0, 160),
         keywords: [
             `${serviceLabel} ${city.name}`,
             `Best ${serviceLabel} Advisor in ${city.name}`,
@@ -85,7 +85,7 @@ export default function ServiceLocationPage({ params }: Props) {
         name: `${serviceLabel} - Insurance Support in ${city.name}`,
         description: `Expert ${serviceLabel} services in ${city.name}. 25+ years of trust and 98% claim settlement ratio by Insurance Support.`,
         url: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
-        telephone: "+919986634506",
+        telephone: contactConfig.phoneFull,
         aggregateRating: {
             '@type': 'AggregateRating',
             ratingValue: '4.9',
@@ -218,6 +218,7 @@ export default function ServiceLocationPage({ params }: Props) {
                 city={city} 
                 serviceSlug={serviceSlug} 
                 serviceLabel={serviceLabel} 
+                uniqueDescription={generateUniqueContent(serviceSlug, city)}
             />
         </div>
     )

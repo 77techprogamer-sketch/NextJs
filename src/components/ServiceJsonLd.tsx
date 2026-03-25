@@ -1,4 +1,5 @@
 import { WithContext, Service, BreadcrumbList, FAQPage } from 'schema-dts'
+import { contactConfig } from '@/data/contact';
 
 interface ServiceJsonLdProps {
     title: string;
@@ -27,7 +28,7 @@ export default function ServiceJsonLd({ title, description, url, image, faqs }: 
                 addressRegion: 'KA',
                 addressCountry: 'IN'
             },
-            telephone: '+919986634506',
+            telephone: contactConfig.phoneFull,
             url: 'https://insurancesupport.online'
         },
         areaServed: {

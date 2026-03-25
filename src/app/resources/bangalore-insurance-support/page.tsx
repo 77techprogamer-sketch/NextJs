@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle2, MapPin, Phone, UserCheck, Clock } from 'lucide-react'
 import QuoteForm from '@/components/QuoteForm'
+import { contactConfig } from '@/data/contact';
 
 export const metadata: Metadata = {
     title: {
@@ -37,7 +38,7 @@ export default function BangaloreSupportPage() {
             '@type': 'City',
             name: 'Bangalore'
         },
-        telephone: '+919986634506'
+        telephone: contactConfig.phoneFull
     }
 
     return (

@@ -18,9 +18,10 @@ interface ServiceLocationClientProps {
     city: any;
     serviceSlug: string;
     serviceLabel: string;
+    uniqueDescription: string;
 }
 
-export default function ServiceLocationClient({ city, serviceSlug, serviceLabel }: ServiceLocationClientProps) {
+export default function ServiceLocationClient({ city, serviceSlug, serviceLabel, uniqueDescription }: ServiceLocationClientProps) {
     const { t } = useTranslation();
     const [allowedCities, setAllowedCities] = React.useState<string[] | null>(null);
 
@@ -58,14 +59,7 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel 
                 </h1>
 
                 <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-                    {t(`service_seo_content.${serviceSlug}.description`, {
-                        defaultValue: t('location_page.secure_future_fallback', { service: serviceLabel, city: city.name })
-                    })}
-                    {t('location_page.doorstep_service_note', {
-                        area1: city.areas[0],
-                        area2: city.areas[1] || 'nearby',
-                        defaultValue: ` Whether you are in ${city.areas[0]} or ${city.areas[1] || 'nearby'}, our expert advisors provide personalized support at your doorstep.`
-                    })}
+                    {uniqueDescription}
                 </p>
 
                 <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 mb-10">
