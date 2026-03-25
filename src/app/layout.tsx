@@ -76,6 +76,7 @@ export const metadata: Metadata = {
         yandex: '89297fa7e3252466',
         other: {
             'msvalidate.01': '71a80a3568ae5d1d945fda3ef57fe18e',
+            'karmalinks-verify': '69c3a12686498dfc75196306',
         }
     },
     icons: {
