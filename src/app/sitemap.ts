@@ -74,14 +74,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.75,
     }))
 
+    const allCityKeys = Object.keys(cityData)
     const matrixRoutes: MetadataRoute.Sitemap = []
-    locations.forEach(city => {
+    allCityKeys.forEach(city => {
+        const isRich = isCityContentRich(cityData[city])
         services.forEach(service => {
             matrixRoutes.push({
                 url: `${BASE_url}/locations/${city}/${service}`,
                 lastModified: LAST_MOD,
                 changeFrequency: 'monthly' as const,
-                priority: 0.5,
+                priority: isRich ? 0.5 : 0.4,
             })
         })
     })
