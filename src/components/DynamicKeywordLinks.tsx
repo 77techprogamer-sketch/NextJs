@@ -73,19 +73,19 @@ export default function DynamicKeywordLinks() {
                                     </Link>
                                 );
                             })}
-                            <Link key="rejected-claim" href="/resources/faq/how-can-i-appeal-if-my-insurance-claim-is-rejected" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
+                            <Link key="rejected-claim" href="/resources/faq/how-to-claim-insurance-if-rejected" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
                                 Rejected Claim Appeal Process
                             </Link>
-                            <Link key="lic-revival" href="/resources/faq/how-to-revive-a-lapsed-lic-policy-online" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
+                            <Link key="lic-revival" href="/resources/faq/how-to-revive-lapsed-lic-policy" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
                                 Lapsed LIC Policy Revival
                             </Link>
-                            <Link key="senior-health" href="/resources/faq/is-there-any-specific-health-insurance-for-senior-citizens" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
+                            <Link key="senior-health" href="/resources/faq/best-life-insurance-for-senior-citizens" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
                                 Senior Citizen Health Plans
                             </Link>
-                            <Link key="cashless-process" href="/resources/faq/can-i-get-help-with-cashless-hospitalization-process" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
+                            <Link key="cashless-process" href="/resources/faq/cashless-hospitalization-process" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
                                 Cashless Hospitalization Help
                             </Link>
-                            <Link key="claim-docs" href="/resources/faq/what-docs-for-death-claim" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
+                            <Link key="claim-docs" href="/resources/faq/documents-required-for-death-claim" className="text-gray-600 hover:text-primary hover:underline transition-colors block">
                                 Death Claim Documentation
                             </Link>
                         </div>
