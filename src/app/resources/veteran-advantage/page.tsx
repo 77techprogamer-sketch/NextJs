@@ -5,6 +5,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'The Veteran Advantage | Insurance Support',
     description: 'Discover why 25+ years of IRDAI-certified experience makes the difference in your insurance and claim journey.',
+    alternates: {
+        canonical: 'https://insurancesupport.online/resources/veteran-advantage'
+    }
 };
 
 export default function VeteranAdvantagePage() {

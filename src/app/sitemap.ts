@@ -45,6 +45,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
 
     const resourceSubPages = [
+        '/resources/how-it-works',
+        '/resources/veteran-advantage',
         '/resources/bangalore-insurance-support',
         '/tools/policy-recovery',
         '/tools/risk-scorecard',
@@ -78,12 +80,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const matrixRoutes: MetadataRoute.Sitemap = []
     allCityKeys.forEach(city => {
         const isRich = isCityContentRich(cityData[city])
+        if (!isRich) return; // Skip non-rich cities to prevent 'Crawled - currently not indexed'
+
         services.forEach(service => {
             matrixRoutes.push({
                 url: `${BASE_url}/locations/${city}/${service}`,
                 lastModified: LAST_MOD,
                 changeFrequency: 'monthly' as const,
-                priority: isRich ? 0.5 : 0.4,
+                priority: 0.5,
             })
         })
     })

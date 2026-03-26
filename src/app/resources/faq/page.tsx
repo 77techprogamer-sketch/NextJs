@@ -6,6 +6,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 export const metadata: Metadata = {
     title: 'Frequently Asked Questions | Insurance Support',
     description: 'Find answers to common questions about life insurance, health policies, claim rejections, and policy revival.',
+    alternates: {
+        canonical: 'https://insurancesupport.online/resources/faq'
+    }
 };
 
 export default function FAQPage() {

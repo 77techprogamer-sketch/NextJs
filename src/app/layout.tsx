@@ -77,6 +77,7 @@ export const metadata: Metadata = {
         other: {
             'msvalidate.01': '71a80a3568ae5d1d945fda3ef57fe18e',
             'karmalinks-verify': '69c3a12686498dfc75196306',
+            'link-rhinos-site-verification': 'verify-yqxwt1a77wsm3hynlh2y',
         }
     },
     icons: {

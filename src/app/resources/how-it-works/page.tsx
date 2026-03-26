@@ -5,6 +5,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
     title: 'How It Works | Insurance Support',
     description: 'Learn the step-by-step process of how we help you buy the right insurance, recover rejected claims, and revive lapsed policies.',
+    alternates: {
+        canonical: 'https://insurancesupport.online/resources/how-it-works'
+    }
 };
 
 export default function HowItWorksPage() {
