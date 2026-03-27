@@ -35,6 +35,28 @@ const VisitorCounter = () => {
 
   useEffect(() => {
     const logVisitorAndFetchInitialStats = async () => {
+      // 1. Bot Detection
+      const isBotCookie = document.cookie.split('; ').find(row => row.startsWith('is-bot='));
+      const isBotUA = /googlebot|bingbot|yandex|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|Google-InspectionTool|Storebot-Google|Lighthouse|IndexNow/i.test(navigator.userAgent);
+      
+      if (isBotCookie || isBotUA) {
+        console.log('Skipping visitor log for detected bot.');
+        fetchVisitorStats();
+        return;
+      }
+
+      // 2. Frequency Capping (Deduplication) - Once per 24 hours
+      const lastLogKey = 'last_visitor_log';
+      const lastLog = localStorage.getItem(lastLogKey);
+      const now = Date.now();
+      const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
+      if (lastLog && (now - parseInt(lastLog)) < TWENTY_FOUR_HOURS) {
+        console.log('Skipping visitor log - already logged in last 24h.');
+        fetchVisitorStats();
+        return;
+      }
+
       let visitorAsn: string | null = null;
       let visitorIspName: string | null = null;
       let visitorCity: string | null = null;
@@ -74,22 +96,16 @@ const VisitorCounter = () => {
 
         if (edgeFunctionError) {
           console.error('Error calling Edge Function:', edgeFunctionError.message);
-          // Optionally show a toast for rate limiting or other errors
-          if (edgeFunctionError.status === 429) {
-            // showError("You're visiting too frequently. Please wait a moment.");
-          } else {
-            // showError("Failed to log visitor. Please try again.");
-          }
         } else {
-
+          // Successfully logged! Update the timestamp.
+          localStorage.setItem(lastLogKey, now.toString());
         }
 
-        // Fetch initial stats after logging the visitor
+        // Fetch stats anyway (we want to see the count even if we didn't log)
         fetchVisitorStats();
 
       } catch (error) {
         console.error('An error occurred in the visitor counter:', error);
-        // showError("An unexpected error occurred.");
       }
     };
 
