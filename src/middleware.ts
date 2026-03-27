@@ -99,44 +99,13 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         console.error('Middleware Security Check Failed:', error);
     }
 
-    // 6. IP-Based Location Logging for Homepage (No longer redirecting to fix GSC Indexing)
+    // 6. IP-Based Location detection for Homepage
+    // NOTE: All visitor logging is handled client-side by VisitorCounter.tsx
+    // with built-in bot filtering and 24h deduplication. No server-side logging here
+    // to prevent double-counting.
     if (request.nextUrl.pathname === '/') {
-        const vCity = request.headers.get('x-vercel-ip-city');
-        const cityName = vCity ? decodeURIComponent(vCity).trim().toLowerCase() : null;
-
-        let matchedSlug: string | null = null;
-        if (cityName) {
-            // Find a city match ignoring case
-            matchedSlug = Object.keys(cityData).find(
-                slug => cityData[slug].name.toLowerCase() === cityName || slug === cityName
-            ) || null;
-        }
-
-        if (!matchedSlug && cityName && !isBot) {
-            // City doesn't exist in our DB. Log the missing city for future expansion.
-            const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://idzvdeemgxhwlkyphnel.supabase.co';
-            const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlkenZkZWVtZ3hod2xreXBobmVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjIwNjU1NDAsImV4cCI6MjA3NzY0MTU0MH0.q11DxU-2I9KKzdb-pEBXM73_yLnqYuRSElie831uB6w';
-
-            // Fire and forget using event.waitUntil so edge doesn't block the request
-            event.waitUntil(
-                fetch(`${supabaseUrl}/functions/v1/log-visitor`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${supabaseAnonKey}`
-                    },
-                    body: JSON.stringify({
-                        ip_address: ip,
-                        city: decodeURIComponent(vCity as string),
-                        note: 'MISSED_LOCATION_REDIRECT',
-                        region: request.headers.get('x-vercel-ip-country-region'),
-                        country: request.headers.get('x-vercel-ip-country')
-                    })
-                }).catch(error => console.error("Failed to log missed location:", error))
-            );
-        }
-
-        // The display logic in HomeClient.tsx will still dynamically show the local city.
+        // The display logic in HomeClient.tsx will dynamically show the local city.
+        // No server-side visitor log call needed here.
     }
 
     // 7. Geolocation-based Routing and Client Cookies
