@@ -31,7 +31,7 @@ export interface CityData {
 }
 
 export function isCityContentRich(city: CityData): boolean {
-    return !!(city.longContent || city.hubContent);
+    return !!(city.longContent || city.hubContent || city.description);
 }
 
 export const cityData: Record<string, CityData> = {
@@ -926,6 +926,1436 @@ export const cityData: Record<string, CityData> = {
         areas: ['Freeganj', 'Mahakal Vanijya', 'Rishi Nagar', 'Nanakheda', 'Tower Chowk'],
         description: "In the City of Mahakal, time is precious. Secure your time and family with our trusted Insurance Support. We coordinate with the LIC Freeganj office to provide professional doorstep advisory and claim recovery services across Ujjain."
     }
+,
+// Generated Tier 1 & 2 Cities
+    'visakhapatnam': {
+        name: 'Visakhapatnam',
+        slug: 'visakhapatnam',
+        state: 'Andhra Pradesh',
+        areas: ['Visakhapatnam Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Visakhapatnam? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Visakhapatnam residents right at your doorstep."
+    },
+    'pimpri-chinchwad': {
+        name: 'Pimpri Chinchwad',
+        slug: 'pimpri-chinchwad',
+        state: 'Maharashtra',
+        areas: ['Pimpri Chinchwad Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Pimpri Chinchwad. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Maharashtra."
+    },
+    'ghaziabad': {
+        name: 'Ghaziabad',
+        slug: 'ghaziabad',
+        state: 'Uttar Pradesh',
+        areas: ['Ghaziabad Central', 'City Center'],
+        description: "Residents and businesses in Ghaziabad can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Ghaziabad."
+    },
+    'faridabad': {
+        name: 'Faridabad',
+        slug: 'faridabad',
+        state: 'Haryana',
+        areas: ['Faridabad Central', 'City Center'],
+        description: "In Faridabad, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'kalyan-dombivli': {
+        name: 'Kalyan Dombivli',
+        slug: 'kalyan-dombivli',
+        state: 'Maharashtra',
+        areas: ['Kalyan Dombivli Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Kalyan Dombivli? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Kalyan Dombivli residents right at your doorstep."
+    },
+    'vasai-virar': {
+        name: 'Vasai Virar',
+        slug: 'vasai-virar',
+        state: 'Maharashtra',
+        areas: ['Vasai Virar Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Vasai Virar. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Maharashtra."
+    },
+    'dhanbad': {
+        name: 'Dhanbad',
+        slug: 'dhanbad',
+        state: 'Jharkhand',
+        areas: ['Dhanbad Central', 'City Center'],
+        description: "Residents and businesses in Dhanbad can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Dhanbad."
+    },
+    'navi-mumbai': {
+        name: 'Navi Mumbai',
+        slug: 'navi-mumbai',
+        state: 'Maharashtra',
+        areas: ['Navi Mumbai Central', 'City Center'],
+        description: "In Navi Mumbai, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'allahabad': {
+        name: 'Allahabad',
+        slug: 'allahabad',
+        state: 'Uttar Pradesh',
+        areas: ['Allahabad Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Allahabad? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Allahabad residents right at your doorstep."
+    },
+    'howrah': {
+        name: 'Howrah',
+        slug: 'howrah',
+        state: 'West Bengal',
+        areas: ['Howrah Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Howrah. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across West Bengal."
+    },
+    'jodhpur': {
+        name: 'Jodhpur',
+        slug: 'jodhpur',
+        state: 'Rajasthan',
+        areas: ['Jodhpur Central', 'City Center'],
+        description: "Residents and businesses in Jodhpur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Jodhpur."
+    },
+    'kota': {
+        name: 'Kota',
+        slug: 'kota',
+        state: 'Rajasthan',
+        areas: ['Kota Central', 'City Center'],
+        description: "In Kota, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'solapur': {
+        name: 'Solapur',
+        slug: 'solapur',
+        state: 'Maharashtra',
+        areas: ['Solapur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Solapur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Solapur residents right at your doorstep."
+    },
+    'hubli-dharwad': {
+        name: 'Hubli Dharwad',
+        slug: 'hubli-dharwad',
+        state: 'Karnataka',
+        areas: ['Hubli Dharwad Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Hubli Dharwad. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Karnataka."
+    },
+    'bareilly': {
+        name: 'Bareilly',
+        slug: 'bareilly',
+        state: 'Uttar Pradesh',
+        areas: ['Bareilly Central', 'City Center'],
+        description: "Residents and businesses in Bareilly can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Bareilly."
+    },
+    'moradabad': {
+        name: 'Moradabad',
+        slug: 'moradabad',
+        state: 'Uttar Pradesh',
+        areas: ['Moradabad Central', 'City Center'],
+        description: "In Moradabad, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'gurgaon': {
+        name: 'Gurgaon',
+        slug: 'gurgaon',
+        state: 'Haryana',
+        areas: ['Gurgaon Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Gurgaon? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Gurgaon residents right at your doorstep."
+    },
+    'aligarh': {
+        name: 'Aligarh',
+        slug: 'aligarh',
+        state: 'Uttar Pradesh',
+        areas: ['Aligarh Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Aligarh. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'tiruchirappalli': {
+        name: 'Tiruchirappalli',
+        slug: 'tiruchirappalli',
+        state: 'Tamil Nadu',
+        areas: ['Tiruchirappalli Central', 'City Center'],
+        description: "Residents and businesses in Tiruchirappalli can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Tiruchirappalli."
+    },
+    'mira-bhayandar': {
+        name: 'Mira Bhayandar',
+        slug: 'mira-bhayandar',
+        state: 'Maharashtra',
+        areas: ['Mira Bhayandar Central', 'City Center'],
+        description: "In Mira Bhayandar, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'thiruvananthapuram': {
+        name: 'Thiruvananthapuram',
+        slug: 'thiruvananthapuram',
+        state: 'Kerala',
+        areas: ['Thiruvananthapuram Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Thiruvananthapuram? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Thiruvananthapuram residents right at your doorstep."
+    },
+    'bhiwandi': {
+        name: 'Bhiwandi',
+        slug: 'bhiwandi',
+        state: 'Maharashtra',
+        areas: ['Bhiwandi Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bhiwandi. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Maharashtra."
+    },
+    'saharanspur': {
+        name: 'Saharanspur',
+        slug: 'saharanspur',
+        state: 'Uttar Pradesh',
+        areas: ['Saharanspur Central', 'City Center'],
+        description: "Residents and businesses in Saharanspur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Saharanspur."
+    },
+    'guntur': {
+        name: 'Guntur',
+        slug: 'guntur',
+        state: 'Andhra Pradesh',
+        areas: ['Guntur Central', 'City Center'],
+        description: "In Guntur, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'amravati': {
+        name: 'Amravati',
+        slug: 'amravati',
+        state: 'Maharashtra',
+        areas: ['Amravati Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Amravati? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Amravati residents right at your doorstep."
+    },
+    'bikaner': {
+        name: 'Bikaner',
+        slug: 'bikaner',
+        state: 'Rajasthan',
+        areas: ['Bikaner Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bikaner. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Rajasthan."
+    },
+    'noida': {
+        name: 'Noida',
+        slug: 'noida',
+        state: 'Uttar Pradesh',
+        areas: ['Noida Central', 'City Center'],
+        description: "Residents and businesses in Noida can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Noida."
+    },
+    'bhilai': {
+        name: 'Bhilai',
+        slug: 'bhilai',
+        state: 'Chhattisgarh',
+        areas: ['Bhilai Central', 'City Center'],
+        description: "In Bhilai, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'cuttack': {
+        name: 'Cuttack',
+        slug: 'cuttack',
+        state: 'Odisha',
+        areas: ['Cuttack Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Cuttack? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Cuttack residents right at your doorstep."
+    },
+    'firozabad': {
+        name: 'Firozabad',
+        slug: 'firozabad',
+        state: 'Uttar Pradesh',
+        areas: ['Firozabad Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Firozabad. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'nellore': {
+        name: 'Nellore',
+        slug: 'nellore',
+        state: 'Andhra Pradesh',
+        areas: ['Nellore Central', 'City Center'],
+        description: "Residents and businesses in Nellore can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Nellore."
+    },
+    'bhavnagar': {
+        name: 'Bhavnagar',
+        slug: 'bhavnagar',
+        state: 'Gujarat',
+        areas: ['Bhavnagar Central', 'City Center'],
+        description: "In Bhavnagar, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'durgapur': {
+        name: 'Durgapur',
+        slug: 'durgapur',
+        state: 'West Bengal',
+        areas: ['Durgapur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Durgapur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Durgapur residents right at your doorstep."
+    },
+    'asansol': {
+        name: 'Asansol',
+        slug: 'asansol',
+        state: 'West Bengal',
+        areas: ['Asansol Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Asansol. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across West Bengal."
+    },
+    'rourkela': {
+        name: 'Rourkela',
+        slug: 'rourkela',
+        state: 'Odisha',
+        areas: ['Rourkela Central', 'City Center'],
+        description: "Residents and businesses in Rourkela can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Rourkela."
+    },
+    'nanded': {
+        name: 'Nanded',
+        slug: 'nanded',
+        state: 'Maharashtra',
+        areas: ['Nanded Central', 'City Center'],
+        description: "In Nanded, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'kolhapur': {
+        name: 'Kolhapur',
+        slug: 'kolhapur',
+        state: 'Maharashtra',
+        areas: ['Kolhapur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Kolhapur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Kolhapur residents right at your doorstep."
+    },
+    'akola': {
+        name: 'Akola',
+        slug: 'akola',
+        state: 'Maharashtra',
+        areas: ['Akola Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Akola. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Maharashtra."
+    },
+    'gulbarga': {
+        name: 'Gulbarga',
+        slug: 'gulbarga',
+        state: 'Karnataka',
+        areas: ['Gulbarga Central', 'City Center'],
+        description: "Residents and businesses in Gulbarga can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Gulbarga."
+    },
+    'jamnagar': {
+        name: 'Jamnagar',
+        slug: 'jamnagar',
+        state: 'Gujarat',
+        areas: ['Jamnagar Central', 'City Center'],
+        description: "In Jamnagar, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'loni': {
+        name: 'Loni',
+        slug: 'loni',
+        state: 'Uttar Pradesh',
+        areas: ['Loni Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Loni? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Loni residents right at your doorstep."
+    },
+    'jhansi': {
+        name: 'Jhansi',
+        slug: 'jhansi',
+        state: 'Uttar Pradesh',
+        areas: ['Jhansi Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Jhansi. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'ulhasnagar': {
+        name: 'Ulhasnagar',
+        slug: 'ulhasnagar',
+        state: 'Maharashtra',
+        areas: ['Ulhasnagar Central', 'City Center'],
+        description: "Residents and businesses in Ulhasnagar can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Ulhasnagar."
+    },
+    'sangli-miraj-kupwad': {
+        name: 'Sangli Miraj Kupwad',
+        slug: 'sangli-miraj-kupwad',
+        state: 'Maharashtra',
+        areas: ['Sangli Miraj Kupwad Central', 'City Center'],
+        description: "In Sangli Miraj Kupwad, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'erode': {
+        name: 'Erode',
+        slug: 'erode',
+        state: 'Tamil Nadu',
+        areas: ['Erode Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Erode? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Erode residents right at your doorstep."
+    },
+    'belgaum': {
+        name: 'Belgaum',
+        slug: 'belgaum',
+        state: 'Karnataka',
+        areas: ['Belgaum Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Belgaum. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Karnataka."
+    },
+    'ambattur': {
+        name: 'Ambattur',
+        slug: 'ambattur',
+        state: 'Tamil Nadu',
+        areas: ['Ambattur Central', 'City Center'],
+        description: "Residents and businesses in Ambattur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Ambattur."
+    },
+    'tirunelveli': {
+        name: 'Tirunelveli',
+        slug: 'tirunelveli',
+        state: 'Tamil Nadu',
+        areas: ['Tirunelveli Central', 'City Center'],
+        description: "In Tirunelveli, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'malegaon': {
+        name: 'Malegaon',
+        slug: 'malegaon',
+        state: 'Maharashtra',
+        areas: ['Malegaon Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Malegaon? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Malegaon residents right at your doorstep."
+    },
+    'gaya': {
+        name: 'Gaya',
+        slug: 'gaya',
+        state: 'Bihar',
+        areas: ['Gaya Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Gaya. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Bihar."
+    },
+    'jalgaon': {
+        name: 'Jalgaon',
+        slug: 'jalgaon',
+        state: 'Maharashtra',
+        areas: ['Jalgaon Central', 'City Center'],
+        description: "Residents and businesses in Jalgaon can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Jalgaon."
+    },
+    'udaipur': {
+        name: 'Udaipur',
+        slug: 'udaipur',
+        state: 'Rajasthan',
+        areas: ['Udaipur Central', 'City Center'],
+        description: "In Udaipur, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'maheshtala': {
+        name: 'Maheshtala',
+        slug: 'maheshtala',
+        state: 'West Bengal',
+        areas: ['Maheshtala Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Maheshtala? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Maheshtala residents right at your doorstep."
+    },
+    'davanagere': {
+        name: 'Davanagere',
+        slug: 'davanagere',
+        state: 'Karnataka',
+        areas: ['Davanagere Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Davanagere. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Karnataka."
+    },
+    'akbarpur': {
+        name: 'Akbarpur',
+        slug: 'akbarpur',
+        state: 'Uttar Pradesh',
+        areas: ['Akbarpur Central', 'City Center'],
+        description: "Residents and businesses in Akbarpur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Akbarpur."
+    },
+    'kurnool': {
+        name: 'Kurnool',
+        slug: 'kurnool',
+        state: 'Andhra Pradesh',
+        areas: ['Kurnool Central', 'City Center'],
+        description: "In Kurnool, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'rajpur-sonarpur': {
+        name: 'Rajpur Sonarpur',
+        slug: 'rajpur-sonarpur',
+        state: 'West Bengal',
+        areas: ['Rajpur Sonarpur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Rajpur Sonarpur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Rajpur Sonarpur residents right at your doorstep."
+    },
+    'bokaro': {
+        name: 'Bokaro',
+        slug: 'bokaro',
+        state: 'Jharkhand',
+        areas: ['Bokaro Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bokaro. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Jharkhand."
+    },
+    'south-dumdum': {
+        name: 'South Dumdum',
+        slug: 'south-dumdum',
+        state: 'West Bengal',
+        areas: ['South Dumdum Central', 'City Center'],
+        description: "Residents and businesses in South Dumdum can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout South Dumdum."
+    },
+    'bellary': {
+        name: 'Bellary',
+        slug: 'bellary',
+        state: 'Karnataka',
+        areas: ['Bellary Central', 'City Center'],
+        description: "In Bellary, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'patiala': {
+        name: 'Patiala',
+        slug: 'patiala',
+        state: 'Punjab',
+        areas: ['Patiala Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Patiala? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Patiala residents right at your doorstep."
+    },
+    'gopalpur': {
+        name: 'Gopalpur',
+        slug: 'gopalpur',
+        state: 'Odisha',
+        areas: ['Gopalpur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Gopalpur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Odisha."
+    },
+    'agartala': {
+        name: 'Agartala',
+        slug: 'agartala',
+        state: 'Tripura',
+        areas: ['Agartala Central', 'City Center'],
+        description: "Residents and businesses in Agartala can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Agartala."
+    },
+    'bhagalpur': {
+        name: 'Bhagalpur',
+        slug: 'bhagalpur',
+        state: 'Bihar',
+        areas: ['Bhagalpur Central', 'City Center'],
+        description: "In Bhagalpur, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'muzaffarnagar': {
+        name: 'Muzaffarnagar',
+        slug: 'muzaffarnagar',
+        state: 'Uttar Pradesh',
+        areas: ['Muzaffarnagar Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Muzaffarnagar? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Muzaffarnagar residents right at your doorstep."
+    },
+    'bhatpara': {
+        name: 'Bhatpara',
+        slug: 'bhatpara',
+        state: 'West Bengal',
+        areas: ['Bhatpara Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bhatpara. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across West Bengal."
+    },
+    'panihati': {
+        name: 'Panihati',
+        slug: 'panihati',
+        state: 'West Bengal',
+        areas: ['Panihati Central', 'City Center'],
+        description: "Residents and businesses in Panihati can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Panihati."
+    },
+    'latur': {
+        name: 'Latur',
+        slug: 'latur',
+        state: 'Maharashtra',
+        areas: ['Latur Central', 'City Center'],
+        description: "In Latur, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'dhule': {
+        name: 'Dhule',
+        slug: 'dhule',
+        state: 'Maharashtra',
+        areas: ['Dhule Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Dhule? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Dhule residents right at your doorstep."
+    },
+    'rohtak': {
+        name: 'Rohtak',
+        slug: 'rohtak',
+        state: 'Haryana',
+        areas: ['Rohtak Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Rohtak. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Haryana."
+    },
+    'korba': {
+        name: 'Korba',
+        slug: 'korba',
+        state: 'Chhattisgarh',
+        areas: ['Korba Central', 'City Center'],
+        description: "Residents and businesses in Korba can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Korba."
+    },
+    'bhilwara': {
+        name: 'Bhilwara',
+        slug: 'bhilwara',
+        state: 'Rajasthan',
+        areas: ['Bhilwara Central', 'City Center'],
+        description: "In Bhilwara, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'brahmapur': {
+        name: 'Brahmapur',
+        slug: 'brahmapur',
+        state: 'Odisha',
+        areas: ['Brahmapur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Brahmapur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Brahmapur residents right at your doorstep."
+    },
+    'muzaffarpur': {
+        name: 'Muzaffarpur',
+        slug: 'muzaffarpur',
+        state: 'Bihar',
+        areas: ['Muzaffarpur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Muzaffarpur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Bihar."
+    },
+    'ahmednagar': {
+        name: 'Ahmednagar',
+        slug: 'ahmednagar',
+        state: 'Maharashtra',
+        areas: ['Ahmednagar Central', 'City Center'],
+        description: "Residents and businesses in Ahmednagar can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Ahmednagar."
+    },
+    'mathura': {
+        name: 'Mathura',
+        slug: 'mathura',
+        state: 'Uttar Pradesh',
+        areas: ['Mathura Central', 'City Center'],
+        description: "In Mathura, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'kollam': {
+        name: 'Kollam',
+        slug: 'kollam',
+        state: 'Kerala',
+        areas: ['Kollam Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Kollam? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Kollam residents right at your doorstep."
+    },
+    'avadi': {
+        name: 'Avadi',
+        slug: 'avadi',
+        state: 'Tamil Nadu',
+        areas: ['Avadi Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Avadi. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Tamil Nadu."
+    },
+    'kadapa': {
+        name: 'Kadapa',
+        slug: 'kadapa',
+        state: 'Andhra Pradesh',
+        areas: ['Kadapa Central', 'City Center'],
+        description: "Residents and businesses in Kadapa can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Kadapa."
+    },
+    'kamarhati': {
+        name: 'Kamarhati',
+        slug: 'kamarhati',
+        state: 'West Bengal',
+        areas: ['Kamarhati Central', 'City Center'],
+        description: "In Kamarhati, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'bilaspur': {
+        name: 'Bilaspur',
+        slug: 'bilaspur',
+        state: 'Chhattisgarh',
+        areas: ['Bilaspur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Bilaspur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Bilaspur residents right at your doorstep."
+    },
+    'shahjahanpur': {
+        name: 'Shahjahanpur',
+        slug: 'shahjahanpur',
+        state: 'Uttar Pradesh',
+        areas: ['Shahjahanpur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Shahjahanpur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'satara': {
+        name: 'Satara',
+        slug: 'satara',
+        state: 'Maharashtra',
+        areas: ['Satara Central', 'City Center'],
+        description: "Residents and businesses in Satara can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Satara."
+    },
+    'bijapur': {
+        name: 'Bijapur',
+        slug: 'bijapur',
+        state: 'Karnataka',
+        areas: ['Bijapur Central', 'City Center'],
+        description: "In Bijapur, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'rampur': {
+        name: 'Rampur',
+        slug: 'rampur',
+        state: 'Uttar Pradesh',
+        areas: ['Rampur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Rampur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Rampur residents right at your doorstep."
+    },
+    'shimoga': {
+        name: 'Shimoga',
+        slug: 'shimoga',
+        state: 'Karnataka',
+        areas: ['Shimoga Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Shimoga. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Karnataka."
+    },
+    'chandrapur': {
+        name: 'Chandrapur',
+        slug: 'chandrapur',
+        state: 'Maharashtra',
+        areas: ['Chandrapur Central', 'City Center'],
+        description: "Residents and businesses in Chandrapur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Chandrapur."
+    },
+    'junagadh': {
+        name: 'Junagadh',
+        slug: 'junagadh',
+        state: 'Gujarat',
+        areas: ['Junagadh Central', 'City Center'],
+        description: "In Junagadh, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'alwar': {
+        name: 'Alwar',
+        slug: 'alwar',
+        state: 'Rajasthan',
+        areas: ['Alwar Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Alwar? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Alwar residents right at your doorstep."
+    },
+    'bardhaman': {
+        name: 'Bardhaman',
+        slug: 'bardhaman',
+        state: 'West Bengal',
+        areas: ['Bardhaman Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bardhaman. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across West Bengal."
+    },
+    'kulti': {
+        name: 'Kulti',
+        slug: 'kulti',
+        state: 'West Bengal',
+        areas: ['Kulti Central', 'City Center'],
+        description: "Residents and businesses in Kulti can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Kulti."
+    },
+    'nizamabad': {
+        name: 'Nizamabad',
+        slug: 'nizamabad',
+        state: 'Telangana',
+        areas: ['Nizamabad Central', 'City Center'],
+        description: "In Nizamabad, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'parbhani': {
+        name: 'Parbhani',
+        slug: 'parbhani',
+        state: 'Maharashtra',
+        areas: ['Parbhani Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Parbhani? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Parbhani residents right at your doorstep."
+    },
+    'tumkur': {
+        name: 'Tumkur',
+        slug: 'tumkur',
+        state: 'Karnataka',
+        areas: ['Tumkur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Tumkur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Karnataka."
+    },
+    'khammam': {
+        name: 'Khammam',
+        slug: 'khammam',
+        state: 'Telangana',
+        areas: ['Khammam Central', 'City Center'],
+        description: "Residents and businesses in Khammam can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Khammam."
+    },
+    'uzhavarkarai': {
+        name: 'Uzhavarkarai',
+        slug: 'uzhavarkarai',
+        state: 'Puducherry',
+        areas: ['Uzhavarkarai Central', 'City Center'],
+        description: "In Uzhavarkarai, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'bihar-sharif': {
+        name: 'Bihar Sharif',
+        slug: 'bihar-sharif',
+        state: 'Bihar',
+        areas: ['Bihar Sharif Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Bihar Sharif? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Bihar Sharif residents right at your doorstep."
+    },
+    'panipat': {
+        name: 'Panipat',
+        slug: 'panipat',
+        state: 'Haryana',
+        areas: ['Panipat Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Panipat. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Haryana."
+    },
+    'darbhanga': {
+        name: 'Darbhanga',
+        slug: 'darbhanga',
+        state: 'Bihar',
+        areas: ['Darbhanga Central', 'City Center'],
+        description: "Residents and businesses in Darbhanga can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Darbhanga."
+    },
+    'bally': {
+        name: 'Bally',
+        slug: 'bally',
+        state: 'West Bengal',
+        areas: ['Bally Central', 'City Center'],
+        description: "In Bally, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'aizawl': {
+        name: 'Aizawl',
+        slug: 'aizawl',
+        state: 'Mizoram',
+        areas: ['Aizawl Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Aizawl? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Aizawl residents right at your doorstep."
+    },
+    'dewas': {
+        name: 'Dewas',
+        slug: 'dewas',
+        state: 'Madhya Pradesh',
+        areas: ['Dewas Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Dewas. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Madhya Pradesh."
+    },
+    'ichalkaranji': {
+        name: 'Ichalkaranji',
+        slug: 'ichalkaranji',
+        state: 'Maharashtra',
+        areas: ['Ichalkaranji Central', 'City Center'],
+        description: "Residents and businesses in Ichalkaranji can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Ichalkaranji."
+    },
+    'karnal': {
+        name: 'Karnal',
+        slug: 'karnal',
+        state: 'Haryana',
+        areas: ['Karnal Central', 'City Center'],
+        description: "In Karnal, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'bathinda': {
+        name: 'Bathinda',
+        slug: 'bathinda',
+        state: 'Punjab',
+        areas: ['Bathinda Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Bathinda? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Bathinda residents right at your doorstep."
+    },
+    'jalna': {
+        name: 'Jalna',
+        slug: 'jalna',
+        state: 'Maharashtra',
+        areas: ['Jalna Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Jalna. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Maharashtra."
+    },
+    'eluru': {
+        name: 'Eluru',
+        slug: 'eluru',
+        state: 'Andhra Pradesh',
+        areas: ['Eluru Central', 'City Center'],
+        description: "Residents and businesses in Eluru can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Eluru."
+    },
+    'barasat': {
+        name: 'Barasat',
+        slug: 'barasat',
+        state: 'West Bengal',
+        areas: ['Barasat Central', 'City Center'],
+        description: "In Barasat, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'kirari-suleman-nagar': {
+        name: 'Kirari Suleman Nagar',
+        slug: 'kirari-suleman-nagar',
+        state: 'Delhi',
+        areas: ['Kirari Suleman Nagar Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Kirari Suleman Nagar? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Kirari Suleman Nagar residents right at your doorstep."
+    },
+    'purnia': {
+        name: 'Purnia',
+        slug: 'purnia',
+        state: 'Bihar',
+        areas: ['Purnia Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Purnia. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Bihar."
+    },
+    'satna': {
+        name: 'Satna',
+        slug: 'satna',
+        state: 'Madhya Pradesh',
+        areas: ['Satna Central', 'City Center'],
+        description: "Residents and businesses in Satna can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Satna."
+    },
+    'mau': {
+        name: 'Mau',
+        slug: 'mau',
+        state: 'Uttar Pradesh',
+        areas: ['Mau Central', 'City Center'],
+        description: "In Mau, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'sonipat': {
+        name: 'Sonipat',
+        slug: 'sonipat',
+        state: 'Haryana',
+        areas: ['Sonipat Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Sonipat? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Sonipat residents right at your doorstep."
+    },
+    'farrukhabad': {
+        name: 'Farrukhabad',
+        slug: 'farrukhabad',
+        state: 'Uttar Pradesh',
+        areas: ['Farrukhabad Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Farrukhabad. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'sagar': {
+        name: 'Sagar',
+        slug: 'sagar',
+        state: 'Madhya Pradesh',
+        areas: ['Sagar Central', 'City Center'],
+        description: "Residents and businesses in Sagar can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Sagar."
+    },
+    'durg': {
+        name: 'Durg',
+        slug: 'durg',
+        state: 'Chhattisgarh',
+        areas: ['Durg Central', 'City Center'],
+        description: "In Durg, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'imphal': {
+        name: 'Imphal',
+        slug: 'imphal',
+        state: 'Manipur',
+        areas: ['Imphal Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Imphal? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Imphal residents right at your doorstep."
+    },
+    'ratlam': {
+        name: 'Ratlam',
+        slug: 'ratlam',
+        state: 'Madhya Pradesh',
+        areas: ['Ratlam Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Ratlam. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Madhya Pradesh."
+    },
+    'hapur': {
+        name: 'Hapur',
+        slug: 'hapur',
+        state: 'Uttar Pradesh',
+        areas: ['Hapur Central', 'City Center'],
+        description: "Residents and businesses in Hapur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Hapur."
+    },
+    'arah': {
+        name: 'Arah',
+        slug: 'arah',
+        state: 'Bihar',
+        areas: ['Arah Central', 'City Center'],
+        description: "In Arah, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'anantapur': {
+        name: 'Anantapur',
+        slug: 'anantapur',
+        state: 'Andhra Pradesh',
+        areas: ['Anantapur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Anantapur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Anantapur residents right at your doorstep."
+    },
+    'karimnagar': {
+        name: 'Karimnagar',
+        slug: 'karimnagar',
+        state: 'Telangana',
+        areas: ['Karimnagar Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Karimnagar. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Telangana."
+    },
+    'etawah': {
+        name: 'Etawah',
+        slug: 'etawah',
+        state: 'Uttar Pradesh',
+        areas: ['Etawah Central', 'City Center'],
+        description: "Residents and businesses in Etawah can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Etawah."
+    },
+    'ambarnath': {
+        name: 'Ambarnath',
+        slug: 'ambarnath',
+        state: 'Maharashtra',
+        areas: ['Ambarnath Central', 'City Center'],
+        description: "In Ambarnath, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'north-dumdum': {
+        name: 'North Dumdum',
+        slug: 'north-dumdum',
+        state: 'West Bengal',
+        areas: ['North Dumdum Central', 'City Center'],
+        description: "Looking for expert Insurance Support in North Dumdum? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of North Dumdum residents right at your doorstep."
+    },
+    'bharatpur': {
+        name: 'Bharatpur',
+        slug: 'bharatpur',
+        state: 'Rajasthan',
+        areas: ['Bharatpur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bharatpur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Rajasthan."
+    },
+    'begusarai': {
+        name: 'Begusarai',
+        slug: 'begusarai',
+        state: 'Bihar',
+        areas: ['Begusarai Central', 'City Center'],
+        description: "Residents and businesses in Begusarai can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Begusarai."
+    },
+    'new-delhi': {
+        name: 'New Delhi',
+        slug: 'new-delhi',
+        state: 'Delhi',
+        areas: ['New Delhi Central', 'City Center'],
+        description: "In New Delhi, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'gandhidham': {
+        name: 'Gandhidham',
+        slug: 'gandhidham',
+        state: 'Gujarat',
+        areas: ['Gandhidham Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Gandhidham? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Gandhidham residents right at your doorstep."
+    },
+    'baranagar': {
+        name: 'Baranagar',
+        slug: 'baranagar',
+        state: 'West Bengal',
+        areas: ['Baranagar Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Baranagar. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across West Bengal."
+    },
+    'sikar': {
+        name: 'Sikar',
+        slug: 'sikar',
+        state: 'Rajasthan',
+        areas: ['Sikar Central', 'City Center'],
+        description: "Residents and businesses in Sikar can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Sikar."
+    },
+    'thoothukudi': {
+        name: 'Thoothukudi',
+        slug: 'thoothukudi',
+        state: 'Tamil Nadu',
+        areas: ['Thoothukudi Central', 'City Center'],
+        description: "In Thoothukudi, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'rew': {
+        name: 'Rew',
+        slug: 'rew',
+        state: 'Madhya Pradesh',
+        areas: ['Rew Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Rew? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Rew residents right at your doorstep."
+    },
+    'mirzapur': {
+        name: 'Mirzapur',
+        slug: 'mirzapur',
+        state: 'Uttar Pradesh',
+        areas: ['Mirzapur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Mirzapur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'raichur': {
+        name: 'Raichur',
+        slug: 'raichur',
+        state: 'Karnataka',
+        areas: ['Raichur Central', 'City Center'],
+        description: "Residents and businesses in Raichur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Raichur."
+    },
+    'pali': {
+        name: 'Pali',
+        slug: 'pali',
+        state: 'Rajasthan',
+        areas: ['Pali Central', 'City Center'],
+        description: "In Pali, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'ramagundam': {
+        name: 'Ramagundam',
+        slug: 'ramagundam',
+        state: 'Telangana',
+        areas: ['Ramagundam Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Ramagundam? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Ramagundam residents right at your doorstep."
+    },
+    'vizianagaram': {
+        name: 'Vizianagaram',
+        slug: 'vizianagaram',
+        state: 'Andhra Pradesh',
+        areas: ['Vizianagaram Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Vizianagaram. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Andhra Pradesh."
+    },
+    'katihar': {
+        name: 'Katihar',
+        slug: 'katihar',
+        state: 'Bihar',
+        areas: ['Katihar Central', 'City Center'],
+        description: "Residents and businesses in Katihar can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Katihar."
+    },
+    'haridwar': {
+        name: 'Haridwar',
+        slug: 'haridwar',
+        state: 'Uttarakhand',
+        areas: ['Haridwar Central', 'City Center'],
+        description: "In Haridwar, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'sriganganagar': {
+        name: 'Sriganganagar',
+        slug: 'sriganganagar',
+        state: 'Rajasthan',
+        areas: ['Sriganganagar Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Sriganganagar? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Sriganganagar residents right at your doorstep."
+    },
+    'karawal-nagar': {
+        name: 'Karawal Nagar',
+        slug: 'karawal-nagar',
+        state: 'Delhi',
+        areas: ['Karawal Nagar Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Karawal Nagar. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Delhi."
+    },
+    'nagercoil': {
+        name: 'Nagercoil',
+        slug: 'nagercoil',
+        state: 'Tamil Nadu',
+        areas: ['Nagercoil Central', 'City Center'],
+        description: "Residents and businesses in Nagercoil can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Nagercoil."
+    },
+    'mango': {
+        name: 'Mango',
+        slug: 'mango',
+        state: 'Jharkhand',
+        areas: ['Mango Central', 'City Center'],
+        description: "In Mango, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'bulandshahr': {
+        name: 'Bulandshahr',
+        slug: 'bulandshahr',
+        state: 'Uttar Pradesh',
+        areas: ['Bulandshahr Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Bulandshahr? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Bulandshahr residents right at your doorstep."
+    },
+    'thanjavur': {
+        name: 'Thanjavur',
+        slug: 'thanjavur',
+        state: 'Tamil Nadu',
+        areas: ['Thanjavur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Thanjavur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Tamil Nadu."
+    },
+    'murwara': {
+        name: 'Murwara',
+        slug: 'murwara',
+        state: 'Madhya Pradesh',
+        areas: ['Murwara Central', 'City Center'],
+        description: "Residents and businesses in Murwara can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Murwara."
+    },
+    'uluberia': {
+        name: 'Uluberia',
+        slug: 'uluberia',
+        state: 'West Bengal',
+        areas: ['Uluberia Central', 'City Center'],
+        description: "In Uluberia, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'shillong': {
+        name: 'Shillong',
+        slug: 'shillong',
+        state: 'Meghalaya',
+        areas: ['Shillong Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Shillong? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Shillong residents right at your doorstep."
+    },
+    'sambhal': {
+        name: 'Sambhal',
+        slug: 'sambhal',
+        state: 'Uttar Pradesh',
+        areas: ['Sambhal Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Sambhal. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'singrauli': {
+        name: 'Singrauli',
+        slug: 'singrauli',
+        state: 'Madhya Pradesh',
+        areas: ['Singrauli Central', 'City Center'],
+        description: "Residents and businesses in Singrauli can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Singrauli."
+    },
+    'nadiad': {
+        name: 'Nadiad',
+        slug: 'nadiad',
+        state: 'Gujarat',
+        areas: ['Nadiad Central', 'City Center'],
+        description: "In Nadiad, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'secunderabad': {
+        name: 'Secunderabad',
+        slug: 'secunderabad',
+        state: 'Telangana',
+        areas: ['Secunderabad Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Secunderabad? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Secunderabad residents right at your doorstep."
+    },
+    'naihati': {
+        name: 'Naihati',
+        slug: 'naihati',
+        state: 'West Bengal',
+        areas: ['Naihati Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Naihati. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across West Bengal."
+    },
+    'yamunanagar': {
+        name: 'Yamunanagar',
+        slug: 'yamunanagar',
+        state: 'Haryana',
+        areas: ['Yamunanagar Central', 'City Center'],
+        description: "Residents and businesses in Yamunanagar can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Yamunanagar."
+    },
+    'bidhan-nagar': {
+        name: 'Bidhan Nagar',
+        slug: 'bidhan-nagar',
+        state: 'West Bengal',
+        areas: ['Bidhan Nagar Central', 'City Center'],
+        description: "In Bidhan Nagar, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'pallavaram': {
+        name: 'Pallavaram',
+        slug: 'pallavaram',
+        state: 'Tamil Nadu',
+        areas: ['Pallavaram Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Pallavaram? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Pallavaram residents right at your doorstep."
+    },
+    'bidar': {
+        name: 'Bidar',
+        slug: 'bidar',
+        state: 'Karnataka',
+        areas: ['Bidar Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bidar. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Karnataka."
+    },
+    'munger': {
+        name: 'Munger',
+        slug: 'munger',
+        state: 'Bihar',
+        areas: ['Munger Central', 'City Center'],
+        description: "Residents and businesses in Munger can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Munger."
+    },
+    'panchkula': {
+        name: 'Panchkula',
+        slug: 'panchkula',
+        state: 'Haryana',
+        areas: ['Panchkula Central', 'City Center'],
+        description: "In Panchkula, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'burhanpur': {
+        name: 'Burhanpur',
+        slug: 'burhanpur',
+        state: 'Madhya Pradesh',
+        areas: ['Burhanpur Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Burhanpur? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Burhanpur residents right at your doorstep."
+    },
+    'kharagpur': {
+        name: 'Kharagpur',
+        slug: 'kharagpur',
+        state: 'West Bengal',
+        areas: ['Kharagpur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Kharagpur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across West Bengal."
+    },
+    'dindigul': {
+        name: 'Dindigul',
+        slug: 'dindigul',
+        state: 'Tamil Nadu',
+        areas: ['Dindigul Central', 'City Center'],
+        description: "Residents and businesses in Dindigul can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Dindigul."
+    },
+    'gandhinagar': {
+        name: 'Gandhinagar',
+        slug: 'gandhinagar',
+        state: 'Gujarat',
+        areas: ['Gandhinagar Central', 'City Center'],
+        description: "In Gandhinagar, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'hospet': {
+        name: 'Hospet',
+        slug: 'hospet',
+        state: 'Karnataka',
+        areas: ['Hospet Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Hospet? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Hospet residents right at your doorstep."
+    },
+    'nangloi-jat': {
+        name: 'Nangloi Jat',
+        slug: 'nangloi-jat',
+        state: 'Delhi',
+        areas: ['Nangloi Jat Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Nangloi Jat. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Delhi."
+    },
+    'malda': {
+        name: 'Malda',
+        slug: 'malda',
+        state: 'West Bengal',
+        areas: ['Malda Central', 'City Center'],
+        description: "Residents and businesses in Malda can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Malda."
+    },
+    'ongole': {
+        name: 'Ongole',
+        slug: 'ongole',
+        state: 'Andhra Pradesh',
+        areas: ['Ongole Central', 'City Center'],
+        description: "In Ongole, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'deoghar': {
+        name: 'Deoghar',
+        slug: 'deoghar',
+        state: 'Jharkhand',
+        areas: ['Deoghar Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Deoghar? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Deoghar residents right at your doorstep."
+    },
+    'chapra': {
+        name: 'Chapra',
+        slug: 'chapra',
+        state: 'Bihar',
+        areas: ['Chapra Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Chapra. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Bihar."
+    },
+    'haldia': {
+        name: 'Haldia',
+        slug: 'haldia',
+        state: 'West Bengal',
+        areas: ['Haldia Central', 'City Center'],
+        description: "Residents and businesses in Haldia can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Haldia."
+    },
+    'khandwa': {
+        name: 'Khandwa',
+        slug: 'khandwa',
+        state: 'Madhya Pradesh',
+        areas: ['Khandwa Central', 'City Center'],
+        description: "In Khandwa, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'nandyal': {
+        name: 'Nandyal',
+        slug: 'nandyal',
+        state: 'Andhra Pradesh',
+        areas: ['Nandyal Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Nandyal? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Nandyal residents right at your doorstep."
+    },
+    'morena': {
+        name: 'Morena',
+        slug: 'morena',
+        state: 'Madhya Pradesh',
+        areas: ['Morena Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Morena. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Madhya Pradesh."
+    },
+    'amroha': {
+        name: 'Amroha',
+        slug: 'amroha',
+        state: 'Uttar Pradesh',
+        areas: ['Amroha Central', 'City Center'],
+        description: "Residents and businesses in Amroha can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Amroha."
+    },
+    'anand': {
+        name: 'Anand',
+        slug: 'anand',
+        state: 'Gujarat',
+        areas: ['Anand Central', 'City Center'],
+        description: "In Anand, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'bhind': {
+        name: 'Bhind',
+        slug: 'bhind',
+        state: 'Madhya Pradesh',
+        areas: ['Bhind Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Bhind? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Bhind residents right at your doorstep."
+    },
+    'bhalswa-jahangir-pur': {
+        name: 'Bhalswa Jahangir Pur',
+        slug: 'bhalswa-jahangir-pur',
+        state: 'Delhi',
+        areas: ['Bhalswa Jahangir Pur Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bhalswa Jahangir Pur. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Delhi."
+    },
+    'madhyamgram': {
+        name: 'Madhyamgram',
+        slug: 'madhyamgram',
+        state: 'West Bengal',
+        areas: ['Madhyamgram Central', 'City Center'],
+        description: "Residents and businesses in Madhyamgram can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Madhyamgram."
+    },
+    'bhiwani': {
+        name: 'Bhiwani',
+        slug: 'bhiwani',
+        state: 'Haryana',
+        areas: ['Bhiwani Central', 'City Center'],
+        description: "In Bhiwani, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'berhampore': {
+        name: 'Berhampore',
+        slug: 'berhampore',
+        state: 'West Bengal',
+        areas: ['Berhampore Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Berhampore? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Berhampore residents right at your doorstep."
+    },
+    'ambala': {
+        name: 'Ambala',
+        slug: 'ambala',
+        state: 'Haryana',
+        areas: ['Ambala Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Ambala. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Haryana."
+    },
+    'morbi': {
+        name: 'Morbi',
+        slug: 'morbi',
+        state: 'Gujarat',
+        areas: ['Morbi Central', 'City Center'],
+        description: "Residents and businesses in Morbi can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Morbi."
+    },
+    'fatehpur': {
+        name: 'Fatehpur',
+        slug: 'fatehpur',
+        state: 'Uttar Pradesh',
+        areas: ['Fatehpur Central', 'City Center'],
+        description: "In Fatehpur, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'raebareli': {
+        name: 'Raebareli',
+        slug: 'raebareli',
+        state: 'Uttar Pradesh',
+        areas: ['Raebareli Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Raebareli? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Raebareli residents right at your doorstep."
+    },
+    'khora': {
+        name: 'Khora',
+        slug: 'khora',
+        state: 'Uttar Pradesh',
+        areas: ['Khora Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Khora. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'chittoor': {
+        name: 'Chittoor',
+        slug: 'chittoor',
+        state: 'Andhra Pradesh',
+        areas: ['Chittoor Central', 'City Center'],
+        description: "Residents and businesses in Chittoor can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Chittoor."
+    },
+    'bhusawal': {
+        name: 'Bhusawal',
+        slug: 'bhusawal',
+        state: 'Maharashtra',
+        areas: ['Bhusawal Central', 'City Center'],
+        description: "In Bhusawal, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'orai': {
+        name: 'Orai',
+        slug: 'orai',
+        state: 'Uttar Pradesh',
+        areas: ['Orai Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Orai? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Orai residents right at your doorstep."
+    },
+    'bahraich': {
+        name: 'Bahraich',
+        slug: 'bahraich',
+        state: 'Uttar Pradesh',
+        areas: ['Bahraich Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Bahraich. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Uttar Pradesh."
+    },
+    'phusro': {
+        name: 'Phusro',
+        slug: 'phusro',
+        state: 'Jharkhand',
+        areas: ['Phusro Central', 'City Center'],
+        description: "Residents and businesses in Phusro can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Phusro."
+    },
+    'mehsana': {
+        name: 'Mehsana',
+        slug: 'mehsana',
+        state: 'Gujarat',
+        areas: ['Mehsana Central', 'City Center'],
+        description: "In Mehsana, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'raiganj': {
+        name: 'Raiganj',
+        slug: 'raiganj',
+        state: 'West Bengal',
+        areas: ['Raiganj Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Raiganj? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Raiganj residents right at your doorstep."
+    },
+    'sirsa': {
+        name: 'Sirsa',
+        slug: 'sirsa',
+        state: 'Haryana',
+        areas: ['Sirsa Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Sirsa. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Haryana."
+    },
+    'danapur': {
+        name: 'Danapur',
+        slug: 'danapur',
+        state: 'Bihar',
+        areas: ['Danapur Central', 'City Center'],
+        description: "Residents and businesses in Danapur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Danapur."
+    },
+    'serampore': {
+        name: 'Serampore',
+        slug: 'serampore',
+        state: 'West Bengal',
+        areas: ['Serampore Central', 'City Center'],
+        description: "In Serampore, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'sultan-pur-majra': {
+        name: 'Sultan Pur Majra',
+        slug: 'sultan-pur-majra',
+        state: 'Delhi',
+        areas: ['Sultan Pur Majra Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Sultan Pur Majra? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Sultan Pur Majra residents right at your doorstep."
+    },
+    'guna': {
+        name: 'Guna',
+        slug: 'guna',
+        state: 'Madhya Pradesh',
+        areas: ['Guna Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Guna. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Madhya Pradesh."
+    },
+    'jaunpur': {
+        name: 'Jaunpur',
+        slug: 'jaunpur',
+        state: 'Uttar Pradesh',
+        areas: ['Jaunpur Central', 'City Center'],
+        description: "Residents and businesses in Jaunpur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Jaunpur."
+    },
+    'panvel': {
+        name: 'Panvel',
+        slug: 'panvel',
+        state: 'Maharashtra',
+        areas: ['Panvel Central', 'City Center'],
+        description: "In Panvel, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
+    'shivpuri': {
+        name: 'Shivpuri',
+        slug: 'shivpuri',
+        state: 'Madhya Pradesh',
+        areas: ['Shivpuri Central', 'City Center'],
+        description: "Looking for expert Insurance Support in Shivpuri? We provide localized guidance on health, life, and motor insurance. Skip the long queues and get professional advice tailored to the unique needs of Shivpuri residents right at your doorstep."
+    },
+    'surendranagar': {
+        name: 'Surendranagar',
+        slug: 'surendranagar',
+        state: 'Gujarat',
+        areas: ['Surendranagar Central', 'City Center'],
+        description: "Secure your family's future with the most trusted Insurance Support team in Surendranagar. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Gujarat."
+    },
+    'unnc': {
+        name: 'Unnc',
+        slug: 'unnc',
+        state: 'Uttar Pradesh',
+        areas: ['Unnc Central', 'City Center'],
+        description: "Residents and businesses in Unnc can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Unnc."
+    },
+    'hugli-chinsurah': {
+        name: 'Hugli Chinsurah',
+        slug: 'hugli-chinsurah',
+        state: 'West Bengal',
+        areas: ['Hugli Chinsurah Central', 'City Center'],
+        description: "In Hugli Chinsurah, protecting your assets has never been easier. We bring the LIC and General Insurance office directly to you. Our proficient advisors handle policy renewals and claim recoveries locally without any bureaucratic delays."
+    },
 };
 
 export const getCityData = (slug: string) => {
