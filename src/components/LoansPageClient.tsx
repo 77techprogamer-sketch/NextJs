@@ -3,7 +3,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import dynamic from 'next/dynamic';
 import '@/i18n'; // Ensure i18n is initialized
-import HeroSection from '@/components/sections/HeroSection';
+import LoansHeroSection from '@/components/sections/LoansHeroSection';
 
 const LoansSection = dynamic(() => import('@/components/sections/LoansSection'), {
     loading: () => <div className="min-h-[400px] animate-pulse bg-slate-50 dark:bg-slate-900" />
@@ -53,11 +53,8 @@ const LoansPageClient: React.FC = () => {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <HeroSection
-                city={null}
+            <LoansHeroSection
                 onGetQuote={handleVote}
-                title={t("loans_hero_title")}
-                description={t("loans_hero_description")}
             />
 
             <LoansSection onGetQuote={handleGetQuote} />
