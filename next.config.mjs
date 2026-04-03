@@ -64,7 +64,16 @@ const nextConfig = {
     experimental: {
         optimizeCss: true, // Requires 'critters' package
         optimizePackageImports: ['lucide-react', 'date-fns', 'lodash']
-    }
+    },
+    async redirects() {
+        return [
+            {
+                source: '/resources/national-insurance-claim-process',
+                destination: '/resources/general-insurance-claim-process',
+                permanent: true,
+            },
+        ];
+    },
 };
 
 export default nextConfig;
