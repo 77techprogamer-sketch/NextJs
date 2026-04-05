@@ -22,7 +22,12 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
 const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
 
-const LoansPageClient: React.FC = () => {
+interface LoansPageClientProps {
+    customTitle?: string;
+    customDescription?: string;
+}
+
+const LoansPageClient: React.FC<LoansPageClientProps> = ({ customTitle, customDescription }) => {
     const { t, i18n } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
@@ -55,6 +60,8 @@ const LoansPageClient: React.FC = () => {
         <div className="flex flex-col min-h-screen">
             <LoansHeroSection
                 onGetQuote={handleVote}
+                customTitle={customTitle}
+                customDescription={customDescription}
             />
 
             <LoansSection onGetQuote={handleGetQuote} />

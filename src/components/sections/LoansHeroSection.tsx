@@ -12,9 +12,11 @@ import { trackCTAClick } from '@/utils/trackCta';
 
 interface LoansHeroSectionProps {
     onGetQuote: () => void;
+    customTitle?: string;
+    customDescription?: string;
 }
 
-const LoansHeroSection: React.FC<LoansHeroSectionProps> = ({ onGetQuote }) => {
+const LoansHeroSection: React.FC<LoansHeroSectionProps> = ({ onGetQuote, customTitle, customDescription }) => {
     const { t } = useTranslation();
 
     const handleApplyNow = () => {
@@ -62,11 +64,11 @@ const LoansHeroSection: React.FC<LoansHeroSectionProps> = ({ onGetQuote }) => {
                     {/* Title */}
                     <div className="space-y-4 max-w-4xl mx-auto">
                         <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
-                            {t("loans_hero_title")}
+                            {customTitle || t("loans_hero_title")}
                         </h1>
                         <ScrollReveal animation="fade-up" delay={0.6} width="100%" enableAnimation={false}>
                             <p className="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                                {t("loans_hero_description")}
+                                {customDescription || t("loans_hero_description")}
                             </p>
                         </ScrollReveal>
                     </div>
