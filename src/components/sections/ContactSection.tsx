@@ -29,7 +29,7 @@ const ContactSection = () => {
                         <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl font-semibold leading-none tracking-tight" suppressHydrationWarning>{t("whatsapp_us")}</h3>
                         <CardDescription className="text-center text-sm sm:text-base">{contactConfig.phoneFull}</CardDescription>
                     </a>
-                    <a href="https://maps.app.goo.gl/b1wFEf9wBJ25L4ao9" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground">
+                    <a href="https://share.google/FBw8WZDuh4r3AD5f0" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center p-4 sm:p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 rounded-lg bg-card text-card-foreground">
                         <MapPin className="text-primary h-10 w-10 sm:h-12 sm:w-12 mb-3 sm:mb-4" />
                         <h3 className="mb-1 sm:mb-2 text-lg sm:text-xl font-semibold leading-none tracking-tight" suppressHydrationWarning>{t("visit_us")}</h3>
                         <CardDescription className="text-center text-sm sm:text-base" suppressHydrationWarning>{t("bangalore_office")}</CardDescription>

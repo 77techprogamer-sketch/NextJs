@@ -166,7 +166,7 @@ const Footer = () => {
           <div className="text-center sm:text-left">
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs" suppressHydrationWarning>{t("headquarters")}</h3>
             <a 
-              href="https://share.google/51GhSReNvheO3MV7t" 
+              href="https://share.google/FBw8WZDuh4r3AD5f0" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-sm mb-6 hover:text-primary hover:underline transition-colors block"
