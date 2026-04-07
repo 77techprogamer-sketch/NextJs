@@ -5,6 +5,7 @@ import { services, serviceLabels } from '@/data/services'
 import ServiceLocationClient from '@/components/ServiceLocationClient'
 import { contactConfig } from '@/data/contact';
 import { generateUniqueContent } from '@/utils/contentEngine'
+import { fetchCityPincodes } from '@/lib/supabase-server';
 
 interface Props {
     params: { city: string; service: string }
@@ -20,32 +21,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const isHealthRelated = params.service.includes('health');
     const isMotor = params.service.includes('motor');
     
-    let title = `${serviceLabel} Advisor in ${city.name} | Free Quote & Consult`;
+    let title = `${serviceLabel} Advisor in ${city.name} – Call ${contactConfig.phone}`;
     
     if (isLicRelated) {
-        title = `Best ${serviceLabel} in ${city.name} | Claim Help & Policy Revival`;
+        title = `${serviceLabel} Office & Agent Support ${city.name} – Call ${contactConfig.phone}`;
     } else if (isHealthRelated) {
-        title = `${serviceLabel} Advisor in ${city.name} | Cashless & Claim Support`;
+        title = `${serviceLabel} Advisor in ${city.name} – Cashless Support & Call ${contactConfig.phone}`;
     } else if (isMotor) {
-        title = `${serviceLabel} Agent in ${city.name} | Instant Renewal & Claims`;
+        title = `${serviceLabel} Agent in ${city.name} – Fast Renewal & Call ${contactConfig.phone}`;
     }
 
     const uniqueMetaDescription = generateUniqueContent(params.service, city);
+    const pincodes = await fetchCityPincodes(city.name, 10);
+    const localKeywords = pincodes.length > 0 
+        ? pincodes.map(p => `${serviceLabel} near ${p.post_office}`)
+        : city.areas.slice(0, 5).map(area => `${serviceLabel} near ${area}`);
+        
+    const enrichedDescription = pincodes.length > 0
+        ? `${uniqueMetaDescription.substring(0, 100)}... Providing ${serviceLabel} across ${pincodes.slice(0, 3).map(p => p.post_office).join(', ')}.`
+        : uniqueMetaDescription.substring(0, 160);
 
     return {
-        ...(isCityContentRich(city) ? {} : { robots: { index: false, follow: true } }),
+        robots: { index: true, follow: true },
         title: {
             absolute: title
         },
-        description: uniqueMetaDescription.substring(0, 160),
+        description: enrichedDescription.substring(0, 160),
         keywords: [
+            `Call ${serviceLabel} agent in ${city.name}`,
+            `Talk to ${serviceLabel} advisor on phone ${city.name}`,
+            `Book a call for ${serviceLabel} ${city.name}`,
             `${serviceLabel} ${city.name}`,
-            `Best ${serviceLabel} Advisor in ${city.name}`,
-            `${serviceLabel} claim assistance ${city.name}`,
-            `${serviceLabel} doorstep service ${city.name}`,
-            `top rated ${serviceLabel} company ${city.name}`,
             `${serviceLabel} consultant near me ${city.name}`,
-            ...city.areas.slice(0, 5).map(area => `${serviceLabel} near ${area}`),
+            ...localKeywords,
         ],
         alternates: {
             canonical: `https://insurancesupport.online/locations/${params.city}/${params.service}`,
@@ -70,7 +78,7 @@ export async function generateStaticParams() {
     return params
 }
 
-export default function ServiceLocationPage({ params }: Props) {
+export default async function ServiceLocationPage({ params }: Props) {
     const city = getCityData(params.city)
     const serviceLabel = serviceLabels[params.service]
     const serviceSlug = params.service
@@ -219,6 +227,7 @@ export default function ServiceLocationPage({ params }: Props) {
                 serviceSlug={serviceSlug} 
                 serviceLabel={serviceLabel} 
                 uniqueDescription={generateUniqueContent(serviceSlug, city)}
+                localOffices={await fetchCityPincodes(city.name, 12)}
             />
         </div>
     )

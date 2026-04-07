@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { getCityData, cityData, isCityContentRich } from '@/data/cityData'
 import LoansPageClient from '@/components/LoansPageClient'
 import { contactConfig } from '@/data/contact'
+import { fetchCityPincodes } from '@/lib/supabase-server'
 
 interface Props {
     params: { city: string }
@@ -13,29 +14,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!city || !city.slug.startsWith('bangalore')) return {}
 
-    const title = `Best Loans Advisor in ${city.name} | Lowest Interest Rates`;
-    const description = `Looking for the best Home, Personal, or Business loans in ${city.name}? Insurance Support provides the lowest interest rates and fastest approvals across ${city.areas.slice(0, 3).join(', ')}.`;
+    const title = `Loans Advisor in ${city.name} – Call ${contactConfig.phone} | Lowest Interest`;
+    const pincodes = await fetchCityPincodes(city.name, 10);
+    const localKeywords = pincodes.length > 0 
+        ? pincodes.map(p => `loans near ${p.post_office}`)
+        : city.areas.slice(0, 5).map(area => `loans near ${area}`);
+
+    const enrichedDescription = pincodes.length > 0
+        ? `Looking for the best Home, Personal, or Business loans in ${city.name}? Insurance Support provides the lowest interest rates across ${pincodes.slice(0, 3).map(p => p.post_office).join(', ')}.`
+        : `Looking for the best Home, Personal, or Business loans in ${city.name}? Insurance Support provides the lowest interest rates and fastest approvals across ${city.areas.slice(0, 3).join(', ')}.`;
 
     return {
-        ...(isCityContentRich(city) ? {} : { robots: { index: false, follow: true } }),
+        robots: { index: true, follow: true },
         title: {
             absolute: title
         },
-        description: description,
+        description: enrichedDescription,
         keywords: [
+            `Call Loans agent in ${city.name}`,
+            `Talk to Loans advisor on phone ${city.name}`,
+            `Book a call for Home Loan ${city.name}`,
             `Loans ${city.name}`,
-            `Best Loan Advisor in ${city.name}`,
-            `Home Loan ${city.name}`,
-            `Personal Loan ${city.name}`,
             `low interest loans near me ${city.name}`,
-            ...city.areas.slice(0, 5).map(area => `loans near ${area}`),
+            ...localKeywords,
         ],
         alternates: {
             canonical: `https://insurancesupport.online/locations/${params.city}/loans`,
         },
         openGraph: {
             title: `Best Loans in ${city.name} – Quick Approval | Insurance Support`,
-            description: description,
+            description: enrichedDescription,
             type: 'website',
         }
     }
@@ -54,7 +62,7 @@ export async function generateStaticParams() {
     return params
 }
 
-export default function LoansLocationPage({ params }: Props) {
+export default async function LoansLocationPage({ params }: Props) {
     const city = getCityData(params.city)
 
     if (!city || !city.slug.startsWith('bangalore')) {
@@ -164,6 +172,8 @@ export default function LoansLocationPage({ params }: Props) {
             <LoansPageClient 
                 customTitle={`Best Loans in ${city.name}`}
                 customDescription={`Get the lowest interest rates and quickest approvals directly at your doorstep in ${city.name}. We provide fast, hassle-free processing for Home, Business, and Personal loans.`}
+                city={city.name}
+                localOffices={await fetchCityPincodes(city.name, 12)}
             />
         </div>
     )

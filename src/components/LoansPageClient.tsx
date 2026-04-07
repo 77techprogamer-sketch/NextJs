@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import dynamic from 'next/dynamic';
 import '@/i18n'; // Ensure i18n is initialized
 import LoansHeroSection from '@/components/sections/LoansHeroSection';
+import LocalCoverageSection from '@/components/sections/LocalCoverageSection';
+import { PincodeData } from '@/lib/supabase-server';
 
 const LoansSection = dynamic(() => import('@/components/sections/LoansSection'), {
     loading: () => <div className="min-h-[400px] animate-pulse bg-slate-50 dark:bg-slate-900" />
@@ -25,9 +27,11 @@ const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: fal
 interface LoansPageClientProps {
     customTitle?: string;
     customDescription?: string;
+    localOffices?: PincodeData[];
+    city?: string;
 }
 
-const LoansPageClient: React.FC<LoansPageClientProps> = ({ customTitle, customDescription }) => {
+const LoansPageClient: React.FC<LoansPageClientProps> = ({ customTitle, customDescription, localOffices, city }) => {
     const { t, i18n } = useTranslation();
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedInsuranceType, setSelectedInsuranceType] = useState('');
@@ -74,6 +78,10 @@ const LoansPageClient: React.FC<LoansPageClientProps> = ({ customTitle, customDe
                 { q: "faq_loan_q3", a: "faq_loan_a3" },
                 { q: "faq_loan_q4", a: "faq_loan_a4" },
             ]} />
+
+            {city && localOffices && localOffices.length > 0 && (
+                <LocalCoverageSection city={city} offices={localOffices} />
+            )}
 
             <ContactSection />
 

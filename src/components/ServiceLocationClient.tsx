@@ -13,15 +13,18 @@ import ServiceFAQSection from '@/components/ServiceFAQSection';
 import AuthorBio from '@/components/AuthorBio';
 import { cityData as allCityData } from '@/data/cityData';
 import { successStories } from '@/data/successStoriesData';
+import LocalCoverageSection from '@/components/sections/LocalCoverageSection';
+import { PincodeData } from '@/lib/supabase-server';
 
 interface ServiceLocationClientProps {
     city: any;
     serviceSlug: string;
     serviceLabel: string;
     uniqueDescription: string;
+    localOffices?: PincodeData[];
 }
 
-export default function ServiceLocationClient({ city, serviceSlug, serviceLabel, uniqueDescription }: ServiceLocationClientProps) {
+export default function ServiceLocationClient({ city, serviceSlug, serviceLabel, uniqueDescription, localOffices }: ServiceLocationClientProps) {
     const { t } = useTranslation();
     const [allowedCities, setAllowedCities] = React.useState<string[] | null>(null);
 
@@ -58,9 +61,32 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel,
                     </Trans>
                 </h1>
 
-                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
                     {uniqueDescription}
                 </p>
+
+                <div className="mb-8 p-6 bg-slate-50 border border-blue-100 rounded-xl">
+                    <ul className="mb-6 space-y-3">
+                        <li className="flex items-center gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                            <span className="font-medium text-slate-800">Support for all major {serviceLabel} companies</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                            <span className="font-medium text-slate-800">Minimum & premium options compared</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                            <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                            <span className="font-medium text-slate-800">Local language support across {city.name}</span>
+                        </li>
+                    </ul>
+                    <a href={contactConfig.getDialUrl()}>
+                        <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-bold shadow-[0_4px_20px_rgba(0,0,0,0.15)] bg-blue-600 hover:bg-blue-700 text-white rounded-full">
+                            <Phone className="w-5 h-5 mr-3 fill-current" />
+                            Tap to Call Local Advisor
+                        </Button>
+                    </a>
+                </div>
 
                 <div className="bg-primary/5 border border-primary/10 rounded-2xl p-8 mb-10">
                     <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
@@ -265,6 +291,8 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel,
                         ))}
                     </div>
                 )}
+
+                <LocalCoverageSection city={city.name} offices={localOffices || []} />
 
                 <div className="mb-12">
                     <AuthorBio />

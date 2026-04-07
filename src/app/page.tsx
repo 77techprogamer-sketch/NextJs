@@ -6,17 +6,19 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'Insurance Advisor India | LIC, Health & Claim Recovery – Insurance Support'
+        absolute: 'LIC Insurance Advisor India – Call 9986634506 | InsuranceSupport'
     },
-    description: 'Looking for a trusted insurance advisor in India? 25+ years of IRDAI-certified expertise in LIC policy revival, rejected health insurance claims, and motor renewals. Free doorstep consultation.',
+    description: 'Licensed LIC and health insurance advisor in India. Instant quotes, claim support, policy comparisons. Call/WhatsApp 9986634506 to buy a policy today.',
     keywords: [
+        'LIC Insurance Support',
+        'Call LIC Agent',
+        'Lic office near me',
         'Insurance Support',
         'Insurance Support India',
         'Claim Recovery',
         'Rejected Claim Help',
         'Lost Policy Document Recovery',
         'LIC Policy Status Check',
-        'Insurance Claim Consultant India',
         'Insurance Advisor',
         'Insurance Consultancy'
     ],
