@@ -368,7 +368,7 @@ export default function BangaloreHealthHub() {
                                         </div>
                                         <div className="text-xs">
                                             <p className="font-bold text-slate-900">Bangalore Office</p>
-                                            <p>Residency Road, Cross, Bangalore - 560025</p>
+                                            <p>Bahubali Nagar, Jalahalli, Bengaluru, Karnataka 560013</p>
                                         </div>
                                     </div>
                                 </div>

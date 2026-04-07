@@ -342,7 +342,7 @@ export default function BangaloreLICHub() {
                                         </div>
                                         <div className="text-xs">
                                             <p className="font-bold text-slate-900 uppercase tracking-widest">Main Hub</p>
-                                            <p>Residency Road, Cross, Bangalore - 560025</p>
+                                            <p>Bahubali Nagar, Jalahalli, Bengaluru, Karnataka 560013</p>
                                         </div>
                                     </div>
                                 </div>

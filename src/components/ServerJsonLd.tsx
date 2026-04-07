@@ -142,10 +142,10 @@ export function LocalBusinessJsonLd() {
                 ],
                 address: {
                     '@type': 'PostalAddress',
-                    streetAddress: 'Bangalore',
-                    addressLocality: 'Bangalore',
+                    streetAddress: 'Bahubali Nagar, Jalahalli',
+                    addressLocality: 'Bengaluru',
                     addressRegion: 'KA',
-                    postalCode: '560001',
+                    postalCode: '560013',
                     addressCountry: 'IN'
                 },
                 geo: {
