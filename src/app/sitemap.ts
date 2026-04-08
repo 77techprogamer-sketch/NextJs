@@ -4,8 +4,12 @@ import { services } from '@/data/services'
 import { faqData } from '@/data/faqData'
 
 const BASE_url = 'https://insurancesupport.online'
-// Static date — update this when content is significantly changed
-const LAST_MOD = '2026-03-16T00:00:00.000Z'
+
+// Dynamic dates: each group reflects its actual update frequency
+const now = new Date()
+const todayISO = now.toISOString()
+const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString()
+const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString()
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const staticRoutes = [
@@ -23,7 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/loans',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
-        lastModified: LAST_MOD,
+        lastModified: todayISO,
         changeFrequency: 'daily' as const,
         priority: route === '' || route === '/locations' || route === '/services' ? 1 : 0.8,
     }))
@@ -32,14 +36,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const serviceRoutes = services.map((slug: string) => ({
         url: `${BASE_url}/services/${slug}`,
-        lastModified: LAST_MOD,
+        lastModified: todayISO,
         changeFrequency: 'daily' as const,
         priority: 0.9,
     }))
 
     const locationRoutes = locations.map((city) => ({
         url: `${BASE_url}/locations/${city}`,
-        lastModified: LAST_MOD,
+        lastModified: sevenDaysAgo,
         changeFrequency: 'weekly' as const,
         priority: 0.85,
     }))
@@ -64,14 +68,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/resources/guides/health-insurance-claim-checklist',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
-        lastModified: LAST_MOD,
+        lastModified: sevenDaysAgo,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
     }))
 
     const faqRoutes = faqData.map((faq) => ({
         url: `${BASE_url}/resources/faq/${faq.slug}`,
-        lastModified: LAST_MOD,
+        lastModified: sevenDaysAgo,
         changeFrequency: 'monthly' as const,
         priority: 0.75,
     }))
@@ -85,7 +89,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         services.forEach(service => {
             matrixRoutes.push({
                 url: `${BASE_url}/locations/${city}/${service}`,
-                lastModified: LAST_MOD,
+                lastModified: thirtyDaysAgo,
                 changeFrequency: 'monthly' as const,
                 priority: 0.5,
             })

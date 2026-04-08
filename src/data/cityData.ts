@@ -51,7 +51,7 @@ export const cityData: Record<string, CityData> = {
         ],
         description: "As India's Silicon Valley, Bangalore sees high tech-professional density. From the IT corridors of Outer Ring Road, Manyata Tech Park, and Bagmane Tech Park to the landmark Brigade Gateway and residential hubs of HSR Layout, we provide hyper-local Insurance Support. Skip the traffic at Silk Board—our certified advisors offer doorstep service for policy renewals, death claims, and health insurance disputes. We are intimately familiar with major LIC branches across the city, including the main Jeevan Prakash Building on JC Road, the Jeevan Bima Nagar hub, and localized branches in Bangalore South, ensuring your paperwork is processed rapidly without you ever needing to visit the branch. Specializing in Employee Benefits and Corporate Wellness plans for the city's vast startup ecosystem.",
         phone: contactConfig.phoneFull,
-        coordinates: [12.9716, 77.5946],
+        coordinates: [13.0159, 77.5522],
         licOffice: {
             name: "LIC Bangalore Division I & II",
             address: "Jeevan Prakash, J.C. Road, Bangalore - 560002"

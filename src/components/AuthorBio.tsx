@@ -39,7 +39,7 @@ const AuthorBio = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                         <div className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
                             <ShieldCheck className="w-4 h-4 text-green-500" />
-                            <span>IRDAI Registration: Authorized</span>
+                            <span>IRDAI Registered Advisory Team</span>
                         </div>
                         <div className="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
                             <CheckCircle className="w-4 h-4 text-green-500" />
@@ -54,7 +54,7 @@ const AuthorBio = () => {
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-xs font-bold text-primary hover:underline"
                         >
-                            Verify IRDAI License <ExternalLink className="w-3 h-3" />
+                            Verify IRDAI Registration <ExternalLink className="w-3 h-3" />
                         </a>
                         <span className="text-slate-300">|</span>
                         <Link href="/about-hari-kotian" className="text-xs font-bold text-primary hover:underline">

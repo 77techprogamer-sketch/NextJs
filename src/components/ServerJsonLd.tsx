@@ -40,8 +40,8 @@ export function GlobalJsonLd() {
                 ],
                 aggregateRating: {
                     '@type': 'AggregateRating',
-                    ratingValue: 4.8,
-                    reviewCount: 156,
+                    ratingValue: 4.2,
+                    reviewCount: 23,
                     bestRating: 5,
                     worstRating: 1
                 }
@@ -57,7 +57,7 @@ export function GlobalJsonLd() {
                 },
                 potentialAction: {
                     '@type': 'SearchAction',
-                    target: 'https://insurancesupport.online/search?q={search_term_string}',
+                    target: 'https://insurancesupport.online/support?q={search_term_string}',
                     'query-input': 'required name=search_term_string'
                 } as any
             },
@@ -119,7 +119,7 @@ export function LocalBusinessJsonLd() {
                 ],
                 logo: 'https://insurancesupport.online/favicon.svg',
                 image: 'https://insurancesupport.online/favicon.svg',
-                hasMap: 'https://maps.google.com/?q=Bangalore,Karnataka,India',
+                hasMap: 'https://share.google/FBw8WZDuh4r3AD5f0',
                 description: (t('services_description') as string) || 'Expert insurance support for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
                 telephone: contactConfig.phoneFull,
                 email: contactConfig.email,
@@ -127,8 +127,8 @@ export function LocalBusinessJsonLd() {
                 aggregateRating: {
                     '@type': 'AggregateRating',
                     name: 'Insurance Support Customer Satisfaction',
-                    ratingValue: 4.8,
-                    reviewCount: 156,
+                    ratingValue: 4.2,
+                    reviewCount: 23,
                     bestRating: 5,
                     worstRating: 1
                 } as any,
@@ -150,8 +150,8 @@ export function LocalBusinessJsonLd() {
                 },
                 geo: {
                     '@type': 'GeoCoordinates',
-                    latitude: 12.9716,
-                    longitude: 77.5946
+                    latitude: 13.0159,
+                    longitude: 77.5522
                 },
                 openingHoursSpecification: {
                     '@type': 'OpeningHoursSpecification',

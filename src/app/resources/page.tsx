@@ -130,14 +130,14 @@ export default function ResourcesPage() {
                             </Card>
                         </Link>
 
-                        <Link href="/resources/insurance-support-guide" className="group">
+                        <Link href="/resources/guides/claim-rejection-appeal" className="group">
                             <Card className="h-full hover:shadow-lg transition-shadow border-slate-200">
                                 <CardHeader>
                                     <div className="w-12 h-12 bg-purple-50 rounded-lg flex items-center justify-center mb-4 group-hover:bg-purple-100 transition-colors">
                                         <ShieldCheck className="h-6 w-6 text-purple-600" />
                                     </div>
-                                    <CardTitle className="group-hover:text-primary transition-colors">What is Insurance Support?</CardTitle>
-                                    <CardDescription>Understand what professional insurance support means — covering strategic advisory, wealth discovery, claim advocacy, and policy audits.</CardDescription>
+                                    <CardTitle className="group-hover:text-primary transition-colors">Claim Rejection Help</CardTitle>
+                                    <CardDescription>Master the 6-step appeal process for reversing rejected claims. From GRO escalations to the Insurance Ombudsman route.</CardDescription>
                                 </CardHeader>
                             </Card>
                         </Link>

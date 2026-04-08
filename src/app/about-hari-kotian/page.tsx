@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { ShieldCheck, Award, History, CheckCircle2, Phone, Mail, Linkedin, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
@@ -84,12 +85,14 @@ const ExpertProfilePage = () => {
                     <div className="flex-1">
                         <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-slate-100">
                             <div className="flex flex-col md:flex-row gap-8 items-center md:items-start mb-10">
-                                <div className="w-48 h-48 bg-slate-100 rounded-2xl flex items-center justify-center shrink-0 border-4 border-primary/10 overflow-hidden">
-                                    {/* Placeholder for real photo - E-E-A-T requires a face */}
-                                    <div className="text-slate-400 flex flex-col items-center">
-                                        <Award className="w-12 h-12 mb-2" />
-                                        <span className="text-xs font-bold uppercase tracking-wider">Hari Kotian</span>
-                                    </div>
+                                <div className="w-48 h-48 bg-slate-100 rounded-2xl flex items-center justify-center shrink-0 border-4 border-primary/10 overflow-hidden relative shadow-inner">
+                                    <Image 
+                                        src="/team/hari-kotian.png" 
+                                        alt="Hari Kotian - Insurance Expert" 
+                                        fill
+                                        className="object-cover"
+                                        priority
+                                    />
                                 </div>
                                 <div className="text-center md:text-left">
                                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-bold mb-4">

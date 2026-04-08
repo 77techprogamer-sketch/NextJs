@@ -210,10 +210,10 @@ const Footer = () => {
             <strong>{t('disclaimer_label')}</strong> {t('disclaimer_text')}
           </p>
           <div className="shrink-0 flex items-center gap-4">
-            <a href="https://karmalinks.io/?verificationId=69c3a12686498dfc75196306" target="_blank" rel="noopener noreferrer" className="text-[10px] text-muted-foreground/60 hover:text-primary transition-colors flex items-center gap-1">
-              <span className="h-1 w-1 bg-green-500 rounded-full inline-block animate-pulse"></span>
-              Verified by KarmaLinks
-            </a>
+            <div className="text-[10px] text-muted-foreground/60 flex items-center gap-1">
+              <ShieldCheck className="h-3 w-3 text-green-500" />
+              Verified Advisor Network
+            </div>
             <a href="https://webmaster.yandex.ru/siteinfo/?site=https://insurancesupport.online" target="_blank" rel="noopener noreferrer" title="Yandex Site Info">
               {/* @next/next/no-img-element is acceptable for external tracking badges */}
               <img width={88} height={31} alt="" style={{ border: 0, borderRadius: 8 }} src="https://yandex.ru/cycounter?https://insurancesupport.online&theme=dark&lang=en"/>

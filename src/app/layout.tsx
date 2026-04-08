@@ -78,8 +78,6 @@ export const metadata: Metadata = {
         yandex: '89297fa7e3252466',
         other: {
             'msvalidate.01': '71a80a3568ae5d1d945fda3ef57fe18e',
-            'karmalinks-verify': '69c3a12686498dfc75196306',
-            'link-rhinos-site-verification': 'verify-yqxwt1a77wsm3hynlh2y',
         }
     },
     icons: {
@@ -135,15 +133,15 @@ export const metadata: Metadata = {
         'content-language': 'en-IN',
         'geo.region': 'IN-KA',
         'geo.placename': 'Bangalore',
-        'geo.position': '12.9716;77.5946',
-        'ICBM': '12.9716, 77.5946',
+        'geo.position': '13.0159;77.5522',
+        'ICBM': '13.0159, 77.5522',
     },
 }
 
 import Script from 'next/script';
 const GTM_ID = 'GTM-P8DZ6MRQ';
 
-const BacklinkSubmitter = dynamic(() => import('@/components/BacklinkSubmitter'), { ssr: false });
+
 const FloatingToolDock = dynamic(() => import('@/components/FloatingToolDock'), { ssr: false });
 const GlobalForms = dynamic(() => import('@/components/GlobalForms'), { ssr: false });
 
@@ -171,7 +169,7 @@ export default function RootLayout({
                 />
                 <link rel="preload" href="/grid.svg" as="image" />
                 <link rel="preconnect" href="https://idzvdeemgxhwlkyphnel.supabase.co" />
-                <Script src="https://backlink-generator-tool.github.io/current-url-backlink-submitter/currentUrlBacklinkSubmitter.js" strategy="lazyOnload" />
+
             </head>
             <body className={`${inter.variable} ${plusJakarta.variable} font-sans antialiased relative`} suppressHydrationWarning>
                 {/* Google Tag Manager (noscript) */}
@@ -197,7 +195,7 @@ export default function RootLayout({
                 >
                     <I18nProvider>
                         <div className="relative flex flex-col min-h-screen">
-                            <BacklinkSubmitter />
+
                             <GlobalJsonLd />
                             <Analytics />
                             <SmartLanguageSelector />

@@ -75,8 +75,8 @@ export default function LocationPage({ params }: Props) {
         image: 'https://insurancesupport.online/favicon.svg',
         aggregateRating: {
             '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '312',
+            ratingValue: '4.2',
+            reviewCount: '23',
             bestRating: '5',
             worstRating: '1'
         },

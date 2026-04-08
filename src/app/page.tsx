@@ -6,7 +6,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'LIC Insurance Advisor India – Call 9986634506 | InsuranceSupport'
+        absolute: 'LIC & Insurance Advisor India | Expert Claim Support'
     },
     description: 'Licensed LIC and health insurance advisor in India. Instant quotes, claim support, policy comparisons. Call/WhatsApp 9986634506 to buy a policy today.',
     keywords: [

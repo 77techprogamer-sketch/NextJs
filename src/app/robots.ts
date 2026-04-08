@@ -12,7 +12,7 @@ export default function robots(): MetadataRoute.Robots {
                     '/api/location',
                 ],
                 disallow: [
-                    '/api/',
+                    '/api/*',
                     '/private/',
                     '/engagement/',
                     '/blocked/',
@@ -40,7 +40,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
         sitemap: [
             'https://insurancesupport.online/sitemap.xml',
-            'https://insurancesupport.online/sitemap-index.xml',
         ],
     }
 }

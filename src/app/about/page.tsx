@@ -36,7 +36,7 @@ const advisorSchema = {
     '@context': 'https://schema.org',
     '@type': 'Person',
     '@id': 'https://insurancesupport.online/#advisor',
-    name: 'Kotian',
+    name: 'Hari Kotian',
     jobTitle: 'Certified Insurance Advisor & Claim Recovery Specialist',
     description: 'Licensed insurance advisor with 25+ years of experience in LIC, health, motor, and life insurance claim recovery across India. Expert in rejected claim escalation and policy revival.',
     url: 'https://insurancesupport.online/about',
