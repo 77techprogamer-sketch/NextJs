@@ -1,20 +1,22 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, AlertCircle, RefreshCcw, Calendar, TrendingUp, MapPin } from 'lucide-react';
+import { Phone, CheckCircle2, History, AlertCircle, Calculator, FileText, ArrowRight, Activity, MapPin } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
+import AuthorBio from '@/components/AuthorBio';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export const metadata: Metadata = {
-    title: 'How to Revive Lapsed LIC Policy After 5+ Years | 2026 Revival Guide',
-    description: 'Stop your LIC money from being lost. Learn the Special Revival Scheme (SRS) to restore your lapsed policy with low interest and full bonus. Expert guidance included.',
+    title: 'How to Revive Lapsed LIC Policy in 2026 | Late Fee & Concessions',
+    description: 'Avoid policy loss! Learn the 4 ways to revive your lapsed LIC policy in 2026. Check late fee concessions, medical (DGH) requirements, and the 5-year revival rule.',
     keywords: [
-        'how to revive lapsed lic policy after 5 years',
-        'lic special revival scheme 2026',
-        'lic policy revival interest calculation',
-        'restore lapsed insurance policy india',
-        'lic policy revival form 680',
-        'recover old lic policy money'
+        'lic policy revival process 2026',
+        'lic special revival scheme dates 2026',
+        'late fee concession lic policy',
+        'revive lic policy after 5 years',
+        'lic dgh form 680 download',
+        'lic policy status check online'
     ],
     alternates: {
         canonical: 'https://insurancesupport.online/resources/guides/lapsed-policy-revival',
@@ -33,173 +35,243 @@ export default function LapsedPolicyRevivalGuide() {
                             <span>/</span>
                             <Link href="/resources" className="hover:text-primary">Resources</Link>
                             <span>/</span>
-                            <span className="text-slate-900 font-medium">Lapsed Policy Revival</span>
+                            <span className="text-slate-900 font-medium">LIC Policy Revival</span>
                         </nav>
 
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900 leading-tight">
-                            Don&apos;t Lose Your Hard-Earned Money: <span className="text-primary">LIC Policy Revival</span> Guide
-                        </h1>
+                        <header className="mb-12 text-center md:text-left">
+                            <div className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+                                2026 Revival Campaign Live
+                            </div>
+                            <h1 className="text-4xl md:text-6xl font-black mb-6 text-slate-900 leading-none">
+                                Don't Let Your <span className="text-primary italic">Security</span> Lapse.
+                            </h1>
+                            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
+                                Millions of LIC policies are lapsed due to missed premiums. In 2026, the rules for revival have changed—offering bigger concessions but stricter medical gates. This guide shows you how to bring your policy back to life.
+                            </p>
+                        </header>
 
-                        <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 mb-10 flex gap-4">
-                            <TrendingUp className="h-10 w-10 text-amber-600 shrink-0" />
-                            <div>
-                                <h4 className="font-bold text-amber-900">Did you know?</h4>
-                                <p className="text-amber-800 text-sm italic">
-                                    &quot;A lapsed LIC policy still holds intrinsic value. Through the right revival scheme, you can restore your full life cover and claim thousands in accumulated bonuses that you might think are lost.&quot;
-                                </p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                            <div className="p-6 bg-slate-900 text-white rounded-2xl shadow-xl">
+                                <History className="h-8 w-8 text-primary mb-4" />
+                                <h4 className="text-lg font-bold mb-2">5 Year Limit</h4>
+                                <p className="text-xs text-slate-400">Policies can usually only be revived within 5 years of the first unpaid premium.</p>
+                            </div>
+                            <div className="p-6 bg-slate-900 text-white rounded-2xl shadow-xl">
+                                <Calculator className="h-8 w-8 text-primary mb-4" />
+                                <h4 className="text-lg font-bold mb-2">Late Fees</h4>
+                                <p className="text-xs text-slate-400">Standard interest is 9% p.a. Concessions up to 30% are available in Special Schemes.</p>
+                            </div>
+                            <div className="p-6 bg-slate-900 text-white rounded-2xl shadow-xl">
+                                <Activity className="h-8 w-8 text-primary mb-4" />
+                                <h4 className="text-lg font-bold mb-2">DGH Form</h4>
+                                <p className="text-xs text-slate-400">Declaration of Good Health is mandatory for all revivals past 6 months.</p>
                             </div>
                         </div>
 
                         <div className="prose prose-slate prose-lg max-w-none">
-                            <h2 className="text-3xl font-bold mt-12 mb-6">What is Policy Lapsation?</h2>
-                            <p>
-                                An LIC policy lapses when the premium is not paid within the &quot;Grace Period&quot; (usually 30 days for yearly/half-yearly modes). Once a policy is lapsed, the life cover ceases, and you are no longer entitled to maturity benefits or bonuses.
-                            </p>
-
-                            <h2 className="text-3xl font-bold mt-16 mb-6">Types of Revival Schemes</h2>
-                            <div className="space-y-6 mt-8">
-                                <div className="p-6 border border-slate-200 rounded-2xl hover:border-primary/30 transition-colors">
-                                    <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
-                                        <RefreshCcw className="h-5 w-5 text-primary" />
+                            <h2 className="text-3xl font-black mt-16 mb-8 text-slate-900 border-b-4 border-primary w-fit">4 Ways to Revive (The 2026 Toolkit)</h2>
+                            
+                            <div className="space-y-12 mt-10">
+                                <section>
+                                    <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
+                                        <div className="h-6 w-6 rounded-md bg-primary text-white flex items-center justify-center text-xs">1</div>
                                         Ordinary Revival
                                     </h3>
-                                    <p className="text-slate-600">If the policy is revived within 6 months to 2 years of the first unpaid premium. No medical requirements are usually needed for shorter periods; just pay the arrears with interest.</p>
-                                </div>
-                                <div className="p-6 border border-slate-200 rounded-2xl bg-blue-50/50 hover:border-primary/30 transition-colors">
-                                    <h3 className="text-xl font-bold mb-2 flex items-center gap-2">
-                                        <Calendar className="h-5 w-5 text-primary" />
+                                    <p className="text-slate-600 pl-8">
+                                        Used when you just want to pay the arrears + interest. If you are reviving within 6 months of the due date, no medical report is needed. Most common for 1-2 missed premiums.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
+                                        <div className="h-6 w-6 rounded-md bg-primary text-white flex items-center justify-center text-xs">2</div>
                                         Special Revival Scheme (SRS)
                                     </h3>
-                                    <p className="text-slate-600">Best for policies that have been lapsed for a long time. The date of commencement is shifted, and you pay only one premium according to the new age. This is the most cost-effective way to restore old policies.</p>
-                                </div>
+                                    <p className="text-slate-600 pl-8">
+                                        LIC shifts the <strong>Date of Commencement (DOC)</strong> forward. This means you don't pay all old premiums, but your "Years to Maturity" increases. Best if you have missed 2+ years and can't pay the bulk arrears.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
+                                        <div className="h-6 w-6 rounded-md bg-primary text-white flex items-center justify-center text-xs">3</div>
+                                        Installment Revival
+                                    </h3>
+                                    <p className="text-slate-600 pl-8">
+                                        For policies with high arrears. LIC allows you to pay the total amount in 6 monthly or quarterly installments. Great for cash-flow management.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
+                                        <div className="h-6 w-6 rounded-md bg-primary text-white flex items-center justify-center text-xs">4</div>
+                                        Loan-cum-Revival
+                                    </h3>
+                                    <p className="text-slate-600 pl-8">
+                                        If your policy has "Surrender Value," you can take a loan <em>against</em> that value and use the loan amount to pay the revival premiums. You effectively revive the policy with Zero out-of-pocket cost.
+                                    </p>
+                                </section>
                             </div>
 
-                            <h2 className="text-3xl font-bold mt-16 mb-6">Revival Checklist (Form 680)</h2>
-                            <p>To start the revival process, you will generally need:</p>
-                            <ul className="space-y-4 my-8">
-                                <li className="flex items-center gap-3">
-                                    <CheckCircle2 className="h-5 w-5 text-green-500" />
-                                    <span>Personal Statement of Health (DGH) - Form 680</span>
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <CheckCircle2 className="h-5 w-5 text-green-500" />
-                                    <span>Arrears of Premium + Late Fee (calculated by the branch)</span>
-                                </li>
-                                <li className="flex items-center gap-3">
-                                    <CheckCircle2 className="h-5 w-5 text-green-500" />
-                                    <span>Medical Reports (if policy value is high or lapse period is long)</span>
-                                </li>
-                            </ul>
-
-                            <h2 className="text-3xl font-bold mt-16 mb-6">Why use an expert for revival?</h2>
-                            <p>
-                                Calculating the interest and identifying the best revival scheme (SRS vs Survival Benefit adjustment) can save you thousands of rupees. We handle the branch visits, document verification, and medical appointments to ensure your policy is back &quot;In-Force&quot; without any hassle.
-                            </p>
-
-                            <div className="my-12 p-8 border-2 border-dashed border-primary/20 rounded-3xl bg-primary/5">
-                                <h3 className="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-900">
-                                    <Calendar className="h-6 w-6 text-primary" />
-                                    Expected Resolution Timeline
-                                </h3>
+                            <div className="my-16 p-10 bg-blue-50 rounded-[3rem] border border-blue-100">
+                                <h3 className="text-2xl font-black mb-6 text-blue-900">2026 Late Fee Concession Scale</h3>
                                 <div className="space-y-4">
-                                    <div className="flex gap-4 items-start">
-                                        <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">1</div>
-                                        <div>
-                                            <h4 className="font-bold text-slate-900">Day 1: Initial Assessment</h4>
-                                            <p className="text-sm text-slate-600">We verify your policy number and current status with our internal records.</p>
-                                        </div>
+                                    <div className="flex justify-between p-4 bg-white rounded-xl shadow-sm">
+                                        <span className="font-bold text-slate-700">Total Premium up to ₹1 Lakh</span>
+                                        <span className="text-primary font-black">20% Off (Max ₹2,000)</span>
                                     </div>
-                                    <div className="flex gap-4 items-start">
-                                        <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">2</div>
-                                        <div>
-                                            <h4 className="font-bold text-slate-900">Day 2-3: Official Revival Quote</h4>
-                                            <p className="text-sm text-slate-600">We liaise with the LIC branch to get the exact premium arrears, interest, and required medical forms.</p>
-                                        </div>
+                                    <div className="flex justify-between p-4 bg-white rounded-xl shadow-sm">
+                                        <span className="font-bold text-slate-700">Premium ₹1 Lakh to ₹3 Lakhs</span>
+                                        <span className="text-primary font-black">25% Off (Max ₹2,500)</span>
                                     </div>
-                                    <div className="flex gap-4 items-start">
-                                        <div className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold shrink-0">3</div>
-                                        <div>
-                                            <h4 className="font-bold text-slate-900">Day 4-7: Document Processing</h4>
-                                            <p className="text-sm text-slate-600">Submission of Form 680, medical reports, and payment to the branch.</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex gap-4 items-start">
-                                        <div className="w-10 h-10 rounded-full bg-green-600 text-white flex items-center justify-center font-bold shrink-0">4</div>
-                                        <div>
-                                            <h4 className="font-bold text-slate-900">Day 10-15: Policy In-Force</h4>
-                                            <p className="text-sm text-slate-600">Confirmation from LIC and restoration of your life cover and bonus eligibility.</p>
-                                        </div>
+                                    <div className="flex justify-between p-4 bg-white rounded-xl shadow-sm">
+                                        <span className="font-bold text-slate-700">Premium Above ₹3 Lakhs</span>
+                                        <span className="text-primary font-black">30% Off (Max ₹3,000)</span>
                                     </div>
                                 </div>
+                                <p className="text-[10px] text-blue-800 mt-4 italic">*Concessions only applicable during "Special Revival Campaigns" announced by LIC periodcially.</p>
                             </div>
 
-                            <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-12 not-prose">
-                                <p className="text-blue-900 font-bold mb-3 flex items-center gap-2">
-                                    <MapPin className="h-4 w-4" />
-                                    Get Professional Policy Revival in Your City
-                                </p>
-                                <div className="flex flex-wrap gap-4">
-                                    <Link href="/locations/bangalore/lic-agent" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
-                                        LIC agent in Bangalore
-                                    </Link>
-                                    <Link href="/locations/hyderabad" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
-                                        Hyderabad Expert
-                                    </Link>
-                                    <Link href="/locations/mumbai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
-                                        Mumbai Support
-                                    </Link>
-                                    <Link href="/locations/chennai" className="text-sm border-b-2 border-blue-200 hover:border-blue-500 font-bold text-blue-800 transition-colors">
-                                        Chennai Advisor
-                                    </Link>
-                                </div>
-                                <p className="text-blue-800 text-xs mt-4 italic">
-                                    Doorstep service available for Form 680, medical reports collection, and branch coordination at DO-1 and DO-2 offices.
+                            <h2 className="text-3xl font-black mt-20 mb-10 text-slate-900 leading-tight">Revival after 5 Years? The "Hard Limit"</h2>
+                            <p className="leading-relaxed text-slate-600">
+                                As per current IRDAI guidelines, a policy that has been in a lapsed state for more than <strong>5 consecutive years</strong> cannot be revived. At this point, the policy is considered "Terminated" or "Paid-up."
+                            </p>
+                            <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 my-8">
+                                <h5 className="font-bold text-amber-900 m-0 text-sm">Vital Tip:</h5>
+                                <p className="text-amber-800 text-xs m-0 mt-2">
+                                    If your policy is past the 5-year mark, check if it has "Paid-up Value." You may still be entitled to a reduced death benefit or a maturity amount without paying any further premiums.
                                 </p>
                             </div>
 
-                            <div className="bg-red-50 p-6 rounded-2xl border border-red-100 my-10">
-                                <h4 className="font-bold text-red-900 flex items-center gap-2 mb-3">
-                                    <AlertCircle className="h-5 w-5" />
-                                    What if the branch refuses revival?
-                                </h4>
-                                <p className="text-red-800 text-sm leading-relaxed">
-                                    If a branch claims your policy is &quot;Not Revivable&quot; due to its age (e.g., lapsed 10+ years), don&apos;t panic. There are often <strong>Special Revival Campaigns</strong> or possibilities for <strong>Paid-Up Conversion</strong> where you can still claim the accumulated value. Our experts specialize in these &quot;dead-end&quot; cases.
-                                </p>
+                            <h2 className="text-3xl font-black mt-20 mb-8 text-slate-900">Common Revival FAQs</h2>
+                            <Accordion type="single" collapsible className="w-full">
+                                <AccordionItem value="item-1">
+                                    <AccordionTrigger className="text-left font-bold py-6 text-slate-800">What is a DGH (Declaration of Good Health)?</AccordionTrigger>
+                                    <AccordionContent className="text-slate-600 leading-relaxed pb-6">
+                                        It is a form where you declare that your health status hasn't changed since the policy was taken. If the sum assured is high or you are older, LIC may ask for a full medical check-up (SMR-Special Medical Report) instead of just a DGH.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="item-2">
+                                    <AccordionTrigger className="text-left font-bold py-6 text-slate-800">Can I revive my policy at any LIC branch?</AccordionTrigger>
+                                    <AccordionContent className="text-slate-600 leading-relaxed pb-6">
+                                        Yes! You can now pay revival premiums at any satellite office or branch in India. However, the <strong>"Revival Quotation"</strong> and processing of the medical reports are best handled at your local home branch.
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="item-3">
+                                    <AccordionTrigger className="text-left font-bold py-6 text-slate-800">Will my bonuses be added during the lapsed period?</AccordionTrigger>
+                                    <AccordionContent className="text-slate-600 leading-relaxed pb-6">
+                                        Yes. Once revived, your policy becomes "In-Force" and all bonuses declared during the lapsed period are credited back to your account. This is the biggest benefit of revival over buying a new policy.
+                                    </AccordionContent>
+                                </AccordionItem>
+                            </Accordion>
+                        </div>
+
+                        {/* Local Advisor Section */}
+                        <div className="my-16 p-8 border-2 border-slate-900 rounded-[2rem] bg-slate-50 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-4 opacity-5">
+                                <MapPin className="h-32 w-32" />
+                            </div>
+                            <h3 className="text-2xl font-black mb-4">Doorstep Revival Assistance</h3>
+                            <p className="text-slate-600 mb-8">
+                                Don't wait in long queues at LIC branches. Our advisors collect your DGH forms and documents from your home and get your policy revived in 48 hours.
+                            </p>
+                            <div className="flex flex-wrap gap-4">
+                                <Link href="/locations/bangalore" className="px-4 py-2 bg-white rounded-lg border text-sm font-bold text-slate-900 hover:text-primary transition-colors">Bangalore (HSR/Jalahalli)</Link>
+                                <Link href="/locations/mumbai" className="px-4 py-2 bg-white rounded-lg border text-sm font-bold text-slate-900 hover:text-primary transition-colors">Mumbai Support</Link>
+                                <Link href="/locations/hyderabad" className="px-4 py-2 bg-white rounded-lg border text-sm font-bold text-slate-900 hover:text-primary transition-colors">Hyderabad Expert</Link>
                             </div>
                         </div>
 
-                        <div className="mt-16 p-8 bg-primary rounded-3xl text-white">
-                            <h3 className="text-2xl font-bold mb-4">Unsure if your policy can be revived?</h3>
-                            <p className="text-blue-100 mb-8">Provide us with your policy number and date of last payment. We will get your revival quote directly from the branch within 48 hours for free.</p>
-                            <Button size="lg" className="w-full sm:w-auto bg-white text-primary hover:bg-blue-50 text-lg h-14">
-                                <Phone className="mr-2 h-5 w-5" />
-                                Get Free Revival Quote
-                            </Button>
+                        <AuthorBio />
+
+                        <div className="mt-20 p-12 bg-primary rounded-[3rem] text-white">
+                            <h3 className="text-3xl font-black mb-4">Revive & Secure.</h3>
+                            <p className="text-primary-foreground/80 mb-10 text-lg max-w-2xl leading-relaxed">
+                                A lapsed policy is a lost legacy. Let us calculate your exact revival cost today—including all applicable 2026 concessions.
+                            </p>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Button size="lg" className="h-16 px-8 text-xl font-black bg-slate-900 hover:bg-slate-800 flex items-center gap-2">
+                                    <Phone className="h-6 w-6" />
+                                    Get Revival Quote
+                                </Button>
+                                <Button variant="outline" size="lg" className="h-16 px-8 text-xl font-black border-white/40 text-white hover:bg-white/10" asChild>
+                                    <Link href="/contact">Free Consultation</Link>
+                                </Button>
+                            </div>
                         </div>
                     </article>
 
                     {/* Sidebar */}
                     <aside className="w-full lg:w-[400px]">
                         <div className="sticky top-24 space-y-8">
-                            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100">
-                                <h3 className="text-xl font-bold mb-2">Check Policy Status</h3>
-                                <p className="text-sm text-muted-foreground mb-6">Enter your details to find out the current status and bonus of your old LIC policy.</p>
-                                <QuoteForm insuranceType="lic_revival" />
+                            <div className="bg-slate-900 p-8 rounded-3xl text-white shadow-2xl">
+                                <h3 className="text-2xl font-black mb-2">Check Status</h3>
+                                <p className="text-sm text-slate-400 mb-8">Enter your policy number to see latest health & revival requirements.</p>
+                                <QuoteForm insuranceType="claim_support" />
                             </div>
 
-                            <div className="p-6 bg-green-50 rounded-2xl border border-green-100">
-                                <h4 className="font-bold text-green-900 flex items-center gap-2 mb-3">
+                            <div className="p-8 bg-green-50 rounded-3xl border border-green-100">
+                                <h4 className="font-bold text-green-900 mb-4 flex items-center gap-2">
                                     <AlertCircle className="h-5 w-5" />
-                                    Money Back Specialist
+                                    Revival Bonus
                                 </h4>
-                                <p className="text-green-800 text-sm">
-                                    Is your survival benefit (money back) pending? We help you track and claim unpaid survival benefits from old policies.
+                                <p className="text-green-800 text-sm leading-relaxed">
+                                    "When you revive, you don't just get coverage back. You get all the accrued bonuses for the years you didn't pay. It's often cheaper than buying a fresh policy at a higher entry age."
                                 </p>
+                            </div>
+
+                            <div className="p-8 bg-slate-50 rounded-3xl border border-slate-200">
+                                <FileText className="h-10 w-10 mb-4 text-slate-300" />
+                                <h4 className="text-xl font-bold mb-2 text-slate-900 leading-tight">Revival Form Set</h4>
+                                <p className="text-sm text-slate-500 mb-6 uppercase font-bold tracking-tighter">Verified 2026 Checklist</p>
+                                <ul className="space-y-3 mb-8 text-sm text-slate-600">
+                                    <li className="flex gap-2 items-center"><CheckCircle2 className="h-4 w-4 text-primary" /> Form No. 680 (DGH)</li>
+                                    <li className="flex gap-2 items-center"><CheckCircle2 className="h-4 w-4 text-primary" /> Self-attested PAN/Aadhar</li>
+                                    <li className="flex gap-2 items-center"><CheckCircle2 className="h-4 w-4 text-primary" /> Arrears Premium Cheque</li>
+                                </ul>
+                                <Button variant="outline" className="w-full font-bold border-slate-300">Request Documents</Button>
                             </div>
                         </div>
                     </aside>
                 </div>
             </div>
+
+            {/* FAQ Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "What is the 5 year rule for LIC revival?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "LIC policies can generally be revived within 5 years of the first unpaid premium. Beyond this period, the policy is usually terminated under IRDAI guidelines."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Does LIC give late fee concessions 2026?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Yes, LIC launches periodic Special Revival Campaigns offering 20-30% late fee concessions (capped at ₹3,000) for eligible policyholders."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "What is Form 680 in LIC?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Form No. 680 is the Declaration of Good Health (DGH) required for ordinary revival of a lapsed policy to prove the policyholder's health status has not changed."
+                                }
+                            }
+                        ]
+                    })
+                }}
+            />
         </div>
     );
 }
