@@ -12,13 +12,23 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"; // Import shadcn dropdown components
-import { ChevronDown, ShieldCheck } from 'lucide-react'; // Import icons
-import { slugify } from '@/utils/slugify'; // Import the slugify utility
+} from "@/components/ui/dropdown-menu";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import { ChevronDown, ShieldCheck, Menu, ChevronRight } from 'lucide-react';
+import { slugify } from '@/utils/slugify';
 import { formatLabel } from '@/utils/formatText';
 
 const Header = () => {
   const { t } = useTranslation();
+  const [sheetOpen, setSheetOpen] = React.useState(false);
 
   // This function is now only for the main "Services Offered" button to scroll to the section
   const handleScrollToServices = (e: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>) => {
@@ -57,13 +67,11 @@ const Header = () => {
             {t("insurance_support")}
           </span>
         </Link>
-        <nav className="flex items-center gap-5 lg:gap-8">
-
+        <nav className="hidden lg:flex items-center gap-5 lg:gap-8">
+          {/* ... (Existing Desktop Nav Content) ... */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
                 <button
-                // The main dropdown trigger still scrolls to services section on the home page
-                // If on a service detail page, it will navigate to home and then scroll
                 onClick={handleScrollToServices}
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("buy_insurance", "Buy Insurance")}
@@ -77,7 +85,7 @@ const Header = () => {
               {serviceKeys.map((key) => (
                 <DropdownMenuItem key={key} asChild>
                   <Link
-                    href={`/services/${slugify(key)}`} // Link to individual service page
+                    href={`/services/${slugify(key)}`}
                     className="cursor-pointer"
                     suppressHydrationWarning
                   >
@@ -251,6 +259,90 @@ const Header = () => {
           <LanguageSwitcher />
           <ThemeToggle />
         </nav>
+
+        {/* Mobile hamburger */}
+        <div className="flex items-center gap-4 lg:hidden">
+          <LanguageSwitcher />
+          <ThemeToggle />
+          <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+            <SheetTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="h-10 w-10 text-primary"
+                aria-label="Open navigation menu"
+              >
+                <Menu className="h-6 w-6" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[300px] flex flex-col gap-0 p-0 overflow-y-auto">
+              <SheetHeader className="px-5 pt-6 pb-4 border-b">
+                <SheetTitle className="flex items-center gap-2 text-left text-primary">
+                  <ShieldCheck className="h-6 w-6" />
+                  {t("insurance_support")}
+                </SheetTitle>
+              </SheetHeader>
+
+              <nav className="flex flex-col flex-1 px-4 py-6 gap-2">
+                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground px-2 mb-2">
+                  {t("buy_insurance", "Buy Insurance")}
+                </p>
+                <div className="grid grid-cols-1 gap-1">
+                  {serviceKeys.map((key) => (
+                    <Link
+                      key={key}
+                      href={`/services/${slugify(key)}`}
+                      className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-primary/5 hover:text-primary transition-colors"
+                      onClick={() => setSheetOpen(false)}
+                    >
+                      {formatLabel(t(key))}
+                      <ChevronRight className="h-4 w-4 opacity-50" />
+                    </Link>
+                  ))}
+                </div>
+
+                <Separator className="my-4" />
+
+                <Link
+                  href="/loans"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold text-foreground hover:bg-primary/5 hover:text-primary transition-colors"
+                  onClick={() => setSheetOpen(false)}
+                >
+                  {t("loans")}
+                  <ChevronRight className="h-4 w-4 opacity-50" />
+                </Link>
+
+                <Link
+                  href="/support"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold text-foreground hover:bg-primary/5 hover:text-primary transition-colors"
+                  onClick={() => setSheetOpen(false)}
+                >
+                  {t("support")}
+                  <ChevronRight className="h-4 w-4 opacity-50" />
+                </Link>
+
+                <Link
+                  href="/about"
+                  className="flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-bold text-foreground hover:bg-primary/5 hover:text-primary transition-colors"
+                  onClick={() => setSheetOpen(false)}
+                >
+                  {t("about_us")}
+                  <ChevronRight className="h-4 w-4 opacity-50" />
+                </Link>
+
+                <Separator className="my-4" />
+
+                <Link
+                  href="/get-started"
+                  className="mt-2 w-full flex items-center justify-center gap-2 py-4 rounded-xl bg-primary text-white font-bold text-base shadow-lg shadow-primary/20 active:scale-[0.98] transition-all"
+                  onClick={() => setSheetOpen(false)}
+                >
+                  {t("buy_policy", "Buy Policy")}
+                </Link>
+              </nav>
+            </SheetContent>
+          </Sheet>
+        </div>
       </div>
     </header>
   );

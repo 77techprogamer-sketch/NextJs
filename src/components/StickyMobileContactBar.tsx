@@ -16,12 +16,12 @@ export default function StickyMobileContactBar() {
             if (!ticking) {
                 window.requestAnimationFrame(() => {
                     const currentScrollY = window.scrollY;
-                    
-                    // Optional: hide on scroll down, show on scroll up.
-                    // For maximum conversion, we keep it persistently visible.
-                    // But we ensure it doesn't overlap the absolute bottom footer links if at the very end.
-                    const isAtBottom = window.innerHeight + currentScrollY >= document.body.offsetHeight - 50;
+                    const isScrollingDown = currentScrollY > lastScrollY && currentScrollY > 50;
+                    const isAtBottom = window.innerHeight + currentScrollY >= document.body.offsetHeight - 100;
+
                     if (isAtBottom) {
+                        setIsVisible(false);
+                    } else if (isScrollingDown) {
                         setIsVisible(false);
                     } else {
                         setIsVisible(true);

@@ -34,82 +34,9 @@ const VisitorCounter = () => {
   }, []);
 
   useEffect(() => {
-    const logVisitorAndFetchInitialStats = async () => {
-      // 1. Bot Detection
-      const isBotCookie = document.cookie.split('; ').find(row => row.startsWith('is-bot='));
-      const isBotUA = /googlebot|bingbot|yandex|baiduspider|twitterbot|facebookexternalhit|rogerbot|linkedinbot|embedly|quora link preview|showyoubot|outbrain|pinterest|slackbot|vkShare|W3C_Validator|Google-InspectionTool|Storebot-Google|Lighthouse|IndexNow/i.test(navigator.userAgent);
-      
-      if (isBotCookie || isBotUA) {
-        console.log('Skipping visitor log for detected bot.');
-        fetchVisitorStats();
-        return;
-      }
-
-      // 2. Frequency Capping (Deduplication) - Once per 24 hours
-      const lastLogKey = 'last_visitor_log';
-      const lastLog = localStorage.getItem(lastLogKey);
-      const now = Date.now();
-      const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
-
-      if (lastLog && (now - parseInt(lastLog)) < TWENTY_FOUR_HOURS) {
-        console.log('Skipping visitor log - already logged in last 24h.');
-        fetchVisitorStats();
-        return;
-      }
-
-      let visitorAsn: string | null = null;
-      let visitorIspName: string | null = null;
-      let visitorCity: string | null = null;
-      let visitorRegion: string | null = null;
-      let visitorCountry: string | null = null;
-
-      try {
-        // Fetch ISP and location information from our own API route (avoids CORS and protects IP)
-        try {
-          const geoResponse = await fetch('/api/location');
-
-          if (geoResponse.ok) {
-            const geoData = await geoResponse.json();
-            if (!geoData.error) {
-              visitorAsn = geoData.asn || null;
-              visitorIspName = geoData.isp_name || null;
-              visitorCity = geoData.city || null;
-              visitorRegion = geoData.region || null;
-              visitorCountry = geoData.country_name || null;
-            }
-          }
-        } catch (e) {
-          console.warn('Could not fetch Geo data from API:', e);
-        }
-
-        // Call the Edge Function to log the visitor
-        // The Edge Function should detect the IP from request headers internally
-        const { data: edgeFunctionData, error: edgeFunctionError } = await supabase.functions.invoke('log-visitor', {
-          body: {
-            isp: visitorIspName,
-            asn: visitorAsn,
-            city: visitorCity,
-            region: visitorRegion,
-            country: visitorCountry,
-          },
-        });
-
-        if (edgeFunctionError) {
-          console.error('Error calling Edge Function:', edgeFunctionError.message);
-        } else {
-          // Successfully logged! Update the timestamp.
-          localStorage.setItem(lastLogKey, now.toString());
-        }
-
-        // Fetch stats anyway (we want to see the count even if we didn't log)
-        fetchVisitorStats();
-
-      } catch (error) {
-        console.error('An error occurred in the visitor counter:', error);
-      }
-    };
-
-    logVisitorAndFetchInitialStats();
+    // We only fetch stats here. ALL logging is handled globally by VisitorTracker.tsx
+    // to ensure every page visit (not just Home) is counted and metadata is captured.
+    fetchVisitorStats();
 
     // Realtime Presence for live visitor count
     const presenceKey = Math.random().toString(36).substring(7);
@@ -137,7 +64,6 @@ const VisitorCounter = () => {
     const statsChannel = supabase.channel('public:visitors');
     statsChannel
       .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'visitors' }, (payload) => {
-
         fetchVisitorStats(); // Re-fetch stats when a new visitor is inserted
       })
       .subscribe();
@@ -148,7 +74,7 @@ const VisitorCounter = () => {
     };
   }, [fetchVisitorStats]); // Dependency array includes fetchVisitorStats
 
-  if (totalVisits === null || uniqueVisitors === null) {
+  if (totalVisits === null || uniqueVisitors === null || isMobile) {
     return null;
   }
 

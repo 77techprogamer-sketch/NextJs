@@ -45,10 +45,10 @@ const ChatbotWidget = () => {
   return (
     <>
       {/* Floating Action Button */}
-      <div className="fixed bottom-6 right-6 z-[110] flex flex-col items-end gap-3 pointer-events-none group">
-        {/* Availability Badge */}
+      <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[110] flex flex-col items-end gap-3 pointer-events-none group">
+        {/* Availability Badge - Hide on mobile */}
         <div className={cn(
-          "backdrop-blur-md bg-white/90 dark:bg-black/80 border border-white/30 shadow-2xl px-4 py-2 rounded-2xl flex flex-col items-start gap-1 transition-all duration-300 pointer-events-auto",
+          "hidden sm:flex backdrop-blur-md bg-white/90 dark:bg-black/80 border border-white/30 shadow-2xl px-4 py-2 rounded-2xl flex flex-col items-start gap-1 transition-all duration-300 pointer-events-auto",
           "animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300 fill-mode-forwards"
         )}>
           <div className="flex items-center gap-2">
@@ -70,17 +70,17 @@ const ChatbotWidget = () => {
           size="icon"
           onClick={() => setIsChatbotOpen(true)}
           className={cn(
-            "h-16 w-16 rounded-full shadow-[0_0_30px_rgba(var(--primary),0.6)] transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto bg-gradient-to-br from-primary via-primary/90 to-purple-600 text-white border-4 border-white/50 dark:border-white/10 backdrop-blur-sm",
-            "animate-bounce [animation-duration:2000ms] infinite",
+            "h-12 w-12 sm:h-16 sm:w-16 rounded-full shadow-[0_0_30px_rgba(var(--primary),0.6)] transition-all duration-300 hover:scale-110 active:scale-95 pointer-events-auto bg-gradient-to-br from-primary via-primary/90 to-purple-600 text-white border-4 border-white/50 dark:border-white/10 backdrop-blur-sm",
+            "sm:animate-bounce sm:[animation-duration:2000ms] sm:infinite",
             "hover:animate-none group-hover:animate-none active:shadow-[0_0_15px_rgba(var(--primary),0.4)]"
           )}
           aria-label={t("chat_with_us", "Chat with us")}
         >
           <div className="relative">
-            <MessageSquare className="h-7 w-7 drop-shadow-md" />
-            <span className="absolute -top-1 -right-1 flex h-4 w-4">
+            <MessageSquare className="h-5 w-5 sm:h-7 sm:w-7 drop-shadow-md" />
+            <span className="absolute -top-1 -right-1 flex h-3 w-3 sm:h-4 sm:w-4">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-4 w-4 bg-white/20"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 sm:h-4 sm:w-4 bg-white/20"></span>
             </span>
           </div>
         </Button>

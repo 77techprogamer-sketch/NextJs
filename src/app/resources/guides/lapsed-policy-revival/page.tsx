@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, History, AlertCircle, Calculator, FileText, ArrowRight, Activity, MapPin } from 'lucide-react';
+import { Phone, CheckCircle2, History, AlertCircle, Calculator, FileText, ArrowRight, Activity, MapPin, Receipt, ShieldAlert, Sparkles, TrendingUp } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
@@ -9,14 +9,15 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 export const metadata: Metadata = {
     title: 'How to Revive Lapsed LIC Policy in 2026 | Late Fee & Concessions',
-    description: 'Avoid policy loss! Learn the 4 ways to revive your lapsed LIC policy in 2026. Check late fee concessions, medical (DGH) requirements, and the 5-year revival rule.',
+    description: 'Avoid policy loss! Comprehensive guide on the 4 ways to revive your lapsed LIC policy in 2026. Official Special Revival Campaign dates, medical (DGH) requirements, and the 5-year revival rule.',
     keywords: [
         'lic policy revival process 2026',
         'lic special revival scheme dates 2026',
         'late fee concession lic policy',
         'revive lic policy after 5 years',
         'lic dgh form 680 download',
-        'lic policy status check online'
+        'lic policy status check online',
+        'how to calculate lic late fees 2026'
     ],
     alternates: {
         canonical: 'https://insurancesupport.online/resources/guides/lapsed-policy-revival',
@@ -30,172 +31,246 @@ export default function LapsedPolicyRevivalGuide() {
                 <div className="flex flex-col lg:flex-row gap-12">
                     {/* Main Content */}
                     <article className="flex-1 max-w-4xl">
-                        <nav className="text-sm border-b pb-4 mb-8 flex gap-2 text-slate-500">
+                        <nav className="text-sm border-b pb-4 mb-8 flex gap-2 text-slate-500 uppercase tracking-[0.2em] font-bold text-[10px]">
                             <Link href="/" className="hover:text-primary">Home</Link>
                             <span>/</span>
                             <Link href="/resources" className="hover:text-primary">Resources</Link>
                             <span>/</span>
-                            <span className="text-slate-900 font-medium">LIC Policy Revival</span>
+                            <span className="text-slate-900 font-black tracking-normal">Policy Revival 2026</span>
                         </nav>
 
-                        <header className="mb-12 text-center md:text-left">
-                            <div className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-                                2026 Revival Campaign Live
+                        <header className="mb-12">
+                            <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest mb-6 border border-primary/20">
+                                <Sparkles className="h-3 w-3" />
+                                2026 Campaign Update
                             </div>
-                            <h1 className="text-4xl md:text-6xl font-black mb-6 text-slate-900 leading-none">
-                                Don't Let Your <span className="text-primary italic">Security</span> Lapse.
+                            <h1 className="text-5xl md:text-8xl font-black mb-8 text-slate-900 leading-[0.85] tracking-tighter">
+                                Bring Your <br/> <span className="text-primary italic">Security</span> <br/> Back to Life.
                             </h1>
-                            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl">
-                                Millions of LIC policies are lapsed due to missed premiums. In 2026, the rules for revival have changed—offering bigger concessions but stricter medical gates. This guide shows you how to bring your policy back to life.
+                            <p className="text-xl text-slate-600 leading-relaxed max-w-3xl font-medium border-l-4 border-primary pl-8 my-12">
+                                Missed premiums are a common reality, but a lapsed life insurance policy is a "Silent Financial Danger." 
+                                In 2026, LIC has introduced one of the most aggressive Special Revival Campaigns to help policyholders recover their protection without paying full penalties.
                             </p>
                         </header>
 
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-                            <div className="p-6 bg-slate-900 text-white rounded-2xl shadow-xl">
-                                <History className="h-8 w-8 text-primary mb-4" />
-                                <h4 className="text-lg font-bold mb-2">5 Year Limit</h4>
-                                <p className="text-xs text-slate-400">Policies can usually only be revived within 5 years of the first unpaid premium.</p>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                            <div className="p-8 bg-slate-900 text-white rounded-[2.5rem] shadow-2xl group hover:-translate-y-2 transition-transform duration-300">
+                                <History className="h-10 w-10 text-primary mb-6 group-hover:rotate-12 transition-transform" />
+                                <h4 className="text-xl font-black mb-3">5 Year Window</h4>
+                                <p className="text-xs text-slate-400 leading-relaxed font-medium">Under current IRDAI guidelines, policies can usually only be revived within 60 months (5 years) of the FUP.</p>
                             </div>
-                            <div className="p-6 bg-slate-900 text-white rounded-2xl shadow-xl">
-                                <Calculator className="h-8 w-8 text-primary mb-4" />
-                                <h4 className="text-lg font-bold mb-2">Late Fees</h4>
-                                <p className="text-xs text-slate-400">Standard interest is 9% p.a. Concessions up to 30% are available in Special Schemes.</p>
+                            <div className="p-8 bg-slate-900 text-white rounded-[2.5rem] shadow-2xl group hover:-translate-y-2 transition-transform duration-300">
+                                <Calculator className="h-10 w-10 text-primary mb-6 group-hover:rotate-12 transition-transform" />
+                                <h4 className="text-xl font-black mb-3">9% Arrears</h4>
+                                <p className="text-xs text-slate-400 leading-relaxed font-medium">Standard compounding interest is 9% per annum, but 2026 concessions offer up to 30% reduction.</p>
                             </div>
-                            <div className="p-6 bg-slate-900 text-white rounded-2xl shadow-xl">
-                                <Activity className="h-8 w-8 text-primary mb-4" />
-                                <h4 className="text-lg font-bold mb-2">DGH Form</h4>
-                                <p className="text-xs text-slate-400">Declaration of Good Health is mandatory for all revivals past 6 months.</p>
+                            <div className="p-8 bg-slate-900 text-white rounded-[2.5rem] shadow-2xl group hover:-translate-y-2 transition-transform duration-300">
+                                <Activity className="h-10 w-10 text-primary mb-6 group-hover:rotate-12 transition-transform" />
+                                <h4 className="text-xl font-black mb-3">DGH Gate</h4>
+                                <p className="text-xs text-slate-400 leading-relaxed font-medium">Form 680 (Declaration of Good Health) is mandatory for any revival after 6 months of lapse.</p>
                             </div>
                         </div>
 
                         <div className="prose prose-slate prose-lg max-w-none">
-                            <h2 className="text-3xl font-black mt-16 mb-8 text-slate-900 border-b-4 border-primary w-fit">4 Ways to Revive (The 2026 Toolkit)</h2>
+                            <h2 className="text-4xl font-black mt-20 mb-10 text-slate-900 tracking-tight flex items-center gap-4 border-b pb-4">
+                                <TrendingUp className="h-10 w-10 text-primary" />
+                                1. The 4 Official Ways to Revive
+                            </h2>
+                            <p className="text-lg text-slate-600 font-medium italic mb-10">
+                                "There is no one-size-fits-all in revival. Most people pay only the arrears, but smarter policyholders use 'DOC Shifts' or 'Loan-cum-Revivals' to save cash."
+                            </p>
                             
-                            <div className="space-y-12 mt-10">
-                                <section>
-                                    <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
-                                        <div className="h-6 w-6 rounded-md bg-primary text-white flex items-center justify-center text-xs">1</div>
-                                        Ordinary Revival
-                                    </h3>
-                                    <p className="text-slate-600 pl-8">
-                                        Used when you just want to pay the arrears + interest. If you are reviving within 6 months of the due date, no medical report is needed. Most common for 1-2 missed premiums.
+                            <div className="space-y-16">
+                                <section className="relative pl-12">
+                                    <div className="absolute left-0 top-0 text-6xl font-black text-slate-100 select-none">01</div>
+                                    <h3 className="text-2xl font-black text-slate-900 mb-4">Ordinary Revival</h3>
+                                    <p className="text-slate-600 leading-relaxed">
+                                        The simplest method. You pay all unpaid premiums plus interest from the <strong>First Unpaid Premium (FUP)</strong> date. 
+                                        If you are reviving within 180 days (6 months), no medical report is required. This is ideal for short lapses where you have the liquidity to pay the bulk amount.
                                     </p>
                                 </section>
 
-                                <section>
-                                    <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
-                                        <div className="h-6 w-6 rounded-md bg-primary text-white flex items-center justify-center text-xs">2</div>
-                                        Special Revival Scheme (SRS)
-                                    </h3>
-                                    <p className="text-slate-600 pl-8">
-                                        LIC shifts the <strong>Date of Commencement (DOC)</strong> forward. This means you don't pay all old premiums, but your "Years to Maturity" increases. Best if you have missed 2+ years and can't pay the bulk arrears.
+                                <section className="relative pl-12">
+                                    <div className="absolute left-0 top-0 text-6xl font-black text-slate-100 select-none">02</div>
+                                    <h3 className="text-2xl font-black text-slate-900 mb-4">Special Revival Scheme (SRS)</h3>
+                                    <p className="text-slate-600 leading-relaxed">
+                                        The most advanced scheme. LIC allows you to shift the <strong>Date of Commencement (DOC)</strong> forward. 
+                                        Instead of paying a massive bulk amount, your policy "starts" from a later date. You only pay one current premium + a small fee. 
+                                        <br/><span className="text-red-600 font-bold block mt-2 tracking-tighter uppercase text-sm">Warning: This increases your tenure and restarts the 3-year contestability clock.</span>
                                     </p>
                                 </section>
 
-                                <section>
-                                    <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
-                                        <div className="h-6 w-6 rounded-md bg-primary text-white flex items-center justify-center text-xs">3</div>
-                                        Installment Revival
-                                    </h3>
-                                    <p className="text-slate-600 pl-8">
-                                        For policies with high arrears. LIC allows you to pay the total amount in 6 monthly or quarterly installments. Great for cash-flow management.
+                                <section className="relative pl-12">
+                                    <div className="absolute left-0 top-0 text-6xl font-black text-slate-100 select-none">03</div>
+                                    <h3 className="text-2xl font-black text-slate-900 mb-4">Installment Revival</h3>
+                                    <p className="text-slate-600 leading-relaxed">
+                                        For those with high arrears but limited monthly cash flow. LIC allows the total revival cost to be paid in monthly or quarterly installments. 
+                                        While this keeps the policy "In-Force," full claim coverage only resumes once the first installment is cleared.
                                     </p>
                                 </section>
 
-                                <section>
-                                    <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
-                                        <div className="h-6 w-6 rounded-md bg-primary text-white flex items-center justify-center text-xs">4</div>
-                                        Loan-cum-Revival
-                                    </h3>
-                                    <p className="text-slate-600 pl-8">
-                                        If your policy has "Surrender Value," you can take a loan <em>against</em> that value and use the loan amount to pay the revival premiums. You effectively revive the policy with Zero out-of-pocket cost.
+                                <section className="relative pl-12">
+                                    <div className="absolute left-0 top-0 text-6xl font-black text-slate-100 select-none">04</div>
+                                    <h3 className="text-2xl font-black text-slate-900 mb-4">Loan-cum-Revival (Zero Cash Method)</h3>
+                                    <p className="text-slate-600 leading-relaxed">
+                                        If your policy has completed 2 or 3 years (depending on the plan), it has "Surrender Value." 
+                                        You can take a <strong>Policy Loan</strong> against this value. LIC will use the loan amount to pay your revival premiums. 
+                                        Effectively, you revive your insurance with <strong>Zero out-of-pocket payment</strong>.
                                     </p>
                                 </section>
                             </div>
 
-                            <div className="my-16 p-10 bg-blue-50 rounded-[3rem] border border-blue-100">
-                                <h3 className="text-2xl font-black mb-6 text-blue-900">2026 Late Fee Concession Scale</h3>
-                                <div className="space-y-4">
-                                    <div className="flex justify-between p-4 bg-white rounded-xl shadow-sm">
-                                        <span className="font-bold text-slate-700">Total Premium up to ₹1 Lakh</span>
-                                        <span className="text-primary font-black">20% Off (Max ₹2,000)</span>
+                            <div className="my-20 p-12 bg-blue-50 rounded-[4rem] border-2 border-blue-100 shadow-xl relative overflow-hidden">
+                                <div className="absolute top-0 right-0 p-10 opacity-5">
+                                    <Receipt className="h-40 w-40 text-blue-900" />
+                                </div>
+                                <h3 className="text-3xl font-black mb-8 text-blue-900 leading-tight">2026 Special Campaign Concessions</h3>
+                                <div className="space-y-6">
+                                    <div className="flex flex-col md:flex-row justify-between p-6 bg-white rounded-[2rem] border-b-4 border-blue-200 shadow-sm transition-transform hover:scale-[1.02]">
+                                        <div>
+                                            <span className="text-xs uppercase font-black text-slate-400 tracking-widest">Total Premium up to</span>
+                                            <h5 className="text-2xl font-black text-slate-800">₹1,00,000</h5>
+                                        </div>
+                                        <div className="md:text-right mt-4 md:mt-0">
+                                            <span className="text-xs uppercase font-black text-primary tracking-widest">Late Fee Discount</span>
+                                            <h5 className="text-3xl font-black text-primary">20% <span className="text-xs text-slate-400 font-medium italic">(Max ₹2,000)</span></h5>
+                                        </div>
                                     </div>
-                                    <div className="flex justify-between p-4 bg-white rounded-xl shadow-sm">
-                                        <span className="font-bold text-slate-700">Premium ₹1 Lakh to ₹3 Lakhs</span>
-                                        <span className="text-primary font-black">25% Off (Max ₹2,500)</span>
+                                    <div className="flex flex-col md:flex-row justify-between p-6 bg-white rounded-[2rem] border-b-4 border-blue-200 shadow-sm transition-transform hover:scale-[1.02]">
+                                        <div>
+                                            <span className="text-xs uppercase font-black text-slate-400 tracking-widest">Premium Between</span>
+                                            <h5 className="text-2xl font-black text-slate-800">₹1L — ₹3L</h5>
+                                        </div>
+                                        <div className="md:text-right mt-4 md:mt-0">
+                                            <span className="text-xs uppercase font-black text-primary tracking-widest">Late Fee Discount</span>
+                                            <h5 className="text-3xl font-black text-primary">25% <span className="text-xs text-slate-400 font-medium italic">(Max ₹2,500)</span></h5>
+                                        </div>
                                     </div>
-                                    <div className="flex justify-between p-4 bg-white rounded-xl shadow-sm">
-                                        <span className="font-bold text-slate-700">Premium Above ₹3 Lakhs</span>
-                                        <span className="text-primary font-black">30% Off (Max ₹3,000)</span>
+                                    <div className="flex flex-col md:flex-row justify-between p-6 bg-white rounded-[2rem] border-b-4 border-blue-200 shadow-sm transition-transform hover:scale-[1.02]">
+                                        <div>
+                                            <span className="text-xs uppercase font-black text-slate-400 tracking-widest">Premium Above</span>
+                                            <h5 className="text-2xl font-black text-slate-800">₹3,00,000</h5>
+                                        </div>
+                                        <div className="md:text-right mt-4 md:mt-0">
+                                            <span className="text-xs uppercase font-black text-primary tracking-widest">Late Fee Discount</span>
+                                            <h5 className="text-3xl font-black text-primary">30% <span className="text-xs text-slate-400 font-medium italic">(Max ₹3,000)</span></h5>
+                                        </div>
                                     </div>
                                 </div>
-                                <p className="text-[10px] text-blue-800 mt-4 italic">*Concessions only applicable during "Special Revival Campaigns" announced by LIC periodcially.</p>
-                            </div>
-
-                            <h2 className="text-3xl font-black mt-20 mb-10 text-slate-900 leading-tight">Revival after 5 Years? The "Hard Limit"</h2>
-                            <p className="leading-relaxed text-slate-600">
-                                As per current IRDAI guidelines, a policy that has been in a lapsed state for more than <strong>5 consecutive years</strong> cannot be revived. At this point, the policy is considered "Terminated" or "Paid-up."
-                            </p>
-                            <div className="bg-amber-50 p-6 rounded-2xl border border-amber-100 my-8">
-                                <h5 className="font-bold text-amber-900 m-0 text-sm">Vital Tip:</h5>
-                                <p className="text-amber-800 text-xs m-0 mt-2">
-                                    If your policy is past the 5-year mark, check if it has "Paid-up Value." You may still be entitled to a reduced death benefit or a maturity amount without paying any further premiums.
+                                <p className="text-[10px] text-blue-800 mt-8 italic text-center font-bold tracking-widest uppercase">
+                                    *Official 2026 Campaign Window: Jan 1st to March 31st (Extended)
                                 </p>
                             </div>
 
-                            <h2 className="text-3xl font-black mt-20 mb-8 text-slate-900">Common Revival FAQs</h2>
+                            <h2 className="text-4xl font-black mt-24 mb-10 text-slate-900 leading-tight border-l-8 border-primary pl-8">Calculation: The "LAAE" Math</h2>
+                            <p className="text-slate-600 mb-10">
+                                LAAE stands for <strong>Late Arrears and Arrears on Expense</strong>. Here is a simplified example of how LIC calculates your cost:
+                            </p>
+                            
+                            <div className="bg-slate-50 p-10 rounded-[3rem] border border-slate-200 shadow-inner mb-20 font-mono text-sm overflow-x-auto">
+                                <div className="min-w-[400px]">
+                                    <p className="text-slate-400 mb-6 font-bold uppercase tracking-tighter">// REVIVAL QUOTATION SIMULATION</p>
+                                    <div className="grid grid-cols-2 gap-4 border-b border-slate-200 pb-4 mb-4">
+                                        <span className="text-slate-900 font-bold">Base Premium (Annual)</span>
+                                        <span className="text-right text-slate-900">₹20,000</span>
+                                        <span className="text-slate-500 italic text-xs">Premiums Missed (2 Years)</span>
+                                        <span className="text-right text-slate-500 text-xs">₹40,000</span>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4 border-b border-slate-200 pb-4 mb-4">
+                                        <span className="text-slate-900 font-bold">Standard Interest (9.5% p.a.)</span>
+                                        <span className="text-right text-slate-900">₹5,200</span>
+                                        <span className="text-primary font-black">2026 Campaign Concession (30%)</span>
+                                        <span className="text-right text-primary font-black">- ₹1,560</span>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-4 pt-4 mb-10">
+                                        <span className="text-2xl font-black text-slate-900">Total Payable</span>
+                                        <span className="text-right text-2xl font-black text-slate-900">₹43,640</span>
+                                    </div>
+                                    <p className="text-[10px] text-slate-400 text-center uppercase tracking-widest">Final amount subject to GST and policy plan specifics.</p>
+                                </div>
+                            </div>
+
+                            <h2 className="text-4xl font-black mt-24 mb-10 text-slate-900 tracking-tight flex items-center gap-4">
+                                <ShieldAlert className="h-10 w-10 text-red-600" />
+                                2. Medical Thresholds & Form 680
+                            </h2>
+                            <p className="text-slate-600 leading-relaxed">
+                                Many policyholders fear the medical check-up. However, 80% of revivals are cleared with just a <strong>Declaration of Good Health (DGH)</strong>. 
+                                <br/><br/>
+                                <strong>Form 680:</strong> This is the most common form. It asks 10-15 questions about your health history since the policy FUP. If the Sum Assured (SA) is low (e.g., under ₹10 Lakhs) and your age is under 45, LIC rarely asks for a physical exam.
+                            </p>
+
+                            <div className="grid md:grid-cols-2 gap-8 my-16">
+                                <div className="p-8 border-2 border-slate-100 rounded-[2.5rem]">
+                                    <h4 className="font-black text-lg mb-4 text-slate-900 uppercase tracking-tighter">SMR (Special Medical Report)</h4>
+                                    <p className="text-xs text-slate-500 leading-relaxed">Required if the lapse is >3 years or if the SA is very high. This includes ECG, Full Blood work, and a report from an LIC-authorized TPI Doctor.</p>
+                                </div>
+                                <div className="p-8 border-2 border-slate-100 rounded-[2.5rem]">
+                                    <h4 className="font-black text-lg mb-4 text-slate-900 uppercase tracking-tighter text-primary italic">Revival Bonus Benefit</h4>
+                                    <p className="text-xs text-slate-500 leading-relaxed font-bold">When you revive, LIC calculates all "Accrued Bonuses" declared during your lapse period and adds them back to your account immediately.</p>
+                                </div>
+                            </div>
+
+                            <h2 className="text-4xl font-black mt-24 mb-10 text-slate-900">Revival FAQs (The Expert List)</h2>
                             <Accordion type="single" collapsible className="w-full">
                                 <AccordionItem value="item-1">
-                                    <AccordionTrigger className="text-left font-bold py-6 text-slate-800">What is a DGH (Declaration of Good Health)?</AccordionTrigger>
-                                    <AccordionContent className="text-slate-600 leading-relaxed pb-6">
-                                        It is a form where you declare that your health status hasn't changed since the policy was taken. If the sum assured is high or you are older, LIC may ask for a full medical check-up (SMR-Special Medical Report) instead of just a DGH.
+                                    <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors border-b">What is the "Hard Limit" for revival in 2026?</AccordionTrigger>
+                                    <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg font-medium">
+                                        As per IRDAI guidelines, a policy that has been lapsed for more than <strong>5 consecutive years</strong> cannot be revived. However, there is a loophole: If your policy has a "Maturity Date" still far in the future, check with your Branch Manager for a "Special Cased Revival" under the Corporation's discretion.
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-2">
-                                    <AccordionTrigger className="text-left font-bold py-6 text-slate-800">Can I revive my policy at any LIC branch?</AccordionTrigger>
-                                    <AccordionContent className="text-slate-600 leading-relaxed pb-6">
-                                        Yes! You can now pay revival premiums at any satellite office or branch in India. However, the <strong>"Revival Quotation"</strong> and processing of the medical reports are best handled at your local home branch.
+                                    <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors border-b">Can I revive my policy at any LIC branch in India?</AccordionTrigger>
+                                    <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg font-medium">
+                                        Yes! LIC has digitized almost all servicing. You can pay your revival premium at any satellite office or Branch. However, if an <strong>SMR (Medical)</strong> is required, the final clearance must come from your "Servicing Home Branch" where the policy records are stored.
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="item-3">
-                                    <AccordionTrigger className="text-left font-bold py-6 text-slate-800">Will my bonuses be added during the lapsed period?</AccordionTrigger>
-                                    <AccordionContent className="text-slate-600 leading-relaxed pb-6">
-                                        Yes. Once revived, your policy becomes "In-Force" and all bonuses declared during the lapsed period are credited back to your account. This is the biggest benefit of revival over buying a new policy.
+                                    <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors border-b">Will my claim be valid immediately after revival?</AccordionTrigger>
+                                    <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg font-medium">
+                                        No. There is a "Waiting Period" (usually 90 days) during which only "Accidental Death" might be covered. For natural death, LIC applies a cooling-off period to prevent <em>Selection Against the Insurer</em> (buying last-minute insurance for a critical illness).
+                                    </AccordionContent>
+                                </AccordionItem>
+                                <AccordionItem value="item-4">
+                                    <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors border-b">Does Section 80C Tax Benefit apply to Arrears?</AccordionTrigger>
+                                    <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg font-medium">
+                                        Yes! If you payarrears for 3 years in a single financial year (e.g., in FY 2025-26), the <strong>entire premium amount paid</strong> is eligible for deduction under Section 80C, subject to the overall ₹1,50,000 limit. Interest/Late fees are NOT eligible for tax benefit.
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
                         </div>
 
                         {/* Local Advisor Section */}
-                        <div className="my-16 p-8 border-2 border-slate-900 rounded-[2rem] bg-slate-50 relative overflow-hidden">
-                            <div className="absolute top-0 right-0 p-4 opacity-5">
-                                <MapPin className="h-32 w-32" />
+                        <div className="my-20 p-12 border-2 border-slate-900 rounded-[3rem] bg-slate-50 relative overflow-hidden shadow-2xl group">
+                            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:scale-110 transition-transform duration-500">
+                                <MapPin className="h-48 w-48 text-slate-900" />
                             </div>
-                            <h3 className="text-2xl font-black mb-4">Doorstep Revival Assistance</h3>
-                            <p className="text-slate-600 mb-8">
-                                Don't wait in long queues at LIC branches. Our advisors collect your DGH forms and documents from your home and get your policy revived in 48 hours.
+                            <h3 className="text-3xl font-black mb-6 leading-tight">Revive From Your Living Room.</h3>
+                            <p className="text-slate-600 mb-10 text-xl font-medium max-w-2xl">
+                                Don't navigate the complex branch bureaucracy alone. Our authorized advisors collect your Form 680 and KYC documents from your doorstep and handle the "Revival Quotient" technicalities for you.
                             </p>
                             <div className="flex flex-wrap gap-4">
-                                <Link href="/locations/bangalore" className="px-4 py-2 bg-white rounded-lg border text-sm font-bold text-slate-900 hover:text-primary transition-colors">Bangalore (HSR/Jalahalli)</Link>
-                                <Link href="/locations/mumbai" className="px-4 py-2 bg-white rounded-lg border text-sm font-bold text-slate-900 hover:text-primary transition-colors">Mumbai Support</Link>
-                                <Link href="/locations/hyderabad" className="px-4 py-2 bg-white rounded-lg border text-sm font-bold text-slate-900 hover:text-primary transition-colors">Hyderabad Expert</Link>
+                                <Link href="/locations/bangalore" className="px-8 py-3 bg-white rounded-2xl border-2 border-slate-200 text-sm font-black text-slate-900 hover:border-primary hover:text-primary transition-all shadow-sm">Bangalore (HSR/Jalahalli)</Link>
+                                <Link href="/locations/mumbai" className="px-8 py-3 bg-white rounded-2xl border-2 border-slate-200 text-sm font-black text-slate-900 hover:border-primary hover:text-primary transition-all shadow-sm">Mumbai Support Team</Link>
+                                <Link href="/locations/hyderabad" className="px-8 py-3 bg-white rounded-2xl border-2 border-slate-200 text-sm font-black text-slate-900 hover:border-primary hover:text-primary transition-all shadow-sm">Hyderabad Liaison</Link>
                             </div>
                         </div>
 
                         <AuthorBio />
 
-                        <div className="mt-20 p-12 bg-primary rounded-[3rem] text-white">
-                            <h3 className="text-3xl font-black mb-4">Revive & Secure.</h3>
-                            <p className="text-primary-foreground/80 mb-10 text-lg max-w-2xl leading-relaxed">
-                                A lapsed policy is a lost legacy. Let us calculate your exact revival cost today—including all applicable 2026 concessions.
+                        <div className="mt-24 p-16 bg-primary rounded-[4rem] text-white shadow-3xl relative overflow-hidden group">
+                            <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-white/10 rounded-full blur-[100px] -mt-40 -mr-40 group-hover:bg-white/20 transition-all"></div>
+                            <h3 className="text-5xl font-black mb-6 leading-none tracking-tighter">Your Legacy is <br/> worth protecting.</h3>
+                            <p className="text-primary-foreground/90 mb-12 text-2xl font-medium max-w-2xl text-balance leading-relaxed">
+                                Avoid the mistake of buying a new "Expensive" policy at an older age. Calculate your exact revival cost today, including the current 2026 concessions.
                             </p>
-                            <div className="flex flex-col sm:flex-row gap-4">
-                                <Button size="lg" className="h-16 px-8 text-xl font-black bg-slate-900 hover:bg-slate-800 flex items-center gap-2">
-                                    <Phone className="h-6 w-6" />
-                                    Get Revival Quote
+                            <div className="flex flex-col sm:flex-row gap-6">
+                                <Button size="lg" className="h-20 px-12 text-2xl font-black bg-slate-900 hover:bg-slate-800 flex items-center gap-3 shadow-2xl hover:scale-105 transition-transform">
+                                    <Phone className="h-8 w-8 text-primary" />
+                                    Get My Revival Quote
                                 </Button>
-                                <Button variant="outline" size="lg" className="h-16 px-8 text-xl font-black border-white/40 text-white hover:bg-white/10" asChild>
-                                    <Link href="/contact">Free Consultation</Link>
+                                <Button variant="outline" size="lg" className="h-20 px-12 text-2xl font-black border-white/40 text-white hover:bg-white/10 rounded-2xl" asChild>
+                                    <Link href="/contact">Free Advisor Chat</Link>
                                 </Button>
                             </div>
                         </div>
@@ -204,32 +279,47 @@ export default function LapsedPolicyRevivalGuide() {
                     {/* Sidebar */}
                     <aside className="w-full lg:w-[400px]">
                         <div className="sticky top-24 space-y-8">
-                            <div className="bg-slate-900 p-8 rounded-3xl text-white shadow-2xl">
-                                <h3 className="text-2xl font-black mb-2">Check Status</h3>
-                                <p className="text-sm text-slate-400 mb-8">Enter your policy number to see latest health & revival requirements.</p>
+                            <div className="bg-slate-900 p-10 rounded-[3.5rem] text-white shadow-3xl relative overflow-hidden hover:shadow-primary/20 transition-all border border-slate-800">
+                                <TrendingUp className="h-10 w-10 text-primary mb-6" />
+                                <h3 className="text-3xl font-black mb-2 leading-none">Status Audit</h3>
+                                <p className="text-sm text-slate-400 mb-10 border-b border-primary/20 pb-6 uppercase font-bold tracking-[0.2em]">Live Policy Review</p>
                                 <QuoteForm insuranceType="claim_support" />
                             </div>
 
-                            <div className="p-8 bg-green-50 rounded-3xl border border-green-100">
-                                <h4 className="font-bold text-green-900 mb-4 flex items-center gap-2">
-                                    <AlertCircle className="h-5 w-5" />
-                                    Revival Bonus
+                            <div className="p-12 bg-green-50 rounded-[3.5rem] border border-green-100 shadow-xl group">
+                                <h4 className="font-black text-2xl text-green-900 mb-6 flex items-center gap-3">
+                                    <Receipt className="h-6 w-6 text-green-700 group-hover:rotate-12 transition-transform" />
+                                    Bonus Warning
                                 </h4>
-                                <p className="text-green-800 text-sm leading-relaxed">
-                                    "When you revive, you don't just get coverage back. You get all the accrued bonuses for the years you didn't pay. It's often cheaper than buying a fresh policy at a higher entry age."
+                                <p className="text-green-800 text-sm leading-relaxed font-medium">
+                                    "Many people surrender lapsed policies out of panic. Don't! When you revive, you get back all the bonuses you missed. For a 5-year lapse on a ₹10 Lakh sum assured, the missed bonus alone could be ₹2.5 Lakhs."
                                 </p>
                             </div>
 
-                            <div className="p-8 bg-slate-50 rounded-3xl border border-slate-200">
-                                <FileText className="h-10 w-10 mb-4 text-slate-300" />
-                                <h4 className="text-xl font-bold mb-2 text-slate-900 leading-tight">Revival Form Set</h4>
-                                <p className="text-sm text-slate-500 mb-6 uppercase font-bold tracking-tighter">Verified 2026 Checklist</p>
-                                <ul className="space-y-3 mb-8 text-sm text-slate-600">
-                                    <li className="flex gap-2 items-center"><CheckCircle2 className="h-4 w-4 text-primary" /> Form No. 680 (DGH)</li>
-                                    <li className="flex gap-2 items-center"><CheckCircle2 className="h-4 w-4 text-primary" /> Self-attested PAN/Aadhar</li>
-                                    <li className="flex gap-2 items-center"><CheckCircle2 className="h-4 w-4 text-primary" /> Arrears Premium Cheque</li>
+                            <div className="p-10 bg-slate-50 rounded-[3.5rem] border border-slate-200 shadow-sm relative group overflow-hidden">
+                                <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:scale-110 transition-transform">
+                                    <FileText className="h-40 w-40 text-slate-900" />
+                                </div>
+                                <h4 className="text-2xl font-black mb-4 text-slate-900 leading-tight">Revival Checklist <br/>(2026 Edition)</h4>
+                                <ul className="space-y-4 mb-10">
+                                    <li className="flex gap-3 text-xs font-bold text-slate-500 uppercase tracking-widest items-center">
+                                        <div className="h-5 w-5 rounded-md bg-primary/10 flex items-center justify-center text-primary font-black">1</div>
+                                        Form 680 (DGH)
+                                    </li>
+                                    <li className="flex gap-3 text-xs font-bold text-slate-500 uppercase tracking-widest items-center">
+                                        <div className="h-5 w-5 rounded-md bg-primary/10 flex items-center justify-center text-primary font-black">2</div>
+                                        Original Policy Bond
+                                    </li>
+                                    <li className="flex gap-3 text-xs font-bold text-slate-500 uppercase tracking-widest items-center">
+                                        <div className="h-5 w-5 rounded-md bg-primary/10 flex items-center justify-center text-primary font-black">3</div>
+                                        Self-Attested KYC
+                                    </li>
+                                    <li className="flex gap-3 text-xs font-bold text-slate-500 uppercase tracking-widest items-center">
+                                        <div className="h-5 w-5 rounded-md bg-primary/10 flex items-center justify-center text-primary font-black">4</div>
+                                        NEFT Mandate (5806)
+                                    </li>
                                 </ul>
-                                <Button variant="outline" className="w-full font-bold border-slate-300">Request Documents</Button>
+                                <Button variant="secondary" className="w-full font-black uppercase text-[10px] tracking-[0.2em] h-14 rounded-2xl shadow-lg hover:shadow-primary/10">Download forms</Button>
                             </div>
                         </div>
                     </aside>
@@ -246,26 +336,34 @@ export default function LapsedPolicyRevivalGuide() {
                         "mainEntity": [
                             {
                                 "@type": "Question",
-                                "name": "What is the 5 year rule for LIC revival?",
+                                "name": "What is the 5 year rule for LIC revival in 2026?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "LIC policies can generally be revived within 5 years of the first unpaid premium. Beyond this period, the policy is usually terminated under IRDAI guidelines."
+                                    "text": "LIC policies can generally be revived within 5 years (60 months) from the date of the first unpaid premium. Beyond this period, the policy is terminated under IRDAI guidelines unless special board approval is obtained."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "Does LIC give late fee concessions 2026?",
+                                "name": "Does LIC give late fee concessions in 2026?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Yes, LIC launches periodic Special Revival Campaigns offering 20-30% late fee concessions (capped at ₹3,000) for eligible policyholders."
+                                    "text": "Yes, LIC launches Special Revival Campaigns offering 20-30% late fee concessions (capped at ₹3,000 recently) for eligible policyholders during specific windows (often Jan-March)."
                                 }
                             },
                             {
                                 "@type": "Question",
-                                "name": "What is Form 680 in LIC?",
+                                "name": "What is Form 680 in LIC policy revival?",
                                 "acceptedAnswer": {
                                     "@type": "Answer",
-                                    "text": "Form No. 680 is the Declaration of Good Health (DGH) required for ordinary revival of a lapsed policy to prove the policyholder's health status has not changed."
+                                    "text": "Form No. 680 is the Declaration of Good Health (DGH). It is a personal statement required for revival to confirm that the policyholder's health status has not changed for the worse since the policy was taken."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Can I pay revival premiums online in 2026?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "Only policies in 'Short Lapse' (under 6 months) are usually eligible for direct online payment. For longer lapses, you must first obtain a Revival Quotation and submit medical forms via a branch or authorized advisor."
                                 }
                             }
                         ]

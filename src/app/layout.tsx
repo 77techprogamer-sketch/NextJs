@@ -21,6 +21,7 @@ import DelayedLoader from '@/components/DelayedLoader';
 const ActivityTicker = dynamic(() => import('@/components/ActivityTicker'), { ssr: false });
 const StickyMobileContactBar = dynamic(() => import('@/components/StickyMobileContactBar'), { ssr: false });
 const IntenseDebateComments = dynamic(() => import('@/components/IntenseDebateComments'), { ssr: false });
+const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -210,6 +211,7 @@ export default function RootLayout({
 
                             <Footer />
                             <DelayedLoader>
+                                <VisitorTracker />
                                 <QuickDialSidebar />
                                 <React.Suspense fallback={null}>
                                     <ChatbotWidget />
