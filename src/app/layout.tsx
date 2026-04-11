@@ -23,6 +23,7 @@ const StickyMobileContactBar = dynamic(() => import('@/components/StickyMobileCo
 const IntenseDebateComments = dynamic(() => import('@/components/IntenseDebateComments'), { ssr: false });
 const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ssr: false });
 const LeadSyncManager = dynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -169,6 +170,8 @@ export default function RootLayout({
                         })(window,document,'script','dataLayer','${GTM_ID}');`,
                     }}
                 />
+                <link rel="manifest" href="/manifest.json" />
+                <meta name="theme-color" content="#1e3a8a" />
                 <link rel="preload" href="/grid.svg" as="image" />
                 <link rel="preconnect" href="https://idzvdeemgxhwlkyphnel.supabase.co" />
 
@@ -225,6 +228,7 @@ export default function RootLayout({
                                 <StickyMobileContactBar />
                                 <LeadSyncManager />
                             </DelayedLoader>
+                            <SpeedInsights />
                             <Toaster />
                         </div>
                     </I18nProvider>
