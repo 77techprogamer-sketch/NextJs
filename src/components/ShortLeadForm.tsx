@@ -10,6 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
+import { leadService } from '@/lib/leadService';
 import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
@@ -36,16 +37,14 @@ const ShortLeadForm = () => {
 
     const onSubmit = async (values: ShortLeadValues) => {
         try {
-            const { error } = await supabase
-                .from('customers')
-                .insert([{
-                    name: values.fullName,
-                    phone: values.mobileNumber,
-                    insurance_type: values.requirement,
-                    details: { source: 'short_hero_form' }
-                }]);
+            const payload = {
+                name: values.fullName,
+                phone: values.mobileNumber,
+                insurance_type: values.requirement,
+                details: { source: 'short_hero_form' }
+            };
 
-            if (error) throw error;
+            await leadService.submitLead(payload, 'short_hero_form');
 
             // GA4 Lead Event
             if (typeof window !== 'undefined' && (window as any).gtag) {

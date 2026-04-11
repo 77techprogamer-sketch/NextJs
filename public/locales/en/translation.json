@@ -1251,5 +1251,6 @@
   "yes_have_it": "Yes, I have it",
   "your_full_name": "Your Full Name",
   "your_gender": "Your Gender",
-  "your_risk_score": "Your Risk Score"
+  "your_risk_score": "Your Risk Score",
+  "synced_leads": "Successfully synced {{count}} leads."
 }

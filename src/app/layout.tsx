@@ -22,6 +22,7 @@ const ActivityTicker = dynamic(() => import('@/components/ActivityTicker'), { ss
 const StickyMobileContactBar = dynamic(() => import('@/components/StickyMobileContactBar'), { ssr: false });
 const IntenseDebateComments = dynamic(() => import('@/components/IntenseDebateComments'), { ssr: false });
 const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ssr: false });
+const LeadSyncManager = dynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -222,6 +223,7 @@ export default function RootLayout({
                                 <GlobalForms />
                                 <WhatsAppWidget />
                                 <StickyMobileContactBar />
+                                <LeadSyncManager />
                             </DelayedLoader>
                             <Toaster />
                         </div>

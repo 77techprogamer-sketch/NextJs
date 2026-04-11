@@ -16,6 +16,7 @@ import { format } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '@/integrations/supabase/client';
+import { leadService } from '@/lib/leadService';
 import { toast } from 'sonner';
 import { FORM_CONFIGS, DEFAULT_FORM_CONFIG } from '@/config/forms';
 import { formatLabel, normalizeUIValue } from '@/utils/formatText';
@@ -122,31 +123,23 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       const details: Record<string, any> = {};
 
       // Fields that are already mapped to specific columns in the 'customers' table
-      // Note: 'sumAssured' is mapped to 'intended_sum_insured'
       const mappedColumnFields = ['fullName', 'mobileNumber', 'age', 'dateOfBirth', 'gender', 'sumAssured'];
 
       Object.keys(values).forEach(key => {
-        // If the field is not one of the standard mapped columns, add it to details
         if (!mappedColumnFields.includes(key)) {
-          details[key] = values[key];
+          details[key] = (values as any)[key];
         }
       });
 
-      // Capture source and quiz data from initialData if present
       if (initialData?.source) details.source = initialData.source;
       if (initialData?.quiz_score) details.quiz_score = initialData.quiz_score;
       if (initialData?.quiz_risk) details.quiz_risk = initialData.quiz_risk;
 
-      // Add details to payload if not empty
       if (Object.keys(details).length > 0) {
         payload.details = details;
       }
 
-      const { error } = await supabase
-        .from('customers')
-        .insert([payload]);
-
-      if (error) throw error;
+      await leadService.submitLead(payload, 'detailed_quote_form');
 
       // GA4 Lead Event
       if (typeof window !== 'undefined' && (window as any).gtag) {
