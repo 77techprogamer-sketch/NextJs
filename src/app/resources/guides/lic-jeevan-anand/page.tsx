@@ -54,7 +54,7 @@ export default function JeevanAnandGuide() {
                                 The Master of <br/> <span className="text-primary italic">Double Benefits.</span>
                             </h1>
                             <p className="text-xl text-slate-600 leading-relaxed max-w-3xl font-medium border-l-4 border-primary pl-8 my-10">
-                                In the world of traditional insurance, <strong>LIC New Jeevan Anand (Plan 715)</strong> stands alone. It is the only plan that pays you a maturity lump sum and <em>keeps your life cover alive for free</em> until age 100. This is the definitive 2026 breakdown of why this plan remains LIC's bestseller.
+                                {"In the world of traditional insurance, LIC New Jeevan Anand (Plan 715) stands alone. It is the only plan that pays you a maturity lump sum and keeps your life cover alive for free until age 100. This is the definitive 2026 breakdown of why this plan remains LIC's bestseller."}
                             </p>
                         </header>
 
@@ -83,15 +83,15 @@ export default function JeevanAnandGuide() {
                                 1. Why Jeevan Anand is Unique
                             </h2>
                             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                                Most insurance plans end when you receive the maturity amount. You get your money, and the contract is finished. However, <strong>Jeevan Anand</strong> is an Endowment-cum-Whole Life plan. 
+                                {"Most insurance plans end when you receive the maturity amount. You get your money, and the contract is finished. However, Jeevan Anand is an Endowment-cum-Whole Life plan."}
                             </p>
                             <div className="bg-slate-900 text-white p-10 rounded-[3rem] my-12 shadow-2xl relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:scale-110 transition-transform">
                                     <Star className="h-40 w-40 text-primary" />
                                 </div>
-                                <h3 className="text-3xl font-black mb-6 flex items-center gap-3">
+                                <h3 className="text-3xl font-black mb-6 flex items-center gap-3 text-white">
                                     <ShieldCheck className="h-8 w-8 text-primary" />
-                                    The "Zindagi Ke Saath Bhi" Advantage
+                                    {"The \"Zindagi Ke Saath Bhi\" Advantage"}
                                 </h3>
                                 <ul className="space-y-4">
                                     <li className="flex gap-4">
@@ -104,7 +104,7 @@ export default function JeevanAnandGuide() {
                                         <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-1">
                                             <div className="h-2 w-2 rounded-full bg-primary" />
                                         </div>
-                                        <p className="text-slate-300"><strong>Extended Life Cover:</strong> After maturity, your life cover for the Sum Assured continues for $0$ cost until your death or age 100.</p>
+                                        <p className="text-slate-300"><strong>Extended Life Cover:</strong> After maturity, your life cover for the Sum Assured continues for zero cost until your death or age 100.</p>
                                     </li>
                                 </ul>
                             </div>
@@ -149,7 +149,7 @@ export default function JeevanAnandGuide() {
                                 3. Bonuses: The Wealth Engine
                             </h2>
                             <p className="text-slate-600 mb-10 leading-relaxed">
-                                Since Jeevan Anand is a <strong>Participating Plan</strong>, you earn a share of LIC's profits. In 2026, these are declared in three forms:
+                                {"Since Jeevan Anand is a Participating Plan, you earn a share of LIC's profits. In 2026, these are declared in three forms:"}
                             </p>
                             
                             <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -159,7 +159,7 @@ export default function JeevanAnandGuide() {
                                         Simple Reversionary Bonus
                                     </h4>
                                     <p className="text-green-800/80 text-sm leading-relaxed font-medium">
-                                        Declared annually per ₹1000 of Sum Assured. This is added to your policy every year and is payable either on maturity or death. 
+                                        {"Declared annually per ₹1000 of Sum Assured. This is added to your policy every year and is payable either on maturity or death."}
                                         <em> (Recent trend: ₹40-50 per ₹1000).</em>
                                     </p>
                                 </div>
@@ -203,16 +203,16 @@ export default function JeevanAnandGuide() {
                                         New Critical Illness Benefit Rider
                                     </AccordionTrigger>
                                     <AccordionContent className="text-slate-600 leading-relaxed pb-6 pr-8">
-                                        Provides a lump sum payout if the insurer is diagnosed with any of the 15 pre-defined critical illnesses (Cancer, Heart Attack, etc.).
+                                        {"Provides a lump sum payout if the insurer is diagnosed with any of the 15 pre-defined critical illnesses (Cancer, Heart Attack, etc.)."}
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
 
                             <h2 className="text-4xl font-black mt-24 mb-12 text-slate-900 pb-4 border-b" id="loan-and-surrender">
-                                5. Loan, Surrender & Tax Benefits
+                                5. Loan, Surrender &amp; Tax Benefits
                             </h2>
                             <p className="text-slate-600 mb-8 leading-relaxed">
-                                Jeevan Anand is not just an insurance plan; it's a liquid asset.
+                                {"Jeevan Anand is not just an insurance plan; it's a liquid asset."}
                             </p>
                             <ul className="space-y-6 mb-16">
                                 <li className="flex gap-4 items-start">
@@ -221,7 +221,7 @@ export default function JeevanAnandGuide() {
                                     </div>
                                     <div>
                                         <h5 className="font-black text-xl text-slate-900 mb-1">Loan Facility</h5>
-                                        <p className="text-slate-500 text-sm italic">Available after 2 full years of premiums. You can get up to 90% of the surrender value as a loan at highly competitive interest rates (roughly 9.5% currently).</p>
+                                        <p className="text-slate-500 text-sm italic">{"Available after 2 full years of premiums. You can get up to 90% of the surrender value as a loan at highly competitive interest rates (roughly 9.5% currently)."}</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4 items-start">
@@ -230,7 +230,7 @@ export default function JeevanAnandGuide() {
                                     </div>
                                     <div>
                                         <h5 className="font-black text-xl text-slate-900 mb-1">Tax Savings (SEC 80C)</h5>
-                                        <p className="text-slate-500 text-sm italic">Premiums paid are eligible for deduction up to ₹1.5 Lakhs under Section 80C. This effectively lowers your annual premium cost by 10-30% depending on your tax bracket.</p>
+                                        <p className="text-slate-500 text-sm italic">{"Premiums paid are eligible for deduction up to ₹1.5 Lakhs under Section 80C. This effectively lowers your annual premium cost by 10-30% depending on your tax bracket."}</p>
                                     </div>
                                 </li>
                                 <li className="flex gap-4 items-start">
@@ -249,19 +249,19 @@ export default function JeevanAnandGuide() {
                                 <AccordionItem value="faq-1">
                                     <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors text-xl">Can I stop the policy after 10 years?</AccordionTrigger>
                                     <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg">
-                                        Yes, you can surrender the policy after 2 years. However, if you stop after 10 years, you will receive a "Reduced Paid-Up" value if you don't surrender. We highly recommend completing the full term for maximum bonus accrual.
+                                        {"Yes, you can surrender the policy after 2 years. However, if you stop after 10 years, you will receive a \"Reduced Paid-Up\" value if you don't surrender. We highly recommend completing the full term for maximum bonus accrual."}
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="faq-2">
                                     <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors text-xl">Is medical check-up mandatory for Plan 715?</AccordionTrigger>
                                     <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg">
-                                        It depends on your Age and the Sum Assured. For Sum Assured above ₹3 Lakhs and age above 35, a basic medical (SMR) is usually required. Younger applicants with lower SA can often get "Non-Medical" approval.
+                                        {"It depends on your Age and the Sum Assured. For Sum Assured above ₹3 Lakhs and age above 35, a basic medical (SMR) is usually required. Younger applicants with lower SA can often get \"Non-Medical\" approval."}
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="faq-3">
                                     <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors text-xl">What happens if I die after the policy term?</AccordionTrigger>
                                     <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg">
-                                        Even after you receive your full maturity payout, your life cover for the **Basic Sum Assured** remains active. If you die at age 85 (having matured the policy at 50), LIC will pay your nominee the full Sum Assured again.
+                                        {"Even after you receive your full maturity payout, your life cover for the Basic Sum Assured remains active. If you die at age 85 (having matured the policy at 50), LIC will pay your nominee the full Sum Assured again."}
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
@@ -274,7 +274,7 @@ export default function JeevanAnandGuide() {
                                 Planning for the Long Haul?
                             </h4>
                             <p className="text-slate-600 mb-10 text-xl font-medium leading-relaxed max-w-2xl">
-                                Jeevan Anand is a 20-30 year commitment. Our experts help you calibrate your Sum Assured so that future inflation doesn't eat your maturity rewards.
+                                {"Jeevan Anand is a 20-30 year commitment. Our experts help you calibrate your Sum Assured so that future inflation doesn't eat your maturity rewards."}
                             </p>
                             <div className="flex flex-wrap gap-4">
                                 <Link href="/contact" className="px-8 py-4 bg-primary text-white rounded-2xl text-sm font-black hover:scale-105 transition-all shadow-xl shadow-primary/20">Free Premium Quotation</Link>
@@ -289,7 +289,7 @@ export default function JeevanAnandGuide() {
                             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] -mb-80 -mr-80 group-hover:bg-primary/30 transition-all duration-1000"></div>
                             <h3 className="text-6xl font-black mb-8 leading-none tracking-tighter">Invest in <br/> <span className="text-primary italic">Generational Wealth.</span></h3>
                             <p className="text-slate-400 mb-16 text-2xl font-medium max-w-2xl leading-tight">
-                                Don't just buy insurance. Buy a plan that pays you today and protects your family forever.
+                                {"Don't just buy insurance. Buy a plan that pays you today and protects your family forever."}
                                 <br/><span className="text-white mt-8 block italic tracking-tighter decoration-primary underline decoration-4 underline-offset-8 transition-all group-hover:underline-offset-12">Expert Setup: Plan 715 Authority.</span>
                             </p>
                             <div className="flex flex-col sm:flex-row gap-8">
@@ -307,8 +307,8 @@ export default function JeevanAnandGuide() {
                     {/* Sidebar */}
                     <aside className="w-full lg:w-[450px]">
                         <div className="sticky top-24 space-y-8">
-                            <div className="bg-slate-50 p-12 rounded-[4rem] border border-slate-100 shadow-2xl hover:shadow-primary/5 transition-all">
-                                <h3 className="text-3xl font-black mb-2 text-slate-900 leading-none tracking-tighter">Plan 715</h3>
+                            <div className="bg-slate-50 p-12 rounded-[4rem] border border-slate-100 shadow-2xl hover:shadow-primary/5 transition-all text-slate-900">
+                                <h3 className="text-3xl font-black mb-2 leading-none tracking-tighter">Plan 715</h3>
                                 <p className="text-sm text-slate-500 mb-12 border-b pb-8 uppercase font-black tracking-widest text-[10px]">Instant Premium Quote</p>
                                 <QuoteForm insuranceType="life_insurance" />
                             </div>
@@ -317,18 +317,18 @@ export default function JeevanAnandGuide() {
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-125 transition-transform duration-700">
                                     <Download className="h-32 w-32" />
                                 </div>
-                                <h4 className="text-3xl font-black mb-4 leading-none">The 715 <br/>Policy Brochure</h4>
-                                <p className="text-sm opacity-80 mb-12 leading-relaxed font-bold tracking-tight">Download the latest LIC New Jeevan Anand (Plan 715) official brochure and rider specifics for 2026.</p>
+                                <h4 className="text-3xl font-black mb-4 leading-none text-white">The 715 <br/>Policy Brochure</h4>
+                                <p className="text-sm opacity-80 mb-12 leading-relaxed font-bold tracking-tight text-white/90">Download the latest LIC New Jeevan Anand (Plan 715) official brochure and rider specifics for 2026.</p>
                                 <Button className="w-full bg-slate-900 text-white font-black hover:bg-slate-800 h-20 rounded-[2.5rem] uppercase tracking-[0.2em] text-xs shadow-2xl shadow-black/20">Download PDF</Button>
                             </div>
 
                             <div className="p-12 bg-slate-900 text-white rounded-[4rem] border border-slate-800 shadow-xl group">
                                 <h4 className="font-bold text-primary mb-6 flex items-center gap-3 uppercase tracking-tighter text-xs">
                                     <Info className="h-5 w-5" />
-                                    The "715" Verdict
+                                    {"The \"715\" Verdict"}
                                 </h4>
                                 <p className="text-slate-400 text-sm leading-relaxed italic font-medium group-hover:text-slate-300 transition-colors">
-                                    "Jeevan Anand is the ultimate choice for those who want to be remembered. It provides the financial backbone for your retirement and a guaranteed legacy for your grandchildren, all in one premium."
+                                    {"\"Jeevan Anand is the ultimate choice for those who want to be remembered. It provides the financial backbone for your retirement and a guaranteed legacy for your grandchildren, all in one premium.\""}
                                 </p>
                             </div>
                         </div>

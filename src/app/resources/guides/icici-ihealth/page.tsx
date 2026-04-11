@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { 
   Phone, CheckCircle2, Hospital, Activity, Heart, Shield, 
   Stethoscope, Cross, Smartphone, Zap, MapPin, 
-  RefreshCw, Award, Search, Info
+  RefreshCw, Award, Search, Info, Star
 } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
@@ -134,10 +134,10 @@ export default function IciciIhealthGuide() {
                                     <h5 className="font-black text-slate-400 uppercase text-[10px] tracking-[0.3em] mb-4">The Standard</h5>
                                     <h4 className="text-3xl font-black text-slate-900 mb-6">iHealth Shield</h4>
                                     <ul className="space-y-4 text-sm font-bold text-slate-600 mb-12">
-                                        <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> ₹5L to ₹50L Sum Insured</li>
-                                        <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> Pre/Post Hospitalization (60/90 days)</li>
-                                        <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> Annual Health Checkup Included</li>
-                                        <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> Modern Daycare Procedures Coverage</li>
+                                        <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> {"₹5L to ₹50L Sum Insured"}</li>
+                                        <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> {"Pre/Post Hospitalization (60/90 days)"}</li>
+                                        <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> {"Annual Health Checkup Included"}</li>
+                                        <li className="flex gap-2"><CheckCircle2 className="h-4 w-4 text-green-500" /> {"Modern Daycare Procedures Coverage"}</li>
                                     </ul>
                                 </div>
                                 <div className="p-10 bg-slate-900 text-white border-2 border-primary/20 rounded-[4rem] shadow-2xl relative overflow-hidden">

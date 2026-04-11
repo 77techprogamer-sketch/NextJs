@@ -41,7 +41,7 @@ export default function TermCalculatorPage() {
                         How Much Does <span className="text-primary italic">Peace of Mind</span> Cost?
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                        Don't guess your premium. Use our <span className="text-slate-900 font-bold border-b-2 border-primary/30">2026 Benchmark Calculator</span> to estimate your annual outlay for a robust term life cover.
+                        Don&apos;t guess your premium. Use our <span className="text-slate-900 font-bold border-b-2 border-primary/30">2026 Benchmark Calculator</span> to estimate your annual outlay for a robust term life cover.
                     </p>
                 </div>
 
@@ -87,7 +87,7 @@ export default function TermCalculatorPage() {
                             </li>
                             <li className="flex gap-3">
                                 <span className="h-6 w-6 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-xs shrink-0 mt-1">3</span>
-                                <p className="text-slate-300 text-sm">Choose <strong>MWP (Married Women's Property) Act</strong> to ensure your claim money goes only to your wife and children.</p>
+                                <p className="text-slate-300 text-sm">Choose <strong>MWP (Married Women&apos;s Property) Act</strong> to ensure your claim money goes only to your wife and children.</p>
                             </li>
                         </ul>
                         

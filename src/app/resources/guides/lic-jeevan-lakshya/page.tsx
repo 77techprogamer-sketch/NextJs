@@ -55,7 +55,7 @@ export default function JeevanLakshyaGuide() {
                                 Secure the <br/> <span className="text-primary italic">Dreams You Hold.</span>
                             </h1>
                             <p className="text-xl text-slate-600 leading-relaxed max-w-3xl font-medium border-l-4 border-primary pl-8 my-10">
-                                What happens to your child's education if you aren't there? <strong>LIC Jeevan Lakshya (Plan 733)</strong> is specifically designed to answer that question. It is a "Savings with Income" plan that ensures that even in your absence, your family receives an annual income and a final maturity payout to fulfill your promises.
+                                {"What happens to your child's education if you aren't there? "}<strong>LIC Jeevan Lakshya (Plan 733)</strong>{" is specifically designed to answer that question. It is a \"Savings with Income\" plan that ensures that even in your absence, your family receives an annual income and a final maturity payout to fulfill your promises."}
                             </p>
                         </header>
 
@@ -64,12 +64,12 @@ export default function JeevanLakshyaGuide() {
                             <div className="p-10 bg-slate-900 text-white rounded-[3rem] shadow-xl relative overflow-hidden group">
                                 <GraduationCap className="h-12 w-12 text-primary mb-8" />
                                 <h4 className="text-2xl font-black mb-2">Education Fix</h4>
-                                <p className="text-xs text-slate-400 font-medium">Guarantees funds for higher education regardless of life's uncertainties.</p>
+                                <p className="text-xs text-slate-400 font-medium">{"Guarantees funds for higher education regardless of life's uncertainties."}</p>
                             </div>
                             <div className="p-10 bg-slate-900 text-white rounded-[3rem] shadow-xl relative overflow-hidden group">
                                 <HeartHandshake className="h-12 w-12 text-primary mb-8" />
                                 <h4 className="text-2xl font-black mb-2">Income Benefit</h4>
-                                <p className="text-xs text-slate-400 font-medium">Nominees receive 10% of Sum Assured annually after policyholder's death.</p>
+                                <p className="text-xs text-slate-400 font-medium">{"Nominees receive 10% of Sum Assured annually after policyholder's death."}</p>
                             </div>
                             <div className="p-10 bg-slate-900 text-white rounded-[3rem] shadow-xl relative overflow-hidden group">
                                 <History className="h-12 w-12 text-primary mb-8" />
@@ -198,19 +198,19 @@ export default function JeevanLakshyaGuide() {
                                 <AccordionItem value="faq-1">
                                     <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors text-xl">Is it better than a Sukanya Samriddhi Yojana (SSY)?</AccordionTrigger>
                                     <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg">
-                                        SSY offers higher interest rates but **no life cover or premium waiver**. If you passes away, SSY just stops, and the money stays till she is 21. Jeevan Lakshya provides an *annual income* to the family and maturity *regardless* of whether you are alive.
+                                        {"SSY offers higher interest rates but no life cover or premium waiver. If you pass away, SSY just stops, and the money stays till she is 21. Jeevan Lakshya provides an annual income to the family and maturity regardless of whether you are alive."}
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="faq-2">
                                     <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors text-xl">Can I take a loan on this policy?</AccordionTrigger>
                                     <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg">
-                                        Yes, you can take a loan after 2 years if premiums are paid. The interest rate is decided by LIC (usually ~9%). It's a great tool for short-term liquidity without breaking the long-term goal.
+                                        {"Yes, you can take a loan after 2 years if premiums are paid. The interest rate is decided by LIC (usually ~9%). It's a great tool for short-term liquidity without breaking the long-term goal."}
                                     </AccordionContent>
                                 </AccordionItem>
                                 <AccordionItem value="faq-3">
                                     <AccordionTrigger className="text-left font-black py-8 text-slate-800 hover:text-primary transition-colors text-xl">What is the "Income Benefit" payout date?</AccordionTrigger>
                                     <AccordionContent className="text-slate-600 leading-relaxed pb-8 text-lg">
-                                        The 10% annual income benefit is paid on every policy anniversary from the year following death until the year before the maturity date.
+                                        {"The 10% annual income benefit is paid on every policy anniversary from the year following death until the year before the maturity date."}
                                     </AccordionContent>
                                 </AccordionItem>
                             </Accordion>
@@ -220,10 +220,10 @@ export default function JeevanLakshyaGuide() {
                         <div className="bg-slate-50 border-2 border-slate-100 p-12 rounded-[4rem] my-24 relative overflow-hidden group shadow-xl">
                             <h4 className="text-slate-900 font-black text-2xl mb-4 flex items-center gap-3">
                                 <ShieldCheck className="h-6 w-6 text-primary" />
-                                Don't Just Buy, Design It.
+                                {"Don't Just Buy, Design It."}
                             </h4>
                             <p className="text-slate-600 mb-10 text-xl font-medium leading-relaxed max-w-2xl">
-                                Designing a policy for a child's marriage at 25 or education at 18 requires precise term selection. We map your policy term exactly to your milestone years.
+                                {"Designing a policy for a child's marriage at 25 or education at 18 requires precise term selection. We map your policy term exactly to your milestone years."}
                             </p>
                             <div className="flex flex-wrap gap-4">
                                 <Link href="/contact" className="px-8 py-4 bg-primary text-white rounded-2xl text-sm font-black hover:scale-105 transition-all shadow-xl shadow-primary/20">Custom Planning Session</Link>
@@ -236,10 +236,10 @@ export default function JeevanLakshyaGuide() {
                         {/* CTA */}
                         <div className="mt-24 p-20 bg-slate-900 rounded-[5rem] text-white relative overflow-hidden group shadow-3xl">
                             <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[150px] group-hover:bg-primary/30 transition-all duration-1000"></div>
-                            <h3 className="text-6xl font-black mb-8 leading-none tracking-tighter">Your Child's <br/> <span className="text-primary italic">Financial Shield.</span></h3>
+                            <h3 className="text-6xl font-black mb-8 leading-none tracking-tighter">{"Your Child's "} <br/> <span className="text-primary italic">{"Financial Shield."}</span></h3>
                             <p className="text-slate-400 mb-16 text-2xl font-medium max-w-2xl leading-tight">
-                                Because "I'll save later" is a risk they shouldn't have to carry.
-                                <br/><span className="text-white mt-8 block italic tracking-tighter decoration-primary underline decoration-4 underline-offset-8 transition-all group-hover:underline-offset-12">Expert Setup: Guaranteed Payout Authority.</span>
+                                {"Because \"I'll save later\" is a risk they shouldn't have to carry."}
+                                <br/><span className="text-white mt-8 block italic tracking-tighter decoration-primary underline decoration-4 underline-offset-8 transition-all group-hover:underline-offset-12">{"Expert Setup: Guaranteed Payout Authority."}</span>
                             </p>
                             <div className="flex flex-col sm:flex-row gap-8">
                                 <Button size="lg" className="h-24 px-16 text-3xl font-black bg-primary hover:bg-primary/90 flex items-center gap-4 shadow-3xl shadow-primary/20 hover:scale-105 transition-transform">

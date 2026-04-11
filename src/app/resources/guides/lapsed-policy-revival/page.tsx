@@ -169,7 +169,7 @@ export default function LapsedPolicyRevivalGuide() {
                             
                             <div className="bg-slate-50 p-10 rounded-[3rem] border border-slate-200 shadow-inner mb-20 font-mono text-sm overflow-x-auto">
                                 <div className="min-w-[400px]">
-                                    <p className="text-slate-400 mb-6 font-bold uppercase tracking-tighter">// REVIVAL QUOTATION SIMULATION</p>
+                                    <p className="text-slate-400 mb-6 font-bold uppercase tracking-tighter">{"// REVIVAL QUOTATION SIMULATION"}</p>
                                     <div className="grid grid-cols-2 gap-4 border-b border-slate-200 pb-4 mb-4">
                                         <span className="text-slate-900 font-bold">Base Premium (Annual)</span>
                                         <span className="text-right text-slate-900">₹20,000</span>
@@ -203,7 +203,7 @@ export default function LapsedPolicyRevivalGuide() {
                             <div className="grid md:grid-cols-2 gap-8 my-16">
                                 <div className="p-8 border-2 border-slate-100 rounded-[2.5rem]">
                                     <h4 className="font-black text-lg mb-4 text-slate-900 uppercase tracking-tighter">SMR (Special Medical Report)</h4>
-                                    <p className="text-xs text-slate-500 leading-relaxed">Required if the lapse is >3 years or if the SA is very high. This includes ECG, Full Blood work, and a report from an LIC-authorized TPI Doctor.</p>
+                                    <p className="text-xs text-slate-500 leading-relaxed">Required if the lapse is {">"}3 years or if the SA is very high. This includes ECG, Full Blood work, and a report from an LIC-authorized TPI Doctor.</p>
                                 </div>
                                 <div className="p-8 border-2 border-slate-100 rounded-[2.5rem]">
                                     <h4 className="font-black text-lg mb-4 text-slate-900 uppercase tracking-tighter text-primary italic">Revival Bonus Benefit</h4>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
-import { Phone, CheckCircle2, FileText, ClipboardList, Wallet, Landmark, AlertCircle, ArrowRight, ShieldCheck, Download, CreditCard, Ban, HelpingHand } from 'lucide-react';
+import { Phone, CheckCircle2, FileText, ClipboardList, Wallet, Landmark, AlertCircle, ArrowRight, ShieldCheck, Download, CreditCard, Ban, HelpingHand, MapPin } from 'lucide-react';
 import QuoteForm from '@/components/QuoteForm';
 import Link from 'next/link';
 import AuthorBio from '@/components/AuthorBio';
@@ -201,7 +201,7 @@ export default function MaturityClaimGuide() {
                         {/* Local Expertise Integration */}
                         <div className="bg-slate-50 border-2 border-slate-100 p-12 rounded-[4rem] my-24 relative overflow-hidden group shadow-xl">
                             <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:scale-110 transition-transform duration-500">
-                                <Link className="h-48 w-48 text-slate-900" />
+                                <Landmark className="h-48 w-48 text-slate-900" />
                             </div>
                             <h4 className="text-slate-900 font-black text-2xl mb-4 flex items-center gap-3">
                                 <MapPin className="h-6 w-6 text-primary" />

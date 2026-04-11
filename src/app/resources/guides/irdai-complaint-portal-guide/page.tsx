@@ -125,17 +125,17 @@ export default function IRDAIComplaintGuide() {
                                     <div className="p-8 bg-white/5 rounded-3xl border border-white/10 group-hover:bg-white/10 transition-colors">
                                         <h5 className="font-black text-primary uppercase text-[10px] tracking-widest mb-4">District Commission</h5>
                                         <p className="text-white font-black text-2xl mb-2">Up to ₹50L</p>
-                                        <p className="text-[10px] text-slate-500 font-medium italic">// Consider the 'Value of Services Paid' as the deciding factor.</p>
+                                        <p className="text-[10px] text-slate-500 font-medium italic">{"// Consider the 'Value of Services Paid' as the deciding factor."}</p>
                                     </div>
                                     <div className="p-8 bg-white/5 rounded-3xl border border-white/10 group-hover:bg-white/10 transition-colors">
                                         <h5 className="font-black text-primary uppercase text-[10px] tracking-widest mb-4">State Commission</h5>
                                         <p className="text-white font-black text-2xl mb-2">₹50L — ₹2Cr</p>
-                                        <p className="text-[10px] text-slate-500 font-medium italic">// Requires filing at the State HQ (e.g., Bangalore, Mumbai).</p>
+                                        <p className="text-[10px] text-slate-500 font-medium italic">{"// Requires filing at the State HQ (e.g., Bangalore, Mumbai)."}</p>
                                     </div>
                                     <div className="p-8 bg-white/5 rounded-3xl border border-white/10 group-hover:bg-white/10 transition-colors border-primary/20">
                                         <h5 className="font-black text-primary uppercase text-[10px] tracking-widest mb-4">National (NCDRC)</h5>
                                         <p className="text-white font-black text-2xl mb-2">Above ₹2Cr</p>
-                                        <p className="text-[10px] text-slate-500 font-medium italic">// Apex consumer court located in New Delhi.</p>
+                                        <p className="text-[10px] text-slate-500 font-medium italic">{"// Apex consumer court located in New Delhi."}</p>
                                     </div>
                                 </div>
                             </div>

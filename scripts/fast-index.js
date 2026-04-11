@@ -60,6 +60,7 @@ async function run() {
         '/about',
         '/support',
         '/loans',
+        '/about-hari-kotian',
         '/engagement',
         '/privacy-policy',
         '/terms-of-service',
@@ -73,7 +74,7 @@ async function run() {
         '/tools/risk-scorecard',
         '/tools/human-life-value-calculator',
         '/resources/download-policy-copy',
-        '/resources/national-insurance-claim-process'
+        '/resources/general-insurance-claim-process'
     ];
     staticPages.forEach(p => urls.push(`${BASE_URL}${p}`));
 
@@ -108,6 +109,18 @@ async function run() {
     );
     console.log(`- Found ${faqSlugs.length} FAQs`);
     faqSlugs.forEach(f => urls.push(`${BASE_URL}/resources/faq/${f}`));
+    
+    // 6. Dynamic Guides discovery (filesystem based)
+    const guidesDir = path.join(SRC_PATH, 'app/resources/guides');
+    if (fs.existsSync(guidesDir)) {
+        console.log(`- Scanning for expert guides in ${guidesDir}...`);
+        const guideFolders = fs.readdirSync(guidesDir, { withFileTypes: true })
+            .filter(dirent => dirent.isDirectory())
+            .map(dirent => dirent.name);
+        
+        console.log(`- Found ${guideFolders.length} guides`);
+        guideFolders.forEach(folder => urls.push(`${BASE_URL}/resources/guides/${folder}`));
+    }
 
     console.log(`📦 Total URLs generated: ${urls.length}`);
 
@@ -144,7 +157,7 @@ async function run() {
         }
     }
 
-    // 6. Search Engine Sitemap Pings
+    // 7. Search Engine Sitemap Pings
     await pingSearchEngines();
 
     console.log('🏁 Fast-Track Indexing process complete.');

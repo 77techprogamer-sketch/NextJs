@@ -132,12 +132,12 @@ export default function HealthRejectionGuide() {
                                     <div className="p-8 bg-white rounded-3xl shadow-sm border border-red-100">
                                         <h5 className="font-black text-slate-500 uppercase text-[10px] tracking-widest mb-4 italic">Insurer's Internal Logic</h5>
                                         <p className="text-slate-800 font-bold leading-none text-2xl mb-4">Cut 50% across everything.</p>
-                                        <p className="text-xs text-slate-400 m-0 leading-relaxed italic">// This is often illegal under current IRDAI guidelines.</p>
+                                        <p className="text-xs text-slate-400 m-0 leading-relaxed italic">{"// This is often illegal under current IRDAI guidelines."}</p>
                                     </div>
                                     <div className="p-8 bg-slate-900 rounded-3xl shadow-xl border border-primary/20">
                                         <h5 className="font-black text-primary uppercase text-[10px] tracking-widest mb-4">Official 2026 Ruling</h5>
                                         <p className="text-white font-bold leading-none text-2xl mb-4">Zero cuts on Pharmacy & Implants.</p>
-                                        <p className="text-xs text-slate-400 m-0 leading-relaxed">// You can save up to 40% of your claim value by enforcing this rule.</p>
+                                        <p className="text-xs text-slate-400 m-0 leading-relaxed">{"// You can save up to 40% of your claim value by enforcing this rule."}</p>
                                     </div>
                                 </div>
                             </div>
@@ -255,7 +255,7 @@ export default function HealthRejectionGuide() {
                                 <Ban className="h-10 w-10 text-primary mb-6" />
                                 <h4 className="text-2xl font-black mb-4 leading-none italic">Moratorium Alert</h4>
                                 <p className="text-slate-400 text-sm leading-relaxed font-medium">
-                                    "Is your policy >5 years old? If yes, the insurer legally CANNOT reject your claim for 'Non-disclosure of PED.' If they did, it's a direct violation of IRDAI circulars. We can get this reversed in 7 days."
+                                    {"\"Is your policy > 5 years old? If yes, the insurer legally CANNOT reject your claim for 'Non-disclosure of PED.' If they did, it's a direct violation of IRDAI circulars. We can get this reversed in 7 days.\""}
                                 </p>
                             </div>
 

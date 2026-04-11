@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next'
 import { cityData, isCityContentRich } from '@/data/cityData'
 import { services } from '@/data/services'
 import { faqData } from '@/data/faqData'
+import fs from 'fs'
+import path from 'path'
 
 const BASE_url = 'https://insurancesupport.online'
 
@@ -59,23 +61,34 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/resources/download-policy-copy',
         '/resources/general-insurance-claim-process',
         '/success-stories',
-        '/resources/guides/death-claim-settlement',
-        '/resources/guides/lapsed-policy-revival',
-        '/resources/guides/maturity-claim-guide',
-        '/resources/guides/lic-death-claim-rejection-appeal',
-        '/resources/guides/health-insurance-rejection-reasons-guide',
-        '/resources/guides/irdai-complaint-portal-guide',
-        '/resources/guides/claim-rejection-appeal',
-        '/resources/guides/term-vs-life-insurance',
-        '/resources/guides/documents-for-death-claim',
-        '/resources/guides/cashless-hospitalization-guide',
-        '/resources/guides/health-insurance-claim-checklist',
+        '/about-hari-kotian'
     ].map((route) => ({
         url: `${BASE_url}${route}`,
         lastModified: sevenDaysAgo,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
     }))
+
+    // 4. Dynamic Expert Guides discovery (The "Authority Cluster")
+    const guidesDirectory = path.join(process.cwd(), 'src/app/resources/guides')
+    let guideRoutes: MetadataRoute.Sitemap = []
+    
+    try {
+        if (fs.existsSync(guidesDirectory)) {
+            const guideFolders = fs.readdirSync(guidesDirectory, { withFileTypes: true })
+                .filter(dirent => dirent.isDirectory())
+                .map(dirent => dirent.name)
+            
+            guideRoutes = guideFolders.map(folder => ({
+                url: `${BASE_url}/resources/guides/${folder}`,
+                lastModified: todayISO,
+                changeFrequency: 'weekly' as const,
+                priority: 0.9,
+            }))
+        }
+    } catch (err) {
+        console.error('Sitemap Guide discovery error:', err)
+    }
 
     const faqRoutes = faqData.map((faq) => ({
         url: `${BASE_url}/resources/faq/${faq.slug}`,
@@ -95,10 +108,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 url: `${BASE_url}/locations/${city}/${service}`,
                 lastModified: thirtyDaysAgo,
                 changeFrequency: 'monthly' as const,
-                priority: 0.5,
+                priority: 0.8,
             })
         })
     })
 
-    return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...resourceSubPages, ...matrixRoutes, ...faqRoutes]
+    return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...resourceSubPages, ...guideRoutes, ...matrixRoutes, ...faqRoutes]
 }

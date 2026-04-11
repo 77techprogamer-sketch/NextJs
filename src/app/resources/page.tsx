@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, FileText, MapPin, Download, Scale, ShieldCheck, FileCheck, ClipboardList, Hospital, ClipboardCheck, UserCheck, RefreshCw, Award, Phone, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { BookOpen, FileText, MapPin, Download, Scale, ShieldCheck, FileCheck, ClipboardList, Hospital, ClipboardCheck, UserCheck, RefreshCw, Award, Phone, ArrowRight, CheckCircle2, GraduationCap, Car } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { contactConfig } from '@/data/contact'
 

@@ -3,6 +3,8 @@ import { Metadata } from "next"
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock } from "lucide-react"
 import ServiceContent from "@/components/ServiceContent"
 import { CityLinksForService } from "@/components/KeywordLinkBlocks"
+import Link from "next/link"
+import { ArrowRight, BookOpen } from "lucide-react"
 
 // Define all services data statically for SEO/Metadata
 import translations from '@/../public/locales/en/translation.json';
@@ -163,6 +165,26 @@ export function generateMetadata({ params }: { params: { serviceType: string } }
     }
 }
 
+// Mapping of services to their high-authority expert guides
+const relatedGuides: Record<string, { title: string, slug: string }[]> = {
+    "life-insurance": [
+        { title: "LIC New Jeevan Anand Mastery", slug: "lic-jeevan-anand" },
+        { title: "LIC Policy Revival Masterclass", slug: "lic-revival-maturity-masterclass" },
+        { title: "LIC Jeevan Lakshya (Plan 933)", slug: "lic-jeevan-lakshya" }
+    ],
+    "health-insurance": [
+        { title: "ICICI iHealth Coverage Guide", slug: "icici-ihealth" },
+        { title: "Claim Rejection Reason Audit", slug: "health-insurance-rejection-reasons-guide" }
+    ],
+    "motor-insurance": [
+        { title: "Motor Insurance Claim Mastery", slug: "icici-motor-insurance" }
+    ],
+    "term-insurance": [
+        { title: "Term Insurance vs Life Insurance", slug: "term-vs-life-insurance" },
+        { title: "Claim Settlement Checklist", slug: "death-claim-settlement" }
+    ]
+};
+
 export default function ServicePage({ params }: { params: { serviceType: string } }) {
     const serviceKey = params.serviceType as ServiceType
     const assets = servicesAssets[serviceKey]
@@ -241,6 +263,35 @@ export default function ServicePage({ params }: { params: { serviceType: string 
                 title={service.title}
                 description={service.description}
             />
+
+            {/* Expert Authority Section */}
+            {relatedGuides[serviceKey] && (
+                <div className="container mx-auto px-4 mb-20">
+                    <div className="bg-slate-900 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden group shadow-2xl">
+                        <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:scale-110 transition-transform">
+                            <BookOpen className="h-40 w-40 text-primary" />
+                        </div>
+                        <div className="relative z-10">
+                            <h3 className="text-3xl md:text-4xl font-black mb-8 leading-tight">
+                                Expert Authority & <br/> <span className="text-primary italic">Technical Insights.</span>
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
+                                {relatedGuides[serviceKey].map((guide) => (
+                                    <Link 
+                                        key={guide.slug}
+                                        href={`/resources/guides/${guide.slug}`}
+                                        className="flex items-center justify-between p-6 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 hover:border-primary/50 transition-all group/item"
+                                    >
+                                        <span className="font-bold text-lg">{guide.title}</span>
+                                        <ArrowRight className="h-5 w-5 text-primary group-hover/item:translate-x-2 transition-transform" />
+                                    </Link>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
             <div className="container mx-auto px-4 pb-16">
                 <CityLinksForService
                     serviceSlug={params.serviceType}

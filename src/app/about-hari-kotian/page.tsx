@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import Image from 'next/image';
-import { ShieldCheck, Award, History, CheckCircle2, Phone, Mail, Linkedin, MapPin } from 'lucide-react';
+import { ShieldCheck, Award, History, CheckCircle2, Phone, Mail, Linkedin, MapPin, ArrowRight } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import Link from 'next/link';
 import QuoteForm from '@/components/QuoteForm';
@@ -66,6 +66,18 @@ const advisorSchema = {
         sameAs: [
             'https://www.instagram.com/insurancesupport',
             'https://insurancesupport.online/about-hari-kotian'
+        ],
+        "subjectOf": [
+            {
+                "@type": "Article",
+                "headline": "LIC New Jeevan Anand (Plan 715) Guide 2026",
+                "url": "https://insurancesupport.online/resources/guides/lic-jeevan-anand"
+            },
+            {
+                "@type": "Article",
+                "headline": "ICICI iHealth Mastery Guide",
+                "url": "https://insurancesupport.online/resources/guides/icici-ihealth"
+            }
         ]
     }
 };
@@ -145,6 +157,35 @@ const ExpertProfilePage = () => {
                                 <blockquote className="border-l-4 border-primary pl-6 py-2 italic text-slate-700 bg-slate-50 rounded-r-xl">
                                     &quot;Insurance is not just a contract; it&apos;s a promise to a family&apos;s future. My job is to make sure that promise is kept, especially when times are tough.&quot;
                                 </blockquote>
+
+                                <div className="mt-12 p-8 bg-primary/5 rounded-[2rem] border border-primary/10">
+                                    <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                        <Award className="w-5 h-5 text-primary" />
+                                        Latest Authority & Expert Insights
+                                    </h3>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        {[
+                                            { title: "LIC Jeevan Anand (715) Deep-Dive", slug: "lic-jeevan-anand" },
+                                            { title: "LIC Jeevan Lakshya (933) Analysis", slug: "lic-jeevan-lakshya" },
+                                            { title: "ICICI iHealth Critical Factors", slug: "icici-ihealth" },
+                                            { title: "Motor Insurance claim Masterclass", slug: "icici-motor-insurance" }
+                                        ].map((guide) => (
+                                            <Link 
+                                                key={guide.slug}
+                                                href={`/resources/guides/${guide.slug}`}
+                                                className="p-4 bg-white rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-between group"
+                                            >
+                                                <span className="text-sm font-semibold text-slate-700 group-hover:text-primary transition-colors">{guide.title}</span>
+                                                <ArrowRight className="w-4 h-4 text-slate-300 group-hover:text-primary group-hover:translate-x-1 transition-all" />
+                                            </Link>
+                                        ))}
+                                    </div>
+                                    <div className="mt-6 text-center">
+                                        <Link href="/resources" className="text-xs font-bold text-primary hover:underline uppercase tracking-widest">
+                                            View All 50+ Expert Guides
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

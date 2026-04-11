@@ -41,7 +41,7 @@ export const LeadSyncManager = () => {
             window.removeEventListener('online', handleOnline);
             clearInterval(interval);
         };
-    }, []);
+    }, [t]);
 
     // Optionally show a toast if there are many pending leads that just got synced
     // For now, we'll keep it silent as per "seamless" preference unless it's a major win
