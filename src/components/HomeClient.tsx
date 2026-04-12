@@ -147,46 +147,46 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescriptio
 
             <ContactSection />
 
-            {(!isMobile || showMoreMobile) && (
-                <>
-                    <ToolIslands />
+            {/* All sections always rendered for Googlebot mobile-first indexing.
+                On mobile, extra sections are visually collapsed via CSS until user clicks "Show More". */}
+            <div className={`${isMobile && !showMoreMobile ? 'max-h-0 overflow-hidden' : ''}`}>
+                <ToolIslands />
 
-                    <LoansSection onGetQuote={handleGetQuote} />
+                <LoansSection onGetQuote={handleGetQuote} />
 
-                    <WhyChooseUsSection />
+                <WhyChooseUsSection />
 
-                    {/* Customer Testimonials Section */}
-                    <React.Suspense fallback={
-                        <section className="py-12 sm:py-16 bg-white dark:bg-gray-800">
-                            <div className="container mx-auto px-4">
-                                <div className="text-center mb-12 sm:mb-16 space-y-4">
-                                    <Skeleton className="h-8 w-64 mx-auto" />
-                                    <Skeleton className="h-1 w-24 mx-auto rounded-full" />
-                                    <Skeleton className="h-4 w-full max-w-2xl mx-auto" />
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                                    {[...Array(6)].map((_, i) => (
-                                        <Card key={i} className="h-64 bg-slate-50 dark:bg-gray-900 border-none shadow-lg">
-                                            <CardContent className="p-6 space-y-4">
-                                                <Skeleton className="h-4 w-24 mb-4" />
-                                                <Skeleton className="h-20 w-full" />
-                                                <div className="pt-4 border-t border-slate-200 dark:border-gray-700">
-                                                    <Skeleton className="h-4 w-32 mb-2" />
-                                                    <Skeleton className="h-3 w-20" />
-                                                </div>
-                                            </CardContent>
-                                        </Card>
-                                    ))}
-                                </div>
+                {/* Customer Testimonials Section */}
+                <React.Suspense fallback={
+                    <section className="py-12 sm:py-16 bg-white dark:bg-gray-800">
+                        <div className="container mx-auto px-4">
+                            <div className="text-center mb-12 sm:mb-16 space-y-4">
+                                <Skeleton className="h-8 w-64 mx-auto" />
+                                <Skeleton className="h-1 w-24 mx-auto rounded-full" />
+                                <Skeleton className="h-4 w-full max-w-2xl mx-auto" />
                             </div>
-                        </section>
-                    }>
-                        <div id="testimonials">
-                            <Testimonials />
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                                {[...Array(6)].map((_, i) => (
+                                    <Card key={i} className="h-64 bg-slate-50 dark:bg-gray-900 border-none shadow-lg">
+                                        <CardContent className="p-6 space-y-4">
+                                            <Skeleton className="h-4 w-24 mb-4" />
+                                            <Skeleton className="h-20 w-full" />
+                                            <div className="pt-4 border-t border-slate-200 dark:border-gray-700">
+                                                <Skeleton className="h-4 w-32 mb-2" />
+                                                <Skeleton className="h-3 w-20" />
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                ))}
+                            </div>
                         </div>
-                    </React.Suspense>
-                </>
-            )}
+                    </section>
+                }>
+                    <div id="testimonials">
+                        <Testimonials />
+                    </div>
+                </React.Suspense>
+            </div>
 
             {isMobile && !showMoreMobile && (
                 <div className="flex justify-center py-8">

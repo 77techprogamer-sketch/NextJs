@@ -265,7 +265,7 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel,
                             <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">{t('location_page.rejected_case_recovery')}</h4>
                             <p className="text-sm text-muted-foreground">{t('location_page.rejected_case_recovery_desc', { city: city.name })}</p>
                         </Link>
-                        <Link href="/guides/lost-lic-policy-help" className="group p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl hover:border-primary/50 transition-all shadow-sm">
+                        <Link href="/resources/guides/lapsed-policy-revival" className="group p-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl hover:border-primary/50 transition-all shadow-sm">
                             <h4 className="font-bold mb-2 group-hover:text-primary transition-colors">{t('location_page.duplicate_policy_guide')}</h4>
                             <p className="text-sm text-muted-foreground">{t('location_page.duplicate_policy_guide_desc', { city: city.name })}</p>
                         </Link>

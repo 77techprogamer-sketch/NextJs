@@ -15,10 +15,8 @@ import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
 import { GlobalJsonLd } from '@/components/ServerJsonLd'
 import DynamicKeywordLinks from '@/components/DynamicKeywordLinks'
-const ShareNudge = dynamic(() => import('@/components/ShareNudge'), { ssr: false });
 const WhatsAppWidget = dynamic(() => import('@/components/WhatsAppWidget'), { ssr: false });
 import DelayedLoader from '@/components/DelayedLoader';
-const ActivityTicker = dynamic(() => import('@/components/ActivityTicker'), { ssr: false });
 const StickyMobileContactBar = dynamic(() => import('@/components/StickyMobileContactBar'), { ssr: false });
 const IntenseDebateComments = dynamic(() => import('@/components/IntenseDebateComments'), { ssr: false });
 const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ssr: false });
@@ -122,15 +120,6 @@ export const metadata: Metadata = {
     },
     alternates: {
         canonical: 'https://insurancesupport.online',
-        languages: {
-            'en-IN': 'https://insurancesupport.online',
-            'hi-IN': 'https://insurancesupport.online/hi',
-            'kn-IN': 'https://insurancesupport.online/kn',
-            'ta-IN': 'https://insurancesupport.online/ta',
-            'te-IN': 'https://insurancesupport.online/te',
-            'mr-IN': 'https://insurancesupport.online/mr',
-            'gu-IN': 'https://insurancesupport.online/gu',
-        },
     },
     other: {
         'content-language': 'en-IN',
@@ -220,8 +209,9 @@ export default function RootLayout({
                                 <React.Suspense fallback={null}>
                                     <ChatbotWidget />
                                 </React.Suspense>
-                                <ShareNudge />
-                                <ActivityTicker />
+                                {/* ShareNudge and ActivityTicker removed:
+                                    - ShareNudge triggers Google's intrusive interstitial penalty
+                                    - ActivityTicker causes CLS and is a spam signal */}
                                 <FloatingToolDock />
                                 <GlobalForms />
                                 <WhatsAppWidget />

@@ -160,7 +160,7 @@ export default function FAQPage() {
                                             <li>Wait for 3-4 weeks for the issuance of the duplicate bond.</li>
                                         </ol>
                                         <p>We handle the entire process including the legal drafting of the indemnity bond, newspaper advertisement coordination, and branch submissions — saving you multiple trips and legal fees.</p>
-                                        <Link href="/guides/lost-lic-policy-help" className="text-primary font-medium hover:underline block mt-2">See our Lost Policy Support steps →</Link>
+                                        <Link href="/resources/guides/lapsed-policy-revival" className="text-primary font-medium hover:underline block mt-2">See our Lost Policy Support steps →</Link>
                                     </AccordionContent>
                                 </AccordionItem>
 

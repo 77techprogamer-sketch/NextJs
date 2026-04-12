@@ -7,10 +7,11 @@ import path from 'path'
 
 const BASE_url = 'https://insurancesupport.online'
 
-// Dynamic dates: each group reflects its actual update frequency
+// Realistic dates: only homepage changes daily; other pages use honest frequencies
 const now = new Date()
 const todayISO = now.toISOString()
 const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString()
+const fourteenDaysAgo = new Date(now.getTime() - 14 * 24 * 60 * 60 * 1000).toISOString()
 const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString()
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -29,8 +30,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/loans',
     ].map((route) => ({
         url: `${BASE_url}${route}`,
-        lastModified: todayISO,
-        changeFrequency: 'daily' as const,
+        lastModified: route === '' ? todayISO : fourteenDaysAgo,
+        changeFrequency: (route === '' ? 'daily' : 'weekly') as 'daily' | 'weekly',
         priority: route === '' || route === '/locations' || route === '/services' ? 1 : 0.8,
     }))
 
@@ -38,8 +39,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     const serviceRoutes = services.map((slug: string) => ({
         url: `${BASE_url}/services/${slug}`,
-        lastModified: todayISO,
-        changeFrequency: 'daily' as const,
+        lastModified: fourteenDaysAgo,
+        changeFrequency: 'weekly' as const,
         priority: 0.9,
     }))
 
@@ -81,7 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             
             guideRoutes = guideFolders.map(folder => ({
                 url: `${BASE_url}/resources/guides/${folder}`,
-                lastModified: todayISO,
+                lastModified: sevenDaysAgo,
                 changeFrequency: 'weekly' as const,
                 priority: 0.9,
             }))

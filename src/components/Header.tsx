@@ -214,7 +214,7 @@ const Header = () => {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem asChild>
-                <Link href="/guides/lost-lic-policy-help" className="cursor-pointer flex flex-col items-start gap-1 p-2">
+                <Link href="/resources/guides/lapsed-policy-revival" className="cursor-pointer flex flex-col items-start gap-1 p-2">
                   <span className="font-semibold">{t("lost_policy_guide")}</span>
                   <span className="text-xs text-muted-foreground">{t("lost_policy_guide_desc")}</span>
                 </Link>

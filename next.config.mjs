@@ -72,6 +72,12 @@ const nextConfig = {
                 destination: '/resources/general-insurance-claim-process',
                 permanent: true,
             },
+            {
+                // Fix orphaned guide URL — redirect to its canonical location
+                source: '/guides/lost-lic-policy-help',
+                destination: '/resources/guides/lapsed-policy-revival',
+                permanent: true,
+            },
         ];
     },
 };
