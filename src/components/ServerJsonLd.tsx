@@ -1,4 +1,4 @@
-import { Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, HowTo, Person } from 'schema-dts';
+import { Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, HowTo, Person, Article, BlogPosting } from 'schema-dts';
 import enTranslations from '../../public/locales/en/translation.json';
 import { faqData, FAQItem } from '@/data/faqData';
 import { contactConfig } from '@/data/contact';
@@ -359,6 +359,54 @@ export function GuideHowToJsonLd() {
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
+        />
+    )
+}
+
+// Article Schema exclusively for YMYL expert guides to secure Top Stories and rich snippets
+export function GuideArticleJsonLd({
+    title,
+    description,
+    url,
+    images = ['https://insurancesupport.online/favicon.svg'],
+    datePublished = '2025-01-01T08:00:00+08:00',
+    dateModified = new Date().toISOString(),
+    authorName = 'Hari Kotian'
+}: {
+    title: string;
+    description: string;
+    url: string;
+    images?: string[];
+    datePublished?: string;
+    dateModified?: string;
+    authorName?: string;
+}) {
+    const articleLd: Article = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title,
+        description: description,
+        image: images,
+        datePublished: datePublished,
+        dateModified: dateModified,
+        author: {
+            '@type': 'Person',
+            name: authorName,
+            url: 'https://insurancesupport.online/about-hari-kotian'
+        },
+        publisher: {
+            '@id': 'https://insurancesupport.online/#organization'
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': url
+        }
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
         />
     )
 }

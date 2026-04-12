@@ -1,4 +1,5 @@
 import React from 'react';
+import { GuideArticleJsonLd } from '@/components/ServerJsonLd';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, AlertTriangle, FileText, Scale, ArrowRight, MapPin } from 'lucide-react';
@@ -221,6 +222,12 @@ export default function ClaimRejectionAppealGuide() {
                     </aside>
                 </div>
             </div>
+        
+            <GuideArticleJsonLd 
+                title={(metadata.title as { absolute?: string; default?: string })?.absolute || (metadata.title as string)}
+                description={metadata.description as string || ""}
+                url={`https://insurancesupport.online/resources/guides/claim-rejection-appeal`}
+            />
         </div>
     );
 }

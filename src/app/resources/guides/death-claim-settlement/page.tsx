@@ -1,4 +1,5 @@
 import React from 'react';
+import { GuideArticleJsonLd } from '@/components/ServerJsonLd';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, AlertTriangle, FileText, Scale, ShieldCheck, History, MapPin } from 'lucide-react';
@@ -190,7 +191,12 @@ export default function DeathClaimGuide() {
                     </aside>
                 </div>
             </div>
+        
+            <GuideArticleJsonLd 
+                title={(metadata.title as { absolute?: string; default?: string })?.absolute || (metadata.title as string)}
+                description={metadata.description as string || ""}
+                url={`https://insurancesupport.online/resources/guides/death-claim-settlement`}
+            />
         </div>
     );
 }
-

@@ -1,4 +1,5 @@
 import React from 'react';
+import { GuideArticleJsonLd } from '@/components/ServerJsonLd';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, FileText, ClipboardList, Wallet, Landmark, AlertCircle, ArrowRight, ShieldCheck, Download, CreditCard, Ban, HelpingHand, MapPin } from 'lucide-react';
@@ -313,6 +314,12 @@ export default function MaturityClaimGuide() {
                         ]
                     })
                 }}
+            />
+        
+            <GuideArticleJsonLd 
+                title={(metadata.title as { absolute?: string; default?: string })?.absolute || (metadata.title as string)}
+                description={metadata.description as string || ""}
+                url={`https://insurancesupport.online/resources/guides/maturity-claim-guide`}
             />
         </div>
     );

@@ -1,4 +1,5 @@
 import React from 'react';
+import { GuideArticleJsonLd } from '@/components/ServerJsonLd';
 import { Metadata } from 'next';
 import { Button } from "@/components/ui/button";
 import { Phone, CheckCircle2, AlertTriangle, Scale, ShieldCheck, HeartPulse, Info, ArrowRight, Gavel, MapPin, Stethoscope, Microscope, ClipboardCheck, Ban } from 'lucide-react';
@@ -312,6 +313,12 @@ export default function HealthRejectionGuide() {
                         ]
                     })
                 }}
+            />
+        
+            <GuideArticleJsonLd 
+                title={(metadata.title as { absolute?: string; default?: string })?.absolute || (metadata.title as string)}
+                description={metadata.description as string || ""}
+                url={`https://insurancesupport.online/resources/guides/health-insurance-rejection-reasons-guide`}
             />
         </div>
     );
