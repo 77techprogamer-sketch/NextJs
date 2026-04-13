@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
-import { cityData, isCityContentRich } from '@/data/cityData'
+import { cityData, isCityContentRich, isCityMatrixRich } from '@/data/cityData'
 import { services } from '@/data/services'
 import { faqData } from '@/data/faqData'
 import fs from 'fs'
@@ -101,7 +101,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const allCityKeys = Object.keys(cityData)
     const matrixRoutes: MetadataRoute.Sitemap = []
     allCityKeys.forEach(city => {
-        const isRich = isCityContentRich(cityData[city])
+        const isRich = isCityMatrixRich(cityData[city])
         if (!isRich) return; // Skip non-rich cities to prevent 'Crawled - currently not indexed'
 
         services.forEach(service => {

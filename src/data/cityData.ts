@@ -34,6 +34,10 @@ export function isCityContentRich(city: CityData): boolean {
     return !!(city.longContent || city.hubContent || city.description);
 }
 
+export function isCityMatrixRich(city: CityData): boolean {
+    return !!(city.longContent || city.hubContent);
+}
+
 export const cityData: Record<string, CityData> = {
     bangalore: {
         name: 'Bangalore',

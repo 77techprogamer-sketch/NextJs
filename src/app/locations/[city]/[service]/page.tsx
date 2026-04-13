@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { getCityData, cityData, isCityContentRich } from '@/data/cityData'
+import { getCityData, cityData, isCityMatrixRich } from '@/data/cityData'
 import { services, serviceLabels } from '@/data/services'
 import ServiceLocationClient from '@/components/ServiceLocationClient'
 import { contactConfig } from '@/data/contact';
@@ -41,8 +41,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         ? `${uniqueMetaDescription.substring(0, 100)}... Providing ${serviceLabel} across ${pincodes.slice(0, 3).map(p => p.post_office).join(', ')}.`
         : uniqueMetaDescription.substring(0, 160);
 
+    const isRich = isCityMatrixRich(city);
+
     return {
-        robots: { index: true, follow: true },
+        robots: { index: isRich, follow: true },
         title: {
             absolute: title
         },

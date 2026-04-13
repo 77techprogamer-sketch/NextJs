@@ -124,7 +124,7 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         response.cookies.set('is-bot', 'true', { maxAge: 3600, path: '/' });
     }
 
-    if (isIndia) {
+    if (isIndia && !isBot) {
         let allowedCities: string[] = [];
         if (currentCity) {
             allowedCities = Object.keys(cityData).filter(slug => {
