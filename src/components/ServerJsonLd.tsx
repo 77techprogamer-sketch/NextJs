@@ -381,7 +381,7 @@ export function GuideArticleJsonLd({
     dateModified?: string;
     authorName?: string;
 }) {
-    const articleLd: Article = {
+    const articleLd: any = {
         '@context': 'https://schema.org',
         '@type': 'Article',
         headline: title,
