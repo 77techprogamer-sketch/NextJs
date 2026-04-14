@@ -203,21 +203,20 @@ export default function RootLayout({
                             <DynamicKeywordLinks />
 
                             <Footer />
-                            <DelayedLoader>
-                                <VisitorTracker />
-                                <QuickDialSidebar />
-                                <React.Suspense fallback={null}>
-                                    <ChatbotWidget />
-                                </React.Suspense>
-                                {/* ShareNudge and ActivityTicker removed:
-                                    - ShareNudge triggers Google's intrusive interstitial penalty
-                                    - ActivityTicker causes CLS and is a spam signal */}
-                                <FloatingToolDock />
-                                <GlobalForms />
-                                <WhatsAppWidget />
-                                <StickyMobileContactBar />
-                                <LeadSyncManager />
-                            </DelayedLoader>
+                            <div className="min-h-[1px]"> {/* Stability placeholder */}
+                                <DelayedLoader>
+                                    <VisitorTracker />
+                                    <QuickDialSidebar />
+                                    <React.Suspense fallback={<div className="h-0" />}>
+                                        <ChatbotWidget />
+                                    </React.Suspense>
+                                    <FloatingToolDock />
+                                    <GlobalForms />
+                                    <WhatsAppWidget />
+                                    <StickyMobileContactBar />
+                                    <LeadSyncManager />
+                                </DelayedLoader>
+                            </div>
                             <SpeedInsights />
                             <Toaster />
                         </div>

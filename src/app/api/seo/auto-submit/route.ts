@@ -32,7 +32,14 @@ export async function POST(request: Request) {
                 keyLocation: `https://${HOST}/${INDEXNOW_KEY}.txt`,
                 urlList: [url]
             })
-        }).catch(err => console.error('IndexNow Auto-Ping Failed:', err));
+        }).then(async (res) => {
+            if (!res.ok) {
+                const body = await res.text();
+                console.error(`IndexNow Failed [${res.status}]:`, body);
+            } else {
+                console.log(`IndexNow Success [${res.status}] for: ${url}`);
+            }
+        }).catch(err => console.error('IndexNow Auto-Ping Fatal Error:', err));
 
         // 2. Ping-o-Matic 
         // We Use a simple GET request to simulate a ping for the main site

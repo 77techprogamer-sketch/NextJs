@@ -48,11 +48,16 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const location = INDIAN_LOCATIONS.find(l => l.city === params.city && l.state === params.state)
     const serviceLabel = serviceLabels[params.service]
+    const override = CITY_CONTENT_OVERRIDES[params.city];
 
     if (!location || !serviceLabel) return {}
 
-    const title = `${serviceLabel} Expert in ${location.name}, ${location.state.replace(/-/g, ' ')} | Insurance Support`
-    const description = `Looking for ${serviceLabel} in ${location.name}? Insurance Support provides expert assistance for claims, revivals, and new policies. Call ${contactConfig.phone} for doorstep support.`
+    const title = `Best ${serviceLabel} Support in ${location.name}, ${location.state.replace(/-/g, ' ')} | Insurance Support`
+    
+    // Primary bottleneck fix: Use the artisanal summary for the meta description if available
+    const description = override?.summary 
+        ? `${override.summary.substring(0, 150)}... Expert ${serviceLabel.toLowerCase()} help in ${location.name}. Call ${contactConfig.phone} for doorstep support.`
+        : `Looking for ${serviceLabel} in ${location.name}? Insurance Support provides expert assistance for claims, revivals, and new policies. Call ${contactConfig.phone} for doorstep support.`
 
     return {
         title,
@@ -299,7 +304,6 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                     </div>
                 </div>
             </main>
-            <StickyLeadButtons />
         </React.Fragment>
     )
 }
