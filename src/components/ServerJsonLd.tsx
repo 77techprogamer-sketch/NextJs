@@ -410,3 +410,59 @@ export function GuideArticleJsonLd({
         />
     )
 }
+// Dynamic LocalBusiness injected on Programmatic Location Pages
+export function DynamicLocalBusinessJsonLd({
+    city,
+    state,
+    serviceName
+}: {
+    city: string;
+    state: string;
+    serviceName: string;
+}) {
+    const jsonLd: any = {
+        '@context': 'https://schema.org',
+        '@type': 'InsuranceAgency',
+        '@id': `https://insurancesupport.online/locations/${state}/${city}/${serviceName.toLowerCase().replace(/ /g, '-')}/#local-business`,
+        name: `${serviceName} Expert in ${city}, ${state} - Insurance Support`,
+        url: `https://insurancesupport.online/locations/${state}/${city}/${serviceName.toLowerCase().replace(/ /g, '-')}`,
+        logo: 'https://insurancesupport.online/favicon.svg',
+        image: 'https://insurancesupport.online/favicon.svg',
+        description: `Top-rated ${serviceName} advisor in ${city}, ${state}. Specialized support for rejected claims, policy revivals, and expert insurance planning at your doorstep.`,
+        telephone: contactConfig.phoneFull,
+        email: contactConfig.email,
+        priceRange: '₹₹',
+        address: {
+            '@type': 'PostalAddress',
+            addressLocality: city,
+            addressRegion: state,
+            addressCountry: 'IN'
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 20.5937, // Default India Geo
+            longitude: 78.9629
+        },
+        areaServed: [
+            { '@type': 'City', name: city },
+            { '@type': 'State', name: state }
+        ],
+        parentOrganization: {
+            '@id': 'https://insurancesupport.online/#organization'
+        },
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: 4.8,
+            reviewCount: 15,
+            bestRating: 5,
+            worstRating: 1
+        }
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+    )
+}

@@ -1,13 +1,14 @@
 import { MetadataRoute } from 'next'
-import { cityData, isCityContentRich, isCityMatrixRich } from '@/data/cityData'
-import { services } from '@/data/services'
+import { INDIAN_LOCATIONS } from '@/data/indianCities'
+import { serviceLabels } from '@/data/services'
 import { faqData } from '@/data/faqData'
+import blogsData from '@/data/blogs.json'
 import fs from 'fs'
 import path from 'path'
 
-const BASE_url = 'https://insurancesupport.online'
+const BASE_URL = 'https://insurancesupport.online'
 
-// Realistic dates: only homepage changes daily; other pages use honest frequencies
+// Sequential dates for freshness signals
 const now = new Date()
 const todayISO = now.toISOString()
 const sevenDaysAgo = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000).toISOString()
@@ -15,6 +16,7 @@ const fourteenDaysAgo = new Date(now.getTime() - 14 * 24 * 60 * 60 * 1000).toISO
 const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString()
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    // 1. Core Static Routes (High Authority)
     const staticRoutes = [
         '',
         '/support',
@@ -28,52 +30,64 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/locations',
         '/services',
         '/loans',
+        '/success-stories',
+        '/about-hari-kotian'
     ].map((route) => ({
-        url: `${BASE_url}${route}`,
+        url: `${BASE_URL}${route}`,
         lastModified: route === '' ? todayISO : fourteenDaysAgo,
         changeFrequency: (route === '' ? 'daily' : 'weekly') as 'daily' | 'weekly',
-        priority: route === '' || route === '/locations' || route === '/services' ? 1 : 0.8,
+        priority: route === '' || route === '/locations' || route === '/services' ? 1.0 : 0.8,
     }))
 
-    const locations = Object.keys(cityData).filter(city => isCityContentRich(cityData[city]))
-
-    const serviceRoutes = services.map((slug: string) => ({
-        url: `${BASE_url}/services/${slug}`,
+    // 2. Primary Service Hubs
+    const serviceHubs = Object.keys(serviceLabels).map((slug) => ({
+        url: `${BASE_URL}/services/${slug}`,
         lastModified: fourteenDaysAgo,
         changeFrequency: 'weekly' as const,
         priority: 0.9,
     }))
 
-    const locationRoutes = locations.map((city) => ({
-        url: `${BASE_url}/locations/${city}`,
+    // 3. State Hub Routes (The New Hierarchy)
+    const uniqueStates = Array.from(new Set(INDIAN_LOCATIONS.map(loc => loc.state)))
+    const stateHubRoutes = uniqueStates.map(state => ({
+        url: `${BASE_URL}/locations/${state}`,
         lastModified: sevenDaysAgo,
         changeFrequency: 'weekly' as const,
+        priority: 0.9,
+    }))
+
+    // 4. Programmatic Service Matrix (1,400+ Pages)
+    const matrixRoutes: MetadataRoute.Sitemap = []
+    INDIAN_LOCATIONS.forEach(loc => {
+        Object.keys(serviceLabels).forEach(service => {
+            matrixRoutes.push({
+                url: `${BASE_URL}/locations/${loc.state}/${loc.city}/${service}`,
+                lastModified: thirtyDaysAgo,
+                changeFrequency: 'monthly' as const,
+                priority: 0.8,
+            })
+        })
+    })
+
+    // 5. Migrated Blog Posts (30+ High Quality Articles)
+    const blogRoutes = blogsData.map(blog => ({
+        url: `${BASE_URL}/blog/${blog.slug}`,
+        lastModified: blog.date || sevenDaysAgo,
+        changeFrequency: 'monthly' as const,
         priority: 0.85,
     }))
 
-    const resourceSubPages = [
-        '/resources/how-it-works',
-        '/resources/veteran-advantage',
-        '/resources/bangalore-insurance-support',
-        '/tools/policy-recovery',
-        '/tools/risk-scorecard',
-        '/tools/human-life-value-calculator',
-        '/tools/term-insurance-calculator',
-        '/resources/download-policy-copy',
-        '/resources/general-insurance-claim-process',
-        '/success-stories',
-        '/about-hari-kotian'
-    ].map((route) => ({
-        url: `${BASE_url}${route}`,
+    // 6. FAQ & Resource Discovery
+    const faqRoutes = faqData.map((faq) => ({
+        url: `${BASE_URL}/resources/faq/${faq.slug}`,
         lastModified: sevenDaysAgo,
-        changeFrequency: 'weekly' as const,
-        priority: 0.8,
+        changeFrequency: 'monthly' as const,
+        priority: 0.75,
     }))
 
-    // 4. Dynamic Expert Guides discovery (The "Authority Cluster")
+    // 7. Dynamic Expert Guides (Filesystem discovery)
     const guidesDirectory = path.join(process.cwd(), 'src/app/resources/guides')
     let guideRoutes: MetadataRoute.Sitemap = []
-    
     try {
         if (fs.existsSync(guidesDirectory)) {
             const guideFolders = fs.readdirSync(guidesDirectory, { withFileTypes: true })
@@ -81,7 +95,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 .map(dirent => dirent.name)
             
             guideRoutes = guideFolders.map(folder => ({
-                url: `${BASE_url}/resources/guides/${folder}`,
+                url: `${BASE_URL}/resources/guides/${folder}`,
                 lastModified: sevenDaysAgo,
                 changeFrequency: 'weekly' as const,
                 priority: 0.9,
@@ -91,28 +105,31 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         console.error('Sitemap Guide discovery error:', err)
     }
 
-    const faqRoutes = faqData.map((faq) => ({
-        url: `${BASE_url}/resources/faq/${faq.slug}`,
-        lastModified: sevenDaysAgo,
-        changeFrequency: 'monthly' as const,
-        priority: 0.75,
+    const otherResourceSubPages = [
+        '/resources/how-it-works',
+        '/resources/veteran-advantage',
+        '/resources/bangalore-insurance-support',
+        '/tools/policy-recovery',
+        '/tools/risk-scorecard',
+        '/tools/human-life-value-calculator',
+        '/tools/term-insurance-calculator',
+        '/resources/download-policy-copy',
+        '/resources/general-insurance-claim-process'
+    ].map((route) => ({
+        url: `${BASE_URL}${route}`,
+        lastModified: fourteenDaysAgo,
+        changeFrequency: 'weekly' as const,
+        priority: 0.8,
     }))
 
-    const allCityKeys = Object.keys(cityData)
-    const matrixRoutes: MetadataRoute.Sitemap = []
-    allCityKeys.forEach(city => {
-        const isRich = isCityMatrixRich(cityData[city])
-        if (!isRich) return; // Skip non-rich cities to prevent 'Crawled - currently not indexed'
-
-        services.forEach(service => {
-            matrixRoutes.push({
-                url: `${BASE_url}/locations/${city}/${service}`,
-                lastModified: thirtyDaysAgo,
-                changeFrequency: 'monthly' as const,
-                priority: 0.8,
-            })
-        })
-    })
-
-    return [...staticRoutes, ...serviceRoutes, ...locationRoutes, ...resourceSubPages, ...guideRoutes, ...matrixRoutes, ...faqRoutes]
+    return [
+        ...staticRoutes, 
+        ...serviceHubs, 
+        ...stateHubRoutes, 
+        ...matrixRoutes, 
+        ...blogRoutes, 
+        ...faqRoutes, 
+        ...guideRoutes,
+        ...otherResourceSubPages
+    ]
 }
