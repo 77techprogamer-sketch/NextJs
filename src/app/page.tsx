@@ -6,24 +6,36 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: {
-        absolute: 'LIC & Insurance Advisor India | Expert Claim Support'
+        absolute: 'Insurance Support | Expert Claim Recovery & Policy Advice India'
     },
-    description: 'Licensed LIC and health insurance advisor in India. Instant quotes, claim support, policy comparisons. Call/WhatsApp 9986634506 to buy a policy today.',
+    description: 'Trusted Insurance Support in India. Dedicated experts for IRDAI claim appeals, LIC policy revival, and high-value health insurance. Recover your rejected claims today.',
     keywords: [
         'LIC Insurance Support',
-        'Call LIC Agent',
-        'Lic office near me',
-        'Insurance Support',
-        'Insurance Support India',
-        'Claim Recovery',
-        'Rejected Claim Help',
-        'Lost Policy Document Recovery',
+        'Insurance Claim Recovery India',
+        'Rejected Claim Appeal Help',
+        'LIC Agent Bangalore',
+        'Insurance Advisor India',
+        'Claim Settlement Support',
+        'Lost Policy Recovery',
         'LIC Policy Status Check',
-        'Insurance Advisor',
         'Insurance Consultancy'
     ],
+    metadataBase: new URL('https://insurancesupport.online'),
     alternates: {
-        canonical: 'https://insurancesupport.online',
+        canonical: '/',
+    },
+    openGraph: {
+        title: 'Insurance Support | Expert Claim Recovery & Policy Advice India',
+        description: 'Professional assistance for insurance claims, policy revivals, and expert advisory. Over 25 years of trust and 15,000+ satisfied clients.',
+        url: 'https://insurancesupport.online',
+        siteName: 'Insurance Support India',
+        locale: 'en_IN',
+        type: 'website',
+    },
+    twitter: {
+        card: 'summary_large_image',
+        title: 'Insurance Support | Expert Claim Recovery & Policy Advice India',
+        description: 'Recover rejected insurance claims and get expert policy advice from veteran advisors in India.',
     }
 };
 

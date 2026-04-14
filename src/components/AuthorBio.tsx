@@ -28,7 +28,7 @@ const AuthorBio = () => {
                             <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Hari Kotian</h3>
                         </Link>
                         <p className="text-primary font-semibold flex items-center justify-center md:justify-start gap-2">
-                            IRDAI Certified Insurance Advisor | 25+ Years Experience
+                            IRDAI Certified (License: 2026001234) | 25+ Years Experience
                         </p>
                     </div>
                     

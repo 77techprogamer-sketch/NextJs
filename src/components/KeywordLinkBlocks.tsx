@@ -17,15 +17,20 @@ export const CityLinksForService: React.FC<CityLinksForServiceProps> = ({ servic
                 Explore {serviceTitle} Support Across India
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 text-sm">
-                {locations.map((cityKey) => (
-                    <Link
-                        key={cityKey}
-                        href={`/locations/${cityKey}/${serviceSlug}`}
-                        className="text-slate-600 hover:text-primary hover:underline transition-colors py-1"
-                    >
-                        {serviceTitle} Insurance Support in {cityData[cityKey].name}
-                    </Link>
-                ))}
+                {locations
+                    .filter(cityKey => {
+                        const city = cityData[cityKey];
+                        return !!(city.longContent && city.longContent.length > 0) || !!city.hubContent;
+                    })
+                    .map((cityKey) => (
+                        <Link
+                            key={cityKey}
+                            href={`/locations/${cityKey}/${serviceSlug}`}
+                            className="text-slate-600 hover:text-primary hover:underline transition-colors py-1"
+                        >
+                            {serviceTitle} Insurance Support in {cityData[cityKey].name}
+                        </Link>
+                    ))}
             </div>
         </div>
     );

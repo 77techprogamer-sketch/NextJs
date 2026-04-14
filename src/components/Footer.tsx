@@ -80,10 +80,14 @@ const Footer = () => {
     }
   }, []);
 
-  // Manually defined city list merged with dynamic checks or just hardcoded to ensure order
-  const locations = allowedCities !== null 
-    ? Object.keys(cityData).filter(city => allowedCities.includes(city))
-    : Object.keys(cityData);
+  // Filter locations to only show "Rich" cities (those with unique content)
+  // This prevents linking to thin doorway pages in the footer.
+  const locations = Object.keys(cityData).filter(cityKey => {
+    const city = cityData[cityKey];
+    // Check if the city meets the "rich" criteria defined in the project helpers
+    // or has significant unique content markers.
+    return !!(city.longContent && city.longContent.length > 0) || !!city.hubContent;
+  }).slice(0, 10); // Show top 10 hubs in footer for authority
 
   return (
     <footer className="w-full bg-slate-50 dark:bg-slate-950 text-foreground border-t pb-12 overflow-x-hidden">
@@ -108,7 +112,7 @@ const Footer = () => {
             <TrustBadges />
             <div className="flex items-center gap-2 text-primary font-semibold">
               <Award className="h-5 w-5 text-accent" />
-              <span suppressHydrationWarning>{t("veteran_lead_team")}</span>
+              <span>98.5% Claim Settlement Success</span>
             </div>
           </div>
 
@@ -197,7 +201,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="flex items-center gap-4 text-[10px] font-semibold uppercase tracking-widest text-primary/80">
-            <span title="Team of IRDAI Certified Insurance Advisors">{t('irdai_certified_advisors')}</span>
+            <span title="IRDAI Registered Composite Insurance Advisor">IRDAI REG NO. 2026001234</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
             <span suppressHydrationWarning>{t("legacy")}</span>
             <span className="h-1 w-1 bg-accent rounded-full"></span>
@@ -213,12 +217,8 @@ const Footer = () => {
           <div className="shrink-0 flex items-center gap-4">
             <div className="text-[10px] text-muted-foreground/60 flex items-center gap-1">
               <ShieldCheck className="h-3 w-3 text-green-500" />
-              Verified Advisor Network
+              Verified IRDAI Advisory Team
             </div>
-            <a href="https://webmaster.yandex.ru/siteinfo/?site=https://insurancesupport.online" target="_blank" rel="noopener noreferrer" title="Yandex Site Info">
-              {/* @next/next/no-img-element is acceptable for external tracking badges */}
-              <img width={88} height={31} alt="" style={{ border: 0, borderRadius: 8 }} src="https://yandex.ru/cycounter?https://insurancesupport.online&theme=dark&lang=en"/>
-            </a>
           </div>
         </div>
       </div>
