@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { INDIAN_LOCATIONS } from '@/data/indianCities'
-import { MapPin, ChevronRight, Shield, ArrowRight } from 'lucide-react'
+import { MapPin, ChevronRight, Shield, ArrowRight, Target } from 'lucide-react'
 
 export const metadata: Metadata = {
     title: 'Locations | Insurance Support Services Across India',
@@ -30,13 +30,30 @@ export default function LocationsPage() {
     return (
         <div className="bg-slate-50 min-h-screen py-16">
             <div className="container px-4 mx-auto">
-                <div className="max-w-4xl mx-auto text-center mb-20">
+                <div className="max-w-4xl mx-auto text-center mb-16">
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-slate-900 leading-tight">
                         Our Regional <span className="text-primary">Service Network</span>
                     </h1>
                     <p className="text-xl text-muted-foreground leading-relaxed">
-                        Insurance Support operates across 140+ urban centers in India. Select your state below to find dedicated advisors in your city.
+                        Insurance Support operates across 140+ urban centers in India. Select your state below or jump directly to our major metropolitan service hubs.
                     </p>
+                </div>
+
+                {/* Priority Metro Hubs (Phase 7 Internal Linking) */}
+                <div className="mb-20">
+                    <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-8 border-b border-slate-200 pb-2">Leading Service Cities (TIER 1)</h2>
+                    <div className="flex flex-wrap gap-3">
+                        {INDIAN_LOCATIONS.filter(l => ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune'].includes(l.city)).map(loc => (
+                            <Link
+                                key={loc.city}
+                                href={`/locations/${loc.state}/${loc.city}/life-insurance`}
+                                className="bg-white px-5 py-3 rounded-2xl border border-slate-200 hover:border-primary hover:text-primary font-bold shadow-sm transition-all flex items-center gap-2"
+                            >
+                                <Target className="w-4 h-4 text-primary" />
+                                {loc.name}
+                            </Link>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">

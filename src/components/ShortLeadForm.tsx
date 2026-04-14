@@ -23,7 +23,13 @@ const shortLeadSchema = z.object({
 
 type ShortLeadValues = z.infer<typeof shortLeadSchema>;
 
-const ShortLeadForm = () => {
+interface Props {
+    source?: string;
+    city?: string;
+    service?: string;
+}
+
+const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => {
     const { t } = useTranslation();
 
     const form = useForm<ShortLeadValues>({
@@ -31,7 +37,7 @@ const ShortLeadForm = () => {
         defaultValues: {
             fullName: '',
             mobileNumber: '',
-            requirement: '',
+            requirement: service || '', // Pre-fill service if provided
         },
     });
 
@@ -41,10 +47,14 @@ const ShortLeadForm = () => {
                 name: values.fullName,
                 phone: values.mobileNumber,
                 insurance_type: values.requirement,
-                details: { source: 'short_hero_form' }
+                details: { 
+                    source,
+                    city,
+                    service 
+                }
             };
 
-            await leadService.submitLead(payload, 'short_hero_form');
+            await leadService.submitLead(payload, source);
 
             // GA4 Lead Event
             if (typeof window !== 'undefined' && (window as any).gtag) {

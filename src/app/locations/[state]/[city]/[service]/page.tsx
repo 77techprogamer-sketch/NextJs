@@ -6,8 +6,11 @@ import { contactConfig } from '@/data/contact'
 import { DynamicLocalBusinessJsonLd } from '@/components/ServerJsonLd'
 import Link from 'next/link'
 import React from 'react'
-import { ChevronRight, ArrowRight, MapPin, Grid, ShieldCheck, Clock, Award } from 'lucide-react'
+import { ChevronRight, ArrowRight, MapPin, Grid, ShieldCheck, Clock, Award, Landmark, Target } from 'lucide-react'
 import ServiceCityFAQSection from '@/components/ServiceCityFAQSection'
+import { CITY_CONTENT_OVERRIDES } from '@/data/cityContentOverrides'
+import StickyLeadButtons from '@/components/StickyLeadButtons'
+import ShortLeadForm from '@/components/ShortLeadForm'
 
 interface Props {
     params: { state: string; city: string; service: string }
@@ -108,9 +111,54 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                             Best <span className="text-primary">{serviceLabel}</span> Support in {location.name}, {location.state.replace(/-/g, ' ')}
                         </h1>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                            {serviceDescription} Trusted by thousands of families in {location.name} for reliable insurance guidance and claim recovery. Our IRDAI-certified advisors provide personalized doorstep service across all major residential and commercial areas in the city.
+                            {CITY_CONTENT_OVERRIDES[params.city]?.summary || serviceDescription} Trusted by thousands of families in {location.name} for reliable insurance guidance and claim recovery. Our IRDAI-certified advisors provide personalized doorstep service across all major residential and commercial areas in the city.
                         </p>
                     </header>
+
+                    {/* Trust Banner / Partner Strip */}
+                    <div className="mb-12 py-6 border-y border-slate-100 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 overflow-hidden">
+                        <div className="flex items-center gap-4">
+                            <div className="flex -space-x-3">
+                                {[1, 2, 3, 4].map(i => (
+                                    <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-900 bg-slate-200 dark:bg-slate-800 flex items-center justify-center overflow-hidden">
+                                        <div className="w-full h-full bg-primary/20 flex items-center justify-center text-[10px] font-bold">User</div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="text-sm">
+                                <span className="font-bold text-slate-900 dark:text-white block">15,000+ Families Protected</span>
+                                <span className="text-muted-foreground">in India last 25 years</span>
+                            </div>
+                        </div>
+                        <div className="flex items-center gap-8 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500">
+                             <span className="font-black text-xl tracking-tighter italic">LIC</span>
+                             <span className="font-black text-xl tracking-tighter italic">HDFC Life</span>
+                             <span className="font-black text-xl tracking-tighter italic">ICICI Pru</span>
+                        </div>
+                    </div>
+
+                    {/* Tier 1 Specific Highlights */}
+                    {CITY_CONTENT_OVERRIDES[params.city] && (
+                        <div className="mb-12 p-8 bg-blue-50/50 dark:bg-blue-900/10 rounded-3xl border border-blue-100 dark:border-blue-800">
+                            <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-blue-800 dark:text-blue-300">
+                                <Landmark className="w-5 h-5" />
+                                Why we are #1 for {serviceLabel} in {location.name}
+                            </h2>
+                            <div className="grid md:grid-cols-3 gap-6">
+                                {CITY_CONTENT_OVERRIDES[params.city].facts.map((fact, i) => (
+                                    <div key={i} className="flex gap-3">
+                                        <div className="w-5 h-5 rounded-full bg-blue-500/10 text-blue-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <Target className="w-3 h-3" />
+                                        </div>
+                                        <p className="text-sm text-slate-700 dark:text-slate-300 font-medium">{fact}</p>
+                                    </div>
+                                ))}
+                            </div>
+                            <p className="mt-8 text-sm italic text-slate-500 dark:text-slate-400 border-t border-blue-100 dark:border-blue-800 pt-4">
+                                💡 <strong>Local Insight:</strong> {CITY_CONTENT_OVERRIDES[params.city].localContext}
+                            </p>
+                        </div>
+                    )}
 
                     {/* Trust Signals Grid */}
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
@@ -128,36 +176,48 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                         </div>
                     </div>
 
-                    <div className="grid gap-8 md:grid-cols-2 mb-16">
-                        <div className="bg-slate-50 dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800">
-                            <h2 className="text-2xl font-bold mb-4">Why Choose Us in {location.name}?</h2>
-                            <ul className="space-y-4">
-                                <li className="flex items-start gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-1 text-xs">✓</div>
-                                    <span>Expert help for rejected {serviceLabel} claims specifically for {location.name} residents.</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-1 text-xs">✓</div>
-                                    <span>Same-day doorstep document collection across {location.state.replace(/-/g, ' ')} regional offices.</span>
-                                </li>
-                                <li className="flex items-start gap-3">
-                                    <div className="w-6 h-6 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0 mt-1 text-xs">✓</div>
-                                    <span>Direct coordination with the local Insurance Ombudsman if required.</span>
-                                </li>
-                            </ul>
+                    <div className="grid gap-8 lg:grid-cols-5 mb-16 items-start">
+                        <div className="lg:col-span-2 bg-slate-900 text-white p-8 rounded-3xl shadow-2xl relative overflow-hidden group">
+                           <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:rotate-12 transition-transform">
+                                <Award className="w-24 h-24" />
+                           </div>
+                           <h2 className="text-2xl font-bold mb-4 relative z-10">Get Expert {serviceLabel} Assistance Now</h2>
+                           <p className="text-slate-400 mb-8 relative z-10">Our regional coordinator for {location.name} will call you within 15 minutes for a free consultation.</p>
+                           
+                           <div className="space-y-4 relative z-10">
+                                <div className="flex items-center gap-3">
+                                    <ShieldCheck className="w-5 h-5 text-accent" />
+                                    <span className="text-sm font-medium">100% Secure & Private</span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <Clock className="w-5 h-5 text-accent" />
+                                    <span className="text-sm font-medium">Fast-track Claim Support</span>
+                                </div>
+                           </div>
+
+                           <div className="mt-8 pt-8 border-t border-white/10">
+                                <p className="text-xs text-slate-500 mb-4 font-bold uppercase tracking-wider">Direct Hotline</p>
+                                <a href={`tel:${contactConfig.phone}`} className="text-2xl font-black text-white hover:text-accent transition-colors">
+                                    {contactConfig.phone}
+                                </a>
+                           </div>
                         </div>
-                        <div className="bg-blue-600 text-white p-8 rounded-3xl shadow-xl shadow-blue-500/20">
-                            <h2 className="text-2xl font-bold mb-4 text-white flex items-center gap-2">
-                                <Award className="w-6 h-6" />
-                                Expert Consultation
-                            </h2>
-                            <p className="mb-6 opacity-90">Talk to our lead advisor for {location.name} for personalized help with your {serviceLabel.toLowerCase()} queries.</p>
-                            <a 
-                                href={`tel:${contactConfig.phone}`} 
-                                className="inline-block w-full text-center bg-white text-blue-600 font-bold py-4 rounded-xl hover:bg-blue-50 transition-colors text-lg"
-                            >
-                                Call {contactConfig.phone}
-                            </a>
+
+                        <div className="lg:col-span-3 bg-white dark:bg-slate-900 p-1 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
+                           <div className="bg-slate-50 dark:bg-slate-800/50 p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+                                <span className="text-sm font-bold flex items-center gap-2">
+                                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                                    Live in {location.name}
+                                </span>
+                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Digital Lead Portal</span>
+                           </div>
+                           <div className="p-6">
+                                <ShortLeadForm 
+                                    source="programmatic_city_page" 
+                                    city={location.name} 
+                                    service={params.service} 
+                                />
+                           </div>
                         </div>
                     </div>
 
@@ -201,6 +261,23 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                             </ul>
                         </div>
                         <div>
+                            {/* Hub-and-Spoke Branding (Phase 7) */}
+                            {!['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune'].includes(location.city) && (
+                                <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
+                                    <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 flex items-center gap-2">
+                                        <Award className="w-4 h-4" />
+                                        Regional Headquarters
+                                    </h4>
+                                    <p className="text-xs text-muted-foreground mb-4">Our {location.state.replace(/-/g, ' ')} operations are overseen by our lead office. Get priority support for complex cases.</p>
+                                    <Link 
+                                        href={`/locations/${location.state}`}
+                                        className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline"
+                                    >
+                                        Visit State Hub <ChevronRight className="w-4 h-4" />
+                                    </Link>
+                                </div>
+                            )}
+                            
                             <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                                 <MapPin className="w-5 h-5 text-primary" />
                                 Nearby Cities in {location.state.replace(/-/g, ' ')}
@@ -222,6 +299,7 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                     </div>
                 </div>
             </main>
+            <StickyLeadButtons />
         </React.Fragment>
     )
 }
