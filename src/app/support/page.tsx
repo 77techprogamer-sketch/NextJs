@@ -5,44 +5,48 @@ import { Phone, MessageCircle, FileText, ShieldCheck, RefreshCw, Search, AlertTr
 import { Button } from '@/components/ui/button';
 import QuoteForm from '@/components/QuoteForm';
 import { contactConfig } from '@/data/contact';
+import { getServerSideTranslation } from "@/lib/i18n-server";
 
-export const metadata: Metadata = {
-    title: {
-        absolute: 'Insurance Support Center — Claim Recovery, Document Help & Policy Services | Insurance Support'
-    },
-    description: 'Get expert help for stuck insurance claims, rejected health insurance appeals, LIC policy revival, lost document recovery, and Ombudsman complaint filing. Free case assessment by certified advisors with 25+ years of experience.',
-    keywords: [
-        'Insurance Claim Support Center',
-        'Policy Renewal Help India',
-        'Insurance Complaint Resolution',
-        'Stuck Insurance Claim Help India',
-        'Insurance Document Support',
-        'Rejected Claim Appeal Help',
-        'LIC Policy Revival Support',
-        'Insurance Ombudsman Filing Help',
-        'Lost Policy Bond Recovery',
-        'Health Insurance TPA Support',
-        'Insurance Claim Follow Up',
-        'Insurance Grievance Redressal Help'
-    ],
-    alternates: {
-        canonical: 'https://insurancesupport.online/support',
-    },
-    openGraph: {
-        title: 'Insurance Support Center | Expert Claim Recovery & Policy Help',
-        description: 'Free case assessment for stuck claims, rejected appeals, lapsed policies, and lost documents. 25+ years of experience.',
-        type: 'website',
-        url: 'https://insurancesupport.online/support',
-        siteName: 'Insurance Support',
-        locale: 'en_IN',
-    },
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const { t } = await getServerSideTranslation();
+    
+    return {
+        title: {
+            absolute: t('support_meta_title')
+        },
+        description: t('support_meta_desc'),
+        keywords: [
+            'Insurance Claim Support Center',
+            'Policy Renewal Help India',
+            'Insurance Complaint Resolution',
+            'Stuck Insurance Claim Help India',
+            'Insurance Document Support',
+            'Rejected Claim Appeal Help',
+            'LIC Policy Revival Support',
+            'Insurance Ombudsman Filing Help',
+            'Lost Policy Bond Recovery',
+            'Health Insurance TPA Support',
+            'Insurance Claim Follow Up',
+            'Insurance Grievance Redressal Help'
+        ],
+        alternates: {
+            canonical: 'https://insurancesupport.online/support',
+        },
+        openGraph: {
+            title: t('support_meta_title'),
+            description: t('support_meta_desc'),
+            type: 'website',
+            url: 'https://insurancesupport.online/support',
+            siteName: 'Insurance Support',
+            locale: 'en_IN',
+        },
+    };
+}
 
 const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: [
-        {
             '@type': 'Question',
             name: 'What should I do if my insurance claim has been stuck for months?',
             acceptedAnswer: {
@@ -77,7 +81,8 @@ const faqSchema = {
     ]
 };
 
-export default function SupportPage() {
+export default async function SupportPage() {
+    const { t } = await getServerSideTranslation();
     return (
         <div className="bg-white min-h-screen">
             <script
@@ -95,20 +100,20 @@ export default function SupportPage() {
                     <div className="max-w-4xl">
                         <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/20 text-primary rounded-full text-sm font-bold mb-6">
                             <ShieldCheck className="h-4 w-4" />
-                            Expert-Led Support Center
+                            {t('support_page.hero_badge')}
                         </div>
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
                             Insurance <span className="text-primary italic">Support Center</span>
                         </h1>
                         <p className="text-xl text-slate-300 leading-relaxed mb-10 max-w-3xl">
-                            Your claim is stuck, rejected, or delayed? A policy lapsed years ago? Documents lost or misplaced? Our dedicated support center handles the toughest insurance problems that call centers and portals can&apos;t solve. Backed by 25+ years of experience and ₹50Cr+ in successful recoveries.
+                            {t('support_page.hero_desc')}
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             {[
-                                { value: '2 Hrs', label: 'Avg Response Time' },
-                                { value: '₹50Cr+', label: 'Claims Recovered' },
-                                { value: '98%', label: 'Resolution Rate' },
-                                { value: 'Free', label: 'Case Assessment' },
+                                { value: '2 Hrs', label: t('support_page.stats.response_time') },
+                                { value: '₹50Cr+', label: t('support_page.stats.claims_recovered') },
+                                { value: '98%', label: t('support_page.stats.resolution_rate') },
+                                { value: 'Free', label: t('support_page.stats.case_assessment') },
                             ].map((stat, idx) => (
                                 <div key={idx}>
                                     <div className="text-3xl font-bold text-primary mb-1">{stat.value}</div>

@@ -1,4 +1,73 @@
 {
+  "home_meta_title": "Insurance Support | Expert Claim Recovery & Policy Advice India",
+  "home_meta_desc": "Trusted Insurance Support in India. Dedicated experts for IRDAI claim appeals, LIC policy revival, and high-value health insurance. Recover your rejected claims today.",
+  "about_meta_title": "About Insurance Support | 25+ Years of Trust in Claim Recovery",
+  "about_meta_desc": "Meet our certified insurance advisors with 25+ years of experience. IRDAI-compliant insurance support for LIC, health, motor, and life insurance claims across India.",
+  "support_meta_title": "Insurance Support Center — Claim Recovery, Document Help & Policy Services",
+  "support_meta_desc": "Get expert help for stuck insurance claims, rejected health insurance appeals, LIC policy revival, lost document recovery, and Ombudsman complaint filing.",
+  "services_meta": {
+    "life-insurance": {
+      "title": "Best Life Insurance Plans in India | LIC & Private Policies – Insurance Support",
+      "description": "Compare top LIC & private life insurance plans in India. Get free expert advice on payouts, nominees, and policy revival from our IRDAI-certified team. Free doorstep consultation."
+    },
+    "health-insurance": {
+      "title": "Health Insurance Advisor India | Cashless & Claim Recovery Support",
+      "description": "Get cashless health insurance tailored for you. We help resolve rejected claims, find network hospitals, and secure the best premium. 25+ years experience. Call now for a free review."
+    },
+    "term-insurance": {
+      "title": "Term Insurance Plans India | High Cover at Low Premium – Free Quote",
+      "description": "Buy high-coverage term insurance at the lowest premium in India. Our advisors compare all top plans and ensure claim settlement support. Get a free quote today."
+    },
+    "motor-insurance": {
+      "title": "Motor Insurance Renewal & Claims India | Instant Quotes – Insurance Support",
+      "description": "Renew motor insurance in minutes. We compare all IRDAI-approved insurers, protect your IDV, and assist with zero-dep claims across India. Instant digital renewal."
+    },
+    "cyber-insurance": {
+      "title": "Cyber Insurance in India | Data Breach & Fraud Protection Plans",
+      "description": "Protect your business and personal data with India-specific cyber insurance. Coverage for ransomware, phishing, identity theft & data breach. Get a free risk assessment now."
+    },
+    "sme-insurance": {
+      "title": "SME & Business Insurance India | Protect Your Company – Insurance Support",
+      "description": "Comprehensive business insurance for SMEs in India. Covers fire, liability, employee health, and trade credit risks. Expert advice for your industry. Call for a free consultation."
+    },
+    "travel-insurance": {
+      "title": "Travel Insurance India | Trip Cancellation & Medical Coverage",
+      "description": "Secure your international and domestic trips. We provide travel insurance covering medical emergencies, trip cancellations, and lost baggage. Instant plans, 24/7 support."
+    },
+    "pension-plans": {
+      "title": "Pension & Retirement Plans India | Secure Post-Retirement Income",
+      "description": "Plan a worry-free retirement. Compare NPS, LIC pension, and annuity plans with expert guidance to maximize your post-retirement income. Book a free financial review."
+    },
+    "ulip-plans": {
+      "title": "ULIP Plans India | Investment + Life Cover Advisor – Insurance Support",
+      "description": "Maximize wealth with ULIP plans combining life cover + market-linked returns. Our advisors benchmark fund performance and switch strategies for you. Free portfolio review."
+    },
+    "wedding-insurance": {
+      "title": "Wedding Insurance India | Event Cancellation & Venue Coverage",
+      "description": "Protect your big day with wedding insurance in India. Coverage for cancellations, vendor no-shows, fire, and accidental damage. Get quotes in minutes."
+    }
+  },
+  "support_page": {
+    "hero_badge": "Expert-Led Support Center",
+    "hero_title": "Insurance <0>Support Center</0>",
+    "hero_desc": "Your claim is stuck, rejected, or delayed? A policy lapsed years ago? Documents lost or misplaced? Our dedicated support center handles the toughest insurance problems that call centers and portals can't solve. Backed by 25+ years of experience and ₹50Cr+ in successful recoveries.",
+    "stats": {
+      "response_time": "Avg Response Time",
+      "claims_recovered": "Claims Recovered",
+      "resolution_rate": "Resolution Rate",
+      "case_assessment": "Case Assessment"
+    },
+    "categories_title": "Choose Your Support Category",
+    "categories_desc": "Select the area where you need help. Each category is handled by specialized advisors who deal with these exact scenarios daily — not generic call center agents.",
+    "steps_title": "How to Get Support — 3 Simple Steps",
+    "steps_desc": "We've simplified the process so you can get expert help without the bureaucratic runaround. Here's what happens when you reach out to our support center.",
+    "form_title": "Submit Support Request",
+    "form_desc": "Describe your issue and an expert advisor will call you within 2 hours.",
+    "talk_title": "Prefer to Talk?",
+    "talk_desc": "Skip the form and speak directly to an insurance expert.",
+    "faq_title": "Common Support Questions",
+    "resources_title": "Helpful Resources"
+  },
   "active_states": "Active States",
   "active_cities": "Active Cities",
   "online_support": "Online Support",

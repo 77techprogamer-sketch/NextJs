@@ -1,35 +1,39 @@
 import React from 'react';
 import { Metadata } from 'next';
 import AboutContent from '@/components/AboutContent';
-import translations from '@/../public/locales/en/translation.json';
 import { contactConfig } from '@/data/contact';
+import { getServerSideTranslation } from "@/lib/i18n-server";
 
-export const metadata: Metadata = {
-    title: {
-        absolute: `${translations.about_page_title} - Insurance Support`
-    },
-    description: 'Meet our certified insurance advisors with 25+ years of experience. IRDAI-compliant insurance support for LIC, health, motor, and life insurance claims across India.',
-    keywords: [
-        translations.about_hero_title,
-        'Insurance Advisors Experience',
-        'Trusted Insurance Advisors',
-        'Claim Settlement Ratio',
-        'Insurance Experts Bangalore',
-        'Legacy Insurance Protection',
-        'Family Financial Planning',
-        '25 Years Experience Insurance',
-        'Trusted LIC Advisor',
-        'Top Rated Insurance Advisor',
-        'SME Insurance Specialists',
-        'IRDAI Certified Insurance Advisor',
-        'Licensed Insurance Advisor India',
-        'Insurance Advisor Kotian',
-        'Best Insurance Advisor India'
-    ],
-    alternates: {
-        canonical: 'https://insurancesupport.online/about',
-    }
-};
+export async function generateMetadata(): Promise<Metadata> {
+    const { t } = await getServerSideTranslation();
+    
+    return {
+        title: {
+            absolute: `${t('about_meta_title')} - Insurance Support`
+        },
+        description: t('about_meta_desc'),
+        keywords: [
+            t('about_hero_title'),
+            'Insurance Advisors Experience',
+            'Trusted Insurance Advisors',
+            'Claim Settlement Ratio',
+            'Insurance Experts Bangalore',
+            'Legacy Insurance Protection',
+            'Family Financial Planning',
+            '25 Years Experience Insurance',
+            'Trusted LIC Advisor',
+            'Top Rated Insurance Advisor',
+            'SME Insurance Specialists',
+            'IRDAI Certified Insurance Advisor',
+            'Licensed Insurance Advisor India',
+            'Insurance Advisor Kotian',
+            'Best Insurance Advisor India'
+        ],
+        alternates: {
+            canonical: 'https://insurancesupport.online/about',
+        }
+    };
+}
 
 // Person schema for advisor — direct E-E-A-T signal on the About page
 const advisorSchema = {

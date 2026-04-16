@@ -192,7 +192,7 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange
                 >
-                    <I18nProvider>
+                    <I18nProvider initialLang={lang}>
                         <div className="relative flex flex-col min-h-screen">
 
                             <GlobalJsonLd />
