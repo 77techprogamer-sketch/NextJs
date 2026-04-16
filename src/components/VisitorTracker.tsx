@@ -62,6 +62,13 @@ const VisitorTracker = () => {
         if (!edgeFunctionError) {
           // Successfully logged! Mark session as logged.
           sessionStorage.setItem(sessionLogKey, 'true');
+
+          // NEW: Trigger passive SEO indexing submission
+          fetch('/api/seo/auto-submit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url: window.location.href })
+          }).catch(err => console.warn('SEO Auto-submit failed:', err));
         }
 
       } catch (error) {

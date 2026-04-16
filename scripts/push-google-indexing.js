@@ -68,19 +68,58 @@ async function run() {
         });
     });
 
-    console.log(`📦 Found ${urlsToPush.length} total URLs.`);
-
-    // Shuffle the array so we get a different random batch each time
-    for (let i = urlsToPush.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [urlsToPush[i], urlsToPush[j]] = [urlsToPush[j], urlsToPush[i]];
+    // Add blogs
+    try {
+        const blogsPath = path.join(DATA_PATH, 'blogs.json');
+        if (fs.existsSync(blogsPath)) {
+            const blogs = JSON.parse(fs.readFileSync(blogsPath, 'utf8'));
+            blogs.forEach(blog => {
+                urlsToPush.push(`${BASE_URL}/blog/${blog.slug}`);
+            });
+        }
+    } catch (e) {
+        console.warn('Warning reading blogs.json');
     }
 
-    // Google limits new projects to 200 requests per day.
-    const QUOTA_LIMIT = 200;
-    const batchToPush = urlsToPush.slice(0, QUOTA_LIMIT);
+    console.log(`📦 Found ${urlsToPush.length} total URLs.`);
 
-    console.log(`⚠️ Limiting this run to ${batchToPush.length} URLs to respect the daily Google API Quota.`);
+    // Google limits new projects to 200 requests per day by default, but this can be increased.
+    // We are boosting this to 500 to accelerate the indexing of our 2800+ nodes.
+    const QUOTA_LIMIT = 500;
+    
+    // PRIORITY LOGIC
+    const priorityUrls = [];
+    const regularUrls = [];
+
+    const priorityCities = ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune', 'lucknow', 'jaipur', 'ahmedabad'];
+
+    urlsToPush.forEach(url => {
+        const isPriority = priorityCities.some(city => url.includes(`/locations/${city}`)) || 
+                           url.endsWith('/') || 
+                           url.includes('/blog/') || 
+                           url.includes('/services/');
+        
+        if (isPriority) {
+            priorityUrls.push(url);
+        } else {
+            regularUrls.push(url);
+        }
+    });
+
+    // Shuffle both groups independently
+    [priorityUrls, regularUrls].forEach(arr => {
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    });
+
+    // Assemble final list: Priority first, then regular
+    const finalUrlsToPush = [...priorityUrls, ...regularUrls];
+    const batchToPush = finalUrlsToPush.slice(0, QUOTA_LIMIT);
+
+    console.log(`📦 Priority URLs: ${priorityUrls.length}, Regular URLs: ${regularUrls.length}`);
+    console.log(`⚠️ Limiting this run to ${batchToPush.length} URLs to respect the targeted daily Google API Quota.`);
 
     try {
         const client = await getJwtClient();
