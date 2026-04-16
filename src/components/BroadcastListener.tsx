@@ -47,10 +47,10 @@ const BroadcastListener = () => {
         <AnimatePresence>
             {isVisible && broadcast && (
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9, y: 50 }}
+                    initial={{ opacity: 0, scale: 0.9, y: -20 }}
                     animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    className="fixed bottom-24 md:bottom-8 right-4 z-[9999] w-[calc(100%-2rem)] max-w-sm pointer-events-auto"
+                    exit={{ opacity: 0, scale: 0.9, y: -20 }}
+                    className="fixed top-20 sm:top-auto sm:bottom-8 left-4 right-4 sm:left-auto sm:right-4 z-[9999] w-auto max-w-sm ml-auto pointer-events-auto"
                 >
                     <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-2xl border border-white/20 dark:border-white/10 p-5 rounded-3xl shadow-[0_30px_60px_rgba(0,0,0,0.2)] overflow-hidden relative group">
                         <div className="absolute -top-10 -right-10 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-colors" />

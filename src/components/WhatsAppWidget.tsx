@@ -48,7 +48,7 @@ const WhatsAppWidget = () => {
     }, []);
 
     return (
-        <div className="fixed bottom-20 sm:bottom-6 left-4 sm:left-6 z-[100] flex flex-col items-start gap-3 pointer-events-none">
+        <div className="fixed hidden sm:flex bottom-20 sm:bottom-6 left-4 sm:left-6 z-[100] flex flex-col items-start gap-3 pointer-events-none">
             <AnimatePresence>
                 {isVisible && (
                     <div className="flex flex-col items-start gap-3 pointer-events-auto">
