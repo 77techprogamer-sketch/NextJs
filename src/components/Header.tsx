@@ -63,7 +63,7 @@ const Header = () => {
           <div className="h-9 w-9 bg-primary rounded-lg flex items-center justify-center group-hover:bg-accent group-hover:rotate-6 transition-all duration-300 shadow-lg shadow-primary/20">
             <ShieldCheck className="h-6 w-6 text-white" />
           </div>
-          <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors" suppressHydrationWarning>
+          <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors">
             {t("insurance_support")}
           </span>
         </Link>
@@ -75,7 +75,6 @@ const Header = () => {
                 onClick={handleScrollToServices}
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base font-semibold focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("buy_insurance", "Buy Insurance")}
-                suppressHydrationWarning
               >
                 {t("buy_insurance", "Buy Insurance")}
                 <ChevronDown className="h-4 w-4" />
@@ -87,7 +86,6 @@ const Header = () => {
                   <Link
                     href={`/services/${slugify(key)}`}
                     className="cursor-pointer"
-                    suppressHydrationWarning
                   >
                     {formatLabel(t(key))}
                   </Link>
@@ -109,7 +107,6 @@ const Header = () => {
               <button
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("free_tools")}
-                suppressHydrationWarning
               >
                 {t("tools")}
                 <ChevronDown className="h-4 w-4" />
@@ -148,7 +145,6 @@ const Header = () => {
               <button
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("loans")}
-                suppressHydrationWarning
               >
                 {t("loans")}
                 <ChevronDown className="h-4 w-4" />
@@ -168,7 +164,6 @@ const Header = () => {
                   <Link
                     href="/loans"
                     className="cursor-pointer"
-                    suppressHydrationWarning
                   >
                     {t(key)}
                   </Link>
@@ -182,7 +177,6 @@ const Header = () => {
               <button
                 className="flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
                 aria-label={t("resources")}
-                suppressHydrationWarning
               >
                 {t("resources")}
                 <ChevronDown className="h-4 w-4" />
@@ -252,7 +246,6 @@ const Header = () => {
               import('@/utils/trackCta').then(({ trackCTAClick }) => trackCTAClick('Header: Buy Policy'));
             }}
             className="hidden sm:inline-flex items-center justify-center rounded-md text-sm font-bold ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-accent text-primary hover:bg-accent/90 h-10 px-6 shadow-sm"
-            suppressHydrationWarning
           >
             {t("buy_policy", "Buy Policy")}
           </Link>

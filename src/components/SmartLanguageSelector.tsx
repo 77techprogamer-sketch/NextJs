@@ -75,8 +75,14 @@ const SmartLanguageSelector = () => {
         if (isProcessed) return;
 
         const setLanguage = () => {
-            const hasSetLanguage = sessionStorage.getItem('language_auto_set');
-            if (hasSetLanguage) {
+            // Check cookie instead of sessionStorage so server knows if we've already handled this
+            const cookies = document.cookie.split(';').reduce((acc: Record<string, string>, cookie) => {
+                const [key, value] = cookie.trim().split('=');
+                acc[key] = value;
+                return acc;
+            }, {});
+
+            if (cookies['language_auto_set'] === 'true') {
                 setIsProcessed(true);
                 return;
             }
@@ -92,8 +98,10 @@ const SmartLanguageSelector = () => {
                     );
 
                     if (cityMatch) {
-                        i18n.changeLanguage(CITY_TO_LANG[cityMatch]);
-                        sessionStorage.setItem('language_auto_set', 'true');
+                        const newLang = CITY_TO_LANG[cityMatch];
+                        i18n.changeLanguage(newLang);
+                        document.cookie = `language_auto_set=true; path=/; max-age=${86400 * 30}`;
+                        document.cookie = `i18nextLng=${newLang}; path=/; max-age=${86400 * 30}`;
                         setIsProcessed(true);
                         return;
                     }
@@ -107,7 +115,8 @@ const SmartLanguageSelector = () => {
                 if (country_code && country_code !== 'IN') {
                     // English default for international
                     i18n.changeLanguage('en');
-                    sessionStorage.setItem('language_auto_set', 'true');
+                    document.cookie = `language_auto_set=true; path=/; max-age=${86400 * 30}`;
+                    document.cookie = `i18nextLng=en; path=/; max-age=${86400 * 30}`;
                     setIsProcessed(true);
                     return;
                 }
@@ -138,7 +147,8 @@ const SmartLanguageSelector = () => {
                    i18n.changeLanguage(newLang);
                 }
                 
-                sessionStorage.setItem('language_auto_set', 'true');
+                document.cookie = `language_auto_set=true; path=/; max-age=${86400 * 30}`;
+                document.cookie = `i18nextLng=${newLang}; path=/; max-age=${86400 * 30}`;
                 setIsProcessed(true);
 
             } catch (error) {

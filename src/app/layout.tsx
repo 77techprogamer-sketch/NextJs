@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import React from 'react';
+import { cookies } from 'next/headers';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
@@ -145,8 +146,11 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
+    const cookieStore = cookies();
+    const lang = cookieStore.get('i18nextLng')?.value || 'en';
+
     return (
-        <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+        <html lang={lang} className="scroll-smooth" suppressHydrationWarning>
             <head>
                 {/* Google Tag Manager anchor */}
                 <Script

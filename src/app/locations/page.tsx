@@ -2,16 +2,21 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { INDIAN_LOCATIONS } from '@/data/indianCities'
 import { MapPin, ChevronRight, Shield, ArrowRight, Target } from 'lucide-react'
+import { getServerSideTranslation } from '@/lib/i18n-server'
 
-export const metadata: Metadata = {
-    title: 'Locations | Insurance Support Services Across India',
-    description: 'Find expert insurance support and claim recovery services in your state. Serving 140+ cities across Karnataka, Maharashtra, Delhi, Tamil Nadu, and more.',
-    alternates: {
-        canonical: 'https://insurancesupport.online/locations',
+export async function generateMetadata(): Promise<Metadata> {
+    const { t } = await getServerSideTranslation();
+    return {
+        title: t('locations_meta_title', 'Locations | Insurance Support Services Across India'),
+        description: t('locations_meta_description', 'Find expert insurance support and claim recovery services in your state. Serving 140+ cities across Karnataka, Maharashtra, Delhi, Tamil Nadu, and more.'),
+        alternates: {
+            canonical: 'https://insurancesupport.online/locations',
+        }
     }
 }
 
-export default function LocationsPage() {
+export default async function LocationsPage() {
+    const { t } = await getServerSideTranslation();
     // Group everything by state
     const stateGroups: Record<string, { count: number; sampleCities: string[] }> = {}
 
@@ -32,16 +37,16 @@ export default function LocationsPage() {
             <div className="container px-4 mx-auto">
                 <div className="max-w-4xl mx-auto text-center mb-16">
                     <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-slate-900 leading-tight">
-                        Our Regional <span className="text-primary">Service Network</span>
+                        {t('location_page.regional_service_network_h1', 'Our Regional Service Network')}
                     </h1>
                     <p className="text-xl text-muted-foreground leading-relaxed">
-                        Insurance Support operates across 140+ urban centers in India. Select your state below or jump directly to our major metropolitan service hubs.
+                        {t('location_page.service_network_desc', 'Insurance Support operates across 140+ urban centers in India. Select your state below or jump directly to our major metropolitan service hubs.')}
                     </p>
                 </div>
 
                 {/* Priority Metro Hubs (Phase 7 Internal Linking) */}
                 <div className="mb-20">
-                    <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-8 border-b border-slate-200 pb-2">Leading Service Cities (TIER 1)</h2>
+                    <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-8 border-b border-slate-200 pb-2">{t('location_page.leading_service_cities', 'Leading Service Cities (TIER 1)')}</h2>
                     <div className="flex flex-wrap gap-3">
                         {INDIAN_LOCATIONS.filter(l => ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune'].includes(l.city)).map(loc => (
                             <Link
@@ -68,17 +73,17 @@ export default function LocationsPage() {
                                     <MapPin className="h-6 w-6" />
                                 </div>
                                 <span className="text-sm font-bold text-primary bg-primary/5 px-3 py-1 rounded-full">
-                                    {stats.count} Cities
+                                    {stats.count} {t('cities', 'Cities')}
                                 </span>
                             </div>
                             <h2 className="text-2xl font-bold mb-3 capitalize text-slate-800">
                                 {stateSlug.replace(/-/g, ' ')}
                             </h2>
                             <p className="text-sm text-muted-foreground mb-6">
-                                Serving {stats.sampleCities.join(', ')} and more.
+                                {t('location_page.serving_cities_desc', { cities: stats.sampleCities.join(', ') })}
                             </p>
                             <div className="flex items-center gap-2 text-primary font-bold text-sm">
-                                View State Hub <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                {t('visit_state_hub', 'View State Hub')} <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                             </div>
                         </Link>
                     ))}
@@ -91,34 +96,34 @@ export default function LocationsPage() {
                     <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
                         <div>
                             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                Don&apos;t See Your State Listed?
+                                {t('location_page.missing_state_h2', "Don't See Your State Listed?")}
                             </h2>
                             <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                                We are rapidly expanding our physical presence. Our centralized support team can still assist you with online consultancy and remote claim recovery support for all major insurers anywhere in India.
+                                {t('location_page.missing_state_desc_v2', 'We are rapidly expanding our physical presence. Our centralized support team can still assist you with online consultancy and remote claim recovery support for all major insurers anywhere in India.')}
                             </p>
                             <Link
                                 href="/contact"
                                 className="inline-flex items-center justify-center bg-primary text-white font-bold py-4 px-10 rounded-2xl hover:bg-primary/90 transition-all text-lg shadow-lg shadow-primary/25"
                             >
-                                Contact Support Area
+                                {t('contact_support_area', 'Contact Support Area')}
                             </Link>
                         </div>
                         <div className="grid grid-cols-2 gap-4">
                             <div className="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5">
                                 <span className="block text-3xl font-bold mb-1">140+</span>
-                                <span className="text-sm text-slate-400">Active Cities</span>
+                                <span className="text-sm text-slate-400">{t('active_cities', 'Active Cities')}</span>
                             </div>
                             <div className="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5">
                                 <span className="block text-3xl font-bold mb-1">24/7</span>
-                                <span className="text-sm text-slate-400">Claims Help</span>
+                                <span className="text-sm text-slate-400">{t('claims_help', 'Claims Help')}</span>
                             </div>
                             <div className="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5">
-                                <span className="block text-3xl font-bold mb-1"> Doorstep</span>
-                                <span className="text-sm text-slate-400">Consultation</span>
+                                <span className="block text-3xl font-bold mb-1"> {t('doorstep', 'Doorstep')}</span>
+                                <span className="text-sm text-slate-400">{t('consultation', 'Consultation')}</span>
                             </div>
                             <div className="p-6 bg-white/5 rounded-2xl backdrop-blur-sm border border-white/5">
                                 <span className="block text-3xl font-bold mb-1">98%</span>
-                                <span className="text-sm text-slate-400">Success Ratio</span>
+                                <span className="text-sm text-slate-400">{t('success_ratio', 'Success Ratio')}</span>
                             </div>
                         </div>
                     </div>

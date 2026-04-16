@@ -106,7 +106,7 @@ const Footer = () => {
               <ShieldCheck className="h-6 w-6 text-primary" />
               <span className="text-xl font-bold text-foreground" suppressHydrationWarning>{t("insurance_support")}</span>
             </div>
-            <p className="text-sm leading-relaxed max-w-xs transition-colors" suppressHydrationWarning>
+            <p className="text-sm leading-relaxed max-w-xs transition-colors">
               {t("footer_description")}
             </p>
             <TrustBadges />
@@ -119,18 +119,18 @@ const Footer = () => {
           <div>
             <h3 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("quick_links")}</h3>
             <ul className="space-y-2 text-sm">
-              <li><Link href="/tools/human-life-value-calculator" className="hover:text-primary transition-colors font-semibold text-primary" suppressHydrationWarning>{t('hlv_calculator_new')}</Link></li>
-              <li><Link href="/resources/insurance-support-guide" className="hover:text-primary transition-colors font-bold text-accent" suppressHydrationWarning>{t('insurance_support_guide')}</Link></li>
-              <li><Link href="/resources" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("resources")}</Link></li>
-              <li><Link href="/resources/how-it-works" className="hover:text-primary transition-colors text-slate-500" suppressHydrationWarning>How It Works</Link></li>
-              <li><Link href="/resources/veteran-advantage" className="hover:text-primary transition-colors text-slate-500" suppressHydrationWarning>Veteran Advantage</Link></li>
-              <li><Link href="/resources/faq" className="hover:text-primary transition-colors text-slate-500" suppressHydrationWarning>Detailed FAQs</Link></li>
-              <li><Link href="/about" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("about_us")}</Link></li>
-              <li><Link href="/support" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("support")}</Link></li>
-              <li><Link href="/get-started" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("get_quote")}</Link></li>
-              <li><Link href="/privacy-policy" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("privacy_policy")}</Link></li>
-              <li><Link href="/terms-of-service" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("terms_of_service")}</Link></li>
-              <li><Link href="/return-policy" className="hover:text-primary transition-colors" suppressHydrationWarning>{t("return_policy")}</Link></li>
+              <li><Link href="/tools/human-life-value-calculator" className="hover:text-primary transition-colors font-semibold text-primary">{t('hlv_calculator_new')}</Link></li>
+              <li><Link href="/resources/insurance-support-guide" className="hover:text-primary transition-colors font-bold text-accent">{t('insurance_support_guide')}</Link></li>
+              <li><Link href="/resources" className="hover:text-primary transition-colors">{t("resources")}</Link></li>
+              <li><Link href="/resources/how-it-works" className="hover:text-primary transition-colors text-slate-500">{t('how_it_works')}</Link></li>
+              <li><Link href="/resources/veteran-advantage" className="hover:text-primary transition-colors text-slate-500">{t('veteran_advantage')}</Link></li>
+              <li><Link href="/resources/faq" className="hover:text-primary transition-colors text-slate-500">{t('detailed_faqs')}</Link></li>
+              <li><Link href="/about" className="hover:text-primary transition-colors">{t("about_us")}</Link></li>
+              <li><Link href="/support" className="hover:text-primary transition-colors">{t("support")}</Link></li>
+              <li><Link href="/get-started" className="hover:text-primary transition-colors">{t("get_quote")}</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">{t("privacy_policy")}</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-primary transition-colors">{t("terms_of_service")}</Link></li>
+              <li><Link href="/return-policy" className="hover:text-primary transition-colors">{t("return_policy")}</Link></li>
             </ul>
           </div>
 
@@ -217,7 +217,7 @@ const Footer = () => {
           <div className="shrink-0 flex items-center gap-4">
             <div className="text-[10px] text-muted-foreground/60 flex items-center gap-1">
               <ShieldCheck className="h-3 w-3 text-green-500" />
-              Verified IRDAI Advisory Team
+              {t('verified_irdai_team')}
             </div>
           </div>
         </div>

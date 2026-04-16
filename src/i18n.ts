@@ -23,7 +23,7 @@ i18n
       }
     },
     fallbackLng: 'en',
-    lng: 'en',
+    // lng: 'en', // Removed to allow dynamic detection
     debug: process.env.NODE_ENV === 'development',
     detection: {
       order: ['querystring', 'cookie', 'localStorage', 'sessionStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],

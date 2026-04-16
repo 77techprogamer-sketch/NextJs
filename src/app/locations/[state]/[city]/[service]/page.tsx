@@ -11,6 +11,7 @@ import ServiceCityFAQSection from '@/components/ServiceCityFAQSection'
 import { CITY_CONTENT_OVERRIDES } from '@/data/cityContentOverrides'
 import StickyLeadButtons from '@/components/StickyLeadButtons'
 import ShortLeadForm from '@/components/ShortLeadForm'
+import { getServerSideTranslation } from '@/lib/i18n-server'
 
 interface Props {
     params: { state: string; city: string; service: string }
@@ -46,18 +47,27 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+    const { t } = await getServerSideTranslation();
     const location = INDIAN_LOCATIONS.find(l => l.city === params.city && l.state === params.state)
     const serviceLabel = serviceLabels[params.service]
     const override = CITY_CONTENT_OVERRIDES[params.city];
 
     if (!location || !serviceLabel) return {}
 
-    const title = `Best ${serviceLabel} Support in ${location.name}, ${location.state.replace(/-/g, ' ')} | Insurance Support`
+    const stateName = location.state.replace(/-/g, ' ');
+    const title = t('location_meta_title', { 
+        service: serviceLabel, 
+        city: location.name, 
+        state: stateName 
+    });
     
-    // Primary bottleneck fix: Use the artisanal summary for the meta description if available
     const description = override?.summary 
-        ? `${override.summary.substring(0, 150)}... Expert ${serviceLabel.toLowerCase()} help in ${location.name}. Call ${contactConfig.phone} for doorstep support.`
-        : `Looking for ${serviceLabel} in ${location.name}? Insurance Support provides expert assistance for claims, revivals, and new policies. Call ${contactConfig.phone} for doorstep support.`
+        ? `${override.summary.substring(0, 150)}... ${t('location_meta_desc_expert', { service: serviceLabel.toLowerCase(), city: location.name, phone: contactConfig.phone })}`
+        : t('location_meta_desc_default', { 
+            service: serviceLabel, 
+            city: location.name, 
+            phone: contactConfig.phone 
+          });
 
     return {
         title,
@@ -75,9 +85,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ProgrammaticLocationPage({ params }: Props) {
+    const { t } = await getServerSideTranslation();
     const location = INDIAN_LOCATIONS.find(l => l.city === params.city && l.state === params.state)
     const serviceLabel = serviceLabels[params.service]
-    const serviceDescription = serviceDescriptions[params.service]
+    const serviceDescription = serviceLabels[params.service] // Use label for fallback if desc missing
 
     if (!location || !serviceLabel) {
         return notFound()
@@ -102,9 +113,9 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                 <div className="max-w-4xl mx-auto">
                     {/* Responsive Breadcrumbs */}
                     <nav className="mb-8 md:mb-10 text-xs md:text-sm text-muted-foreground flex items-center gap-2 overflow-x-auto whitespace-nowrap pb-2 no-scrollbar border-b border-transparent md:border-none">
-                        <Link href="/" className="hover:text-primary transition-colors flex-shrink-0">Home</Link>
+                        <Link href="/" className="hover:text-primary transition-colors flex-shrink-0">{t('location_page.breadcrumb_home', 'Home')}</Link>
                         <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
-                        <Link href="/locations" className="hover:text-primary transition-colors flex-shrink-0">Locations</Link>
+                        <Link href="/locations" className="hover:text-primary transition-colors flex-shrink-0">{t('locations', 'Locations')}</Link>
                         <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
                         <Link href={`/locations/${location.state}`} className="hover:text-primary transition-colors capitalize flex-shrink-0">{location.state.replace(/-/g, ' ')}</Link>
                         <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
@@ -113,10 +124,10 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
 
                     <header className="mb-12">
                         <h1 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-[1.1]">
-                            Best <span className="text-primary">{serviceLabel}</span> Support in {location.name}, {location.state.replace(/-/g, ' ')}
+                            {t('location_page.best_support_in_h1', { service: serviceLabel, city: location.name })}
                         </h1>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                            {CITY_CONTENT_OVERRIDES[params.city]?.summary || serviceDescription} Trusted by thousands of families in {location.name} for reliable insurance guidance and claim recovery. Our IRDAI-certified advisors provide personalized doorstep service across all major residential and commercial areas in the city.
+                            {CITY_CONTENT_OVERRIDES[params.city]?.summary || t('location_page.trusted_by_desc', { city: location.name })}
                         </p>
                     </header>
 
@@ -131,8 +142,8 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                                 ))}
                             </div>
                             <div className="text-sm">
-                                <span className="font-bold text-slate-900 dark:text-white block">15,000+ Families Protected</span>
-                                <span className="text-muted-foreground">in India last 25 years</span>
+                                <span className="font-bold text-slate-900 dark:text-white block">{t('families_protected', '15,000+ Families Protected')}</span>
+                                <span className="text-muted-foreground">{t('last_25_years', 'in India last 25 years')}</span>
                             </div>
                         </div>
                         <div className="flex items-center gap-8 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-500">
@@ -147,7 +158,7 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                         <div className="mb-12 p-8 bg-blue-50/50 dark:bg-blue-900/10 rounded-3xl border border-blue-100 dark:border-blue-800">
                             <h2 className="text-xl font-bold mb-6 flex items-center gap-2 text-blue-800 dark:text-blue-300">
                                 <Landmark className="w-5 h-5" />
-                                Why we are #1 for {serviceLabel} in {location.name}
+                                {t('location_page.why_best_in_city', { service: serviceLabel, city: location.name })}
                             </h2>
                             <div className="grid md:grid-cols-3 gap-6">
                                 {CITY_CONTENT_OVERRIDES[params.city].facts.map((fact, i) => (
@@ -160,7 +171,7 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                                 ))}
                             </div>
                             <p className="mt-8 text-sm italic text-slate-500 dark:text-slate-400 border-t border-blue-100 dark:border-blue-800 pt-4">
-                                💡 <strong>Local Insight:</strong> {CITY_CONTENT_OVERRIDES[params.city].localContext}
+                                💡 <strong>{t('local_insight', 'Local Insight')}:</strong> {CITY_CONTENT_OVERRIDES[params.city].localContext}
                             </p>
                         </div>
                     )}
@@ -169,15 +180,15 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
                         <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
                             <ShieldCheck className="w-6 h-6 text-green-500" />
-                            <span className="text-sm font-semibold">IRDAI Certified</span>
+                            <span className="text-sm font-semibold">{t('irdai_certified', 'IRDAI Certified')}</span>
                         </div>
                         <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
                             <MapPin className="w-6 h-6 text-blue-500" />
-                            <span className="text-sm font-semibold">Doorstep Service</span>
+                            <span className="text-sm font-semibold">{t('doorstep_service', 'Doorstep Service')}</span>
                         </div>
                         <div className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 col-span-2 md:col-span-1">
                             <Clock className="w-6 h-6 text-orange-500" />
-                            <span className="text-sm font-semibold">25+ Yrs Experience</span>
+                            <span className="text-sm font-semibold">{t('years_experience', '25+ Yrs Experience')}</span>
                         </div>
                     </div>
 
@@ -186,22 +197,22 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:rotate-12 transition-transform">
                                 <Award className="w-24 h-24" />
                            </div>
-                           <h2 className="text-2xl font-bold mb-4 relative z-10">Get Expert {serviceLabel} Assistance Now</h2>
-                           <p className="text-slate-400 mb-8 relative z-10">Our regional coordinator for {location.name} will call you within 15 minutes for a free consultation.</p>
+                           <h2 className="text-2xl font-bold mb-4 relative z-10">{t('location_page.get_expert_assistance_title', { service: serviceLabel })}</h2>
+                           <p className="text-slate-400 mb-8 relative z-10">{t('location_page.get_expert_assistance_desc', { city: location.name })}</p>
                            
                            <div className="space-y-4 relative z-10">
                                 <div className="flex items-center gap-3">
                                     <ShieldCheck className="w-5 h-5 text-accent" />
-                                    <span className="text-sm font-medium">100% Secure & Private</span>
+                                    <span className="text-sm font-medium">{t('secure_private', '100% Secure & Private')}</span>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <Clock className="w-5 h-5 text-accent" />
-                                    <span className="text-sm font-medium">Fast-track Claim Support</span>
+                                    <span className="text-sm font-medium">{t('fast_track_claim_support', 'Fast-track Claim Support')}</span>
                                 </div>
                            </div>
 
                            <div className="mt-8 pt-8 border-t border-white/10">
-                                <p className="text-xs text-slate-500 mb-4 font-bold uppercase tracking-wider">Direct Hotline</p>
+                                <p className="text-xs text-slate-500 mb-4 font-bold uppercase tracking-wider">{t('direct_hotline', 'Direct Hotline')}</p>
                                 <a href={`tel:${contactConfig.phone}`} className="text-2xl font-black text-white hover:text-accent transition-colors">
                                     {contactConfig.phone}
                                 </a>
@@ -212,9 +223,9 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                            <div className="bg-slate-50 dark:bg-slate-800/50 p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
                                 <span className="text-sm font-bold flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                    Live in {location.name}
+                                    {t('live_in_city', { city: location.name })}
                                 </span>
-                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Digital Lead Portal</span>
+                                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('digital_lead_portal', 'Digital Lead Portal')}</span>
                            </div>
                            <div className="p-6">
                                 <ShortLeadForm 
@@ -228,12 +239,12 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
 
                     {/* Local SEO Content Section */}
                     <section className="prose prose-lg dark:prose-invert max-w-none mb-16">
-                        <h3 className="text-2xl font-bold">Local {serviceLabel} Support in {location.name}</h3>
+                        <h3 className="text-2xl font-bold">{t('location_page.local_support_h3', { service: serviceLabel, city: location.name })}</h3>
                         <p>
-                            Navigating insurance policies can be challenging, especially in a fast-paced city like {location.name}. Whether you are looking to revive a lapsed policy or struggling with a claim settlement, our local experts in {location.name} are here to help. We understand the specific nuances of the {location.state.replace(/-/g, ' ')} insurance market and provide tailored advice to ensure you get the maximum value from your investment.
+                            {t('location_page.navigating_insurance_p1', { city: location.name, state: location.state.replace(/-/g, ' ') })}
                         </p>
                         <p>
-                            Our service covers all major postal codes in {location.name}, ensuring that professional insurance support is just a phone call away. We specialize in handling complex cases that online portals often miss, offering a human-first approach to insurance management.
+                            {t('location_page.service_covers_p2', { city: location.name })}
                         </p>
                     </section>
 
@@ -249,7 +260,7 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                         <div>
                             <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                                 <Grid className="w-5 h-5 text-primary" />
-                                Other Services in {location.name}
+                                {t('location_page.other_services_in_city', { city: location.name })}
                             </h3>
                             <ul className="grid grid-cols-1 gap-3">
                                 {otherServices.map(s => (
@@ -259,7 +270,7 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                                             className="text-muted-foreground hover:text-primary hover:underline flex items-center gap-2 group text-sm"
                                         >
                                             <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                            {serviceLabels[s]} in {location.name}
+                                            {t('service_in_city', { service: serviceLabels[s], city: location.name })}
                                         </Link>
                                     </li>
                                 ))}
@@ -271,21 +282,21 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                                 <div className="mb-8 p-6 bg-slate-50 dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800">
                                     <h4 className="text-sm font-bold uppercase tracking-widest text-slate-500 mb-3 flex items-center gap-2">
                                         <Award className="w-4 h-4" />
-                                        Regional Headquarters
+                                        {t('regional_headquarters', 'Regional Headquarters')}
                                     </h4>
-                                    <p className="text-xs text-muted-foreground mb-4">Our {location.state.replace(/-/g, ' ')} operations are overseen by our lead office. Get priority support for complex cases.</p>
+                                    <p className="text-xs text-muted-foreground mb-4">{t('location_page.regional_hq_desc', { state: location.state.replace(/-/g, ' ') })}</p>
                                     <Link 
                                         href={`/locations/${location.state}`}
                                         className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline"
                                     >
-                                        Visit State Hub <ChevronRight className="w-4 h-4" />
+                                        {t('visit_state_hub', 'Visit State Hub')} <ChevronRight className="w-4 h-4" />
                                     </Link>
                                 </div>
                             )}
                             
                             <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                                 <MapPin className="w-5 h-5 text-primary" />
-                                Nearby Cities in {location.state.replace(/-/g, ' ')}
+                                {t('location_page.nearby_cities_in_state', { state: location.state.replace(/-/g, ' ') })}
                             </h3>
                             <ul className="grid grid-cols-2 gap-3">
                                 {otherCitiesInState.map(loc => (
