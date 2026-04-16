@@ -137,15 +137,6 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
             });
         }
 
-        // Restrict access to /locations/...
-        const match = request.nextUrl.pathname.match(/^\/locations\/([^/]+)/);
-        if (match) {
-            const targetCity = match[1].toLowerCase();
-            // Allow if targetCity is in allowedCities, or if we couldn't determine their city (currentCity is empty)
-            if (currentCity && !allowedCities.includes(targetCity)) {
-                return NextResponse.redirect(new URL('/', request.url));
-            }
-        }
 
         // Pass the geo information to the frontend via cookies
         if (currentCity) {
