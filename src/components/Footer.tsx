@@ -9,6 +9,7 @@ import { slugify } from '@/utils/slugify';
 import { formatLabel } from '@/utils/formatText';
 import { cityData } from '@/data/cityData';
 import TrustBadges from './TrustBadges';
+import GoogleSourceButton from './GoogleSourceButton';
 
 interface CollapsibleListProps<T> {
   items: T[];
@@ -109,6 +110,9 @@ const Footer = () => {
             <p className="text-sm leading-relaxed max-w-xs transition-colors">
               {t("footer_description")}
             </p>
+            <div className="pt-2">
+              <GoogleSourceButton />
+            </div>
             <TrustBadges />
             <div className="flex items-center gap-2 text-primary font-semibold">
               <Award className="h-5 w-5 text-accent" />
