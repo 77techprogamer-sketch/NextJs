@@ -121,7 +121,10 @@ export const metadata: Metadata = {
         creator: '@insurancesupport',
     },
     alternates: {
-        canonical: 'https://insurancesupport.online',
+        languages: {
+            'en-IN': 'https://insurancesupport.online',
+            'hi-IN': 'https://insurancesupport.online/hi',
+        }
     },
     other: {
         'content-language': 'en-IN',

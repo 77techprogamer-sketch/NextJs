@@ -36,16 +36,15 @@ export const MagneticButton = ({
     };
 
     return (
-        <motion.button
-            ref={ref}
+        <motion.div
+            ref={ref as any}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
             animate={{ x: position.x, y: position.y }}
             transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
             className={className}
-            {...(props as any)} // Cast props to any to avoid conflict with motion.button props
         >
             {children}
-        </motion.button>
+        </motion.div>
     );
 };

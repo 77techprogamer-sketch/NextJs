@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle2, AlertCircle, HelpCircle, MapPin } from 'lucide-react';
 import { successStories } from '@/data/successStoriesData';
 
-export const SuccessStories = () => {
+export default function SuccessStories() {
+
     return (
         <section className="py-20 bg-slate-50">
             <div className="container px-4 mx-auto">

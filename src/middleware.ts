@@ -1,6 +1,14 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest, NextFetchEvent } from 'next/server';
 import { cityData } from '@/data/cityData';
+import { INDIAN_LOCATIONS } from '@/data/indianCities';
+import { serviceLabels } from '@/data/services';
+
+// Pre-compute lookup maps for legacy location redirects (SEO Optimization)
+const CITY_TO_STATE = new Map(INDIAN_LOCATIONS.map(l => [l.city, l.state]));
+const ALL_STATES = new Set(INDIAN_LOCATIONS.map(l => l.state));
+const ALL_SERVICES = new Set(Object.keys(serviceLabels));
+
 
 // Layer 2 DDoS Protection: Simple in-memory rate limiting map (per edge isolate)
 const ipMap = new Map<string, { count: number; startTime: number }>();
@@ -145,6 +153,45 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         response.headers.set('x-next-locale', localeInPath);
         // Persist for future visits (even if they go back to root domain)
         response.cookies.set('i18nextLng', localeInPath, { path: '/', maxAge: 86400 * 365 });
+    }
+
+    // 6. Legacy Location Redirects (SEO: Consolidate 1/2-segment URLs to 3-segment hierarchy)
+    const effectivePathname = localeInPath ? '/' + pathnameParts.slice(2).join('/') : pathname;
+    const effectiveParts = effectivePathname.split('/');
+    
+    if (effectiveParts[1] === 'locations') {
+        let targetPath = null;
+        
+        // Handle /locations/[city] -> /locations/[state]/[city]
+        if (effectiveParts.length === 3) {
+            const city = effectiveParts[2];
+            const state = CITY_TO_STATE.get(city);
+            // Only redirect if it's a city and NOT already a state hub
+            if (state && !ALL_STATES.has(city)) {
+                targetPath = `/locations/${state}/${city}`;
+            }
+        } 
+        // Handle /locations/[city]/[service] -> /locations/[state]/[city]/[service]
+        // or /locations/[state]/[service] -> /locations/[state]/[city-default]/[service]
+        else if (effectiveParts.length === 4) {
+            const slug1 = effectiveParts[2];
+            const slug2 = effectiveParts[3];
+            
+            const stateForSlug1 = CITY_TO_STATE.get(slug1);
+            const isServiceForSlug2 = ALL_SERVICES.has(slug2);
+            
+            if (stateForSlug1 && isServiceForSlug2) {
+                // It's [city]/[service] -> should be [state]/[city]/[service]
+                targetPath = `/locations/${stateForSlug1}/${slug1}/${slug2}`;
+            }
+        }
+
+        if (targetPath) {
+            const redirectUrl = new URL(localeInPath ? `/${localeInPath}${targetPath}` : targetPath, request.url);
+            // Preserve query parameters
+            request.nextUrl.searchParams.forEach((v, k) => redirectUrl.searchParams.set(k, v));
+            return NextResponse.redirect(redirectUrl, 301);
+        }
     }
     
     // Pass bot status to client to prevent client-side logging for bots

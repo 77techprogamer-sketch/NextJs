@@ -1,4 +1,8 @@
+import { Metadata } from 'next';
 import { getServerSideTranslation } from "@/lib/i18n-server";
+import { LocalBusinessJsonLd } from '@/components/ServerJsonLd';
+import HomeClient from '@/components/HomeClient';
+
 
 export async function generateMetadata(): Promise<Metadata> {
     const { t } = await getServerSideTranslation();
