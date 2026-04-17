@@ -11,7 +11,7 @@ import ServiceCityFAQSection from '@/components/ServiceCityFAQSection'
 import { CITY_CONTENT_OVERRIDES } from '@/data/cityContentOverrides'
 import StickyLeadButtons from '@/components/StickyLeadButtons'
 import ShortLeadForm from '@/components/ShortLeadForm'
-import { getServerSideTranslation } from '@/lib/i18n-server'
+import { getServerSideTranslation, getLocalizedName } from '@/lib/i18n-server'
 
 interface Props {
     params: { state: string; city: string; service: string }
@@ -47,52 +47,62 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { t } = await getServerSideTranslation();
+    const { t, lang } = await getServerSideTranslation();
     const location = INDIAN_LOCATIONS.find(l => l.city === params.city && l.state === params.state)
     const serviceLabel = serviceLabels[params.service]
     const override = CITY_CONTENT_OVERRIDES[params.city];
 
     if (!location || !serviceLabel) return {}
 
-    const stateName = location.state.replace(/-/g, ' ');
+    const localizedCity = await getLocalizedName(location.city, lang);
+    const localizedState = await getLocalizedName(location.state, lang);
+
     const title = t('location_meta_title', { 
         service: serviceLabel, 
-        city: location.name, 
-        state: stateName 
+        city: localizedCity, 
+        state: localizedState 
     });
     
-    const description = override?.summary 
-        ? `${override.summary.substring(0, 150)}... ${t('location_meta_desc_expert', { service: serviceLabel.toLowerCase(), city: location.name, phone: contactConfig.phone })}`
+    const description = override?.summary && lang === 'en'
+        ? `${override.summary.substring(0, 150)}... ${t('location_meta_desc_expert', { service: serviceLabel.toLowerCase(), city: localizedCity, phone: contactConfig.phone })}`
         : t('location_meta_desc_default', { 
             service: serviceLabel, 
-            city: location.name, 
+            city: localizedCity, 
             phone: contactConfig.phone 
           });
+
+    const route = `/locations/${params.state}/${params.city}/${params.service}`;
 
     return {
         title,
         description,
         alternates: {
-            canonical: `https://insurancesupport.online/locations/${params.state}/${params.city}/${params.service}`,
+            canonical: `https://insurancesupport.online${route}`,
+            languages: {
+                en: `https://insurancesupport.online${route}`,
+                hi: `https://insurancesupport.online/hi${route}`,
+            }
         },
         openGraph: {
             title,
             description,
             type: 'website',
-            url: `https://insurancesupport.online/locations/${params.state}/${params.city}/${params.service}`,
+            url: `https://insurancesupport.online${route}`,
         }
     }
 }
 
 export default async function ProgrammaticLocationPage({ params }: Props) {
-    const { t } = await getServerSideTranslation();
+    const { t, lang } = await getServerSideTranslation();
     const location = INDIAN_LOCATIONS.find(l => l.city === params.city && l.state === params.state)
     const serviceLabel = serviceLabels[params.service]
-    const serviceDescription = serviceLabels[params.service] // Use label for fallback if desc missing
 
     if (!location || !serviceLabel) {
         return notFound()
     }
+
+    const localizedCity = await getLocalizedName(location.city, lang);
+    const localizedState = await getLocalizedName(location.state, lang);
 
     const otherServices = Object.keys(serviceLabels).filter(s => s !== params.service)
     const otherCitiesInState = INDIAN_LOCATIONS
@@ -104,8 +114,8 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
     return (
         <React.Fragment>
             <DynamicLocalBusinessJsonLd 
-                city={location.name} 
-                state={location.state} 
+                city={localizedCity} 
+                state={localizedState} 
                 serviceName={serviceLabel} 
             />
             
@@ -115,19 +125,19 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                     <nav className="mb-8 md:mb-10 text-xs md:text-sm text-muted-foreground flex items-center gap-2 overflow-x-auto whitespace-nowrap pb-2 no-scrollbar border-b border-transparent md:border-none">
                         <Link href="/" className="hover:text-primary transition-colors flex-shrink-0">{t('location_page.breadcrumb_home', 'Home')}</Link>
                         <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
-                        <Link href="/locations" className="hover:text-primary transition-colors flex-shrink-0">{t('locations', 'Locations')}</Link>
+                        <Link href={lang === 'en' ? "/locations" : `/${lang}/locations`} className="hover:text-primary transition-colors flex-shrink-0">{t('locations', 'Locations')}</Link>
                         <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
-                        <Link href={`/locations/${location.state}`} className="hover:text-primary transition-colors capitalize flex-shrink-0">{location.state.replace(/-/g, ' ')}</Link>
+                        <Link href={lang === 'en' ? `/locations/${location.state}` : `/${lang}/locations/${location.state}`} className="hover:text-primary transition-colors capitalize flex-shrink-0">{localizedState}</Link>
                         <ChevronRight className="w-3 h-3 md:w-4 md:h-4 flex-shrink-0" />
-                        <span className="font-bold text-foreground flex-shrink-0">{location.name}</span>
+                        <span className="font-bold text-foreground flex-shrink-0">{localizedCity}</span>
                     </nav>
 
                     <header className="mb-12">
                         <h1 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-[1.1]">
-                            {t('location_page.best_support_in_h1', { service: serviceLabel, city: location.name })}
+                            {t('location_page.best_support_in_h1', { service: serviceLabel, city: localizedCity })}
                         </h1>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                            {CITY_CONTENT_OVERRIDES[params.city]?.summary || t('location_page.trusted_by_desc', { city: location.name })}
+                            {lang === 'en' && CITY_CONTENT_OVERRIDES[params.city]?.summary || t('location_page.trusted_by_desc', { city: localizedCity })}
                         </p>
                     </header>
 
@@ -223,14 +233,14 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                            <div className="bg-slate-50 dark:bg-slate-800/50 p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
                                 <span className="text-sm font-bold flex items-center gap-2">
                                     <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                                    {t('live_in_city', { city: location.name })}
+                                    {t('live_in_city', { city: localizedCity })}
                                 </span>
                                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t('digital_lead_portal', 'Digital Lead Portal')}</span>
                            </div>
                            <div className="p-6">
                                 <ShortLeadForm 
                                     source="programmatic_city_page" 
-                                    city={location.name} 
+                                    city={localizedCity} 
                                     service={params.service} 
                                 />
                            </div>
@@ -238,20 +248,20 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                     </div>
 
                     {/* Local SEO Content Section */}
-                    <section className="prose prose-lg dark:prose-invert max-w-none mb-16">
-                        <h3 className="text-2xl font-bold">{t('location_page.local_support_h3', { service: serviceLabel, city: location.name })}</h3>
+                    <section className="prose prose-lg dark:prose-invert max-w-none mb-16 font-medium">
+                        <h3 className="text-xl md:text-2xl font-bold">{t('location_page.local_support_h3', { service: serviceLabel, city: localizedCity })}</h3>
                         <p>
-                            {t('location_page.navigating_insurance_p1', { city: location.name, state: location.state.replace(/-/g, ' ') })}
+                            {t('location_page.navigating_insurance_p1', { city: localizedCity, state: localizedState })}
                         </p>
                         <p>
-                            {t('location_page.service_covers_p2', { city: location.name })}
+                            {t('location_page.service_covers_p2', { city: localizedCity })}
                         </p>
                     </section>
 
-                    {/* Dynamic FAQ Injection (Significant E-E-A-T Signal) */}
+                    {/* Dynamic FAQ Injection (Significant E-E-A-T Signal) - Now fully localized */}
                     <ServiceCityFAQSection 
-                        cityName={location.name} 
-                        stateName={location.state} 
+                        cityName={localizedCity} 
+                        stateName={localizedState} 
                         serviceLabel={serviceLabel} 
                         serviceCategory={serviceCategory}
                     />
@@ -260,17 +270,17 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                         <div>
                             <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                                 <Grid className="w-5 h-5 text-primary" />
-                                {t('location_page.other_services_in_city', { city: location.name })}
+                                {t('location_page.other_services_in_city', { city: localizedCity })}
                             </h3>
                             <ul className="grid grid-cols-1 gap-3">
                                 {otherServices.map(s => (
                                     <li key={s}>
                                         <Link 
-                                            href={`/locations/${location.state}/${location.city}/${s}`}
+                                            href={lang === 'en' ? `/locations/${location.state}/${location.city}/${s}` : `/${lang}/locations/${location.state}/${location.city}/${s}`}
                                             className="text-muted-foreground hover:text-primary hover:underline flex items-center gap-2 group text-sm"
                                         >
                                             <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                            {t('service_in_city', { service: serviceLabels[s], city: location.name })}
+                                            {t('service_in_city', { service: serviceLabels[s], city: localizedCity })}
                                         </Link>
                                     </li>
                                 ))}
@@ -284,9 +294,9 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                                         <Award className="w-4 h-4" />
                                         {t('regional_headquarters', 'Regional Headquarters')}
                                     </h4>
-                                    <p className="text-xs text-muted-foreground mb-4">{t('location_page.regional_hq_desc', { state: location.state.replace(/-/g, ' ') })}</p>
+                                    <p className="text-xs text-muted-foreground mb-4">{t('location_page.regional_hq_desc', { state: localizedState })}</p>
                                     <Link 
-                                        href={`/locations/${location.state}`}
+                                        href={lang === 'en' ? `/locations/${location.state}` : `/${lang}/locations/${location.state}`}
                                         className="inline-flex items-center gap-2 text-primary font-bold text-sm hover:underline"
                                     >
                                         {t('visit_state_hub', 'Visit State Hub')} <ChevronRight className="w-4 h-4" />
@@ -296,13 +306,13 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                             
                             <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                                 <MapPin className="w-5 h-5 text-primary" />
-                                {t('location_page.nearby_cities_in_state', { state: location.state.replace(/-/g, ' ') })}
+                                {t('location_page.nearby_cities_in_state', { state: localizedState })}
                             </h3>
                             <ul className="grid grid-cols-2 gap-3">
                                 {otherCitiesInState.map(loc => (
                                     <li key={loc.city}>
                                         <Link 
-                                            href={`/locations/${loc.state}/${loc.city}/${params.service}`}
+                                            href={lang === 'en' ? `/locations/${loc.state}/${loc.city}/${params.service}` : `/${lang}/locations/${loc.state}/${loc.city}/${params.service}`}
                                             className="text-muted-foreground hover:text-primary hover:underline flex items-center gap-2 group text-sm"
                                         >
                                             <ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />

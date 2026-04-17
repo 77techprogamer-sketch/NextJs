@@ -1,4 +1,5 @@
 import { cookies, headers } from 'next/headers';
+import { REGIONAL_NAMES } from '@/data/regionalData';
 import fs from 'fs';
 import path from 'path';
 
@@ -89,8 +90,18 @@ export async function getServerSideTranslation(lng?: string) {
             });
         }
 
+
         return translation;
     };
 
     return { t, lang };
+}
+
+export async function getLocalizedName(slug: string, locale: string): Promise<string> {
+    const regional = REGIONAL_NAMES[slug];
+    if (regional && regional[locale]) {
+        return regional[locale];
+    }
+    // Fallback: Return formatted slug
+    return slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }

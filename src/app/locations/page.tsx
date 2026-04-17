@@ -2,41 +2,60 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { INDIAN_LOCATIONS } from '@/data/indianCities'
 import { MapPin, ChevronRight, Shield, ArrowRight, Target } from 'lucide-react'
-import { getServerSideTranslation } from '@/lib/i18n-server'
+import { getServerSideTranslation, getLocalizedName } from '@/lib/i18n-server'
 
 export async function generateMetadata(): Promise<Metadata> {
     const { t } = await getServerSideTranslation();
+    const route = '/locations';
     return {
         title: t('locations_meta_title', 'Locations | Insurance Support Services Across India'),
         description: t('locations_meta_description', 'Find expert insurance support and claim recovery services in your state. Serving 140+ cities across Karnataka, Maharashtra, Delhi, Tamil Nadu, and more.'),
         alternates: {
-            canonical: 'https://insurancesupport.online/locations',
+            canonical: `https://insurancesupport.online${route}`,
+            languages: {
+                en: `https://insurancesupport.online${route}`,
+                hi: `https://insurancesupport.online/hi${route}`,
+            }
         }
     }
 }
 
 export default async function LocationsPage() {
-    const { t } = await getServerSideTranslation();
+    const { t, lang } = await getServerSideTranslation();
     // Group everything by state
-    const stateGroups: Record<string, { count: number; sampleCities: string[] }> = {}
+    const stateGroups: Record<string, { count: number; sampleCities: string[]; localizedState: string }> = {}
 
-    INDIAN_LOCATIONS.forEach(loc => {
+    for (const loc of INDIAN_LOCATIONS) {
         if (!stateGroups[loc.state]) {
-            stateGroups[loc.state] = { count: 0, sampleCities: [] }
+            const localizedState = await getLocalizedName(loc.state, lang);
+            stateGroups[loc.state] = { count: 0, sampleCities: [], localizedState }
         }
         stateGroups[loc.state].count++
         if (stateGroups[loc.state].sampleCities.length < 3) {
-            stateGroups[loc.state].sampleCities.push(loc.name)
+            // Localize city name for sample if available
+            const localizedCity = await getLocalizedName(loc.city, lang);
+            stateGroups[loc.state].sampleCities.push(localizedCity)
         }
-    })
+    }
 
-    const sortedStates = Object.entries(stateGroups).sort((a,b) => a[0].localeCompare(b[0]))
+    const sortedStates = Object.entries(stateGroups).sort((a,b) => a[1].localizedState.localeCompare(b[1].localizedState))
+
+    // Pre-calculate priority cities with localized names
+    const priorityCitiesSlugs = ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune'];
+    const priorityCities = await Promise.all(
+        INDIAN_LOCATIONS
+            .filter(l => priorityCitiesSlugs.includes(l.city))
+            .map(async (loc) => ({
+                ...loc,
+                localizedName: await getLocalizedName(loc.city, lang)
+            }))
+    );
 
     return (
-        <div className="bg-slate-50 min-h-screen py-16">
+        <div className="bg-slate-50 dark:bg-slate-950 min-h-screen py-16">
             <div className="container px-4 mx-auto">
                 <div className="max-w-4xl mx-auto text-center mb-16">
-                    <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-slate-900 leading-tight">
+                    <h1 className="text-4xl md:text-6xl font-extrabold mb-8 text-slate-900 dark:text-white leading-tight">
                         {t('location_page.regional_service_network_h1', 'Our Regional Service Network')}
                     </h1>
                     <p className="text-xl text-muted-foreground leading-relaxed">
@@ -46,16 +65,16 @@ export default async function LocationsPage() {
 
                 {/* Priority Metro Hubs (Phase 7 Internal Linking) */}
                 <div className="mb-20">
-                    <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-8 border-b border-slate-200 pb-2">{t('location_page.leading_service_cities', 'Leading Service Cities (TIER 1)')}</h2>
+                    <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-8 border-b border-slate-200 dark:border-slate-800 pb-2">{t('location_page.leading_service_cities', 'Leading Service Cities (TIER 1)')}</h2>
                     <div className="flex flex-wrap gap-3">
-                        {INDIAN_LOCATIONS.filter(l => ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune'].includes(l.city)).map(loc => (
+                        {priorityCities.map((loc) => (
                             <Link
                                 key={loc.city}
-                                href={`/locations/${loc.state}/${loc.city}/life-insurance`}
-                                className="bg-white px-5 py-3 rounded-2xl border border-slate-200 hover:border-primary hover:text-primary font-bold shadow-sm transition-all flex items-center gap-2"
+                                href={lang === 'en' ? `/locations/${loc.state}/${loc.city}/life-insurance` : `/${lang}/locations/${loc.state}/${loc.city}/life-insurance`}
+                                className="bg-white dark:bg-slate-900 px-5 py-3 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-primary hover:text-primary font-bold shadow-sm transition-all flex items-center gap-2"
                             >
                                 <Target className="w-4 h-4 text-primary" />
-                                {loc.name}
+                                {loc.localizedName}
                             </Link>
                         ))}
                     </div>
@@ -65,8 +84,8 @@ export default async function LocationsPage() {
                     {sortedStates.map(([stateSlug, stats]) => (
                         <Link
                             key={stateSlug}
-                            href={`/locations/${stateSlug}`}
-                            className="group bg-white p-8 rounded-3xl border border-slate-200 hover:border-primary/50 shadow-sm hover:shadow-xl transition-all"
+                            href={lang === 'en' ? `/locations/${stateSlug}` : `/${lang}/locations/${stateSlug}`}
+                            className="group bg-white dark:bg-slate-900 p-8 rounded-3xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 shadow-sm hover:shadow-xl transition-all"
                         >
                             <div className="flex items-center justify-between mb-4">
                                 <div className="p-3 bg-primary/5 rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors">
@@ -76,8 +95,8 @@ export default async function LocationsPage() {
                                     {stats.count} {t('cities', 'Cities')}
                                 </span>
                             </div>
-                            <h2 className="text-2xl font-bold mb-3 capitalize text-slate-800">
-                                {stateSlug.replace(/-/g, ' ')}
+                            <h2 className="text-2xl font-bold mb-3 capitalize text-slate-800 dark:text-slate-100">
+                                {stats.localizedState}
                             </h2>
                             <p className="text-sm text-muted-foreground mb-6">
                                 {t('location_page.serving_cities_desc', { cities: stats.sampleCities.join(', ') })}
@@ -102,7 +121,7 @@ export default async function LocationsPage() {
                                 {t('location_page.missing_state_desc_v2', 'We are rapidly expanding our physical presence. Our centralized support team can still assist you with online consultancy and remote claim recovery support for all major insurers anywhere in India.')}
                             </p>
                             <Link
-                                href="/contact"
+                                href={lang === 'en' ? "/contact" : `/${lang}/contact`}
                                 className="inline-flex items-center justify-center bg-primary text-white font-bold py-4 px-10 rounded-2xl hover:bg-primary/90 transition-all text-lg shadow-lg shadow-primary/25"
                             >
                                 {t('contact_support_area', 'Contact Support Area')}

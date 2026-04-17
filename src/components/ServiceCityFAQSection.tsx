@@ -6,8 +6,7 @@ import {
     AccordionTrigger,
 } from "@/components/ui/accordion";
 import { faqData } from '@/data/faqData';
-// We'll import translations directly for simplicity in the server component context
-import enTranslations from '../../public/locales/en/translation.json';
+import { getServerSideTranslation } from '@/lib/i18n-server';
 
 interface Props {
     cityName: string;
@@ -16,24 +15,26 @@ interface Props {
     serviceCategory: string; // 'Life', 'Health', etc.
 }
 
-export default function ServiceCityFAQSection({ cityName, stateName, serviceLabel, serviceCategory }: Props) {
-    // Filter FAQs by category and pick up to 5
+export default async function ServiceCityFAQSection({ cityName, stateName, serviceLabel, serviceCategory }: Props) {
+    const { t } = await getServerSideTranslation();
+
+    // Filter FAQs by category and pick up to 6
     const categoryFaqs = faqData
         .filter(item => item.category === serviceCategory || item.category === 'General')
         .slice(0, 6);
 
     const faqs = categoryFaqs.map(item => {
-        // Get translations from the JSON
-        const question = (enTranslations as any)[item.questionKey] || 'Insurance Question?';
-        const answer = (enTranslations as any)[item.answerKey] || 'Contact us for details.';
+        // Get translations from the dictionary
+        const question = t(item.questionKey, 'Insurance Question?');
+        const answer = t(item.answerKey, 'Contact us for details.');
 
         // Personalize the question with the city name for local SEO
         const localQuestion = question.includes('?') 
-            ? question.replace('?', ` in ${cityName}?`)
-            : `${question} in ${cityName}`;
+            ? question.replace('?', ` ${t('in_city', 'in')} ${cityName}?`)
+            : `${question} ${t('in_city', 'in')} ${cityName}`;
 
         // Personalize the answer with city/state context
-        const localAnswer = `${answer} Our experts in ${cityName}, ${stateName.replace(/-/g, ' ')} provide doorstep assistance for these cases.`;
+        const localAnswer = `${answer} ${t('location_page.faq_local_answer_suffix', { city: cityName, state: stateName })}`;
 
         return { question: localQuestion, answer: localAnswer };
     });
@@ -57,8 +58,8 @@ export default function ServiceCityFAQSection({ cityName, stateName, serviceLabe
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
             />
-            <h2 className="text-3xl font-bold mb-8 text-slate-900 dark:text-white tracking-tight">
-                {serviceLabel} FAQs for {cityName} Residents
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900 dark:text-white tracking-tight">
+                {t('location_page.faq_title', { service: serviceLabel, city: cityName })}
             </h2>
             <Accordion type="single" collapsible className="w-full space-y-2">
                 {faqs.map((faq, index) => (
