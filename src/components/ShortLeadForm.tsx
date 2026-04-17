@@ -32,12 +32,18 @@ interface Props {
 const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => {
     const { t } = useTranslation();
 
+    const normalizedService = service 
+        ? service.replace(/-/g, '_') 
+        : '';
+
     const form = useForm<ShortLeadValues>({
         resolver: zodResolver(shortLeadSchema),
         defaultValues: {
             fullName: '',
             mobileNumber: '',
-            requirement: service || '', // Pre-fill service if provided
+            requirement: (['life_insurance', 'health_insurance', 'motor_insurance', 'policy_revival', 'loan_help'].includes(normalizedService) 
+                ? normalizedService 
+                : (service?.includes('insurance') ? 'life_insurance' : '')) as any, 
         },
     });
 
@@ -78,7 +84,7 @@ const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => 
                 <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-white/10 backdrop-blur-xl border border-white/20 p-6 rounded-3xl shadow-2xl relative overflow-hidden"
+                    className="bg-slate-900/40 backdrop-blur-2xl border border-white/10 p-6 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative overflow-hidden"
                 >
                     {/* Subtle Glow Background */}
                     <div className="absolute -top-20 -right-20 w-40 h-40 bg-accent/20 rounded-full blur-3xl pointer-events-none" />

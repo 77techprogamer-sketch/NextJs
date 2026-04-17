@@ -38,8 +38,13 @@ const WhatsAppWidget = () => {
         } else if (path.includes('policy-revival')) {
             message = "Hi, I want to revive my lapsed LIC policy. Can you help?";
         } else if (path.includes('locations')) {
-            const city = path.split('/').pop()?.replace(/-/g, ' ');
-            message = `Hi, I am looking for insurance support in ${city}.`;
+            const parts = path.split('/').filter(Boolean);
+            // Expected: ['locations', 'state', 'city', 'service'] or ['hi', 'locations', 'state', 'city', 'service']
+            const locationsIndex = parts.indexOf('locations');
+            const cityPart = parts[locationsIndex + 2]?.replace(/-/g, ' ');
+            const servicePart = parts[locationsIndex + 3]?.replace(/-/g, ' ');
+            
+            message = `Hi, I am looking for ${servicePart || 'insurance'} support in ${cityPart || 'my city'}.`;
         }
 
         const encodedMessage = encodeURIComponent(message);

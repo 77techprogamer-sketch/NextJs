@@ -10,6 +10,8 @@ import { ChevronRight, ArrowRight, MapPin, Grid, ShieldCheck, Clock, Award, Land
 import ServiceCityFAQSection from '@/components/ServiceCityFAQSection'
 import { CITY_CONTENT_OVERRIDES } from '@/data/cityContentOverrides'
 import StickyLeadButtons from '@/components/StickyLeadButtons'
+import SuccessStories from '@/components/SuccessStories'
+import WhatsAppWidget from '@/components/WhatsAppWidget'
 import ShortLeadForm from '@/components/ShortLeadForm'
 import { getServerSideTranslation, getLocalizedName } from '@/lib/i18n-server'
 
@@ -266,6 +268,10 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                         serviceCategory={serviceCategory}
                     />
 
+                    <div className="mt-16 pt-16 border-t border-slate-100 dark:border-slate-800">
+                        <SuccessStories />
+                    </div>
+
                     <div className="grid md:grid-cols-2 gap-12 mt-16 py-12 border-t border-slate-100 dark:border-slate-800">
                         <div>
                             <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
@@ -325,6 +331,8 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                     </div>
                 </div>
             </main>
+            <WhatsAppWidget />
+            <StickyLeadButtons />
         </React.Fragment>
     )
 }
