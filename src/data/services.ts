@@ -9,6 +9,7 @@ export const services = [
     'ulip-plans',
     'wedding-insurance',
     'cyber-insurance',
+    'lic-agent',
 ];
 
 export const serviceDescriptions: Record<string, string> = {
@@ -22,6 +23,7 @@ export const serviceDescriptions: Record<string, string> = {
     'ulip-plans': 'The power of investment combined with the security of insurance. Optimize your wealth growth while keeping your life cover intact.',
     'wedding-insurance': 'Shield your big day from unforeseen cancellations, property damage, or liability issues, ensuring your celebration remains stress-free.',
     'cyber-insurance': 'Protect your digital identity and finances against growing cyber threats, phishing attacks, and data breaches in an increasingly connected world.',
+    'lic-agent': 'Connect with certified LIC insurance advisors to manage your portfolio, revive lapsed policies, and ensure seamless claim settlements with regular policy servicing.',
 };
 
 export const serviceHighlights: Record<string, string[]> = {
@@ -35,6 +37,7 @@ export const serviceHighlights: Record<string, string[]> = {
     'ulip-plans': ['Market-Linked Growth', 'Insurance Security', 'Fund Switching Flexibility'],
     'wedding-insurance': ['Cancellation Protection', 'Property Damage Cover', 'Liability Shield'],
     'cyber-insurance': ['Phishing Attack Cover', 'Data Breach Protection', 'Digital ID Security'],
+    'lic-agent': ['Certified LIC Advisors', 'Policy Servicing Support', 'Doorstep Consultations'],
 };
 
 export const serviceLabels: Record<string, string> = {
@@ -48,4 +51,5 @@ export const serviceLabels: Record<string, string> = {
     'ulip-plans': 'ULIP Plans',
     'wedding-insurance': 'Wedding Insurance',
     'cyber-insurance': 'Cyber Insurance',
+    'lic-agent': 'Insurance Advisor',
 };

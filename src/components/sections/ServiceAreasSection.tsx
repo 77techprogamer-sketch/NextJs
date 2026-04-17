@@ -39,7 +39,7 @@ const ServiceAreasSection = () => {
                     </h2>
                     <p className="text-muted-foreground max-w-2xl mx-auto">
                         We provide dedicated doorstep assistance, claims support, and policy renewals in the following major cities.
-                        Looking for local expertise? Connect with our <Link href="/locations/bangalore/lic-agent" className="text-primary hover:underline">LIC agent in Bangalore</Link> or <Link href="/locations/bangalore/health-insurance" className="text-primary hover:underline">health insurance advisor in Bangalore</Link>.
+                        Looking for local expertise? Connect with our <Link href="/locations/karnataka/bangalore/lic-agent" className="text-primary hover:underline">LIC agent in Bangalore</Link> or <Link href="/locations/karnataka/bangalore/health-insurance" className="text-primary hover:underline">health insurance advisor in Bangalore</Link>.
                     </p>
                 </div>
 
@@ -47,7 +47,7 @@ const ServiceAreasSection = () => {
                     {visibleCities.map((city, index) => (
                         <Link
                             key={city.slug}
-                            href={`/locations/${city.slug}`}
+                            href={`/locations/${city.state}/${city.slug}/life-insurance`}
                             className="block group"
                         >
                             <ScrollReveal animation="fade-up" delay={index * 0.05} width="100%">

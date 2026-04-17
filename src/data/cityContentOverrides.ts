@@ -32,6 +32,16 @@ export const CITY_CONTENT_OVERRIDES: Record<string, CityOverride> = {
         ],
         localContext: "Based out of Jalahalli, our core team has served over 15,000 clients across Bangalore, from Whitefield to Electronic City."
     },
+    bangalore: {
+        summary: "Expert guidance for health and life insurance in Bangalore. Specialized support for IT employees (Manyata, Electronic City) and doorstep document coordination for senior citizens in Jayanagar and Indiranagar.",
+        facts: [
+            "Network support for Manipal, Apollo, and Fortis Bangalore.",
+            "Specialized 'Super Top-up' plans for IT Corridor employees.",
+            "Doorstep policy audits and claim coordination for seniors.",
+            "Physically proximity to LIC Residency Road & J.C. Road branches."
+        ],
+        localContext: "Medical inflation in Bangalore is at 15%, making personal health covers a necessity over corporate GHI."
+    },
     hyderabad: {
         summary: "The Pearl City's growing IT and pharma sectors have led to a surge in high-value term insurance and comprehensive health cover requirements.",
         facts: [
