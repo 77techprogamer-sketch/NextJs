@@ -34,6 +34,8 @@ const LanguageSwitcher = () => {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setSelectedLanguage(lng);
+    // Persist language in cookie for server-side rendering
+    document.cookie = `i18nextLng=${lng};path=/;max-age=31536000`; // 1 year
   };
 
   if (!mounted) return null;

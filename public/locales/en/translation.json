@@ -139,6 +139,14 @@
   "call_now": "Call Now",
   "call_our_support_team": "Call our expert support team directly for urgent matters.",
   "call_us": "Call Us",
+  "buy_insurance": "Buy Insurance",
+  "buy_policy": "Buy Policy",
+  "claim_settlement_success": "98.5% Claim Settlement Success",
+  "common": {
+    "read": "Read",
+    "chat_now": "Chat Now",
+    "error_loading_stats": "Failed to load visitor statistics."
+  },
   "cancel": "Cancel",
   "cancellation_cover": "Cancellation Cover",
   "cancellation_cover_description": "Protects your wedding investments if the event is canceled or postponed.",
@@ -1337,5 +1345,104 @@
   "your_full_name": "Your Full Name",
   "your_gender": "Your Gender",
   "your_risk_score": "Your Risk Score",
-  "synced_leads": "Successfully synced {{count}} leads."
+  "synced_leads": "Successfully synced {{count}} leads.",
+  "blog": {
+    "meta_title": "Expert Insurance Blog | Claims, LIC, & Health Advice",
+    "meta_desc": "Practical guides and expert insights on insurance claim recovery, LIC policy revival, and health insurance disputes in India.",
+    "hero_title": "Insurance Support Insights",
+    "hero_desc": "Expert guidance to help you navigate the complex world of insurance in India.",
+    "featured_article": "Featured Article",
+    "read_full_article": "Read Full Article",
+    "no_articles_found": "No articles found. Please check back later.",
+    "latest_articles": "Latest Articles",
+    "need_advice_title": "Need personalized advice?",
+    "need_advice_desc": "Our experts are available to help you with claim rejections, policy updates, and customized insurance planning."
+  },
+  "visitors": {
+    "total_visits": "{{count}} total visits",
+    "last_visit": "Last visit {{distance}}",
+    "currently_online": "{{count}} currently online"
+  },
+  "contact": {
+    "meta_title": "Contact Insurance Advisor India | Call, WhatsApp & Free Consultation — Insurance Support",
+    "meta_desc": "Contact our IRDAI-certified insurance advisors for free expert help with claims, policy revival, health insurance disputes, and new policy quotes. Call +91 99866 34506 or WhatsApp us. Response within 2 hours.",
+    "hero_badge": "Available Mon–Sat, 9 AM – 8 PM IST",
+    "hero_title_1": "Contact Our",
+    "hero_title_2": "Insurance Experts",
+    "hero_desc": "Get free, no-obligation advice from IRDAI-certified insurance advisors with 25+ years of experience. Whether you need help with a rejected claim, a lapsed LIC policy, health insurance dispute, or want to buy a new policy — we respond within 2 hours.",
+    "call_us": "Call Us",
+    "tap_to_call": "Tap to call directly",
+    "whatsapp": "WhatsApp",
+    "instant_messaging_support": "Instant messaging support",
+    "email": "Email",
+    "for_detailed_inquiries": "For detailed inquiries",
+    "office": "Office",
+    "help_with_title": "What Can We Help You With?",
+    "help_with_desc": "Our advisors handle the full spectrum of insurance needs. Contact us for any of the following — your first consultation is always free.",
+    "help_items": [
+      "Rejected health insurance claim appeal",
+      "LIC death claim denial or delay",
+      "Lapsed policy revival (5–15+ years old)",
+      "Lost policy bond recovery & duplicate issuance",
+      "New life, health, or term insurance quotes",
+      "Motor insurance claim dispute resolution",
+      "LIC maturity settlement & TDS queries",
+      "IRDAI complaint & Ombudsman filing",
+      "Corporate group health insurance claims",
+      "Policy loan against LIC or life insurance",
+      "Cashless hospitalization assistance",
+      "Annual policy portfolio health check-up"
+    ],
+    "what_happens_title": "What Happens After You Contact Us?",
+    "steps": [
+      { "title": "We Respond Within 2 Hours", "desc": "A qualified insurance advisor — not a call center — calls you back to understand your situation in detail." },
+      { "title": "Free Case Assessment", "desc": "We review your policy documents, rejection letters, or coverage needs and provide a clear action plan with realistic timelines." },
+      { "title": "You Decide, No Pressure", "desc": "Our consultation is 100% free with zero obligation. If you choose to proceed, we handle all paperwork and branch visits on your behalf." }
+    ],
+    "business_hours_title": "Business Hours",
+    "mon_sat": "Monday – Saturday",
+    "sunday": "Sunday",
+    "emergency_only": "Emergency claim support only",
+    "languages": "Languages",
+    "send_query_title": "Send Us Your Query",
+    "send_query_desc": "Fill this form and an expert advisor will contact you within 2 hours.",
+    "areas_serve_title": "Areas We Serve Across India",
+    "areas_serve_desc": "While our office is in Bengaluru, we provide full insurance advisory and claim recovery support across all major cities in India through phone, WhatsApp, and video consultations. Our doorstep service is available across Bangalore Urban.",
+    "view_all_locations": "View All Locations We Serve →",
+    "faq_title": "Frequently Asked Questions About Contacting Us",
+    "faqs": [
+      { "q": "How quickly will I get a response?", "a": "We respond to all inquiries within 2 hours during business hours (Mon–Sat, 9 AM – 8 PM IST). For urgent claim emergencies like hospitalization, we provide immediate phone support." },
+      { "q": "Is the initial consultation really free?", "a": "Yes, absolutely. Your first consultation — whether by phone, WhatsApp, video call, or in-person — is completely free with zero obligation. We assess your situation, explain options, and only proceed if you choose to." },
+      { "q": "What information should I have ready before calling?", "a": "For the best consultation, keep handy: your policy number, rejection/delay letters from the insurer, medical records (for health claims), and Aadhaar/PAN for KYC. Don't worry if you're missing documents — we help locate lost paperwork too." },
+      { "q": "Do you provide support across India or only Bangalore?", "a": "While our physical office is in Bangalore, we provide full remote support across India via phone, WhatsApp, and video calls. We've handled claim recoveries for clients in Mumbai, Delhi, Hyderabad, Chennai, Pune, Kolkata, and 25+ other cities." }
+    ],
+    "final_cta_title": "Don't Let Your Claim Slip Away",
+    "final_cta_desc": "Every day you wait, the insurance company gets further from settling your claim. Talk to an expert today — the consultation is free, and we've recovered ₹50Cr+ for families just like yours.",
+    "call_now": "Call Now: +91 99866 34506",
+    "whatsapp_us": "WhatsApp Us"
+  },
+  "hlv_page": {
+    "meta_title": "Human Life Value (HLV) Calculator | How much Insurance do you need?",
+    "meta_desc": "Calculate your Human Life Value (HLV) free. Find out the exact life insurance cover you need to secure your family's future based on your income and liabilities.",
+    "title": "Human Life Value (HLV) Calculator",
+    "description": "Most people are under-insured. Use this scientific calculator to find out the exact amount your family would need to maintain their lifestyle if you weren't there.",
+    "what_is_title": "What is Human Life Value (HLV)?",
+    "what_is_desc": "Human Life Value (HLV) is a numeric value that represents your economic worth to your family. In insurance terms, it is the amount of money your family would need to replace your future earnings and pay off all liabilities if something were to happen to you today.",
+    "importance_title": "Why is HLV important?",
+    "importance_items": [
+      "It prevents <strong>Under-Insurance</strong>: Many people buy random policies (e.g., ₹5 Lakhs) which are insufficient.",
+      "It accounts for <strong>Inflation</strong>: Your family's expenses will grow over time.",
+      "It covers <strong>Liabilities</strong>: Home loans, personal loans, and children's education costs are factored in."
+    ],
+    "how_calc_title": "How is it calculated?",
+    "how_calc_desc": "We use the Income Replacement Method adjusted for inflation and liabilities:"
+  },
+  "recovery_page": {
+    "meta_title": "Lost Policy Recovery Tool — Find Your Insurance Policy Number",
+    "meta_desc": "Free tool to recover lost or forgotten LIC, health, and life insurance policy numbers. Search by name, PAN, or Aadhaar. Expert assistance for duplicate policy bonds."
+  },
+  "scorecard_page": {
+    "meta_title": "Free Insurance Risk Scorecard — Assess Your Coverage Gaps",
+    "meta_desc": "Take a free 2-minute quiz to find hidden gaps in your insurance coverage. Get a personalized risk score and expert recommendations for Life, Health, and Motor insurance."
+  }
 }

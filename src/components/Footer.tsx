@@ -112,7 +112,7 @@ const Footer = () => {
             <TrustBadges />
             <div className="flex items-center gap-2 text-primary font-semibold">
               <Award className="h-5 w-5 text-accent" />
-              <span>98.5% Claim Settlement Success</span>
+              <span>{t("claim_settlement_success")}</span>
             </div>
           </div>
 

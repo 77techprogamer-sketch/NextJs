@@ -6,9 +6,11 @@ import { Eye, Users } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 import { showError } from '@/utils/toast'; // Import showError for user feedback
 
 const VisitorCounter = () => {
+  const { t } = useTranslation();
   const [totalVisits, setTotalVisits] = useState<number | null>(null);
   const [uniqueVisitors, setUniqueVisitors] = useState<number | null>(null);
   const [lastVisit, setLastVisit] = useState<string | null>(null);
@@ -20,7 +22,7 @@ const VisitorCounter = () => {
 
     if (error) {
       console.error('Error fetching visitor stats:', error.message);
-      showError("Failed to load visitor statistics.");
+      showError(t('common.error_loading_stats'));
     } else if (data && data.length > 0) {
       const stats = data[0];
       setTotalVisits(stats.total_visits);
@@ -31,7 +33,7 @@ const VisitorCounter = () => {
         setLastVisit(null);
       }
     }
-  }, []);
+  }, [t]);
 
   useEffect(() => {
     // We only fetch stats here. ALL logging is handled globally by VisitorTracker.tsx
@@ -85,16 +87,16 @@ const VisitorCounter = () => {
 
   return (
     <div className={containerClasses}>
-      <div className="flex items-center" title="Total visits">
+      <div className="flex items-center" title={t('visitors.total_visits', { count: totalVisits })}>
         <Eye className="h-4 w-4 mr-2" />
         <div className="flex flex-col items-start">
-          <span>{totalVisits} total visits</span>
-          {lastVisit && <span className="text-muted-foreground">Last visit {lastVisit}</span>}
+          <span>{t('visitors.total_visits', { count: totalVisits })}</span>
+          {lastVisit && <span className="text-muted-foreground">{t('visitors.last_visit', { distance: lastVisit })}</span>}
         </div>
       </div>
-      <div className="flex items-center" title="Visitors currently online">
+      <div className="flex items-center" title={t('visitors.currently_online', { count: onlineCount })}>
         <Users className="h-4 w-4 mr-2 text-green-500" />
-        <span>{onlineCount} currently online</span>
+        <span>{t('visitors.currently_online', { count: onlineCount })}</span>
       </div>
     </div>
   );
