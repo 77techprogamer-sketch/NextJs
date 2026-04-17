@@ -1,11 +1,9 @@
-"use client";
-import React, { useState, useEffect } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Globe } from 'lucide-react';
+import { useRouter, usePathname } from 'next/navigation';
 
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
+  const router = useRouter();
+  const pathname = usePathname();
   const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
   const [mounted, setMounted] = useState(false);
 
@@ -18,24 +16,42 @@ const LanguageSwitcher = () => {
     setSelectedLanguage(i18n.language);
   }, [i18n.language]);
 
-  const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'hi', name: 'हिंदी (Hindi)' },
-    { code: 'bn', name: 'বাংলা (Bengali)' },
-    { code: 'mr', name: 'मराठी (Marathi)' },
-    { code: 'te', name: 'తెలుగు (Telugu)' },
-    { code: 'ta', name: 'தமிழ் (Tamil)' },
-    { code: 'gu', name: 'ગુજરાતી (Gujarati)' },
-    { code: 'kn', name: 'ಕನ್ನಡ (Kannada)' },
-    { code: 'ml', name: 'മലയാളം (Malayalam)' },
-    { code: 'pa', name: 'ਪੰਜਾਬੀ (Punjabi)' },
-  ];
+  const SUPPORTED_LANGS = ['hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'];
 
   const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
     setSelectedLanguage(lng);
+    
+    // Calculate new path based on sub-path routing
+    let newPath = pathname;
+    const pathParts = pathname.split('/');
+    const firstSegment = pathParts[1];
+
+    if (SUPPORTED_LANGS.includes(firstSegment)) {
+        // Current path is already localized (e.g., /hi/about)
+        if (lng === 'en') {
+            // Switch to English: remove the locale segment
+            newPath = '/' + pathParts.slice(2).join('/');
+        } else {
+            // Switch to another locale: replace the locale segment
+            pathParts[1] = lng;
+            newPath = pathParts.join('/');
+        }
+    } else {
+        // Current path is English (root)
+        if (lng !== 'en') {
+            // Switch to another locale: add the locale segment
+            newPath = `/${lng}${pathname === '/' ? '' : pathname}`;
+        }
+    }
+
     // Persist language in cookie for server-side rendering
     document.cookie = `i18nextLng=${lng};path=/;max-age=31536000`; // 1 year
+    
+    // Navigate to the new path
+    router.push(newPath || '/');
+    
+    // Trigger i18n change (for client-side components)
+    i18n.changeLanguage(lng);
   };
 
   if (!mounted) return null;

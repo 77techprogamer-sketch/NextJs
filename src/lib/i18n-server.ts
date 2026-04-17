@@ -17,13 +17,19 @@ export async function getServerSideTranslation(lng?: string) {
     
     if (!lang) {
         try {
-            const cookieStore = cookies();
-            lang = cookieStore.get('i18nextLng')?.value;
+            // Priority 1: Check if locale was passed via internal rewrite header
+            lang = headers().get('x-next-locale') || undefined;
+            
+            // Priority 2: Check cookie
+            if (!lang) {
+                const cookieStore = cookies();
+                lang = cookieStore.get('i18nextLng')?.value;
+            }
         } catch (e) {
             // cookies() might fail if not called in a request context
         }
         
-        // Fallback to Accept-Language header
+        // Priority 3: Fallback to Accept-Language header
         if (!lang || !SUPPORTED_LANGS.includes(lang)) {
             try {
                 const acceptLang = headers().get('accept-language');

@@ -39,6 +39,26 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
         }
     }
 
+    // 2.5. Locale Sub-path Detection (e.g., /hi/about -> /about with locale context)
+    const SUPPORTED_LANGS = ['hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa']; 
+    const pathname = request.nextUrl.pathname;
+    const pathnameParts = pathname.split('/');
+    const firstSegment = pathnameParts[1];
+    
+    let localeInPath: string | null = null;
+    let rewrittenUrl: URL | null = null;
+
+    if (SUPPORTED_LANGS.includes(firstSegment)) {
+        localeInPath = firstSegment;
+        // Construct the internal rewrite URL (removing the locale prefix)
+        const newPathname = '/' + pathnameParts.slice(2).join('/');
+        rewrittenUrl = new URL(newPathname || '/', request.url);
+        // Preserve search params
+        request.nextUrl.searchParams.forEach((value, key) => {
+            rewrittenUrl?.searchParams.set(key, value);
+        });
+    }
+
     // 3. Get IP
     const ip = request.ip || request.headers.get('x-forwarded-for') || '127.0.0.1';
 
@@ -115,7 +135,17 @@ export async function middleware(request: NextRequest, event: NextFetchEvent) {
     const currentCityRaw = request.headers.get('x-vercel-ip-city') || '';
     const currentCity = currentCityRaw ? decodeURIComponent(currentCityRaw).trim().toLowerCase() : '';
 
-    let response = NextResponse.next();
+    // Initialize response (either as a rewrite or standard next())
+    let response = rewrittenUrl 
+        ? NextResponse.rewrite(rewrittenUrl) 
+        : NextResponse.next();
+    
+    // If we're on a localized path, signal the locale to the server components
+    if (localeInPath) {
+        response.headers.set('x-next-locale', localeInPath);
+        // Persist for future visits (even if they go back to root domain)
+        response.cookies.set('i18nextLng', localeInPath, { path: '/', maxAge: 86400 * 365 });
+    }
     
     // Pass bot status to client to prevent client-side logging for bots
     if (isBot) {

@@ -10,7 +10,10 @@ import { Calculator, IndianRupee, RefreshCcw, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import QuoteForm from '@/components/QuoteForm';
 
+import { useTranslation } from 'react-i18next';
+
 export default function HLVCalculator() {
+    const { t, i18n } = useTranslation();
     const [step, setStep] = useState(1);
     const [result, setResult] = useState<number | null>(null);
 
@@ -27,12 +30,6 @@ export default function HLVCalculator() {
     const [showConsultation, setShowConsultation] = useState(false);
 
     const calculateHLV = () => {
-        // Simple HLV formula:
-        // 1. Calculate Surplus Income (Income - Personal Expenses)
-        // 2. Project this surplus for remaining years adjusting for inflation/interest (Simplified as direct multiplier for basic tool, or PV formula)
-        // Let's use a Present Value formula assuming investment return matches inflation (Real rate ~0-1% for safety) or simple multiplier.
-        // Insurance advisors often use: (Annual Income * Years Left) + Loans - Savings. Let's add slight sophistication.
-
         const yearsLeft = retirementAge - age;
         if (yearsLeft <= 0) {
             setResult(0);
@@ -40,21 +37,24 @@ export default function HLVCalculator() {
         }
 
         const yearlySurplus = annualIncome * (1 - personalExpenses / 100);
-
-        // Present Value of future earnings annuity (assuming 8% investment return, 6% inflation => ~2% real rate)
-        // PV = PMT * [1 - (1 + r)^-n] / r
-        // r = 0.02
         const realRate = 0.02;
         const incomePV = yearlySurplus * (1 - Math.pow(1 + realRate, -yearsLeft)) / realRate;
-
-        // Total HLV = IncomePV + Liabilities - Existing Assets
         const hlv = Math.round(incomePV + loans - savings);
 
         setResult(hlv > 0 ? hlv : 0);
+
+        // Track in GA if available
+        if (typeof window !== 'undefined' && (window as any).gtag) {
+            (window as any).gtag('event', 'calculator_used', {
+                'event_category': 'tools',
+                'event_label': 'hlv_calculator',
+                'value': hlv
+            });
+        }
     };
 
     const formatCurrency = (amt: number) => {
-        return new Intl.NumberFormat('en-IN', {
+        return new Intl.NumberFormat(i18n.language === 'hi' ? 'hi-IN' : 'en-IN', {
             style: 'currency',
             currency: 'INR',
             maximumFractionDigits: 0
@@ -68,16 +68,16 @@ export default function HLVCalculator() {
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                         <Calculator className="h-5 w-5 text-primary" />
-                        Calculate Your HLV
+                        {t('hlv_calc_title', 'Calculate Your HLV')}
                     </CardTitle>
-                    <CardDescription>Adjust the values to match your financial profile.</CardDescription>
+                    <CardDescription>{t('hlv_calc_subtitle', 'Adjust the values to match your financial profile.')}</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
 
                     <div className="space-y-2">
                         <div className="flex justify-between">
-                            <Label>Current Age: <span className="text-primary font-bold">{age}</span></Label>
-                            <Label>Retire at: <span className="text-primary font-bold">{retirementAge}</span></Label>
+                            <Label>{t('current_age', 'Current Age')}: <span className="text-primary font-bold">{age}</span></Label>
+                            <Label>{t('retire_at', 'Retire at')}: <span className="text-primary font-bold">{retirementAge}</span></Label>
                         </div>
                         <Slider
                             value={[age]}
@@ -91,7 +91,7 @@ export default function HLVCalculator() {
                     </div>
 
                     <div className="space-y-2">
-                        <Label>Annual Income (₹)</Label>
+                        <Label>{t('annual_income', 'Annual Income')} (₹)</Label>
                         <Input
                             type="number"
                             value={annualIncome}
@@ -101,7 +101,7 @@ export default function HLVCalculator() {
                     </div>
 
                     <div className="space-y-2">
-                        <Label>Outstanding Loans (₹) <span className="text-xs text-muted-foreground">(Home, Car, Personal)</span></Label>
+                        <Label>{t('outstanding_loans', 'Outstanding Loans')} (₹) <span className="text-xs text-muted-foreground">{t('loans_sublabel', '(Home, Car, Personal)')}</span></Label>
                         <Input
                             type="number"
                             value={loans}
@@ -110,7 +110,7 @@ export default function HLVCalculator() {
                     </div>
 
                     <div className="space-y-2">
-                        <Label>Existing Savings/Investments (₹)</Label>
+                        <Label>{t('existing_savings', 'Existing Savings/Investments')} (₹)</Label>
                         <Input
                             type="number"
                             value={savings}
@@ -119,8 +119,8 @@ export default function HLVCalculator() {
                     </div>
 
                     <div className="pt-4">
-                        <Button onClick={calculateHLV} size="lg" className="w-full text-lg shadow-md hover:shadow-xl transition-all">
-                            Calculate My Value
+                        <Button onClick={calculateHLV} size="lg" className="w-full text-lg shadow-md hover:shadow-xl transition-all font-bold">
+                            {t('calculate_btn', 'Calculate My Value')}
                         </Button>
                     </div>
 
@@ -140,24 +140,24 @@ export default function HLVCalculator() {
                             <Card className="bg-slate-900 text-white border-0 shadow-2xl relative overflow-hidden">
                                 <div className="absolute top-0 right-0 p-32 bg-primary/20 blur-[100px] rounded-full"></div>
                                 <CardHeader>
-                                    <CardDescription className="text-slate-300">Your Recommended Insurance Cover</CardDescription>
+                                    <CardDescription className="text-slate-300">{t('recommended_cover', 'Your Recommended Insurance Cover')}</CardDescription>
                                     <CardTitle className="text-4xl md:text-5xl font-bold text-primary">
                                         {formatCurrency(result)}
                                     </CardTitle>
                                 </CardHeader>
                                 <CardContent>
                                     <p className="text-slate-300 mb-6">
-                                        To ensure your family maintains their current lifestyle relative to inflation, this is the corpus they would need today.
+                                        {t('hlv_result_desc', 'To ensure your family maintains their current lifestyle relative to inflation, this is the corpus they would need today.')}
                                     </p>
 
                                     <div className="bg-white/10 p-4 rounded-lg mb-6 backdrop-blur-sm">
                                         <div className="flex justify-between items-center mb-2">
-                                            <span className="text-sm font-medium">Income Protection</span>
-                                            <span className="text-green-400 font-bold">Included</span>
+                                            <span className="text-sm font-medium">{t('income_protection', 'Income Protection')}</span>
+                                            <span className="text-green-400 font-bold">{t('included', 'Included')}</span>
                                         </div>
                                         <div className="flex justify-between items-center">
-                                            <span className="text-sm font-medium">Loan Coverage</span>
-                                            <span className="text-green-400 font-bold">Included</span>
+                                            <span className="text-sm font-medium">{t('loan_coverage', 'Loan Coverage')}</span>
+                                            <span className="text-green-400 font-bold">{t('included', 'Included')}</span>
                                         </div>
                                     </div>
 
@@ -168,7 +168,7 @@ export default function HLVCalculator() {
                                             size="lg"
                                             className="w-full font-bold"
                                         >
-                                            Get Quote for this Amount <ArrowRight className="ml-2 h-4 w-4" />
+                                            {t('get_quote_btn', 'Get Quote for this Amount')} <ArrowRight className="ml-2 h-4 w-4" />
                                         </Button>
                                     ) : (
                                         <motion.div
@@ -176,7 +176,7 @@ export default function HLVCalculator() {
                                             animate={{ opacity: 1, height: 'auto' }}
                                         >
                                             <div className="bg-white text-slate-900 p-4 rounded-xl">
-                                                <h4 className="font-bold mb-4">Get Expert Assistance</h4>
+                                                <h4 className="font-bold mb-4">{t('get_expert_assistance', 'Get Expert Assistance')}</h4>
                                                 <QuoteForm insuranceType="life_insurance" />
                                             </div>
                                         </motion.div>
@@ -188,8 +188,8 @@ export default function HLVCalculator() {
                         <Card className="bg-slate-50 border-dashed border-2 flex items-center justify-center h-[400px]">
                             <div className="text-center p-6 text-muted-foreground">
                                 <Calculator className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                                <h3 className="text-xl font-semibold mb-2">Ready to Calculate?</h3>
-                                <p>Enter your details on the left to see your comprehensive Human Life Value analysis.</p>
+                                <h3 className="text-xl font-semibold mb-2">{t('ready_to_calc', 'Ready to Calculate?')}</h3>
+                                <p>{t('ready_to_calc_desc', 'Enter your details on the left to see your comprehensive Human Life Value analysis.')}</p>
                             </div>
                         </Card>
                     )}

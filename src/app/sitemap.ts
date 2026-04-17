@@ -16,6 +16,15 @@ const fourteenDaysAgo = new Date(now.getTime() - 14 * 24 * 60 * 60 * 1000).toISO
 const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000).toISOString()
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+    const getAlternates = (route: string) => {
+        return {
+            languages: {
+                en: `${BASE_URL}${route}`,
+                hi: `${BASE_URL}/hi${route}`,
+            },
+        };
+    };
+
     // 1. Core Static Routes (High Authority)
     const staticRoutes = [
         '',
@@ -37,6 +46,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: route === '' ? todayISO : fourteenDaysAgo,
         changeFrequency: (route === '' ? 'daily' : 'weekly') as 'daily' | 'weekly',
         priority: route === '' || route === '/locations' || route === '/services' ? 1.0 : 0.8,
+        alternates: getAlternates(route),
     }))
 
     // 2. Primary Service Hubs
@@ -45,6 +55,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: fourteenDaysAgo,
         changeFrequency: 'weekly' as const,
         priority: 0.9,
+        alternates: getAlternates(`/services/${slug}`),
     }))
 
     // 3. State Hub Routes (The New Hierarchy)
@@ -54,17 +65,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: sevenDaysAgo,
         changeFrequency: 'weekly' as const,
         priority: 0.9,
+        alternates: getAlternates(`/locations/${state}`),
     }))
 
     // 4. Programmatic Service Matrix (1,400+ Pages)
     const matrixRoutes: MetadataRoute.Sitemap = []
     INDIAN_LOCATIONS.forEach(loc => {
         Object.keys(serviceLabels).forEach(service => {
+            const route = `/locations/${loc.state}/${loc.city}/${service}`;
             matrixRoutes.push({
-                url: `${BASE_URL}/locations/${loc.state}/${loc.city}/${service}`,
+                url: `${BASE_URL}${route}`,
                 lastModified: thirtyDaysAgo,
                 changeFrequency: 'monthly' as const,
                 priority: 0.8,
+                alternates: getAlternates(route),
             })
         })
     })
@@ -75,6 +89,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: blog.date || sevenDaysAgo,
         changeFrequency: 'monthly' as const,
         priority: 0.85,
+        alternates: getAlternates(`/blog/${blog.slug}`),
     }))
 
     // 6. FAQ & Resource Discovery
@@ -83,6 +98,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: sevenDaysAgo,
         changeFrequency: 'monthly' as const,
         priority: 0.75,
+        alternates: getAlternates(`/resources/faq/${faq.slug}`),
     }))
 
     // 7. Dynamic Expert Guides (Filesystem discovery)
@@ -99,6 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
                 lastModified: sevenDaysAgo,
                 changeFrequency: 'weekly' as const,
                 priority: 0.9,
+                alternates: getAlternates(`/resources/guides/${folder}`),
             }))
         }
     } catch (err) {
@@ -120,6 +137,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: fourteenDaysAgo,
         changeFrequency: 'weekly' as const,
         priority: 0.8,
+        alternates: getAlternates(route),
     }))
 
     return [
