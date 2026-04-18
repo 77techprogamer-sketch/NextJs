@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { ShieldCheck, Award } from 'lucide-react';
 const Footer = () => {
@@ -34,9 +34,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("footer_quick_links", "Quick Links")}</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/support" className="hover:text-primary transition-colors">{t("support")}</Link></li>
-              <li><Link to="/privacy-policy" className="hover:text-primary transition-colors">{t("privacy_policy")}</Link></li>
-              <li><Link to="/terms-of-service" className="hover:text-primary transition-colors">{t("terms_of_service")}</Link></li>
+              <li><Link href="/support" className="hover:text-primary transition-colors">{t("support")}</Link></li>
+              <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">{t("privacy_policy")}</Link></li>
+              <li><Link href="/terms-of-service" className="hover:text-primary transition-colors">{t("terms_of_service")}</Link></li>
             </ul>
           </div>
           <div className="text-center sm:text-left">

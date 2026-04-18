@@ -129,8 +129,8 @@ function EditRowView({
             } else if (dataType.includes('array')) {
               // Non-nullable array, set to empty array
               const jsonObj = JSON.stringify({ [key]: [] })
-              formattedValue = `(select ${key} from json_populate_record(null::public."${
-                table.name
+              formattedValue = `(select "${key.replace(/"/g, '""')}" from json_populate_record(null::public."${
+                table.name.replace(/"/g, '""')
               }", '${jsonObj.replace(/'/g, "''")}'))`
             } else {
               // Non-nullable text field, set to empty string
@@ -139,14 +139,14 @@ function EditRowView({
           } else if (Array.isArray(value) && value.length === 0) {
             // Explicitly empty array (different from null)
             const jsonObj = JSON.stringify({ [key]: [] })
-            formattedValue = `(select ${key} from json_populate_record(null::public."${
-              table.name
+            formattedValue = `(select "${key.replace(/"/g, '""')}" from json_populate_record(null::public."${
+              table.name.replace(/"/g, '""')
             }", '${jsonObj.replace(/'/g, "''")}'))`
           } else if (dataType.includes('array')) {
             // Array type with actual values - use json_populate_record syntax
             const jsonObj = JSON.stringify({ [key]: value })
-            formattedValue = `(select ${key} from json_populate_record(null::public."${
-              table.name
+            formattedValue = `(select "${key.replace(/"/g, '""')}" from json_populate_record(null::public."${
+              table.name.replace(/"/g, '""')
             }", '${jsonObj.replace(/'/g, "''")}'))`
           } else if (dataType === 'user-defined' && column?.enums) {
             // Handle enum values - treat as strings with proper escaping
@@ -157,7 +157,7 @@ function EditRowView({
             formattedValue = value
           }
 
-          return `"${key}" = ${formattedValue}`
+          return `"${key.replace(/"/g, '""')}" = ${formattedValue}`
         })
         .filter(Boolean)
         .join(', ')
@@ -173,11 +173,11 @@ function EditRowView({
           const value = row[pk]
           const formattedValue =
             typeof value === 'string' ? `'${value.replace(/'/g, "''")}'` : value
-          return `"${pk}" = ${formattedValue}`
+          return `"${pk.replace(/"/g, '""')}" = ${formattedValue}`
         })
         .join(' AND ')
 
-      const updateSql = `UPDATE public."${table.name}" SET ${setClauses} WHERE ${whereClauses};`
+      const updateSql = `UPDATE public."${table.name.replace(/"/g, '""')}" SET ${setClauses} WHERE ${whereClauses};`
 
       runUpdateQuery({ projectRef, query: updateSql, readOnly: false }, { onSuccess })
     },

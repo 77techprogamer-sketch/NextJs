@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ThemeToggle } from './theme-toggle';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslation } from 'react-i18next';
@@ -43,7 +43,7 @@ const Header = () => {
   return (
     <header className="w-full bg-background shadow-sm sticky top-0 z-10 border-b">
       <div className="container mx-auto px-4 h-16 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")}>
+        <Link href="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")}>
           <div className="h-8 w-8 bg-primary rounded flex items-center justify-center group-hover:bg-accent transition-colors">
             <ShieldCheck className="h-5 w-5 text-white" />
           </div>

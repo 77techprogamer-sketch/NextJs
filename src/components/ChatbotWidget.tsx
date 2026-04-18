@@ -4,7 +4,7 @@ import React, { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, UserCheck } from "lucide-react";
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 import {
   Dialog,
   DialogContent,
@@ -18,20 +18,19 @@ const BASE_CHATBOT_URL = "https://udify.app/chat/uHzY4hhQTioH4pFK";
 
 const ChatbotWidget = () => {
   const { t } = useTranslation();
-  const location = useLocation();
+  const pathname = usePathname() || '/';
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
   const chatbotUrl = useMemo(() => {
     const url = new URL(BASE_CHATBOT_URL);
 
-    // Detect service from URL path (e.g., /services/health_insurance)
-    const serviceMatch = location.pathname.match(/\/services\/([^/]+)/);
+    const serviceMatch = pathname.match(/\/services\/([^/]+)/);
     const serviceKey = serviceMatch ? serviceMatch[1] : null;
 
     let context = FORM_CONFIGS[serviceKey || ""]?.chatbotContext;
 
     // Fallback to general inquiry if on home page
-    if (!context && location.pathname === '/') {
+    if (!context && pathname === '/') {
       context = FORM_CONFIGS["general_inquiry"]?.chatbotContext;
     }
 
@@ -40,7 +39,7 @@ const ChatbotWidget = () => {
     }
 
     return url.toString();
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <>

@@ -3,7 +3,7 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { LucideIcon } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { useTranslation } from 'react-i18next'; // Import useTranslation
 import { formatLabel, normalizeUIValue } from '@/utils/formatText';
 
@@ -17,7 +17,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, icon: Icon, href }) =>
   const { t } = useTranslation(); // Initialize useTranslation
 
   return (
-    <Link to={href} className="block">
+    <Link href={href} className="block">
       <Card
         className="flex flex-col items-center text-center p-4 cursor-pointer hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-105"
       >

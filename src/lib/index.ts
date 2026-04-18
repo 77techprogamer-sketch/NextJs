@@ -26,7 +26,7 @@ export function listTablesSql(schemas: string[] = []) {
   sql += '\n'
 
   if (schemas.length > 0) {
-    sql += `where schema in (${schemas.map((s) => `'${s}'`).join(',')})`
+    sql += `where schema in (${schemas.map((s) => `'${s.replace(/'/g, "''")}'`).join(',')})`
   } else {
     sql += `where schema not in (${SYSTEM_SCHEMAS.map((s) => `'${s}'`).join(',')})`
   }

@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate from react-router-dom
+import { useRouter } from 'next/navigation';
 
 const GeoBlocker = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
 
   useEffect(() => {
     const checkIpReputation = async () => {
@@ -29,7 +29,7 @@ const GeoBlocker = () => {
 
           if (IS_SEVERE) {
             console.warn(`Access blocked: IP ${ip} is severely blacklisted (freq: ${frequency}, conf: ${confidence}%)`);
-            navigate('/blocked');
+            router.push('/blocked');
           }
         }
       } catch (error) {
@@ -39,7 +39,7 @@ const GeoBlocker = () => {
     };
 
     checkIpReputation();
-  }, [navigate]);
+  }, [router]);
 
   return null; // Never render anything — this is a background check only
 };
