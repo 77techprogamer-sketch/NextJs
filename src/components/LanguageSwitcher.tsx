@@ -6,11 +6,13 @@ import { Globe } from 'lucide-react';
 
 const LanguageSwitcher = () => {
   const { i18n, t } = useTranslation();
-  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language ? i18n.language.split('-')[0] : 'en');
 
   // Update selected language when i18n language changes
   useEffect(() => {
-    setSelectedLanguage(i18n.language);
+    if (i18n.language) {
+      setSelectedLanguage(i18n.language.split('-')[0]);
+    }
   }, [i18n.language]);
 
   const languages = [
