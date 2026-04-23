@@ -1,4 +1,4 @@
-{
+﻿{
   "hero_title": "ವಿಸ್ತೃತ ವಿಮೆಗಾಗಿ ನಿಮ್ಮ ನಂಬಿಕೆಯ ಭಾಗಿದಾರ",
   "get_a_free_quote": "ಉಚಿತ ಉದ್ಧರಣಿಯನ್ನು ಪಡೆಯಿರಿ",
   "chat_with_expert": "ತಜ್ಞರೊಂದಿಗೆ ಚಾಟ್ ಮಾಡಿ",
@@ -243,5 +243,18 @@
   "faq_cyber_q1": "ಸೈಬರ್ ವಿಮೆಯು ಸೋಶಿಯಲ್ ಮೀಡಿಯಾ ಹ್ಯಾಕಿಂಗ್ ಅನ್ನು ಒಳಗೊಳ್ಳುತ್ತದೆಯೇ?",
   "faq_cyber_a1": "ಹೌದು, ಕೆಲವು ವೈಯಕ್ತಿಕ ಸೈಬರ್ ವಿಮಾ ಯೋಜನೆಗಳು ಸೋಶಿಯಲ್ ಮೀಡಿಯಾ ಖಾತೆ ಹ್ಯಾಕಿಂಗ್‌ಗೆ ರಕ್ಷಣೆ ಮತ್ತು ಮರುಪಡೆಯುವಿಕೆ ಸಹಾಯವನ್ನು ನೀಡುತ್ತವೆ.",
   "faq_cyber_q2": "ಆನ್‌ಲೈನ್ ಶಾಪಿಂಗ್ ವಂಚನೆಯು ಕವರೇಜ್ ಅಡಿಯಲ್ಲಿ ಬರುತ್ತದೆಯೇ?",
-  "faq_cyber_a2": "ಹೌದು, ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಫಿಶಿಂಗ್, ಗುರುತಿನ ಕಳ್ಳತನ ಮತ್ತು ಅನಧಿಕೃತ ಆನ್‌ಲೈನ್ ವಹಿವಾಟುಗಳಿಂದ ಉಂಟಾಗುವ ಆರ್ಥಿಕ ನಷ್ಟವನ್ನು ಒಳಗೊಳ್ಳುತ್ತದೆ."
+  "faq_cyber_a2": "ಹೌದು, ಇದು ಸಾಮಾನ್ಯವಾಗಿ ಫಿಶಿಂಗ್, ಗುರುತಿನ ಕಳ್ಳತನ ಮತ್ತು ಅನಧಿಕೃತ ಆನ್‌ಲೈನ್ ವಹಿವಾಟುಗಳಿಂದ ಉಂಟಾಗುವ ಆರ್ಥಿಕ ನಷ್ಟವನ್ನು ಒಳಗೊಳ್ಳುತ್ತದೆ.",
+  "location_meta_title": "{{service}} Advisor in {{city}}, {{state}} | Insurance Support",
+  "location_meta_desc": "Get expert {{service}} support in {{city}}, {{state}}. IRDAI-certified advisor with 25+ years experience. Cashless claims, policy revival, and doorstep help.",
+  "location_meta_desc_expert": "Expert insurance advisory in {{city}} — claim recovery, policy revival, LIC support. 25+ years of IRDAI-certified expertise serving all of {{state}}.",
+  "service_in_city": "{{service}} in {{city}}",
+  "location_page": {
+    "why_best_in_city": "Why We're the Best Insurance Advisors in {{city}}",
+    "get_expert_assistance_title": "Get Expert Insurance Assistance in {{city}}",
+    "get_expert_assistance_desc": "Our IRDAI-certified advisors in {{city}} are available for doorstep service, claim filing, policy revival, and free consultation. Call us now at 9986634506.",
+    "local_support_h3": "Local Insurance Support in {{city}}, {{state}}",
+    "navigating_insurance_p1": "Navigating insurance claims and policy management in {{city}} can be complex. Our local advisors have direct liaison with regional insurance offices to fast-track your requests.",
+    "service_covers_p2": "Whether you need cashless hospitalization support, LIC claim settlement, or motor insurance renewal — we cover it all across {{city}} and the surrounding areas of {{state}}.",
+    "nearby_cities_in_state": "Other Cities We Serve in {{state}}"
+  }
 }

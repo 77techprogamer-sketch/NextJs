@@ -69,7 +69,7 @@ const Header = () => {
               {serviceKeys.map((key) => (
                 <DropdownMenuItem key={key} asChild>
                   <Link
-                    to={`/services/${slugify(key)}`} // Link to individual service page
+                    href={`/services/${slugify(key)}`}
                     className="cursor-pointer"
                   >
                     {formatLabel(t(key))}
@@ -80,7 +80,7 @@ const Header = () => {
           </DropdownMenu>
 
           <Link
-            to="/support"
+            href="/support"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
           >
             {t("support")}

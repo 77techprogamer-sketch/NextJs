@@ -1,4 +1,4 @@
-{
+﻿{
   "hero_title": "বিস্তৃত বীমার জন্য আপনার বিশ্বস্ত সহযোগী",
   "get_a_free_quote": "একটি ফ্রি উদ্ধৃতি পান",
   "chat_with_expert": "একজন বিশেষজ্ঞের সাথে চ্যাট করুন",
@@ -243,5 +243,18 @@
   "faq_cyber_q1": "সাইবার বীমা কি সোশ্যাল মিডিয়া হ্যাকিং কভার করে?",
   "faq_cyber_a1": "হ্যাঁ, কিছু ব্যক্তিগত সাইবার বীমা পরিকল্পনা সোশ্যাল মিডিয়া অ্যাকাউন্ট হ্যাকিংয়ের জন্য সুরক্ষা এবং পুনরুদ্ধার সহায়তা প্রদান করে।",
   "faq_cyber_q2": "অনলাইন কেনাকাটায় জালিয়াতি কি কভার করা হয়?",
-  "faq_cyber_a2": "হ্যাঁ, এটি সাধারণত ফিশিং, পরিচয় চুরি এবং অননুমোদিত অনলাইন লেনদেনের ফলে হওয়া আর্থিক ক্ষতি কভার করে।"
+  "faq_cyber_a2": "হ্যাঁ, এটি সাধারণত ফিশিং, পরিচয় চুরি এবং অননুমোদিত অনলাইন লেনদেনের ফলে হওয়া আর্থিক ক্ষতি কভার করে।",
+  "location_meta_title": "{{service}} Advisor in {{city}}, {{state}} | Insurance Support",
+  "location_meta_desc": "Get expert {{service}} support in {{city}}, {{state}}. IRDAI-certified advisor with 25+ years experience. Cashless claims, policy revival, and doorstep help.",
+  "location_meta_desc_expert": "Expert insurance advisory in {{city}} — claim recovery, policy revival, LIC support. 25+ years of IRDAI-certified expertise serving all of {{state}}.",
+  "service_in_city": "{{service}} in {{city}}",
+  "location_page": {
+    "why_best_in_city": "Why We're the Best Insurance Advisors in {{city}}",
+    "get_expert_assistance_title": "Get Expert Insurance Assistance in {{city}}",
+    "get_expert_assistance_desc": "Our IRDAI-certified advisors in {{city}} are available for doorstep service, claim filing, policy revival, and free consultation. Call us now at 9986634506.",
+    "local_support_h3": "Local Insurance Support in {{city}}, {{state}}",
+    "navigating_insurance_p1": "Navigating insurance claims and policy management in {{city}} can be complex. Our local advisors have direct liaison with regional insurance offices to fast-track your requests.",
+    "service_covers_p2": "Whether you need cashless hospitalization support, LIC claim settlement, or motor insurance renewal — we cover it all across {{city}} and the surrounding areas of {{state}}.",
+    "nearby_cities_in_state": "Other Cities We Serve in {{state}}"
+  }
 }

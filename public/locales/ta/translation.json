@@ -1,4 +1,4 @@
-{
+﻿{
   "hero_title": "விரிவான காப்பீட்டிற்கான உங்கள் நம்பகமான பங்காளி",
   "get_a_free_quote": "இலவச விலை கோரவும்",
   "chat_with_expert": "ஒரு நிபுணருடன் அரட்டையடிக்கவும்",
@@ -243,5 +243,18 @@
   "faq_cyber_q1": "சைபர் காப்பீடு சமூக ஊடக ஹேக்கிங்கை உள்ளடக்குமா?",
   "faq_cyber_a1": "ஆம், சில தனிநபர் சைபர் காப்பீட்டுத் திட்டங்கள் சமூக ஊடக கணக்கு ஹேக்கிங்கிற்கு பாதுகாப்பு மற்றும் மீட்டெடுப்பு உதவியை வழங்குகின்றன.",
   "faq_cyber_q2": "ஆன்லைன் ஷாப்பிங் மோசடி காப்பீட்டில் வருமா?",
-  "faq_cyber_a2": "ஆம், இது பொதுவாக ஃபிஷிங், அடையாளத் திருட்டு மற்றும் அங்கீகரிக்கப்படாத ஆன்லைன் பரிவர்த்தனைகளால் ஏற்படும் நிதி இழப்புகளை ஈடுசெய்யும்."
+  "faq_cyber_a2": "ஆம், இது பொதுவாக ஃபிஷிங், அடையாளத் திருட்டு மற்றும் அங்கீகரிக்கப்படாத ஆன்லைன் பரிவர்த்தனைகளால் ஏற்படும் நிதி இழப்புகளை ஈடுசெய்யும்.",
+  "location_meta_title": "{{service}} Advisor in {{city}}, {{state}} | Insurance Support",
+  "location_meta_desc": "Get expert {{service}} support in {{city}}, {{state}}. IRDAI-certified advisor with 25+ years experience. Cashless claims, policy revival, and doorstep help.",
+  "location_meta_desc_expert": "Expert insurance advisory in {{city}} — claim recovery, policy revival, LIC support. 25+ years of IRDAI-certified expertise serving all of {{state}}.",
+  "service_in_city": "{{service}} in {{city}}",
+  "location_page": {
+    "why_best_in_city": "Why We're the Best Insurance Advisors in {{city}}",
+    "get_expert_assistance_title": "Get Expert Insurance Assistance in {{city}}",
+    "get_expert_assistance_desc": "Our IRDAI-certified advisors in {{city}} are available for doorstep service, claim filing, policy revival, and free consultation. Call us now at 9986634506.",
+    "local_support_h3": "Local Insurance Support in {{city}}, {{state}}",
+    "navigating_insurance_p1": "Navigating insurance claims and policy management in {{city}} can be complex. Our local advisors have direct liaison with regional insurance offices to fast-track your requests.",
+    "service_covers_p2": "Whether you need cashless hospitalization support, LIC claim settlement, or motor insurance renewal — we cover it all across {{city}} and the surrounding areas of {{state}}.",
+    "nearby_cities_in_state": "Other Cities We Serve in {{state}}"
+  }
 }

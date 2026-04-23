@@ -1,4 +1,4 @@
-{
+﻿{
   "hero_title": "విస్తృత బీమా కోసం మీ నమ్మకమైన భాగస్వామి",
   "get_a_free_quote": "ఉచిత కోట్ పొందండి",
   "chat_with_expert": "నిపుణుడితో చాట్ చేయండి",
@@ -243,5 +243,18 @@
   "faq_cyber_q1": "సైబర్ బీమా సోషల్ మీడియా హ్యాకింగ్‌ను కవర్ చేస్తుందా?",
   "faq_cyber_a1": "అవును, కొన్ని వ్యక్తిగత సైబర్ బీమా ప్లాన్‌లు సోషల్ మీడియా ఖాతా హ్యాకింగ్‌ కోసం రక్షణ మరియు రికవరీ సహాయాన్ని అందిస్తాయి.",
   "faq_cyber_q2": "ఆన్‌లైన్ షాపింగ్ మోసం కవర్ చేయబడుతుందా?",
-  "faq_cyber_a2": "అవును, ఇది సాధారణంగా ఫిషింగ్, ఐడెంటిటీ థెఫ్ట్ మరియు అనధికారిక ఆన్‌లైన్ లావాదేవీల వల్ల కలిగే ఆర్థిక నష్టాలను కవర్ చేస్తుంది."
+  "faq_cyber_a2": "అవును, ఇది సాధారణంగా ఫిషింగ్, ఐడెంటిటీ థెఫ్ట్ మరియు అనధికారిక ఆన్‌లైన్ లావాదేవీల వల్ల కలిగే ఆర్థిక నష్టాలను కవర్ చేస్తుంది.",
+  "location_meta_title": "{{service}} Advisor in {{city}}, {{state}} | Insurance Support",
+  "location_meta_desc": "Get expert {{service}} support in {{city}}, {{state}}. IRDAI-certified advisor with 25+ years experience. Cashless claims, policy revival, and doorstep help.",
+  "location_meta_desc_expert": "Expert insurance advisory in {{city}} — claim recovery, policy revival, LIC support. 25+ years of IRDAI-certified expertise serving all of {{state}}.",
+  "service_in_city": "{{service}} in {{city}}",
+  "location_page": {
+    "why_best_in_city": "Why We're the Best Insurance Advisors in {{city}}",
+    "get_expert_assistance_title": "Get Expert Insurance Assistance in {{city}}",
+    "get_expert_assistance_desc": "Our IRDAI-certified advisors in {{city}} are available for doorstep service, claim filing, policy revival, and free consultation. Call us now at 9986634506.",
+    "local_support_h3": "Local Insurance Support in {{city}}, {{state}}",
+    "navigating_insurance_p1": "Navigating insurance claims and policy management in {{city}} can be complex. Our local advisors have direct liaison with regional insurance offices to fast-track your requests.",
+    "service_covers_p2": "Whether you need cashless hospitalization support, LIC claim settlement, or motor insurance renewal — we cover it all across {{city}} and the surrounding areas of {{state}}.",
+    "nearby_cities_in_state": "Other Cities We Serve in {{state}}"
+  }
 }

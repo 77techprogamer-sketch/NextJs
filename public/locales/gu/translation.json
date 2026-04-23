@@ -1,4 +1,4 @@
-{
+﻿{
   "hero_title": "વિસ્તૃત વીમા માટે તમારો વિશ્વસનીય ભાગીદાર",
   "get_a_free_quote": "એક મફત અંદાજ મેળવો",
   "chat_with_expert": "એક નિષ્ણાત સાથે ચૅટ કરો",
@@ -231,5 +231,18 @@
   "faq_cyber_q1": "શું સાયબર વીમો સોશિયલ મીડિયા હેકિંગને આવરી લે છે?",
   "faq_cyber_a1": "હા, કેટલીક વ્યક્તિગત યોજનાઓ તેમાં મદદ પૂરી પાડે છે।",
   "faq_cyber_q2": "શું ઓનલાઇન શોપિંગ ફ્રોડ કવર છે?",
-  "faq_cyber_a2": "હા, તે સામાન્ય રીતે ફિશિંગ અને ઓળખની ચોરીથી થતા નુકસાનને આવરી લે છે।"
+  "faq_cyber_a2": "હા, તે સામાન્ય રીતે ફિશિંગ અને ઓળખની ચોરીથી થતા નુકસાનને આવરી લે છે।",
+  "location_meta_title": "{{service}} Advisor in {{city}}, {{state}} | Insurance Support",
+  "location_meta_desc": "Get expert {{service}} support in {{city}}, {{state}}. IRDAI-certified advisor with 25+ years experience. Cashless claims, policy revival, and doorstep help.",
+  "location_meta_desc_expert": "Expert insurance advisory in {{city}} — claim recovery, policy revival, LIC support. 25+ years of IRDAI-certified expertise serving all of {{state}}.",
+  "service_in_city": "{{service}} in {{city}}",
+  "location_page": {
+    "why_best_in_city": "Why We're the Best Insurance Advisors in {{city}}",
+    "get_expert_assistance_title": "Get Expert Insurance Assistance in {{city}}",
+    "get_expert_assistance_desc": "Our IRDAI-certified advisors in {{city}} are available for doorstep service, claim filing, policy revival, and free consultation. Call us now at 9986634506.",
+    "local_support_h3": "Local Insurance Support in {{city}}, {{state}}",
+    "navigating_insurance_p1": "Navigating insurance claims and policy management in {{city}} can be complex. Our local advisors have direct liaison with regional insurance offices to fast-track your requests.",
+    "service_covers_p2": "Whether you need cashless hospitalization support, LIC claim settlement, or motor insurance renewal — we cover it all across {{city}} and the surrounding areas of {{state}}.",
+    "nearby_cities_in_state": "Other Cities We Serve in {{state}}"
+  }
 }
