@@ -10,6 +10,8 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
+import { cityData } from '@/data/cityData';
+import { slugify } from '@/utils/slugify';
 
 const LocationPromptModal = () => {
     const { t } = useTranslation();
@@ -30,12 +32,20 @@ const LocationPromptModal = () => {
                 const data = await response.json();
                 const { city, country_code } = data; 
 
-                // Only prompt if they are in India and we successfully extracted a city
-                if (country_code !== 'IN' || !city) {
+                // Slugify detected city
+                const citySlug = slugify(city);
+                
+                // Find matching city in our data (checking by slug or name)
+                const supportedCityKey = Object.keys(cityData).find(
+                    key => cityData[key].slug === citySlug || slugify(cityData[key].name) === citySlug
+                );
+
+                // Only prompt if they are in India and the city is supported in our database
+                if (country_code !== 'IN' || !city || !supportedCityKey) {
                     return;
                 }
 
-                setDetectedCity(city);
+                setDetectedCity(supportedCityKey); // Store the key instead of raw city string
                 setIsOpen(true);
             } catch (error) {
                 console.error('Location Detection failed:', error);
@@ -47,14 +57,12 @@ const LocationPromptModal = () => {
     }, []);
 
     const handleConfirm = () => {
-        if (detectedCity) {
-            // Slugify the city name (e.g., "New Delhi" -> "new-delhi")
-            const slug = detectedCity.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+        if (detectedCity && cityData[detectedCity]) {
+            const cityInfo = cityData[detectedCity];
+            const stateSlug = slugify(cityInfo.state);
             
-            // Explicitly use window.location.href instead of React Router navigate. 
-            // This forces a hard browser redirect so Vercel can route the request 
-            // to the Next.js location pages, bypassing the Vite SPA shell.
-            window.location.href = `/locations/${slug}`;
+            // Redirect using the canonical 3-segment URL schema
+            window.location.href = `/locations/${stateSlug}/${cityInfo.slug}`;
         }
         localStorage.setItem('location_prompt_shown', 'true');
         setIsOpen(false);
@@ -82,7 +90,7 @@ const LocationPromptModal = () => {
                         <DialogTitle>{t('location_prompt_title', 'Local Services Available')}</DialogTitle>
                     </div>
                     <DialogDescription className="pt-2">
-                        {t('location_prompt_description', `We detected you are visiting from ${detectedCity}. Would you like to view insurance services specific to your city?`)}
+                        {t('location_prompt_description', `We detected you are visiting from ${detectedCity ? cityData[detectedCity]?.name : ''}. Would you like to view insurance services specific to your city?`)}
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="flex flex-col sm:flex-row gap-2 mt-4">
@@ -90,7 +98,7 @@ const LocationPromptModal = () => {
                         {t('location_prompt_dismiss', 'No, stay here')}
                     </Button>
                     <Button onClick={handleConfirm} className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 order-1 sm:order-2">
-                        {t('location_prompt_confirm', `View ${detectedCity} Services`)}
+                        {t('location_prompt_confirm', `View ${detectedCity ? cityData[detectedCity]?.name : ''} Services`)}
                     </Button>
                 </DialogFooter>
             </DialogContent>
