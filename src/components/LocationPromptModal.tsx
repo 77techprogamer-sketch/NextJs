@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { MapPin } from 'lucide-react';
-import { cityData } from '@/data/cityData';
+import { INDIAN_LOCATIONS } from '@/data/indianCities';
 import { slugify } from '@/utils/slugify';
 
 const LocationPromptModal = () => {
@@ -35,17 +35,17 @@ const LocationPromptModal = () => {
                 // Slugify detected city
                 const citySlug = slugify(city);
                 
-                // Find matching city in our data (checking by slug or name)
-                const supportedCityKey = Object.keys(cityData).find(
-                    key => cityData[key].slug === citySlug || slugify(cityData[key].name) === citySlug
+                // Find matching city in our data (checking by city slug or name)
+                const supportedCity = INDIAN_LOCATIONS.find(
+                    loc => loc.city === citySlug || slugify(loc.name) === citySlug
                 );
 
                 // Only prompt if they are in India and the city is supported in our database
-                if (country_code !== 'IN' || !city || !supportedCityKey) {
+                if (country_code !== 'IN' || !city || !supportedCity) {
                     return;
                 }
 
-                setDetectedCity(supportedCityKey); // Store the key instead of raw city string
+                setDetectedCity(supportedCity.city); // Store the slug
                 setIsOpen(true);
             } catch (error) {
                 console.error('Location Detection failed:', error);
@@ -57,12 +57,10 @@ const LocationPromptModal = () => {
     }, []);
 
     const handleConfirm = () => {
-        if (detectedCity && cityData[detectedCity]) {
-            const cityInfo = cityData[detectedCity];
-            const stateSlug = slugify(cityInfo.state);
-            
+        const cityInfo = INDIAN_LOCATIONS.find(loc => loc.city === detectedCity);
+        if (cityInfo) {
             // Redirect using the canonical 3-segment URL schema
-            window.location.href = `/locations/${stateSlug}/${cityInfo.slug}`;
+            window.location.href = `/locations/${cityInfo.state}/${cityInfo.city}`;
         }
         localStorage.setItem('location_prompt_shown', 'true');
         setIsOpen(false);
@@ -90,7 +88,7 @@ const LocationPromptModal = () => {
                         <DialogTitle>{t('location_prompt_title', 'Local Services Available')}</DialogTitle>
                     </div>
                     <DialogDescription className="pt-2">
-                        {t('location_prompt_description', `We detected you are visiting from ${detectedCity ? cityData[detectedCity]?.name : ''}. Would you like to view insurance services specific to your city?`)}
+                        {t('location_prompt_description', `We detected you are visiting from ${detectedCity ? INDIAN_LOCATIONS.find(loc => loc.city === detectedCity)?.name : ''}. Would you like to view insurance services specific to your city?`)}
                     </DialogDescription>
                 </DialogHeader>
                 <DialogFooter className="flex flex-col sm:flex-row gap-2 mt-4">
@@ -98,7 +96,7 @@ const LocationPromptModal = () => {
                         {t('location_prompt_dismiss', 'No, stay here')}
                     </Button>
                     <Button onClick={handleConfirm} className="w-full sm:w-auto bg-primary text-white hover:bg-primary/90 order-1 sm:order-2">
-                        {t('location_prompt_confirm', `View ${detectedCity ? cityData[detectedCity]?.name : ''} Services`)}
+                        {t('location_prompt_confirm', `View ${detectedCity ? INDIAN_LOCATIONS.find(loc => loc.city === detectedCity)?.name : ''} Services`)}
                     </Button>
                 </DialogFooter>
             </DialogContent>
