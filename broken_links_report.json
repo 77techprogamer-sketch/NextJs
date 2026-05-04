@@ -1,0 +1,4179 @@
+{
+  "timestamp": "2026-05-04T06:33:38.056Z",
+  "baseUrl": "https://insurancesupport.online",
+  "pagesCrawled": 300,
+  "linksChecked": 1888,
+  "brokenCount": 831,
+  "redirectCount": 2,
+  "broken": [
+    {
+      "url": "https://insurancesupport.online/locations/mumbai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanchipuram",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mysore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/coimbatore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/salem",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tirupati",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jaipur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kochi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/trivandrum",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madurai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/trichy",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vijayawada",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vizag",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/surat",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nagpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhopal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/patna",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/agra",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/amritsar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/dehradun",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jalandhar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ludhiana",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/meerut",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/varanasi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/srinagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/goa",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajkot",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/thane",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/aurangabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhubaneswar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/guwahati",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jamshedpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ranchi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/siliguri",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/belagavi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hubli-dharwad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kozhikode",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/thrissur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gwalior",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jabalpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ujjain",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/visakhapatnam",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pimpri-chinchwad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ghaziabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/faridabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kalyan-dombivli",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vasai-virar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/dhanbad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/navi-mumbai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/allahabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/howrah",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jodhpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kota",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/solapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bareilly",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/moradabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gurgaon",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/aligarh",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tiruchirappalli",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mira-bhayandar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/thiruvananthapuram",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhiwandi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/saharanspur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/guntur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/amravati",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bikaner",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/noida",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhilai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/cuttack",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/firozabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nellore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhavnagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/durgapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/asansol",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rourkela",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nanded",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolhapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/akola",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gulbarga",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jamnagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/loni",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jhansi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ulhasnagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/sangli-miraj-kupwad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/erode",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/belgaum",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ambattur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tirunelveli",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/malegaon",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gaya",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jalgaon",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udaipur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maheshtala",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/davanagere",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/akbarpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kurnool",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajpur-sonarpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bokaro",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/south-dumdum",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bellary",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/patiala",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gopalpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/agartala",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhagalpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/muzaffarnagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhatpara",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/panihati",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/latur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/dhule",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rohtak",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/korba",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhilwara",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/brahmapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/muzaffarpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmednagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mathura",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kollam",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/avadi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kadapa",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kamarhati",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bilaspur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/shahjahanpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/satara",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bijapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rampur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/shimoga",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chandrapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/junagadh",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/alwar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bardhaman",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kulti",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nizamabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/parbhani",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tumkur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/khammam",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uzhavarkarai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bihar-sharif",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/panipat",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/darbhanga",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bally",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/aizawl",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/dewas",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ichalkaranji",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bathinda",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jalna",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/eluru",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/barasat",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kirari-suleman-nagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/purnia",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/satna",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mau",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/sonipat",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/farrukhabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/sagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/durg",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/imphal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ratlam",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/arah",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/anantapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karimnagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/etawah",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ambarnath",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/north-dumdum",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bharatpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/begusarai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/new-delhi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gandhidham",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/baranagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/sikar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/thoothukudi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rew",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mirzapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raichur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pali",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ramagundam",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vizianagaram",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/katihar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/haridwar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/sriganganagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karawal-nagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nagercoil",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mango",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bulandshahr",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/thanjavur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/murwara",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uluberia",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/shillong",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/sambhal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/singrauli",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nadiad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/secunderabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/naihati",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/yamunanagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bidhan-nagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pallavaram",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bidar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/munger",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/panchkula",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/burhanpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kharagpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/dindigul",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gandhinagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hospet",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nangloi-jat",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/malda",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ongole",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/deoghar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chapra",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/haldia",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/khandwa",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nandyal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/morena",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/amroha",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/anand",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhind",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhalswa-jahangir-pur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhyamgram",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhiwani",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/berhampore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ambala",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/morbi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/fatehpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raebareli",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/khora",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chittoor",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bhusawal",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/orai",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bahraich",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/phusro",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mehsana",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raiganj",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/sirsa",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/danapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/serampore",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/sultan-pur-majra",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/guna",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jaunpur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/panvel",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/shivpuri",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/surendranagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/unnc",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hugli-chinsurah",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/lic-agent",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://idzvdeemgxhwlkyphnel.supabase.co/",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/cdn-cgi/l/email-protection",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/contact"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/life-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/health-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/motor-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/term-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/sme-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/sme-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/travel-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/travel-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/pension-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/pension-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/ulip-plans",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/ulip-plans"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-koramangala/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/wedding-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/wedding-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-indiranagar/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-jayanagar/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bangalore-whitefield/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vellore/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hosur/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/lucknow/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/indore/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ajmer/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kanpur/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/nashik/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/vadodara/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/raipur/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-kadri/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-bejai/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mangalore-surathkal/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/udupi-manipal/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/warangal/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-t-nagar/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-anna-nagar/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-velachery/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chennai-adyar/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-hitech-city/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-gachibowli/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-banjara-hills/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/hyderabad-secunderabad/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-hinjewadi/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-viman-nagar/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-kothrud/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/pune-magarpatta/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-andheri/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-bandra/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-south/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mumbai-borivali/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-connaught-place/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-dwarka/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-south/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi-rohini/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-salt-lake/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-new-town/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-ballygunge/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kolkata-park-street/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-satellite/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-vastrapur/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-sg-highway/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/ahmedabad-maninagar/cyber-insurance",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/services/cyber-insurance"
+    }
+  ],
+  "redirects": [
+    {
+      "url": "https://wa.me/919986634506?text=Hi%20Insurance%20Support%20team%2C%20I%20need%20help%20with%20a%20question%20about%20my%20policy.",
+      "status": 302,
+      "location": "https://api.whatsapp.com/send/?phone=919986634506&text=Hi+Insurance+Support+team%2C+I+need+help+with+a+question+about+my+policy.&type=phone_number&app_absent=0",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://share.google/FBw8WZDuh4r3AD5f0",
+      "status": 302,
+      "location": "https://www.google.com/share.google?q=FBw8WZDuh4r3AD5f0",
+      "foundOn": "https://insurancesupport.online/"
+    }
+  ]
+}
