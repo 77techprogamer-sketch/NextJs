@@ -16,9 +16,9 @@ const { URL } = require('url');
 
 // ─── Config ────────────────────────────────────────────────────────────────
 const BASE_URL    = 'https://insurancesupport.online';
-const MAX_PAGES   = 300;   // max pages to crawl (increase for full audit)
-const CONCURRENCY = 20;    // parallel HEAD checks
-const TIMEOUT_MS  = 8000;
+const MAX_PAGES   = 1000;  // max pages to crawl
+const CONCURRENCY = 100;    // high concurrency for speed
+const TIMEOUT_MS  = 10000;
 // ────────────────────────────────────────────────────────────────────────────
 
 const visited   = new Set();   // pages we have crawled
@@ -130,8 +130,8 @@ async function getSitemapUrls() {
       .filter(u => u.includes('sitemap'));
 
     if (subSitemaps.length) {
-      console.log(`Found ${subSitemaps.length} sub-sitemaps, sampling first 5...`);
-      for (const sm of subSitemaps.slice(0, 5)) {
+      console.log(`Found ${subSitemaps.length} sub-sitemaps, processing all...`);
+      for (const sm of subSitemaps) {
         const smText = await fetchHtml(sm);
         if (smText) {
           const found = [...smText.matchAll(/<loc>(.*?)<\/loc>/g)].map(m => m[1].trim());
@@ -164,10 +164,10 @@ async function crawl() {
   ];
   for (const p of seedPages) queue.push(BASE_URL + p);
 
-  // Seed a sample from sitemap
+  // Seed all URLs from sitemap
   const sitemapUrls = await getSitemapUrls();
-  console.log(`Seeded ${sitemapUrls.length} URLs from sitemap (sampling up to 100)...`);
-  for (const u of sitemapUrls.slice(0, 100)) {
+  console.log(`Seeded ${sitemapUrls.length} URLs from sitemap...`);
+  for (const u of sitemapUrls) {
     if (isInternal(u) && isHtmlPage(u)) queue.push(u);
   }
 
