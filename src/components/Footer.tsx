@@ -35,6 +35,8 @@ const Footer = () => {
             <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">{t("footer_quick_links", "Quick Links")}</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/support" className="hover:text-primary transition-colors">{t("support")}</Link></li>
+              <li><Link href="/resources" className="hover:text-primary transition-colors">Expert Resources</Link></li>
+              <li><Link href="/blog" className="hover:text-primary transition-colors">Industry Blog</Link></li>
               <li><Link href="/locations/karnataka/bangalore/life-insurance" className="hover:text-primary transition-colors">Insurance in Bangalore</Link></li>
               <li><Link href="/locations/telangana/hyderabad/health-insurance" className="hover:text-primary transition-colors">Insurance in Hyderabad</Link></li>
               <li><Link href="/locations/tamil-nadu/chennai/motor-insurance" className="hover:text-primary transition-colors">Insurance in Chennai</Link></li>

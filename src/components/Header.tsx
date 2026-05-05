@@ -85,15 +85,13 @@ const Header = () => {
           >
             {t("support")}
           </Link>
-          <a
-            href="https://insurancesupportindia.blogspot.com"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/resources"
             className="text-foreground hover:text-primary transition-colors text-sm sm:text-base"
-            aria-label={t("articles_link")}
+            aria-label={t("resources_link", "Resources")}
           >
-            {t("articles_link")}
-          </a>
+            {t("resources_link", "Resources")}
+          </Link>
           <LanguageSwitcher />
           <ThemeToggle />
         </nav>
