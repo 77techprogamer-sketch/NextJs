@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-05T06:01:07.500Z",
+  "timestamp": "2026-05-05T06:50:52.508Z",
   "baseUrl": "https://insurancesupport.online",
   "pagesCrawled": 1000,
   "linksChecked": 5999,
@@ -34,15 +34,15 @@
   ],
   "redirects": [
     {
-      "url": "https://share.google/FBw8WZDuh4r3AD5f0",
-      "status": 302,
-      "location": "https://www.google.com/share.google?q=FBw8WZDuh4r3AD5f0",
-      "foundOn": "https://insurancesupport.online/"
-    },
-    {
       "url": "https://wa.me/919986634506?text=Hi%20Insurance%20Support%20team%2C%20I%20need%20help%20with%20a%20question%20about%20my%20policy.",
       "status": 302,
       "location": "https://api.whatsapp.com/send/?phone=919986634506&text=Hi+Insurance+Support+team%2C+I+need+help+with+a+question+about+my+policy.&type=phone_number&app_absent=0",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://share.google/FBw8WZDuh4r3AD5f0",
+      "status": 302,
+      "location": "https://www.google.com/share.google?q=FBw8WZDuh4r3AD5f0",
       "foundOn": "https://insurancesupport.online/"
     },
     {

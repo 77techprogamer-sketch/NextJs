@@ -1,5 +1,5 @@
 Broken Link Audit — https://insurancesupport.online
-Run: 2026-05-05T06:01:07.564Z
+Run: 2026-05-05T06:50:52.517Z
 
 Pages crawled : 1000
 Links checked : 5999
@@ -21,8 +21,8 @@ Source: https://insurancesupport.online/sitemap.xml
 
 
 REDIRECTS (first 50):
-  [302] https://share.google/FBw8WZDuh4r3AD5f0 → https://www.google.com/share.google?q=FBw8WZDuh4r3AD5f0
   [302] https://wa.me/919986634506?text=Hi%20Insurance%20Support%20team%2C%20I%20need%20help%20with%20a%20question%20about%20my%20policy. → https://api.whatsapp.com/send/?phone=919986634506&text=Hi+Insurance+Support+team%2C+I+need+help+with+a+question+about+my+policy.&type=phone_number&app_absent=0
+  [302] https://share.google/FBw8WZDuh4r3AD5f0 → https://www.google.com/share.google?q=FBw8WZDuh4r3AD5f0
   [307] https://insurancesupport.online/locations/delhi → /locations/delhi/delhi/life-insurance
   [307] https://insurancesupport.online/hi/locations/delhi → /locations/delhi/delhi/life-insurance
   [308] https://insurancesupport.online/locations/tamil-nadu → /locations/tamil
