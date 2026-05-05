@@ -81,54 +81,104 @@ function slugify(text) {
 const citySlugs = Object.keys(cityToState);
 const domain = "https://insurancesupport.online";
 
+const guideMappings = {
+    "/resources/guides/maturity-claim-guide": "/resources/guides/lic-revival-maturity-masterclass",
+    "/resources/guides/lic-maturity-claim-forms": "/resources/guides/lic-revival-maturity-masterclass",
+    "/resources/guides/neft-mandate-troubleshooting": "/resources/guides/lic-revival-maturity-masterclass",
+    "/resources/guides/lost-lic-policy-help": "/resources/guides/lic-revival-maturity-masterclass",
+    "/resources/guides/health-insurance-rejection-reasons-guide": "/resources/guides/claim-rejection-appeal",
+    "/resources/guides/health-claim-recovery": "/resources/guides/claim-rejection-appeal",
+    "/resources/guides/claim-process": "/resources/guides/claim-rejection-appeal",
+    "/resources/guides/general-insurance-claim": "/resources/guides/general-insurance-claim-process",
+    "/resources/general-insurance-claim-process": "/resources/guides/general-insurance-claim-process",
+    "/resources/claim-recovery-guide": "/resources/guides/claim-recovery-guide",
+    "/resources/guides/lic-policy-revival": "/resources/guides/lapsed-policy-revival",
+    "/resources/national-insurance-claim-process": "/resources/guides/general-insurance-claim-process",
+    "/resources/faq/how-to-revive-lapsed-lic-policy": "/resources/guides/lapsed-policy-revival",
+    "/resources/faq/documents-required-for-death-claim": "/resources/guides/death-claim-settlement",
+    "/resources/faq/cashless-hospitalization-process": "/resources/guides/claim-recovery-guide",
+    "/resources/faq/how-to-claim-insurance-if-rejected": "/resources/guides/claim-rejection-appeal",
+    "/resources/faq/motor-insurance-claim-process": "/resources/guides/general-insurance-claim-process",
+    "/resources/faq/how-to-file-complaint-with-irdai": "/support",
+    "/resources/faq/insurance-ombudsman-complaint": "/support"
+};
+
 function fixContent(content) {
     if (!content) return content;
     let newContent = content;
 
+    // Cleanup phase 1: Fix repeated path segments caused by previous buggy runs
+    newContent = newContent.replace(/resources\/guides\/resources\/guides\//g, 'resources/guides/');
+    newContent = newContent.replace(/general-insurance-claim-process(-process)+/g, 'general-insurance-claim-process');
+
+    const escapedDomain = domain.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+    // 0. Fix specific guide mappings
+    // Sort by length descending to avoid partial matches
+    const sortedGuides = Object.entries(guideMappings).sort((a, b) => b[0].length - a[0].length);
+
+    for (const [legacy, canonical] of sortedGuides) {
+        const escapedLegacy = legacy.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        
+        // Match legacy path ONLY if:
+        // 1. Preceded by domain, quote, parenthesis, or whitespace/start of string
+        // 2. NOT preceded by 'resources/guides' if legacy already starts with 'resources' (to avoid double nesting)
+        // 3. NOT followed by alphanumeric, hyphen, or slash (to ensure full match)
+        
+        // Strict regex for absolute links
+        const absRegex = new RegExp(`${escapedDomain}${escapedLegacy}(?![\\w\\-/])`, 'g');
+        newContent = newContent.replace(absRegex, `${domain}${canonical}`);
+
+        // Strict regex for relative links (quoted or in parens)
+        // Ensure it's not already correct (e.g. don't match /resources/x if it's part of /resources/guides/x)
+        const relRegex = new RegExp(`(["'\\(])${escapedLegacy}(?![\\w\\-/])`, 'g');
+        newContent = newContent.replace(relRegex, `$1${canonical}`);
+        
+        // Also handle cases without /resources prefix if any
+        const legacyNoPrefix = legacy.replace('/resources', '');
+        if (legacyNoPrefix !== legacy) {
+            const escapedNoPrefix = legacyNoPrefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            
+            const absNoPrefixRegex = new RegExp(`${escapedDomain}${escapedNoPrefix}(?![\\w\\-/])`, 'g');
+            newContent = newContent.replace(absNoPrefixRegex, `${domain}${canonical}`);
+
+            const relNoPrefixRegex = new RegExp(`(["'\\(])${escapedNoPrefix}(?![\\w\\-/])`, 'g');
+            newContent = newContent.replace(relNoPrefixRegex, `$1${canonical}`);
+        }
+    }
+
     // 1. Fix [service]-in-[city] patterns
-    // Example: term-insurance-in-bangalore -> locations/karnataka/bangalore/term-insurance
     for (const city of citySlugs) {
         const stateSlug = slugify(cityToState[city]);
+        const statePath = `locations/${stateSlug}`;
+        
         for (const service of services) {
             const legacyPattern = `${service}-in-${city}`;
-            const newUrl = `locations/${stateSlug}/${city}/${service}`;
+            const newUrl = `${statePath}/${city}/${service}`;
             
-            // Fix absolute links
-            newContent = newContent.split(`${domain}/${legacyPattern}`).join(`${domain}/${newUrl}`);
-            // Fix relative links
-            newContent = newContent.split(`/${legacyPattern}`).join(`/${newUrl}`);
-        }
-    }
+            const absPatternRegex = new RegExp(`${escapedDomain}/${legacyPattern}(?![\\w\\-/])`, 'g');
+            newContent = newContent.replace(absPatternRegex, `${domain}/${newUrl}`);
 
-    // 2. Fix locations/[city]/[service] and locations/[city]
-    for (const city of citySlugs) {
-        const stateSlug = slugify(cityToState[city]);
-        
-        // locations/[city]/[service] -> locations/[state]/[city]/[service]
-        for (const service of services) {
-            const legacyPath = `locations/${city}/${service}`;
-            const newPath = `locations/${stateSlug}/${city}/${service}`;
-            newContent = newContent.split(legacyPath).join(newPath);
+            const relPatternRegex = new RegExp(`(["'\\(/])${legacyPattern}(?![\\w\\-/])`, 'g');
+            newContent = newContent.replace(relPatternRegex, `$1${newUrl}`);
         }
 
-        // locations/[city] -> locations/[state]/[city]
-        // This handles cases where it's not followed by a service
-        const legacyPathCity = `locations/${city}`;
-        const newPathCity = `locations/${stateSlug}/${city}`;
+        // Fix locations/${city} -> locations/${state}/${city}
+        // Use negative lookbehind to ensure we don't match if it's already locations/${state}/
+        // But since stateSlug can be multiple words, let's just match locations/${city} 
+        // ONLY if it's NOT already locations/${stateSlug}/${city}
         
-        // Use a safe string replace that doesn't double-replace
-        // We look for patterns like /locations/bangalore but NOT /locations/karnataka/bangalore
-        // Since we already replaced the ones with services, we can replace the remaining ones.
-        // But some services might not have been in the list.
+        const escapedStateSlug = stateSlug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const cityRegex = new RegExp(`(?<!locations\\/${escapedStateSlug}\\/)locations\\/${city}(?![\\w\\-/])`, 'g');
+        newContent = newContent.replace(cityRegex, `locations/${stateSlug}/${city}`);
         
-        // A better way: replace /locations/CITY with /locations/STATE/CITY if STATE is not already there.
-        const regex = new RegExp(`locations/${city}(?!/)`, 'g');
-        newContent = newContent.replace(regex, `locations/${stateSlug}/${city}`);
-        
-        // Also handle the case where it has a trailing slash or is just a root city link
-        const regexRoot = new RegExp(`${domain}/${city}(?!/)`, 'g');
-        newContent = newContent.replace(regexRoot, `${domain}/locations/${stateSlug}/${city}`);
+        const cityAbsRegex = new RegExp(`${escapedDomain}\\/${city}(?![\\w\\-/])`, 'g');
+        newContent = newContent.replace(cityAbsRegex, `${domain}/locations/${stateSlug}/${city}`);
     }
+
+    // Cleanup phase 2: Fix Jammu recursion (and any others)
+    newContent = newContent.replace(/(jammu-and-kashmir\/)+jammu-and-kashmir/g, 'jammu-and-kashmir');
+    newContent = newContent.replace(/locations\/jammu-and-kashmir\/jammu-and-kashmir\//g, 'locations/jammu-and-kashmir/');
 
     return newContent;
 }
@@ -175,4 +225,38 @@ for (const baseDir of rootDirs) {
             }
         }
     }
+
+    // Fix cityData.ts
+    const cityDataPath = path.join(baseDir, 'src/data/cityData.ts');
+    if (fs.existsSync(cityDataPath)) {
+        let content = fs.readFileSync(cityDataPath, 'utf8');
+        let newContent = fixContent(content);
+        if (content !== newContent) {
+            fs.writeFileSync(cityDataPath, newContent);
+            console.log(`Fixed ${cityDataPath}`);
+        }
+    }
+
+    // Fix Header.tsx
+    const headerPath = path.join(baseDir, 'src/components/Header.tsx');
+    if (fs.existsSync(headerPath)) {
+        let content = fs.readFileSync(headerPath, 'utf8');
+        let newContent = fixContent(content);
+        if (content !== newContent) {
+            fs.writeFileSync(headerPath, newContent);
+            console.log(`Fixed ${headerPath}`);
+        }
+    }
+
+    // Fix Footer.tsx
+    const footerPath = path.join(baseDir, 'src/components/Footer.tsx');
+    if (fs.existsSync(footerPath)) {
+        let content = fs.readFileSync(footerPath, 'utf8');
+        let newContent = fixContent(content);
+        if (content !== newContent) {
+            fs.writeFileSync(footerPath, newContent);
+            console.log(`Fixed ${footerPath}`);
+        }
+    }
 }
+
