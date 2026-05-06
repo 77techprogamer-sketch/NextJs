@@ -3,7 +3,7 @@ import { Phone, Mail, MessageCircle, MapPin, Clock, CheckCircle2 } from 'lucide-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { contactConfig } from '@/data/contact';
-import SupportClient from '@/components/SupportClient';
+import QuoteForm from '@/components/QuoteForm';
 import { getServerSideTranslation } from '@/lib/i18n-server';
 
 export async function generateMetadata() {
@@ -199,7 +199,7 @@ export default async function ContactPage() {
                             <div className="bg-white rounded-3xl border border-slate-100 shadow-lg p-8">
                                 <h3 className="text-2xl font-bold text-slate-900 mb-2">{t('contact.send_query_title')}</h3>
                                 <p className="text-slate-500 text-sm mb-6">{t('contact.send_query_desc')}</p>
-                                <SupportClient />
+                                <QuoteForm insuranceType="support_request" />
                             </div>
                         </div>
                     </div>

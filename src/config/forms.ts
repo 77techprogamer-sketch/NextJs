@@ -53,13 +53,29 @@ export const DEFAULT_FORM_CONFIG: InsuranceFormConfig = {
         initialQuery: "I have a general inquiry.",
     },
     fields: [
-        { name: 'sumAssured', labelKey: 'sum_assured', type: 'number', placeholderKey: 'enter_amount', required: true },
         ...QUALIFICATION_FIELDS
     ]
 };
 
 export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
     general_inquiry: DEFAULT_FORM_CONFIG,
+    support_request: {
+        chatbotContext: {
+            initialQuery: "I need support with my insurance policy.",
+        },
+        fields: [
+            { name: 'message', labelKey: 'your_message', type: 'text', placeholderKey: 'how_can_we_help', required: true },
+        ]
+    },
+    claim_support: {
+        chatbotContext: {
+            initialQuery: "I need help with a rejected or delayed claim.",
+        },
+        fields: [
+            { name: 'claimNumber', labelKey: 'claim_number_optional', type: 'text', placeholderKey: 'enter_policy_number' },
+            { name: 'message', labelKey: 'describe_rejection', type: 'text', placeholderKey: 'how_can_we_help', required: true },
+        ]
+    },
     health_insurance: {
         chatbotContext: {
             initialQuery: "I'm looking for Health Insurance options and cover for my family. What do you recommend?",
