@@ -129,51 +129,50 @@ export default async function SupportPage() {
             {/* Support Categories */}
             <section className="py-16 bg-slate-50 border-b border-slate-100">
                 <div className="container px-4 mx-auto">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Choose Your Support Category</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-4">{t('support_page.choose_category_title')}</h2>
                     <p className="text-slate-600 text-lg mb-10 max-w-3xl leading-relaxed">
-                        Select the area where you need help. Each category is handled by specialized advisors who deal with these exact scenarios daily — not generic call center agents.
+                        {t('support_page.choose_category_desc')}
                     </p>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {[
                             {
                                 icon: AlertTriangle,
-                                title: 'Claim Rejected or Denied',
-                                desc: 'Your health, life, or motor insurance claim was rejected citing non-disclosure, waiting period, or policy exclusion. We analyze the rejection letter, identify appeal grounds, and represent you at the Ombudsman level.',
+                                title: t('support_page.categories.rejected.title'),
+                                desc: t('support_page.categories.rejected.desc'),
                                 color: 'red',
                                 link: '/resources/guides/claim-rejection-appeal'
                             },
                             {
                                 icon: Clock,
-                                title: 'Claim Stuck or Delayed',
-                                desc: 'Your claim has been pending for weeks or months with no resolution. We escalate through the insurer\'s GRO, IRDAI Bima Bharosa portal, and Insurance Ombudsman to force a timeline.',
+                                title: t('support_page.categories.stuck.title'),
+                                desc: t('support_page.categories.stuck.desc'),
                                 color: 'amber',
                                 link: '/resources/how-it-works'
                             },
                             {
                                 icon: RefreshCw,
-                                title: 'Lapsed Policy Revival',
-                                desc: 'Revive LIC or private life insurance policies lapsed for 2–15+ years. We identify Special Revival Scheme windows, handle Form 680, and manage the entire branch process.',
+                                title: t('support_page.categories.revival.title'),
+                                desc: t('support_page.categories.revival.desc'),
                                 color: 'blue',
                                 link: '/resources/guides/lapsed-policy-revival'
                             },
                             {
                                 icon: Search,
-                                title: 'Lost Documents & Policy Recovery',
-                                desc: 'Lost your policy bond, maturity intimation, or premium receipts? We handle duplicate policy issuance, indemnity bond drafting, newspaper ad coordination, and branch submissions.',
+                                title: t('support_page.categories.lost_docs.title'),
+                                desc: t('support_page.categories.lost_docs.desc'),
                                 color: 'purple',
                                 link: '/resources/guides/lapsed-policy-revival'
                             },
                             {
                                 icon: Scale,
-                                title: 'IRDAI Complaint & Ombudsman Filing',
-                                desc: 'Need to take your dispute to a higher authority? We prepare Annexure VI-A documentation for Ombudsman admission and file regulatory complaints on the IRDAI Bima Bharosa portal.',
+                                title: t('support_page.categories.ombudsman.title'),
+                                desc: t('support_page.categories.ombudsman.desc'),
                                 color: 'teal',
                                 link: '/resources/guides/irdai-complaint-portal-guide'
                             },
                             {
                                 icon: FileText,
-                                title: 'Policy Renewal & Premium Support',
-                                desc: 'Missed your renewal deadline? Premium too high? Need to switch insurers without losing benefits? We handle renewals, port health insurance, and optimize your premium without reducing coverage.',
+                                title: t('support_page.categories.renewal.title'),
+                                desc: t('support_page.categories.renewal.desc'),
                                 color: 'green',
                                 link: '/services'
                             },
@@ -201,29 +200,29 @@ export default async function SupportPage() {
                 <div className="container px-4 mx-auto">
                     <div className="flex flex-col lg:flex-row gap-16 max-w-6xl mx-auto">
                         <div className="flex-1">
-                            <h2 className="text-3xl font-bold text-slate-900 mb-6">How to Get Support — 3 Simple Steps</h2>
+                            <h2 className="text-3xl font-bold text-slate-900 mb-6">{t('support_page.process_title')}</h2>
                             <p className="text-slate-600 mb-10 leading-relaxed">
-                                We&apos;ve simplified the process so you can get expert help without the bureaucratic runaround. Here&apos;s what happens when you reach out to our support center.
+                                {t('support_page.process_desc')}
                             </p>
                             <div className="space-y-8">
                                 {[
                                     {
                                         step: '1',
-                                        title: 'Describe Your Problem',
-                                        desc: 'Call us, WhatsApp, or fill the support form with a brief description of your insurance issue. Include your policy number if available — but it\'s not mandatory at this stage.',
-                                        detail: 'Response within 2 hours during business hours'
+                                        title: t('support_page.steps.describe.title'),
+                                        desc: t('support_page.steps.describe.desc'),
+                                        detail: t('support_page.steps.describe.detail')
                                     },
                                     {
                                         step: '2',
-                                        title: 'Free Expert Assessment',
-                                        desc: 'A specialized advisor (not a bot) reviews your case, analyzes documents, and provides a clear diagnosis: what went wrong, what your options are, and realistic timelines for resolution.',
-                                        detail: 'Case assessment delivered within 24 hours'
+                                        title: t('support_page.steps.assessment.title'),
+                                        desc: t('support_page.steps.assessment.desc'),
+                                        detail: t('support_page.steps.assessment.detail')
                                     },
                                     {
                                         step: '3',
-                                        title: 'We Take Over From Here',
-                                        desc: 'Once you approve the plan, we handle everything — document collection, branch visits, TPA coordination, grievance filing, and Ombudsman representation. You stay informed via regular status updates.',
-                                        detail: 'Zero branch visits required from you'
+                                        title: t('support_page.steps.execution.title'),
+                                        desc: t('support_page.steps.execution.desc'),
+                                        detail: t('support_page.steps.execution.detail')
                                     },
                                 ].map((item, i) => (
                                     <div key={i} className="flex gap-5">
@@ -242,13 +241,13 @@ export default async function SupportPage() {
                         <div className="lg:w-[420px]">
                             <div className="sticky top-24 space-y-6">
                                 <div className="bg-white rounded-3xl border border-slate-100 shadow-xl p-8">
-                                    <h3 className="text-xl font-bold text-slate-900 mb-2">Submit Support Request</h3>
-                                    <p className="text-sm text-slate-500 mb-6">Describe your issue and an expert advisor will call you within 2 hours.</p>
+                                    <h3 className="text-xl font-bold text-slate-900 mb-2">{t('support_page.form_title')}</h3>
+                                    <p className="text-sm text-slate-500 mb-6">{t('support_page.form_subtitle')}</p>
                                     <QuoteForm insuranceType="support_request" />
                                 </div>
                                 <div className="bg-slate-900 text-white rounded-2xl p-6">
-                                    <h4 className="font-bold text-lg mb-3">Prefer to Talk?</h4>
-                                    <p className="text-slate-400 text-sm mb-4">Skip the form and speak directly to an insurance expert.</p>
+                                    <h4 className="font-bold text-lg mb-3">{t('support_page.talk_title')}</h4>
+                                    <p className="text-slate-400 text-sm mb-4">{t('support_page.talk_subtitle')}</p>
                                     <div className="space-y-3">
                                         <Button size="lg" className="w-full bg-primary hover:bg-primary/90 h-12" asChild>
                                             <a href={`tel:${contactConfig.phoneFull}`}>
@@ -259,7 +258,7 @@ export default async function SupportPage() {
                                         <Button variant="outline" size="lg" className="w-full h-12 text-white border-white/20 hover:bg-white/10" asChild>
                                             <a href={contactConfig.whatsappUrl} target="_blank" rel="noopener noreferrer">
                                                 <MessageCircle className="mr-2 h-5 w-5" />
-                                                WhatsApp Us
+                                                {t('support_page.whatsapp_us')}
                                             </a>
                                         </Button>
                                     </div>
@@ -273,24 +272,24 @@ export default async function SupportPage() {
             {/* FAQ Section */}
             <section className="py-16 bg-slate-50 border-t border-slate-100">
                 <div className="container px-4 mx-auto max-w-4xl">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-8">Common Support Questions</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-8">{t('support_page.faq_title')}</h2>
                     <div className="space-y-4">
                         {[
                             {
-                                q: 'What should I do if my claim has been stuck for months?',
-                                a: 'If your claim hasn\'t been resolved within 30 days, it\'s likely stuck in the insurer\'s process. Contact us with your claim reference number and we\'ll escalate through the Grievance Redressal Officer (GRO), IRDAI Bima Bharosa, or the Insurance Ombudsman depending on the severity.'
+                                q: t('support_page.faqs.stuck.q'),
+                                a: t('support_page.faqs.stuck.a')
                             },
                             {
-                                q: 'Can you help with a claim that was rejected years ago?',
-                                a: 'Yes. The Insurance Ombudsman accepts complaints within one year of the insurer\'s final response. For very old cases (2+ years), consumer court remedies are available. We assess every case individually to determine the best recovery route.'
+                                q: t('support_page.faqs.old.q'),
+                                a: t('support_page.faqs.old.a')
                             },
                             {
-                                q: 'How do I file a complaint against my insurance company?',
-                                a: 'The process involves three levels: (1) Internal Grievance to the insurer\'s GRO — 15-day response window, (2) IRDAI Bima Bharosa portal, and (3) Insurance Ombudsman — a zero-cost, semi-judicial body. We handle the entire process on your behalf.'
+                                q: t('support_page.faqs.how_to.q'),
+                                a: t('support_page.faqs.how_to.a')
                             },
                             {
-                                q: 'What documents do I need for claim support?',
-                                a: 'Requirements vary by case: For health claims — policy copy, rejection letter, discharge summary, and bills. For death claims — death certificate, policy bond, and nominee ID. For revival — policy number and premium history. Don\'t worry if you\'re missing documents — we help locate them.'
+                                q: t('support_page.faqs.docs.q'),
+                                a: t('support_page.faqs.docs.a')
                             },
                         ].map((faq, i) => (
                             <div key={i} className="p-6 bg-white rounded-xl border border-slate-100">
@@ -308,15 +307,15 @@ export default async function SupportPage() {
             {/* Helpful Resources */}
             <section className="py-16 bg-white">
                 <div className="container px-4 mx-auto max-w-5xl">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-8">Helpful Resources</h2>
+                    <h2 className="text-3xl font-bold text-slate-900 mb-8">{t('support_page.resources_title')}</h2>
                     <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {[
-                            { title: 'Claim Rejection Appeal Guide', desc: 'Step-by-step process to reverse a rejected health or life insurance claim.', href: '/resources/guides/claim-rejection-appeal' },
-                            { title: 'Lapsed Policy Revival Guide', desc: 'How to recover frozen value from LIC policies lapsed for 5–15+ years.', href: '/resources/guides/lapsed-policy-revival' },
-                            { title: 'IRDAI Complaint Portal Guide', desc: 'Complete walkthrough of filing complaints on the IRDAI Bima Bharosa portal.', href: '/resources/guides/irdai-complaint-portal-guide' },
-                            { title: 'Death Claim Settlement Guide', desc: 'Documents, process, and timelines for life insurance death claim settlement.', href: '/resources/guides/death-claim-settlement' },
-                            { title: 'Cashless Hospitalization Guide', desc: 'How to avail cashless claims at network hospitals without delays.', href: '/resources/guides/cashless-hospitalization-guide' },
-                            { title: 'Lost LIC Policy Recovery', desc: 'Recover lost policy bonds, get duplicates issued, and access frozen maturity funds.', href: '/resources/guides/lapsed-policy-revival' },
+                            { title: t('support_page.resource_list.rejection_guide.title'), desc: t('support_page.resource_list.rejection_guide.desc'), href: '/resources/guides/claim-rejection-appeal' },
+                            { title: t('support_page.resource_list.revival_guide.title'), desc: t('support_page.resource_list.revival_guide.desc'), href: '/resources/guides/lapsed-policy-revival' },
+                            { title: t('support_page.resource_list.irdai_guide.title'), desc: t('support_page.resource_list.irdai_guide.desc'), href: '/resources/guides/irdai-complaint-portal-guide' },
+                            { title: t('support_page.resource_list.death_claim_guide.title'), desc: t('support_page.resource_list.death_claim_guide.desc'), href: '/resources/guides/death-claim-settlement' },
+                            { title: t('support_page.resource_list.cashless_guide.title'), desc: t('support_page.resource_list.cashless_guide.desc'), href: '/resources/guides/cashless-hospitalization-guide' },
+                            { title: t('support_page.resource_list.lost_lic_guide.title'), desc: t('support_page.resource_list.lost_lic_guide.desc'), href: '/resources/guides/lapsed-policy-revival' },
                         ].map((resource, i) => (
                             <Link key={i} href={resource.href} className="group p-5 bg-slate-50 rounded-xl border border-slate-100 hover:shadow-md hover:border-primary/20 transition-all">
                                 <h4 className="font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors">{resource.title}</h4>
@@ -328,7 +327,7 @@ export default async function SupportPage() {
                     <div className="mt-12 text-center">
                         <Button asChild size="lg" variant="outline" className="rounded-xl border-primary/20 hover:border-primary/50 text-primary hover:bg-primary/5 group">
                             <Link href="/resources">
-                                Explore Full Resource Library 
+                                {t('support_page.explore_library')}
                                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </Button>

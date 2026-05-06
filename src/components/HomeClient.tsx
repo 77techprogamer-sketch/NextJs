@@ -86,14 +86,9 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescriptio
         }
     }, []);
 
-    // Dynamic Title Logic
-    let displayTitle = initialTitle || t('hero_title');
-    const displayDescription = initialDescription || t('secure_family_future');
-
-    // Check if we should override with local title
-    if (city) {
-        displayTitle = t('hero_title_local', { city });
-    }
+    // Dynamic Title Logic - Always use t() for reactivity, initialTitle is only for server-side SEO
+    const displayTitle = city ? t('hero_title_local', { city }) : t('hero_title');
+    const displayDescription = t('secure_family_future');
 
     const handleCloseModal = useCallback(() => {
         setIsModalOpen(false);

@@ -149,7 +149,25 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     const cookieStore = cookies();
-    const lang = cookieStore.get('i18nextLng')?.value || 'en';
+    const headersList = headers();
+    
+    // Consistent detection logic with getServerSideTranslation and client switchers
+    let lang = headersList.get('x-next-locale') || 
+               cookieStore.get('NEXT_LOCALE')?.value || 
+               cookieStore.get('i18next')?.value ||
+               cookieStore.get('i18nextLng')?.value || 
+               'en';
+
+    // If still fallback, try Accept-Language header
+    if (lang === 'en' || !['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'].includes(lang)) {
+        const acceptLang = headersList.get('accept-language');
+        if (acceptLang) {
+            const detected = acceptLang.split(',')[0].split('-')[0].toLowerCase();
+            if (['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'].includes(detected)) {
+                lang = detected;
+            }
+        }
+    }
 
     return (
         <html lang={lang} className="scroll-smooth" suppressHydrationWarning>

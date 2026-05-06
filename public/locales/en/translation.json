@@ -60,7 +60,7 @@
   "phone_required": "Mobile Number is required.",
   "phone_digits_error": "Mobile Number must be 10 digits.",
   "sum_assured_required": "Sum Assured is required.",
-  "sum_assured_error": "Sum Assured must be a positive number and a multiple of 1,00,000.",
+  "sum_assured_error": "Sum Assured must be a positive number and a multiple of 1,0,000.",
   "your_message": "Your Message / Query",
   "describe_rejection": "Describe Claim Issue / Rejection",
   "claim_number_optional": "Claim Number (Optional)",
@@ -359,6 +359,118 @@
     "local_support_h3": "Local Insurance Support in {{city}}, {{state}}",
     "navigating_insurance_p1": "Navigating insurance claims and policy management in {{city}} can be complex. Our local advisors have direct liaison with regional insurance offices to fast-track your requests.",
     "service_covers_p2": "Whether you need cashless hospitalization support, LIC claim settlement, or motor insurance renewal — we cover it all across {{city}} and the surrounding areas of {{state}}.",
-    "nearby_cities_in_state": "Other Cities We Serve in {{state}}"
+    "nearby_cities_in_state": "Other Cities We Serve in {{state}}",
+    "mon_sat": "Mon - Sat",
+    "sundays": "Sundays",
+    "on_appointment": "By Appointment Only",
+    "support_for_all": "Support for all major {{service}} companies",
+    "options_compared": "Minimum & premium options compared",
+    "local_language_support": "Local language support across {{city}}",
+    "call_local_advisor": "Tap to Call Local Advisor",
+    "branch_liaison": "Branch Liaison",
+    "real_case_study": "Real Case Study: {{location}}"
+  },
+  "support_page": {
+    "hero_badge": "Support Center",
+    "hero_desc": "Expert assistance for claim recovery, policy management, and complex insurance scenarios.",
+    "choose_category_title": "Choose Your Support Category",
+    "choose_category_desc": "Select the area where you need help. Each category is handled by specialized advisors who deal with these exact scenarios daily — not generic call center agents.",
+    "categories": {
+      "rejected": {
+        "title": "Claim Rejected or Denied",
+        "desc": "Your health, life, or motor insurance claim was rejected citing non-disclosure, waiting period, or policy exclusion. We analyze the rejection letter, identify appeal grounds, and represent you at the Ombudsman level."
+      },
+      "stuck": {
+        "title": "Claim Stuck or Delayed",
+        "desc": "Your claim has been pending for weeks or months with no resolution. We escalate through the insurer's GRO, IRDAI Bima Bharosa portal, and Insurance Ombudsman to force a timeline."
+      },
+      "revival": {
+        "title": "Lapsed Policy Revival",
+        "desc": "Revive LIC or private life insurance policies lapsed for 2–15+ years. We identify Special Revival Scheme windows, handle Form 680, and manage the entire branch process."
+      },
+      "lost_docs": {
+        "title": "Lost Documents & Policy Recovery",
+        "desc": "Lost your policy bond, maturity intimation, or premium receipts? We handle duplicate policy issuance, indemnity bond drafting, newspaper ad coordination, and branch submissions."
+      },
+      "ombudsman": {
+        "title": "IRDAI Complaint & Ombudsman Filing",
+        "desc": "Need to take your dispute to a higher authority? We prepare Annexure VI-A documentation for Ombudsman admission and file regulatory complaints on the IRDAI Bima Bharosa portal."
+      },
+      "renewal": {
+        "title": "Policy Renewal & Premium Support",
+        "desc": "Missed your renewal deadline? Premium too high? Need to switch insurers without losing benefits? We handle renewals, port health insurance, and optimize your premium without reducing coverage."
+      }
+    },
+    "process_title": "How to Get Support — 3 Simple Steps",
+    "process_desc": "We've simplified the process so you can get expert help without the bureaucratic runaround. Here's what happens when you reach out to our support center.",
+    "steps": {
+      "describe": {
+        "title": "Describe Your Problem",
+        "desc": "Call us, WhatsApp, or fill the support form with a brief description of your insurance issue. Include your policy number if available — but it's not mandatory at this stage.",
+        "detail": "Response within 2 hours during business hours"
+      },
+      "assessment": {
+        "title": "Free Expert Assessment",
+        "desc": "A specialized advisor (not a bot) reviews your case, analyzes documents, and provides a clear diagnosis: what went wrong, what your options are, and realistic timelines for resolution.",
+        "detail": "Case assessment delivered within 24 hours"
+      },
+      "execution": {
+        "title": "We Take Over From Here",
+        "desc": "Once you approve the plan, we handle everything — document collection, branch visits, TPA coordination, grievance filing, and Ombudsman representation. You stay informed via regular status updates.",
+        "detail": "Zero branch visits required from you"
+      }
+    },
+    "form_title": "Submit Support Request",
+    "form_subtitle": "Describe your issue and an expert advisor will call you within 2 hours.",
+    "talk_title": "Prefer to Talk?",
+    "talk_subtitle": "Skip the form and speak directly to an insurance expert.",
+    "whatsapp_us": "WhatsApp Us",
+    "faq_title": "Common Support Questions",
+    "faqs": {
+      "stuck": {
+        "q": "What should I do if my claim has been stuck for months?",
+        "a": "If your claim hasn't been resolved within 30 days, it's likely stuck in the insurer's process. Contact us with your claim reference number and we'll escalate through the Grievance Redressal Officer (GRO), IRDAI Bima Bharosa, or the Insurance Ombudsman depending on the severity."
+      },
+      "old": {
+        "q": "Can you help with a claim that was rejected years ago?",
+        "a": "Yes. The Insurance Ombudsman accepts complaints within one year of the insurer's final response. For very old cases (2+ years), consumer court remedies are available. We assess every case individually to determine the best recovery route."
+      },
+      "how_to": {
+        "q": "How do I file a complaint against my insurance company?",
+        "a": "The process involves three levels: (1) Internal Grievance to the insurer's GRO — 15-day response window, (2) IRDAI Bima Bharosa portal, and (3) Insurance Ombudsman — a zero-cost, semi-judicial body. We handle the entire process on your behalf."
+      },
+      "docs": {
+        "q": "What documents do I need for claim support?",
+        "a": "Requirements vary by case: For health claims — policy copy, rejection letter, discharge summary, and bills. For death claims — death certificate, policy bond, and nominee ID. For revival — policy number and premium history. Don't worry if you're missing documents — we help locate them."
+      }
+    },
+    "resources_title": "Helpful Resources",
+    "resource_list": {
+      "rejection_guide": {
+        "title": "Claim Rejection Appeal Guide",
+        "desc": "Step-by-step process to reverse a rejected health or life insurance claim."
+      },
+      "revival_guide": {
+        "title": "Lapsed Policy Revival Guide",
+        "desc": "How to recover frozen value from LIC policies lapsed for 5–15+ years."
+      },
+      "irdai_guide": {
+        "title": "IRDAI Complaint Portal Guide",
+        "desc": "Complete walkthrough of filing complaints on the IRDAI Bima Bharosa portal."
+      },
+      "death_claim_guide": {
+        "title": "Death Claim Settlement Guide",
+        "desc": "Documents, process, and timelines for life insurance death claim settlement."
+      },
+      "cashless_guide": {
+        "title": "Cashless Hospitalization Guide",
+        "desc": "How to avail cashless claims at network hospitals without delays."
+      },
+      "lost_lic_guide": {
+        "title": "Lost LIC Policy Recovery",
+        "desc": "Recover lost policy bonds, get duplicates issued, and access frozen maturity funds."
+      }
+    },
+    "explore_library": "Explore Full Resource Library"
   }
 }

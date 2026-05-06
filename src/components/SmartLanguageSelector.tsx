@@ -107,6 +107,11 @@ const SmartLanguageSelector = () => {
     const handleConfirm = () => {
         if (suggestedLang) {
             i18n.changeLanguage(suggestedLang);
+            
+            // Set NEXT_LOCALE cookie for server-side detection persistence
+            if (typeof document !== 'undefined') {
+                document.cookie = `NEXT_LOCALE=${suggestedLang}; path=/; max-age=31536000`; // 1 year
+            }
         }
         localStorage.setItem('language_prompt_shown', 'true');
         setIsOpen(false);

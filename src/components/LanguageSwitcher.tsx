@@ -31,6 +31,11 @@ const LanguageSwitcher = () => {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
     setSelectedLanguage(lng);
+    
+    // Set NEXT_LOCALE cookie for server-side detection persistence
+    if (typeof document !== 'undefined') {
+      document.cookie = `NEXT_LOCALE=${lng}; path=/; max-age=31536000`; // 1 year
+    }
   };
 
   return (

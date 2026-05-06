@@ -73,21 +73,21 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel,
                     <ul className="mb-6 space-y-3">
                         <li className="flex items-center gap-3">
                             <CheckCircle2 className="w-5 h-5 text-blue-600" />
-                            <span className="font-medium text-slate-800">Support for all major {serviceLabel} companies</span>
+                            <span className="font-medium text-slate-800">{t('location_page.support_for_all', { service: serviceLabel })}</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <CheckCircle2 className="w-5 h-5 text-blue-600" />
-                            <span className="font-medium text-slate-800">Minimum & premium options compared</span>
+                            <span className="font-medium text-slate-800">{t('location_page.options_compared')}</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <CheckCircle2 className="w-5 h-5 text-blue-600" />
-                            <span className="font-medium text-slate-800">Local language support across {city.name}</span>
+                            <span className="font-medium text-slate-800">{t('location_page.local_language_support', { city: city.name })}</span>
                         </li>
                     </ul>
                     <a href={contactConfig.getDialUrl()}>
                         <Button size="lg" className="w-full sm:w-auto h-14 px-8 text-lg font-bold shadow-[0_4px_20px_rgba(0,0,0,0.15)] bg-blue-600 hover:bg-blue-700 text-white rounded-full">
                             <Phone className="w-5 h-5 mr-3 fill-current" />
-                            Tap to Call Local Advisor
+                            {t('location_page.call_local_advisor')}
                         </Button>
                     </a>
                 </div>
@@ -116,7 +116,7 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel,
                             )}
                             {city.hubContent.localBranchDetails && (
                                 <p className="text-amber-800 dark:text-amber-200 bg-amber-50 dark:bg-amber-900/10 p-4 rounded-xl border border-amber-100 text-sm leading-relaxed">
-                                    <strong>Branch Liaison:</strong> {city.hubContent.localBranchDetails}
+                                    <strong>{t('location_page.branch_liaison')}:</strong> {city.hubContent.localBranchDetails}
                                 </p>
                             )}
                         </div>
@@ -324,7 +324,7 @@ export default function ServiceLocationClient({ city, serviceSlug, serviceLabel,
                             </div>
                             <div className="relative z-10">
                                 <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-bold mb-4 uppercase tracking-widest">
-                                    Real Case Study: {story.location}
+                                    {t('location_page.real_case_study', { location: story.location })}
                                 </div>
                                 <h3 className="text-2xl font-bold mb-4 text-slate-900">{story.title}</h3>
                                 <div className="grid md:grid-cols-2 gap-8">
