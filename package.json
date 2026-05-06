@@ -4,14 +4,15 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
+        "build": "npm run validate:json && next build",
         "start": "next start",
         "lint": "next lint",
         "vercel-install": "npm install --legacy-peer-deps",
         "indexnow:submit": "node scripts/fast-index.js",
         "postbuild": "npm run indexnow:submit",
         "index:daily": "node scripts/daily-index.js",
-        "validate": "tsc --noEmit"
+        "validate": "tsc --noEmit",
+        "validate:json": "node scripts/validate-json.js"
     },
     "dependencies": {
         "@hookform/resolvers": "^5.2.2",
