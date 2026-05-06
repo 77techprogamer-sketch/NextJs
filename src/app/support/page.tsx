@@ -43,47 +43,48 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-        {
-            '@type': 'Question',
-            name: 'What should I do if my insurance claim has been stuck for months?',
-            acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'If your claim hasn\'t been resolved within 30 days, it\'s likely stuck in the insurer\'s internal process. Contact us with your claim reference number and we\'ll escalate it through the Grievance Redressal Officer (GRO), IRDAI Bima Bharosa, or the Insurance Ombudsman depending on the severity and duration of the delay.'
-            }
-        },
-        {
-            '@type': 'Question',
-            name: 'Can you help with a claim that was rejected years ago?',
-            acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'Yes. The Insurance Ombudsman accepts complaints within one year of the insurer\'s final response. However, IRDAI has no time limit for regulatory complaints. For very old cases (2+ years), consumer court remedies are also available. We assess every case individually to determine the best recovery route.'
-            }
-        },
-        {
-            '@type': 'Question',
-            name: 'How do I file a complaint against my insurance company?',
-            acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'The process involves three levels: (1) Internal Grievance to the insurer\'s GRO — 15-day response window, (2) IRDAI Bima Bharosa portal at igms.irda.gov.in, and (3) Insurance Ombudsman — a zero-cost, semi-judicial body. We handle the entire complaint filing and documentation process on your behalf.'
-            }
-        },
-        {
-            '@type': 'Question',
-            name: 'What documents do I need for claim support?',
-            acceptedAnswer: {
-                '@type': 'Answer',
-                text: 'The required documents vary by case: For health claims — policy copy, rejection letter, discharge summary, medical bills, and payment receipts. For death claims — death certificate, policy bond, nominee ID, post-mortem report (if applicable). For revival — policy number, premium payment history, and health declaration form. Don\'t worry if you\'re missing documents — we help locate and collect them.'
-            }
-        }
-    ]
-};
-
 export default async function SupportPage() {
     const { t } = await getServerSideTranslation();
+
+    const faqSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: [
+            {
+                '@type': 'Question',
+                name: 'What should I do if my insurance claim has been stuck for months?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'If your claim hasn\'t been resolved within 30 days, it\'s likely stuck in the insurer\'s internal process. Contact us with your claim reference number and we\'ll escalate it through the Grievance Redressal Officer (GRO), IRDAI Bima Bharosa, or the Insurance Ombudsman depending on the severity and duration of the delay.'
+                }
+            },
+            {
+                '@type': 'Question',
+                name: 'Can you help with a claim that was rejected years ago?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'Yes. The Insurance Ombudsman accepts complaints within one year of the insurer\'s final response. However, IRDAI has no time limit for regulatory complaints. For very old cases (2+ years), consumer court remedies are also available. We assess every case individually to determine the best recovery route.'
+                }
+            },
+            {
+                '@type': 'Question',
+                name: 'How do I file a complaint against my insurance company?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'The process involves three levels: (1) Internal Grievance to the insurer\'s GRO — 15-day response window, (2) IRDAI Bima Bharosa portal at igms.irda.gov.in, and (3) Insurance Ombudsman — a zero-cost, semi-judicial body. We handle the entire complaint filing and documentation process on your behalf.'
+                }
+            },
+            {
+                '@type': 'Question',
+                name: 'What documents do I need for claim support?',
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: 'The required documents vary by case: For health claims — policy copy, rejection letter, discharge summary, medical bills, and payment receipts. For death claims — death certificate, policy bond, nominee ID, post-mortem report (if applicable). For revival — policy number, premium payment history, and health declaration form. Don\'t worry if you\'re missing documents — we help locate and collect them.'
+                }
+            }
+        ]
+    };
+
     return (
         <div className="bg-white min-h-screen">
             <script
