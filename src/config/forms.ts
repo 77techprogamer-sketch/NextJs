@@ -341,7 +341,30 @@ export const FORM_CONFIGS: Record<string, InsuranceFormConfig> = {
     business_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },
     mortgage_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },
     vehicle_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },
-    education_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } }
+    education_loan: { ...DEFAULT_FORM_CONFIG, ...{ fields: [] } },
+
+    // Lead Magnets
+    claim_audit: {
+        chatbotContext: {
+            initialQuery: "I need a claim audit."
+        },
+        suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
+        fields: []
+    },
+    roadmap_download: {
+        chatbotContext: {
+            initialQuery: "I want to download the escalation roadmap."
+        },
+        suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
+        fields: []
+    },
+    revival_calculator: {
+        chatbotContext: {
+            initialQuery: "I want a customized revival quote."
+        },
+        suppressDefaultFields: ['age', 'gender', 'dateOfBirth'],
+        fields: []
+    }
 };
 
 // Apply loan_inquiry config to all loan types

@@ -37,10 +37,17 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     const schemaShape: Record<string, z.ZodTypeAny> = {
       fullName: z.string().min(1, { message: t("name_required") }),
       mobileNumber: z.string().regex(/^\d{10}$/, { message: t("phone_digits_error") }),
-      age: z.union([z.number().min(1).max(120).optional(), z.literal(null)]),
-      dateOfBirth: z.date().optional(),
-      gender: z.enum(['Male', 'Female', 'Other'], { message: t("gender_required") }),
     };
+
+    if (!config.suppressDefaultFields?.includes('age') && !config.suppressDefaultFields?.includes('dateOfBirth')) {
+      schemaShape.age = z.union([z.number().min(1).max(120).optional(), z.literal(null)]);
+      schemaShape.dateOfBirth = z.date().optional();
+    }
+
+    if (!config.suppressDefaultFields?.includes('gender')) {
+      schemaShape.gender = z.enum(['Male', 'Female', 'Other'], { message: t("gender_required") });
+    }
+
 
     config.fields.forEach(field => {
       if (!schemaShape[field.name]) {
@@ -61,10 +68,16 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       })).optional();
     }
 
-    return z.object(schemaShape).refine((data) => data.age !== undefined || data.dateOfBirth !== undefined, {
-      message: t("age_dob_required"),
-      path: ["age"],
-    });
+    let baseSchema = z.object(schemaShape);
+
+    if (!config.suppressDefaultFields?.includes('age') && !config.suppressDefaultFields?.includes('dateOfBirth')) {
+      return baseSchema.refine((data: any) => data.age !== undefined || data.dateOfBirth !== undefined, {
+        message: t("age_dob_required"),
+        path: ["age"],
+      });
+    }
+
+    return baseSchema;
   }, [insuranceType, config, t]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -190,7 +203,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           />
         ))}
 
-        {!config.fields.find(f => f.name === 'age') && (
+        {!config.fields.find(f => f.name === 'age') && !config.suppressDefaultFields?.includes('age') && (
           <div className="flex items-center space-x-2">
             <FormField
               control={form.control}
@@ -243,7 +256,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
           </div>
         )}
 
-        {!config.fields.find(f => f.name === 'gender') && (
+        {!config.fields.find(f => f.name === 'gender') && !config.suppressDefaultFields?.includes('gender') && (
           <FormField
             control={form.control}
             name="gender"
