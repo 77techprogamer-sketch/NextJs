@@ -472,5 +472,68 @@
       }
     },
     "explore_library": "Explore Full Resource Library"
+  },
+  "lead_magnets": {
+    "claim_stress_test": {
+      "title": "The 7-Minute Claim Stress-Test",
+      "subtitle": "Is Your Policy Ready for a Crisis?",
+      "description": "Don't wait for a rejection. Check if your policy documentation and nominee status are crisis-ready in under 7 minutes.",
+      "cta": "Start My Free Stress-Test",
+      "questions": {
+        "nominee": "Is your nominee information updated and their ID proofs ready?",
+        "discharge": "Do you have digital copies of previous discharge summaries?",
+        "exclusions": "Are you aware of the 2-year waiting period exclusions in your policy?",
+        "sum_assured": "Is your sum assured enough to cover current medical inflation in your city?",
+        "contact": "Do you have the direct contact of the insurer's Grievance Officer?",
+        "tpa": "Is your TPA (Third Party Administrator) details stored in your phone?",
+        "bills": "Do you maintain a file of all pharmacy and diagnostic bills?"
+      },
+      "results": {
+        "safe": "Your policy is Crisis-Ready! You've maintained excellent documentation hygiene.",
+        "warning": "Gaps Detected! Your claim could be delayed or rejected due to documentation gaps.",
+        "danger": "High Risk! You are missing critical documentation that could lead to immediate rejection.",
+        "action_cta": "Book a 10-Minute Audit to Fix Gaps"
+      }
+    },
+    "escalation_roadmap": {
+      "title": "The 30-Day Insurance Escalation Roadmap",
+      "subtitle": "Your Path to Resolving Stuck Claims",
+      "description": "Stopped receiving updates? Here is exactly what to do at every stage of a delayed claim in India.",
+      "cta": "Download Full PDF Roadmap",
+      "steps": {
+        "day1": {
+          "title": "Day 1: Internal Filing",
+          "desc": "Submit all documents to the TPA/Insurer and get an acknowledgement (ACK) number."
+        },
+        "day15": {
+          "title": "Day 15: GRO Escalation",
+          "desc": "If unresolved, escalate to the Grievance Redressal Officer (GRO). They MUST respond within 15 days."
+        },
+        "day30": {
+          "title": "Day 30: IRDAI Bima Bharosa",
+          "desc": "Still no resolution? File a regulatory complaint on the IRDAI portal to trigger a formal inquiry."
+        },
+        "day60": {
+          "title": "Day 60: Insurance Ombudsman",
+          "desc": "Final step. File with the Ombudsman for a legally binding decision. Zero cost to you."
+        }
+      }
+    },
+    "revival_calculator": {
+      "title": "Lapsed Policy Revival Cost Calculator",
+      "subtitle": "Stop Overpaying Interest on Frozen Policies",
+      "description": "Calculate the approximate cost to revive your lapsed LIC or private life insurance policy today.",
+      "fields": {
+        "premium": "Approx. Annual Premium (₹)",
+        "years": "Years Since Last Premium Payment",
+        "calculate": "Calculate Estimated Revival Cost"
+      },
+      "results": {
+        "estimated_cost": "Estimated Total Revival Cost",
+        "breakdown": "Includes Interest (9-12% p.a.) + GST + Penalties",
+        "cta": "Get Exact Quote & Revival Form"
+      }
+    }
+  }
   }
 }

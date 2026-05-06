@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { ShieldAlert, FileSearch, Calculator, CheckCircle2, MessageCircle } from 'lucide-react';
 import { contactConfig } from '@/data/contact';
 import ShortLeadForm from '@/components/ShortLeadForm';
+import RevivalCalculator from '@/components/lead-magnets/RevivalCalculator';
 
 const LICRevivalClient = () => {
     const { t } = useTranslation();
@@ -84,6 +85,13 @@ const LICRevivalClient = () => {
                         </div>
 
                     </div>
+                </div>
+            </section>
+
+            {/* Lead Magnet: Revival Calculator */}
+            <section className="py-20 -mt-10 relative z-20">
+                <div className="container mx-auto px-4">
+                    <RevivalCalculator />
                 </div>
             </section>
 

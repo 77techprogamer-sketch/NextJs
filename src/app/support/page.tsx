@@ -6,6 +6,9 @@ import { Button } from '@/components/ui/button';
 import QuoteForm from '@/components/QuoteForm';
 import { contactConfig } from '@/data/contact';
 import { getServerSideTranslation } from "@/lib/i18n-server";
+import EscalationRoadmap from '@/components/lead-magnets/EscalationRoadmap';
+import LeadMagnetCTA from '@/components/lead-magnets/LeadMagnetCTA';
+import ClaimStressTest from '@/components/lead-magnets/ClaimStressTest';
 
 export async function generateMetadata(): Promise<Metadata> {
     const { t } = await getServerSideTranslation();
@@ -197,6 +200,13 @@ export default async function SupportPage() {
                 </div>
             </section>
 
+            {/* Lead Magnet: Escalation Roadmap */}
+            <section className="py-20 bg-white">
+                <div className="container px-4 mx-auto">
+                    <EscalationRoadmap />
+                </div>
+            </section>
+
             {/* How to Get Help - Step Process */}
             <section className="py-16 bg-white">
                 <div className="container px-4 mx-auto">
@@ -271,6 +281,17 @@ export default async function SupportPage() {
                 </div>
             </section>
 
+            {/* Interactive Tool: Claim Stress-Test */}
+            <section id="stress-test-container" className="py-20 bg-slate-50 border-y border-slate-100">
+                <div className="container px-4 mx-auto">
+                    <div className="text-center max-w-3xl mx-auto mb-12">
+                        <h2 className="text-3xl font-bold text-slate-900 mb-4">{t('lead_magnets.claim_stress_test.title')}</h2>
+                        <p className="text-slate-600 text-lg">{t('lead_magnets.claim_stress_test.description')}</p>
+                    </div>
+                    <ClaimStressTest />
+                </div>
+            </section>
+
             {/* FAQ Section */}
             <section className="py-16 bg-slate-50 border-t border-slate-100">
                 <div className="container px-4 mx-auto max-w-4xl">
@@ -303,6 +324,25 @@ export default async function SupportPage() {
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
+
+            {/* Final Value Hook: Claim Stress-Test */}
+            <section className="py-20 bg-slate-900 overflow-hidden relative">
+                <div className="absolute inset-0 opacity-10 bg-[url('/grid.svg')] bg-center"></div>
+                <div className="container px-4 mx-auto relative z-10">
+                    <LeadMagnetCTA 
+                        title={t('lead_magnets.claim_stress_test.title')}
+                        subtitle={t('lead_magnets.claim_stress_test.subtitle')}
+                        description={t('lead_magnets.claim_stress_test.description')}
+                        ctaText={t('lead_magnets.claim_stress_test.cta')}
+                        icon={ShieldCheck}
+                        onClick={() => {
+                            const el = document.getElementById('stress-test-container');
+                            if (el) el.scrollIntoView({ behavior: 'smooth' });
+                            else window.location.href = '#stress-test-modal';
+                        }}
+                    />
                 </div>
             </section>
 
