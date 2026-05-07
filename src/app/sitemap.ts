@@ -39,12 +39,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         '/services',
         '/loans',
         '/success-stories',
-        '/about-hari-kotian'
+        '/about-hari-kotian',
+        '/services/lic-policy-support',  // Hyper-local LIC Expert page (North Bangalore)
     ].map((route) => ({
         url: `${BASE_URL}${route}`,
         lastModified: todayISO,
         changeFrequency: 'daily' as const,
-        priority: route === '' || route === '/locations' || route === '/services' ? 1.0 : 0.9,
+        priority: route === '' || route === '/locations' || route === '/services' ? 1.0
+            : route === '/services/lic-policy-support' ? 0.95
+            : 0.9,
         alternates: getAlternates(route),
     }))
 

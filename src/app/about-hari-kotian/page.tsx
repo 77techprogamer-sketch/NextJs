@@ -8,9 +8,9 @@ import QuoteForm from '@/components/QuoteForm';
 import { contactConfig } from '@/data/contact';
 
 export const metadata: Metadata = {
-    title: 'Hari Kotian | IRDAI Certified Insurance Expert & Claim Specialist',
-    description: 'Meet Hari Kotian, IRDAI-certified insurance advisor with 25+ years of experience and 15,000+ clients served. Specializing in LIC claim recovery, policy revival, and health insurance disputes across India.',
-    keywords: ['Hari Kotian Insurance', 'Insurance Expert Bangalore', 'LIC Claim Specialist', 'Certified Insurance Advisor India', 'IRDAI Advisor India'],
+    title: 'Hari Kotian | IRDAI Certified LIC Expert & Claim Recovery Specialist Bangalore',
+    description: 'Meet Hari Kotian — top-rated LIC advisor on Justdial (4.2★), IRDAI-certified with 25+ years of experience. Serving Jalahalli, Bahubali Nagar & all of Bangalore. Specializing in claim recovery, lapsed policy revival, and health insurance disputes.',
+    keywords: ['Hari Kotian Insurance', 'LIC Agent Jalahalli', 'Insurance Expert Bangalore', 'LIC Claim Specialist', 'Certified Insurance Advisor India', 'IRDAI Advisor Bangalore', 'Top Rated LIC Agent Justdial'],
     alternates: {
         canonical: 'https://insurancesupport.online/about-hari-kotian',
     }
@@ -107,16 +107,22 @@ const ExpertProfilePage = () => {
                                     />
                                 </div>
                                 <div className="text-center md:text-left">
-                                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-bold mb-4">
-                                        <ShieldCheck className="w-4 h-4" />
-                                        IRDAI Certified Advisor
+                                    <div className="flex flex-wrap justify-center md:justify-start gap-2 mb-4">
+                                        <div className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-bold">
+                                            <ShieldCheck className="w-4 h-4" />
+                                            IRDAI Certified Advisor
+                                        </div>
+                                        <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-orange-50 text-orange-700 border border-orange-200 rounded-full text-sm font-bold">
+                                            <span className="text-orange-500">★</span>
+                                            4.2 on Justdial · Top Rated
+                                        </div>
                                     </div>
                                     <h1 className="text-4xl font-bold text-slate-900 mb-2">Hari Kotian</h1>
                                     <p className="text-xl text-slate-600 font-medium mb-6">Founder & Lead Claims Specialist at Insurance Support</p>
                                     <div className="flex flex-wrap justify-center md:justify-start gap-4">
                                         <div className="flex items-center gap-2 text-slate-500 text-sm">
                                             <MapPin className="w-4 h-4" />
-                                            Bangalore, India
+                                            Jalahalli, Bangalore
                                         </div>
                                         <div className="flex items-center gap-2 text-slate-500 text-sm">
                                             <History className="w-4 h-4" />
@@ -138,14 +144,16 @@ const ExpertProfilePage = () => {
                                 <h2 className="text-2xl font-bold mt-10 mb-6 text-slate-900">Career Highlights & Expertise</h2>
                                 <div className="grid sm:grid-cols-2 gap-6 not-prose">
                                     {[
-                                        { title: "IRDAI Certification", desc: "Licensed and compliant with the latest Insurance Regulatory and Development Authority of India standards." },
-                                        { title: "₹50 Cr+ Claims Managed", desc: "Expertly handled death claims, critical illness settlements, and major motor recovery cases." },
-                                        { title: "LIC Specialization", desc: "Profound knowledge of LIC revival schemes, maturity settlements, and policy loan facilitation." },
-                                        { title: "Grievance Advocacy", desc: "Successfully represented hundreds of policyholders in Insurance Ombudsman hearings across India." }
+                                        { title: "IRDAI Certification", desc: "Licensed and compliant with the latest Insurance Regulatory and Development Authority of India standards.", color: "text-green-600" },
+                                        { title: "₹50 Cr+ Claims Managed", desc: "Expertly handled death claims, critical illness settlements, and major motor recovery cases.", color: "text-green-600" },
+                                        { title: "LIC Specialization", desc: "Profound knowledge of LIC revival schemes, maturity settlements, and policy loan facilitation.", color: "text-green-600" },
+                                        { title: "Grievance Advocacy", desc: "Successfully represented hundreds of policyholders in Insurance Ombudsman hearings across India.", color: "text-green-600" },
+                                        { title: "4.2★ Rated on Justdial", desc: "Independently verified by Justdial as a top-rated LIC and insurance advisor in Bangalore — serving Jalahalli, Bahubali Nagar, Yeshwanthpur, and North Bangalore.", color: "text-orange-500" },
+                                        { title: "15,000+ Families Served", desc: "A trusted local expert for over two decades, helping Bangalore families navigate complex insurance situations.", color: "text-green-600" }
                                     ].map((item, i) => (
                                         <div key={i} className="p-5 bg-slate-50 rounded-xl border border-slate-100">
                                             <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">
-                                                <CheckCircle2 className="w-5 h-5 text-green-600" />
+                                                <CheckCircle2 className={`w-5 h-5 ${item.color}`} />
                                                 {item.title}
                                             </h4>
                                             <p className="text-sm text-slate-600 leading-relaxed">{item.desc}</p>
