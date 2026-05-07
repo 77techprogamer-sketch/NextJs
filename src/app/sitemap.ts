@@ -5,6 +5,7 @@ import { faqData } from '@/data/faqData'
 import blogsData from '@/data/blogs.json'
 import fs from 'fs'
 import path from 'path'
+import { competitors } from '@/data/competitors'
 
 const BASE_URL = 'https://insurancesupport.online'
 
@@ -150,6 +151,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: getAlternates(route),
     }))
 
+    const competitorRoutes = competitors.map(competitor => ({
+        url: `${BASE_URL}/alternatives/${competitor.slug}`,
+        lastModified: todayISO,
+        changeFrequency: 'daily' as const,
+        priority: 0.85,
+        alternates: getAlternates(`/alternatives/${competitor.slug}`),
+    }))
+
     return [
         ...staticRoutes, 
         ...serviceHubs, 
@@ -158,6 +167,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         ...blogRoutes, 
         ...faqRoutes, 
         ...guideRoutes,
-        ...otherResourceSubPages
+        ...otherResourceSubPages,
+        ...competitorRoutes
     ]
 }
