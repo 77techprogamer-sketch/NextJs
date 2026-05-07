@@ -35,9 +35,9 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   // Build schema dynamically based on config — memoized to prevent re-creation on every render
   const formSchema = useMemo(() => {
     const schemaShape: Record<string, z.ZodTypeAny> = {
-      fullName: z.string().min(1, { message: t("name_required", "Name is required") }),
-      email: z.string().email({ message: t("email_invalid_error", "Please enter a valid email") }),
-      mobileNumber: z.string().regex(/^\d{10}$/, { message: t("phone_digits_error", "10-digit mobile required") }),
+      fullName: z.string().min(1, { error: t("name_required", "Name is required") }),
+      email: z.string().email({ error: t("email_invalid_error", "Please enter a valid email") }),
+      mobileNumber: z.string().regex(/^\d{10}$/, { error: t("phone_digits_error", "10-digit mobile required") }),
     };
 
     if (!config.suppressDefaultFields?.includes('age') && !config.suppressDefaultFields?.includes('dateOfBirth')) {
@@ -46,7 +46,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     }
 
     if (!config.suppressDefaultFields?.includes('gender')) {
-      schemaShape.gender = z.enum(['Male', 'Female', 'Other'], { message: t("gender_required") });
+      schemaShape.gender = z.enum(['Male', 'Female', 'Other'], { error: t("gender_required") });
     }
 
 
@@ -73,7 +73,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
 
     if (!config.suppressDefaultFields?.includes('age') && !config.suppressDefaultFields?.includes('dateOfBirth')) {
       return baseSchema.refine((data: any) => data.age !== undefined || data.dateOfBirth !== undefined, {
-        message: t("age_dob_required"),
+        error: t("age_dob_required"),
         path: ["age"],
       });
     }

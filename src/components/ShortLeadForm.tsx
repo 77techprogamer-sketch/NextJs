@@ -16,10 +16,10 @@ import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowRight } from 'lucide-react';
 
 const shortLeadSchema = z.object({
-    fullName: z.string().min(2, { message: "Name required" }),
-    email: z.string().email({ message: "Valid email required" }),
-    mobileNumber: z.string().regex(/^\d{10}$/, { message: "10-digit mobile required" }),
-    requirement: z.string().min(1, { message: "Please select a requirement" }),
+    fullName: z.string().min(2, { error: "Name required" }),
+    email: z.string().email({ error: "Valid email required" }),
+    mobileNumber: z.string().regex(/^\d{10}$/, { error: "10-digit mobile required" }),
+    requirement: z.string().min(1, { error: "Please select a requirement" }),
 });
 
 type ShortLeadValues = z.infer<typeof shortLeadSchema>;

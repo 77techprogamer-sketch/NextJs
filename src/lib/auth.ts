@@ -207,7 +207,7 @@ export const authPhoneProviderSchema = z
       ),
     sms_test_otp_valid_until: z
       .string()
-      .datetime({ message: 'Invalid datetime string.' })
+      .datetime({ error: 'Invalid datetime string.' })
       .optional()
       .describe(
         "Test phone number and OTP combinations won't be active past this date and time (local time zone)."
