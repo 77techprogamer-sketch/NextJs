@@ -81,7 +81,8 @@ async function run() {
         '/tools/term-insurance-calculator',
         '/resources/download-policy-copy',
         '/resources/general-insurance-claim-process',
-        '/resources/claim-recovery-guide'
+        '/resources/claim-recovery-guide',
+        '/services/lic-policy-support'
     ];
     staticPages.forEach(p => urls.add(`${BASE_URL}${p}`));
 
