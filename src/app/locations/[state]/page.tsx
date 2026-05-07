@@ -11,8 +11,8 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-    // Extract unique states
-    const states = Array.from(new Set(INDIAN_LOCATIONS.map(loc => loc.state)))
+    // Extract unique states that have priority cities
+    const states = Array.from(new Set(INDIAN_LOCATIONS.filter(loc => PRIORITY_CITY_SLUGS.has(loc.city)).map(loc => loc.state)))
     return states.map(state => ({ state }))
 }
 

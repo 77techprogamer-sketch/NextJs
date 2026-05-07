@@ -1,109 +1,667 @@
 {
-  "timestamp": "2026-05-05T06:50:52.508Z",
+  "timestamp": "2026-05-07T08:10:45.183Z",
   "baseUrl": "https://insurancesupport.online",
   "pagesCrawled": 1000,
-  "linksChecked": 5999,
-  "brokenCount": 5,
-  "redirectCount": 12,
+  "linksChecked": 3522,
+  "brokenCount": 11,
+  "redirectCount": 1313,
   "broken": [
-    {
-      "url": "https://insurancesupport.online/locations/odisha/gopalpur/life-insurance",
-      "status": 404,
-      "foundOn": "https://insurancesupport.online/"
-    },
-    {
-      "url": "https://idzvdeemgxhwlkyphnel.supabase.co/",
-      "status": 404,
-      "foundOn": "https://insurancesupport.online/"
-    },
     {
       "url": "https://insurancesupport.online/cdn-cgi/l/email-protection",
       "status": 404,
       "foundOn": "https://insurancesupport.online/contact"
     },
     {
-      "url": "https://insurancesupport.online/services/lic-agent",
+      "url": "https://insurancesupport.online/locations/tripura",
       "status": 404,
       "foundOn": "https://insurancesupport.online/sitemap.xml"
     },
     {
-      "url": "https://insurancesupport.online/hi/services/lic-agent",
+      "url": "https://insurancesupport.online/hi/locations/tripura",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/puducherry",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/puducherry",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mizoram",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/mizoram",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/manipur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/manipur",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/meghalaya",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/meghalaya",
       "status": 404,
       "foundOn": "https://insurancesupport.online/sitemap.xml"
     }
   ],
   "redirects": [
     {
-      "url": "https://wa.me/919986634506?text=Hi%20Insurance%20Support%20team%2C%20I%20need%20help%20with%20a%20question%20about%20my%20policy.",
-      "status": 302,
-      "location": "https://api.whatsapp.com/send/?phone=919986634506&text=Hi+Insurance+Support+team%2C+I+need+help+with+a+question+about+my+policy.&type=phone_number&app_absent=0",
+      "url": "https://insurancesupport.online/locations/tamil-nadu/vellore/life-insurance",
+      "status": 301,
+      "location": "/",
       "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://share.google/FBw8WZDuh4r3AD5f0",
-      "status": 302,
-      "location": "https://www.google.com/share.google?q=FBw8WZDuh4r3AD5f0",
+      "url": "https://insurancesupport.online/locations/tamil-nadu/hosur/life-insurance",
+      "status": 301,
+      "location": "/",
       "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/locations/delhi",
-      "status": 307,
-      "location": "/locations/delhi/delhi/life-insurance",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/tamil-nadu/kanchipuram/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/hi/locations/delhi",
-      "status": 307,
-      "location": "/locations/delhi/delhi/life-insurance",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/andhra-pradesh/tirupati/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/locations/tamil-nadu",
-      "status": 308,
-      "location": "/locations/tamil",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/puducherry/pondicherry/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/locations/west-bengal",
-      "status": 308,
-      "location": "/locations/west",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/rajasthan/ajmer/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/locations/uttar-pradesh",
-      "status": 308,
-      "location": "/locations/uttar",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/jammu-and-kashmir/jammu/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/locations/madhya-pradesh",
-      "status": 308,
-      "location": "/locations/madhya",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/west-bengal/siliguri/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/locations/andhra-pradesh",
-      "status": 308,
-      "location": "/locations/andhra",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/karnataka/mangalore/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/locations/jammu-and-kashmir",
-      "status": 308,
-      "location": "/locations/jammu",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/kerala/kozhikode/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/locations/chandigarh",
-      "status": 307,
-      "location": "/locations/chandigarh/chandigarh/life-insurance",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/kerala/thrissur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     },
     {
-      "url": "https://insurancesupport.online/hi/locations/chandigarh",
-      "status": 307,
-      "location": "/locations/chandigarh/chandigarh/life-insurance",
-      "foundOn": "https://insurancesupport.online/sitemap.xml"
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/ujjain/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/akola/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/gulbarga/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gujarat/jamnagar/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/loni/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/jhansi/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/ulhasnagar/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/sangli-miraj-kupwad/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/erode/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/belgaum/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/ambattur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/tirunelveli/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/malegaon/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bihar/gaya/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/jalgaon/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajasthan/udaipur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/maheshtala/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/davanagere/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/akbarpur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/andhra-pradesh/kurnool/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/rajpur-sonarpur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jharkhand/bokaro/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/south-dumdum/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/bellary/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/punjab/patiala/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/odisha/gopalpur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tripura/agartala/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bihar/bhagalpur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/muzaffarnagar/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/bhatpara/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/panihati/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/latur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/dhule/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/haryana/rohtak/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chhattisgarh/korba/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajasthan/bhilwara/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/odisha/brahmapur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bihar/muzaffarpur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/ahmednagar/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/mathura/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/kerala/kollam/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/avadi/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/andhra-pradesh/kadapa/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/kamarhati/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chhattisgarh/bilaspur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/shahjahanpur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/satara/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/bijapur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/rampur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/shimoga/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/chandrapur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gujarat/junagadh/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajasthan/alwar/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/bardhaman/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/kulti/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/nizamabad/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/parbhani/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/tumkur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/khammam/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/puducherry/uzhavarkarai/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bihar/bihar-sharif/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/haryana/panipat/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bihar/darbhanga/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/bally/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/mizoram/aizawl/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/dewas/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/ichalkaranji/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/haryana/karnal/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/punjab/bathinda/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/jalna/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/andhra-pradesh/eluru/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/barasat/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/kirari-suleman-nagar/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bihar/purnia/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/satna/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/mau/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/haryana/sonipat/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/farrukhabad/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/sagar/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chhattisgarh/durg/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/manipur/imphal/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/ratlam/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/hapur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/bihar/arah/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/andhra-pradesh/anantapur/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/karimnagar/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/etawah/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/ambarnath/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/north-dumdum/life-insurance",
+      "status": 301,
+      "location": "/",
+      "foundOn": "https://insurancesupport.online/"
     }
   ]
 }

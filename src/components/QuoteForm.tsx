@@ -35,8 +35,9 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   // Build schema dynamically based on config — memoized to prevent re-creation on every render
   const formSchema = useMemo(() => {
     const schemaShape: Record<string, z.ZodTypeAny> = {
-      fullName: z.string().min(1, { message: t("name_required") }),
-      mobileNumber: z.string().regex(/^\d{10}$/, { message: t("phone_digits_error") }),
+      fullName: z.string().min(1, { message: t("name_required", "Name is required") }),
+      email: z.string().email({ message: t("email_invalid_error", "Please enter a valid email") }),
+      mobileNumber: z.string().regex(/^\d{10}$/, { message: t("phone_digits_error", "10-digit mobile required") }),
     };
 
     if (!config.suppressDefaultFields?.includes('age') && !config.suppressDefaultFields?.includes('dateOfBirth')) {
@@ -84,6 +85,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
     resolver: zodResolver(formSchema),
     defaultValues: {
       fullName: '',
+      email: '',
       mobileNumber: '',
       age: undefined,
       dateOfBirth: undefined,
@@ -105,6 +107,7 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
         .insert([
           {
             name: values.fullName,
+            email: values.email,
             age: resolvedAge,
             gender: values.gender,
             phone: values.mobileNumber,
@@ -147,6 +150,69 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
               : normalizeUIValue(t(insuranceType))
           })}
         </h3>
+
+        <FormField
+          control={form.control}
+          name="fullName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("full_name", "Full Name")}</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder={t("enter_full_name", "Enter your full name")}
+                  {...field}
+                  className="h-11 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
+                  value={field.value ?? ""}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("email", "Email Address")}</FormLabel>
+              <FormControl>
+                <Input
+                  type="email"
+                  placeholder={t("enter_email", "Enter your email")}
+                  {...field}
+                  className="h-11 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
+                  value={field.value ?? ""}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="mobileNumber"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("mobile_number", "Mobile Number")}</FormLabel>
+              <FormControl>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm font-bold">+91</span>
+                  <Input
+                    type="tel"
+                    placeholder={t("enter_mobile", "10-digit mobile number")}
+                    maxLength={10}
+                    {...field}
+                    className="h-11 pl-12 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
+                    value={field.value ?? ""}
+                  />
+                </div>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         {config.fields.map((field) => (
           <FormField

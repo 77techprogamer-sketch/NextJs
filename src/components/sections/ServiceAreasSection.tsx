@@ -3,13 +3,13 @@
 import React from 'react';
 import Link from 'next/link';
 import { cityData } from '@/data/cityData';
-import { INDIAN_CITIES } from '@/data/indianCities';
+import { PRIORITY_CITY_SLUGS } from '@/data/indianCities';
 import { MapPin, ArrowRight } from 'lucide-react';
 import { slugify } from '@/utils/slugify';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
 // Only include city slugs that have valid hub pages
-const validCitySlugs = new Set(INDIAN_CITIES);
+const validCitySlugs = PRIORITY_CITY_SLUGS;
 
 const ServiceAreasSection = () => {
     const [allowedCities, setAllowedCities] = React.useState<string[] | null>(null);

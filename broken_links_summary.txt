@@ -1,35 +1,77 @@
 Broken Link Audit — https://insurancesupport.online
-Run: 2026-05-05T06:50:52.517Z
+Run: 2026-05-07T08:10:45.210Z
 
 Pages crawled : 1000
-Links checked : 5999
-Broken links  : 5
-Redirects     : 12
+Links checked : 3522
+Broken links  : 11
+Redirects     : 1313
 
 BROKEN LINKS:
-
-Source: https://insurancesupport.online/
-  [404] https://insurancesupport.online/locations/odisha/gopalpur/life-insurance
-  [404] https://idzvdeemgxhwlkyphnel.supabase.co/
 
 Source: https://insurancesupport.online/contact
   [404] https://insurancesupport.online/cdn-cgi/l/email-protection
 
 Source: https://insurancesupport.online/sitemap.xml
-  [404] https://insurancesupport.online/services/lic-agent
-  [404] https://insurancesupport.online/hi/services/lic-agent
+  [404] https://insurancesupport.online/locations/tripura
+  [404] https://insurancesupport.online/hi/locations/tripura
+  [404] https://insurancesupport.online/locations/puducherry
+  [404] https://insurancesupport.online/hi/locations/puducherry
+  [404] https://insurancesupport.online/locations/mizoram
+  [404] https://insurancesupport.online/hi/locations/mizoram
+  [404] https://insurancesupport.online/locations/manipur
+  [404] https://insurancesupport.online/hi/locations/manipur
+  [404] https://insurancesupport.online/locations/meghalaya
+  [404] https://insurancesupport.online/hi/locations/meghalaya
 
 
 REDIRECTS (first 50):
-  [302] https://wa.me/919986634506?text=Hi%20Insurance%20Support%20team%2C%20I%20need%20help%20with%20a%20question%20about%20my%20policy. → https://api.whatsapp.com/send/?phone=919986634506&text=Hi+Insurance+Support+team%2C+I+need+help+with+a+question+about+my+policy.&type=phone_number&app_absent=0
-  [302] https://share.google/FBw8WZDuh4r3AD5f0 → https://www.google.com/share.google?q=FBw8WZDuh4r3AD5f0
-  [307] https://insurancesupport.online/locations/delhi → /locations/delhi/delhi/life-insurance
-  [307] https://insurancesupport.online/hi/locations/delhi → /locations/delhi/delhi/life-insurance
-  [308] https://insurancesupport.online/locations/tamil-nadu → /locations/tamil
-  [308] https://insurancesupport.online/locations/west-bengal → /locations/west
-  [308] https://insurancesupport.online/locations/uttar-pradesh → /locations/uttar
-  [308] https://insurancesupport.online/locations/madhya-pradesh → /locations/madhya
-  [308] https://insurancesupport.online/locations/andhra-pradesh → /locations/andhra
-  [308] https://insurancesupport.online/locations/jammu-and-kashmir → /locations/jammu
-  [307] https://insurancesupport.online/locations/chandigarh → /locations/chandigarh/chandigarh/life-insurance
-  [307] https://insurancesupport.online/hi/locations/chandigarh → /locations/chandigarh/chandigarh/life-insurance
+  [301] https://insurancesupport.online/locations/tamil-nadu/vellore/life-insurance → /
+  [301] https://insurancesupport.online/locations/tamil-nadu/hosur/life-insurance → /
+  [301] https://insurancesupport.online/locations/tamil-nadu/kanchipuram/life-insurance → /
+  [301] https://insurancesupport.online/locations/andhra-pradesh/tirupati/life-insurance → /
+  [301] https://insurancesupport.online/locations/puducherry/pondicherry/life-insurance → /
+  [301] https://insurancesupport.online/locations/rajasthan/ajmer/life-insurance → /
+  [301] https://insurancesupport.online/locations/jammu-and-kashmir/jammu/life-insurance → /
+  [301] https://insurancesupport.online/locations/west-bengal/siliguri/life-insurance → /
+  [301] https://insurancesupport.online/locations/karnataka/mangalore/life-insurance → /
+  [301] https://insurancesupport.online/locations/kerala/kozhikode/life-insurance → /
+  [301] https://insurancesupport.online/locations/kerala/thrissur/life-insurance → /
+  [301] https://insurancesupport.online/locations/madhya-pradesh/ujjain/life-insurance → /
+  [301] https://insurancesupport.online/locations/maharashtra/akola/life-insurance → /
+  [301] https://insurancesupport.online/locations/karnataka/gulbarga/life-insurance → /
+  [301] https://insurancesupport.online/locations/gujarat/jamnagar/life-insurance → /
+  [301] https://insurancesupport.online/locations/uttar-pradesh/loni/life-insurance → /
+  [301] https://insurancesupport.online/locations/uttar-pradesh/jhansi/life-insurance → /
+  [301] https://insurancesupport.online/locations/maharashtra/ulhasnagar/life-insurance → /
+  [301] https://insurancesupport.online/locations/maharashtra/sangli-miraj-kupwad/life-insurance → /
+  [301] https://insurancesupport.online/locations/tamil-nadu/erode/life-insurance → /
+  [301] https://insurancesupport.online/locations/karnataka/belgaum/life-insurance → /
+  [301] https://insurancesupport.online/locations/tamil-nadu/ambattur/life-insurance → /
+  [301] https://insurancesupport.online/locations/tamil-nadu/tirunelveli/life-insurance → /
+  [301] https://insurancesupport.online/locations/maharashtra/malegaon/life-insurance → /
+  [301] https://insurancesupport.online/locations/bihar/gaya/life-insurance → /
+  [301] https://insurancesupport.online/locations/maharashtra/jalgaon/life-insurance → /
+  [301] https://insurancesupport.online/locations/rajasthan/udaipur/life-insurance → /
+  [301] https://insurancesupport.online/locations/west-bengal/maheshtala/life-insurance → /
+  [301] https://insurancesupport.online/locations/karnataka/davanagere/life-insurance → /
+  [301] https://insurancesupport.online/locations/uttar-pradesh/akbarpur/life-insurance → /
+  [301] https://insurancesupport.online/locations/andhra-pradesh/kurnool/life-insurance → /
+  [301] https://insurancesupport.online/locations/west-bengal/rajpur-sonarpur/life-insurance → /
+  [301] https://insurancesupport.online/locations/jharkhand/bokaro/life-insurance → /
+  [301] https://insurancesupport.online/locations/west-bengal/south-dumdum/life-insurance → /
+  [301] https://insurancesupport.online/locations/karnataka/bellary/life-insurance → /
+  [301] https://insurancesupport.online/locations/punjab/patiala/life-insurance → /
+  [301] https://insurancesupport.online/locations/odisha/gopalpur/life-insurance → /
+  [301] https://insurancesupport.online/locations/tripura/agartala/life-insurance → /
+  [301] https://insurancesupport.online/locations/bihar/bhagalpur/life-insurance → /
+  [301] https://insurancesupport.online/locations/uttar-pradesh/muzaffarnagar/life-insurance → /
+  [301] https://insurancesupport.online/locations/west-bengal/bhatpara/life-insurance → /
+  [301] https://insurancesupport.online/locations/west-bengal/panihati/life-insurance → /
+  [301] https://insurancesupport.online/locations/maharashtra/latur/life-insurance → /
+  [301] https://insurancesupport.online/locations/maharashtra/dhule/life-insurance → /
+  [301] https://insurancesupport.online/locations/haryana/rohtak/life-insurance → /
+  [301] https://insurancesupport.online/locations/chhattisgarh/korba/life-insurance → /
+  [301] https://insurancesupport.online/locations/rajasthan/bhilwara/life-insurance → /
+  [301] https://insurancesupport.online/locations/odisha/brahmapur/life-insurance → /
+  [301] https://insurancesupport.online/locations/bihar/muzaffarpur/life-insurance → /
+  [301] https://insurancesupport.online/locations/maharashtra/ahmednagar/life-insurance → /

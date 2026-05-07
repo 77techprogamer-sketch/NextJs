@@ -58,7 +58,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }))
 
     // 3. State Hub Routes (The New Hierarchy)
-    const uniqueStates = Array.from(new Set(INDIAN_LOCATIONS.map(loc => loc.state)))
+    const uniqueStates = Array.from(new Set(PRIORITY_LOCATIONS.map(loc => loc.state)))
     const stateHubRoutes = uniqueStates.map(state => ({
         url: `${BASE_URL}/locations/${state}`,
         lastModified: todayISO,

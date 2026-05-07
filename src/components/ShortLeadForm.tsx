@@ -17,6 +17,7 @@ import { ShieldCheck, ArrowRight } from 'lucide-react';
 
 const shortLeadSchema = z.object({
     fullName: z.string().min(2, { message: "Name required" }),
+    email: z.string().email({ message: "Valid email required" }),
     mobileNumber: z.string().regex(/^\d{10}$/, { message: "10-digit mobile required" }),
     requirement: z.string().min(1, { message: "Please select a requirement" }),
 });
@@ -40,6 +41,7 @@ const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => 
         resolver: zodResolver(shortLeadSchema),
         defaultValues: {
             fullName: '',
+            email: '',
             mobileNumber: '',
             requirement: (['life_insurance', 'health_insurance', 'motor_insurance', 'policy_revival', 'loan_help'].includes(normalizedService) 
                 ? normalizedService 
@@ -51,6 +53,7 @@ const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => 
         try {
             const payload = {
                 name: values.fullName,
+                email: values.email,
                 phone: values.mobileNumber,
                 insurance_type: values.requirement,
                 details: { 
@@ -103,6 +106,24 @@ const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => 
                                     <FormControl>
                                         <Input
                                             placeholder={t("short_lead_form.name_label")}
+                                            {...field}
+                                            className="bg-white/5 border-white/10 text-white placeholder:text-white/40 h-12 rounded-xl focus:border-accent/50 transition-all"
+                                        />
+                                    </FormControl>
+                                    <FormMessage className="text-[10px] text-red-400" />
+                                </FormItem>
+                            )}
+                        />
+
+                        <FormField
+                            control={form.control}
+                            name="email"
+                            render={({ field }) => (
+                                <FormItem className="space-y-1">
+                                    <FormControl>
+                                        <Input
+                                            type="email"
+                                            placeholder={t("short_lead_form.email_label", "Email Address")}
                                             {...field}
                                             className="bg-white/5 border-white/10 text-white placeholder:text-white/40 h-12 rounded-xl focus:border-accent/50 transition-all"
                                         />
