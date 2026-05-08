@@ -18,7 +18,7 @@ import { GlobalJsonLd } from '@/components/ServerJsonLd'
 const WhatsAppWidget = dynamic(() => import('@/components/WhatsAppWidget'), { ssr: false });
 import DelayedLoader from '@/components/DelayedLoader';
 const StickyMobileContactBar = dynamic(() => import('@/components/StickyMobileContactBar'), { ssr: false });
-const IntenseDebateComments = dynamic(() => import('@/components/IntenseDebateComments'), { ssr: false });
+const QuestionForm = dynamic(() => import('@/components/QuestionForm'), { ssr: false });
 const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ssr: false });
 const LeadSyncManager = dynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
 const BroadcastListener = dynamic(() => import('@/components/BroadcastListener'), { ssr: false });
@@ -221,7 +221,7 @@ export default function RootLayout({
                             <main className="flex-1">
                                 <PageTransitionProvider>
                                     {children}
-                                    <IntenseDebateComments />
+                                    <QuestionForm />
                                 </PageTransitionProvider>
                             </main>
 

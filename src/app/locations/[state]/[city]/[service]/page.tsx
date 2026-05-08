@@ -119,7 +119,7 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
     const serviceCategory = serviceCategoryMap[params.service] || 'General'
 
     // Compute localized display data with overrides
-    const displaySummary = serviceOverride?.summary || override?.summary || `Over the last 25+ years, our team has assisted 15,000+ families in ${localizedCity} with claim recovery and policy management. We are an independent IRDAI-certified consultancy, not an insurance company.`;
+    const displaySummary = serviceOverride?.summary || override?.summary || t('over_25_years_assisted_families_generic', { city: localizedCity, defaultValue: `Over the last 25+ years, our team has assisted 15,000+ families in ${localizedCity} with claim recovery and policy management. We are an independent IRDAI-certified consultancy, not an insurance company.` });
     const displayFacts = serviceOverride?.facts || override?.facts || [];
     const displayLocalContext = serviceOverride?.localContext || override?.localContext;
 
@@ -159,11 +159,10 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
 
                     <header className="mb-12">
                         <h1 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight leading-[1.1]">
-                            {serviceLabel} Advisor & Support Services in {localizedCity}
-
+                            {t('advisor_and_support_services_in_city', { service: serviceLabel, city: localizedCity })}
                         </h1>
                         <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-                            {lang === 'en' ? displaySummary : `Over the last 25+ years, our team has assisted 15,000+ families in ${localizedCity} with ${serviceLabel.toLowerCase()} claim recovery and policy management.`}
+                            {lang === 'en' ? displaySummary : t('over_25_years_assisted_families_service', { service: serviceLabel.toLowerCase(), city: localizedCity })}
                         </p>
                     </header>
 
@@ -233,7 +232,7 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                            <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:rotate-12 transition-transform">
                                 <Award className="w-24 h-24" />
                            </div>
-                           <h2 className="text-2xl font-bold mb-4 relative z-10">Book a Free 15-Minute Consultation with Hari Kotian</h2>
+                           <h2 className="text-2xl font-bold mb-4 relative z-10">{t('book_free_consultation_hari_kotian', 'Book a Free 15-Minute Consultation with Hari Kotian')}</h2>
                            <p className="text-slate-400 mb-8 relative z-10">{t('location_page.get_expert_assistance_desc', { city: location.name })}</p>
                            
                            <div className="space-y-4 relative z-10">
@@ -301,12 +300,12 @@ export default async function ProgrammaticLocationPage({ params }: Props) {
                             <Scale className="w-10 h-10" />
                         </div>
                         <div className="flex-grow text-center md:text-left">
-                            <h3 className="text-xl md:text-2xl font-bold mb-2">Struggling with a Rejected Claim?</h3>
+                            <h3 className="text-xl md:text-2xl font-bold mb-2">{t('struggling_with_rejected_claim', 'Struggling with a Rejected Claim?')}</h3>
                             <p className="text-slate-400 text-sm md:text-base mb-4">
-                                Our comprehensive guide covers IRDAI rules and escalation steps to recover your money.
+                                {t('comprehensive_guide_irdai', 'Our comprehensive guide covers IRDAI rules and escalation steps to recover your money.')}
                             </p>
                             <Link href="/resources/claim-recovery-guide" className="inline-flex items-center gap-2 text-primary font-black hover:underline">
-                                Read our National Guide to Claim Recovery <ArrowRight className="w-4 h-4" />
+                                {t('read_national_guide_claim_recovery', 'Read our National Guide to Claim Recovery')} <ArrowRight className="w-4 h-4" />
                             </Link>
                         </div>
                     </div>

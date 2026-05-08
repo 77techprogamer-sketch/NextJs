@@ -534,5 +534,28 @@
         "cta": "Get Exact Quote & Revival Form"
       }
     }
-  }
+  },
+  "leave_a_question": "Leave a Question",
+  "have_a_doubt": "Have a doubt? Drop your question below and we'll get back to you.",
+  "name_label": "Name",
+  "your_question": "Your Question",
+  "type_your_question_here": "Type your question here...",
+  "submitting": "Submitting...",
+  "submit_question": "Submit Question",
+  "please_fill_all_fields": "Please fill in all fields.",
+  "failed_to_submit_question": "Failed to submit question. Please try again.",
+  "question_submitted_successfully": "Your question has been submitted successfully! We will get back to you soon.",
+  "advisor_and_support_services_in_city": "{{service}} Advisor & Support Services in {{city}}",
+  "how_to_file_claim_step_by_step": "How to File a {{service}} Claim — Step by Step",
+  "who_should_buy": "Who Should Buy {{service}}?",
+  "related_insurance_guides": "Related Insurance Guides",
+  "compare_and_buy": "Compare & Buy {{service}}",
+  "whatsapp_fast_track_consultation": "WhatsApp Fast-Track Consultation",
+  "struggling_with_rejected_claim": "Struggling with a Rejected Claim?",
+  "comprehensive_guide_irdai": "Our comprehensive guide covers IRDAI rules and escalation steps to recover your money.",
+  "read_national_guide_claim_recovery": "Read our National Guide to Claim Recovery",
+  "book_free_consultation_hari_kotian": "Book a Free 15-Minute Consultation with Hari Kotian",
+  "over_25_years_assisted_families_generic": "Over the last 25+ years, our team has assisted 15,000+ families in {{city}} with claim recovery and policy management. We are an independent IRDAI-certified consultancy, not an insurance company.",
+  "over_25_years_assisted_families_service": "Over the last 25+ years, our team has assisted 15,000+ families in {{city}} with {{service}} claim recovery and policy management.",
+  "advisor_in_india_expert_plans": "{{service}} Advisor in India | Expert Plans & Claim Support"
 }

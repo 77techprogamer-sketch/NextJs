@@ -57,7 +57,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         <div className="p-3 bg-primary/10 rounded-lg text-primary">
                             <Icon className="w-8 h-8" />
                         </div>
-                        <h1 className="text-4xl font-bold">{title} Advisor in India | Expert Plans &amp; Claim Support</h1>
+                        <h1 className="text-4xl font-bold">{t('advisor_in_india_expert_plans', { service: title, defaultValue: `${title} Advisor in India | Expert Plans & Claim Support` })}</h1>
                     </div>
                     <p className="text-xl text-muted-foreground leading-relaxed">
                         <AutoLinker text={description} />
@@ -123,7 +123,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                                         className="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full font-bold transition-all hover:scale-105 active:scale-95"
                                     >
                                         <MessageSquare className="w-5 h-5" />
-                                        WhatsApp Fast-Track Consultation
+                                        {t('whatsapp_fast_track_consultation', 'WhatsApp Fast-Track Consultation')}
                                     </a>
                                 </div>
                             </div>
@@ -132,7 +132,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         {/* Claim Process Section */}
                         {claimProcess.length > 0 && (
                             <section className="bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900 rounded-lg p-6">
-                                <h2 className="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-100">How to File a {title} Claim — Step by Step</h2>
+                                <h2 className="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-100">{t('how_to_file_claim_step_by_step', { service: title, defaultValue: `How to File a ${title} Claim — Step by Step` })}</h2>
                                 <ol className="space-y-3">
                                     {claimProcess.map((step: string, idx: number) => (
                                         <li key={idx} className="flex gap-3 text-slate-700 dark:text-slate-300">
@@ -147,7 +147,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         {/* Who Should Buy Section */}
                         {whoShouldBuy.length > 0 && (
                             <section>
-                                <h2 className="text-2xl font-semibold mb-4">Who Should Buy {title}?</h2>
+                                <h2 className="text-2xl font-semibold mb-4">{t('who_should_buy', { service: title, defaultValue: `Who Should Buy ${title}?` })}</h2>
                                 <ul className="space-y-3">
                                     {whoShouldBuy.map((persona: string, idx: number) => (
                                         <li key={idx} className="flex items-start gap-3 bg-slate-50 dark:bg-slate-800 p-3 rounded-lg border">
@@ -177,7 +177,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         {/* Related Guides Internal Links */}
                         {relatedGuides.length > 0 && (
                             <section className="mt-8">
-                                <h2 className="text-xl font-semibold mb-4">Related Insurance Guides</h2>
+                                <h2 className="text-xl font-semibold mb-4">{t('related_insurance_guides', 'Related Insurance Guides')}</h2>
                                 <div className="grid sm:grid-cols-2 gap-3">
                                     {relatedGuides.map((guide, idx) => (
                                         <Link
@@ -196,7 +196,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                     <div className="space-y-6">
                         <div className="sticky top-24">
                             <div className="bg-gradient-to-r from-primary to-accent/90 text-white text-center py-4 px-4 rounded-t-2xl font-extrabold shadow-lg relative z-10 translate-y-3">
-                                Compare & Buy {title}
+                                {t('compare_and_buy', { service: title, defaultValue: `Compare & Buy ${title}` })}
                             </div>
                             <QuoteForm
                                 insuranceType={serviceType}
