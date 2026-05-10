@@ -99,111 +99,112 @@ const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => 
                         <p className="text-white/60 text-xs font-medium">{t("short_lead_form.subtitle")}</p>
                     </div>
 
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                        <FormField
-                            control={form.control}
-                            name="fullName"
-                            render={({ field }) => (
-                                <FormItem className="space-y-1">
-                                    <FormControl>
-                                        <Input
-                                            placeholder={t("short_lead_form.name_label")}
-                                            {...field}
-                                            className="bg-white/5 border-white/10 text-white placeholder:text-white/40 h-12 rounded-xl focus:border-accent/50 transition-all"
-                                        />
-                                    </FormControl>
-                                    <FormMessage className="text-[10px] text-red-400" />
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <FormItem className="space-y-1">
-                                    <FormControl>
-                                        <Input
-                                            type="email"
-                                            placeholder={t("short_lead_form.email_label", "Email Address")}
-                                            {...field}
-                                            className="bg-white/5 border-white/10 text-white placeholder:text-white/40 h-12 rounded-xl focus:border-accent/50 transition-all"
-                                        />
-                                    </FormControl>
-                                    <FormMessage className="text-[10px] text-red-400" />
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name="mobileNumber"
-                            render={({ field }) => (
-                                <FormItem className="space-y-1">
-                                    <FormControl>
-                                        <div className="relative">
-                                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-sm font-bold">+91</span>
-                                            <Input
-                                                type="tel"
-                                                placeholder={t("short_lead_form.mobile_label")}
-                                                {...field}
-                                                maxLength={10}
-                                                className="bg-white/5 border-white/10 text-white placeholder:text-white/40 h-12 pl-12 rounded-xl focus:border-accent/50 transition-all"
-                                            />
-                                        </div>
-                                    </FormControl>
-                                    <FormMessage className="text-[10px] text-red-400" />
-                                </FormItem>
-                            )}
-                        />
-
-                        <FormField
-                            control={form.control}
-                            name="requirement"
-                            render={({ field }) => (
-                                <FormItem className="space-y-1">
-                                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    {!isSubmitted ? (
+                        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                            <FormField
+                                control={form.control}
+                                name="fullName"
+                                render={({ field }) => (
+                                    <FormItem className="space-y-1">
                                         <FormControl>
-                                            <SelectTrigger className="bg-white/5 border-white/10 text-white h-12 rounded-xl focus:border-accent/50 transition-all">
-                                                <SelectValue placeholder={t("short_lead_form.requirement_label")} />
-                                            </SelectTrigger>
+                                            <Input
+                                                placeholder={t("short_lead_form.name_label")}
+                                                {...field}
+                                                className="bg-white/5 border-white/10 text-white placeholder:text-white/40 h-12 rounded-xl focus:border-accent/50 transition-all"
+                                            />
                                         </FormControl>
-                                        <SelectContent className="bg-slate-900 border-white/10 text-white">
-                                            <SelectItem value="life_insurance">{t("short_lead_form.life_insurance")}</SelectItem>
-                                            <SelectItem value="health_insurance">{t("short_lead_form.health_insurance")}</SelectItem>
-                                            <SelectItem value="motor_insurance">{t("short_lead_form.motor_insurance")}</SelectItem>
-                                            <SelectItem value="policy_revival">{t("short_lead_form.policy_revival")}</SelectItem>
-                                            <SelectItem value="loan_help">{t("short_lead_form.loan_help")}</SelectItem>
-                                        </SelectContent>
-                                    </Select>
-                                    <FormMessage className="text-[10px] text-red-400" />
-                                </FormItem>
-                            )}
-                        />
+                                        <FormMessage className="text-[10px] text-red-400" />
+                                    </FormItem>
+                                )}
+                            />
 
-                        <Button
-                            type="submit"
-                            className="w-full h-14 bg-accent hover:bg-accent/90 text-primary font-black text-lg rounded-2xl shadow-[0_0_30px_-5px_rgba(234,179,8,0.4)] transition-all group mt-2"
-                            disabled={form.formState.isSubmitting}
-                        >
-                            {form.formState.isSubmitting ? (
-                                <div className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
-                            ) : (
-                                <>
-                                    {t("short_lead_form.submit_button")}
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </>
-                            )}
-                        </Button>
+                            <FormField
+                                control={form.control}
+                                name="email"
+                                render={({ field }) => (
+                                    <FormItem className="space-y-1">
+                                        <FormControl>
+                                            <Input
+                                                type="email"
+                                                placeholder={t("short_lead_form.email_label", "Email Address")}
+                                                {...field}
+                                                className="bg-white/5 border-white/10 text-white placeholder:text-white/40 h-12 rounded-xl focus:border-accent/50 transition-all"
+                                            />
+                                        </FormControl>
+                                        <FormMessage className="text-[10px] text-red-400" />
+                                    </FormItem>
+                                )}
+                            />
 
-                        <div className="flex items-center justify-center gap-2 mt-4 opacity-60">
-                            <ShieldCheck className="w-3 h-3 text-accent" />
-                            <span className="text-[9px] font-bold text-white uppercase tracking-tighter">
-                                {t("short_lead_form.privacy_note")}
-                            </span>
-                        </div>
-                    </form>
-                ) : (
+                            <FormField
+                                control={form.control}
+                                name="mobileNumber"
+                                render={({ field }) => (
+                                    <FormItem className="space-y-1">
+                                        <FormControl>
+                                            <div className="relative">
+                                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-white/40 text-sm font-bold">+91</span>
+                                                <Input
+                                                    type="tel"
+                                                    placeholder={t("short_lead_form.mobile_label")}
+                                                    {...field}
+                                                    maxLength={10}
+                                                    className="bg-white/5 border-white/10 text-white placeholder:text-white/40 h-12 pl-12 rounded-xl focus:border-accent/50 transition-all"
+                                                />
+                                            </div>
+                                        </FormControl>
+                                        <FormMessage className="text-[10px] text-red-400" />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <FormField
+                                control={form.control}
+                                name="requirement"
+                                render={({ field }) => (
+                                    <FormItem className="space-y-1">
+                                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                                            <FormControl>
+                                                <SelectTrigger className="bg-white/5 border-white/10 text-white h-12 rounded-xl focus:border-accent/50 transition-all">
+                                                    <SelectValue placeholder={t("short_lead_form.requirement_label")} />
+                                                </SelectTrigger>
+                                            </FormControl>
+                                            <SelectContent className="bg-slate-900 border-white/10 text-white">
+                                                <SelectItem value="life_insurance">{t("short_lead_form.life_insurance")}</SelectItem>
+                                                <SelectItem value="health_insurance">{t("short_lead_form.health_insurance")}</SelectItem>
+                                                <SelectItem value="motor_insurance">{t("short_lead_form.motor_insurance")}</SelectItem>
+                                                <SelectItem value="policy_revival">{t("short_lead_form.policy_revival")}</SelectItem>
+                                                <SelectItem value="loan_help">{t("short_lead_form.loan_help")}</SelectItem>
+                                            </SelectContent>
+                                        </Select>
+                                        <FormMessage className="text-[10px] text-red-400" />
+                                    </FormItem>
+                                )}
+                            />
+
+                            <Button
+                                type="submit"
+                                className="w-full h-14 bg-accent hover:bg-accent/90 text-primary font-black text-lg rounded-2xl shadow-[0_0_30px_-5px_rgba(234,179,8,0.4)] transition-all group mt-2"
+                                disabled={form.formState.isSubmitting}
+                            >
+                                {form.formState.isSubmitting ? (
+                                    <div className="w-5 h-5 border-2 border-primary/30 border-t-primary rounded-full animate-spin" />
+                                ) : (
+                                    <>
+                                        {t("short_lead_form.submit_button")}
+                                        <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                    </>
+                                )}
+                            </Button>
+
+                            <div className="flex items-center justify-center gap-2 mt-4 opacity-60">
+                                <ShieldCheck className="w-3 h-3 text-accent" />
+                                <span className="text-[9px] font-bold text-white uppercase tracking-tighter">
+                                    {t("short_lead_form.privacy_note")}
+                                </span>
+                            </div>
+                        </form>
+                    ) : (
                     <div className="text-center py-10 animate-in fade-in zoom-in duration-500">
                         <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
                             <ShieldCheck className="w-10 h-10 text-accent" />

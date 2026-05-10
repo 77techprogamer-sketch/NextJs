@@ -32,9 +32,13 @@ export default function QuestionForm() {
             return;
         }
 
-        setIsSubmitting(true);
+        const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+        if (!supabaseUrl || supabaseUrl.includes('placeholder')) {
+            console.error('[QuestionForm] SUPABASE ERROR: Using placeholder or missing URL. Data will NOT be captured in your project.');
+        }
 
         try {
+            console.log('[QuestionForm] Attempting to insert question into "user_questions" table at:', supabaseUrl);
             const { error } = await supabase
                 .from('user_questions')
                 .insert([
@@ -43,13 +47,18 @@ export default function QuestionForm() {
                         mobile,
                         question,
                         source_url: window.location.href,
+                        created_at: new Date().toISOString()
                     }
                 ]);
 
             if (error) {
-                console.error('Error inserting question:', error);
-                toast.error(t('failed_to_submit_question', 'Failed to submit question. Please try again.'));
+                console.error('[QuestionForm] Supabase Insert Error:', error);
+                if (error.code === 'PGRST301') {
+                    console.error('[QuestionForm] RLS ERROR: Insert permission denied. Check your Supabase policies.');
+                }
+                toast.error(t('failed_to_submit_question', 'Failed to submit question. Please check connection.'));
             } else {
+                console.log('[QuestionForm] SUCCESS: Question captured successfully.');
                 toast.success(t('question_submitted_successfully', 'Your question has been submitted successfully! We will get back to you soon.'));
                 setIsSubmitted(true);
                 setName('');
@@ -57,7 +66,7 @@ export default function QuestionForm() {
                 setQuestion('');
             }
         } catch (err) {
-            console.error('Unexpected error:', err);
+            console.error('[QuestionForm] Unexpected execution error:', err);
             toast.error(t('failed_to_submit_question', 'An unexpected error occurred. Please try again.'));
         } finally {
             setIsSubmitting(false);

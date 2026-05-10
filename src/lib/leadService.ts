@@ -20,6 +20,8 @@ export const leadService = {
 
     try {
       const id = await db.leads.add(lead);
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      console.log(`[LeadService] Saved lead locally (id: ${id}). URL for sync: ${supabaseUrl || 'MISSING'}`);
       // Trigger async sync attempt
       this.syncLead(id as number);
       return id;
@@ -34,33 +36,51 @@ export const leadService = {
    * Direct submission fallback if IndexedDB is unavailable
    */
   async submitDirectly(payload: any) {
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-      console.error('[LeadService] Cannot submit lead: Supabase environment variables are missing.');
-      throw new Error('CONFIG_ERROR');
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const isPlaceholder = supabaseUrl?.includes('placeholder') || !supabaseUrl;
+    
+    if (isPlaceholder) {
+      console.error('[LeadService] SUPABASE ERROR: Using placeholder or missing URL. Data will NOT be captured in your project.');
+      console.log('[LeadService] Current URL:', supabaseUrl || 'MISSING');
     }
+
     const { data, error } = await supabase.functions.invoke('process-lead', {
       body: payload
     });
 
     if (error) {
-      console.warn('[LeadService] Edge function failed, falling back to direct insert:', error);
+      console.warn('[LeadService] Edge function "process-lead" failed or missing. Falling back to direct "customers" table insert.', error);
+      
+      const insertData = {
+        name: payload.name || payload.fullName || 'Unknown',
+        phone: payload.phone || payload.mobile || payload.mobileNumber || '',
+        email: payload.email || null,
+        age: payload.age || null,
+        gender: payload.gender || null,
+        insurance_type: payload.insurance_type || payload.service || payload.insuranceType || 'general',
+        intended_sum_insured: payload.intended_sum_insured || payload.sumAssured || null,
+        status: 'New',
+        source: payload.source || 'ImmediateFallback',
+        notes: `Direct insert fallback. Payload: ${JSON.stringify(payload)}`,
+        created_at: new Date().toISOString()
+      };
+
+      console.log('[LeadService] Attempting direct insert into "customers" table with:', insertData);
+
       const { error: insertError } = await supabase
         .from('customers')
-        .insert([
-          {
-            name: payload.name || payload.fullName || 'Unknown',
-            phone: payload.phone || payload.mobile || '',
-            email: payload.email || null,
-            insurance_type: payload.service || payload.insuranceType || 'general',
-            status: 'New',
-            source: 'ImmediateFallback',
-            notes: `Direct insert fallback. Payload: ${JSON.stringify(payload)}`
-          }
-        ]);
+        .insert([insertData]);
       
-      if (insertError) throw insertError;
+      if (insertError) {
+        console.error('[LeadService] Direct "customers" insert also failed:', insertError);
+        throw insertError;
+      }
+      
+      console.log('[LeadService] SUCCESS: Lead captured via direct insert fallback.');
       return { success: true, method: 'direct_insert' };
     }
+    
+    console.log('[LeadService] SUCCESS: Lead captured via edge function.');
     return data;
   },
 
@@ -74,6 +94,7 @@ export const leadService = {
 
     // Don't sync if we've exceeded retries
     if (lead.retries >= MAX_RETRIES) {
+      console.error(`[LeadService] Lead ${id} exceeded max retries. Giving up sync.`);
       await db.leads.update(id, { status: 'failed', error: 'Max retries exceeded' });
       return;
     }
@@ -81,10 +102,13 @@ export const leadService = {
     try {
       await db.leads.update(id, { status: 'syncing', lastAttempt: Date.now() });
 
-      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
-        console.error('[LeadService] Sync failed: Supabase keys are not configured.');
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      if (!supabaseUrl || supabaseUrl.includes('placeholder')) {
+        console.error('[LeadService] Sync failed: Supabase URL is missing or placeholder.');
         throw new Error('CONFIG_ERROR');
       }
+
+      console.log(`[LeadSync] Attempting to sync lead ${id} (Retry ${lead.retries})...`);
 
       // Call Edge Function for resilient processing
       const { data, error } = await supabase.functions.invoke('process-lead', {
@@ -93,25 +117,33 @@ export const leadService = {
 
 
       if (error) {
-        console.warn(`[LeadService] Sync lead ${id} failed via function, trying direct insert...`);
+        console.warn(`[LeadSync] Sync lead ${id} failed via function (${error.message || 'unknown error'}). Trying direct table insert...`);
+        
+        const insertData = {
+          name: lead.payload.name || lead.payload.fullName || 'Unknown',
+          phone: lead.payload.phone || lead.payload.mobile || lead.payload.mobileNumber || '',
+          email: lead.payload.email || null,
+          age: lead.payload.age || null,
+          gender: lead.payload.gender || null,
+          insurance_type: lead.payload.insurance_type || lead.payload.service || lead.payload.insuranceType || 'general',
+          intended_sum_insured: lead.payload.intended_sum_insured || lead.payload.sumAssured || null,
+          status: 'New',
+          source: lead.source || 'SyncFallback',
+          notes: `Sync direct insert fallback. Language: ${lead.payload.language || 'en'}`,
+          created_at: new Date(lead.createdAt).toISOString()
+        };
+
         const { error: insertError } = await supabase
           .from('customers')
-          .insert([
-            {
-              name: lead.payload.name || lead.payload.fullName || 'Unknown',
-              phone: lead.payload.phone || lead.payload.mobile || '',
-              email: lead.payload.email || null,
-              insurance_type: lead.payload.service || lead.payload.insuranceType || 'general',
-              status: 'New',
-              source: lead.source || 'SyncFallback',
-              notes: `Sync direct insert fallback. Language: ${lead.payload.language || 'en'}`
-            }
-          ]);
+          .insert([insertData]);
 
         if (insertError) {
+          console.error(`[LeadSync] Direct insert fallback also failed for lead ${id}:`, insertError);
           await db.leads.update(id, { metadata: { serverError: error, insertError } });
           throw insertError;
         }
+
+        console.log(`[LeadSync] Lead ${id} successfully synced via direct table insert.`);
 
         await db.leads.update(id, { 
           status: 'completed', 
@@ -119,6 +151,8 @@ export const leadService = {
         });
         return;
       }
+
+      console.log(`[LeadSync] Lead ${id} successfully synced via edge function.`);
 
       // Success: mark as completed
       await db.leads.update(id, { 
@@ -128,7 +162,7 @@ export const leadService = {
       });
       
     } catch (error: any) {
-      console.error(`Sync failed for lead ${id}:`, error);
+      console.error(`[LeadSync] Sync failed for lead ${id}:`, error);
       
       // If it's a validation error (400), don't retry as it will never succeed
       const isValidationError = error.status === 400 || (error.message && error.message.includes('required'));
@@ -155,7 +189,8 @@ export const leadService = {
 
     if (pendingLeads.length === 0) return 0;
 
-    console.log(`Attempting to sync ${pendingLeads.length} leads...`);
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    console.log(`[LeadSync] Attempting to sync ${pendingLeads.length} leads to ${supabaseUrl || 'MISSING'}...`);
     
     let successCount = 0;
     for (const lead of pendingLeads) {

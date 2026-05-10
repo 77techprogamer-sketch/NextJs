@@ -108,31 +108,20 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
         throw new Error('CONFIG_ERROR: Supabase URL or Anon Key is missing in environment variables.');
       }
 
-      const { error } = await supabase
-        .from('customers')
-        .insert([
-          {
-            name: values.fullName,
-            email: values.email,
-            age: resolvedAge,
-            gender: values.gender,
-            phone: values.mobileNumber,
-            insurance_type: insuranceType,
-            intended_sum_insured: (values as any).sumAssured || initialData?.sumAssured || initialData?.quiz_score,
-            created_at: new Date().toISOString(),
-            // Map common initial data fields if columns exist
-            ...(initialData?.quiz_risk ? { quiz_risk: initialData.quiz_risk } : {}),
-            ...(initialData?.source ? { source: initialData.source } : {}),
-          },
-        ]);
+      const payload = {
+        name: values.fullName,
+        email: values.email,
+        age: resolvedAge,
+        gender: values.gender,
+        phone: values.mobileNumber,
+        insurance_type: insuranceType,
+        intended_sum_insured: (values as any).sumAssured || initialData?.sumAssured || initialData?.quiz_score,
+        ...initialData,
+        created_at: new Date().toISOString()
+      };
 
-      if (error) {
-        console.error('Supabase Insert Error:', error);
-        if (error.code === 'PGRST301') {
-          throw new Error('RLS_ERROR: Insert permission denied. Please check Supabase RLS policies.');
-        }
-        throw error;
-      }
+      console.log('[QuoteForm] Submitting via leadService:', payload);
+      await leadService.submitLead(payload, initialData?.source || 'QuoteForm');
 
       setSubmitted(true);
       toast.success(t("quote_request_submitted"));
