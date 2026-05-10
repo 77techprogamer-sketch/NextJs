@@ -41,7 +41,26 @@ export const leadService = {
     const { data, error } = await supabase.functions.invoke('process-lead', {
       body: payload
     });
-    if (error) throw error;
+
+    if (error) {
+      console.warn('[LeadService] Edge function failed, falling back to direct insert:', error);
+      const { error: insertError } = await supabase
+        .from('customers')
+        .insert([
+          {
+            full_name: payload.name || payload.fullName || 'Unknown',
+            phone: payload.phone || payload.mobile || '',
+            email: payload.email || null,
+            insurance_type: payload.service || payload.insuranceType || 'general',
+            status: 'New',
+            source: 'ImmediateFallback',
+            notes: `Direct insert fallback. Payload: ${JSON.stringify(payload)}`
+          }
+        ]);
+      
+      if (insertError) throw insertError;
+      return { success: true, method: 'direct_insert' };
+    }
     return data;
   },
 
@@ -74,9 +93,31 @@ export const leadService = {
 
 
       if (error) {
-        // Log technical details to metadata
-        await db.leads.update(id, { metadata: { serverError: error } });
-        throw error;
+        console.warn(`[LeadService] Sync lead ${id} failed via function, trying direct insert...`);
+        const { error: insertError } = await supabase
+          .from('customers')
+          .insert([
+            {
+              full_name: lead.payload.name || lead.payload.fullName || 'Unknown',
+              phone: lead.payload.phone || lead.payload.mobile || '',
+              email: lead.payload.email || null,
+              insurance_type: lead.payload.service || lead.payload.insuranceType || 'general',
+              status: 'New',
+              source: lead.source || 'SyncFallback',
+              notes: `Sync direct insert fallback. Language: ${lead.payload.language || 'en'}`
+            }
+          ]);
+
+        if (insertError) {
+          await db.leads.update(id, { metadata: { serverError: error, insertError } });
+          throw insertError;
+        }
+
+        await db.leads.update(id, { 
+          status: 'completed', 
+          metadata: { ...lead.metadata, syncMethod: 'direct_insert' } 
+        });
+        return;
       }
 
       // Success: mark as completed
