@@ -54,7 +54,21 @@ export default function TermCalculator() {
         setPremium(calculatePremium);
     }, [calculatePremium]);
 
-    const monthlyPremium = Math.round(premium / 12);
+    const handleGetQuote = () => {
+        if (typeof window !== 'undefined' && (window as any).triggerGlobalForm) {
+            (window as any).triggerGlobalForm({
+                insuranceType: 'life_insurance',
+                formData: {
+                    source: 'term_calculator',
+                    sumAssured: coverage * 100000,
+                    tenure: tenure,
+                    estimatedPremium: premium,
+                    age: age,
+                    gender: gender === 'male' ? 'Male' : 'Female'
+                }
+            });
+        }
+    };
 
     return (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -198,7 +212,10 @@ export default function TermCalculator() {
                             </div>
                         </div>
 
-                        <Button className="w-full h-14 text-lg font-black bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+                        <Button 
+                            onClick={handleGetQuote}
+                            className="w-full h-14 text-lg font-black bg-primary hover:bg-primary/90 shadow-lg shadow-primary/20 flex items-center justify-center gap-2"
+                        >
                             <Phone className="h-5 w-5" />
                             GET DETAILED QUOTE
                         </Button>

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import React from 'react';
-import { cookies } from 'next/headers';
+import { cookies, headers } from 'next/headers';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'

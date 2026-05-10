@@ -10,9 +10,10 @@ interface ServiceModalProps {
   isOpen: boolean;
   onClose: () => void;
   insuranceType: string;
+  initialData?: any;
 }
 
-const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceType }) => {
+const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceType, initialData }) => {
   const { t } = useTranslation();
   const handleQuoteSuccess = () => {
     onClose();
@@ -24,7 +25,12 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ isOpen, onClose, insuranceT
         <DialogHeader>
           <DialogTitle className="sr-only">{t("quote_form_title", { type: formatLabel(insuranceType) })}</DialogTitle>
         </DialogHeader>
-        <QuoteForm insuranceType={insuranceType} onClose={onClose} onSuccess={handleQuoteSuccess} />
+        <QuoteForm 
+          insuranceType={insuranceType} 
+          onClose={onClose} 
+          onSuccess={handleQuoteSuccess} 
+          initialData={initialData}
+        />
       </DialogContent>
     </Dialog>
   );

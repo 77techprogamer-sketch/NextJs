@@ -32,6 +32,7 @@ interface Props {
 
 const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => {
     const { t } = useTranslation();
+    const [isSubmitted, setIsSubmitted] = React.useState(false);
 
     const normalizedService = service 
         ? service.replace(/-/g, '_') 
@@ -74,6 +75,7 @@ const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => 
             }
 
             toast.success(t("quote_submitted_successfully"));
+            setIsSubmitted(true);
             form.reset();
         } catch (error) {
             console.error('Submission error:', error);
@@ -201,6 +203,22 @@ const ShortLeadForm = ({ source = 'short_hero_form', city, service }: Props) => 
                             </span>
                         </div>
                     </form>
+                ) : (
+                    <div className="text-center py-10 animate-in fade-in zoom-in duration-500">
+                        <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <ShieldCheck className="w-10 h-10 text-accent" />
+                        </div>
+                        <h3 className="text-2xl font-bold text-white mb-2 uppercase tracking-tight">{t("thank_you")}</h3>
+                        <p className="text-white/60 text-sm mb-8 leading-relaxed px-4">{t("quote_submitted_successfully")}</p>
+                        <Button 
+                            variant="outline" 
+                            onClick={() => setIsSubmitted(false)}
+                            className="border-white/10 text-white hover:bg-white/5 rounded-xl h-12"
+                        >
+                            {t("submit_another", "Request Another Quote")}
+                        </Button>
+                    </div>
+                )}
                 </motion.div>
             </Form>
         </div>

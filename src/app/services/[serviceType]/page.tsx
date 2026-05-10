@@ -7,6 +7,7 @@ import Link from "next/link"
 import { ArrowRight, BookOpen } from "lucide-react"
 
 import { getServerSideTranslation } from "@/lib/i18n-server"
+import { services, serviceLabels, serviceDescriptions } from "@/data/services"
 
 // Asset mappings (non-translatable)
 const servicesAssets: Record<string, { icon: any, iconName: string, image: string }> = {
@@ -23,27 +24,28 @@ const servicesAssets: Record<string, { icon: any, iconName: string, image: strin
     "lic-agent": { icon: UserCheck, iconName: "UserCheck", image: "/lic-agent.png" }
 }
 
-type ServiceType = keyof typeof servicesAssets
-
 export function generateStaticParams() {
-    return Object.keys(servicesAssets).map((serviceType) => ({
+    return services.map((serviceType) => ({
         serviceType: serviceType,
     }))
 }
 
 export async function generateMetadata({ params }: { params: { serviceType: string } }): Promise<Metadata> {
     const { t } = await getServerSideTranslation();
-    const serviceKey = params.serviceType as ServiceType
-    const assets = servicesAssets[serviceKey]
+    const serviceType = params.serviceType;
+    const assets = servicesAssets[serviceType];
+    
+    if (!services.includes(serviceType) || !assets) return {}
+
+    const flatKeyPrefix = serviceType.replace(/-/g, '_');
+    const label = t(flatKeyPrefix) !== flatKeyPrefix ? t(flatKeyPrefix) : (serviceLabels[serviceType] || serviceType);
     
     // Attempt to get metadata from translation file
-    const meta = t(`services_meta.${serviceKey}`) as any;
-    const serviceData = t(`services_data.${serviceKey}`) as any;
+    const metaTitle = t(`${flatKeyPrefix}_page_title`);
+    const metaDescription = t(`${flatKeyPrefix}_meta_description`);
 
-    if (!assets || !serviceData) return {}
-
-    const title = meta?.title || `${serviceData.title} Advisor in India | Insurance Support`;
-    const description = meta?.description || serviceData.description;
+    const title = metaTitle !== `${flatKeyPrefix}_page_title` ? metaTitle : `${label} Advisor in India | Insurance Support`;
+    const description = metaDescription !== `${flatKeyPrefix}_meta_description` ? metaDescription : serviceDescriptions[serviceType];
 
     return {
         title: {
@@ -51,30 +53,29 @@ export async function generateMetadata({ params }: { params: { serviceType: stri
         },
         description: description,
         keywords: [
-            serviceData.title,
-            `${serviceData.title} Quotes India`,
-            `Best ${serviceData.title} in India`,
-            `${serviceData.title} Advisor India`,
+            label,
+            `${label} Quotes India`,
+            `Best ${label} in India`,
+            `${label} Advisor India`,
             "Insurance Support",
-            ...(serviceData.features || [])
         ],
         openGraph: {
-            title: `${serviceData.title} Quotes | Insurance Support`,
-            description: serviceData.description,
-            url: `https://insurancesupport.online/services/${params.serviceType}`,
+            title: `${label} Quotes | Insurance Support`,
+            description: description,
+            url: `https://insurancesupport.online/services/${serviceType}`,
             siteName: 'Insurance Support',
-            images: [{ url: assets.image, width: 1200, height: 600, alt: serviceData.title }],
+            images: [{ url: assets.image, width: 1200, height: 600, alt: label }],
             locale: 'en_IN',
             type: 'article',
         },
         twitter: {
             card: 'summary_large_image',
-            title: `${serviceData.title} Quotes | Insurance Support`,
-            description: serviceData.description,
+            title: `${label} Quotes | Insurance Support`,
+            description: description,
             images: [assets.image],
         },
         alternates: {
-            canonical: `https://insurancesupport.online/services/${params.serviceType}`,
+            canonical: `https://insurancesupport.online/services/${serviceType}`,
         },
     }
 }
@@ -103,20 +104,24 @@ const relatedGuides: Record<string, { title: string, slug: string }[]> = {
 
 export default async function ServicePage({ params }: { params: { serviceType: string } }) {
     const { t } = await getServerSideTranslation();
-    const serviceKey = params.serviceType as ServiceType
-    const assets = servicesAssets[serviceKey]
+    const serviceType = params.serviceType;
+    const assets = servicesAssets[serviceType];
 
-    const service = t(`services_data.${serviceKey}`) as any;
-
-    if (!service || !assets) {
+    if (!services.includes(serviceType) || !assets) {
         notFound()
     }
+
+    const flatKeyPrefix = serviceType.replace(/-/g, '_');
+    const label = t(flatKeyPrefix) !== flatKeyPrefix ? t(flatKeyPrefix) : (serviceLabels[serviceType] || serviceType);
+    const description = t(`${flatKeyPrefix}_long_description`) !== `${flatKeyPrefix}_long_description` 
+        ? t(`${flatKeyPrefix}_long_description`) 
+        : serviceDescriptions[serviceType];
 
     const serviceSchema = {
         '@context': 'https://schema.org',
         '@type': 'Service',
-        name: service.title,
-        description: service.description,
+        name: label,
+        description: description,
         provider: {
             '@id': 'https://insurancesupport.online/#organization'
         },
@@ -126,14 +131,8 @@ export default async function ServicePage({ params }: { params: { serviceType: s
         },
         hasOfferCatalog: {
             '@type': 'OfferCatalog',
-            name: `${service.title} Services`,
-            itemListElement: (service.features || []).map((feature: string, index: number) => ({
-                '@type': 'Offer',
-                itemOffered: {
-                    '@type': 'Service',
-                    name: feature
-                }
-            }))
+            name: `${label} Services`,
+            itemListElement: [] // Features handled in component
         }
     }
 
@@ -156,8 +155,8 @@ export default async function ServicePage({ params }: { params: { serviceType: s
             {
                 '@type': 'ListItem',
                 'position': 3,
-                'name': service.title,
-                'item': `https://insurancesupport.online/services/${params.serviceType}`
+                'name': label,
+                'item': `https://insurancesupport.online/services/${serviceType}`
             }
         ]
     }
@@ -173,15 +172,15 @@ export default async function ServicePage({ params }: { params: { serviceType: s
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
             />
             <ServiceContent
-                serviceType={params.serviceType}
+                serviceType={serviceType}
                 iconName={assets.iconName}
                 imagePath={assets.image}
-                title={service.title}
-                description={service.description}
+                title={label}
+                description={description}
             />
 
             {/* Expert Authority Section */}
-            {relatedGuides[serviceKey] && (
+            {relatedGuides[serviceType] && (
                 <div className="container mx-auto px-4 mb-20">
                     <div className="bg-slate-900 rounded-[3rem] p-10 md:p-16 text-white relative overflow-hidden group shadow-2xl">
                         <div className="absolute top-0 right-0 p-10 opacity-10 group-hover:scale-110 transition-transform">
@@ -192,7 +191,7 @@ export default async function ServicePage({ params }: { params: { serviceType: s
                                 Expert Authority & <br/> <span className="text-primary italic">Technical Insights.</span>
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl">
-                                {relatedGuides[serviceKey].map((guide) => (
+                                {relatedGuides[serviceType].map((guide) => (
                                     <Link 
                                         key={guide.slug}
                                         href={`/resources/guides/${guide.slug}`}
@@ -210,8 +209,8 @@ export default async function ServicePage({ params }: { params: { serviceType: s
 
             <div className="container mx-auto px-4 pb-16">
                 <CityLinksForService
-                    serviceSlug={params.serviceType}
-                    serviceTitle={service.title}
+                    serviceSlug={serviceType}
+                    serviceTitle={label}
                 />
             </div>
         </>

@@ -10,12 +10,25 @@ import QuoteForm from "@/components/QuoteForm";
 import { AutoLinker } from "@/components/AutoLinker";
 import { contactConfig } from "@/data/contact";
 import dynamic from 'next/dynamic';
+import { serviceHighlights, serviceLabels } from '@/data/services';
+import { faqData } from '@/data/faqData';
 
 const ToolIslands = dynamic(() => import('@/components/sections/ToolIslands'), { ssr: false });
 
 // Map strings to Icon components
 const iconMap: Record<string, React.ElementType> = {
     Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock
+};
+
+// Map service slugs to FAQ categories
+const faqCategoryMap: Record<string, string> = {
+    'life-insurance': 'Life',
+    'health-insurance': 'Health',
+    'motor-insurance': 'Motor',
+    'term-insurance': 'Term',
+    'lic-agent': 'Life',
+    'pension-plans': 'Life',
+    'ulip-plans': 'Life',
 };
 
 interface ServiceContentProps {
@@ -30,21 +43,29 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
     const { t } = useTranslation();
     const Icon = iconMap[iconName] || Shield;
 
-    // Helper to get array from translation, fallback to empty array
-    const getList = (key: string) => {
-        const items = t(key, { returnObjects: true });
-        return Array.isArray(items) ? items : [];
-    };
+    const flatKeyPrefix = serviceType.replace(/-/g, '_');
+    const title = initialTitle || t(flatKeyPrefix) || serviceLabels[serviceType] || serviceType;
+    const description = initialDescription || t(`${flatKeyPrefix}_long_description`) || "";
+    
+    // Use canonical highlights as features
+    const features = serviceHighlights[serviceType] || [];
+    
+    // Fetch FAQs dynamically from faqData
+    const faqCategory = faqCategoryMap[serviceType] || 'General';
+    const localizedFaqs = faqData
+        .filter(item => item.category === faqCategory)
+        .map(item => ({
+            question: t(item.questionKey) !== item.questionKey ? t(item.questionKey) : item.questionKey,
+            answer: t(item.answerKey) !== item.answerKey ? t(item.answerKey) : item.answerKey
+        }))
+        .slice(0, 5); // Limit to 5 relevant FAQs
 
-    const title = initialTitle || t(`services_data.${serviceType}.title`);
-    const description = initialDescription || t(`services_data.${serviceType}.description`);
-    const content = t(`services_data.${serviceType}.content`);
-    const features = getList(`services_data.${serviceType}.features`);
-    const faqs = getList(`services_data.${serviceType}.faqs`) as Array<{ question: string, answer: string }>;
-    const claimProcess = getList(`services_data.${serviceType}.claim_process`) as string[];
-    const whoShouldBuy = getList(`services_data.${serviceType}.who_should_buy`) as string[];
-    const relatedGuides = getList(`services_data.${serviceType}.related_guides`) as Array<{ label: string; href: string }>;
+    // Currently missing from translation.json - handle gracefully
+    const claimProcess: string[] = [];
+    const whoShouldBuy: string[] = [];
+    const relatedGuides: Array<{ label: string; href: string }> = [];
 
+    const content = t(`${flatKeyPrefix}_content`) !== `${flatKeyPrefix}_content` ? t(`${flatKeyPrefix}_content`) : "";
 
     return (
         <div className="container px-4 py-12 mx-auto">
@@ -57,11 +78,18 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         <div className="p-3 bg-primary/10 rounded-lg text-primary">
                             <Icon className="w-8 h-8" />
                         </div>
-                        <h1 className="text-4xl font-bold">{t('advisor_in_india_expert_plans', { service: title, defaultValue: `${title} Advisor in India | Expert Plans & Claim Support` })}</h1>
+                        <h1 className="text-4xl font-bold">
+                            {t('advisor_in_india_expert_plans', { 
+                                service: title, 
+                                defaultValue: `${title} Advisor in India | Expert Plans & Claim Support` 
+                            })}
+                        </h1>
                     </div>
-                    <p className="text-xl text-muted-foreground leading-relaxed">
-                        <AutoLinker text={description} />
-                    </p>
+                    {description && (
+                        <p className="text-xl text-muted-foreground leading-relaxed">
+                            <AutoLinker text={description} />
+                        </p>
+                    )}
                 </div>
 
                 <div className="mb-12">
@@ -78,27 +106,31 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
                     <div className="md:col-span-2 space-y-8">
-                        <section className="bg-card border rounded-lg p-6 shadow-sm">
-                            <h2 className="text-2xl font-semibold mb-4">{t('about')} {title}</h2>
-                            <div className="text-muted-foreground leading-loose prose dark:prose-invert max-w-none">
-                                <ReactMarkdown>{content}</ReactMarkdown>
-                            </div>
-                            <p className="text-muted-foreground leading-loose mt-4">
-                                {t('service_footer_note')}
-                            </p>
-                        </section>
+                        {content && (
+                            <section className="bg-card border rounded-lg p-6 shadow-sm">
+                                <h2 className="text-2xl font-semibold mb-4">{t('about')} {title}</h2>
+                                <div className="text-muted-foreground leading-loose prose dark:prose-invert max-w-none">
+                                    <ReactMarkdown>{content}</ReactMarkdown>
+                                </div>
+                                <p className="text-muted-foreground leading-loose mt-4">
+                                    {t('service_footer_note')}
+                                </p>
+                            </section>
+                        )}
 
-                        <section>
-                            <h2 className="text-2xl font-semibold mb-6">{t('key_benefits')}</h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                {features.map((feature: string, idx: number) => (
-                                    <div key={idx} className="flex items-center gap-3 bg-slate-50 p-4 rounded-lg border">
-                                        <CheckCircle2 className="w-5 h-5 text-green-600" />
-                                        <span className="font-medium"><AutoLinker text={feature} /></span>
-                                    </div>
-                                ))}
-                            </div>
-                        </section>
+                        {features.length > 0 && (
+                            <section>
+                                <h2 className="text-2xl font-semibold mb-6">{t('key_features', 'Key Features')}</h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {features.map((feature: string, idx: number) => (
+                                        <div key={idx} className="flex items-center gap-3 bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border">
+                                            <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0" />
+                                            <span className="font-medium text-sm md:text-base"><AutoLinker text={feature} /></span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </section>
+                        )}
 
                         {/* Advisor Promise / Sales Script Quotes */}
                         <div className="my-12 py-8 px-6 bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl text-white shadow-xl relative overflow-hidden">
@@ -132,7 +164,12 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         {/* Claim Process Section */}
                         {claimProcess.length > 0 && (
                             <section className="bg-blue-50 dark:bg-blue-950/30 border border-blue-100 dark:border-blue-900 rounded-lg p-6">
-                                <h2 className="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-100">{t('how_to_file_claim_step_by_step', { service: title, defaultValue: `How to File a ${title} Claim — Step by Step` })}</h2>
+                                <h2 className="text-2xl font-semibold mb-4 text-blue-900 dark:text-blue-100">
+                                    {t('how_to_file_claim_step_by_step', { 
+                                        service: title, 
+                                        defaultValue: `How to File a ${title} Claim — Step by Step` 
+                                    })}
+                                </h2>
                                 <ol className="space-y-3">
                                     {claimProcess.map((step: string, idx: number) => (
                                         <li key={idx} className="flex gap-3 text-slate-700 dark:text-slate-300">
@@ -147,7 +184,12 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         {/* Who Should Buy Section */}
                         {whoShouldBuy.length > 0 && (
                             <section>
-                                <h2 className="text-2xl font-semibold mb-4">{t('who_should_buy', { service: title, defaultValue: `Who Should Buy ${title}?` })}</h2>
+                                <h2 className="text-2xl font-semibold mb-4">
+                                    {t('who_should_buy', { 
+                                        service: title, 
+                                        defaultValue: `Who Should Buy ${title}?` 
+                                    })}
+                                </h2>
                                 <ul className="space-y-3">
                                     {whoShouldBuy.map((persona: string, idx: number) => (
                                         <li key={idx} className="flex items-start gap-3 bg-slate-50 dark:bg-slate-800 p-3 rounded-lg border">
@@ -160,11 +202,11 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                         )}
 
                         {/* FAQs Section */}
-                        {faqs.length > 0 && (
+                        {localizedFaqs.length > 0 && (
                             <section className="mt-8">
                                 <h2 className="text-2xl font-semibold mb-6">{t('frequently_asked_questions')}</h2>
                                 <div className="space-y-4">
-                                    {faqs.map((faq, idx) => (
+                                    {localizedFaqs.map((faq, idx) => (
                                         <div key={idx} className="border rounded-lg p-4">
                                             <h3 className="font-semibold mb-2">{faq.question}</h3>
                                             <p className="text-muted-foreground"><AutoLinker text={faq.answer} /></p>
@@ -196,7 +238,10 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                     <div className="space-y-6">
                         <div className="sticky top-24">
                             <div className="bg-gradient-to-r from-primary to-accent/90 text-white text-center py-4 px-4 rounded-t-2xl font-extrabold shadow-lg relative z-10 translate-y-3">
-                                {t('compare_and_buy', { service: title, defaultValue: `Compare & Buy ${title}` })}
+                                {t('compare_and_buy', { 
+                                    service: title, 
+                                    defaultValue: `Compare & Buy ${title}` 
+                                })}
                             </div>
                             <QuoteForm
                                 insuranceType={serviceType}

@@ -24,9 +24,10 @@ interface QuoteFormProps {
   insuranceType: string;
   onClose?: () => void;
   onSuccess?: () => void;
+  initialData?: any;
 }
 
-const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess }) => {
+const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess, initialData }) => {
   const { t } = useTranslation();
   const [selectedMembers, setSelectedMembers] = useState<string[]>([]);
 
@@ -84,13 +85,14 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      fullName: '',
-      email: '',
-      mobileNumber: '',
-      age: undefined,
-      dateOfBirth: undefined,
-      gender: 'Male',
-      memberDetails: {},
+      fullName: initialData?.fullName || '',
+      email: initialData?.email || '',
+      mobileNumber: initialData?.mobileNumber || '',
+      age: initialData?.age || undefined,
+      dateOfBirth: initialData?.dateOfBirth || undefined,
+      gender: initialData?.gender || 'Male',
+      memberDetails: initialData?.memberDetails || {},
+      ...initialData,
     } as any,
   });
 
@@ -100,6 +102,10 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
       let resolvedAge = values.age;
       if ((!resolvedAge || resolvedAge === null) && values.dateOfBirth) {
         resolvedAge = differenceInYears(new Date(), values.dateOfBirth);
+      }
+
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        throw new Error('CONFIG_ERROR: Supabase URL or Anon Key is missing in environment variables.');
       }
 
       const { error } = await supabase
@@ -112,17 +118,34 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess
             gender: values.gender,
             phone: values.mobileNumber,
             insurance_type: insuranceType,
-            intended_sum_insured: values.sumAssured,
+            intended_sum_insured: (values as any).sumAssured || initialData?.sumAssured || initialData?.quiz_score,
+            created_at: new Date().toISOString(),
+            // Map common initial data fields if columns exist
+            ...(initialData?.quiz_risk ? { quiz_risk: initialData.quiz_risk } : {}),
+            ...(initialData?.source ? { source: initialData.source } : {}),
           },
         ]);
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase Insert Error:', error);
+        if (error.code === 'PGRST301') {
+          throw new Error('RLS_ERROR: Insert permission denied. Please check Supabase RLS policies.');
+        }
+        throw error;
+      }
 
-      toast.success(t("quote_submitted_successfully"));
+      setSubmitted(true);
+      toast.success(t("quote_request_submitted"));
       if (onSuccess) onSuccess();
-    } catch (error) {
+    } catch (error: any) {
       console.error('Submission error:', error);
-      toast.error(t("failed_to_submit_quote"));
+      if (error.message?.includes('CONFIG_ERROR')) {
+        toast.error("System configuration error. Please contact support.");
+      } else if (error.message?.includes('RLS_ERROR')) {
+        toast.error("Submission blocked by security policy. Please contact support.");
+      } else {
+        toast.error(t("failed_to_submit_quote"));
+      }
     }
   };
 

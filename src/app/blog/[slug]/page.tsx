@@ -5,6 +5,8 @@ import Link from 'next/link';
 import blogs from '@/data/blogs.json';
 import { Calendar, ChevronLeft, Share2, Tag, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { getServerSideTranslation } from '@/lib/i18n-server';
+import ReactMarkdown from 'react-markdown';
 
 interface BlogPostProps {
     params: {
@@ -48,7 +50,8 @@ const sanitizeHtml = (html: string): string => {
     return html;
 };
 
-export default function BlogPostPage({ params }: BlogPostProps) {
+export default async function BlogPostPage({ params }: BlogPostProps) {
+    const { t, lang } = await getServerSideTranslation();
     const post = blogs.find((p) => p.slug === params.slug);
 
     if (!post) {
@@ -100,7 +103,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
             <div className="container mx-auto px-4 py-12">
                 <div className="max-w-4xl mx-auto">
                     <Link href="/blog" className="inline-flex items-center gap-2 text-primary hover:text-black dark:hover:text-white transition-colors mb-8 font-medium">
-                        <ChevronLeft className="w-4 h-4" /> Back to all articles
+                        <ChevronLeft className="w-4 h-4" /> {t('back_to_all_articles')}
                     </Link>
 
                     <article className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl overflow-hidden mb-16">
@@ -109,7 +112,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                                 <div className="flex flex-wrap gap-2 mb-6">
                                     {post.categories.map((cat, i) => (
                                         <span key={i} className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">
-                                            <Tag className="w-3 h-3" /> {cat}
+                                            <Tag className="w-3 h-3" /> {t(cat.toLowerCase().replace(/ /g, '_'))}
                                         </span>
                                     ))}
                                 </div>
@@ -122,23 +125,22 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                             <div className="flex flex-wrap items-center justify-between gap-4 text-slate-500 dark:text-slate-400 text-sm">
                                 <div className="flex items-center gap-2 font-medium">
                                     <Calendar className="w-4 h-4" />
-                                    {new Date(post.date).toLocaleDateString('en-IN', {
+                                    {new Date(post.date).toLocaleDateString(lang === 'en' ? 'en-IN' : lang, {
                                         day: 'numeric',
                                         month: 'long',
                                         year: 'numeric'
                                     })}
                                 </div>
                                 <Button variant="ghost" size="sm" className="gap-2 h-8 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 hidden sm:flex">
-                                    <Share2 className="w-4 h-4" /> Share
+                                    <Share2 className="w-4 h-4" /> {t('share')}
                                 </Button>
                             </div>
                         </header>
 
                         <div className="p-8 md:p-12">
-                            <div 
-                                className="prose prose-lg dark:prose-invert prose-indigo max-w-none prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-primary prose-a:no-underline hover:prose-a:underline"
-                                dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
-                            />
+                            <div className="prose prose-lg dark:prose-invert prose-indigo max-w-none prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-primary prose-a:no-underline hover:prose-a:underline blog-content">
+                                <ReactMarkdown>{post.content}</ReactMarkdown>
+                            </div>
                         </div>
                     </article>
 
@@ -147,7 +149,7 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                         <div className="border-t border-slate-200 dark:border-slate-800 pt-16 mt-8">
                             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
                                 <span className="w-8 h-1 bg-primary rounded-full"></span>
-                                Related Articles
+                                {t('related_articles')}
                             </h3>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                                 {fallbackPosts.map((related) => (
@@ -158,10 +160,10 @@ export default function BlogPostPage({ params }: BlogPostProps) {
                                             </h4>
                                             <div className="mt-auto pt-4 flex justify-between items-center text-sm font-medium">
                                                 <span className="text-slate-500 dark:text-slate-400">
-                                                    {new Date(related.date).toLocaleDateString('en-IN', { month: 'short', day: 'numeric', year: 'numeric' })}
+                                                    {new Date(related.date).toLocaleDateString(lang === 'en' ? 'en-IN' : lang, { month: 'short', day: 'numeric', year: 'numeric' })}
                                                 </span>
                                                 <span className="text-primary flex items-center gap-1 group-hover:gap-2 transition-all">
-                                                    Read <ArrowRight className="w-4 h-4" />
+                                                    {t('read')} <ArrowRight className="w-4 h-4" />
                                                 </span>
                                             </div>
                                         </div>

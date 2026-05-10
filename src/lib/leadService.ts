@@ -34,12 +34,17 @@ export const leadService = {
    * Direct submission fallback if IndexedDB is unavailable
    */
   async submitDirectly(payload: any) {
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      console.error('[LeadService] Cannot submit lead: Supabase environment variables are missing.');
+      throw new Error('CONFIG_ERROR');
+    }
     const { data, error } = await supabase.functions.invoke('process-lead', {
       body: payload
     });
     if (error) throw error;
     return data;
   },
+
 
   /**
    * Sync a specific lead by ID
@@ -57,10 +62,16 @@ export const leadService = {
     try {
       await db.leads.update(id, { status: 'syncing', lastAttempt: Date.now() });
 
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        console.error('[LeadService] Sync failed: Supabase keys are not configured.');
+        throw new Error('CONFIG_ERROR');
+      }
+
       // Call Edge Function for resilient processing
       const { data, error } = await supabase.functions.invoke('process-lead', {
         body: lead.payload
       });
+
 
       if (error) {
         // Log technical details to metadata

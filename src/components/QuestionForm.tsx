@@ -1,8 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { supabase } from '@/lib/supabase-client';
+import { supabase } from '@/integrations/supabase/client';
 import { toast } from 'sonner';
+import { ShieldCheck } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
@@ -15,10 +16,17 @@ export default function QuestionForm() {
     const [mobile, setMobile] = useState('');
     const [question, setQuestion] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         
+        if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+            toast.error(t('database_not_configured', 'Database connection not configured. Please contact support.'));
+            console.error('[QuestionForm] Missing Supabase environment variables');
+            return;
+        }
+
         if (!name || !mobile || !question) {
             toast.error(t('please_fill_all_fields', 'Please fill in all fields.'));
             return;
@@ -43,6 +51,7 @@ export default function QuestionForm() {
                 toast.error(t('failed_to_submit_question', 'Failed to submit question. Please try again.'));
             } else {
                 toast.success(t('question_submitted_successfully', 'Your question has been submitted successfully! We will get back to you soon.'));
+                setIsSubmitted(true);
                 setName('');
                 setMobile('');
                 setQuestion('');
@@ -61,51 +70,64 @@ export default function QuestionForm() {
                 <h3 className="text-2xl font-bold mb-2 text-slate-800 dark:text-slate-100">{t('leave_a_question', 'Leave a Question')}</h3>
                 <p className="text-slate-600 dark:text-slate-400 mb-6">{t('have_a_doubt', "Have a doubt? Drop your question below and we'll get back to you.")}</p>
                 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {isSubmitted ? (
+                    <div className="text-center py-8 animate-in fade-in zoom-in duration-500">
+                        <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <ShieldCheck className="w-8 h-8 text-green-600 dark:text-green-400" />
+                        </div>
+                        <h3 className="text-2xl font-bold mb-2 text-slate-800 dark:text-slate-100">{t('thank_you')}</h3>
+                        <p className="text-slate-600 dark:text-slate-400 mb-6">{t('question_received_desc', 'We have received your question and will get back to you shortly.')}</p>
+                        <Button variant="outline" onClick={() => setIsSubmitted(false)}>
+                            {t('ask_another_question', 'Ask another question')}
+                        </Button>
+                    </div>
+                ) : (
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                                <label htmlFor="qf-name" className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('name_label', 'Name')} <span className="text-red-500">*</span></label>
+                                <Input 
+                                    id="qf-name"
+                                    type="text" 
+                                    placeholder={t('name_label', 'Your Name')} 
+                                    value={name} 
+                                    onChange={(e) => setName(e.target.value)}
+                                    required
+                                    disabled={isSubmitting}
+                                />
+                            </div>
+                            <div className="space-y-2">
+                                <label htmlFor="qf-mobile" className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('mobile_number', 'Mobile Number')} <span className="text-red-500">*</span></label>
+                                <Input 
+                                    id="qf-mobile"
+                                    type="tel" 
+                                    placeholder={t('mobile_number', 'Your Mobile Number')} 
+                                    value={mobile} 
+                                    onChange={(e) => setMobile(e.target.value)}
+                                    required
+                                    disabled={isSubmitting}
+                                />
+                            </div>
+                        </div>
+                        
                         <div className="space-y-2">
-                            <label htmlFor="qf-name" className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('name_label', 'Name')} <span className="text-red-500">*</span></label>
-                            <Input 
-                                id="qf-name"
-                                type="text" 
-                                placeholder={t('name_label', 'Your Name')} 
-                                value={name} 
-                                onChange={(e) => setName(e.target.value)}
+                            <label htmlFor="qf-question" className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('your_question', 'Your Question')} <span className="text-red-500">*</span></label>
+                            <Textarea 
+                                id="qf-question"
+                                placeholder={t('type_your_question_here', 'Type your question here...')} 
+                                value={question} 
+                                onChange={(e) => setQuestion(e.target.value)}
                                 required
+                                rows={4}
                                 disabled={isSubmitting}
                             />
                         </div>
-                        <div className="space-y-2">
-                            <label htmlFor="qf-mobile" className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('mobile_number', 'Mobile Number')} <span className="text-red-500">*</span></label>
-                            <Input 
-                                id="qf-mobile"
-                                type="tel" 
-                                placeholder={t('mobile_number', 'Your Mobile Number')} 
-                                value={mobile} 
-                                onChange={(e) => setMobile(e.target.value)}
-                                required
-                                disabled={isSubmitting}
-                            />
-                        </div>
-                    </div>
-                    
-                    <div className="space-y-2">
-                        <label htmlFor="qf-question" className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('your_question', 'Your Question')} <span className="text-red-500">*</span></label>
-                        <Textarea 
-                            id="qf-question"
-                            placeholder={t('type_your_question_here', 'Type your question here...')} 
-                            value={question} 
-                            onChange={(e) => setQuestion(e.target.value)}
-                            required
-                            rows={4}
-                            disabled={isSubmitting}
-                        />
-                    </div>
-                    
-                    <Button type="submit" disabled={isSubmitting} className="w-full md:w-auto">
-                        {isSubmitting ? t('submitting', 'Submitting...') : t('submit_question', 'Submit Question')}
-                    </Button>
-                </form>
+                        
+                        <Button type="submit" disabled={isSubmitting} className="w-full md:w-auto">
+                            {isSubmitting ? t('submitting', 'Submitting...') : t('submit_question', 'Submit Question')}
+                        </Button>
+                    </form>
+                )}
             </div>
         </div>
     );

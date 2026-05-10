@@ -1,10 +1,10 @@
 import { NextResponse } from 'next/server';
-import enTranslations from '../../../public/locales/en/translation.json';
+import { serviceLabels, serviceDescriptions, services as serviceKeys } from '@/data/services';
 
 const BASE_URL = 'https://insurancesupport.online';
 
 function escapeXml(unsafe: string): string {
-  return unsafe.replace(/[<>&'"]/g, (c) => {
+  return (unsafe || '').replace(/[<>&'"]/g, (c) => {
     switch (c) {
       case '<': return '&lt;';
       case '>': return '&gt;';
@@ -31,23 +31,24 @@ const serviceMeta: Record<string, { image: string; price: number; rating: number
 };
 
 export async function GET() {
-  const services = enTranslations.services_data;
   const date = new Date().toISOString().split('T')[0];
 
-  // Generate offers based on services
-  const offersXml = Object.entries(services).map(([key, service]) => {
+  // Generate offers based on service keys from services.ts
+  const offersXml = serviceKeys.map((key) => {
+    const title = serviceLabels[key] || key;
+    const description = serviceDescriptions[key] || '';
     const url = `${BASE_URL}/services/${key}`;
     const id = key;
     const meta = serviceMeta[key] || { image: 'favicon.svg', price: 0, rating: 4.5, reviews: 10 };
 
     return `
     <offer id="${id}" available="true">
-      <name>${escapeXml(service.title)}</name>
+      <name>${escapeXml(title)}</name>
       <url>${escapeXml(url)}</url>
       <price>${meta.price}</price>
       <currencyId>INR</currencyId>
       <categoryId>1</categoryId>
-      <description>${escapeXml(service.description)}</description>
+      <description>${escapeXml(description)}</description>
       <picture>${BASE_URL}/${meta.image}</picture>
       <delivery>false</delivery>
       <pickup>true</pickup>
@@ -80,3 +81,4 @@ export async function GET() {
     },
   });
 }
+

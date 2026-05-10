@@ -177,7 +177,16 @@ export default function HLVCalculator() {
                                         >
                                             <div className="bg-white text-slate-900 p-4 rounded-xl">
                                                 <h4 className="font-bold mb-4">{t('get_expert_assistance', 'Get Expert Assistance')}</h4>
-                                                <QuoteForm insuranceType="life_insurance" />
+                                                <QuoteForm 
+                                                    insuranceType="life_insurance" 
+                                                    initialData={{
+                                                        source: 'hlv_calculator',
+                                                        sumAssured: result,
+                                                        age: age,
+                                                        annualIncome: annualIncome,
+                                                        loans: loans
+                                                    }}
+                                                />
                                             </div>
                                         </motion.div>
                                     )}

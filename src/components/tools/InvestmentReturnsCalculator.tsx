@@ -55,6 +55,22 @@ const InvestmentReturnsCalculator = () => {
             maximumFractionDigits: 0
         }).format(val);
 
+    const handleGetIllustration = () => {
+        if (typeof window !== 'undefined' && (window as any).triggerGlobalForm) {
+            (window as any).triggerGlobalForm({
+                insuranceType: 'investment_insurance',
+                formData: {
+                    source: 'investment_calculator',
+                    monthlyPremium: monthlyPremium,
+                    term: term,
+                    maturityBenefit: results.maturityBenefit,
+                    roi: results.roi,
+                    age: age
+                }
+            });
+        }
+    };
+
     return (
         <div className="grid lg:grid-cols-2 gap-8 items-start">
             {/* Input Section */}
@@ -168,7 +184,11 @@ const InvestmentReturnsCalculator = () => {
                     <p className="text-sm text-slate-500 font-medium">
                         Secure your family&apos;s future and build wealth simultaneously.
                     </p>
-                    <Button size="lg" className="w-full h-16 rounded-2xl text-lg font-bold shadow-xl hover:scale-[1.02] active:scale-95 transition-all">
+                    <Button 
+                        size="lg" 
+                        onClick={handleGetIllustration}
+                        className="w-full h-16 rounded-2xl text-lg font-bold shadow-xl hover:scale-[1.02] active:scale-95 transition-all"
+                    >
                         Get Detailed Illustration <ArrowRight className="ml-2 w-5 h-5" />
                     </Button>
                 </div>
