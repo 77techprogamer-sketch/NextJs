@@ -48,7 +48,7 @@ export const leadService = {
         .from('customers')
         .insert([
           {
-            full_name: payload.name || payload.fullName || 'Unknown',
+            name: payload.name || payload.fullName || 'Unknown',
             phone: payload.phone || payload.mobile || '',
             email: payload.email || null,
             insurance_type: payload.service || payload.insuranceType || 'general',
@@ -98,7 +98,7 @@ export const leadService = {
           .from('customers')
           .insert([
             {
-              full_name: lead.payload.name || lead.payload.fullName || 'Unknown',
+              name: lead.payload.name || lead.payload.fullName || 'Unknown',
               phone: lead.payload.phone || lead.payload.mobile || '',
               email: lead.payload.email || null,
               insurance_type: lead.payload.service || lead.payload.insuranceType || 'general',
