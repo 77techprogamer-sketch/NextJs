@@ -19,9 +19,9 @@ export async function generateMetadata() {
 
 export default async function ContactPage() {
     const { t } = await getServerSideTranslation();
-    const helpItems = t('contact.help_items', { returnObjects: true }) as string[];
-    const steps = t('contact.steps', { returnObjects: true }) as { title: string; desc: string }[];
-    const faqs = t('contact.faqs', { returnObjects: true }) as { q: string; a: string }[];
+    const helpItems = (t('contact.help_items', { returnObjects: true }) || []) as string[];
+    const steps = (t('contact.steps', { returnObjects: true }) || []) as { title: string, desc: string }[];
+    const faqs = (t('contact.faqs', { returnObjects: true }) || []) as { q: string, a: string }[];
 
     const contactSchema = {
         '@context': 'https://schema.org',

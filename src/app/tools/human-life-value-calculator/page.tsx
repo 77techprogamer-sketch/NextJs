@@ -21,7 +21,7 @@ export async function generateMetadata() {
 
 export default async function HLVCalculatorPage() {
     const { t } = await getServerSideTranslation();
-    const importanceItems = t('hlv_page.importance_items', { returnObjects: true }) as string[];
+    const importanceItems = (t('hlv_page.importance_items', { returnObjects: true }) || []) as string[];
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-4xl">

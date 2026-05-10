@@ -25,7 +25,7 @@ const EngagementDashboard = () => {
             // Fetch Visitor Stats
             const { data: statsData, error: statsError } = await supabase.rpc('get_visitor_stats');
             if (statsError) console.error('Error fetching stats:', statsError);
-            else if (statsData) setVisitorStats(statsData[0]);
+            else if (statsData) setVisitorStats(statsData[0] || {});
 
             // Fetch Customer Leads
             const { data: leadsData, error: leadsError } = await supabase

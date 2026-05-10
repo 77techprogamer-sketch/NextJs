@@ -562,5 +562,125 @@
   "related_articles": "Related Articles",
   "share": "Share",
   "read": "Read",
-  "lic_support": "LIC Support"
+  "lic_support": "LIC Support",
+  "thank_you": "Thank You",
+  "submit_another": "Submit Another",
+  "hlv_page": {
+    "title": "Human Life Value (HLV) Calculator",
+    "description": "Calculate the exact life insurance cover you need to protect your family's future.",
+    "meta_title": "HLV Calculator - How Much Life Insurance Do You Need? | Insurance Support",
+    "meta_desc": "Calculate your Human Life Value (HLV) to determine the ideal life insurance cover. Consider income, inflation, loans, and family needs.",
+    "what_is_title": "What is Human Life Value?",
+    "what_is_desc": "Human Life Value (HLV) is a financial concept used to determine the exact amount of insurance cover required to protect a person's family in the event of their untimely demise. It is based on the present value of future earnings that the individual would have generated for their family.",
+    "importance_title": "Why Knowing Your HLV Matters",
+    "importance_items": [
+      "<strong>Income Replacement:</strong> Ensures your family can maintain their current standard of living.",
+      "<strong>Debt Protection:</strong> Covers outstanding home, car, or personal loans so your family isn't burdened.",
+      "<strong>Future Goals:</strong> Secures funding for major life events like children's higher education or marriage.",
+      "<strong>Inflation Adjusted:</strong> A scientific HLV calculation accounts for the rising cost of living over decades."
+    ],
+    "how_calc_title": "How is HLV Calculated?",
+    "how_calc_desc": "The HLV method takes into account your current age, retirement age, annual income, personal expenses, and existing financial liabilities. By discounting future income to its present value and adding outstanding debts while subtracting existing savings, we arrive at a scientifically sound coverage amount."
+  },
+  "contact": {
+    "meta_title": "Contact Our Expert Advisors | Insurance Support",
+    "meta_desc": "Get in touch with our IRDAI-certified insurance advisors in Bangalore. Expert help with claims, policy revival, and risk management.",
+    "hero_badge": "Get in Touch",
+    "hero_title_1": "We're Here to",
+    "hero_title_2": "Protect Your Legacy",
+    "hero_desc": "Connect with our veteran advisory team for high-priority insurance support and personalized risk management.",
+    "call_us": "Call Us",
+    "tap_to_call": "Tap to call",
+    "whatsapp": "WhatsApp",
+    "instant_messaging_support": "Instant Messaging Support",
+    "email": "Email",
+    "for_detailed_inquiries": "For detailed inquiries",
+    "office": "Office",
+    "help_with_title": "How We Can Help",
+    "help_with_desc": "Our specialized team handles complex insurance scenarios that standard customer service centers often struggle with.",
+    "help_items": [
+      "Stuck or Rejected Claims",
+      "Lapsed Policy Recovery",
+      "Ombudsman Representation",
+      "High-Value Portfolio Audit",
+      "Policy Portability (Health)",
+      "Succession & Estate Planning"
+    ],
+    "what_happens_title": "What Happens Next?",
+    "steps": [
+      {
+        "title": "Brief Inquiry",
+        "desc": "You share your problem via call or form."
+      },
+      {
+        "title": "Expert Review",
+        "desc": "A senior advisor analyzes your case."
+      },
+      {
+        "title": "Strategic Plan",
+        "desc": "We provide a clear path to resolution."
+      }
+    ],
+    "business_hours_title": "Business Hours",
+    "mon_sat": "Mon - Sat: 9:30 AM - 6:30 PM",
+    "sunday": "Sunday: By Appointment Only",
+    "emergency_only": "Emergency claim support available 24/7 via WhatsApp.",
+    "languages": "Languages: English, Hindi, Kannada, Telugu, Tamil.",
+    "send_query_title": "Send a Detailed Query",
+    "send_query_desc": "Fill out the form below and an expert will review your case and get back to you within 2 business hours.",
+    "areas_serve_title": "Areas We Serve",
+    "areas_serve_desc": "While our headquarters is in Bangalore, we provide remote advisory and digital claim support to clients across all major Indian cities.",
+    "view_all_locations": "View All Service Locations",
+    "faq_title": "Contact FAQs",
+    "faqs": [
+      {
+        "q": "Do you charge for the first consultation?",
+        "a": "No, our initial case assessment and 15-minute consultation are completely free of cost."
+      },
+      {
+        "q": "Can I visit your office in person?",
+        "a": "Yes, we welcome clients at our Bangalore office. We recommend booking an appointment to ensure a senior advisor is available."
+      },
+      {
+        "q": "How soon will I get a response?",
+        "a": "We pride ourselves on speed. You will receive a call or WhatsApp message within 2 hours during business hours."
+      }
+    ],
+    "final_cta_title": "Don't Navigate Complex Claims Alone",
+    "final_cta_desc": "Let our 25+ years of experience be your shield. Reach out now for a risk-free case assessment."
+  },
+  "engagement_page": {
+    "meta_title": "Interactive Insurance Tools & Insights | Insurance Support",
+    "meta_desc": "Explore our interactive insurance tools, calculators, and expert insights to make informed decisions about your protection.",
+    "hero_badge": "Interactive Tools",
+    "hero_title_1": "Empowering Your",
+    "hero_title_2": "Insurance Decisions",
+    "hero_desc": "Use our expert-designed tools to understand your risk, calculate your value, and secure your family's future with precision.",
+    "stats": [
+      { "label": "Tools Used", "value": "50k+" },
+      { "label": "Claims Assisted", "value": "15k+" },
+      { "label": "Expert Advisors", "value": "25+" }
+    ],
+    "tools_title": "Calculators & Interactive Tools",
+    "tools_desc": "Scientific tools designed to help you quantify your needs and identify gaps in your current coverage.",
+    "featured_article_title": "Expert Guidance",
+    "featured_article_desc": "Deep dives into complex insurance topics to help you navigate the fine print.",
+    "contact_title": "Still Have Questions?",
+    "contact_desc": "Our veteran advisors are just a message away. Get personalized answers to your specific scenarios."
+  },
+  "short_lead_form": {
+    "title": "Quick Quote",
+    "subtitle": "Get a call back from an expert in 2 hours",
+    "name_label": "Your Name",
+    "email_label": "Email Address",
+    "mobile_label": "10-digit mobile number",
+    "requirement_label": "Select Requirement",
+    "life_insurance": "Life Insurance",
+    "health_insurance": "Health Insurance",
+    "motor_insurance": "Motor Insurance",
+    "policy_revival": "Policy Revival",
+    "loan_help": "Loan Against Policy",
+    "submit_button": "Get Free Consultation",
+    "privacy_note": "100% Secure & Confidential"
+  }
 }
