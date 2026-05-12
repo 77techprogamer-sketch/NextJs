@@ -682,5 +682,18 @@
     "loan_help": "Loan Against Policy",
     "submit_button": "Get Free Consultation",
     "privacy_note": "100% Secure & Confidential"
+  },
+  "blog": {
+    "meta_title": "Insurance Insights & Policyholder Support Blog | Insurance Support",
+    "meta_desc": "Expert advice on LIC policy recovery, claim settlement, and insurance planning. Helping Indian families navigate complex insurance scenarios with ease.",
+    "hero_title": "Expert Insurance Insights",
+    "hero_desc": "Strategic advice and technical guides to help you master your insurance portfolio and secure your family's future.",
+    "featured_article": "Featured Article",
+    "read_full_article": "Read Full Article",
+    "no_articles_found": "No articles found.",
+    "latest_articles": "Latest Articles",
+    "need_advice_title": "Need Personalized Advice?",
+    "need_advice_desc": "Our veteran advisors are ready to help you with claim recovery, policy audits, or finding the right plan for your family.",
+    "categories": "Categories"
   }
 }
