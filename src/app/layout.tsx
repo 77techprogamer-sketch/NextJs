@@ -23,6 +23,7 @@ const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ss
 const LeadSyncManager = dynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
 const BroadcastListener = dynamic(() => import('@/components/BroadcastListener'), { ssr: false });
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics as VercelAnalytics } from '@vercel/analytics/next'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -242,6 +243,7 @@ export default function RootLayout({
                                 </DelayedLoader>
                             </div>
                             <SpeedInsights />
+                            <VercelAnalytics />
                             <Toaster />
                         </div>
                     </I18nProvider>
@@ -251,4 +253,3 @@ export default function RootLayout({
         </html>
     )
 }
-
