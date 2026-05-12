@@ -683,6 +683,20 @@
     "submit_button": "Get Free Consultation",
     "privacy_note": "100% Secure & Confidential"
   },
+  "common": {
+    "read": "Read More"
+  },
+  "trust_signals": {
+    "advisor_name": "Hari Kotian",
+    "advisor_subtitle": "Senior Insurance Advisor | 25+ Yrs Exp",
+    "licensed_badge": "IRDAI Registered Expert",
+    "expert_badge": "Claims Settlement Specialist",
+    "secure_badge": "Secure & Private Consultation",
+    "privacy_promise": "Your data is encrypted and never shared with 3rd parties."
+  },
+  "get_insurance_iq": "Check Your Insurance IQ",
+  "recover_lost_policy": "Recover Lost LIC Policy",
+  "whatsapp_widget_hook": "Need help with a rejected claim? Chat with us!",
   "blog": {
     "meta_title": "Insurance Insights & Policyholder Support Blog | Insurance Support",
     "meta_desc": "Expert advice on LIC policy recovery, claim settlement, and insurance planning. Helping Indian families navigate complex insurance scenarios with ease.",
