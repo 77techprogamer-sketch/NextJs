@@ -117,6 +117,32 @@
     "success_message": "हमारे सलाहकार जल्द ही आपसे संपर्क करेंगे।",
     "security_note": "आपका डेटा सुरक्षित और गोपनीय है।"
   },
+  "hero_trending_label": "{{city}} में ट्रेंडिंग",
+  "hero_links": {
+    "trending_health": "{{city}} में स्वास्थ्य बीमा सलाहकार",
+    "trending_lic": "{{city}} में एलआईसी एजेंट",
+    "trending_term": "टर्म इंश्योरेंस खरीदें",
+    "trending_revival": "पॉलिसी रिवाइवल सहायता",
+    "trending_death": "डेथ क्लेम विशेषज्ञ"
+  },
+  "expert_specialist_badge": "बीमा कंसीयज और विशेषज्ञ अधिवक्ता",
+  "hero_fallback_description": "उच्च-मूल्य वाले बीमा समाधान प्रदान करने में दशकों की विशेषज्ञता। समझदार ग्राहकों के लिए जीवन, स्वास्थ्य और रणनीतिक व्यावसायिक कवरेज में विशेषज्ञता।",
+  "cta_buy_policy": "केस मूल्यांकन का अनुरोध करें",
+  "cta_claim_support": "अस्वीकृत दावा वापस पाएं",
+  "show_less": "कम दिखाएं",
+  "read_more": "और पढ़ें",
+  "clients": "ग्राहक",
+  "awards": "पुरस्कार",
+  "support_stat_label": "सहायता",
+  "approx_30_seconds": "लगभग 30 सेकंड",
+  "trust_signals": {
+    "advisor_name": "हरि कोटियन",
+    "advisor_subtitle": "वरिष्ठ बीमा सलाहकार | 25+ वर्ष अनुभव",
+    "licensed_badge": "IRDAI पंजीकृत विशेषज्ञ",
+    "expert_badge": "दावा निपटान विशेषज्ञ",
+    "secure_badge": "सुरक्षित और निजी परामर्श",
+    "privacy_promise": "आपका डेटा एन्क्रिप्टेड है और कभी भी तीसरे पक्ष के साथ साझा नहीं किया जाता है।"
+  },
   "hlv_page": {
     "importance_items": []
   },

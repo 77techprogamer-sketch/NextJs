@@ -684,6 +684,24 @@
     "submit_button": "Get Free Consultation",
     "privacy_note": "100% Secure & Confidential"
   },
+  "hero_trending_label": "Trending in {{city}}",
+  "hero_links": {
+    "trending_health": "Health Insurance Advisor in {{city}}",
+    "trending_lic": "LIC Agent in {{city}}",
+    "trending_term": "Buy Term Insurance",
+    "trending_revival": "Policy Revival Help",
+    "trending_death": "Death Claim Expert"
+  },
+  "expert_specialist_badge": "Insurance Concierge & Expert Advocate",
+  "hero_fallback_description": "Decades of expertise in providing high-value insurance solutions. Specializing in life, health, and strategic business coverage for discerning clients.",
+  "cta_buy_policy": "Request Case Assessment",
+  "cta_claim_support": "Recover Rejected Claim",
+  "show_less": "Show Less",
+  "read_more": "Read More",
+  "clients": "Clients",
+  "awards": "Awards",
+  "support_stat_label": "Support",
+  "approx_30_seconds": "Approx 30 Seconds",
   "common": {
     "read": "Read More"
   },

@@ -1,6 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Declare global type for cache
+// State to Language Code Mapping
+const REGION_TO_LANG: Record<string, string> = {
+    'Maharashtra': 'mr',
+    'Karnataka': 'kn',
+    'Tamil Nadu': 'ta',
+    'Andhra Pradesh': 'te',
+    'Telangana': 'te',
+    'West Bengal': 'bn',
+    'Gujarat': 'gu',
+    'Kerala': 'ml',
+    'Punjab': 'pa',
+    // Hindi Belt
+    'Delhi': 'hi',
+    'Uttar Pradesh': 'hi',
+    'Madhya Pradesh': 'hi',
+    'Haryana': 'hi',
+    'Rajasthan': 'hi',
+    'Bihar': 'hi',
+    'Jharkhand': 'hi',
+    'Chhattisgarh': 'hi',
+    'Himachal Pradesh': 'hi',
+    'Uttarakhand': 'hi',
+};
+
 declare global {
     var locationCache: Map<string, { timestamp: number; data: any; }>;
 }
@@ -77,6 +100,7 @@ export async function GET(request: NextRequest) {
             country_code,
             asn,
             isp_name,
+            detected_lang: vRegion ? (REGION_TO_LANG[decodeURIComponent(vRegion)] || null) : null
         });
     }
 
@@ -158,6 +182,9 @@ export async function GET(request: NextRequest) {
             data: data
         });
 
+        // Add detected language
+        data.detected_lang = data.region ? (REGION_TO_LANG[data.region] || null) : null;
+
         return NextResponse.json(data);
     } catch (error) {
         console.error('Error fetching location:', error);
@@ -167,7 +194,8 @@ export async function GET(request: NextRequest) {
             region: 'Karnataka',
             country_name: 'India',
             country_code: 'IN',
-            org: 'Fallback ISP (Error)'
+            org: 'Fallback ISP (Error)',
+            detected_lang: 'kn' // Default for fallback
         });
     }
 }

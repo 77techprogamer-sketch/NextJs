@@ -190,20 +190,22 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                         
                         {/* Flagship Trending Links */}
                         <div className="mt-8 flex flex-wrap justify-center gap-3">
-                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] w-full mb-1">Trending in Bangalore:</span>
+                            <span className="text-[10px] font-bold text-white/40 uppercase tracking-[0.2em] w-full mb-1">
+                                {t("hero_trending_label", { city: city || 'India' })}:
+                            </span>
                             {[
-                                { label: "Health Insurance Advisor in Bangalore", href: "/locations/karnataka/bangalore/health-insurance" },
-                                { label: "LIC Agent in Bangalore", href: "/locations/karnataka/bangalore/lic-agent" },
-                                { label: "Buy Term Insurance", href: "/services/term-insurance" },
-                                { label: "Policy Revival Help", href: "/resources/guides/lapsed-policy-revival" },
-                                { label: "Death Claim Expert", href: "/resources/guides/death-claim-settlement" }
+                                { key: "trending_health", href: "/locations/karnataka/bangalore/health-insurance" },
+                                { key: "trending_lic", href: "/locations/karnataka/bangalore/lic-agent" },
+                                { key: "trending_term", href: "/services/term-insurance" },
+                                { key: "trending_revival", href: "/resources/guides/lapsed-policy-revival" },
+                                { key: "trending_death", href: "/resources/guides/death-claim-settlement" }
                             ].map((link, i) => (
                                 <Link 
                                     key={i} 
                                     href={link.href}
                                     className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[11px] font-bold text-gray-300 hover:bg-accent hover:text-primary hover:border-accent transition-all duration-300"
                                 >
-                                    {link.label}
+                                    {t(`hero_links.${link.key}`)}
                                 </Link>
                             ))}
                         </div>
