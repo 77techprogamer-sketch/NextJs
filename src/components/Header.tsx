@@ -92,6 +92,13 @@ const Header = () => {
           >
             {t("resources_link", "Resources")}
           </Link>
+          <Link
+            href="/blog"
+            className="text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
+            aria-label={t("articles_link", "Expert Insights")}
+          >
+            {t("articles_link", "Expert Insights")}
+          </Link>
           <LanguageSwitcher />
           <ThemeToggle />
         </nav>

@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronUp, FileText } from 'lucide-react';
 import { fetchBlogPosts } from '@/utils/blogFetcher';
 import { cn } from '@/lib/utils';
+import Link from 'next/link';
 
 const BlogSection = () => {
     const { t, i18n } = useTranslation();
@@ -81,6 +82,18 @@ const BlogSection = () => {
                             </Button>
                         </CardContent>
                     </Card>
+                    <div className="mt-8 flex justify-center">
+                        <Button
+                            variant="outline"
+                            asChild
+                            className="group hover:bg-primary hover:text-white transition-all duration-300"
+                        >
+                            <Link href="/blog" className="flex items-center gap-2">
+                                <span suppressHydrationWarning>{t("view_all_articles", "View All Articles")}</span>
+                                <FileText className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                            </Link>
+                        </Button>
+                    </div>
                 ) : (
                     <p className="text-center text-gray-500 dark:text-gray-400" suppressHydrationWarning>
                         {t("no_blog_posts_available")}
