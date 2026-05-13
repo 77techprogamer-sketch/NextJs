@@ -35,6 +35,7 @@
   "insurance_support": "బీమా మద్దతు",
   "services_offered_link": "సేవలు అందించబడ్డాయి",
   "articles_link": "వ్యాసాలు",
+  "view_all_articles": "అన్ని వ్యాసాలను చూడండి",
   "toggle_theme": "థీమ్ మార్చండి",
   "light_theme": "లైట్",
   "dark_theme": "డార్క్",
@@ -92,7 +93,14 @@
     "whatsapp_support": "వాట్సాప్ మద్దతు",
     "request_quote_title": "{{service}} కోట్ అభ్యర్థించండి",
     "request_quote_subtitle": "{{city}}లో తక్షణ సహాయం పొందండి",
-    "service_hours": "సేవా గంటలు"
+    "service_hours": "సేవా గంటలు",
+    "why_best_in_city": "{{city}}లో మేము ఎందుకు ఉత్తమ భీమా సలహాదారులము",
+    "get_expert_assistance_title": "{{city}}లో నిపుణుల భీమా సహాయం పొందండి",
+    "get_expert_assistance_desc": "{{city}}లోని మా IRDAI-ధృవీకరించబడిన సలహాదారులు డోర్‌స్టెప్ సర్వీస్, క్లెయిమ్ ఫైలింగ్, పాలసీ రివైవల్ మరియు ఉచిత సంప్రదింపుల కోసం అందుబాటులో ఉన్నారు. మాకు ఇప్పుడే 9986634506 లో కాల్ చేయండి.",
+    "local_support_h3": "{{city}}, {{state}}లో స్థానిక భీమా మద్దతు",
+    "navigating_insurance_p1": "{{city}}లో భీమా క్లెయిమ్‌లు మరియు పాలసీ మేనేజ్‌మెంట్‌ను నావిగేట్ చేయడం సంక్లిష్టంగా ఉండవచ్చు. మీ అభ్యర్థనలను వేగవంతం చేయడానికి మా స్థానిక సలహాదారులు ప్రాంతీయ భీమా కార్యాలయాలతో ప్రత్యక్ష సంబంధం కలిగి ఉన్నారు.",
+    "service_covers_p2": "మీకు క్యాష్‌లెస్ హాస్పిటలైజేషన్ సపోర్ట్, ఎల్ఐసి క్లెయిమ్ సెటిల్మెంట్ లేదా మోటార్ ఇన్సూరెన్స్ రెన్యూవల్ కావాలా — మేము {{city}} మరియు {{state}} చుట్టుపక్కల ప్రాంతాలన్నింటినీ కవర్ చేస్తాము.",
+    "nearby_cities_in_state": "{{state}}లో మేము సేవలు అందిస్తున్న ఇతర నగరాలు"
   },
   "short_lead_form": {
     "title": "త్వరిత సహాయం పొందండి",
@@ -316,19 +324,11 @@
   "faq_cyber_a1": "అవును, కొన్ని వ్యక్తిగత సైబర్ బీమా ప్లాన్‌లు సోషల్ మీడియా ఖాతా హ్యాకింగ్‌ కోసం రక్షణ మరియు రికవరీ సహాయాన్ని అందిస్తాయి.",
   "faq_cyber_q2": "ఆన్‌లైన్ షాపింగ్ మోసం కవర్ చేయబడుతుందా?",
   "faq_cyber_a2": "అవును, ఇది సాధారణంగా ఫిషింగ్, ఐడెంటిటీ థెఫ్ట్ మరియు అనధికారిక ఆన్‌లైన్ లావాదేవీల వల్ల కలిగే ఆర్థిక నష్టాలను కవర్ చేస్తుంది.",
-  "location_meta_title": "{{service}} Advisor in {{city}}, {{state}} | Insurance Support",
-  "location_meta_desc": "Get expert {{service}} support in {{city}}, {{state}}. IRDAI-certified advisor with 25+ years experience. Cashless claims, policy revival, and doorstep help.",
-  "location_meta_desc_expert": "Expert insurance advisory in {{city}} — claim recovery, policy revival, LIC support. 25+ years of IRDAI-certified expertise serving all of {{state}}.",
-  "service_in_city": "{{service}} in {{city}}",
-  "location_page": {
-    "why_best_in_city": "Why We're the Best Insurance Advisors in {{city}}",
-    "get_expert_assistance_title": "Get Expert Insurance Assistance in {{city}}",
-    "get_expert_assistance_desc": "Our IRDAI-certified advisors in {{city}} are available for doorstep service, claim filing, policy revival, and free consultation. Call us now at 9986634506.",
-    "local_support_h3": "Local Insurance Support in {{city}}, {{state}}",
-    "navigating_insurance_p1": "Navigating insurance claims and policy management in {{city}} can be complex. Our local advisors have direct liaison with regional insurance offices to fast-track your requests.",
-    "service_covers_p2": "Whether you need cashless hospitalization support, LIC claim settlement, or motor insurance renewal — we cover it all across {{city}} and the surrounding areas of {{state}}.",
-    "nearby_cities_in_state": "Other Cities We Serve in {{state}}"
-  },
+  "location_meta_title": "{{city}}, {{state}}లో {{service}} సలహాదారు | భీమా మద్దతు",
+  "location_meta_desc": "{{city}}, {{state}}లో నిపుణుల {{service}} మద్దతును పొందండి. 25+ సంవత్సరాల అనుభవం ఉన్న IRDAI-ధృవీకరించబడిన సలహాదారు. క్యాష్‌లెస్ క్లెయిమ్‌లు, పాలసీ రివైవల్ మరియు డోర్‌స్టెప్ సహాయం.",
+  "location_meta_desc_expert": "{{city}}లో నిపుణుల భీమా సలహా — క్లెయిమ్ రికవరీ, పాలసీ రివైవల్, ఎల్ఐసి మద్దతు. మొత్తం {{state}}లో సేవలందిస్తున్న 25+ సంవత్సరాల IRDAI-ధృవీకరించబడిన నైపుణ్యం.",
+  "service_in_city": "{{city}}లో {{service}}",
+
   "leave_a_question": "ఒక ప్రశ్న అడగండి",
   "have_a_doubt": "సందేహం ఉందా? మీ ప్రశ్నను కింద ఉంచండి, మేము మిమ్మల్ని సంప్రదిస్తాము.",
   "name_label": "పేరు",
