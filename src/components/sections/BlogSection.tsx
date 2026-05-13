@@ -44,56 +44,58 @@ const BlogSection = () => {
                         </div>
                     </Card>
                 ) : latestBlogPost ? (
-                    <Card className="max-w-2xl mx-auto overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700 min-h-[280px]">
-                        <CardHeader className="bg-primary/5 dark:bg-primary/10">
-                            <CardTitle className="text-xl sm:text-2xl font-bold line-clamp-2">
-                                {latestBlogPost?.title}
-                            </CardTitle>
-                        </CardHeader>
-                        <CardContent className="pt-6">
-                            <div className={cn(
-                                "text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base transition-all duration-300 prose prose-sm dark:prose-invert max-w-none leading-relaxed",
-                                !isBlogExpanded && "line-clamp-4 mask-content-fade"
-                            )} dangerouslySetInnerHTML={{ __html: latestBlogPost?.summary || '' }} />
+                    <>
+                        <Card className="max-w-2xl mx-auto overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700 min-h-[280px]">
+                            <CardHeader className="bg-primary/5 dark:bg-primary/10">
+                                <CardTitle className="text-xl sm:text-2xl font-bold line-clamp-2">
+                                    {latestBlogPost?.title}
+                                </CardTitle>
+                            </CardHeader>
+                            <CardContent className="pt-6">
+                                <div className={cn(
+                                    "text-gray-600 dark:text-gray-300 mb-4 text-sm sm:text-base transition-all duration-300 prose prose-sm dark:prose-invert max-w-none leading-relaxed",
+                                    !isBlogExpanded && "line-clamp-4 mask-content-fade"
+                                )} dangerouslySetInnerHTML={{ __html: latestBlogPost?.summary || '' }} />
 
-                            <button
-                                onClick={() => setIsBlogExpanded(!isBlogExpanded)}
-                                className="text-primary hover:text-accent font-medium text-sm flex items-center gap-1 mb-6 focus:outline-none transition-colors"
-                            >
-                                {isBlogExpanded ? (
-                                    <>
-                                        {t("show_less", "Show Less")} <ChevronUp className="h-4 w-4" />
-                                    </>
-                                ) : (
-                                    <>
-                                        {t("read_more", "Read More")} <ChevronDown className="h-4 w-4" />
-                                    </>
-                                )}
-                            </button>
+                                <button
+                                    onClick={() => setIsBlogExpanded(!isBlogExpanded)}
+                                    className="text-primary hover:text-accent font-medium text-sm flex items-center gap-1 mb-6 focus:outline-none transition-colors"
+                                >
+                                    {isBlogExpanded ? (
+                                        <>
+                                            {t("show_less", "Show Less")} <ChevronUp className="h-4 w-4" />
+                                        </>
+                                    ) : (
+                                        <>
+                                            {t("read_more", "Read More")} <ChevronDown className="h-4 w-4" />
+                                        </>
+                                    )}
+                                </button>
 
+                                <Button
+                                    asChild
+                                    className="w-full sm:w-auto hover:scale-105 transition-transform"
+                                >
+                                    <a href={latestBlogPost?.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                                        <span suppressHydrationWarning>{t("read_full_article")}</span>
+                                        <FileText className="h-4 w-4" />
+                                    </a>
+                                </Button>
+                            </CardContent>
+                        </Card>
+                        <div className="mt-8 flex justify-center">
                             <Button
+                                variant="outline"
                                 asChild
-                                className="w-full sm:w-auto hover:scale-105 transition-transform"
+                                className="group hover:bg-primary hover:text-white transition-all duration-300"
                             >
-                                <a href={latestBlogPost?.url} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                                    <span suppressHydrationWarning>{t("read_full_article")}</span>
-                                    <FileText className="h-4 w-4" />
-                                </a>
+                                <Link href="/blog" className="flex items-center gap-2">
+                                    <span suppressHydrationWarning>{t("view_all_articles", "View All Articles")}</span>
+                                    <FileText className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                </Link>
                             </Button>
-                        </CardContent>
-                    </Card>
-                    <div className="mt-8 flex justify-center">
-                        <Button
-                            variant="outline"
-                            asChild
-                            className="group hover:bg-primary hover:text-white transition-all duration-300"
-                        >
-                            <Link href="/blog" className="flex items-center gap-2">
-                                <span suppressHydrationWarning>{t("view_all_articles", "View All Articles")}</span>
-                                <FileText className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                            </Link>
-                        </Button>
-                    </div>
+                        </div>
+                    </>
                 ) : (
                     <p className="text-center text-gray-500 dark:text-gray-400" suppressHydrationWarning>
                         {t("no_blog_posts_available")}
