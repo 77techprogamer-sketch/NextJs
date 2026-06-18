@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
@@ -8,8 +8,7 @@ import { Button } from '@/components/ui/button';
 import { getServerSideTranslation } from '@/lib/i18n-server';
 import ReactMarkdown from 'react-markdown';
 import ShareButtons from '@/components/ShareButtons';
-
-
+import BlogFAQ from '@/components/BlogFAQ';
 
 interface BlogPostProps {
     params: {
@@ -53,11 +52,7 @@ export async function generateMetadata({ params }: BlogPostProps): Promise<Metad
     };
 }
 
-// Reuse the sanitizer logic from before if we want, or just raw since it's built-time
 const sanitizeHtml = (html: string): string => {
-    // Basic structural cleanup if needed; 
-    // Since this is static generation from our own verified blogspot, we can trust it mostly.
-    // Removing some blogger specific weird elements if they exist.
     return html;
 };
 
@@ -170,6 +165,11 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                                 <ReactMarkdown>{contentWithCTA}</ReactMarkdown>
                             </div>
                             <ShareButtons title={post.title} url={`https://insurancesupport.online/blog/${post.slug}`} />
+
+                            {/* FAQ Section for this blog post */}
+                            {post.categories && post.categories.length > 0 && (
+                                <BlogFAQ categories={post.categories} t={t} />
+                            )}
                         </div>
                     </article>
 
@@ -206,4 +206,3 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
         </React.Fragment>
     );
 }
-
