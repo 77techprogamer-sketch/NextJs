@@ -1,0 +1,100 @@
+import React from 'react';
+import Link from 'next/link';
+import { cityData } from '@/data/cityData';
+import { PRIORITY_CITY_SLUGS } from '@/data/indianCities';
+import { MapPin, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { slugify } from '@/utils/slugify';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
+
+// Only include city slugs that have valid hub pages
+const validCitySlugs = PRIORITY_CITY_SLUGS;
+
+const ServiceAreasSection = ({ t }: { t: (key: string, opts?: any) => string }) => {
+    const [allowedCities, setAllowedCities] = React.useState<string[] | null>(null);
+    const [isExpanded, setIsExpanded] = React.useState(false);
+
+    React.useEffect(() => {
+        if (typeof document !== 'undefined') {
+            const match = document.cookie.match(new RegExp('(^| )user-allowed-cities=([^;]+)'));
+            if (match) {
+                const val = match[2];
+                if (val === 'NONE') setAllowedCities([]);
+                else setAllowedCities(val.split(','));
+            }
+        }
+    }, []);
+
+    const visibleCities = Object.values(cityData).filter(city => 
+        // Only link to cities with valid hub pages (no neighbourhood sub-keys)
+        validCitySlugs.has(city.slug) &&
+        (allowedCities === null || allowedCities.includes(city.slug))
+    );
+
+    if (visibleCities.length === 0) {
+        return null;
+    }
+
+    const displayedCities = isExpanded ? visibleCities : visibleCities.slice(0, 12);
+
+    return (
+        <section className="py-12 bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+            <div className="container mx-auto px-4">
+                <div className="text-center mb-10">
+                    <h2 className="text-2xl font-bold mb-4 flex items-center justify-center gap-2">
+                            <MapPin className="h-6 w-6 text-primary" />
+                            Insurance Support Across India
+                        </h2>
+                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                            We provide dedicated doorstep assistance, claims support, and policy renewals in <strong>79+ cities across India</strong>.
+                            Looking for local expertise? Connect with our <Link href="/locations/karnataka/bangalore/insurance" className="text-primary hover:underline font-semibold">insurance advisor in Bangalore</Link>.
+                        </p>
+                </div>
+
+                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                    {displayedCities.map((city, index) => (
+                        <Link
+                            key={city.slug}
+                            href={`/locations/${slugify(city.state)}/${city.slug}/life-insurance`}
+                            className="block group"
+                        >
+                            <ScrollReveal animation="fade-up" delay={(index % 12) * 0.05} width="100%">
+                                <div className="p-4 bg-white dark:bg-slate-800 rounded-lg shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary relative overflow-hidden group/card">
+                                    <div className="absolute top-0 right-0 p-1 bg-primary/10 rounded-bl-lg text-[10px] font-bold text-primary uppercase tracking-wider">
+                                        Local Expertise
+                                    </div>
+                                    <h3 className="font-semibold text-lg text-slate-800 dark:text-slate-200 group-hover:text-primary transition-colors">
+                                        {city.name}
+                                    </h3>
+                                    <p className="text-xs text-muted-foreground mt-1">
+                                        LIC & General Insurance Advisor
+                                    </p>
+                                    <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                                        <span className="text-[10px] font-medium text-slate-500 uppercase italic">Claim Expert</span>
+                                        <ArrowRight className="h-3 w-3 text-primary opacity-0 group-hover/card:opacity-100 group-hover/card:translate-x-1 transition-all" />
+                                    </div>
+                                </div>
+                            </ScrollReveal>
+                        </Link>
+                    ))}
+                </div>
+                
+                {visibleCities.length > 12 && (
+                    <div className="mt-10 text-center flex justify-center">
+                        <button
+                            onClick={() => setIsExpanded(!isExpanded)}
+                            className="px-6 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-sm font-semibold text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-primary transition-colors flex items-center gap-2 shadow-sm"
+                        >
+                            {isExpanded ? (
+                                <>Show Less <ChevronUp className="w-4 h-4" /></>
+                            ) : (
+                                <>View All {visibleCities.length} Cities <ChevronDown className="w-4 h-4" /></>
+                            )}
+                        </button>
+                    </div>
+                )}
+            </div>
+        </section>
+    );
+};
+
+export default ServiceAreasSection;

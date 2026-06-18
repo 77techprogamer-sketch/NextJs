@@ -1,0 +1,9 @@
+[2026-06-11T12:01:15.132Z] Submitted: 0, Failed: 65, Total: 65
+{"timestamp":"2026-06-11T12:03:46.575Z","totalUrls":65,"sitemap":{"google":"Failed (404)","bing":"Failed (410)"},"indexNow":{"success":0,"failed":65}}
+{"timestamp":"2026-06-11T12:06:27.758Z","totalUrls":65,"sitemap":{"google":"Failed (404)","bing":"Failed (410)"},"indexNow":{"success":60,"failed":5}}
+{"timestamp":"2026-06-11T12:08:15.860Z","totalUrls":65,"success":0,"failed":65}
+{"timestamp":"2026-06-11T12:09:08.191Z","totalUrls":65,"success":0,"failed":65}
+{"timestamp":"2026-06-12T05:32:24.641Z","total":67,"success":0,"failed":67}
+{"timestamp":"2026-06-13T05:32:09.267Z","total":67,"success":0,"failed":67}
+{"timestamp":"2026-06-17T05:34:54.708Z","total":79,"success":0,"failed":79}
+{"timestamp":"2026-06-18T05:35:19.923Z","total":79,"success":0,"failed":79}

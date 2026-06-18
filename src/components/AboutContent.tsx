@@ -1,0 +1,151 @@
+"use client";
+
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import Image from 'next/image';
+import { ShieldCheck, Users, Award, History, Info } from 'lucide-react';
+import { AutoLinker } from '@/components/AutoLinker';
+
+const AboutContent = () => {
+    const { t } = useTranslation();
+
+    return (
+        <div className="flex flex-col min-h-screen">
+            {/* Hero Section */}
+            <section className="relative py-20 bg-primary text-white overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-900/50 via-primary to-primary"></div>
+                <div className="container mx-auto px-4 relative z-10 text-center">
+                    <h1 className="text-4xl md:text-6xl font-bold mb-6" suppressHydrationWarning>{t('about_hero_title')}</h1>
+                    <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed" suppressHydrationWarning>
+                        <AutoLinker text={t('about_hero_subtitle')} />
+                    </p>
+                </div>
+            </section>
+
+            {/* Main Content */}
+            <section className="py-16 bg-white dark:bg-gray-950">
+                <div className="container mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+                        <div className="space-y-6">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-semibold">
+                                <History className="w-4 h-4" />
+                                <span suppressHydrationWarning>{t('established_badge')}</span>
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white" suppressHydrationWarning>
+                                {t('about_legacy_title')}
+                            </h2>
+                            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" suppressHydrationWarning>
+                                <AutoLinker text={t('about_legacy_text_1')} />
+                            </p>
+                            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed" suppressHydrationWarning>
+                                <AutoLinker text={t('about_legacy_text_2')} />
+                            </p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl text-center">
+                                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <Users className="w-6 h-6 text-primary" />
+                                </div>
+                                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">15k+</div>
+                                <div className="text-sm text-gray-500" suppressHydrationWarning>{t('happy_clients')}</div>
+                            </div>
+                            <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl text-center">
+                                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <ShieldCheck className="w-6 h-6 text-primary" />
+                                </div>
+                                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">98%</div>
+                                <div className="text-sm text-gray-500" suppressHydrationWarning>{t('claims_settled_stat')}</div>
+                            </div>
+                            <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl text-center col-span-2">
+                                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <Award className="w-6 h-6 text-primary" />
+                                </div>
+                                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1" suppressHydrationWarning>{t('years_stat')}</div>
+                                <div className="text-sm text-gray-500" suppressHydrationWarning>{t('industry_experience')}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="max-w-4xl mx-auto text-center space-y-8 mb-20">
+                        <h2 className="text-3xl font-bold text-gray-900 dark:text-white" suppressHydrationWarning>{t('our_mission_title')}</h2>
+                        <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed" suppressHydrationWarning>
+                            <AutoLinker text={t('our_mission_text')} />
+                        </p>
+                    </div>
+
+                    {/* Expert Profile Section */}
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-20 bg-slate-50 dark:bg-slate-900/40 p-8 md:p-12 rounded-[3rem] border border-slate-100 dark:border-slate-800">
+                        <div className="lg:col-span-1 flex justify-center">
+                            <div className="relative group">
+                                <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                                <div className="relative w-64 h-64 rounded-full overflow-hidden border-4 border-white dark:border-slate-800 shadow-2xl">
+                                    <Image 
+                                        src="/assets/images/trust/advisor-hari.png" 
+                                        alt="Hari Kotian - Certified Insurance Expert" 
+                                        width={256}
+                                        height={256}
+                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                                        priority
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div className="lg:col-span-2 space-y-6">
+                            <div className="flex flex-wrap gap-2">
+                                <span className="px-3 py-1 bg-primary text-white text-[10px] font-bold uppercase tracking-widest rounded-full">IRDAI Certified</span>
+                                <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-[10px] font-bold uppercase tracking-widest rounded-full">25+ Years Experience</span>
+                            </div>
+                            <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Meet Our Expert: <span className="text-primary">Hari Kotian</span></h2>
+                            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed italic">
+                                &quot;Insurance isn&apos;t just about a policy copy; it&apos;s a promise made to your family. After two decades in the industry, my mission is to ensure that promise is kept, especially when claims get complicated.&quot;
+                            </p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-50 dark:border-slate-700">
+                                    <Award className="w-5 h-5 text-primary" />
+                                    <div>
+                                        <p className="text-sm font-bold">Registration</p>
+                                        <p className="text-xs text-slate-500">IRDAI Licensed Advisor</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-50 dark:border-slate-700">
+                                    <ShieldCheck className="w-5 h-5 text-primary" />
+                                    <div>
+                                        <p className="text-sm font-bold">Legacy</p>
+                                        <p className="text-xs text-slate-500">25+ Years of Industry Service</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-slate-100 dark:border-slate-800 pt-16">
+                        <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl">
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                <ShieldCheck className="w-5 h-5 text-blue-600" />
+                                {t('editorial_policy_title')}
+                            </h3>
+                            <p className="text-slate-600 dark:text-slate-400">
+                                {t('editorial_policy_text')}
+                            </p>
+                        </div>
+                        <div className="bg-slate-50 dark:bg-slate-900/50 p-6 rounded-2xl">
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                <Info className="w-5 h-5 text-blue-600" />
+                                {t('official_sources_title')}
+                            </h3>
+                            <div className="text-slate-600 dark:text-slate-400">
+                                <AutoLinker text={t('official_sources_text')} />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="text-center mt-12 text-sm text-slate-500">
+                        {t('last_updated', { date: new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' }) })}
+                    </div>
+                </div>
+            </section>
+        </div>
+    );
+};
+
+export default AboutContent;
