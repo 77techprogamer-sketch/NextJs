@@ -26,6 +26,7 @@ const BroadcastListener = dynamic(() => import('@/components/BroadcastListener')
 const ExitIntentPopup = dynamic(() => import('@/components/ExitIntentPopup'), { ssr: false });
 import NewsletterSection from '@/components/sections/NewsletterSection';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import FloatingCta from "@/components/FloatingCta"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -313,6 +314,7 @@ export default function RootLayout({
                                     <ExitIntentPopup />
                                 </DelayedLoader>
                             </div>
+                            <FloatingCta />
                             <SpeedInsights />
                             <Toaster />
                         </div>

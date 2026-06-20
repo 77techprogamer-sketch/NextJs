@@ -95,7 +95,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: prop
                                             onClick={handleVote}
                                         >
                                             <span suppressHydrationWarning className="flex items-center gap-2">
-                                                Request Case Assessment
+                                                Get Free Consultation
                                                 <motion.div
                                                     animate={{ x: [0, 5, 0] }}
                                                     transition={{ repeat: Infinity, duration: 1.5 }}

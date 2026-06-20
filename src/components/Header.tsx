@@ -63,7 +63,27 @@ const Header = () => {
             {t("insurance_support")}
           </span>
         </Link>
-        <nav className="flex items-center gap-4">
+        <div className="hidden lg:flex items-center gap-3">
+            <a
+              href="https://g.page/r/CRDgJanrKjRhEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors"
+            >
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              4.9★ Google
+            </a>
+            <a
+              href="tel:+919986634506"
+              className="flex items-center gap-1.5 text-sm font-bold text-green-600 hover:text-green-700 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              {contactConfig.phoneFull}
+            </a>
+          </div>
+          <nav className="flex items-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <button
