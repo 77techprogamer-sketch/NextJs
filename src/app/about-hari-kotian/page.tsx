@@ -45,7 +45,7 @@ const advisorSchema = {
         hasCredential: {
             '@type': 'EducationalOccupationalCredential',
             credentialCategory: 'Certification',
-            name: 'IRDAI Insurance Advisor License',
+            name: 'IRDAI Reg No: 0149161D',
             recognizedBy: {
                 '@type': 'Organization',
                 name: 'Insurance Regulatory and Development Authority of India'

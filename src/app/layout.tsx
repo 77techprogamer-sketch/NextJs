@@ -279,7 +279,8 @@ export default function RootLayout({
                                             "ratingValue": "4.9",
                                             "reviewCount": "150"
                                         },
-                                        "priceRange": "₹₹"
+                                        "priceRange": "₹₹",
+                                        "irdaiRegistrationNumber": "0149161D"
                                     })
                                 }}
                             />
