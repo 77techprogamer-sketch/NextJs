@@ -1,12 +1,15 @@
+"use client";
 import React from 'react';
 import ServiceCard from '@/components/ServiceCard';
+import { useTranslation } from 'react-i18next';
 import { Home, Banknote, Briefcase, Building2, Car, GraduationCap } from 'lucide-react';
 
 interface LoansSectionProps {
     onGetQuote: (type: string) => void;
 }
 
-const LoansSection: React.FC<LoansSectionProps & { t: (key: string, opts?: any) => string }> = ({ onGetQuote, t }) => {
+const LoansSection: React.FC<LoansSectionProps> = ({ onGetQuote }) => {
+    const { t } = useTranslation();
         const handleLoanClick = (type: string) => {
         // We pass 'loan_inquiry' as the base configuration key, but the title will be dynamic based on the type passed in the modal if we set it up that way.
         // However, QuoteForm uses the type to look up config.

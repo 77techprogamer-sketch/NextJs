@@ -1,9 +1,11 @@
+"use client";
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { CheckCircle2, XCircle, Info, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const SupportScopeSection: React.FC<{ t: (key: string, opts?: any) => string }> = ({ t }) => {
+const SupportScopeSection = () => {
+    const { t } = useTranslation();
         const helpItems = [
         'help_item_claims',
         'help_item_policy',

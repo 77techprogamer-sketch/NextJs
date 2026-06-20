@@ -1,9 +1,12 @@
+"use client";
 import React from 'react';
 import { Card, CardTitle, CardDescription } from '@/components/ui/card';
+import { useTranslation } from "react-i18next";
 import { Users, Clock, ShieldCheck } from 'lucide-react';
 import { SpotlightCard } from '@/components/ui/SpotlightCard';
 
-const WhyChooseUsSection = ({ t }: { t: (key: string, opts?: any) => string }) => {
+const WhyChooseUsSection = () => {
+    const { t } = useTranslation();
         return (
         <section className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-900">
             <div className="container mx-auto px-4 text-center">

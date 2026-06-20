@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ServiceCard from '@/components/ServiceCard';
@@ -7,7 +8,8 @@ import { Heart, Shield, FileText, Car, Building, Plane, Wallet, TrendingUp, Hear
 
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 
-const ServicesSection = ({ t }: { t: (key: string, opts?: any) => string }) => {
+const ServicesSection = () => {
+    const { t } = useTranslation();
         return (
         <section id="services" className="py-20 sm:py-32 bg-white dark:bg-gray-900 overflow-hidden">
             <div className="container mx-auto px-4 text-center">

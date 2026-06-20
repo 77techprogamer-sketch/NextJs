@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -16,7 +17,8 @@ interface FAQSectionProps {
     items?: any[]; // Keep flexible if passed from props
 }
 
-const FAQSection: React.FC<FAQSectionProps & { t: (key: string, opts?: any) => string }> = ({ items, t }) => {
+const FAQSection: React.FC<FAQSectionProps> = ({ items }) => {
+    const { t } = useTranslation();
         // specific subset for homepage if needed, or just take first 6
     const displayFaqs = items || faqData.slice(0, 6);
 

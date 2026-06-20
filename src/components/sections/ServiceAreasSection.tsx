@@ -1,5 +1,7 @@
+"use client";
 import React from 'react';
 import Link from 'next/link';
+import { useTranslation } from "react-i18next";
 import { cityData } from '@/data/cityData';
 import { PRIORITY_CITY_SLUGS } from '@/data/indianCities';
 import { MapPin, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
@@ -9,7 +11,8 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 // Only include city slugs that have valid hub pages
 const validCitySlugs = PRIORITY_CITY_SLUGS;
 
-const ServiceAreasSection = ({ t }: { t: (key: string, opts?: any) => string }) => {
+const ServiceAreasSection = () => {
+    const { t } = useTranslation();
     const [allowedCities, setAllowedCities] = React.useState<string[] | null>(null);
     const [isExpanded, setIsExpanded] = React.useState(false);
 

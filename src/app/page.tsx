@@ -57,14 +57,14 @@ export default async function Home() {
                 initialDescription={t("secure_family_future")}
             />
             {/* Server-rendered static sections for SEO */}
-            <ServicesSection t={t} />
-            <WhyChooseUsSection t={t} />
-            <FAQSection t={t} items={faqData.slice(0, 6)} />
-            <ProcessTimeline t={t} />
-            <SupportScopeSection t={t} />
-            <ServiceAreasSection t={t} />
-            <ContactSection t={t} />
-            <LoansSection t={t} onGetQuote={() => {}} />
+            <ServicesSection />
+            <WhyChooseUsSection />
+            <FAQSection items={faqData.slice(0, 6)} />
+            <ProcessTimeline />
+            <SupportScopeSection />
+            <ServiceAreasSection />
+            <ContactSection />
+            <LoansSection onGetQuote={() => {}} />
         </>
     );
 }

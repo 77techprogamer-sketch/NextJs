@@ -1,5 +1,7 @@
+"use client";
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTranslation } from "react-i18next";
 import { MessageCircle, Search, Headset, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -38,7 +40,8 @@ interface ProcessTimelineProps {
     onAction?: () => void;
 }
 
-const ProcessTimeline: React.FC<ProcessTimelineProps & { t: (key: string, opts?: any) => string }> = ({ onAction, t }) => {
+const ProcessTimeline: React.FC<ProcessTimelineProps> = ({ onAction }) => {
+    const { t } = useTranslation();
     return (
         <section className="py-20 bg-white dark:bg-slate-950 overflow-hidden">
             <div className="container mx-auto px-4">

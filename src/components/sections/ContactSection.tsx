@@ -1,9 +1,12 @@
+"use client";
 import React from 'react';
 import { Phone, MessageSquare, MapPin } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 import { CardTitle, CardDescription } from '@/components/ui/card';
 import { contactConfig } from '@/data/contact';
 
-const ContactSection = ({ t }: { t: (key: string, opts?: any) => string }) => {
+const ContactSection = () => {
+    const { t } = useTranslation();
         return (
         <section id="contact" className="py-12 sm:py-16 bg-gray-100 dark:bg-gray-900">
             <div className="container mx-auto px-4 text-center">
