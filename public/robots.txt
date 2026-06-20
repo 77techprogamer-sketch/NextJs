@@ -1,4 +1,6 @@
-# Allow all SEO crawlers explicitly
+# robots.txt for insurancesupport.online
+# Allow all SEO crawlers
+
 User-agent: Googlebot
 Allow: /
 
@@ -17,9 +19,10 @@ Allow: /
 User-agent: YandexBot
 Allow: /
 
-# Anti-cloning protections
-# Block known AI scrapers and aggressive bots
+User-agent: IndexNow
+Allow: /
 
+# Block AI scrapers
 User-agent: GPTBot
 Disallow: /
 
@@ -53,8 +56,13 @@ Disallow: /
 User-agent: Claude
 Disallow: /
 
+# Default: allow everything except private paths
 User-agent: *
 Allow: /
+Disallow: /api/*
+Disallow: /private/
+Disallow: /engagement/
+Disallow: /blocked/
 Disallow: /hidden-admin-access/
 Disallow: /private-backup/
 Disallow: /config-files/

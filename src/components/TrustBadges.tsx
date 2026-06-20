@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { ShieldCheck, Award, Users, Clock, Phone, MapPin } from "lucide-react";
+import { ShieldCheck, Award, Users, Clock, Phone, Star } from "lucide-react";
 import { contactConfig } from "@/data/contact";
 
 export default function TrustBadges() {
@@ -31,6 +31,15 @@ export default function TrustBadges() {
                     >
                         <Phone className="w-4 h-4" />
                         {t("call_now")}: {contactConfig.phoneFull}
+                    </a>
+                    <a
+                        href="https://g.page/r/CRDgJanrKjRhEBM/review"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-bold transition-colors"
+                    >
+                        <Star className="w-4 h-4" />
+                        Review on Google
                     </a>
                 </div>
             </div>

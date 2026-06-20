@@ -10,6 +10,7 @@ import { Metadata } from 'next'
 import React from 'react'
 import { DynamicLocalBusinessJsonLd } from '@/components/ServerJsonLd'
 import { contactConfig } from '@/data/contact'
+import CityFAQSection from "@/components/CityFAQSection";
 
 
 
@@ -253,6 +254,15 @@ export default async function CityHubPage({ params }: Props) {
                         </div>
                     </div>
                 )}
+
+                {/* FAQ Section with Schema */}
+                <div className="mb-20">
+                    <CityFAQSection
+                        cityName={localizedCity}
+                        stateName={localizedState}
+                        areas={specificCityData?.areas || []}
+                    />
+                </div>
 
                 <div className="mt-20 p-10 bg-slate-900 text-white rounded-[3rem] relative overflow-hidden shadow-2xl">
                     <div className="absolute top-0 right-0 w-96 h-96 bg-primary/20 rounded-full blur-[100px] -mr-48 -mt-48" />
