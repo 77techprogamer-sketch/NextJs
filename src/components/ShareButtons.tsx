@@ -10,13 +10,6 @@ interface ShareButtonsProps {
 }
 
 export default function ShareButtons({ title, url }: ShareButtonsProps) {
-    const [mounted, setMounted] = useState(false);
-
-    useEffect(() => {
-        setMounted(true);
-    }, []);
-
-    if (!mounted) return null;
 
     const encodedUrl = encodeURIComponent(url);
     const encodedTitle = encodeURIComponent(title);

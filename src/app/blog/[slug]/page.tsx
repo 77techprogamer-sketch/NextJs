@@ -74,6 +74,9 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
         notFound();
     }
 
+    const shareUrl = "https://insurancesupport.online/blog/" + post.slug;
+    const whatsappShareLink = "https://wa.me/?text=" + encodeURIComponent(post.title + " " + shareUrl);
+
     const jsonLdData = {
         '@context': 'https://schema.org',
         '@type': 'Article',
