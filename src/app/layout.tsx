@@ -33,11 +33,11 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'Buy Insurance & Claim Support India | Expert Advice',
+        default: 'LIC Advisor Bangalore | Insurance Support - 15,000+ Families Helped',
         template: '%s | Insurance Support'
     },
     applicationName: 'Insurance Support',
-    description: 'Buy premium Life, Health, and Motor Insurance. Struggling with rejected claims or lost LIC policies? Get expert help to fight for your money. Free Consultation.',
+    description: 'Indias #1 LIC Claim Recovery Expert in Bangalore. 25+ years experience, IRDAI certified. Helped 15,000+ families get their rejected claims approved. Free consultation.',
     keywords: [
         'Buy Life Insurance Online',
         'Buy Health Insurance India',
@@ -238,6 +238,51 @@ export default function RootLayout({
                         <div className="relative flex flex-col min-h-screen">
 
                             <GlobalJsonLd />
+                            <script
+                                type="application/ld+json"
+                                dangerouslySetInnerHTML={{
+                                    __html: JSON.stringify({
+                                        "@context": "https://schema.org",
+                                        "@type": "LocalBusiness",
+                                        "name": "Insurance Support - Hari Kotian",
+                                        "description": "LIC Policy Advisor and Claim Recovery Expert in Bangalore. 25+ years experience, IRDAI certified.",
+                                        "url": "https://insurancesupport.online",
+                                        "telephone": "+91-9986634506",
+                                        "email": "contact@insurancesupport.online",
+                                        "address": {
+                                            "@type": "PostalAddress",
+                                            "streetAddress": "Bahubali Nagar, Jalahalli",
+                                            "addressLocality": "Bengaluru",
+                                            "addressRegion": "KA",
+                                            "postalCode": "560013",
+                                            "addressCountry": "IN"
+                                        },
+                                        "geo": {
+                                            "@type": "GeoCoordinates",
+                                            "latitude": 13.0159,
+                                            "longitude": 77.5522
+                                        },
+                                        "openingHoursSpecification": {
+                                            "@type": "OpeningHoursSpecification",
+                                            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                                            "opens": "09:00",
+                                            "closes": "21:00"
+                                        },
+                                        "sameAs": [
+                                            "https://share.google/2Cbcq7l39kTWJl2Dm",
+                                            "https://www.facebook.com/insurancesupport",
+                                            "https://twitter.com/insurancesupport",
+                                            "https://www.instagram.com/insurancesupport"
+                                        ],
+                                        "aggregateRating": {
+                                            "@type": "AggregateRating",
+                                            "ratingValue": "4.9",
+                                            "reviewCount": "150"
+                                        },
+                                        "priceRange": "₹₹"
+                                    })
+                                }}
+                            />
                             <HoneypotTrap />
                             <Analytics />
                             <SmartLanguageSelector />

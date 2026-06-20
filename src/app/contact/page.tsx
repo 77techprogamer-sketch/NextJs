@@ -144,6 +144,34 @@ export default async function ContactPage() {
                             <p className="text-xs text-slate-500 mt-1">Bengaluru, KA 560013</p>
                         </div>
                     </div>
+                    {/* Google Maps Embed */}
+                    <div className="mt-8 rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.9!2d77.5522!3d13.0159!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTPCsDAwJzU3LjIiTiA3N8KwMzMnMDcuOSJF!5e0!3m2!1sen!2sin!4v1700000000000"
+                            width="100%"
+                            height="300"
+                            style={{ border: 0 }}
+                            allowFullScreen
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            title="Hari Kotian Office Location"
+                        />
+                    </div>
+                    {/* GBP Link */}
+                    <div className="mt-6 text-center">
+                        <a
+                            href="https://share.google/2Cbcq7l39kTWJl2Dm"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-200 rounded-full shadow-sm hover:shadow-md transition-all text-sm font-medium"
+                        >
+                            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#4285F4"/>
+                                <path d="M12 6.5c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z" fill="white"/>
+                            </svg>
+                            {t("google_business")} — {t("verified_reviews")}
+                        </a>
+                    </div>
                 </div>
             </section>
 

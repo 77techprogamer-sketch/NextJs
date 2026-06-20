@@ -11,6 +11,9 @@ import ServiceAreasSection from "@/components/sections/ServiceAreasSection";
 import ContactSection from "@/components/sections/ContactSection";
 import LoansSection from "@/components/sections/LoansSection";
 import { faqData } from "@/data/faqData";
+import TrustBadges from "@/components/TrustBadges";
+import AreasWeServe from "@/components/AreasWeServe";
+import VideoTestimonials from "@/components/VideoTestimonials";
 
 export async function generateMetadata(): Promise<Metadata> {
     const { t } = await getServerSideTranslation();
@@ -51,6 +54,7 @@ export default async function Home() {
     return (
         <>
             <LocalBusinessJsonLd />
+            <TrustBadges />
             {/* Client-side interactive sections (Hero with forms, animations) */}
             <HomeClient
                 initialTitle={t("hero_title")}
@@ -65,6 +69,8 @@ export default async function Home() {
             <ServiceAreasSection />
             <ContactSection />
             <LoansSection />
+                    <VideoTestimonials />
+            <AreasWeServe />
         </>
     );
 }

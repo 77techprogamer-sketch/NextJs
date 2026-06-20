@@ -1,50 +1,39 @@
-import React from 'react';
-import { ShieldCheck, Award, Lock, CheckCircle } from 'lucide-react';
+"use client";
 
-const TrustBadges = () => {
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { ShieldCheck, Award, Users, Clock, Phone, MapPin } from "lucide-react";
+import { contactConfig } from "@/data/contact";
+
+export default function TrustBadges() {
+    const { t } = useTranslation();
+
+    const badges = [
+        { icon: Users, label: t("trusted_by_families"), color: "text-blue-400" },
+        { icon: Clock, label: t("years_experience_short"), color: "text-green-400" },
+        { icon: ShieldCheck, label: t("irdai_certified_badge"), color: "text-yellow-400" },
+        { icon: Award, label: t("claim_recovery_expert"), color: "text-purple-400" },
+    ];
+
     return (
-        <div className="flex flex-wrap items-center gap-6 py-4 opacity-80 hover:opacity-100 transition-opacity">
-            <div className="flex items-center gap-2 group">
-                <div className="p-2 bg-primary/10 rounded-full group-hover:bg-primary/20 transition-colors">
-                    <Lock className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                    <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Security</p>
-                    <p className="text-sm font-semibold">SSL Secured</p>
-                </div>
-            </div>
-
-            <div className="flex items-center gap-2 group">
-                <div className="p-2 bg-accent/10 rounded-full group-hover:bg-accent/20 transition-colors">
-                    <ShieldCheck className="h-5 w-5 text-accent" />
-                </div>
-                <div>
-                    <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">IRDAI</p>
-                    <p className="text-sm font-semibold">Certified Team</p>
+        <section className="bg-slate-900 text-white py-6 border-y border-slate-800">
+            <div className="container mx-auto px-4">
+                <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
+                    {badges.map((badge, i) => (
+                        <div key={i} className="flex items-center gap-2">
+                            <badge.icon className={`w-5 h-5 ${badge.color}`} />
+                            <span className="text-sm font-medium text-slate-300">{badge.label}</span>
+                        </div>
+                    ))}
+                    <a
+                        href={contactConfig.getDialUrl()}
+                        className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition-colors"
+                    >
+                        <Phone className="w-4 h-4" />
+                        {t("call_now")}: {contactConfig.phoneFull}
+                    </a>
                 </div>
             </div>
-
-            <div className="flex items-center gap-2 group">
-                <div className="p-2 bg-green-500/10 rounded-full group-hover:bg-green-500/20 transition-colors">
-                    <Award className="h-5 w-5 text-green-600" />
-                </div>
-                <div>
-                    <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Quality</p>
-                    <p className="text-sm font-semibold">ISO 9001:2015</p>
-                </div>
-            </div>
-
-            <div className="flex items-center gap-2 group">
-                <div className="p-2 bg-blue-500/10 rounded-full group-hover:bg-blue-500/20 transition-colors">
-                    <CheckCircle className="h-5 w-5 text-blue-600" />
-                </div>
-                <div>
-                    <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground">Experience</p>
-                    <p className="text-sm font-semibold">25+ YRS PRO</p>
-                </div>
-            </div>
-        </div>
+        </section>
     );
-};
-
-export default TrustBadges;
+}
