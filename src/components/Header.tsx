@@ -14,7 +14,6 @@ import {
 import { ChevronDown, ShieldCheck, Phone } from 'lucide-react';
 import { slugify } from '@/utils/slugify';
 import { formatLabel } from '@/utils/formatText';
-import { contactConfig } from '@/data/contact';
 import TopNotificationBar from './TopNotificationBar';
 import Image from 'next/image';
 
@@ -75,14 +74,7 @@ const Header = () => {
               </svg>
               4.9★ Google
             </a>
-            <a
-              href="tel:+919986634506"
-              className="flex items-center gap-1.5 text-sm font-bold text-green-600 hover:text-green-700 transition-colors"
-            >
-              <Phone className="w-4 h-4" />
-              {contactConfig.phoneFull}
-            </a>
-          </div>
+        </div>
           <nav className="flex items-center gap-4">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -131,13 +123,13 @@ const Header = () => {
           </Link>
 
           <div className="flex items-center gap-2">
-            <a 
-              href={contactConfig.getDialUrl()} 
+            <Link
+              href="/contact"
               className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full font-semibold transition-colors text-sm sm:text-base"
             >
               <Phone className="w-4 h-4 fill-current" />
-              <span className="hidden sm:inline">Call Now</span>
-            </a>
+              <span className="hidden sm:inline">Contact</span>
+            </Link>
             <LanguageSwitcher />
             <ThemeToggle />
           </div>
