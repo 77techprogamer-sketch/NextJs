@@ -767,5 +767,9 @@
   "user-allowed-cities": "User-allowed-cities",
   "user-geo-country": "User-geo-country",
   "textarea": "Textarea",
-  "_": " "
+  "_": " ",
+  "back_to_all_articles": "എല്ലാ ലേഖനങ്ങളിലേക്കും മടങ്ങുക",
+  "share": "പങ്കിടുക",
+  "related_articles": "ബന്ധപ്പെട്ട ലേഖനങ്ങൾ",
+  "read": "വായിക്കുക"
 }

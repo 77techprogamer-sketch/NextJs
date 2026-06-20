@@ -767,5 +767,9 @@
   "user-allowed-cities": "User-allowed-cities",
   "user-geo-country": "User-geo-country",
   "textarea": "Textarea",
-  "_": " "
+  "_": " ",
+  "back_to_all_articles": "அனைத்து கட்டுரைகளுக்கும் திரும்பு",
+  "share": "பகிர்",
+  "related_articles": "தொடர்புடைய கட்டுரைகள்",
+  "read": "படிக்க"
 }

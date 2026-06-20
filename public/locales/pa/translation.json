@@ -765,5 +765,9 @@
   "user-allowed-cities": "User-allowed-cities",
   "user-geo-country": "User-geo-country",
   "textarea": "Textarea",
-  "_": " "
+  "_": " ",
+  "back_to_all_articles": "ਸਾਰੇ ਲੇਖਾਂ ਉੱਤੇ ਵਾਪਸ ਜਾਓ",
+  "share": "ਸ਼ੇਅਰ ਕਰੋ",
+  "related_articles": "ਸੰਬੰਧਿਤ ਲੇਖ",
+  "read": "ਪੜ੍ਹੋ"
 }

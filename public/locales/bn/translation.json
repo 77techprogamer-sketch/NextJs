@@ -767,5 +767,9 @@
   "user-allowed-cities": "User-allowed-cities",
   "user-geo-country": "User-geo-country",
   "textarea": "Textarea",
-  "_": " "
+  "_": " ",
+  "back_to_all_articles": "সব নিবন্ধে ফিরে যান",
+  "share": "শেয়ার করুন",
+  "related_articles": "সম্পর্কিত নিবন্ধ",
+  "read": "পড়ুন"
 }

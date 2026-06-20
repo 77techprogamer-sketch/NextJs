@@ -767,5 +767,9 @@
   "user-allowed-cities": "User-allowed-cities",
   "user-geo-country": "User-geo-country",
   "textarea": "Textarea",
-  "_": " "
+  "_": " ",
+  "back_to_all_articles": "ಎಲ್ಲಾ ಲೇಖನಗಳಿಗೆ ಹಿಂತಿರುಗಿ",
+  "share": "ಹಂಚಿಕೊಳ್ಳಿ",
+  "related_articles": "ಸಂಬಂಧಿತ ಲೇಖನಗಳು",
+  "read": "ಓದಿ"
 }
