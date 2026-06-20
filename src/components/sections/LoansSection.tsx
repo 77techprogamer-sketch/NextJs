@@ -5,10 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { Home, Banknote, Briefcase, Building2, Car, GraduationCap } from 'lucide-react';
 
 interface LoansSectionProps {
-    onGetQuote: (type: string) => void;
+    
 }
 
-const LoansSection: React.FC<LoansSectionProps> = ({ onGetQuote }) => {
+const LoansSection = () => {
     const { t } = useTranslation();
         const handleLoanClick = (type: string) => {
         // We pass 'loan_inquiry' as the base configuration key, but the title will be dynamic based on the type passed in the modal if we set it up that way.
@@ -24,7 +24,7 @@ const LoansSection: React.FC<LoansSectionProps> = ({ onGetQuote }) => {
         // But if I pass 'home_loan', QuoteForm will look for 'home_loan' config.
         // I should update QuoteForm to map loan types to loan_inquiry config OR just add aliases in forms.ts.
         // Adding aliases in forms.ts is cleaner.
-        onGetQuote(type);
+        
     };
 
     return (

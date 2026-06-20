@@ -64,7 +64,7 @@ export default async function Home() {
             <SupportScopeSection />
             <ServiceAreasSection />
             <ContactSection />
-            <LoansSection onGetQuote={() => {}} />
+            <LoansSection />
         </>
     );
 }
