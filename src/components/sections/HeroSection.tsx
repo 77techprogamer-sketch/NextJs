@@ -19,8 +19,8 @@ interface HeroSectionProps {
 
 const HeroSection: React.FC<HeroSectionProps> = ({ city, onGetQuote, title: propTitle, description: propDescription }) => {
     const { t } = useTranslation();
-    const shareTitle = propTitle || "India's #1 Claim Rejection Recovery Experts — 25 Years, IRDAI Certified.";
-    const dynamicOneLiner = propDescription || "Has your claim been rejected? We've helped 15,000+ families get their money back. Get expert assistance in the next 48 hours.";
+    const shareTitle = t('hero_title', { defaultValue: propTitle || "India's #1 Claim Rejection Recovery Experts — 25 Years, IRDAI Certified." });
+    const dynamicOneLiner = t('secure_family_future', { defaultValue: propDescription || "Has your claim been rejected? We've helped 15,000+ families get their money back. Get expert assistance in the next 48 hours." });
 
     const handleVote = async () => {
         const confetti = (await import('canvas-confetti')).default;
