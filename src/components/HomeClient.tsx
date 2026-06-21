@@ -15,7 +15,6 @@ const BlogSection = dynamic(() => import('@/components/sections/BlogSection'), {
 });
 
 // Lazy load modals/non-critical components
-const Testimonials = dynamic(() => import('@/components/Testimonials'), { ssr: false });
 const VisitorCounter = dynamic(() => import('@/components/VisitorCounter'), { ssr: false });
 const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
 const ToolIslands = dynamic(() => import('@/components/sections/ToolIslands'), { ssr: false });
@@ -106,40 +105,6 @@ const HomeClient: React.FC<HomeClientProps> = ({ initialTitle, initialDescriptio
 
 
             <BlogSection />
-
-            {/* Customer Testimonials Section */}
-            <React.Suspense fallback={
-                <section className="py-12 sm:py-16 bg-white dark:bg-gray-800">
-                    <div className="container mx-auto px-4">
-                        <div className="text-center mb-12 sm:mb-16 space-y-4">
-                            <Skeleton className="h-8 w-64 mx-auto" />
-                            <Skeleton className="h-1 w-24 mx-auto rounded-full" />
-                            <Skeleton className="h-4 w-full max-w-2xl mx-auto" />
-                        </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                            {[...Array(6)].map((_, i) => (
-                                <Card key={i} className="h-64 bg-slate-50 dark:bg-gray-900 border-none shadow-lg">
-                                    <CardContent className="p-6 space-y-4">
-                                        <Skeleton className="h-4 w-24 mb-4" />
-                                        <Skeleton className="h-20 w-full" />
-                                        <div className="pt-4 border-t border-slate-200 dark:border-gray-700 flex items-center gap-3">
-                                            <Skeleton className="w-10 h-10 rounded-full" />
-                                            <div>
-                                                <Skeleton className="h-4 w-32 mb-2" />
-                                                <Skeleton className="h-3 w-20" />
-                                            </div>
-                                        </div>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
-                </section>
-            }>
-                <div id="testimonials">
-                    <Testimonials />
-                </div>
-            </React.Suspense>
 
             {/* All sections always rendered for Googlebot mobile-first indexing.
                 On mobile, extra sections are visually collapsed via CSS until user clicks "Show More". */}

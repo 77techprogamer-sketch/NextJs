@@ -13,7 +13,6 @@ import LoansSection from "@/components/sections/LoansSection";
 import { faqData } from "@/data/faqData";
 import TrustBadges from "@/components/TrustBadges";
 import AreasWeServe from "@/components/AreasWeServe";
-import VideoTestimonials from "@/components/VideoTestimonials";
 
 export async function generateMetadata(): Promise<Metadata> {
     const { t } = await getServerSideTranslation();
@@ -69,7 +68,6 @@ export default async function Home() {
             <ServiceAreasSection />
             <ContactSection />
             <LoansSection />
-                    <VideoTestimonials />
             <AreasWeServe />
 
             {/* Google Review CTA */}
