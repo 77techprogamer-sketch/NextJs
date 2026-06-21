@@ -1140,12 +1140,12 @@ export const cityData: Record<string, CityData> = {
         areas: ['Bhiwandi Central', 'City Center'],
         description: "Secure your family's future with the most trusted Insurance Support team in Bhiwandi. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Maharashtra."
     },
-    'saharanspur': {
-        name: 'Saharanspur',
-        slug: 'saharanspur',
+    'saharanpur': {
+        name: 'Saharanpur',
+        slug: 'saharanpur',
         state: 'Uttar Pradesh',
-        areas: ['Saharanspur Central', 'City Center'],
-        description: "Residents and businesses in Saharanspur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Saharanspur."
+        areas: ['Saharanpur Central', 'City Center'],
+        description: "Residents and businesses in Saharanpur can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Saharanpur."
     },
     'guntur': {
         name: 'Guntur',
@@ -2400,12 +2400,12 @@ export const cityData: Record<string, CityData> = {
         areas: ['Surendranagar Central', 'City Center'],
         description: "Secure your family's future with the most trusted Insurance Support team in Surendranagar. From processing complex LIC claims to finding the best health coverage, our certified advisors offer hassle-free service across Gujarat."
     },
-    'unnc': {
-        name: 'Unnc',
-        slug: 'unnc',
+    'unnao': {
+        name: 'Unnao',
+        slug: 'unnao',
         state: 'Uttar Pradesh',
-        areas: ['Unnc Central', 'City Center'],
-        description: "Residents and businesses in Unnc can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Unnc."
+        areas: ['Unnao Central', 'City Center'],
+        description: "Residents and businesses in Unnao can now rely on us for comprehensive Insurance Support. Whether you need an Employee Benefits plan or personal health insurance, our experts offer fast-track doorstep service throughout Unnao."
     },
     'hugli-chinsurah': {
         name: 'Hugli Chinsurah',

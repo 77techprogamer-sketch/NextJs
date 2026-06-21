@@ -234,7 +234,7 @@ export const REGIONAL_NAMES: Record<string, Record<string, string>> = {
     'panvel': { hi: 'पनवेल' },
     'shivpuri': { hi: 'शिवपुरी' },
     'surendranagar': { hi: 'सुरेंद्रनगर' },
-    'unnc': { hi: 'उन्नाव' },
+    'unnao': { hi: 'उन्नाव' },
     'kanchipuram': { hi: 'कांचीपुरम' },
     'hosur': { hi: 'होसुर' }
 };

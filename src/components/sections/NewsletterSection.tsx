@@ -46,7 +46,7 @@ const NewsletterSection: React.FC = () => {
                                     {t('newsletter_title', 'Don\'t let a small mistake ruin your claim.')}
                                 </h2>
                                 <p className="text-gray-300 text-lg">
-                                    {t('newsletter_desc', 'Join 25,000+ subscribers getting weekly tips on navigating complex insurance claims and avoiding rejections.')}
+                                    {t('newsletter_desc', 'Join thousands of subscribers getting weekly tips on navigating complex insurance claims and avoiding rejections.')}
                                 </p>
                                 
                                 <ul className="space-y-2 mt-6">

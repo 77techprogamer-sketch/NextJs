@@ -118,7 +118,7 @@ export default function ServiceFAQSection({
         },
         {
             question: `Is Insurance Support trusted for ${serviceLabel} in ${stateName}?`,
-            answer: `Yes. Insurance Support has 25+ years of experience and a 98% claim settlement ratio for ${serviceLabel} across ${stateName}. We are trusted by 5,000+ families in ${cityName} and surrounding areas.`
+            answer: `Yes. Insurance Support has 25+ years of experience and a 98% claim settlement ratio for ${serviceLabel} across ${stateName}. We have served 15,000+ families across India with LIC, health, and motor insurance support.`
         },
     ];
 

@@ -72,7 +72,7 @@ export const INDIAN_LOCATIONS: CityLocation[] = [
     { city: 'warangal', state: 'telangana', name: 'Warangal' },
     { city: 'thiruvananthapuram', state: 'kerala', name: 'Thiruvananthapuram' },
     { city: 'bhiwandi', state: 'maharashtra', name: 'Bhiwandi' },
-    { city: 'saharanspur', state: 'uttar-pradesh', name: 'Saharanpur' },
+    { city: 'saharanpur', state: 'uttar-pradesh', name: 'Saharanpur' },
     { city: 'guntur', state: 'andhra-pradesh', name: 'Guntur' },
     { city: 'amravati', state: 'maharashtra', name: 'Amravati' },
     { city: 'bikaner', state: 'rajasthan', name: 'Bikaner' },
@@ -266,7 +266,7 @@ export const INDIAN_LOCATIONS: CityLocation[] = [
     { city: 'panvel', state: 'maharashtra', name: 'Panvel' },
     { city: 'shivpuri', state: 'madhya-pradesh', name: 'Shivpuri' },
     { city: 'surendranagar', state: 'gujarat', name: 'Surendranagar' },
-    { city: 'unnc', state: 'uttar-pradesh', name: 'Unnao' },
+    { city: 'unnao', state: 'uttar-pradesh', name: 'Unnao' },
     { city: 'hugli-chinsurah', state: 'west-bengal', name: 'Hooghly' },
     { city: 'kanchipuram', state: 'tamil-nadu', name: 'Kanchipuram' },
     { city: 'hosur', state: 'tamil-nadu', name: 'Hosur' }

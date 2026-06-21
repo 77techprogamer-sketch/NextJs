@@ -56,10 +56,14 @@ const Footer = () => {
             </ul>
           </div>
           <div className="text-center sm:text-left">
-            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Registered Office</h4>
+            <h4 className="font-bold text-foreground mb-4 uppercase tracking-wider text-xs">Contact Us</h4>
             <p className="text-sm mb-1 font-semibold">Insurance Support Online</p>
-            <p className="text-sm mb-3 text-muted-foreground">
-              Bangalore Location
+            <p className="text-sm mb-1 text-muted-foreground">Bangalore, India</p>
+            <p className="text-sm mb-1">
+              <a href="tel:+919986634506" className="text-primary font-semibold hover:underline">+91-99866 34506</a>
+            </p>
+            <p className="text-sm mb-3">
+              <a href="mailto:contact@insurancesupport.online" className="text-primary hover:underline">contact@insurancesupport.online</a>
             </p>
             <p className="text-sm mb-2 font-semibold text-primary flex items-center gap-2 justify-center sm:justify-start">
               <ShieldCheck className="w-4 h-4" />
