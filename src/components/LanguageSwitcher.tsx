@@ -34,13 +34,14 @@ const LanguageSwitcher = () => {
   const changeLanguage = async (lng: string) => {
     if (!i18n.isInitialized) return;
     try {
-      await i18n.changeLanguage(lng);
-      setSelectedLanguage(lng);
+      // Set cookie BEFORE changing language so server picks it up on reload
       if (typeof document !== 'undefined') {
         document.cookie = `NEXT_LOCALE=${lng}; path=/; max-age=31536000`;
         document.cookie = `i18nextLng=${lng}; path=/; max-age=31536000`;
       }
-      // Reload the page to apply translations everywhere
+      await i18n.changeLanguage(lng);
+      setSelectedLanguage(lng);
+      // Reload so server renders in the new language
       window.location.reload();
     } catch (err) {
       console.error('Language change failed:', err);

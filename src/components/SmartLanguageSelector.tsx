@@ -58,11 +58,12 @@ const SmartLanguageSelector = () => {
     const handleConfirm = useCallback(async () => {
         if (suggestedLang && i18n.isInitialized) {
             try {
-                await i18n.changeLanguage(suggestedLang);
+                // Set cookie BEFORE reload so server picks up the new language
                 if (typeof document !== 'undefined') {
                     document.cookie = `NEXT_LOCALE=${suggestedLang}; path=/; max-age=31536000`;
                     document.cookie = `i18nextLng=${suggestedLang}; path=/; max-age=31536000`;
                 }
+                await i18n.changeLanguage(suggestedLang);
                 window.location.reload();
             } catch (err) { console.error('Language confirm failed:', err); }
         }
