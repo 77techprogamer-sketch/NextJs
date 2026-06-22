@@ -7,7 +7,7 @@ import { contactConfig } from '@/data/contact';
 
 export const metadata: Metadata = {
     title: 'Claim Rejection Recovery | Get Your Reversed Claim Approved — Insurance Support',
-    description: 'Has your insurance claim been rejected? We specialize in reversing claim rejections from LIC, Star Health, HDFC ERGO, and all major insurers. 98% success rate. Free case review.',
+    description: 'Has your insurance claim been rejected? We specialize in reversing claim rejections from LIC, Star Health, HDFC ERGO, and all major insurers. Free case review.',
     keywords: [
         'Claim Rejection Recovery',
         'Rejected Insurance Claim Help',
@@ -37,7 +37,7 @@ const PROCESS_STEPS = [
     { step: '2', title: 'Root Cause Analysis', desc: 'We identify the exact clause, technicality, or documentation gap the insurer used. Many rejections have legal flaws.' },
     { step: '3', title: 'Evidence Reconstruction', desc: 'We work with your doctors, hospitals, and employers to build an evidence-backed case that overturns the rejection.' },
     { step: '4', title: 'Multi-Level Escalation', desc: 'We escalate through insurer grievance, IRDAI Bima Bharosa, and Insurance Ombudsman simultaneously for maximum pressure.' },
-    { step: '5', title: 'Claim Approved & Paid', desc: '98% of our cases result in claim approval. We stay with you until the money is credited to your account.' },
+    { step: '5', title: 'Claim Approved & Paid', desc: 'We stay with you until the money is credited to your account. Most of our cases result in claim approval.' },
 ];
 
 const CASE_RESULTS = [
@@ -64,10 +64,10 @@ export default function ClaimRecoveryPage() {
                         <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
                             We Reverse Claim Rejections.
                             <br />
-                            <span className="text-accent">98% Success Rate.</span>
+                            <span className="text-accent">Expert Help When You Need It Most.</span>
                         </h1>
                         <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                            Your insurer said no. That's not the end. We've recovered ₹50Cr+ in rejected claims across LIC, Star Health, HDFC ERGO, and all major insurers. Get a free case review today.
+                            Your insurer said no. That's not the end. We've helped families recover crores in rejected claims across LIC, Star Health, HDFC ERGO, and all major insurers. Get a free case review today.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary text-lg h-14 px-8 font-bold" asChild>
@@ -97,9 +97,9 @@ export default function ClaimRecoveryPage() {
                 <div className="container px-4 mx-auto">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                         {[
-                            { value: '₹50Cr+', label: 'Claims Recovered', icon: TrendingUp },
-                            { value: '15,000+', label: 'Cases Handled', icon: Users },
-                            { value: '98%', label: 'Success Rate', icon: ShieldCheck },
+                            { value: 'Crores+', label: 'Claims Recovered', icon: TrendingUp },
+                            { value: '1000+', label: 'Cases Handled', icon: Users },
+                            { value: 'High', label: 'Success Rate', icon: ShieldCheck },
                             { value: '25+', label: 'Years Experience', icon: Scale },
                         ].map((stat, idx) => (
                             <div key={idx} className="text-center">

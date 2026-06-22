@@ -115,7 +115,7 @@ const ExitIntentPopup: React.FC = () => {
 
                         <div className="p-8 text-center bg-gray-50 dark:bg-gray-900">
                             <p className="text-gray-600 dark:text-gray-300 mb-6 font-medium">
-                                {t('join_thousands', 'Join 15,000+ families who successfully recovered their rejected claims.')}
+                                {t('join_thousands', 'Join thousands of families who successfully recovered their rejected claims.')}
                             </p>
                             
                             <div className="flex flex-col gap-3">

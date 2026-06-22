@@ -34,11 +34,11 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-ja
 export const metadata: Metadata = {
     metadataBase: new URL('https://insurancesupport.online'),
     title: {
-        default: 'LIC Advisor Bangalore | Insurance Support - 15,000+ Families Helped',
+        default: 'LIC Advisor Bangalore | Insurance Support - Trusted by Families Across India',
         template: '%s | Insurance Support'
     },
     applicationName: 'Insurance Support',
-    description: 'Indias #1 LIC Claim Recovery Expert in Bangalore. 25+ years experience, IRDAI certified. Helped 15,000+ families get their rejected claims approved. Free consultation.',
+    description: 'Indias #1 LIC Claim Recovery Expert in Bangalore. 25+ years experience, IRDAI certified. Helping families get their rejected claims approved. Free consultation.',
     keywords: [
         'Buy Life Insurance Online',
         'Buy Health Insurance India',

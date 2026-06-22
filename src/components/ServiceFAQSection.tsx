@@ -44,7 +44,7 @@ export default function ServiceFAQSection({
             },
             {
                 question: `What is the claim settlement ratio for life insurance advisors in ${cityName}?`,
-                answer: `Insurance Support has a 98% claim settlement ratio for life insurance policies in ${cityName} and across ${stateName}. Our 25+ years of experience means we know how to navigate insurer requirements and maximize your payout.`
+                answer: `Insurance Support has a strong track record for life insurance policies in ${cityName} and across ${stateName}. Our 25+ years of experience means we know how to navigate insurer requirements and maximize your payout.`
             },
         ],
         'health-insurance': [
@@ -118,7 +118,7 @@ export default function ServiceFAQSection({
         },
         {
             question: `Is Insurance Support trusted for ${serviceLabel} in ${stateName}?`,
-            answer: `Yes. Insurance Support has 25+ years of experience and a 98% claim settlement ratio for ${serviceLabel} across ${stateName}. We have served 15,000+ families across India with LIC, health, and motor insurance support.`
+            answer: `Yes. Insurance Support has 25+ years of experience and a strong track record for ${serviceLabel} across ${stateName}. We have served thousands of families across India with LIC, health, and motor insurance support.`
         },
     ];
 

@@ -27,11 +27,11 @@ const FeaturesSection = () => {
                             </p>
                             <div className="grid grid-cols-2 gap-8 pt-4">
                                 <div className="space-y-2 group">
-                                    <div className="text-4xl sm:text-5xl font-black text-accent group-hover:scale-110 transition-transform duration-300 inline-block">15k+</div>
+                                    <div className="text-4xl sm:text-5xl font-black text-accent group-hover:scale-110 transition-transform duration-300 inline-block">1000+</div>
                                     <div className="text-xs text-primary-foreground/60 uppercase tracking-[0.2em] font-bold" suppressHydrationWarning>{t("portfolios_managed")}</div>
                                 </div>
                                 <div className="space-y-2 group">
-                                    <div className="text-4xl sm:text-5xl font-black text-accent group-hover:scale-110 transition-transform duration-300 inline-block">98%</div>
+                                    <div className="text-4xl sm:text-5xl font-black text-accent group-hover:scale-110 transition-transform duration-300 inline-block">High</div>
                                     <div className="text-xs text-primary-foreground/60 uppercase tracking-[0.2em] font-bold" suppressHydrationWarning>{t("claims_settled_stat")}</div>
                                 </div>
                             </div>

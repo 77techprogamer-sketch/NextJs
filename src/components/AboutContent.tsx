@@ -53,7 +53,7 @@ const AboutContent = () => {
                                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                                     <ShieldCheck className="w-6 h-6 text-primary" />
                                 </div>
-                                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">98%</div>
+                                <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">High</div>
                                 <div className="text-sm text-gray-500" suppressHydrationWarning>{t('claims_settled_stat')}</div>
                             </div>
                             <div className="bg-gray-50 dark:bg-gray-900 p-6 rounded-2xl text-center col-span-2">

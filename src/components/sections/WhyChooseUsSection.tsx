@@ -25,7 +25,7 @@ const WhyChooseUsSection = () => {
                         </p>
                     </SpotlightCard>
 
-                    {/* 24/7 Support */}
+                    {/* Mon-Sat Support */}
                     <SpotlightCard className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 p-8 text-center hover:-translate-y-2 transition-transform duration-300">
                         <div className="w-16 h-16 mx-auto bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6">
                             <Clock className="w-8 h-8 text-green-600 dark:text-green-400" />

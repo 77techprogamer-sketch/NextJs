@@ -28,7 +28,7 @@ const ServicesSection = () => {
                         href="/claim-recovery"
                         delay={0.1}
                         badge="Most Urgent"
-                        description="Claim rejected? We specialize in reversing rejections from LIC, Star Health, HDFC ERGO, and all major insurers. 98% success rate."
+                        description="Claim rejected? We specialize in reversing rejections from LIC, Star Health, HDFC ERGO, and all major insurers."
                     />
                     <ServiceCard
                         title={t("life_insurance")}

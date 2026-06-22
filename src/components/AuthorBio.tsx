@@ -33,7 +33,7 @@ const AuthorBio = () => {
                     </div>
                     
                     <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm md:text-base">
-                        With over two decades of dedicated experience in the Indian insurance landscape, Hari Kotian has helped over 15,000 families secure their legacies and recover complex rejected claims. He specializes in Life Insurance (LIC), Health, and Motor insurance advisory, with a deep focus on documentation precision and regulatory compliance.
+                        With over two decades of dedicated experience in the Indian insurance landscape, Hari Kotian has helped thousands of families secure their legacies and recover complex rejected claims. He specializes in Life Insurance (LIC), Health, and Motor insurance advisory, with a deep focus on documentation precision and regulatory compliance.
                     </p>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">

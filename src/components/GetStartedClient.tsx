@@ -49,8 +49,8 @@ const GetStartedClient: React.FC<GetStartedClientProps> = ({ initialInterest }) 
                                 <ShieldCheck className="w-6 h-6" />
                             </div>
                             <div>
-                                <h2 className="font-semibold text-lg">98% Claims</h2>
-                                <p className="text-sm text-muted-foreground">High settlement ratio for your peace of mind.</p>
+                                <h2 className="font-semibold text-lg">High Success Rate</h2>
+                                <p className="text-sm text-muted-foreground">Most of our cases result in claim approval.</p>
                             </div>
                         </div>
                         <div className="bg-card border p-4 rounded-xl flex items-start gap-3 shadow-sm hover:shadow-md transition-shadow">
@@ -59,7 +59,7 @@ const GetStartedClient: React.FC<GetStartedClientProps> = ({ initialInterest }) 
                             </div>
                             <div>
                                 <h2 className="font-semibold text-lg">Fast Support</h2>
-                                <p className="text-sm text-muted-foreground">24/7 dedicated support team.</p>
+                                <p className="text-sm text-muted-foreground">Mon-Sat, 9AM-8PM dedicated support team.</p>
                             </div>
                         </div>
                         <div className="bg-card border p-4 rounded-xl flex items-start gap-3 shadow-sm hover:shadow-md transition-shadow">
