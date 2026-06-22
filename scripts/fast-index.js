@@ -191,9 +191,13 @@ async function run() {
         }
     }
 
-    // 8. Search Engine Sitemap Pings
-    await pingSearchEngines();
-
+    // 8. Search Engine Sitemap Pings (DEPRECATED - Google/Bing no longer support these)
+    // Google auto-discovers sitemaps from robots.txt
+    // Bing uses IndexNow (submitted above)
+    // Note: IndexNow key must be verified at https://www.bing.com/webmasters
+    // Go to Bing Webmaster Tools > Settings > IndexNow > Verify domain
+    console.log('📡 Search engine pings deprecated. Google auto-discovers sitemap from robots.txt.');
+    console.log('📡 Bing uses IndexNow (submitted above). Verify key at bing.com/webmasters if 403.');
     console.log('🏁 Fast-Track Indexing process complete.');
 }
 
