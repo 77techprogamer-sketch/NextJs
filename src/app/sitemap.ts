@@ -65,6 +65,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
     // 4. City Base Pages (Priority Cities)
     const matrixRoutes: MetadataRoute.Sitemap = []
+    const CITY_SERVICE_PAGES = ['insurance', 'life-insurance', 'health-insurance', 'motor-insurance', 'term-insurance', 'lic-agent']
+    const TOP_10_CITIES = ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune', 'ahmedabad', 'jaipur', 'lucknow']
+    
     PRIORITY_LOCATIONS.forEach(loc => {
         // Add city base page
         const cityBaseRoute = `/locations/${loc.state}/${loc.city}`;
@@ -74,10 +77,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             priority: 0.8,
             alternates: getAlternates(cityBaseRoute),
         })
+        
+        // Add service sub-pages for top 10 cities
+        if (TOP_10_CITIES.includes(loc.city)) {
+            CITY_SERVICE_PAGES.forEach(service => {
+                const serviceRoute = `${cityBaseRoute}/${service}`;
+                matrixRoutes.push({
+                    url: `${BASE_URL}${serviceRoute}`,
+                    changeFrequency: 'weekly' as const,
+                    priority: 0.75,
+                    alternates: getAlternates(serviceRoute),
+                })
+            })
+        }
     })
 
     // 4.5 Top 10 City Guides
-    const TOP_10_CITIES = ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune', 'ahmedabad', 'jaipur', 'lucknow']
     const cityGuideRoutes = TOP_10_CITIES.map(city => ({
         url: `${BASE_URL}/guides/${city}-insurance`,
         changeFrequency: 'monthly' as const,

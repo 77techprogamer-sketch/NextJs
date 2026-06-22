@@ -28,7 +28,7 @@ export function middleware(request: NextRequest) {
     }
 
     if (HONEYPOT_PATHS.some(path => pathname.startsWith(path))) {
-        return new NextResponse('Access Denied', { status: 403 });
+        return new NextResponse('Gone', { status: 410 });
     }
 
     if (BLOCKED_SIGNATURES.some(sig => sig.test(userAgent))) {

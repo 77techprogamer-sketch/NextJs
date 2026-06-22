@@ -16,7 +16,6 @@ export default function robots(): MetadataRoute.Robots {
                     '/private/',
                     '/engagement/',
                     '/blocked/',
-                    '/locations/*/*/*',
                 ],
             },
             {
