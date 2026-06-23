@@ -24,7 +24,6 @@ const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ss
 const LeadSyncManager = dynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
 const BroadcastListener = dynamic(() => import('@/components/BroadcastListener'), { ssr: false });
 const ExitIntentPopup = dynamic(() => import('@/components/ExitIntentPopup'), { ssr: false });
-import NewsletterSection from '@/components/sections/NewsletterSection';
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import FloatingCta from "@/components/FloatingCta"
 
@@ -292,11 +291,11 @@ export default function RootLayout({
                             <main className="flex-1">
                                 <PageTransitionProvider>
                                     {children}
-                                    <QuestionForm />
+                                    {/* QuestionForm removed - avoiding multiple forms */}
                                 </PageTransitionProvider>
                             </main>
 
-                            <NewsletterSection />
+                            {/* NewsletterSection removed - hero form is sufficient */}
                             <CollapsibleToolsFooter />
                             <Footer />
                             <div className="min-h-[1px]"> {/* Stability placeholder */}
