@@ -1,6 +1,7 @@
 # robots.txt for insurancesupport.online
-# Allow all SEO crawlers
+# Last updated: 2026-06-24
 
+# Allow all SEO crawlers
 User-agent: Googlebot
 Allow: /
 
@@ -21,6 +22,9 @@ Allow: /
 
 User-agent: IndexNow
 Allow: /
+
+# IndexNow API Key
+IndexNow-Key: f0095d07c9b09f609c31b09eaa495920
 
 # Block AI scrapers
 User-agent: GPTBot
@@ -63,8 +67,5 @@ Disallow: /api/*
 Disallow: /private/
 Disallow: /engagement/
 Disallow: /blocked/
-Disallow: /hidden-admin-access/
-Disallow: /private-backup/
-Disallow: /config-files/
 
 Sitemap: https://insurancesupport.online/sitemap.xml
