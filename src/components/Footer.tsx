@@ -45,6 +45,10 @@ const Footer = () => {
               <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">{t("privacy_policy")}</Link></li>
               <li><Link href="/terms-of-service" className="hover:text-primary transition-colors">{t("terms_of_service")}</Link></li>
               <li className="pt-2"><a href="https://g.page/r/CRDgJanrKjRhEBM/review" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors text-amber-500 font-bold flex items-center gap-1">⭐ Review us on Google</a></li>
+              <li><a href="https://www.facebook.com/insurancesupport" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Facebook</a></li>
+              <li><a href="https://www.linkedin.com/company/insurancesupport" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">LinkedIn</a></li>
+              <li><a href="https://www.instagram.com/insurancesupport" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Instagram</a></li>
+              <li><a href="https://twitter.com/insurancesupport" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Twitter</a></li>
             </ul>
           </div>
           <div>
