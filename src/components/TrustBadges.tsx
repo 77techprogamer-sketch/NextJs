@@ -25,7 +25,7 @@ export default function TrustBadges({ t }: { t: (key: string, opts?: any) => str
                         className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition-colors"
                     >
                         <Phone className="w-4 h-4" />
-                        {t("call_now")}: {contactConfig.phoneFull}
+                        {callNow}: {contactConfig.phoneFull}
                     </a>
                     <a
                         href="https://g.page/r/CRDgJanrKjRhEBM/review"

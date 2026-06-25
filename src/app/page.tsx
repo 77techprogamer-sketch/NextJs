@@ -53,7 +53,13 @@ export default function Home() {
     return (
         <>
             <LocalBusinessJsonLd />
-            <TrustBadges t={t} />
+            <TrustBadges
+                trustedByFamilies={t("trusted_by_families")}
+                yearsExperience={t("years_experience_short")}
+                irdaiCertified={t("irdai_certified_badge")}
+                claimRecoveryExpert={t("claim_recovery_expert")}
+                callNow={t("call_now")}
+            />
             {/* SEO h1 - server-rendered for Googlebot */}
             <h1 className="sr-only">{t("hero_title")}</h1>
             {/* Client-side interactive sections (Hero with forms, animations) */}
@@ -63,14 +69,52 @@ export default function Home() {
             />
             {/* Server-rendered static sections for SEO */}
             <ServicesSection t={t} />
-            <WhyChooseUsSection t={t} />
-            <FAQSection items={faqData.slice(0, 6)} t={t} />
+            <WhyChooseUsSection
+                title={t("why_choose_us")}
+                expertGuidance={t("expert_guidance")}
+                expertGuidanceDesc={t("expert_guidance_desc")}
+                supportTitle={t("24_7_support")}
+                supportDesc={t("support_desc")}
+                claimsTitle={t("claims_assistance")}
+                claimsDesc={t("claims_desc")}
+            />
+            <FAQSection items={faqData.slice(0, 6)} />
             <ProcessTimeline />
-            <SupportScopeSection t={t} />
+            <SupportScopeSection
+                title={t("support_clarification_title")}
+                desc={t("support_clarification_desc")}
+                whatWeHelp={t("what_we_help_with")}
+                whatWeDont={t("what_we_dont_do")}
+                helpClaims={t("help_item_claims")}
+                helpPolicy={t("help_item_policy")}
+                helpLegal={t("help_item_legal")}
+                helpAffiliated={t("help_item_affiliated")}
+                dontPayout={t("dont_item_payout")}
+            />
             <ServiceAreasSection t={t} />
-            <ContactSection t={t} />
-            <LoansSection t={t} />
-            <AreasWeServe t={t} />
+            <ContactSection
+                title={t("get_in_touch")}
+                description={t("contact_description")}
+                callUs={t("call_us")}
+                whatsappUs={t("whatsapp_us")}
+                visitUs={t("visit_us")}
+                bangaloreOffice={t("bangalore_office")}
+            />
+            <LoansSection
+                title={t("loans_offered")}
+                description={t("loans_description")}
+                homeLoan={t("home_loan")}
+                personalLoan={t("personal_loan")}
+                businessLoan={t("business_loan")}
+                mortgageLoan={t("mortgage_loan")}
+                vehicleLoan={t("vehicle_loan")}
+                educationLoan={t("education_loan")}
+            />
+            <AreasWeServe
+                title={t("areas_we_serve")}
+                subtitle={t("serving_across_india")}
+                viewAll={t("view_all_locations")}
+            />
 
             {/* Google Review CTA */}
             <section className="bg-amber-50 py-12">

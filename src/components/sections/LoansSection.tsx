@@ -6,7 +6,18 @@ interface LoansSectionProps {
     t: (key: string, opts?: any) => string;
 }
 
-const LoansSection = ({ t }: LoansSectionProps) => {
+interface LoansSectionProps {
+    title: string;
+    description: string;
+    homeLoan: string;
+    personalLoan: string;
+    businessLoan: string;
+    mortgageLoan: string;
+    vehicleLoan: string;
+    educationLoan: string;
+}
+
+const LoansSection = ({ title, description, homeLoan, personalLoan, businessLoan, mortgageLoan, vehicleLoan, educationLoan }: LoansSectionProps) => {
         const handleLoanClick = (type: string) => {
         // We pass 'loan_inquiry' as the base configuration key, but the title will be dynamic based on the type passed in the modal if we set it up that way.
         // However, QuoteForm uses the type to look up config.
@@ -28,49 +39,49 @@ const LoansSection = ({ t }: LoansSectionProps) => {
         <section id="loans" className="py-12 sm:py-16 bg-slate-50 dark:bg-gray-900 border-t border-slate-200 dark:border-gray-800">
             <div className="container mx-auto px-4 text-center">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 dark:text-white mb-6 sm:mb-8" suppressHydrationWarning>
-                    {t("loans_offered")}
+                    {title}
                 </h2>
                 <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto" suppressHydrationWarning>
-                    {t("loans_description")}
+                    {description}
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     <ServiceCard
-                        title={t("home_loan")}
+                        title={homeLoan}
                         icon={Home}
                         href="/loans"
                         onClick={() => handleLoanClick('home_loan')}
                         delay={0.1}
                     />
                     <ServiceCard
-                        title={t("personal_loan")}
+                        title={personalLoan}
                         icon={Banknote}
                         href="/loans"
                         onClick={() => handleLoanClick('personal_loan')}
                         delay={0.2}
                     />
                     <ServiceCard
-                        title={t("business_loan")}
+                        title={businessLoan}
                         icon={Briefcase}
                         href="/loans"
                         onClick={() => handleLoanClick('business_loan')}
                         delay={0.3}
                     />
                     <ServiceCard
-                        title={t("mortgage_loan")}
+                        title={mortgageLoan}
                         icon={Building2}
                         href="/loans"
                         onClick={() => handleLoanClick('mortgage_loan')}
                         delay={0.1}
                     />
                     <ServiceCard
-                        title={t("vehicle_loan")}
+                        title={vehicleLoan}
                         icon={Car}
                         href="/loans"
                         onClick={() => handleLoanClick('vehicle_loan')}
                         delay={0.2}
                     />
                     <ServiceCard
-                        title={t("education_loan")}
+                        title={educationLoan}
                         icon={GraduationCap}
                         href="/loans"
                         onClick={() => handleLoanClick('education_loan')}

@@ -2,7 +2,19 @@ import React from 'react';
 import { CheckCircle2, XCircle, Info, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
-const SupportScopeSection = ({ t }: { t: (key: string, opts?: any) => string }) => {
+interface SupportScopeProps {
+    title: string;
+    desc: string;
+    whatWeHelp: string;
+    whatWeDont: string;
+    helpClaims: string;
+    helpPolicy: string;
+    helpLegal: string;
+    helpAffiliated: string;
+    dontPayout: string;
+}
+
+const SupportScopeSection = ({ title, desc, whatWeHelp, whatWeDont, helpClaims, helpPolicy, helpLegal, helpAffiliated, dontPayout }: SupportScopeProps) => {
         const helpItems = [
         'help_item_claims',
         'help_item_policy',
@@ -23,12 +35,12 @@ const SupportScopeSection = ({ t }: { t: (key: string, opts?: any) => string }) 
                             <Info className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                         </div>
                         <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
-                            {t('support_clarification_title')}
+                            {title}
                         </h2>
                     </div>
 
                     <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
-                        {t('support_clarification_desc')}
+                        {desc}
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -36,7 +48,7 @@ const SupportScopeSection = ({ t }: { t: (key: string, opts?: any) => string }) 
                         <div className="space-y-6">
                             <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                                 <CheckCircle2 className="w-5 h-5 text-green-500" />
-                                {t('what_we_help_with')}
+                                {whatWeHelp}
                             </h3>
                             <ul className="space-y-4">
                                 {helpItems.map((item, idx) => (
@@ -52,7 +64,7 @@ const SupportScopeSection = ({ t }: { t: (key: string, opts?: any) => string }) 
                         <div className="space-y-6">
                             <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                                 <XCircle className="w-5 h-5 text-red-500" />
-                                {t('what_we_dont_do')}
+                                {whatWeDont}
                             </h3>
                             <ul className="space-y-4">
                                 {dontItems.map((item, idx) => (

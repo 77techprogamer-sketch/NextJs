@@ -17,13 +17,19 @@ const TOP_CITIES = [
     { city: "Indore", state: "madhya-pradesh", slug: "/locations/madhya-pradesh/indore" },
 ];
 
-export default function AreasWeServe() {
+interface AreasWeServeProps {
+    title: string;
+    subtitle: string;
+    viewAll: string;
+}
+
+export default function AreasWeServe({ title, subtitle, viewAll }: AreasWeServeProps) {
     return (
         <section className="py-16 bg-slate-50 dark:bg-slate-900">
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">{t("areas_we_serve")}</h2>
-                    <p className="text-lg text-slate-600 dark:text-slate-400">{t("serving_across_india")}</p>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
+                    <p className="text-lg text-slate-600 dark:text-slate-400">{subtitle}</p>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {TOP_CITIES.map((c, i) => (
@@ -42,7 +48,7 @@ export default function AreasWeServe() {
                         href="/locations"
                         className="inline-flex items-center gap-2 text-primary font-bold hover:underline"
                     >
-                        {t("view_all_locations")} <ArrowRight className="w-4 h-4" />
+                        {viewAll} <ArrowRight className="w-4 h-4" />
                     </Link>
                 </div>
             </div>
