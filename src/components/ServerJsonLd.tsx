@@ -124,14 +124,6 @@ export function LocalBusinessJsonLd() {
                 telephone: contactConfig.phoneFull,
                 email: contactConfig.email,
                 priceRange: '₹₹',
-                aggregateRating: {
-                    '@type': 'AggregateRating',
-                    name: 'Insurance Support Customer Satisfaction',
-                    ratingValue: 4.2,
-                    reviewCount: 23,
-                    bestRating: 5,
-                    worstRating: 1
-                } as any,
                 areaServed: [
                     { '@type': 'Country', name: 'India' },
                     { '@type': 'City', name: 'Bangalore' },
@@ -459,11 +451,6 @@ export function DynamicLocalBusinessJsonLd({
             dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
             opens: '09:00',
             closes: '18:00'
-        },
-        aggregateRating: {
-            '@type': 'AggregateRating',
-            ratingValue: '4.9',
-            reviewCount: '150'
         },
         contactPoint: {
             '@type': 'ContactPoint',

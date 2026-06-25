@@ -70,13 +70,6 @@ const licSupportSchema = {
                     { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'LIC Nominee Update Assistance' } },
                 ]
             },
-            aggregateRating: {
-                '@type': 'AggregateRating',
-                ratingValue: '4.2',
-                reviewCount: '80',
-                bestRating: '5',
-                ratingCount: '80'
-            }
         },
         {
             '@type': 'BreadcrumbList',

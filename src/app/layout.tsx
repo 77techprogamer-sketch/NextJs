@@ -257,11 +257,6 @@ export default function RootLayout({
                                             "https://twitter.com/insurancesupport",
                                             "https://www.instagram.com/insurancesupport"
                                         ],
-                                        "aggregateRating": {
-                                            "@type": "AggregateRating",
-                                            "ratingValue": "4.9",
-                                            "reviewCount": "150"
-                                        },
                                         "priceRange": "₹₹",
                                         "irdaiRegistrationNumber": "0149161D"
                                     })
