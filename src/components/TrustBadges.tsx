@@ -1,13 +1,8 @@
-"use client";
-
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { ShieldCheck, Award, Users, Clock, Phone, Star } from "lucide-react";
 import { contactConfig } from "@/data/contact";
 
-export default function TrustBadges() {
-    const { t } = useTranslation();
-
+export default function TrustBadges({ t }: { t: (key: string, opts?: any) => string }) {
     const badges = [
         { icon: Users, label: t("trusted_by_families"), color: "text-blue-400" },
         { icon: Clock, label: t("years_experience_short"), color: "text-green-400" },

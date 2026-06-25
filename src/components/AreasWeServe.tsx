@@ -1,7 +1,4 @@
-"use client";
-
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Link from "next/link";
 import { MapPin, ArrowRight } from "lucide-react";
 
@@ -21,7 +18,6 @@ const TOP_CITIES = [
 ];
 
 export default function AreasWeServe() {
-    const { t } = useTranslation();
     return (
         <section className="py-16 bg-slate-50 dark:bg-slate-900">
             <div className="container mx-auto px-4">

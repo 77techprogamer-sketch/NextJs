@@ -1,6 +1,4 @@
-"use client";
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import {
     Accordion,
     AccordionContent,
@@ -14,11 +12,11 @@ import { faqData } from '@/data/faqData';
 import Link from 'next/link';
 
 interface FAQSectionProps {
+    t: (key: string, opts?: any) => string;
     items?: any[]; // Keep flexible if passed from props
 }
 
-const FAQSection: React.FC<FAQSectionProps> = ({ items }) => {
-    const { t } = useTranslation();
+const FAQSection: React.FC<FAQSectionProps> = ({  items , t }: FAQSectionProps) => {
         // specific subset for homepage if needed, or just take first 6
     const displayFaqs = items || faqData.slice(0, 6);
 

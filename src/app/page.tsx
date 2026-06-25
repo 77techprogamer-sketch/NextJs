@@ -53,22 +53,24 @@ export default async function Home() {
     return (
         <>
             <LocalBusinessJsonLd />
-            <TrustBadges />
+            <TrustBadges t={t} />
+            {/* SEO h1 - server-rendered for Googlebot */}
+            <h1 className="sr-only">{t("hero_title")}</h1>
             {/* Client-side interactive sections (Hero with forms, animations) */}
             <HomeClient
                 initialTitle={t("hero_title")}
                 initialDescription={t("secure_family_future")}
             />
             {/* Server-rendered static sections for SEO */}
-            <ServicesSection />
-            <WhyChooseUsSection />
-            <FAQSection items={faqData.slice(0, 6)} />
+            <ServicesSection t={t} />
+            <WhyChooseUsSection t={t} />
+            <FAQSection items={faqData.slice(0, 6)} t={t} />
             <ProcessTimeline />
-            <SupportScopeSection />
-            <ServiceAreasSection />
-            <ContactSection />
-            <LoansSection />
-            <AreasWeServe />
+            <SupportScopeSection t={t} />
+            <ServiceAreasSection t={t} />
+            <ContactSection t={t} />
+            <LoansSection t={t} />
+            <AreasWeServe t={t} />
 
             {/* Google Review CTA */}
             <section className="bg-amber-50 py-12">
