@@ -162,7 +162,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                             <ShareButtons title={post.title} url={`https://insurancesupport.online/blog/${post.slug}`} />
 
                             {post.categories && post.categories.length > 0 && (
-                                <BlogFAQ categories={post.categories} t={t} />
+                                <BlogFAQ categories={post.categories} />
                             )}
                         </div>
                     </article>

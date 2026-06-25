@@ -1,4 +1,6 @@
+"use client";
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
     Accordion,
     AccordionContent,
@@ -62,10 +64,11 @@ const categoryToFaqMap: Record<string, string[]> = {
 
 interface BlogFAQProps {
     categories: string[];
-    t: (key: string, opts?: any) => string;
+    // t prop removed - uses useTranslation internally
 }
 
-export default function BlogFAQ({ categories, t }: BlogFAQProps) {
+export default function BlogFAQ({ categories }: { categories: string[] }) {
+    const { t } = useTranslation();
     if (!categories || categories.length === 0) return null;
 
     // Find relevant FAQs based on blog categories

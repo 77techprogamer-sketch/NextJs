@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                                 <ReactMarkdown>{contentWithCTA}</ReactMarkdown>
                             </div>
                             <ShareButtons title={post.title} url={shareUrl} />
-                            {post.categories && post.categories.length > 0 && (<BlogFAQ categories={post.categories} t={t} />)}
+                            {post.categories && post.categories.length > 0 && (<BlogFAQ categories={post.categories} />)}
                         </div>
                     </article>
                     {fallbackPosts.length > 0 && (

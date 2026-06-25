@@ -171,7 +171,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
 
                             {/* FAQ Section for this blog post */}
                             {post.categories && post.categories.length > 0 && (
-                                <BlogFAQ categories={post.categories} t={t} />
+                                <BlogFAQ categories={post.categories} />
                             )}
                         </div>
                     </article>
