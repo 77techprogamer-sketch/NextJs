@@ -64,7 +64,6 @@ const advisorSchema = {
             'Policy Bond Recovery'
         ],
         sameAs: [
-            'https://www.instagram.com/insurancesupport',
             'https://insurancesupport.online/about-hari-kotian'
         ],
         "subjectOf": [

@@ -33,7 +33,7 @@ export default function CityInsurancePage() {
       </section>
       <section className="py-12 px-4 border-b">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <div><div className="flex items-center justify-center gap-1 text-amber-500 mb-1"><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /></div><div className="text-sm text-slate-600">4.9/5 Rating</div></div>
+          <div><div className="flex items-center justify-center gap-1 text-amber-500 mb-1"><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /><Star className="w-5 h-5 fill-current" /></div><div className="text-sm text-slate-600">4.2/5 Rating (23 reviews)</div></div>
           <div><div className="flex items-center justify-center gap-1 text-emerald-500 mb-1"><Award className="w-5 h-5" /></div><div className="text-sm text-slate-600">25+ Years</div></div>
           <div><div className="flex items-center justify-center gap-1 text-blue-500 mb-1"><Shield className="w-5 h-5" /></div><div className="text-sm text-slate-600">IRDAI Registered</div></div>
           <div><div className="flex items-center justify-center gap-1 text-purple-500 mb-1"><Clock className="w-5 h-5" /></div><div className="text-sm text-slate-600">24/7 Support</div></div>

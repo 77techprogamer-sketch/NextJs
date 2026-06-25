@@ -261,10 +261,7 @@ export default function RootLayout({
                                             "closes": "21:00"
                                         },
                                         "sameAs": [
-                                            "https://share.google/2Cbcq7l39kTWJl2Dm",
-                                            "https://www.facebook.com/insurancesupport",
-                                            "https://twitter.com/insurancesupport",
-                                            "https://www.instagram.com/insurancesupport"
+                                            "https://share.google/2Cbcq7l39kTWJl2Dm"
                                         ],
                                         "priceRange": "₹₹",
                                         "irdaiRegistrationNumber": "0149161D"
