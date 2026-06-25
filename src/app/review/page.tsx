@@ -1,8 +1,8 @@
 import { Metadata } from "next";
-import { getServerSideTranslation } from "@/lib/i18n-server";
+import { getStaticTranslation } from "@/lib/i18n-server";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     return {
         title: "Review Insurance Support | Hari Kotian LIC Advisor Bangalore",
         description: "Leave a review for Insurance Support on Google. Your feedback helps other families find trusted insurance advisory services in Bangalore and across India.",
@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function ReviewPage() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     const gbpReviewUrl = "https://g.page/r/CRDgJanrKjRhEBM/review";
 
     return (

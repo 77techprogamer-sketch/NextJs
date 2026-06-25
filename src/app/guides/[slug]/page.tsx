@@ -7,7 +7,7 @@ import Link from 'next/link'
 import React from 'react'
 import { ChevronRight, ShieldCheck, Clock, Award, Phone } from 'lucide-react'
 import ShortLeadForm from '@/components/ShortLeadForm'
-import { getServerSideTranslation, getLocalizedName } from '@/lib/i18n-server'
+import { getStaticTranslation, getLocalizedName } from '@/lib/i18n-server'
 
 // Top 10 cities for SEO Guides
 const TOP_10_CITIES = ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune', 'ahmedabad', 'jaipur', 'lucknow']
@@ -23,7 +23,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { t, lang } = await getServerSideTranslation();
+    const { t, lang } = getStaticTranslation();
     const citySlug = params.slug.replace('-insurance', '');
     const location = INDIAN_LOCATIONS.find(l => l.city === citySlug);
 
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CityGuidePage({ params }: Props) {
-    const { t, lang } = await getServerSideTranslation();
+    const { t, lang } = getStaticTranslation();
     const citySlug = params.slug.replace('-insurance', '');
     const location = INDIAN_LOCATIONS.find(l => l.city === citySlug);
 

@@ -1,10 +1,10 @@
-﻿import { getServerSideTranslation } from '@/lib/i18n-server';
+﻿import { getStaticTranslation } from '@/lib/i18n-server';
 import RiskScorecardClient from '@/components/tools/RiskScorecardClient';
 
 
 
 export async function generateMetadata() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     return {
         title: t('scorecard_page.meta_title'),
         description: t('scorecard_page.meta_desc'),

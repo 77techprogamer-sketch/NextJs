@@ -1,4 +1,4 @@
-import { getServerSideTranslation, getLocalizedName } from '@/lib/i18n-server'
+import { getStaticTranslation, getLocalizedName } from '@/lib/i18n-server'
 import { serviceLabels, services } from '@/data/services'
 import { INDIAN_LOCATIONS, PRIORITY_LOCATIONS } from '@/data/indianCities'
 import { cityData } from '@/data/cityData'
@@ -26,7 +26,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { t, lang } = await getServerSideTranslation();
+    const { t, lang } = getStaticTranslation();
     const location = INDIAN_LOCATIONS.find(l => l.city === params.city && l.state === params.state);
 
     if (!location) return { title: 'Not Found' };
@@ -63,7 +63,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CityHubPage({ params }: Props) {
-    const { t, lang } = await getServerSideTranslation();
+    const { t, lang } = getStaticTranslation();
     const location = INDIAN_LOCATIONS.find(l => l.city === params.city && l.state === params.state);
     const specificCityData = cityData[params.city];
     const override = CITY_CONTENT_OVERRIDES[params.city];

@@ -1,11 +1,11 @@
-﻿import { getServerSideTranslation } from '@/lib/i18n-server'
+﻿import { getStaticTranslation } from '@/lib/i18n-server'
 import HLVCalculator from '@/components/tools/HLVCalculator'
 import { Trans } from 'react-i18next/TransWithoutContext';
 
 
 
 export async function generateMetadata() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     return {
         title: t('hlv_page.meta_title'),
         description: t('hlv_page.meta_desc'),
@@ -22,7 +22,7 @@ export async function generateMetadata() {
 }
 
 export default async function HLVCalculatorPage() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     const importanceItems = (t('hlv_page.importance_items', { returnObjects: true }) || []) as string[];
 
     return (

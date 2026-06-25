@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { contactConfig } from '@/data/contact';
 import QuoteForm from '@/components/QuoteForm';
-import { getServerSideTranslation } from '@/lib/i18n-server';
+import { getStaticTranslation } from '@/lib/i18n-server';
 
 
 
 export async function generateMetadata() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     return {
         title: t('contact.meta_title'),
         description: t('contact.meta_desc'),
@@ -20,7 +20,7 @@ export async function generateMetadata() {
 }
 
 export default async function ContactPage() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     const helpItems = (t('contact.help_items', { returnObjects: true }) || []) as string[];
     const steps = (t('contact.steps', { returnObjects: true }) || []) as { title: string, desc: string }[];
     const faqs = (t('contact.faqs', { returnObjects: true }) || []) as { q: string, a: string }[];

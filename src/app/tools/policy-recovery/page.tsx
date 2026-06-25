@@ -1,10 +1,10 @@
-﻿import { getServerSideTranslation } from '@/lib/i18n-server';
+﻿import { getStaticTranslation } from '@/lib/i18n-server';
 import PolicyRecoveryClient from '@/components/tools/PolicyRecoveryClient';
 
 
 
 export async function generateMetadata() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     return {
         title: t('recovery_page.meta_title'),
         description: t('recovery_page.meta_desc'),

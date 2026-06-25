@@ -1,4 +1,4 @@
-import { getServerSideTranslation, getLocalizedName } from '@/lib/i18n-server'
+import { getStaticTranslation, getLocalizedName } from '@/lib/i18n-server'
 import { serviceLabels } from '@/data/services'
 import { INDIAN_LOCATIONS, PRIORITY_CITY_SLUGS } from '@/data/indianCities'
 import Link from 'next/link'
@@ -19,7 +19,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-    const { t, lang } = await getServerSideTranslation();
+    const { t, lang } = getStaticTranslation();
     const localizedState = await getLocalizedName(params.state, lang);
     const title = t('state_meta_title', 'Insurance Support Services in {{state}} | Claims & Policy Help').replace('{{state}}', localizedState);
     const description = t('state_meta_desc', 'Find expert insurance advisors across {{state}}. Specialized support for LIC death claims, health insurance rejections, and policy revivals in all major cities of {{state}}.').replace(/{{state}}/g, localizedState);
@@ -40,7 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function StateHubPage({ params }: Props) {
-    const { t, lang } = await getServerSideTranslation();
+    const { t, lang } = getStaticTranslation();
     
     // Check if this is a legacy city URL being matched as a state
     const cityAsState = INDIAN_LOCATIONS.find(loc => loc.city === params.state);

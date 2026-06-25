@@ -5,7 +5,7 @@ import { Phone, MessageCircle, FileText, ShieldCheck, RefreshCw, Search, AlertTr
 import { Button } from '@/components/ui/button';
 import QuoteForm from '@/components/QuoteForm';
 import { contactConfig } from '@/data/contact';
-import { getServerSideTranslation } from "@/lib/i18n-server";
+import { getStaticTranslation } from "@/lib/i18n-server";
 import EscalationRoadmap from '@/components/lead-magnets/EscalationRoadmap';
 import LeadMagnetCTA from '@/components/lead-magnets/LeadMagnetCTA';
 import ClaimStressTest from '@/components/lead-magnets/ClaimStressTest';
@@ -13,7 +13,7 @@ import ClaimStressTest from '@/components/lead-magnets/ClaimStressTest';
 
 
 export async function generateMetadata(): Promise<Metadata> {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     
     return {
         title: {
@@ -49,7 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function SupportPage() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
 
     const faqSchema = {
         '@context': 'https://schema.org',

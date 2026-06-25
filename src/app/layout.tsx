@@ -157,7 +157,7 @@ export default function RootLayout({
     const cookieStore = cookies();
     const headersList = headers();
     
-    // Consistent detection logic with getServerSideTranslation and client switchers
+    // Consistent detection logic with getStaticTranslation and client switchers
     let lang = headersList.get('x-next-locale') || 
                cookieStore.get('NEXT_LOCALE')?.value || 
                cookieStore.get('i18next')?.value ||

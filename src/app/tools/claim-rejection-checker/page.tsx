@@ -1,10 +1,10 @@
-﻿import { getServerSideTranslation } from '@/lib/i18n-server';
+﻿import { getStaticTranslation } from '@/lib/i18n-server';
 import ClaimRejectionCheckerClient from '@/components/tools/ClaimRejectionCheckerClient';
 
 
 
 export async function generateMetadata() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     return {
         title: 'Claim Rejection Checker | Insurance Support',
         description: 'Has your insurance claim been unfairly rejected? Answer three quick questions to check the viability of an appeal to the Grievance Cell or Insurance Ombudsman.',

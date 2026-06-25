@@ -2,12 +2,12 @@
 import { Metadata } from 'next';
 import AboutContent from '@/components/AboutContent';
 import { contactConfig } from '@/data/contact';
-import { getServerSideTranslation } from "@/lib/i18n-server";
+import { getStaticTranslation } from "@/lib/i18n-server";
 
 
 
 export async function generateMetadata(): Promise<Metadata> {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     
     return {
         title: {

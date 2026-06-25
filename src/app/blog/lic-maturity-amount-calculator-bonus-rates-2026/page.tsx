@@ -5,7 +5,7 @@ import Link from 'next/link';
 import blogs from '@/data/blogs.json';
 import { Calendar, ChevronLeft, Share2, Tag, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getServerSideTranslation } from '@/lib/i18n-server';
+import { getStaticTranslation } from '@/lib/i18n-server';
 import ReactMarkdown from 'react-markdown';
 import ShareButtons from '@/components/ShareButtons';
 import BlogFAQ from '@/components/BlogFAQ';
@@ -67,7 +67,7 @@ const getServiceLink = (categories: string[] | undefined) => {
 };
 
 export default async function BlogPostPage({ params }: BlogPostProps) {
-    const { t, lang } = await getServerSideTranslation();
+    const { t, lang } = getStaticTranslation();
     const post = blogs.find((p) => p.slug === params.slug);
 
     if (!post) {

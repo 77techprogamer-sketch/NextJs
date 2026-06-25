@@ -2,12 +2,12 @@
 import Link from 'next/link'
 import { INDIAN_LOCATIONS } from '@/data/indianCities'
 import { MapPin, ChevronRight, Shield, ArrowRight, Target } from 'lucide-react'
-import { getServerSideTranslation, getLocalizedName } from '@/lib/i18n-server'
+import { getStaticTranslation, getLocalizedName } from '@/lib/i18n-server'
 
 
 
 export async function generateMetadata(): Promise<Metadata> {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     const route = '/locations';
     return {
         title: t('locations_meta_title', 'Locations | Insurance Support Services Across India'),
@@ -23,7 +23,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function LocationsPage() {
-    const { t, lang } = await getServerSideTranslation();
+    const { t, lang } = getStaticTranslation();
     // Group everything by state
     const stateGroups: Record<string, { count: number; sampleCities: string[]; localizedState: string }> = {}
 

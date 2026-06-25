@@ -5,12 +5,12 @@ import blogs from '@/data/blogs.json';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FileText, Calendar, ArrowRight, Tag } from 'lucide-react';
-import { getServerSideTranslation } from '@/lib/i18n-server';
+import { getStaticTranslation } from '@/lib/i18n-server';
 
 
 
 export async function generateMetadata() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     return {
         title: t('blog.meta_title'),
         description: t('blog.meta_desc'),
@@ -18,7 +18,7 @@ export async function generateMetadata() {
 }
 
 export default async function BlogListingPage() {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     const featuredPost = blogs.length > 0 ? blogs[0] : null;
     const remainingPosts = blogs.length > 1 ? blogs.slice(1) : [];
 

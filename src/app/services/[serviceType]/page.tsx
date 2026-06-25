@@ -6,7 +6,7 @@ import { CityLinksForService } from "@/components/KeywordLinkBlocks"
 import Link from "next/link"
 import { ArrowRight, BookOpen } from "lucide-react"
 
-import { getServerSideTranslation } from "@/lib/i18n-server"
+import { getStaticTranslation } from "@/lib/i18n-server"
 import { services, serviceLabels, serviceDescriptions } from "@/data/services"
 
 
@@ -33,7 +33,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: { params: { serviceType: string } }): Promise<Metadata> {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     const serviceType = params.serviceType;
     const assets = servicesAssets[serviceType];
     
@@ -105,7 +105,7 @@ const relatedGuides: Record<string, { title: string, slug: string }[]> = {
 };
 
 export default async function ServicePage({ params }: { params: { serviceType: string } }) {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     const serviceType = params.serviceType;
     const assets = servicesAssets[serviceType];
 
