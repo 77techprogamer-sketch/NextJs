@@ -109,7 +109,7 @@ export const metadata: Metadata = {
         siteName: 'Insurance Support',
         images: [
             {
-                url: '/og-image.png',
+                url: 'https://insurancesupport.online/og-image.png',
                 width: 1200,
                 height: 630,
                 alt: 'Insurance Support Team',
@@ -120,7 +120,7 @@ export const metadata: Metadata = {
         card: 'summary_large_image',
         title: 'Buy Insurance & Claim Support - Expert Advice',
         description: 'Expert advice to buy the right policy and claims support across India. Don\'t let your claim be rejected.',
-        images: ['/og-image.png'],
+        images: ['https://insurancesupport.online/og-image.png'],
         creator: '@insurancesupport',
     },
     alternates: {
@@ -161,6 +161,9 @@ export default function RootLayout({
     return (
         <html lang={lang} className="scroll-smooth" suppressHydrationWarning>
             <head>
+                <link rel="alternate" hreflang="en" href="https://insurancesupport.online" />
+                <link rel="alternate" hreflang="hi" href="https://insurancesupport.online/hi" />
+                <link rel="alternate" hreflang="x-default" href="https://insurancesupport.online" />
                 {/* Google Tag Manager anchor */}
                 <Script
                     id="gtm-script"
