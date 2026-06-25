@@ -68,7 +68,7 @@ export default function Home() {
                 initialDescription={t("secure_family_future")}
             />
             {/* Server-rendered static sections for SEO */}
-            <ServicesSection t={t} />
+            <ServicesSection />
             <WhyChooseUsSection
                 title={t("why_choose_us")}
                 expertGuidance={t("expert_guidance")}
@@ -91,7 +91,7 @@ export default function Home() {
                 helpAffiliated={t("help_item_affiliated")}
                 dontPayout={t("dont_item_payout")}
             />
-            <ServiceAreasSection t={t} />
+            <ServiceAreasSection />
             <ContactSection
                 title={t("get_in_touch")}
                 description={t("contact_description")}
