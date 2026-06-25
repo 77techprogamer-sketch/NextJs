@@ -2,12 +2,20 @@ import React from "react";
 import { ShieldCheck, Award, Users, Clock, Phone, Star } from "lucide-react";
 import { contactConfig } from "@/data/contact";
 
-export default function TrustBadges({ t }: { t: (key: string, opts?: any) => string }) {
+interface TrustBadgesProps {
+    trustedByFamilies: string;
+    yearsExperience: string;
+    irdaiCertified: string;
+    claimRecoveryExpert: string;
+    callNow: string;
+}
+
+export default function TrustBadges({ trustedByFamilies, yearsExperience, irdaiCertified, claimRecoveryExpert, callNow }: TrustBadgesProps) {
     const badges = [
-        { icon: Users, label: t("trusted_by_families"), color: "text-blue-400" },
-        { icon: Clock, label: t("years_experience_short"), color: "text-green-400" },
-        { icon: ShieldCheck, label: t("irdai_certified_badge"), color: "text-yellow-400" },
-        { icon: Award, label: t("claim_recovery_expert"), color: "text-purple-400" },
+        { icon: Users, label: trustedByFamilies, color: "text-blue-400" },
+        { icon: Clock, label: yearsExperience, color: "text-green-400" },
+        { icon: ShieldCheck, label: irdaiCertified, color: "text-yellow-400" },
+        { icon: Award, label: claimRecoveryExpert, color: "text-purple-400" },
     ];
 
     return (

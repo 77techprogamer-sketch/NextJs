@@ -15,16 +15,8 @@ interface SupportScopeProps {
 }
 
 const SupportScopeSection = ({ title, desc, whatWeHelp, whatWeDont, helpClaims, helpPolicy, helpLegal, helpAffiliated, dontPayout }: SupportScopeProps) => {
-        const helpItems = [
-        'help_item_claims',
-        'help_item_policy',
-        'help_item_legal',
-        'help_item_affiliated'
-    ];
-
-    const dontItems = [
-        'dont_item_payout'
-    ];
+    const helpItems = [helpClaims, helpPolicy, helpLegal, helpAffiliated];
+    const dontItems = [dontPayout];
 
     return (
         <section className="py-12 bg-slate-50 dark:bg-slate-900/50">
@@ -54,7 +46,7 @@ const SupportScopeSection = ({ title, desc, whatWeHelp, whatWeDont, helpClaims, 
                                 {helpItems.map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-3 text-slate-600 dark:text-slate-400">
                                         <div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2 shrink-0"></div>
-                                        <span>{t(item)}</span>
+                                        <span>{item}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -70,7 +62,7 @@ const SupportScopeSection = ({ title, desc, whatWeHelp, whatWeDont, helpClaims, 
                                 {dontItems.map((item, idx) => (
                                     <li key={idx} className="flex items-start gap-3 text-slate-600 dark:text-slate-400">
                                         <div className="w-1.5 h-1.5 rounded-full bg-red-500 mt-2 shrink-0"></div>
-                                        <span>{t(item)}</span>
+                                        <span>{item}</span>
                                     </li>
                                 ))}
                             </ul>

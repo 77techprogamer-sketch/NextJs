@@ -113,3 +113,6 @@ export async function getLocalizedName(slug: string, locale: string): Promise<st
     // Fallback: Return formatted slug
     return slug.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
 }
+
+// Re-export static translation for static generation
+export { getStaticTranslation } from "@/lib/i18n-static";

@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import React from 'react';
-import { cookies, headers } from 'next/headers';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
@@ -126,8 +125,9 @@ export const metadata: Metadata = {
     },
     alternates: {
         languages: {
-            'en-IN': 'https://insurancesupport.online',
-            'hi-IN': 'https://insurancesupport.online/hi',
+            'en': 'https://insurancesupport.online',
+            'hi': 'https://insurancesupport.online/hi',
+            'x-default': 'https://insurancesupport.online',
         }
     },
     other: {
@@ -154,26 +154,9 @@ export default function RootLayout({
 }: {
     children: React.ReactNode
 }) {
-    const cookieStore = cookies();
-    const headersList = headers();
-    
-    // Consistent detection logic with getStaticTranslation and client switchers
-    let lang = headersList.get('x-next-locale') || 
-               cookieStore.get('NEXT_LOCALE')?.value || 
-               cookieStore.get('i18next')?.value ||
-               cookieStore.get('i18nextLng')?.value || 
-               'en';
-
-    // If still fallback, try Accept-Language header
-    if (lang === 'en' || !['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'].includes(lang)) {
-        const acceptLang = headersList.get('accept-language');
-        if (acceptLang) {
-            const detected = acceptLang.split(',')[0].split('-')[0].toLowerCase();
-            if (['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'].includes(detected)) {
-                lang = detected;
-            }
-        }
-    }
+    // STATIC: Use 'en' default for static generation
+    // Language switching handled client-side by I18nProvider/SmartLanguageSelector
+    const lang = 'en';
 
     return (
         <html lang={lang} className="scroll-smooth" suppressHydrationWarning>
@@ -291,14 +274,12 @@ export default function RootLayout({
                             <main className="flex-1">
                                 <PageTransitionProvider>
                                     {children}
-                                    {/* QuestionForm removed - avoiding multiple forms */}
                                 </PageTransitionProvider>
                             </main>
 
-                            {/* NewsletterSection removed - hero form is sufficient */}
                             <CollapsibleToolsFooter />
                             <Footer />
-                            <div className="min-h-[1px]"> {/* Stability placeholder */}
+                            <div className="min-h-[1px]">
                                 <DelayedLoader>
                                     <VisitorTracker />
                                     <QuickDialSidebar />

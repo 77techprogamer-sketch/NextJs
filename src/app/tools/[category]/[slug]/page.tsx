@@ -38,7 +38,7 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const calculator = calculatorsConfig.find(
     (c) => c.category === params.category && c.slug === params.slug
   );
