@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { getServerSideTranslation } from "@/lib/i18n-server";
+import { getStaticTranslation } from "@/lib/i18n-static";
 import { LocalBusinessJsonLd } from "@/components/ServerJsonLd";
 import HomeClient from "@/components/HomeClient";
 import ServicesSection from "@/components/sections/ServicesSection";
@@ -15,7 +15,7 @@ import TrustBadges from "@/components/TrustBadges";
 import AreasWeServe from "@/components/AreasWeServe";
 
 export async function generateMetadata(): Promise<Metadata> {
-    const { t } = await getServerSideTranslation();
+    const { t } = getStaticTranslation();
     return {
         title: { absolute: t("home_page_title") },
         description: t("home_page_meta_description"),
@@ -48,8 +48,8 @@ export async function generateMetadata(): Promise<Metadata> {
     };
 }
 
-export default async function Home() {
-    const { t } = await getServerSideTranslation();
+export default function Home() {
+    const { t } = getStaticTranslation();
     return (
         <>
             <LocalBusinessJsonLd />
