@@ -164,6 +164,12 @@ export default function RootLayout({
                 <link rel="alternate" hreflang="en" href="https://insurancesupport.online" />
                 <link rel="alternate" hreflang="hi" href="https://insurancesupport.online/hi" />
                 <link rel="alternate" hreflang="x-default" href="https://insurancesupport.online" />
+                <meta property="og:image" content="https://insurancesupport.online/og-image.png" />
+                <meta property="og:image:width" content="1200" />
+                <meta property="og:image:height" content="630" />
+                <meta property="og:image:alt" content="Insurance Support - LIC Advisor Bangalore" />
+                <meta name="twitter:image" content="https://insurancesupport.online/og-image.png" />
+                <meta name="twitter:card" content="summary_large_image" />
                 {/* Google Tag Manager anchor */}
                 <Script
                     id="gtm-script"
