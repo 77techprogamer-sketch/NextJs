@@ -69,15 +69,6 @@ export default function Home() {
             />
             {/* Server-rendered static sections for SEO */}
             <ServicesSection />
-            <WhyChooseUsSection
-                title={t("why_choose_us")}
-                expertGuidance={t("expert_guidance")}
-                expertGuidanceDesc={t("expert_guidance_desc")}
-                supportTitle={t("24_7_support")}
-                supportDesc={t("support_desc")}
-                claimsTitle={t("claims_assistance")}
-                claimsDesc={t("claims_desc")}
-            />
             <FAQSection items={faqData.slice(0, 6)} />
             <ProcessTimeline />
             <SupportScopeSection
@@ -100,16 +91,7 @@ export default function Home() {
                 visitUs={t("visit_us")}
                 bangaloreOffice={t("bangalore_office")}
             />
-            <LoansSection
-                title={t("loans_offered")}
-                description={t("loans_description")}
-                homeLoan={t("home_loan")}
-                personalLoan={t("personal_loan")}
-                businessLoan={t("business_loan")}
-                mortgageLoan={t("mortgage_loan")}
-                vehicleLoan={t("vehicle_loan")}
-                educationLoan={t("education_loan")}
-            />
+            <LoansSection />
             <AreasWeServe
                 title={t("areas_we_serve")}
                 subtitle={t("serving_across_india")}

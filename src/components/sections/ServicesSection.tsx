@@ -1,4 +1,6 @@
 "use client";
+import { useTranslation } from 'react-i18next';
+"use client";
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import ServiceCard from '@/components/ServiceCard';
