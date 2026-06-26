@@ -17,7 +17,7 @@ const ToolIslands = dynamic(() => import('@/components/sections/ToolIslands'), {
 
 // Map strings to Icon components
 const iconMap: Record<string, React.ElementType> = {
-    Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock
+    Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, Building, TrendingUp
 };
 
 // Map service slugs to FAQ categories
@@ -29,6 +29,9 @@ const faqCategoryMap: Record<string, string> = {
     'lic-agent': 'Life',
     'pension-plans': 'Life',
     'ulip-plans': 'Life',
+    'home-insurance': 'General',
+    'business-insurance': 'General',
+    'investment-plans': 'Life',
 };
 
 interface ServiceContentProps {

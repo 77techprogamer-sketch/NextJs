@@ -1,6 +1,6 @@
 ﻿import { notFound } from "next/navigation"
 import { Metadata } from "next"
-import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock } from "lucide-react"
+import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, Building, TrendingUp } from "lucide-react"
 import ServiceContent from "@/components/ServiceContent"
 import { CityLinksForService } from "@/components/KeywordLinkBlocks"
 import Link from "next/link"
@@ -23,7 +23,10 @@ const servicesAssets: Record<string, { icon: any, iconName: string, image: strin
     "ulip-plans": { icon: UserCheck, iconName: "UserCheck", image: "/ulip-plans.png" },
     "wedding-insurance": { icon: Heart, iconName: "Heart", image: "/wedding-insurance.png" },
     "cyber-insurance": { icon: Lock, iconName: "Lock", image: "/cyber-insurance.png" },
-    "lic-agent": { icon: UserCheck, iconName: "UserCheck", image: "/lic-agent.png" }
+    "lic-agent": { icon: UserCheck, iconName: "UserCheck", image: "/lic-agent.png" },
+    "home-insurance": { icon: Home, iconName: "Home", image: "/home-insurance.png" },
+    "business-insurance": { icon: Building, iconName: "Building", image: "/business-insurance.png" },
+    "investment-plans": { icon: TrendingUp, iconName: "TrendingUp", image: "/investment-plans.png" }
 }
 
 export function generateStaticParams() {

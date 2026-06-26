@@ -10,6 +10,9 @@ export const services = [
     'wedding-insurance',
     'cyber-insurance',
     'lic-agent',
+    'home-insurance',
+    'business-insurance',
+    'investment-plans',
 ];
 
 export const serviceDescriptions: Record<string, string> = {
@@ -24,6 +27,9 @@ export const serviceDescriptions: Record<string, string> = {
     'wedding-insurance': 'Shield your big day from unforeseen cancellations, property damage, or liability issues, ensuring your celebration remains stress-free.',
     'cyber-insurance': 'Protect your digital identity and finances against growing cyber threats, phishing attacks, and data breaches in an increasingly connected world.',
     'lic-agent': 'Connect with certified LIC insurance advisors to manage your portfolio, revive lapsed policies, and ensure seamless claim settlements with regular policy servicing.',
+    'home-insurance': 'Protect your biggest investment — your home. Comprehensive coverage against fire, theft, natural disasters, and structural damage for complete peace of mind.',
+    'business-insurance': 'Safeguard your enterprise with liability, property, cyber, and keyman insurance solutions designed for Indian businesses of all sizes.',
+    'investment-plans': 'Grow your wealth with confidence. Compare ULIP, NPS, PPF, and ELSS plans to optimize returns while maintaining essential life protection.',
 };
 
 export const serviceHighlights: Record<string, string[]> = {
@@ -38,6 +44,9 @@ export const serviceHighlights: Record<string, string[]> = {
     'wedding-insurance': ['Cancellation Protection', 'Property Damage Cover', 'Liability Shield'],
     'cyber-insurance': ['Phishing Attack Cover', 'Data Breach Protection', 'Digital ID Security'],
     'lic-agent': ['Certified LIC Advisors', 'Policy Servicing Support', 'Doorstep Consultations'],
+    'home-insurance': ['Building + Contents Cover', 'Natural Disaster Protection', 'Theft & Burglary Cover'],
+    'business-insurance': ['Liability Protection', 'Cyber Security Cover', 'Employee Benefit Plans'],
+    'investment-plans': ['Market-Linked Returns', 'Tax Benefits under 80C', 'Flexible Fund Options'],
 };
 
 export const serviceLabels: Record<string, string> = {
@@ -52,4 +61,7 @@ export const serviceLabels: Record<string, string> = {
     'wedding-insurance': 'Wedding Insurance',
     'cyber-insurance': 'Cyber Insurance',
     'lic-agent': 'Insurance Advisor',
+    'home-insurance': 'Home Insurance',
+    'business-insurance': 'Business Insurance',
+    'investment-plans': 'Investment Plans',
 };
