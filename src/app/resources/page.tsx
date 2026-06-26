@@ -50,7 +50,7 @@ export default function ResourcesPage() {
                             {[
                                 { value: '11+', label: 'Expert Guides' },
                                 { value: '25+ Yrs', label: 'Industry Knowledge' },
-                                { value: '15,000+', label: 'Families Supported' },
+                                { value: '1,000+', label: 'Families Supported' },
                                 { value: 'Free', label: 'All Resources' },
                             ].map((stat, idx) => (
                                 <div key={idx}>

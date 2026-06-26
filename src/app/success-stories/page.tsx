@@ -58,7 +58,7 @@ export default function SuccessStoriesPage() {
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                         {[
                             { value: 'â‚¹50Cr+', label: 'Total Claims Recovered', icon: TrendingUp },
-                            { value: '15,000+', label: 'Families Served', icon: Users },
+                            { value: '1,000+', label: 'Families Served', icon: Users },
                             { value: '98%', label: 'Settlement Success Rate', icon: ShieldCheck },
                             { value: '25+', label: 'Years of Active Practice', icon: Scale },
                         ].map((stat, idx) => (

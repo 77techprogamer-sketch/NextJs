@@ -45,7 +45,7 @@ export default function VeteranAdvantagePage() {
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                             {[
                                 { value: '25+', label: 'Years of Active Practice' },
-                                { value: '15,000+', label: 'Clients Served' },
+                                { value: '1,000+', label: 'Clients Served' },
                                 { value: 'â‚¹50Cr+', label: 'Claims Managed' },
                                 { value: '98%', label: 'Settlement Ratio' },
                             ].map((stat, idx) => (

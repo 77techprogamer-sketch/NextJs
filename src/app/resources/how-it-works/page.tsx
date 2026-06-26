@@ -71,13 +71,13 @@ export default function HowItWorksPage() {
                             How It <span className="text-primary italic">Works</span>
                         </h1>
                         <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-3xl">
-                            Our simple, transparent process guarantees you never fight the insurance system alone. Whether you need a new policy, want to recover a rejected claim, or revive an old investment â€” we follow a proven 4-phase methodology refined over 25 years and 15,000+ successful cases.
+                            Our simple, transparent process guarantees you never fight the insurance system alone. Whether you need a new policy, want to recover a rejected claim, or revive an old investment — we follow a proven 4-phase methodology refined over 25 years and 1,000+ successful cases.
                         </p>
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                             {[
                                 { value: '98%', label: 'Claim Settlement Ratio' },
                                 { value: 'â‚¹50Cr+', label: 'Recovered for Families' },
-                                { value: '15,000+', label: 'Clients Served' },
+                                { value: '1,000+', label: 'Clients Served' },
                                 { value: '25+ Yrs', label: 'Industry Experience' },
                             ].map((stat, idx) => (
                                 <div key={idx} className="text-center md:text-left">

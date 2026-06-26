@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         return {
             languages: {
                 en: `${BASE_URL}${route}`,
-                hi: `${BASE_URL}/hi${route}`,
+                hi: `${BASE_URL}${route}`,
             },
         };
     };

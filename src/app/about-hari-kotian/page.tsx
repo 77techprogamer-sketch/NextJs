@@ -26,7 +26,7 @@ const advisorSchema = {
         givenName: 'Hari',
         familyName: 'Kotian',
         jobTitle: 'Certified Insurance Advisor & Claim Recovery Specialist',
-        description: 'IRDAI-certified insurance advisor based in Bangalore with 25+ years of experience, serving over 15,000 clients across India in LIC, health, motor, and life insurance.',
+        description: 'IRDAI-certified insurance advisor based in Bangalore with 25+ years of experience, serving over 1,000 clients across India in LIC, health, motor, and life insurance.',
         url: 'https://insurancesupport.online/about-hari-kotian',
         telephone: contactConfig.phoneFull,
         email: contactConfig.email,
@@ -134,7 +134,7 @@ const ExpertProfilePage = () => {
                             <div className="prose prose-slate prose-lg max-w-none">
                                 <h2 className="text-2xl font-bold mb-4">Professional Background</h2>
                                 <p>
-                                    With over two decades of dedicated service in the Indian insurance industry, I have navigated the complexities of life, health, and motor insurance for over 15,000 families and corporate clients. My mission has always been to simplify insurance and ensure that policyholders receive what they were promised.
+                                    With over two decades of dedicated service in the Indian insurance industry, I have navigated the complexities of life, health, and motor insurance for over 1,000 families and corporate clients. My mission has always been to simplify insurance and ensure that policyholders receive what they were promised.
                                 </p>
                                 <p>
                                     I specialize in <strong>rejected claim recovery</strong> and <strong>lapsed policy revival</strong>, where my deep understanding of IRDAI regulations and insurer internal processes allows me to bridge the gap between technical rejection and successful settlement.
@@ -148,7 +148,7 @@ const ExpertProfilePage = () => {
                                         { title: "LIC Specialization", desc: "Profound knowledge of LIC revival schemes, maturity settlements, and policy loan facilitation.", color: "text-green-600" },
                                         { title: "Grievance Advocacy", desc: "Successfully represented hundreds of policyholders in Insurance Ombudsman hearings across India.", color: "text-green-600" },
                                         { title: "4.2â˜… Rated on Justdial", desc: "Independently verified by Justdial as a top-rated LIC and insurance advisor in Bangalore â€” serving Jalahalli, Bahubali Nagar, Yeshwanthpur, and North Bangalore.", color: "text-orange-500" },
-                                        { title: "15,000+ Families Served", desc: "A trusted local expert for over two decades, helping Bangalore families navigate complex insurance situations.", color: "text-green-600" }
+                                        { title: "1,000+ Families Served", desc: "A trusted local expert for over two decades, helping Bangalore families navigate complex insurance situations.", color: "text-green-600" }
                                     ].map((item, i) => (
                                         <div key={i} className="p-5 bg-slate-50 rounded-xl border border-slate-100">
                                             <h4 className="font-bold text-slate-900 mb-2 flex items-center gap-2">

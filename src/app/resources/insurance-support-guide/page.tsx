@@ -165,7 +165,7 @@ export default function InsuranceSupportGuide() {
                                     <div className="text-sm text-slate-400">Wealth Recovered for Families</div>
                                 </div>
                                 <div>
-                                    <div className="text-4xl font-bold text-primary mb-2">15,000+</div>
+                                    <div className="text-4xl font-bold text-primary mb-2">1,000+</div>
                                     <div className="text-sm text-slate-400">Active Portfolios Supported</div>
                                 </div>
                                 <div>

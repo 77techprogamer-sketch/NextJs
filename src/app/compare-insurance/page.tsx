@@ -31,7 +31,7 @@ const INSURANCE_TYPES = [
 ];
 
 const WHY_COMPARE_WITH_US = [
-    { icon: ShieldCheck, title: 'Real Claim Experience', desc: 'We\'ve handled 15,000+ claims. We know which policies actually pay and which have hidden traps.' },
+    { icon: ShieldCheck, title: 'Real Claim Experience', desc: 'We\\'ve handled 1,000+ claims. We know which policies actually pay and which have hidden traps.' },
     { icon: TrendingUp, title: 'Premium Optimization', desc: 'We compare not just features but actual value. No overpaying for redundant coverage.' },
     { icon: Users, title: 'Personalized Match', desc: 'We analyze your age, health, family size, and financial goals to recommend the right plan.' },
     { icon: Star, title: 'No Bias, No Commission', desc: 'We work for you, not insurers. Our advice is based on your needs, not commissions.' },
@@ -87,7 +87,7 @@ export default function CompareInsurancePage() {
                 <div className="container px-4 mx-auto">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                         {[
-                            { value: '15,000+', label: 'Policies Compared', icon: FileText },
+                            { value: '1,000+', label: 'Policies Compared', icon: FileText },
                             { value: '25+', label: 'Years Experience', icon: Star },
                             { value: '4.2/5', label: 'Client Rating', icon: Star },
                             { value: '₹50Cr+', label: 'Claims Recovered', icon: TrendingUp },

@@ -103,7 +103,7 @@ export default function ClaimChecklistPage() {
             Insurance Claim Checklist 2026
           </h1>
           <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Never miss a document again. Download our comprehensive checklists for LIC, health, motor, and policy revival claims. Used by 15,000+ policyholders.
+            Never miss a document again. Download our comprehensive checklists for LIC, health, motor, and policy revival claims. Used by 1,000+ policyholders.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="#checklists" className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors">
@@ -121,7 +121,7 @@ export default function ClaimChecklistPage() {
       <section className="py-12 px-4 border-b">
         <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div>
-            <div className="text-3xl font-extrabold text-slate-900">15,000+</div>
+            <div className="text-3xl font-extrabold text-slate-900">1,000+</div>
             <div className="text-sm text-slate-500">Claims Assisted</div>
           </div>
           <div>
@@ -194,7 +194,7 @@ export default function ClaimChecklistPage() {
             Need Help With Your Insurance Claim?
           </h2>
           <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            Our IRDAI-registered experts have helped 15,000+ families recover their rightful claims. Get a free consultation today.
+            Our IRDAI-registered experts have helped 1,000+ families recover their rightful claims. Get a free consultation today.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <a href="tel:+919986634506" className="bg-emerald-500 hover:bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors flex items-center gap-2">

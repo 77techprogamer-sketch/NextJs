@@ -7,7 +7,7 @@ import { contactConfig } from '@/data/contact';
 
 export const metadata: Metadata = {
     title: 'Free Insurance Policy Review | Expert Analysis — Insurance Support',
-    description: 'Get a free expert review of your insurance policy. We identify coverage gaps, hidden exclusions, premium overcharges, and claim risks. 15,000+ policies reviewed.',
+    description: 'Get a free expert review of your insurance policy. We identify coverage gaps, hidden exclusions, premium overcharges, and claim risks. 1,000+ policies reviewed.',
     keywords: [
         'Free Insurance Review',
         'Policy Review India',
@@ -56,7 +56,7 @@ export default function FreeReviewPage() {
                             <span className="text-accent">Actually Protecting You?</span>
                         </h1>
                         <p className="text-xl text-blue-100 mb-8 leading-relaxed">
-                            Most policyholders discover coverage gaps only at claim time — when it's too late. Get a free expert review of your policy. We've reviewed 15,000+ policies and know exactly where they fail.
+                            Most policyholders discover coverage gaps only at claim time — when it's too late. Get a free expert review of your policy. We've reviewed 1,000+ policies and know exactly where they fail.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <Button size="lg" className="bg-accent hover:bg-accent/90 text-primary text-lg h-14 px-8 font-bold" asChild>
@@ -81,7 +81,7 @@ export default function FreeReviewPage() {
                 <div className="container px-4 mx-auto">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                         {[
-                            { value: '15,000+', label: 'Policies Reviewed', icon: FileCheck },
+                            { value: '1,000+', label: 'Policies Reviewed', icon: FileCheck },
                             { value: '₹50Cr+', label: 'Claims Recovered', icon: TrendingUp },
                             { value: '25+', label: 'Years Experience', icon: Clock },
                             { value: '4.2/5', label: 'Client Rating', icon: Star },

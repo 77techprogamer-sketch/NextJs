@@ -71,7 +71,7 @@ export const CITY_CONTENT_OVERRIDES: Record<string, CityOverride> = {
         }
     },
     bangalore: {
-        summary: "Expert guidance for health and life insurance in Bangalore's Silicon Valley. Specialized support for IT professionals (Manyata, Electronic City, Whitefield) and doorstep document coordination for senior citizens in Jayanagar and Indiranagar. Serving 15,000+ families across Bangalore with 25+ years of experience.",
+        summary: "Expert guidance for health and life insurance in Bangalore's Silicon Valley. Specialized support for IT professionals (Manyata, Electronic City, Whitefield) and doorstep document coordination for senior citizens in Jayanagar and Indiranagar. Serving 1,000+ families across Bangalore with 25+ years of experience.",
         facts: [
             "Cashless claim support at Manipal, Apollo, Fortis, Narayana Health, Columbia Asia, Aster CMI, and 400+ network hospitals across Bangalore.",
             "Specialized 'Super Top-up' health plans for IT Corridor employees to supplement corporate GHI.",
@@ -79,7 +79,7 @@ export const CITY_CONTENT_OVERRIDES: Record<string, CityOverride> = {
             "Physical proximity to LIC Residency Road & J.C. Road branches for fast-track claim processing.",
             "Free doorstep consultation across all Bangalore areas -- Indiranagar, Koramangala, Whitefield, HSR Layout, Electronic City, and more."
         ],
-        localContext: "Based out of Jalahalli, our core team has served over 15,000 clients across Bangalore. Medical inflation here is at 15%, making personal health covers a necessity over just corporate GHI. We understand the unique needs of Bangalore's IT workforce and growing families.",
+        localContext: "Based out of Jalahalli, our core team has served over 1,000 clients across Bangalore. Medical inflation here is at 15%, making personal health covers a necessity over just corporate GHI. We understand the unique needs of Bangalore's IT workforce and growing families.",
         serviceSpecific: {
             'health-insurance': {
                 summary: "Secure the best health insurance in Bangalore with localized support for cashless claims at premium hospitals like Manipal, St. John's, and Narayana Health. We specialize in porting corporate GHI policies to private retail plans for tech professionals.",

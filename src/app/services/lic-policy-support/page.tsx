@@ -226,7 +226,7 @@ export default function LicPolicySupportPage() {
                         <strong className="text-orange-700">Rated 4.2â˜… on Justdial</strong> â€” independently reviewed by local clients in Bangalore as a top-rated LIC advisor.
                     </p>
                     <span className="hidden sm:block text-slate-300">|</span>
-                    <p className="text-slate-500 text-sm">25+ years Â· 15,000+ clients served Â· IRDAI licensed</p>
+                    <p className="text-slate-500 text-sm">25+ years Â· 1,000+ clients served Â· IRDAI licensed</p>
                 </div>
             </div>
 

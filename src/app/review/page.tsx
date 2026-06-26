@@ -72,7 +72,7 @@ export default async function ReviewPage() {
                 {/* Trust Signals */}
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
-                        <div className="text-3xl font-bold text-primary mb-1">15,000+</div>
+                        <div className="text-3xl font-bold text-primary mb-1">1,000+</div>
                         <div className="text-sm text-slate-600 dark:text-slate-400">Families Helped</div>
                     </div>
                     <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm">
