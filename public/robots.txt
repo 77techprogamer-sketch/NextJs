@@ -31,7 +31,7 @@ User-agent: GPTBot
 Disallow: /
 
 User-agent: ChatGPT-User
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
 Disallow: /
@@ -69,3 +69,4 @@ Disallow: /engagement/
 Disallow: /blocked/
 
 Sitemap: https://insurancesupport.online/sitemap.xml
+
