@@ -34,7 +34,7 @@ export default function CityInsurancePage() {
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">Expert Insurance Services in Kalyan-Dombivli</h1>
           <p className="text-xl text-slate-300 mb-4 max-w-2xl">LIC policy support, health insurance, motor insurance, claim assistance & policy revival. Serving all areas of Kalyan-Dombivli with 25+ years of experience.</p>
           <div className="flex items-center gap-6 text-sm text-slate-400 mb-8">
-            <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-amber-400 text-amber-400" /> 4.2/5 Rating (23 reviews)</span>
+            <span className="flex items-center gap-1"><Star className="w-4 h-4 fill-amber-400 text-amber-400" /> IRDAI Registered Advisor — 25+ Years Experience</span>
             <span className="flex items-center gap-1"><Award className="w-4 h-4 text-emerald-400" /> IRDAI Registered</span>
             <span className="flex items-center gap-1"><Clock className="w-4 h-4 text-blue-400" /> 24/7 Support</span>
           </div>

@@ -70,7 +70,7 @@ const Footer = () => {
               <ShieldCheck className="w-4 h-4" />
               IRDAI Reg No: 0149161D
             </p>
-            <p className="text-xs font-medium uppercase tracking-tighter opacity-70 mt-4">{t("footer_established", "Established 1998")}</p>
+            <p className="text-xs font-medium uppercase tracking-tighter opacity-70 mt-4">{t("footer_established", "25+ Years of Experience")}</p>
           </div>
         </div>
         <div className="pt-8 border-t border-muted-foreground/10 flex flex-col sm:flex-row justify-between items-center gap-4">

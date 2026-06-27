@@ -36,13 +36,13 @@ export default function TrustBadges({ trustedByFamilies, yearsExperience, irdaiC
                         {callNow}: {contactConfig.phoneFull}
                     </a>
                     <a
-                        href="https://g.page/r/CRDgJanrKjRhEBM/review"
+                        href="https://wa.me/919986634506?text=Hi%2C%20I%20need%20help%20with%20my%20insurance%20claim"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-bold transition-colors"
+                        className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-bold transition-colors"
                     >
-                        <Star className="w-4 h-4" />
-                        Review on Google
+                        <Phone className="w-4 h-4" />
+                        WhatsApp Us
                     </a>
                 </div>
             </div>
