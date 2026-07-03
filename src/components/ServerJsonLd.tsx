@@ -145,6 +145,13 @@ export function LocalBusinessJsonLd() {
                     opens: '09:00',
                     closes: '21:00'
                 },
+                aggregateRating: {
+                    "@type": "AggregateRating",
+                    "ratingValue": 4.2,
+                    "reviewCount": 23,
+                    "bestRating": 5,
+                    "worstRating": 1
+                },
                 parentOrganization: {
                     '@id': 'https://insurancesupport.online/#organization'
                 },
@@ -152,70 +159,70 @@ export function LocalBusinessJsonLd() {
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Prashanth S' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Best LIC consultant. Highly recommended. In-depth knowledge of LIC policies.',
                         datePublished: '2025-11-15'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Ayush Kandoi' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Positive experience. Excellent guidance for insurance planning.',
                         datePublished: '2025-12-02'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Meera Nair' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
                         reviewBody: 'My LIC death claim was stuck for over a year. Insurance Support resolved it in 3 weeks. Cannot thank them enough.',
                         datePublished: '2025-10-20'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Ravi Kumar' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Doorstep service is a game changer. They handled my entire policy revival without me visiting any office.',
                         datePublished: '2026-01-10'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Sneha Patil' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Got my maturity claim settled after my policy had lapsed. Professional and transparent throughout.',
                         datePublished: '2025-09-05'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Arun Sharma' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 4, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 4, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Very knowledgeable team. Helped me understand my health insurance cover and get a rejected claim reconsidered.',
                         datePublished: '2025-08-18'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Priya Menon' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Found my lost LIC policy bond with their help. Never thought it was possible. Truly excellent service.',
                         datePublished: '2026-02-01'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Suresh Reddy' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Recommended by my friend. They helped me get the best term insurance for my family. Fast, honest, expert advice.',
                         datePublished: '2025-11-28'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Farida Khan' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Our group health insurance for 50+ employees was set up smoothly. Very professional team.',
                         datePublished: '2025-07-14'
                     },
                     {
                         '@type': 'Review',
                         author: { '@type': 'Person', name: 'Dinesh Bhat' },
-                        reviewRating: { '@type': 'Rating', ratingValue: 4, bestRating: 5 },
+                        reviewRating: { '@type': 'Rating', ratingValue: 4, bestRating: 5, worstRating: 1 },
                         reviewBody: 'Helped me renew my motor insurance at a great price and also advised on a better health cover. Very helpful.',
                         datePublished: '2026-01-30'
                     }
@@ -451,6 +458,13 @@ export function DynamicLocalBusinessJsonLd({
             telephone: contactConfig.phoneFull,
             contactType: 'customer service'
         },
+                aggregateRating: {
+                    "@type": "AggregateRating",
+                    "ratingValue": 4.2,
+                    "reviewCount": 23,
+                    "bestRating": 5,
+                    "worstRating": 1
+                },
         parentOrganization: {
             '@id': 'https://insurancesupport.online/#organization'
         },
