@@ -12,6 +12,7 @@ import ContactSection from "@/components/sections/ContactSection";
 import LoansSection from "@/components/sections/LoansSection";
 import { faqData } from "@/data/faqData";
 import TrustBadges from "@/components/TrustBadges";
+import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import AreasWeServe from "@/components/AreasWeServe";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -20,14 +21,14 @@ export async function generateMetadata(): Promise<Metadata> {
         title: { absolute: t("home_page_title") },
         description: t("home_page_meta_description"),
         keywords: [
-            "LIC Insurance Support",
-            "Insurance Claim Recovery India",
+            "LIC Insurance Support", "LIC Agent Bangalore", "Insurance Advisor Bangalore", "LIC Policy Consultant",
+            "Insurance Claim Recovery India", "Claim Settlement Expert", "Rejected Claim Help",
             "Rejected Claim Appeal Help",
             "LIC Agent Bangalore",
             "Insurance Advisor India",
             "Claim Settlement Support",
             "Lost Policy Recovery",
-            "LIC Policy Status Check",
+            "LIC Policy Status Check", "LIC Maturity Claim Help",
             "Insurance Consultancy"
         ],
         metadataBase: new URL("https://insurancesupport.online"),
@@ -92,6 +93,8 @@ export default function Home() {
                 bangaloreOffice={t("bangalore_office")}
             />
             <LoansSection />
+n            {/* Client Testimonials */}
+            <TestimonialsSection />
             <AreasWeServe
                 title={t("areas_we_serve")}
                 subtitle={t("serving_across_india")}
