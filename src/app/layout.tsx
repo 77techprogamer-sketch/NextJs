@@ -263,8 +263,6 @@ export default function RootLayout({
                                         "sameAs": [
                                             "https://share.google/2Cbcq7l39kTWJl2Dm"
                                         ],
-                                            "https://share.google/2Cbcq7l39kTWJl2Dm"
-                                        ],
                                         "priceRange": "₹₹",
                                         "irdaiRegistrationNumber": "0149161D"
                                     })
