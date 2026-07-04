@@ -35,6 +35,8 @@ export function GlobalJsonLd() {
                 sameAs: [
                     'https://share.google/2Cbcq7l39kTWJl2Dm'
                 ],
+                    'https://share.google/2Cbcq7l39kTWJl2Dm'
+                ],
                 aggregateRating: {
                     '@type': 'AggregateRating',
                     ratingValue: 4.2,
@@ -113,7 +115,7 @@ export function LocalBusinessJsonLd() {
                 ],
                 logo: 'https://insurancesupport.online/logo.png',
                 image: 'https://insurancesupport.online/logo.png',
-                hasMap: 'https://share.google/FBw8WZDuh4r3AD5f0',
+                hasMap: 'https://www.google.com/maps/place/Insurance+Support/@13.0159,77.5522,17z',
                 description: (t('services_description') as string) || 'Expert insurance support for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
                 telephone: contactConfig.phoneFull,
                 email: contactConfig.email,
