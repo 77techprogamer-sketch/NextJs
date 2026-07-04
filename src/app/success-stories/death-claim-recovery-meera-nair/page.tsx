@@ -5,7 +5,7 @@ import { Star, Phone, Clock, FileCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'LIC Death Claim Recovered in 3 Weeks - Meera Nair',
-  description: 'LIC death claim stuck for over a year? Meera's claim was resolved in just 3 weeks by Insurance Support. Free consultation for death claim recovery.',
+  description: 'LIC death claim stuck for over a year? Meera’s claim was resolved in just 3 weeks by Insurance Support. Free consultation for death claim recovery.',
   alternates: { canonical: 'https://insurancesupport.online/success-stories/death-claim-recovery-meera-nair' },
 };
 

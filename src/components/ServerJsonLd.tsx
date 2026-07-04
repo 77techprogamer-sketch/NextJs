@@ -35,8 +35,6 @@ export function GlobalJsonLd() {
                 sameAs: [
                     'https://share.google/2Cbcq7l39kTWJl2Dm'
                 ],
-                    'https://share.google/2Cbcq7l39kTWJl2Dm'
-                ],
                 aggregateRating: {
                     '@type': 'AggregateRating',
                     ratingValue: 4.2,

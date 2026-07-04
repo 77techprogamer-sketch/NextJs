@@ -5,7 +5,7 @@ import { Star, Phone, Clock, FileCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Maturity Claim Settled After Policy Lapsed - Sneha Patil',
-  description: 'Got maturity claim after policy lapsed? Sneha's claim was settled despite the lapse. Expert guidance for maturity claim recovery.',
+  description: 'Got maturity claim after policy lapsed? Sneha’s claim was settled despite the lapse. Expert guidance for maturity claim recovery.',
   alternates: { canonical: 'https://insurancesupport.online/success-stories/maturity-claim-settled-sneha' },
 };
 

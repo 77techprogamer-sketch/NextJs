@@ -5,7 +5,7 @@ import { Star, Phone, Clock, FileCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Rejected Health Insurance Claim Reconsidered - Arun Sharma',
-  description: 'Health claim rejected? Arun's claim was reconsidered and approved after our intervention. Expert assistance for claim rejection appeals.',
+  description: 'Health claim rejected? Arun’s claim was reconsidered and approved after our intervention. Expert assistance for claim rejection appeals.',
   alternates: { canonical: 'https://insurancesupport.online/success-stories/rejected-health-claim-reconsidered-arun' },
 };
 

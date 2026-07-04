@@ -5,7 +5,7 @@ import { Star, Phone, Clock, FileCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Lost LIC Policy Bond Found & Recovered - Priya Menon',
-  description: 'Lost your LIC policy bond? Priya's lost policy was traced and recovered without the original documents. Free consultation for lost policy recovery.',
+  description: 'Lost your LIC policy bond? Priya’s lost policy was traced and recovered without the original documents. Free consultation for lost policy recovery.',
   alternates: { canonical: 'https://insurancesupport.online/success-stories/lost-policy-bond-recovered-priya' },
 };
 

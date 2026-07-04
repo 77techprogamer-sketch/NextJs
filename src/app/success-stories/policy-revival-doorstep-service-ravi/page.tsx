@@ -5,7 +5,7 @@ import { Star, Phone, Clock, FileCheck } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'LIC Policy Revived Without Visiting Any Office - Ravi Kumar',
-  description: 'Policy lapsed? Ravi's LIC policy was revived through doorstep service. No office visits needed. Free policy revival assistance.',
+  description: 'Policy lapsed? Ravi’s LIC policy was revived through doorstep service. No office visits needed. Free policy revival assistance.',
   alternates: { canonical: 'https://insurancesupport.online/success-stories/policy-revival-doorstep-service-ravi' },
 };
 
