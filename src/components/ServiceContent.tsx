@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
 import ReactMarkdown from 'react-markdown';
-import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, Building, CheckCircle2, MessageSquare } from "lucide-react";
+import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, Building, TrendingUp, CheckCircle2, MessageSquare } from "lucide-react";
 import QuoteForm from "@/components/QuoteForm";
 import { AutoLinker } from "@/components/AutoLinker";
 import { contactConfig } from "@/data/contact";
