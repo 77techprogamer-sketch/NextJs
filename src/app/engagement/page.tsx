@@ -173,7 +173,7 @@ const EngagementDashboard = () => {
                         <CardTitle>Leads by Insurance Type</CardTitle>
                     </CardHeader>
                     <CardContent className="h-[300px]">
-                        <ResponsiveContainer width="100%" height="100%">
+                        <ResponsiveContainer width="100%" height={300}>
                             <PieChart>
                                 <Pie
                                     data={pieData}
@@ -201,7 +201,7 @@ const EngagementDashboard = () => {
                         <CardTitle>Leads Overview</CardTitle>
                     </CardHeader>
                     <CardContent className="h-[300px]">
-                        <ResponsiveContainer width="100%" height="100%">
+                        <ResponsiveContainer width="100%" height={300}>
                             <BarChart data={pieData}>
                                 <CartesianGrid strokeDasharray="3 3" />
                                 <XAxis dataKey="name" hide />

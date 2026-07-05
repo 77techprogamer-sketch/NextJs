@@ -125,7 +125,7 @@ export default function EmiCalculatorEngine({ title, description }: { title: str
               <span className="text-xs text-slate-400 uppercase tracking-widest mb-1 mt-6">Total</span>
               <span className="text-xl font-bold text-white tracking-tight">{formatCurrency(results.totalPayment)}</span>
             </div>
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie data={results.pieData} cx="50%" cy="50%" innerRadius={65} outerRadius={95} paddingAngle={5} dataKey="value" stroke="none" cornerRadius={8}>
                   {results.pieData.map((entry, index) => (<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />))}

@@ -174,7 +174,7 @@ export default function FitnessCalculatorEngine({ title, description }: { title:
           <div className="w-full flex flex-col md:flex-row justify-center items-center gap-8 mb-10">
             {/* BMI Gauge */}
             <div className="relative w-64 h-32">
-              <ResponsiveContainer width="100%" height="100%">
+              <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
                     data={gaugeData}

@@ -151,7 +151,7 @@ export default function FinancialCalculatorEngine({ title, description }: { titl
               </span>
             </div>
 
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
                   data={results.chartData}

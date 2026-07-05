@@ -182,7 +182,7 @@ export default function IncomeTaxCalculatorEngine({ title, description }: { titl
               <span className="text-xs text-slate-400 uppercase tracking-widest mb-1 mt-6">Total Tax</span>
               <span className="text-xl font-bold text-white tracking-tight">{formatCurrency(results.totalTax)}</span>
             </div>
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie data={results.chartPieData} cx="50%" cy="50%" innerRadius={70} outerRadius={100} paddingAngle={3} dataKey="value" stroke="none" cornerRadius={6}>
                   {results.chartPieData.map((entry, index) => (<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />))}
