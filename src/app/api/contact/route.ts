@@ -17,8 +17,8 @@ export async function POST(req: Request) {
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY;
 
-    if (!supabaseUrl || !supabaseKey) {
-      console.warn('Supabase env vars missing - skipping DB insert');
+    if (!supabaseUrl || !supabaseKey || supabaseUrl.includes('placeholder') || supabaseKey.includes('placeholder')) {
+      console.warn('Supabase env vars missing or using placeholder - skipping DB insert');
       return NextResponse.json({ success: true, warning: 'DB not configured' });
     }
 
@@ -35,3 +35,4 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }
+
