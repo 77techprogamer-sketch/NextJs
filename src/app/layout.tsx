@@ -23,7 +23,6 @@ const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ss
 const LeadSyncManager = dynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
 const BroadcastListener = dynamic(() => import('@/components/BroadcastListener'), { ssr: false });
 const ExitIntentPopup = dynamic(() => import('@/components/ExitIntentPopup'), { ssr: false });
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import FloatingCta from "@/components/FloatingCta"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
@@ -296,7 +295,6 @@ export default function RootLayout({
                                 </DelayedLoader>
                             </div>
                             <FloatingCta />
-                            <SpeedInsights />
                             <Toaster />
                         </div>
                     </I18nProvider>
