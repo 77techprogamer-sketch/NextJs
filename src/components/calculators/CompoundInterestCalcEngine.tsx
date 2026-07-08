@@ -112,7 +112,7 @@ export default function CompoundInterestCalcEngine({ title, description }: { tit
             </div>
           </div>
           <div className="h-64 w-full relative z-10">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={300}>
               <AreaChart data={results.chartData} margin={{ top: 10, right: 10, left: 0, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorCI" x1="0" y1="0" x2="0" y2="1">

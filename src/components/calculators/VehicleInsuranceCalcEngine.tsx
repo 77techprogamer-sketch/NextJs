@@ -154,7 +154,7 @@ export default function VehicleInsuranceCalcEngine({ title, description, vehicle
             </div>
           </div>
           <div className="h-56 w-full relative z-10">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie data={results.chartPieData.filter(d => d.value > 0)} cx="50%" cy="50%" innerRadius={60} outerRadius={90} paddingAngle={5} dataKey="value" stroke="none" cornerRadius={6}>
                   {results.chartPieData.filter(d => d.value > 0).map((entry, index) => (<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />))}

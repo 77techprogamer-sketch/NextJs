@@ -1,4 +1,4 @@
-﻿import { notFound } from "next/navigation"
+import { notFound } from "next/navigation"
 import { Metadata } from "next"
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, Building, TrendingUp } from "lucide-react"
 import ServiceContent from "@/components/ServiceContent"

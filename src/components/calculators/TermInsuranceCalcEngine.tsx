@@ -138,7 +138,7 @@ export default function TermInsuranceCalculatorEngine({ title, description }: { 
             </div>
           </div>
           <div className="h-56 w-full relative z-10">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie data={[
                   { name: 'Income Replacement', value: results.chartPieData[0].value },

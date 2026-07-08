@@ -130,7 +130,7 @@ export default function TravelInsuranceCalcEngine({ title, description }: { titl
             </div>
           </div>
           <div className="h-48 w-full relative z-10">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie data={results.chartPieData} cx="50%" cy="50%" innerRadius={55} outerRadius={80} paddingAngle={5} dataKey="value" stroke="none" cornerRadius={6}>
                   {results.chartPieData.map((entry, index) => (<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />))}
