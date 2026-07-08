@@ -1,4 +1,4 @@
-import { getStaticTranslation } from 'next-i18next/serverSideTranslations';
+import { getStaticTranslation } from '@/lib/i18n-server';
 
 export async function generateMetadata({ params: { slug } }) {
   const { t } = await getStaticTranslation('en', ['blog']);

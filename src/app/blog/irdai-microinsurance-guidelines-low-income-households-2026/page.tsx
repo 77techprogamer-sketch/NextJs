@@ -1,6 +1,6 @@
 // src/app/blog/irdai-microinsurance-guidelines-low-income-households-2026/page.tsx
 import React from 'react';
-import { getStaticTranslation } from '@/i18n/server';
+import { getStaticTranslation } from '@/lib/i18n-server';
 
 export const generateMetadata = async () => {
   const { t } = await getStaticTranslation('en');
