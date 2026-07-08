@@ -4,7 +4,17 @@ import { createClient } from '@supabase/supabase-js';
 export async function POST(req: Request) {
   try {
     const payload = await req.json();
+    
+    // Check if Supabase env vars are set
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY;
 
+    if (!supabaseUrl || !supabaseKey) {
+        console.warn('Supabase env vars missing. Skipping DB save.');
+        return NextResponse.json({ success: true, message: 'Message received (DB save skipped)' });
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
     const insertData = {
       name: payload.name || payload.fullName || 'Unknown',
       phone: payload.phone || payload.mobile || payload.mobileNumber || '',
@@ -14,15 +24,6 @@ export async function POST(req: Request) {
       created_at: new Date().toISOString()
     };
 
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY;
-
-    if (!supabaseUrl || !supabaseKey) {
-      console.warn('Supabase env vars missing - skipping DB insert');
-      return NextResponse.json({ success: true, warning: 'DB not configured' });
-    }
-
-    const supabase = createClient(supabaseUrl, supabaseKey);
     const { error } = await supabase.from('customers').insert([insertData]);
 
     if (error) {
