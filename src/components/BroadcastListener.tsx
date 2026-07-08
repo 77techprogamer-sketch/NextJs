@@ -12,7 +12,7 @@ const BroadcastListener = () => {
     useEffect(() => {
         const fetchLatestBroadcast = async () => {
             try {
-                const { data, error } = await supabase
+                if (!supabase) return { data: null, error: "Supabase not configured" }; const { data, error } = await supabase
                     .from('site_broadcasts')
                     .select('*')
                     .eq('is_active', true)
