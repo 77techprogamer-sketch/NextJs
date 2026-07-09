@@ -8,6 +8,8 @@ import dynamic from 'next/dynamic'
 import PageTransitionProvider from '@/components/PageTransitionProvider';
 const ChatbotWidget = dynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
 import Analytics from '@/components/Analytics'
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
 const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
