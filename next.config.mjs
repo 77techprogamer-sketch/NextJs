@@ -7,7 +7,7 @@ const nextConfig = {
         ignoreDuringBuilds: true,
     },
     compress: true,
-        lingSlash: false,
+            trailingSlash: false,
     async headers() {
         return [
             {
