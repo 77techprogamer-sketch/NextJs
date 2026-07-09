@@ -8,7 +8,7 @@ import nextDynamic from 'next/dynamic'
 import PageTransitionProvider from '@/components/PageTransitionProvider';
 const ChatbotWidget = nextDynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
 import Analytics from '@/components/Analytics'
-
+export const runtime = 'edge';
 const SmartLanguageSelector = nextDynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
 const QuickDialSidebar = nextDynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
