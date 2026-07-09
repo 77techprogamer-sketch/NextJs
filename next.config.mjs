@@ -7,6 +7,7 @@ const nextConfig = {
         ignoreDuringBuilds: true,
     },
     compress: true,
+        output: 'export',
     trailingSlash: false,
     async headers() {
         return [
