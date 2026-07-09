@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export const runtime = 'edge';
 // State to Language Code Mapping
 const REGION_TO_LANG: Record<string, string> = {
     // Full Names (from ipapi.co)
