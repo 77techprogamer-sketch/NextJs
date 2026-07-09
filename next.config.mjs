@@ -1,3 +1,5 @@
+// @ts-check
+// @cloudflare/next-on-pages: config validated for Cloudflare Pages edge runtime
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     typescript: {
@@ -34,6 +36,7 @@ const nextConfig = {
     },
     images: {
         formats: ['image/avif', 'image/webp'],
+                unoptimized: true, // Cloudflare Pages does not run Next.js image optimizer; use Cloudflare Image Resizing instead
         remotePatterns: [
             {
                 protocol: 'https',
@@ -50,7 +53,7 @@ const nextConfig = {
         ],
     },
     experimental: {
-        optimizeCss: true, // Requires 'critters' package
+                // optimizeCss: true, // Disabled: critters (used by optimizeCss) is Node.js native, breaks Cloudflare Pages edge runtime
         optimizePackageImports: ['lucide-react', 'date-fns', 'lodash']
     },
     async redirects() {
