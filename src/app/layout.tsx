@@ -4,27 +4,27 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import dynamic from 'next/dynamic'
+import nextDynamic from 'next/dynamic'
 import PageTransitionProvider from '@/components/PageTransitionProvider';
-const ChatbotWidget = dynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
+const ChatbotWidget = nextDynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
 import Analytics from '@/components/Analytics'
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
-const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
+const SmartLanguageSelector = nextDynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
+const QuickDialSidebar = nextDynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
 import { GlobalJsonLd } from '@/components/ServerJsonLd'
 import HoneypotTrap from '@/components/HoneypotTrap'
-const WhatsAppWidget = dynamic(() => import('@/components/WhatsAppWidget'), { ssr: false });
+const WhatsAppWidget = nextDynamic(() => import('@/components/WhatsAppWidget'), { ssr: false });
 import DelayedLoader from '@/components/DelayedLoader';
-const StickyMobileContactBar = dynamic(() => import('@/components/StickyMobileContactBar'), { ssr: false });
-const QuestionForm = dynamic(() => import('@/components/QuestionForm'), { ssr: false });
-const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ssr: false });
-const LeadSyncManager = dynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
-const BroadcastListener = dynamic(() => import('@/components/BroadcastListener'), { ssr: false });
-const ExitIntentPopup = dynamic(() => import('@/components/ExitIntentPopup'), { ssr: false });
+const StickyMobileContactBar = nextDynamic(() => import('@/components/StickyMobileContactBar'), { ssr: false });
+const QuestionForm = nextDynamic(() => import('@/components/QuestionForm'), { ssr: false });
+const VisitorTracker = nextDynamic(() => import('@/components/VisitorTracker'), { ssr: false });
+const LeadSyncManager = nextDynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
+const BroadcastListener = nextDynamic(() => import('@/components/BroadcastListener'), { ssr: false });
+const ExitIntentPopup = nextDynamic(() => import('@/components/ExitIntentPopup'), { ssr: false });
 import FloatingCta from "@/components/FloatingCta"
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
@@ -145,8 +145,8 @@ const GTM_ID = 'GTM-P8DZ6MRQ';
 const GA4_ID = 'G-JP67H399V2';
 
 
-const CollapsibleToolsFooter = dynamic(() => import('@/components/CollapsibleToolsFooter'), { ssr: false });
-const GlobalForms = dynamic(() => import('@/components/GlobalForms'), { ssr: false });
+const CollapsibleToolsFooter = nextDynamic(() => import('@/components/CollapsibleToolsFooter'), { ssr: false });
+const GlobalForms = nextDynamic(() => import('@/components/GlobalForms'), { ssr: false });
 
 import { ThemeProvider } from '@/components/theme-provider'
 
