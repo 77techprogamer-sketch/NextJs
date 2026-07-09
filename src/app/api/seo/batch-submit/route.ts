@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { headers } from 'next/headers';
+export const runtime = 'edge';
 import blogs from '@/data/blogs.json';
 
 const INDEXNOW_KEY = '71a80a3568ae5d1d945fda3ef57fe18e';
@@ -51,7 +51,7 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    if (/googlebot|bingbot|yandex/i.test(headers().get('user-agent') || '')) {
+        if (/googlebot|bingbot|yandex/i.test(request.headers.get('user-agent') || '')) {
       return NextResponse.json({ skip: 'Bot' });
     }
     const { success, failed } = await submitToIndexNow(getAllUrls());
