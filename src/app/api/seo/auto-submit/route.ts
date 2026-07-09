@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { headers } from 'next/headers';
+
+export const runtime = 'edge';
 
 const INDEXNOW_KEY = '71a80a3568ae5d1d945fda3ef57fe18e';
 const HOST = 'insurancesupport.online';
@@ -12,7 +13,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Invalid URL' }, { status: 400 });
         }
 
-        const userAgent = headers().get('user-agent') || '';
+                const userAgent = request.headers.get('user-agent') || '';
         const isBot = /googlebot|bingbot|yandex|baiduspider|Lighthouse/i.test(userAgent);
 
         // Don't trigger for bots
