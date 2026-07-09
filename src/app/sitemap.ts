@@ -3,8 +3,6 @@ import { INDIAN_LOCATIONS, PRIORITY_LOCATIONS } from '@/data/indianCities'
 import { serviceLabels } from '@/data/services'
 import { faqData } from '@/data/faqData'
 import blogsData from '@/data/blogs.json'
-import fs from 'fs'
-import path from 'path'
 import { competitors } from '@/data/competitors'
 
 const BASE_URL = 'https://insurancesupport.online'
@@ -117,37 +115,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: getAlternates(`/resources/faq/${faq.slug}`),
     }))
 
-    // 7. Dynamic Expert Guides (Filesystem discovery)
-    const guidesDirectory = path.join(process.cwd(), 'src/app/resources/guides')
-    let guideRoutes: MetadataRoute.Sitemap = []
-    try {
-        if (fs.existsSync(guidesDirectory)) {
-            const guideFolders = fs.readdirSync(guidesDirectory, { withFileTypes: true })
-                .filter(dirent => dirent.isDirectory())
-                .map(dirent => dirent.name)
-            
-            guideRoutes = guideFolders.map(folder => {
-                let lastModified = new Date().toISOString()
-                try {
-                    // Try to get actual file modification time for accurate lastModified
-                    const stats = fs.statSync(path.join(guidesDirectory, folder))
-                    lastModified = stats.mtime.toISOString()
-                } catch (e) {
-                    // Fallback to now if stat fails
-                }
-
-                return {
-                    url: `${BASE_URL}/resources/guides/${folder}`,
-                    lastModified,
-                    changeFrequency: 'monthly' as const,
-                    priority: 0.8,
-                    alternates: getAlternates(`/resources/guides/${folder}`),
-                }
-            })
-        }
-    } catch (err) {
-        console.error('Sitemap Guide discovery error:', err)
-    }
+    // 7. Static Expert Guides (known slugs for edge runtime)
+    const knownGuideSlugs = [
+        'lic-revival-maturity-masterclass',
+        'claim-rejection-appeal',
+        'general-insurance-claim-process',
+        'lapsed-policy-revival',
+        'claim-recovery-guide'
+    ]
+    let guideRoutes: MetadataRoute.Sitemap = knownGuideSlugs.map(folder => ({
+        url: `${BASE_URL}/resources/guides/${folder}`,
+        changeFrequency: 'monthly' as const,
+        priority: 0.8,
+        alternates: getAlternates(`/resources/guides/${folder}`),
+    }))
 
     const otherResourceSubPages = [
         '/resources/how-it-works',

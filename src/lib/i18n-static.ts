@@ -3,8 +3,6 @@
  * Loads translations from filesystem at build time for static generation.
  * Does NOT use cookies() — allows pages to be statically generated.
  */
-import fs from 'fs';
-import path from 'path';
 
 const FALLBACK_LANG = 'en';
 const SUPPORTED_LANGS = ['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'];
@@ -16,8 +14,7 @@ function loadTranslations(lang: string): Record<string, any> {
     if (translationCache[lang]) return translationCache[lang];
     
     try {
-        const filePath = path.join(process.cwd(), 'public', 'locales', lang, 'translation.json');
-        const data = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+        const data = require(`@/../public/locales/${lang}/translation.json`);
         translationCache[lang] = data;
         return data;
     } catch (e) {

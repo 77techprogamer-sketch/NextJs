@@ -1,7 +1,5 @@
 import { cookies, headers } from 'next/headers';
 import { REGIONAL_NAMES } from '@/data/regionalData';
-import fs from 'fs';
-import path from 'path';
 
 const FALLBACK_LANG = 'en';
 const SUPPORTED_LANGS = ['en', 'hi', 'bn', 'mr', 'te', 'ta', 'gu', 'kn', 'ml', 'pa'];
@@ -55,18 +53,19 @@ export async function getServerSideTranslation(lng?: string) {
         lang = FALLBACK_LANG;
     }
 
-    // 2. Load translation resources
-    const loadFile = (l: string) => {
-        try {
-            const filePath = path.join(process.cwd(), 'public', 'locales', l, 'translation.json');
-            return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-        } catch (e) {
-            return {};
-        }
-    };
+    // 2. Load translation resources (static JSON for edge runtime)
+    const enTranslations: Record<string, any> = require('@/../public/locales/en/translation.json');
+    let translations: Record<string, any> = enTranslations;
+    let fallbacks: Record<string, any> = {};
 
-    const translations = loadFile(lang);
-    const fallbacks = lang !== FALLBACK_LANG ? loadFile(FALLBACK_LANG) : {};
+    if (lang !== 'en') {
+        try {
+            translations = require(`@/../public/locales/${lang}/translation.json`);
+        } catch (e) {
+            translations = enTranslations;
+        }
+        fallbacks = enTranslations;
+    }
 
     /**
      * Resolve nested keys and interpolate variables
