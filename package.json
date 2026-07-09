@@ -12,8 +12,7 @@
         "postbuild": "npm run indexnow:submit",
         "index:daily": "node scripts/daily-index.js",
         "validate": "tsc --noEmit",
-        "validate:json": "node scripts/validate-json.js",
-                        "pages:build": "npx @cloudflare/next-on-pages"
+        "validate:json": "node scripts/validate-json.js"
     },
     "dependencies": {
         "@hookform/resolvers": "^5.2.2",
@@ -87,7 +86,6 @@
         "zod": "^4.3.5"
     },
     "devDependencies": {
-                "@cloudflare/next-on-pages": "^1",
         "@tailwindcss/typography": "^0.5.19",
         "@types/common-tags": "^1.8.4",
         "@types/node": "^20",
