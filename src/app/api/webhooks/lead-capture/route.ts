@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sendEmail, emailSequences } from '@/lib/email';
+export const runtime = 'edge';
 
 export async function POST(req: Request) {
   try {
