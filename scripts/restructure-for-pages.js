@@ -41,7 +41,10 @@ if (fs.existsSync(buildId)) fs.copyFileSync(buildId, path.join(out, 'BUILD_ID'))
 
 // Copy .next/server/app/ pages (HTML)
 // These are the generated static pages
-const serverApp = path.join(ROOT, '.next', 'server', 'app');
-if (fs.existsSync(serverApp)) copyDir(serverApp, out, n => n.endsWith('.html'));
-
-console.log('Static build ready at', out);
+const routesJson = {
+    version: 1,
+    include: ['/*'],
+    exclude: []
+  };
+  fs.writeFileSync(path.join(out, '_routes.json'), JSON.stringify(routesJson, null, 2));
+  console.log('Created _routes.json for static routing');
