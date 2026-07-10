@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "build": "npm run validate:json && next build --no-lint",
+        "build": "npm run validate:json && next build",
         "dev": "next dev",
         "start": "npx @opennextjs/cloudflare preview",
         "lint": "next lint",
