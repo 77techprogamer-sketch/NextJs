@@ -3,10 +3,8 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const openNext = path.join(ROOT, '.open-next');
-
-// Clean
-if (fs.existsSync(openNext)) fs.rmSync(openNext, { recursive: true, force: true });
-fs.mkdirSync(openNext, { recursive: true });
+const assets = path.join(openNext, 'assets');
+const workerDir = path.join(openNext, '_worker.js');
 
 function copyDir(src, dest) {
   if (!fs.existsSync(src)) return;
@@ -19,56 +17,65 @@ function copyDir(src, dest) {
   }
 }
 
-// 1. Copy public/
-const pub = path.join(ROOT, 'public');
-if (fs.existsSync(pub)) {
-  for (const e of fs.readdirSync(pub, { withFileTypes: true })) {
-    const s = path.join(pub, e.name);
+// 1. Create _worker.js directory
+if (fs.existsSync(workerDir)) fs.rmSync(workerDir, { recursive: true, force: true });
+fs.mkdirSync(workerDir, { recursive: true });
+
+// 2. Patch middleware handler.mjs BEFORE copying — strip node: imports
+const mwSrc = path.join(openNext, 'middleware', 'handler.mjs');
+if (fs.existsSync(mwSrc)) {
+  let mw = fs.readFileSync(mwSrc, 'utf8');
+  mw = mw.replace(/import \{Buffer\} from "node:buffer";\n?/g, '');
+  mw = mw.replace(/import \{AsyncLocalStorage\} from "node:async_hooks";\n?/g, '');
+  mw = mw.replace(/globalThis\.Buffer = Buffer;\n?/g, '');
+  mw = mw.replace(/globalThis\.AsyncLocalStorage = AsyncLocalStorage;\n?/g, '');
+  fs.writeFileSync(mwSrc, mw);
+  console.log('Patched middleware/handler.mjs');
+}
+
+// 3. Copy all code dirs into _worker.js
+for (const d of ['server-functions', 'middleware', 'cloudflare', 'dynamodb-provider', '.build']) {
+  const src = path.join(openNext, d);
+  if (fs.existsSync(src)) copyDir(src, path.join(workerDir, d));
+}
+
+// 4. Copy worker.js -> _worker.js/index.js with fetch() error handling
+const workerSrc = path.join(openNext, 'worker.js');
+if (fs.existsSync(workerSrc)) {
+  let code = fs.readFileSync(workerSrc, 'utf8');
+  // Wrap fetch in try/catch so runtime errors surface as 500
+  code = code.replace(
+    'async fetch(request, env, ctx) {',
+    `async fetch(request, env, ctx) {
+      try {`
+  );
+  code = code.replace('    },\n};', `    } catch(err) {
+        console.error('WORKER_FATAL:', err.message, err.stack);
+        return new Response('Worker Error: ' + err.message + '\\n' + err.stack, { status: 500, headers: { 'Content-Type': 'text/plain' } });
+      }
+    },
+};`);
+  fs.writeFileSync(path.join(workerDir, 'index.js'), code);
+  console.log('Worker patched with error handling');
+}
+
+// 5. Copy static assets to .open-next/ root
+if (fs.existsSync(assets)) {
+  for (const e of fs.readdirSync(assets, { withFileTypes: true })) {
+    const s = path.join(assets, e.name);
     const d = path.join(openNext, e.name);
-    if (e.isDirectory()) copyDir(s, d);
-    else fs.copyFileSync(s, d);
+    if (e.isDirectory() && e.name !== '_worker.js') copyDir(s, d);
+    else if (!e.isDirectory()) fs.copyFileSync(s, d);
   }
 }
 
-// 2. Copy .next/static -> _next/static
-const nxtStatic = path.join(ROOT, '.next', 'static');
-const dstStatic = path.join(openNext, '_next', 'static');
-copyDir(nxtStatic, dstStatic);
+// 6. _routes.json: route everything through the worker
+fs.writeFileSync(path.join(openNext, '_routes.json'), JSON.stringify({
+  version: 1,
+  include: ["/*"],
+  exclude: []
+}, null, 2));
 
-// 3. Copy BUILD_ID
-const bid = path.join(ROOT, '.next', 'BUILD_ID');
-if (fs.existsSync(bid)) fs.copyFileSync(bid, path.join(openNext, 'BUILD_ID'));
-
-// 4. Find .html files from .next/server/app/ and copy to root
-function getHtmlFiles(dir, baseDir = '') {
-  let results = [];
-  if (!fs.existsSync(dir)) return results;
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, e.name);
-    if (e.isDirectory()) {
-      results = results.concat(getHtmlFiles(full, path.join(baseDir, e.name)));
-    } else if (e.name === 'index.html' && baseDir) {
-      // Map directory/index.html -> /directory.html
-      results.push({ src: full, dest: path.join(openNext, baseDir + '.html') });
-    } else if (e.name.endsWith('.html') && !e.name.startsWith('_')) {
-      results.push({ src: full, dest: path.join(openNext, e.name) });
-    }
-  }
-  return results;
-}
-
-const pages = getHtmlFiles(path.join(ROOT, '.next', 'server', 'app'));
-for (const p of pages) {
-  fs.copyFileSync(p.src, p.dest);
-  console.log('Copied:', path.basename(p.dest));
-}
-
-// 5. Create _redirects for Netlify SPA fallback
-const redirects = [
-  '/*    /200.html   200',
-  '/_next/static/*   /_next/static/:splat   200'
-].join('\n');
-fs.writeFileSync(path.join(openNext, '_redirects'), redirects);
-
-console.log('Netlify build ready');
-console.log('Files:', fs.readdirSync(openNext).slice(0, 25));
+console.log('OpenNext build ready for Pages');
+console.log('Worker exists:', fs.existsSync(path.join(workerDir, 'index.js')));
+console.log('_routes.json created');
