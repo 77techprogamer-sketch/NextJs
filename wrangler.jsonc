@@ -1,8 +1,12 @@
 {
-  "name": "insurance-support-next",
+  "name": "insurance-support-worker",
+  "main": ".open-next/worker.js",
   "compatibility_date": "2025-01-01",
   "compatibility_flags": [
     "nodejs_compat_v2"
   ],
-  "pages_build_output_dir": ".open-next"
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
 }
