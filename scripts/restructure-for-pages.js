@@ -26,20 +26,19 @@ function restructureForPages() {
   const openNext = path.join(ROOT, '.open-next');
   const assets = path.join(openNext, 'assets');
 
-  // 1. Create _routes.json at the output root
-  // Routes ALL requests through the worker (Next.js handles static internally)
-  const routesJson = {
-    version: 1,
-    include: ["/*"],
-    exclude: []
-  };
-  fs.writeFileSync(path.join(openNext, '_routes.json'), JSON.stringify(routesJson, null, 2));
-  console.log('Created _routes.json');
-
-  // 2. Create .open-next/_worker.js/ directory (Pages Functions convention)
+  // Create .open-next/_worker.js/ directory
   const workerDir = path.join(openNext, '_worker.js');
   rmdir(workerDir);
   fs.mkdirSync(workerDir, { recursive: true });
+  
+  // Routes ALL requests through the worker
+  const routesJson = {
+    version: 1,
+    include: ["/*"],
+    exclude: [] // Exclude static assets once worker handles them properly
+  };
+  fs.writeFileSync(path.join(workerDir, '_routes.json'), JSON.stringify(routesJson, null, 2));
+  console.log('Created _routes.json inside _worker.js');
 
   // Copy worker.js as index.js
   const workerSrc = path.join(openNext, 'worker.js');
@@ -47,9 +46,7 @@ function restructureForPages() {
     fs.copyFileSync(workerSrc, path.join(workerDir, 'index.js'));
   }
 
-  // 3. Copy server-functions, middleware, cloudflare, dynamodb-provider into _worker.js
-  // The worker.js imports use relative paths like ./cloudflare/images.js
-  // so these dirs must live inside _worker.js/
+  // Copy server-functions, middleware, cloudflare, etc. into _worker.js
   const dirs = ['server-functions', 'middleware', 'cloudflare', 'dynamodb-provider', '.build'];
   for (const d of dirs) {
     const src = path.join(openNext, d);
@@ -59,8 +56,7 @@ function restructureForPages() {
     }
   }
 
-  // 4. Copy static assets from .open-next/assets/ to .open-next/ root
-  // These are served directly by Pages CDN
+  // Copy static assets from .open-next/assets/ to .open-next/ root
   if (fs.existsSync(assets)) {
     for (const entry of fs.readdirSync(assets, { withFileTypes: true })) {
       const src = path.join(assets, entry.name);
@@ -74,8 +70,6 @@ function restructureForPages() {
   }
 
   console.log('Restructured .open-next/ for Cloudflare Pages');
-  console.log('Output root contents:', fs.readdirSync(openNext));
-  console.log('Worker dir contents:', fs.readdirSync(workerDir));
 }
 
 restructureForPages();
