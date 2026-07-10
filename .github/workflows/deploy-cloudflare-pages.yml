@@ -33,7 +33,7 @@ jobs:
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
-                      NODE_OPTIONS: '--max-old-space-size=4096'
+                                  NODE_OPTIONS: "--max-old-space-size=4096"
 
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
