@@ -1,6 +1,10 @@
 {
-  // Generated for OpenNext Cloudflare adapter
+  // OpenNext Cloudflare adapter config
   "name": "insurance-support-next",
   "compatibility_date": "2025-01-01",
-  "pages_build_output_dir": ".open-next"
+  "compatibility_flags": ["nodejs_compat"],
+  "pages_build_output_dir": ".open-next",
+  "build": {
+    "command": "npm run cf:build"
+  }
 }
