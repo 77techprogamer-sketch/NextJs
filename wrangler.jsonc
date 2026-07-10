@@ -1,5 +1,34 @@
 {
   "name": "insurance-support-next",
   "compatibility_date": "2025-01-01",
-  "pages_build_output_dir": ".open-next"
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "pages_build_output_dir": ".open-next",
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "DOQueueHandler",
+        "class_name": "DOQueueHandler"
+      },
+      {
+        "name": "DOShardedTagCache",
+        "class_name": "DOShardedTagCache"
+      },
+      {
+        "name": "BucketCachePurge",
+        "class_name": "BucketCachePurge"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_classes": [
+        "DOQueueHandler",
+        "DOShardedTagCache",
+        "BucketCachePurge"
+      ]
+    }
+  ]
 }
