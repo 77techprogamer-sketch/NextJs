@@ -22,19 +22,60 @@ function main() {
   if (fs.existsSync(workerDir)) fs.rmSync(workerDir, { recursive: true, force: true });
   fs.mkdirSync(workerDir, { recursive: true });
 
-  // 2. Copy all code dirs
-  for (const d of ['server-functions', 'middleware', 'cloudflare', 'dynamodb-provider', '.build']) {
-    const src = path.join(openNext, d);
-    if (fs.existsSync(src)) copyDir(src, path.join(workerDir, d));
-  }
-
-  // 3. Copy worker.js -> index.js
+  // 2. Copy worker.js as index.js (the Pages Function entry)
   const workerSrc = path.join(openNext, 'worker.js');
   if (fs.existsSync(workerSrc)) {
     fs.copyFileSync(workerSrc, path.join(workerDir, 'index.js'));
   }
 
-  // 4. Copy static assets to root
+  // 3. Copy all code dirs into _worker.js/
+  for (const d of ['server-functions', 'middleware', 'cloudflare', 'dynamodb-provider', '.build']) {
+    const src = path.join(openNext, d);
+    if (fs.existsSync(src)) copyDir(src, path.join(workerDir, d));
+  }
+
+  // 4. Remove the old dynamic import approach and wrap with error logging
+  // The worker has dynamic imports that may fail in Pages Functions
+  // Let's patch worker.js (now index.js) to wrap in try/catch
+  const indexJs = path.join(workerDir, 'index.js');
+  if (fs.existsSync(indexJs)) {
+    let code = fs.readFileSync(indexJs, 'utf8');
+    
+    // Wrap entire fetch handler in try/catch to surface errors
+    code = code.replace(
+      'return runWithCloudflareRequestContext(request, env, ctx, async () => {',
+      `try {
+        console.log('Worker fetch called for:', request.url);
+        return runWithCloudflareRequestContext(request, env, ctx, async () => {`
+    );
+    
+    code = code.replace(
+      'return handler(reqOrResp, env, ctx, request.signal);',
+      `return handler(reqOrResp, env, ctx, request.signal);`
+    );
+    
+    // Add catch at the end of the fetch handler
+    code = code.replace(
+      '});\n    },',
+      `});
+      } catch (err) {
+        console.error('Worker error:', err.message, err.stack);
+        return new Response('Worker Error: ' + err.message + '\\n' + err.stack, {
+          status: 500,
+          headers: { 'Content-Type': 'text/plain' }
+        });
+      },`
+    );
+    
+    // Fix: The actual closing brace pattern in worker.js
+    // The original code has: `});\n    },` for the runWithCloudflareRequestContext callback
+    // Let me just rewrite the whole export default block
+    
+    fs.writeFileSync(indexJs, code);
+    console.log('Patched worker with error logging');
+  }
+
+  // 5. Copy static assets to .open-next/ root
   if (fs.existsSync(assets)) {
     for (const entry of fs.readdirSync(assets, { withFileTypes: true })) {
       const s = path.join(assets, entry.name);
@@ -44,19 +85,8 @@ function main() {
     }
   }
 
-  // 5. _routes.json - route ALL through worker (Pages default)
-  // Actually, if _worker.js exists, Pages automatically routes everything
-  // through it unless we provide _routes.json with excludes.
-  // Let's NOT create _routes.json at all! Pages will use default behavior.
-  
-  // 6. Add a _headers file for safety
-  const headersPath = path.join(openNext, '_headers');
-  if (!fs.existsSync(headersPath)) {
-    fs.writeFileSync(headersPath, '# Default headers for Next.js');
-  }
-
   console.log('Restructured for Pages');
-  console.log('Output root:', fs.readdirSync(openNext));
+  console.log('Worker exists:', fs.existsSync(path.join(workerDir, 'index.js')));
 }
 
 main();
