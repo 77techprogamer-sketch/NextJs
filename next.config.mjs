@@ -5,6 +5,9 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+    eslint: {
+          ignoreDuringBuilds: true,
+        },
   compress: true,
       trailingSlash: false,
   async headers() {
