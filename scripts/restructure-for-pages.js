@@ -3,60 +3,84 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const openNext = path.join(ROOT, '.open-next');
-
-// Clean
-if (fs.existsSync(openNext)) fs.rmSync(openNext, { recursive: true, force: true });
-fs.mkdirSync(openNext, { recursive: true });
+const assets = path.join(openNext, 'assets');
+const workerDir = path.join(openNext, '_worker.js');
 
 function copyDir(src, dest) {
   if (!fs.existsSync(src)) return;
   if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
-  for (const e of fs.readdirSync(src, { withFileTypes: true })) {
-    const s = path.join(src, e.name);
-    const d = path.join(dest, e.name);
-    if (e.isDirectory()) copyDir(s, d);
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
+    const s = path.join(src, entry.name);
+    const d = path.join(dest, entry.name);
+    if (entry.isDirectory()) copyDir(s, d);
     else fs.copyFileSync(s, d);
   }
 }
 
-// Copy public/
-const pub = path.join(ROOT, 'public');
-copyDir(pub, openNext);
+// 1. Create _worker.js
+if (fs.existsSync(workerDir)) fs.rmSync(workerDir, { recursive: true, force: true });
+fs.mkdirSync(workerDir, { recursive: true });
 
-// Copy .next/static -> _next/static
-const nxtStatic = path.join(ROOT, '.next', 'static');
-const dstStatic = path.join(openNext, '_next', 'static');
-copyDir(nxtStatic, dstStatic);
+// 2. Strip node: imports from middleware handler.mjs BEFORE copying
+const mwSrc = path.join(openNext, 'middleware', 'handler.mjs');
+if (fs.existsSync(mwSrc)) {
+  let mw = fs.readFileSync(mwSrc, 'utf8');
+  // Remove node:module imports that crash Workers runtime
+  mw = mw.replace(/import \{Buffer\} from "node:buffer";\n?/g, '// removed: node:buffer\n');
+  mw = mw.replace(/import \{AsyncLocalStorage\} from "node:async_hooks";\n?/g, '// removed: node:async_hooks\n');
+  mw = mw.replace(/globalThis\.Buffer = Buffer;\n?/g, '');
+  mw = mw.replace(/globalThis\.AsyncLocalStorage = AsyncLocalStorage;\n?/g, '');
+  fs.writeFileSync(mwSrc, mw);
+  console.log('Patched middleware handler.mjs');
+}
 
-// Copy BUILD_ID
-const bid = path.join(ROOT, '.next', 'BUILD_ID');
-if (fs.existsSync(bid)) fs.copyFileSync(bid, path.join(openNext, 'BUILD_ID'));
+// 3. Copy all code dirs into _worker.js
+for (const d of ['server-functions', 'middleware', 'cloudflare', 'dynamodb-provider', '.build']) {
+  const src = path.join(openNext, d);
+  if (fs.existsSync(src)) copyDir(src, path.join(workerDir, d));
+}
 
-// Find all generated static HTML pages from .next/server/app/ and .next/server/pages/
-// and copy them to the root
-function findAndCopyPages(dir, dest) {
-  if (!fs.existsSync(dir)) return;
-  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
-    const full = path.join(dir, e.name);
-    if (e.isDirectory()) {
-      findAndCopyPages(full, dest);
-    } else if (e.name === 'index.html') {
-      const parent = path.basename(dir);
-      if (parent !== 'app') {
-        fs.copyFileSync(full, path.join(dest, parent + '.html'));
-        console.log('Page:', parent + '.html');
+// 4. Copy worker.js -> index.js with error handling
+const workerSrc = path.join(openNext, 'worker.js');
+if (fs.existsSync(workerSrc)) {
+  let code = fs.readFileSync(workerSrc, 'utf8');
+  code = code.replace(
+    'async fetch(request, env, ctx) {',
+    `async fetch(request, env, ctx) {
+      try {`
+  );
+  code = code.replace('    },\n};', `    } catch(err) {
+        console.log('WORKER_FATAL:', err.message, err.stack);
+        return new Response('Worker Error: ' + err.message, { status: 500, headers: { 'Content-Type': 'text/plain' } });
       }
-    } else if (e.name.endsWith('.html')) {
-      fs.copyFileSync(full, path.join(dest, e.name));
-      console.log('Page:', e.name);
-    }
+    },
+};`);
+  fs.writeFileSync(path.join(workerDir, 'index.js'), code);
+  console.log('Worker patched with error handling');
+}
+
+// 5. Copy static assets
+if (fs.existsSync(assets)) {
+  for (const entry of fs.readdirSync(assets, { withFileTypes: true })) {
+    const s = path.join(assets, entry.name);
+    const d = path.join(openNext, entry.name);
+    if (entry.isDirectory() && entry.name !== '_worker.js') copyDir(s, d);
+    else if (!entry.isDirectory()) fs.copyFileSync(s, d);
   }
 }
 
-findAndCopyPages(path.join(ROOT, '.next', 'server', 'app'), openNext);
-findAndCopyPages(path.join(ROOT, '.next', 'server', 'pages'), openNext);
+// 6. _routes.json
+fs.writeFileSync(path.join(openNext, '_routes.json'), JSON.stringify({
+  version: 1,
+  include: ["/*"],
+  exclude: [
+    "/_next/static/*",
+    "/favicon*",
+    "/apple-touch-icon*",
+    "/robots.txt",
+    "/sitemap.xml",
+    "/*.txt",
+  ]
+}, null, 2));
 
-// Create a simple index.html as redirect
-fs.writeFileSync(path.join(openNext, 'index.html'), '<!DOCTYPE html><html><head><title>Insurance Support</title></head><body><p>Loading...</p></body></html>');
-
-console.log('Done. Output:', fs.readdirSync(openNext).slice(0,15));
+console.log('OpenNext build ready for Pages');
