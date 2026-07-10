@@ -32,12 +32,13 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ city: null, country_code: 'IN', detected_lang: null });
     }
 
-    // 1. Check Vercel Geolocation Headers (Available in Production/Preview)
-    const vCity = request.headers.get('x-vercel-ip-city');
-    const vRegion = request.headers.get('x-vercel-ip-country-region');
-    const vCountry = request.headers.get('x-vercel-ip-country');
+    // 1. Check Geolocation Headers (Vercel or Cloudflare Pages)
+    const vCity = request.headers.get('x-vercel-ip-city') || request.headers.get('cf-ipcity');
+    const vRegion = request.headers.get('x-vercel-ip-country-region') || request.headers.get('cf-region');
+    const vCountry = request.headers.get('x-vercel-ip-country') || request.headers.get('cf-ipcountry');
 
     if (vCity && vCountry) {
+        // Cloudflare Pages uses 'cf-ipcountry' header
         // Vercel headers give us city/country but NOT ISP/org.
         // Use the real client IP to look up the ISP from ipapi.co separately.
         const clientIp = (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || null;
@@ -87,7 +88,7 @@ export async function GET(request: NextRequest) {
         });
     }
 
-    // 2. Fallback for Local Development (ipapi.co)
+    // 2. Fallback for Local Development or if no geo headers (ipapi.co)
     const forwardedFor = request.headers.get('x-forwarded-for');
     let ip = forwardedFor ? forwardedFor.split(',')[0] : null;
 

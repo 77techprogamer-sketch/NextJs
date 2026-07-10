@@ -16,7 +16,7 @@ const BlogSection = dynamic(() => import('@/components/sections/BlogSection'), {
 
 // Lazy load modals/non-critical components
 const VisitorCounter = dynamic(() => import('@/components/VisitorCounter'), { ssr: false });
-const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
+const FloatingCTA = dynamic(() => import('@/components/FloatingCta'), { ssr: false });
 const ToolIslands = dynamic(() => import('@/components/sections/ToolIslands'), { ssr: false });
 import { Card, CardContent } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';

@@ -9,10 +9,10 @@ import { contactConfig } from "@/data/contact";
 import { trackCTAClick } from "@/utils/trackCta";
 
 interface FloatingCTAProps {
-    onGetQuote: () => void;
+    onGetQuote?: () => void;
 }
 
-const FloatingCTA = ({ onGetQuote }: FloatingCTAProps) => {
+const FloatingCTA = ({ onGetQuote = () => {} }: FloatingCTAProps) => {
     const { t } = useTranslation();
     const [isVisible, setIsVisible] = useState(false);
     const [bottomOffset, setBottomOffset] = useState(110); // Above ChatbotWidget (64px height + 24px gap + buffer)

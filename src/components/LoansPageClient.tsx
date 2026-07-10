@@ -22,7 +22,7 @@ const ContactSection = dynamic(() => import('@/components/sections/ContactSectio
 
 // Lazy load modals/non-critical components
 const ServiceModal = dynamic(() => import('@/components/ServiceModal'), { ssr: false });
-const FloatingCTA = dynamic(() => import('@/components/FloatingCTA'), { ssr: false });
+const FloatingCTA = dynamic(() => import('@/components/FloatingCta'), { ssr: false });
 
 interface LoansPageClientProps {
     customTitle?: string;
