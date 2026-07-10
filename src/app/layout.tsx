@@ -4,26 +4,16 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import nextDynamic from 'next/dynamic'
 import PageTransitionProvider from '@/components/PageTransitionProvider';
-const ChatbotWidget = nextDynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
 import Analytics from '@/components/Analytics'
 export const runtime = 'edge';
-const SmartLanguageSelector = nextDynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
-const QuickDialSidebar = nextDynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
 import { GlobalJsonLd } from '@/components/ServerJsonLd'
 import HoneypotTrap from '@/components/HoneypotTrap'
-const WhatsAppWidget = nextDynamic(() => import('@/components/WhatsAppWidget'), { ssr: false });
 import DelayedLoader from '@/components/DelayedLoader';
-const StickyMobileContactBar = nextDynamic(() => import('@/components/StickyMobileContactBar'), { ssr: false });
-const QuestionForm = nextDynamic(() => import('@/components/QuestionForm'), { ssr: false });
-const VisitorTracker = nextDynamic(() => import('@/components/VisitorTracker'), { ssr: false });
-const LeadSyncManager = nextDynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
-const BroadcastListener = nextDynamic(() => import('@/components/BroadcastListener'), { ssr: false });
-const ExitIntentPopup = nextDynamic(() => import('@/components/ExitIntentPopup'), { ssr: false });
 import FloatingCta from "@/components/FloatingCta"
+import ClientOnlyWidgets from '@/components/ClientOnlyWidgets'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -141,10 +131,6 @@ export const metadata: Metadata = {
 import Script from 'next/script';
 const GTM_ID = 'GTM-P8DZ6MRQ';
 const GA4_ID = 'G-JP67H399V2';
-
-
-const CollapsibleToolsFooter = nextDynamic(() => import('@/components/CollapsibleToolsFooter'), { ssr: false });
-const GlobalForms = nextDynamic(() => import('@/components/GlobalForms'), { ssr: false });
 
 import { ThemeProvider } from '@/components/theme-provider'
 
@@ -269,7 +255,6 @@ export default function RootLayout({
                             />
                             <HoneypotTrap />
                             <Analytics />
-                            <SmartLanguageSelector />
                             <Header />
                             <main className="flex-1">
                                 <PageTransitionProvider>
@@ -277,23 +262,10 @@ export default function RootLayout({
                                 </PageTransitionProvider>
                             </main>
 
-                            <CollapsibleToolsFooter />
                             <Footer />
-                            <div className="min-h-[1px]">
-                                <DelayedLoader>
-                                    <VisitorTracker />
-                                    <QuickDialSidebar />
-                                    <React.Suspense fallback={<div className="h-0" />}>
-                                        <ChatbotWidget />
-                                    </React.Suspense>
-                                    <GlobalForms />
-                                    <WhatsAppWidget />
-                                    <StickyMobileContactBar />
-                                    <LeadSyncManager />
-                                    <BroadcastListener />
-                                    <ExitIntentPopup />
-                                </DelayedLoader>
-                            </div>
+                            <DelayedLoader>
+                                <ClientOnlyWidgets />
+                            </DelayedLoader>
                             <FloatingCta />
                             <Toaster />
                         </div>
