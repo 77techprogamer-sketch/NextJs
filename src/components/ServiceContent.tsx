@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslation } from 'react-i18next';
-import ReactMarkdown from 'react-markdown';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 import { Shield, Heart, Car, Home, Briefcase, Plane, Coins, UserCheck, Lock, Building, TrendingUp, CheckCircle2, MessageSquare } from "lucide-react";
 import QuoteForm from "@/components/QuoteForm";
 import { AutoLinker } from "@/components/AutoLinker";
@@ -113,7 +113,7 @@ export default function ServiceContent({ serviceType, iconName, imagePath, title
                             <section className="bg-card border rounded-lg p-6 shadow-sm">
                                 <h2 className="text-2xl font-semibold mb-4">{t('about')} {title}</h2>
                                 <div className="text-muted-foreground leading-loose prose dark:prose-invert max-w-none">
-                                    <ReactMarkdown>{content}</ReactMarkdown>
+                                    <MarkdownRenderer>{content}</MarkdownRenderer>
                                 </div>
                                 <p className="text-muted-foreground leading-loose mt-4">
                                     {t('service_footer_note')}

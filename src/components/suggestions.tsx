@@ -99,7 +99,7 @@ export function SuggestionsManager({ projectRef }: { projectRef: string }) {
                         }}
                       >
                         {suggestion.detail}
-                      </ReactMarkdown>
+                      </MarkdownRenderer>
                     </div>
                   </div>
                 </div>

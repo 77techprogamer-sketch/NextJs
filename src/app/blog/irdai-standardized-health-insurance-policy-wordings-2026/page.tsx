@@ -6,7 +6,7 @@ import blogs from '@/data/blogs.json';
 import { Calendar, ChevronLeft, Share2, Tag, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getStaticTranslation } from '@/lib/i18n-server';
-import ReactMarkdown from 'react-markdown';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
 import ShareButtons from '@/components/ShareButtons';
 import BlogFAQ from '@/components/BlogFAQ';
 
@@ -111,7 +111,7 @@ export default async function BlogPostPage({ params }: BlogPostProps) {
                         </header>
                         <div className="p-8 md:p-12">
                             <div className="prose prose-lg dark:prose-invert prose-indigo max-w-none prose-headings:font-bold prose-headings:text-slate-900 dark:prose-headings:text-white prose-a:text-primary prose-a:no-underline hover:prose-a:underline blog-content">
-                                <ReactMarkdown>{contentWithCTA}</ReactMarkdown>
+                                <MarkdownRenderer>{contentWithCTA}</MarkdownRenderer>
                             </div>
                             <ShareButtons title={post.title} url={shareUrl} />
                             {post.categories && post.categories.length > 0 && (<BlogFAQ categories={post.categories} />)}
