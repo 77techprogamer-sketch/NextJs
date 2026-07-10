@@ -18,7 +18,7 @@
         "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload",
         "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
         "cf:build": "npm run build && node scripts/restructure-for-pages.js",
-        "cf:deploy": "npx @opennextjs/cloudflare deploy",
+        "cf:deploy": "npm run cf:build && npx wrangler pages deploy .open-next --project-name=insurance-support-next --branch=production",
         "cf:preview": "npx @opennextjs/cloudflare preview"
     },
     "dependencies": {
