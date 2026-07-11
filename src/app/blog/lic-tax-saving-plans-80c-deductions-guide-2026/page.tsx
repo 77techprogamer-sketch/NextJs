@@ -1,16 +1,16 @@
-import React from '''react''';
-import { getStaticTranslation } from '''next-i18next-static''';
-import { Metadata } from '''next''';
-import Head from '''next/head''';
+import React from 'react';
+import { getStaticTranslation } from 'next-i18next-static';
+import { Metadata } from 'next';
+import Head from 'next/head';
 
 export const metadata: Metadata = {
-    title: '''Mastering LIC Tax Saving Plans: A Comprehensive Guide to Maximizing Your 80C Deductions in 2026''',
+    title: 'Mastering LIC Tax Saving Plans: A Comprehensive Guide to Maximizing Your 80C Deductions in 2026',
     description: "Learn how to maximize your tax savings with LIC policies under Section 80C. A detailed guide to the best LIC tax saving plans, eligibility, and claim process for 2026.",
     keywords: ["lic tax saving plans", "lic 80c", "income tax lic", "lic tax benefit", "jeevan anand tax benefit", "lic india", "section 80c deductions"],
 };
 
 const LIC80CGuidePage = () => {
-    const {"t"} = getStaticTranslation('''common''');
+    const {"t"} = getStaticTranslation('common');
     const faq_json_ld = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
