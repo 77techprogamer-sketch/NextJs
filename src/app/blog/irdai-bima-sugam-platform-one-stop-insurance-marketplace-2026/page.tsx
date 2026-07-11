@@ -1,4 +1,3 @@
-import { getStaticTranslation } from 'next-international/server';
 import { Metadata } from 'next';
 import Script from 'next/script';
 
@@ -9,8 +8,7 @@ export const metadata: Metadata = {
 };
 
 const BimaSugamPage = async () => {
-  const { t } = await getStaticTranslation();
-
+  
   return (
     <>
       <Script
