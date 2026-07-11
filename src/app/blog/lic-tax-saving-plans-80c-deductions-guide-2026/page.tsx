@@ -1,7 +1,7 @@
 import React from 'react';
-import { getStaticTranslation } from 'next-i18next-static';
+
 import { Metadata } from 'next';
-import Head from 'next/head';
+
 
 export const metadata: Metadata = {
     title: 'Mastering LIC Tax Saving Plans: A Comprehensive Guide to Maximizing Your 80C Deductions in 2026',
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 const LIC80CGuidePage = () => {
-    const {"t"} = getStaticTranslation('common');
+    
     const faq_json_ld = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
