@@ -1,0 +1,11 @@
+name = "insurance-support-next"
+main = ".open-next/worker.js"
+compatibility_date = "2026-07-09"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".open-next/assets"
+
+[[kv_namespaces]]
+binding = "NEXT_CACHE"
+id = "YOUR_KV_NAMESPACE_ID"
