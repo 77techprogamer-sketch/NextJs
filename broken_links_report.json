@@ -1,0 +1,716 @@
+{
+  "timestamp": "2026-06-11T11:42:02.494Z",
+  "baseUrl": "https://insurancesupport.online",
+  "pagesCrawled": 1000,
+  "linksChecked": 2175,
+  "brokenCount": 18,
+  "redirectCount": 1667,
+  "broken": [
+    {
+      "url": "https://insurancesupport.online/cdn-cgi/l/email-protection",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/contact"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/hyderabad",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/maharashtra/pune",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/shimoga/motor-insurance",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/locations/karnataka"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/bhind/sme-insurance",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/locations/madhya-pradesh"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/kalyan-dombivli/motor-insurance",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/locations/maharashtra/kalyan-dombivli"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/jabalpur/travel-insurance",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/locations/madhya-pradesh/jabalpur"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/mysore/motor-insurance",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/locations/karnataka/mysore"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/salem/lic-agent",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/locations/tamil-nadu/salem"
+    },
+    {
+      "url": "https://bimabharosa.irdai.gov.in/",
+      "status": 500,
+      "foundOn": "https://insurancesupport.online/resources/guides/cashless-hospitalization-guide"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/guides",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/resources/guides/icici-ihealth"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/calculators",
+      "status": 404,
+      "foundOn": "https://insurancesupport.online/resources/guides/lic-jeevan-anand"
+    },
+    {
+      "url": "https://www.starhealth.in/",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/resources/download-policy-copy"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/meghalaya",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/hi/locations"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/karnataka/gulbarga/pension-plans",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/hi/locations/karnataka"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/west-bengal/asansol/cyber-insurance",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/hi/locations/west-bengal"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/rajasthan/ajmer/life-insurance",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/hi/locations/rajasthan"
+    },
+    {
+      "url": "https://customer.onlinelic.in/Login.do",
+      "status": "ERROR",
+      "error": "timeout",
+      "foundOn": "https://insurancesupport.online/hi/resources/guides/lic-policy-revival"
+    }
+  ],
+  "redirects": [
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/bangalore/health-insurance",
+      "status": 308,
+      "location": "/locations/karnataka/bangalore",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/bangalore/lic-agent",
+      "status": 308,
+      "location": "/locations/karnataka/bangalore",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/mumbai/health-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/mumbai",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/delhi/life-insurance",
+      "status": 308,
+      "location": "/locations/delhi/delhi",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/chennai/lic-agent",
+      "status": 308,
+      "location": "/locations/tamil-nadu/chennai",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/hyderabad/health-insurance",
+      "status": 308,
+      "location": "/locations/telangana/hyderabad",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/bangalore/life-insurance",
+      "status": 308,
+      "location": "/locations/karnataka/bangalore",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/chennai/life-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/chennai",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/mysore/life-insurance",
+      "status": 308,
+      "location": "/locations/karnataka/mysore",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/coimbatore/life-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/coimbatore",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/salem/life-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/salem",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/hyderabad/life-insurance",
+      "status": 308,
+      "location": "/locations/telangana/hyderabad",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/pune/life-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/pune",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/mumbai/life-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/mumbai",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gujarat/ahmedabad/life-insurance",
+      "status": 308,
+      "location": "/locations/gujarat/ahmedabad",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/west-bengal/kolkata/life-insurance",
+      "status": 308,
+      "location": "/locations/west-bengal/kolkata",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/lucknow/life-insurance",
+      "status": 308,
+      "location": "/locations/uttar-pradesh/lucknow",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajasthan/jaipur/life-insurance",
+      "status": 308,
+      "location": "/locations/rajasthan/jaipur",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/chennai/motor-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/chennai",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/pune/term-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/pune",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://wa.me/919986634506?text=Hi%20Insurance%20Support%20team%2C%20I%20need%20help%20with%20a%20question%20about%20my%20policy.",
+      "status": 302,
+      "location": "https://api.whatsapp.com/send/?phone=919986634506&text=Hi+Insurance+Support+team%2C+I+need+help+with+a+question+about+my+policy.&type=phone_number&app_absent=0",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://share.google/FBw8WZDuh4r3AD5f0",
+      "status": 302,
+      "location": "https://www.google.com/share.google?q=FBw8WZDuh4r3AD5f0",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://g.page/r/CRDgJanrKjRhEBM/review",
+      "status": 302,
+      "location": "https://g.page/r/CRDgJanrKjRhEBM/review/",
+      "foundOn": "https://insurancesupport.online/"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi",
+      "status": 307,
+      "location": "/locations/delhi/delhi/life-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/delhi",
+      "status": 307,
+      "location": "/locations/delhi/delhi/life-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chandigarh",
+      "status": 307,
+      "location": "/locations/chandigarh/chandigarh/life-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/hi/locations/chandigarh",
+      "status": 307,
+      "location": "/locations/chandigarh/chandigarh/life-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/mumbai-insurance",
+      "status": 308,
+      "location": "/resources/guides/mumbai-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/delhi-insurance",
+      "status": 308,
+      "location": "/resources/guides/delhi-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/bangalore-insurance",
+      "status": 308,
+      "location": "/resources/guides/bangalore-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/hyderabad-insurance",
+      "status": 308,
+      "location": "/resources/guides/hyderabad-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/chennai-insurance",
+      "status": 308,
+      "location": "/resources/guides/chennai-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/kolkata-insurance",
+      "status": 308,
+      "location": "/resources/guides/kolkata-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/pune-insurance",
+      "status": 308,
+      "location": "/resources/guides/pune-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/ahmedabad-insurance",
+      "status": 308,
+      "location": "/resources/guides/ahmedabad-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/jaipur-insurance",
+      "status": 308,
+      "location": "/resources/guides/jaipur-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/guides/lucknow-insurance",
+      "status": 308,
+      "location": "/resources/guides/lucknow-insurance",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/guides/health-insurance-rejection-reasons-guide",
+      "status": 308,
+      "location": "/resources/guides/claim-rejection-appeal",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/guides/lic-maturity-claim-forms",
+      "status": 308,
+      "location": "/resources/guides/lic-revival-maturity-masterclass",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/guides/lic-policy-revival",
+      "status": 308,
+      "location": "/resources/guides/lapsed-policy-revival",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/guides/lost-lic-policy-help",
+      "status": 308,
+      "location": "/resources/guides/lic-revival-maturity-masterclass",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/guides/maturity-claim-guide",
+      "status": 308,
+      "location": "/resources/guides/lic-revival-maturity-masterclass",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/guides/neft-mandate-troubleshooting",
+      "status": 308,
+      "location": "/resources/guides/lic-revival-maturity-masterclass",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/general-insurance-claim-process",
+      "status": 308,
+      "location": "/resources/guides/general-insurance-claim-process",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/resources/claim-recovery-guide",
+      "status": 308,
+      "location": "/resources/guides/claim-recovery-guide",
+      "foundOn": "https://insurancesupport.online/sitemap.xml"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/vellore/life-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/vellore",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/hosur/life-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/hosur",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/indore/life-insurance",
+      "status": 308,
+      "location": "/locations/madhya-pradesh/indore",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajasthan/ajmer/life-insurance",
+      "status": 308,
+      "location": "/locations/rajasthan/ajmer",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/kanpur/life-insurance",
+      "status": 308,
+      "location": "/locations/uttar-pradesh/kanpur",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu-and-kashmir/jammu/life-insurance",
+      "status": 308,
+      "location": "/locations/jammu-and-kashmir/jammu",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/nashik/life-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/nashik",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gujarat/vadodara/life-insurance",
+      "status": 308,
+      "location": "/locations/gujarat/vadodara",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chhattisgarh/raipur/life-insurance",
+      "status": 308,
+      "location": "/locations/chhattisgarh/raipur",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/warangal/life-insurance",
+      "status": 308,
+      "location": "/locations/telangana/warangal",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://wa.me/919986634506?text=Hi%20Hari%2C%20I&",
+      "status": 302,
+      "location": "https://api.whatsapp.com/send/?phone=919986634506&text=Hi+Hari%2C+I&type=phone_number&app_absent=0",
+      "foundOn": "https://insurancesupport.online/services/life-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/chennai/health-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/chennai",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/vellore/health-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/vellore",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/hosur/health-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/hosur",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/pune/health-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/pune",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/lucknow/health-insurance",
+      "status": 308,
+      "location": "/locations/uttar-pradesh/lucknow",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/indore/health-insurance",
+      "status": 308,
+      "location": "/locations/madhya-pradesh/indore",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/delhi/health-insurance",
+      "status": 308,
+      "location": "/locations/delhi/delhi",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajasthan/ajmer/health-insurance",
+      "status": 308,
+      "location": "/locations/rajasthan/ajmer",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/kanpur/health-insurance",
+      "status": 308,
+      "location": "/locations/uttar-pradesh/kanpur",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu-and-kashmir/jammu/health-insurance",
+      "status": 308,
+      "location": "/locations/jammu-and-kashmir/jammu",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/nashik/health-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/nashik",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gujarat/vadodara/health-insurance",
+      "status": 308,
+      "location": "/locations/gujarat/vadodara",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chhattisgarh/raipur/health-insurance",
+      "status": 308,
+      "location": "/locations/chhattisgarh/raipur",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/warangal/health-insurance",
+      "status": 308,
+      "location": "/locations/telangana/warangal",
+      "foundOn": "https://insurancesupport.online/services/health-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/bangalore/motor-insurance",
+      "status": 308,
+      "location": "/locations/karnataka/bangalore",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/vellore/motor-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/vellore",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/hosur/motor-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/hosur",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/hyderabad/motor-insurance",
+      "status": 308,
+      "location": "/locations/telangana/hyderabad",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/pune/motor-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/pune",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/mumbai/motor-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/mumbai",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/lucknow/motor-insurance",
+      "status": 308,
+      "location": "/locations/uttar-pradesh/lucknow",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/indore/motor-insurance",
+      "status": 308,
+      "location": "/locations/madhya-pradesh/indore",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/delhi/motor-insurance",
+      "status": 308,
+      "location": "/locations/delhi/delhi",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajasthan/ajmer/motor-insurance",
+      "status": 308,
+      "location": "/locations/rajasthan/ajmer",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/kanpur/motor-insurance",
+      "status": 308,
+      "location": "/locations/uttar-pradesh/kanpur",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu-and-kashmir/jammu/motor-insurance",
+      "status": 308,
+      "location": "/locations/jammu-and-kashmir/jammu",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/nashik/motor-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/nashik",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gujarat/vadodara/motor-insurance",
+      "status": 308,
+      "location": "/locations/gujarat/vadodara",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/chhattisgarh/raipur/motor-insurance",
+      "status": 308,
+      "location": "/locations/chhattisgarh/raipur",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/warangal/motor-insurance",
+      "status": 308,
+      "location": "/locations/telangana/warangal",
+      "foundOn": "https://insurancesupport.online/services/motor-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/karnataka/bangalore/term-insurance",
+      "status": 308,
+      "location": "/locations/karnataka/bangalore",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/chennai/term-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/chennai",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/vellore/term-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/vellore",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/tamil-nadu/hosur/term-insurance",
+      "status": 308,
+      "location": "/locations/tamil-nadu/hosur",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/telangana/hyderabad/term-insurance",
+      "status": 308,
+      "location": "/locations/telangana/hyderabad",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/mumbai/term-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/mumbai",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/lucknow/term-insurance",
+      "status": 308,
+      "location": "/locations/uttar-pradesh/lucknow",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/madhya-pradesh/indore/term-insurance",
+      "status": 308,
+      "location": "/locations/madhya-pradesh/indore",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/delhi/delhi/term-insurance",
+      "status": 308,
+      "location": "/locations/delhi/delhi",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/rajasthan/ajmer/term-insurance",
+      "status": 308,
+      "location": "/locations/rajasthan/ajmer",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/uttar-pradesh/kanpur/term-insurance",
+      "status": 308,
+      "location": "/locations/uttar-pradesh/kanpur",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/jammu-and-kashmir/jammu/term-insurance",
+      "status": 308,
+      "location": "/locations/jammu-and-kashmir/jammu",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/maharashtra/nashik/term-insurance",
+      "status": 308,
+      "location": "/locations/maharashtra/nashik",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    },
+    {
+      "url": "https://insurancesupport.online/locations/gujarat/vadodara/term-insurance",
+      "status": 308,
+      "location": "/locations/gujarat/vadodara",
+      "foundOn": "https://insurancesupport.online/services/term-insurance"
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "installCommand": "npm install --legacy-peer-deps",
+  "buildCommand": "npm run build",
+  "headers": [
+    {
+      "source": "/(about|contact|locations|services|support|resources|guides)/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/locations/bangalore",
+      "destination": "/support",
+      "permanent": true
+    },
+    {
+      "source": "/locations/mumbai",
+      "destination": "/support",
+      "permanent": true
+    },
+    {
+      "source": "/locations/chennai",
+      "destination": "/support",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/maturity-claim-guide",
+      "destination": "/resources/guides/lic-revival-maturity-masterclass",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/lic-maturity-claim-forms",
+      "destination": "/resources/guides/lic-revival-maturity-masterclass",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/neft-mandate-troubleshooting",
+      "destination": "/resources/guides/lic-revival-maturity-masterclass",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/lost-lic-policy-help",
+      "destination": "/resources/guides/lic-revival-maturity-masterclass",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/health-insurance-rejection-reasons-guide",
+      "destination": "/resources/guides/claim-rejection-appeal",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/health-claim-recovery",
+      "destination": "/resources/guides/claim-rejection-appeal",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/claim-process",
+      "destination": "/resources/guides/claim-rejection-appeal",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/general-insurance-claim",
+      "destination": "/resources/guides/general-insurance-claim-process",
+      "permanent": true
+    },
+    {
+      "source": "/resources/general-insurance-claim-process",
+      "destination": "/resources/guides/general-insurance-claim-process",
+      "permanent": true
+    },
+    {
+      "source": "/resources/claim-recovery-guide",
+      "destination": "/resources/guides/claim-recovery-guide",
+      "permanent": true
+    },
+    {
+      "source": "/resources/guides/lic-policy-revival",
+      "destination": "/resources/guides/lapsed-policy-revival",
+      "permanent": true
+    },
+    {
+      "source": "/resources/national-insurance-claim-process",
+      "destination": "/resources/guides/general-insurance-claim-process",
+      "permanent": true
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/seo/batch-submit",
+      "schedule": "0 6 * * *"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+import os, re, sys
+
+BASE = r"D:\Insurance-Support\insurance-support-next\srcpp"
+
+def get_city(city_slug):
+    special = {"bangalore":"Bangalore","mumbai":"Mumbai","delhi":"Delhi","chennai":"Chennai","kolkata":"Kolkata","hyderabad":"Hyderabad","pune":"Pune","ahmedabad":"Ahmedabad","jaipur":"Jaipur","lucknow":"Lucknow","kanpur":"Kanpur","nagpur":"Nagpur","indore":"Indore","thane":"Thane","bhopal":"Bhopal","visakhapatnam":"Visakhapatnam","patna":"Patna","vadodara":"Vadodara","ghaziabad":"Ghaziabad","ludhiana":"Ludhiana","agra":"Agra","nashik":"Nashik","faridabad":"Faridabad","meerut":"Meerut","rajkot":"Rajkot","varanasi":"Varanasi","srinagar":"Srinagar","guwahati":"Guwahati","chandigarh":"Chandigarh","dehradun":"Dehradun","ranchi":"Ranchi","jamshedpur":"Jamshedpur","dhanbad":"Dhanbad","bhubaneswar":"Bhubaneswar","cuttack":"Cuttack","rourkela":"Rourkela","amritsar":"Amritsar","jalandhar":"Jalandhar","bikaner":"Bikaner","jodhpur":"Jodhpur","kota":"Kota","coimbatore":"Coimbatore","madurai":"Madurai","salem":"Salem","tiruchirappalli":"Tiruchirappalli","warangal":"Warangal","hubli-dharwad":"Hubli-Dharwad","mysore":"Mysore","kochi":"Kochi","thiruvananthapuram":"Thiruvananthapuram","guntur":"Guntur","nellore":"Nellore","vijayawada":"Vijayawada","bhavnagar":"Bhavnagar","aurangabad":"Aurangabad","amravati":"Amravati","navi-mumbai":"Navi Mumbai","pimpri-chinchwad":"Pimpri-Chinchwad","vasai-virar":"Vasai-Virar","mira-bhayandar":"Mira-Bhayandar","kalyan-dombivli":"Kalyan-Dombivli","bhiwandi":"Bhiwandi","solapur":"Solapur","asansol":"Asansol","durgapur":"Durgapur","howrah":"Howrah","noida":"Noida","aligarh":"Aligarh","bareilly":"Bareilly","moradabad":"Moradabad","saharanspur":"Saharanspur","firozabad":"Firozabad","allahabad":"Allahabad"}
+    return special.get(city_slug, city_slug.replace("-"," ").title())
+
+print("Script test OK")

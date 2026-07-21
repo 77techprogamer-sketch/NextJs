@@ -1,0 +1,27 @@
+"use client";
+
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import ChatbotWidget from './ChatbotWidget';
+import SiteBroadcastBanner from './SiteBroadcastBanner';
+
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <div className="flex flex-col min-h-screen bg-background">
+      <SiteBroadcastBanner />
+      <Header />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <ChatbotWidget />
+    </div>
+  );
+};
+
+export default Layout;

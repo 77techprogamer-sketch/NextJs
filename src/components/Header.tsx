@@ -1,0 +1,174 @@
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
+import { ThemeToggle } from './theme-toggle';
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronDown, ShieldCheck, Phone, Calculator, Target, FileSearch, Activity } from 'lucide-react';
+import { slugify } from '@/utils/slugify';
+import { formatLabel } from '@/utils/formatText';
+import { contactConfig } from '@/data/contact';
+import TopNotificationBar from './TopNotificationBar';
+import Image from 'next/image';
+
+
+const Header = () => {
+  const { t } = useTranslation();
+
+  const handleScrollToServices = (e: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const serviceKeys = [
+    "life_insurance",
+    "health_insurance",
+    "term_insurance",
+    "motor_insurance",
+    "sme_insurance",
+    "travel_insurance",
+    "pension_plans",
+    "ulip_plans",
+    "wedding_insurance",
+    "cyber_insurance",
+  ];
+
+  return (
+    <div className="w-full sticky top-0 z-50">
+      <TopNotificationBar />
+      <header className="w-full bg-background shadow-sm border-b">
+        <div className="container mx-auto px-4 h-16 flex justify-between items-center">
+        <Link href="/" className="flex items-center gap-2 group" aria-label={t("insurance_support")}>
+          <div className="h-9 w-9 rounded-lg overflow-hidden shrink-0 group-hover:opacity-90 transition-opacity">
+            <Image
+              src="/logo.png"
+              alt="Insurance Support"
+              width={36}
+              height={36}
+              className="object-cover"
+              priority
+            />
+          </div>
+          <span className="text-xl sm:text-2xl font-bold tracking-tight text-primary group-hover:text-accent transition-colors">
+            {t("insurance_support")}
+          </span>
+        </Link>
+        <nav className="flex items-center gap-4">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                onClick={handleScrollToServices}
+                className="hidden md:flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label={t("services_offered_link")}
+              >
+                {t("services_offered_link")}
+                <ChevronDown className="h-4 w-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56">
+              {serviceKeys.map((key) => (
+                <DropdownMenuItem key={key} asChild>
+                  <Link
+                    href={`/services/${slugify(key)}`}
+                    className="cursor-pointer"
+                  >
+                    {formatLabel(t(key))}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                className="hidden md:flex items-center gap-1 text-foreground hover:text-primary transition-colors text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                aria-label={t("tools", "Tools")}
+              >
+                {t("tools", "Tools")}
+                <ChevronDown className="h-4 w-4" />
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-56">
+              <DropdownMenuItem asChild>
+                <Link href="/tools/human-life-value-calculator" className="cursor-pointer flex items-center gap-2">
+                  <Calculator className="h-4 w-4" />
+                  {t("hlv_calc_title", "HLV Calculator")}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/tools/risk-scorecard" className="cursor-pointer flex items-center gap-2">
+                  <Target className="h-4 w-4" />
+                  {t("risk_scorecard_title", "Risk Scorecard")}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/tools/policy-recovery" className="cursor-pointer flex items-center gap-2">
+                  <FileSearch className="h-4 w-4" />
+                  {t("lost_policy_recovery_tool", "Policy Recovery")}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/tools/term-insurance-calculator" className="cursor-pointer flex items-center gap-2">
+                  <Activity className="h-4 w-4" />
+                  {t("term_calculator_title", "Term Calculator")}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/tools" className="cursor-pointer flex items-center gap-2 text-primary font-medium">
+                  {t("view_all_tools", "View All Tools")}
+                </Link>
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
+          <Link
+            href="/support"
+            className="hidden md:block text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
+          >
+            {t("support")}
+          </Link>
+          <Link
+            href="/resources"
+            className="hidden md:block text-foreground hover:text-primary transition-colors text-sm sm:text-base"
+            aria-label={t("resources_link", "Resources")}
+          >
+            {t("resources_link", "Resources")}
+          </Link>
+          <Link
+            href="/blog"
+            className="hidden md:block text-foreground hover:text-primary transition-colors text-sm sm:text-base font-medium"
+            aria-label={t("articles_link", "Expert Insights")}
+          >
+            {t("articles_link", "Expert Insights")}
+          </Link>
+
+          <div className="flex items-center gap-2">
+            <a 
+              href={contactConfig.getDialUrl()} 
+              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-full font-semibold transition-colors text-sm sm:text-base"
+            >
+              <Phone className="w-4 h-4 fill-current" />
+              <span className="hidden sm:inline">Call Now</span>
+            </a>
+            <LanguageSwitcher />
+            <ThemeToggle />
+          </div>
+        </nav>
+      </div>
+      </header>
+    </div>
+  );
+};
+
+export default Header;

@@ -1,0 +1,430 @@
+"use client";
+
+import React, { useState, useMemo } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { CalendarIcon } from 'lucide-react';
+import { Calendar } from '@/components/ui/calendar';
+import { format, differenceInYears } from 'date-fns';
+import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
+import { supabase } from '@/integrations/supabase/client';
+import { toast } from 'sonner';
+import { FORM_CONFIGS, DEFAULT_FORM_CONFIG } from '@/config/forms';
+import { formatLabel, normalizeUIValue } from '@/utils/formatText';
+import { leadService } from '@/lib/leadService';
+
+interface QuoteFormProps {
+  insuranceType: string;
+  onClose?: () => void;
+  onSuccess?: () => void;
+  initialData?: any;
+}
+
+const QuoteForm: React.FC<QuoteFormProps> = ({ insuranceType, onClose, onSuccess, initialData }) => {
+  const { t } = useTranslation();
+  const [selectedMembers, setSelectedMembers] = useState<string[]>([]);
+  const [submitted, setSubmitted] = useState<boolean>(false);
+
+  const config = FORM_CONFIGS[insuranceType] || DEFAULT_FORM_CONFIG;
+
+  // Build schema dynamically based on config — memoized to prevent re-creation on every render
+  const formSchema = useMemo(() => {
+    const schemaShape: Record<string, z.ZodTypeAny> = {
+      fullName: z.string().min(1, { error: t("name_required", "Name is required") }),
+      email: z.string().email({ error: t("email_invalid_error", "Please enter a valid email") }),
+      mobileNumber: z.string().regex(/^\d{10}$/, { error: t("phone_digits_error", "10-digit mobile required") }),
+    };
+
+    if (!config.suppressDefaultFields?.includes('age') && !config.suppressDefaultFields?.includes('dateOfBirth')) {
+      schemaShape.age = z.union([z.number().min(1).max(120).optional(), z.literal(null)]);
+      schemaShape.dateOfBirth = z.date().optional();
+    }
+
+    if (!config.suppressDefaultFields?.includes('gender')) {
+      schemaShape.gender = z.enum(['Male', 'Female', 'Other'], { error: t("gender_required") });
+    }
+
+
+    config.fields.forEach(field => {
+      if (!schemaShape[field.name]) {
+        if (field.type === 'number') {
+          schemaShape[field.name] = z.union([z.number().optional(), z.literal(null)]);
+        } else {
+          schemaShape[field.name] = z.string().optional();
+        }
+      }
+    });
+
+    // Special handling for Health Insurance members details
+    if (insuranceType === 'health_insurance') {
+      schemaShape.memberDetails = z.record(z.string(), z.object({
+        age: z.number().min(1).max(120).optional(),
+        dateOfBirth: z.date().optional(),
+        gender: z.enum(['Male', 'Female', 'Other']).optional(),
+      })).optional();
+    }
+
+    let baseSchema = z.object(schemaShape);
+
+    if (!config.suppressDefaultFields?.includes('age') && !config.suppressDefaultFields?.includes('dateOfBirth')) {
+      return baseSchema.refine((data: any) => data.age !== undefined || data.dateOfBirth !== undefined, {
+        error: t("age_dob_required"),
+        path: ["age"],
+      });
+    }
+
+    return baseSchema;
+  }, [insuranceType, config, t]);
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      fullName: initialData?.fullName || '',
+      email: initialData?.email || '',
+      mobileNumber: initialData?.mobileNumber || '',
+      age: initialData?.age || undefined,
+      dateOfBirth: initialData?.dateOfBirth || undefined,
+      gender: initialData?.gender || 'Male',
+      memberDetails: initialData?.memberDetails || {},
+      ...initialData,
+    } as any,
+  });
+
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      // Auto-calculate age from DOB if age was not explicitly provided
+      let resolvedAge = values.age;
+      if ((!resolvedAge || resolvedAge === null) && values.dateOfBirth) {
+        resolvedAge = differenceInYears(new Date(), values.dateOfBirth);
+      }
+
+      if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+        throw new Error('CONFIG_ERROR: Supabase URL or Anon Key is missing in environment variables.');
+      }
+
+      const payload = {
+        name: values.fullName,
+        email: values.email,
+        age: resolvedAge,
+        gender: values.gender,
+        phone: values.mobileNumber,
+        insurance_type: insuranceType,
+        intended_sum_insured: (values as any).sumAssured || initialData?.sumAssured || initialData?.quiz_score,
+        ...initialData,
+        created_at: new Date().toISOString()
+      };
+
+      console.log('[QuoteForm] Submitting via leadService:', payload);
+      await leadService.submitLead(payload, initialData?.source || 'QuoteForm');
+
+      setSubmitted(true);
+      toast.success(t("quote_request_submitted"));
+      if (onSuccess) onSuccess();
+    } catch (error: any) {
+      console.error('Submission error:', error);
+      if (error.message?.includes('CONFIG_ERROR')) {
+        toast.error("System configuration error. Please contact support.");
+      } else if (error.message?.includes('RLS_ERROR')) {
+        toast.error("Submission blocked by security policy. Please contact support.");
+      } else {
+        toast.error(t("failed_to_submit_quote"));
+      }
+    }
+  };
+
+  const handleHealthMembersChange = (value: string) => {
+    form.setValue('healthMembers', value);
+    let newSelectedMembers: string[] = [];
+    if (value === 'Self with Wife and 1 kid') {
+      newSelectedMembers = ['wife', 'kid_1'];
+    } else if (value === 'Self with Wife and 2 kids') {
+      newSelectedMembers = ['wife', 'kid_1', 'kid_2'];
+    } else if (value === 'Self with Parents') {
+      newSelectedMembers = ['father', 'mother'];
+    }
+    setSelectedMembers(newSelectedMembers);
+    form.setValue('memberDetails', {});
+  };
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-6 bg-white dark:bg-gray-950 rounded-xl shadow-lg border border-gray-100 dark:border-gray-800 animate-in slide-in-from-bottom-5 duration-700 ease-out">
+        <h3 className="text-lg font-semibold text-center mb-4">
+          {t("quote_form_title", {
+            type: config === DEFAULT_FORM_CONFIG
+              ? formatLabel(insuranceType)
+              : normalizeUIValue(t(insuranceType))
+          })}
+        </h3>
+
+        <FormField
+          control={form.control}
+          name="fullName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("full_name", "Full Name")}</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder={t("enter_full_name", "Enter your full name")}
+                  {...field}
+                  className="h-11 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
+                  value={field.value ?? ""}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("email", "Email Address")}</FormLabel>
+              <FormControl>
+                <Input
+                  type="email"
+                  placeholder={t("enter_email", "Enter your email")}
+                  {...field}
+                  className="h-11 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
+                  value={field.value ?? ""}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="mobileNumber"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("mobile_number", "Mobile Number")}</FormLabel>
+              <FormControl>
+                <div className="relative">
+                  <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm font-bold">+91</span>
+                  <Input
+                    type="tel"
+                    placeholder={t("enter_mobile", "10-digit mobile number")}
+                    maxLength={10}
+                    {...field}
+                    className="h-11 pl-12 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50"
+                    value={field.value ?? ""}
+                  />
+                </div>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {config.fields.map((field) => (
+          <FormField
+            key={field.name}
+            control={form.control}
+            name={field.name}
+            render={({ field: formField }) => (
+              <FormItem>
+                <FormLabel>{t(field.labelKey)}</FormLabel>
+                <FormControl>
+                  {field.type === 'select' ? (
+                    <Select onValueChange={field.name === 'healthMembers' ? handleHealthMembersChange : formField.onChange} defaultValue={formField.value}>
+                      <SelectTrigger>
+                        <SelectValue placeholder={field.placeholderKey ? t(field.placeholderKey) : ""} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {field.options?.map(opt => (
+                          <SelectItem key={opt.value} value={opt.value}>{t(opt.labelKey)}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  ) : field.type === 'radio' ? (
+                    <RadioGroup onValueChange={formField.onChange} defaultValue={formField.value} className="grid grid-cols-2 gap-4">
+                      {field.options?.map(opt => {
+                        const radioId = `${field.name}-${opt.value}`;
+                        return (
+                        <FormItem key={opt.value}>
+                          <FormControl>
+                            <div className="relative">
+                              <RadioGroupItem value={opt.value} id={radioId} className="peer sr-only" />
+                              <FormLabel htmlFor={radioId} className="flex flex-col items-center justify-center p-4 rounded-xl border-2 border-muted bg-popover hover:bg-accent peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]">
+                                {t(opt.labelKey)}
+                              </FormLabel>
+                            </div>
+                          </FormControl>
+                        </FormItem>
+                        );
+                      })}
+                    </RadioGroup>
+                  ) : (
+                    <Input
+                      type={field.type}
+                      placeholder={field.placeholderKey ? t(field.placeholderKey) : ""}
+                      {...formField}
+                      className="h-11 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:shadow-[0_0_10px_rgba(var(--primary),0.2)]"
+                      onChange={(e) => {
+                        const val = field.type === 'number' ? (e.target.value ? parseInt(e.target.value) : undefined) : e.target.value;
+                        formField.onChange(val);
+                      }}
+                      value={formField.value ?? ""}
+                    />
+                  )}
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        ))}
+
+        {!config.fields.find(f => f.name === 'age') && !config.suppressDefaultFields?.includes('age') && (
+          <div className="flex items-center space-x-2">
+            <FormField
+              control={form.control}
+              name="age"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormLabel>{t("age")}</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="number"
+                      placeholder={t("age")}
+                      {...field}
+                      onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)}
+                      value={field.value ?? ""}
+                      disabled={!!form.watch('dateOfBirth')}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <span className="text-muted-foreground self-end pb-2">{t("or")}</span>
+            <FormField
+              control={form.control}
+              name="dateOfBirth"
+              render={({ field }) => (
+                <FormItem className="flex-1">
+                  <FormLabel>{t("date_of_birth")}</FormLabel>
+                  <Popover>
+                    <PopoverTrigger asChild>
+                      <FormControl>
+                        <Button
+                          variant={"outline"}
+                          className={cn("w-full pl-3 text-left font-normal", !field.value && "text-muted-foreground")}
+                          disabled={form.watch('age') !== undefined && form.watch('age') !== null}
+                        >
+                          {field.value ? format(field.value, "PPP") : <span>{t("date_of_birth")}</span>}
+                          <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                        </Button>
+                      </FormControl>
+                    </PopoverTrigger>
+                    <PopoverContent className="w-auto p-0" align="start">
+                      <Calendar mode="single" selected={field.value} onSelect={field.onChange} disabled={(date) => date > new Date() || date < new Date("1900-01-01")} initialFocus />
+                    </PopoverContent>
+                  </Popover>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        )}
+
+        {!config.fields.find(f => f.name === 'gender') && !config.suppressDefaultFields?.includes('gender') && (
+          <FormField
+            control={form.control}
+            name="gender"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel>{t("your_gender")}</FormLabel>
+                <FormControl>
+                  <RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="grid grid-cols-3 gap-3">
+                    {["Male", "Female", "Other"].map((gender) => {
+                      const genderId = `gender-${gender}`;
+                      return (
+                      <FormItem key={gender}>
+                        <FormControl>
+                          <div className="relative">
+                            <RadioGroupItem value={gender} id={genderId} className="peer sr-only" />
+                            <FormLabel htmlFor={genderId} className="flex flex-col items-center justify-center p-3 rounded-lg border-2 border-muted bg-popover hover:bg-accent peer-data-[state=checked]:border-primary peer-data-[state=checked]:bg-primary/5 peer-data-[state=checked]:text-primary cursor-pointer transition-all duration-200 text-sm font-medium">
+                              {t(gender.toLowerCase())}
+                            </FormLabel>
+                          </div>
+                        </FormControl>
+                      </FormItem>
+                      );
+                    })}
+                  </RadioGroup>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        )}
+
+        {insuranceType === 'health_insurance' && selectedMembers.length > 0 && (
+          <div className="space-y-4">
+            <p className="font-semibold">{t("provide_member_details")}</p>
+            {selectedMembers.map((member) => (
+              <div key={member} className="border p-3 rounded-md space-y-2">
+                <h4 className="font-medium capitalize">{t(member)}</h4>
+                <div className="flex gap-2">
+                  <FormField
+                    control={form.control}
+                    name={`memberDetails.${member}.age`}
+                    render={({ field }) => (
+                      <FormItem className="flex-1">
+                        <FormControl>
+                          <Input type="number" placeholder={t("age")} {...field} onChange={(e) => field.onChange(e.target.value ? parseInt(e.target.value) : undefined)} value={field.value ?? ""} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name={`memberDetails.${member}.gender`}
+                    render={({ field }) => (
+                      <FormItem className="flex-1">
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
+                          <SelectTrigger><SelectValue placeholder={t("gender")} /></SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="Male">{t("male")}</SelectItem>
+                            <SelectItem value="Female">{t("female")}</SelectItem>
+                          </SelectContent>
+                        </Select>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div className={cn("flex justify-end gap-3 pt-6", !onClose && "justify-center")}>
+          {onClose && (
+            <Button type="button" variant="outline" onClick={onClose} className="hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+              {t("cancel")}
+            </Button>
+          )}
+          <Button type="submit" className="bg-gradient-to-r from-primary to-purple-600 hover:to-purple-700 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
+            {t("submit_quote")}
+          </Button>
+        </div>
+      </form>
+    </Form>
+  );
+};
+
+export default QuoteForm;

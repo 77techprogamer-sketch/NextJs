@@ -1,0 +1,486 @@
+import { Organization, WebSite, InsuranceAgency, Service, FAQPage, BreadcrumbList, HowTo, Person, Article, BlogPosting } from 'schema-dts';
+import enTranslations from '../../public/locales/en/translation.json';
+import { faqData, FAQItem } from '@/data/faqData';
+import { contactConfig } from '@/data/contact';
+
+const t = (key: string) => {
+    return (enTranslations as any)[key] || key;
+};
+
+// Site-wide schema that belongs on every page
+export function GlobalJsonLd() {
+    const jsonLd: any = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'Organization',
+                '@id': 'https://insurancesupport.online/#organization',
+                name: 'Insurance Support',
+                url: 'https://insurancesupport.online',
+                logo: 'https://insurancesupport.online/logo.png',
+                email: contactConfig.email,
+                address: {
+                    '@type': 'PostalAddress',
+                    addressLocality: 'Bangalore',
+                    addressRegion: 'KA',
+                    addressCountry: 'IN'
+                },
+                contactPoint: {
+                    '@type': 'ContactPoint',
+                    telephone: contactConfig.phoneFull,
+                    contactType: 'customer service',
+                    areaServed: 'IN',
+                    availableLanguage: ['en', 'hi', 'kn', 'ta', 'te', 'mr', 'gu']
+                },
+                sameAs: [
+                    'https://www.facebook.com/insurancesupport',
+                    'https://twitter.com/insurancesupport',
+                    'https://www.instagram.com/insurancesupport',
+                    'https://share.google/2Cbcq7l39kTWJl2Dm'
+                ],
+                aggregateRating: {
+                    '@type': 'AggregateRating',
+                    ratingValue: 4.2,
+                    reviewCount: 23,
+                    bestRating: 5,
+                    worstRating: 1
+                }
+            },
+            {
+                '@type': 'WebSite',
+                '@id': 'https://insurancesupport.online/#website',
+                url: 'https://insurancesupport.online',
+                name: 'Insurance Support',
+                description: (t('services_description') as string) || 'Your trusted partner for all insurance related queries and support.',
+                publisher: {
+                    '@id': 'https://insurancesupport.online/#organization'
+                },
+                potentialAction: {
+                    '@type': 'SearchAction',
+                    target: 'https://insurancesupport.online/support?q={search_term_string}',
+                    'query-input': 'required name=search_term_string'
+                } as any
+            },
+            { '@type': 'SiteNavigationElement', name: 'Home', url: 'https://insurancesupport.online' },
+            { '@type': 'SiteNavigationElement', name: 'About Us', url: 'https://insurancesupport.online/about' },
+            { '@type': 'SiteNavigationElement', name: 'Life Insurance', url: 'https://insurancesupport.online/services/life-insurance' },
+            { '@type': 'SiteNavigationElement', name: 'Health Insurance', url: 'https://insurancesupport.online/services/health-insurance' },
+            { '@type': 'SiteNavigationElement', name: 'Motor Insurance', url: 'https://insurancesupport.online/services/motor-insurance' },
+            { '@type': 'SiteNavigationElement', name: 'Support', url: 'https://insurancesupport.online/support' },
+            { '@type': 'SiteNavigationElement', name: 'Resources', url: 'https://insurancesupport.online/resources' }
+        ]
+    }
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+    )
+}
+
+// LocalBusiness injected on Home Page (includes only the first 6 FAQs that are actually visible)
+export function LocalBusinessJsonLd() {
+    // ONLY include the FAQs that are actually rendered visually on the Home Page to comply with GSC rules
+    const homeFaqs = faqData.slice(0, 6);
+    
+    const faqSchema: FAQPage = {
+        '@type': 'FAQPage',
+        mainEntity: homeFaqs.map(faq => ({
+            '@type': 'Question',
+            name: t(faq.questionKey) as string,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: t(faq.answerKey) as string
+            }
+        }))
+    };
+
+    const jsonLd: { '@context': string; '@graph': (InsuranceAgency | Service | FAQPage | BreadcrumbList)[] } = {
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'InsuranceAgency',
+                '@id': 'https://insurancesupport.online/#local-business',
+                name: 'Insurance Support',
+                alternateName: [
+                    'Insurance Support',
+                    'LIC Insurance Support',
+                    'Insurance Advisor Kotian',
+                    'Claim Recovery Experts',
+                    'Rejected Claim Specialists'
+                ],
+                url: 'https://insurancesupport.online',
+                sameAs: [
+                    'https://share.google/2Cbcq7l39kTWJl2Dm',
+                    'https://www.facebook.com/insurancesupport',
+                    'https://twitter.com/insurancesupport',
+                    'https://www.instagram.com/insurancesupport'
+                ],
+                logo: 'https://insurancesupport.online/logo.png',
+                image: 'https://insurancesupport.online/logo.png',
+                hasMap: 'https://share.google/FBw8WZDuh4r3AD5f0',
+                description: (t('services_description') as string) || 'Expert insurance support for LIC, Health, Motor, and Life policies. Specializing in rejected claims and lost policies.',
+                telephone: contactConfig.phoneFull,
+                email: contactConfig.email,
+                priceRange: '₹₹',
+                aggregateRating: {
+                    '@type': 'AggregateRating',
+                    name: 'Insurance Support Customer Satisfaction',
+                    ratingValue: 4.2,
+                    reviewCount: 23,
+                    bestRating: 5,
+                    worstRating: 1
+                } as any,
+                areaServed: [
+                    { '@type': 'Country', name: 'India' },
+                    { '@type': 'City', name: 'Bangalore' },
+                    { '@type': 'City', name: 'Mumbai' },
+                    { '@type': 'City', name: 'Delhi' },
+                    { '@type': 'City', name: 'Chennai' },
+                    { '@type': 'City', name: 'Hyderabad' }
+                ],
+                address: {
+                    '@type': 'PostalAddress',
+                    streetAddress: 'Bahubali Nagar, Jalahalli',
+                    addressLocality: 'Bengaluru',
+                    addressRegion: 'KA',
+                    postalCode: '560013',
+                    addressCountry: 'IN'
+                },
+                geo: {
+                    '@type': 'GeoCoordinates',
+                    latitude: 13.0159,
+                    longitude: 77.5522
+                },
+                openingHoursSpecification: {
+                    '@type': 'OpeningHoursSpecification',
+                    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+                    opens: '09:00',
+                    closes: '21:00'
+                },
+                parentOrganization: {
+                    '@id': 'https://insurancesupport.online/#organization'
+                },
+                review: [
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Prashanth S' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Best LIC consultant. Highly recommended. In-depth knowledge of LIC policies.',
+                        datePublished: '2025-11-15'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Ayush Kandoi' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Positive experience. Excellent guidance for insurance planning.',
+                        datePublished: '2025-12-02'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Meera Nair' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'My LIC death claim was stuck for over a year. Insurance Support resolved it in 3 weeks. Cannot thank them enough.',
+                        datePublished: '2025-10-20'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Ravi Kumar' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Doorstep service is a game changer. They handled my entire policy revival without me visiting any office.',
+                        datePublished: '2026-01-10'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Sneha Patil' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Got my maturity claim settled after my policy had lapsed. Professional and transparent throughout.',
+                        datePublished: '2025-09-05'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Arun Sharma' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 4, bestRating: 5 },
+                        reviewBody: 'Very knowledgeable team. Helped me understand my health insurance cover and get a rejected claim reconsidered.',
+                        datePublished: '2025-08-18'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Priya Menon' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Found my lost LIC policy bond with their help. Never thought it was possible. Truly excellent service.',
+                        datePublished: '2026-02-01'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Suresh Reddy' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Recommended by my friend. They helped me get the best term insurance for my family. Fast, honest, expert advice.',
+                        datePublished: '2025-11-28'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Farida Khan' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 5, bestRating: 5 },
+                        reviewBody: 'Our group health insurance for 50+ employees was set up smoothly. Very professional team.',
+                        datePublished: '2025-07-14'
+                    },
+                    {
+                        '@type': 'Review',
+                        author: { '@type': 'Person', name: 'Dinesh Bhat' },
+                        reviewRating: { '@type': 'Rating', ratingValue: 4, bestRating: 5 },
+                        reviewBody: 'Helped me renew my motor insurance at a great price and also advised on a better health cover. Very helpful.',
+                        datePublished: '2026-01-30'
+                    }
+                ] as any
+            },
+            {
+                '@type': 'Service',
+                name: 'LIC Policy Management',
+                provider: { '@id': 'https://insurancesupport.online/#local-business' },
+                serviceType: 'Insurance Advisory',
+                areaServed: { '@type': 'Country', name: 'India' },
+                description: 'Expert help with LIC policy surrender, maturity claims, and lost policy bond retrieval.',
+                image: 'https://insurancesupport.online/life-insurance.png',
+                offers: {
+                    '@type': 'Offer',
+                    price: 500,
+                    priceCurrency: 'INR',
+                    availability: 'https://schema.org/InStock',
+                    url: 'https://insurancesupport.online/services/life-insurance'
+                }
+            },
+            {
+                '@type': 'Service',
+                name: 'Insurance Claims Assistance',
+                provider: { '@id': 'https://insurancesupport.online/#local-business' },
+                serviceType: 'Claims Support',
+                areaServed: { '@type': 'Country', name: 'India' },
+                description: 'Professional assistance for rejected Life, Health, and Motor insurance claims.',
+                image: 'https://insurancesupport.online/health-insurance.png',
+                offers: {
+                    '@type': 'Offer',
+                    price: 1000,
+                    priceCurrency: 'INR',
+                    availability: 'https://schema.org/InStock',
+                    url: 'https://insurancesupport.online/services/health-insurance'
+                }
+            },
+            faqSchema
+        ]
+    }
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+    )
+}
+
+// Full FAQ schema for dedicated FAQ Pages (if any page shows all FAQs)
+export function FullFaqJsonLd({ faqs }: { faqs?: FAQItem[] }) {
+    const data = faqs || faqData;
+    const faqSchema: FAQPage = {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: data.map(faq => ({
+            '@type': 'Question',
+            name: t(faq.questionKey) as string,
+            acceptedAnswer: {
+                '@type': 'Answer',
+                text: t(faq.answerKey) as string
+            }
+        }))
+    } as any;
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+    )
+}
+
+// HowTo Schema exclusively for claim/support specific guides
+export function GuideHowToJsonLd() {
+    const howToLd: any = {
+        '@context': 'https://schema.org',
+        '@type': 'HowTo',
+        name: 'How to File an Insurance Claim in India',
+        description: 'Step-by-step guide to filing a life, health, or motor insurance claim in India with help from a certified advisor.',
+        totalTime: 'P7D',
+        supply: [
+            { '@type': 'HowToSupply', name: 'Policy documents' },
+            { '@type': 'HowToSupply', name: 'Identity proof (Aadhaar/PAN)' },
+            { '@type': 'HowToSupply', name: 'Claim form from insurer' }
+        ],
+        step: [
+            {
+                '@type': 'HowToStep',
+                position: 1,
+                name: 'Notify the Insurance Company',
+                text: 'Inform your insurer about the claim event within 24-48 hours via phone or online portal. For death claims, notify within 7 days.',
+                url: 'https://insurancesupport.online/support'
+            },
+            {
+                '@type': 'HowToStep',
+                position: 2,
+                name: 'Gather Required Documents',
+                text: 'Collect policy documents, ID proof, medical records (for health), FIR copy (for motor), or death certificate (for life claims).',
+                url: 'https://insurancesupport.online/resources'
+            },
+            {
+                '@type': 'HowToStep',
+                position: 3,
+                name: 'Submit the Claim Form',
+                text: "Fill out the insurer's claim form accurately. Attach all supporting documents. Submit online or at the nearest branch.",
+                url: 'https://insurancesupport.online/support'
+            },
+            {
+                '@type': 'HowToStep',
+                position: 4,
+                name: 'Track Your Claim Status',
+                text: "Note down your claim reference number and track status via the insurer's portal or helpline.",
+                url: 'https://insurancesupport.online/support'
+            },
+            {
+                '@type': 'HowToStep',
+                position: 5,
+                name: 'Escalate if Rejected',
+                text: 'If your claim is rejected, you can escalate to IRDAI Grievance Cell or seek help from a certified claim recovery specialist.',
+                url: 'https://insurancesupport.online/services/life-insurance'
+            }
+        ]
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(howToLd) }}
+        />
+    )
+}
+
+// Article Schema exclusively for YMYL expert guides to secure Top Stories and rich snippets
+export function GuideArticleJsonLd({
+    title,
+    description,
+    url,
+    images = ['https://insurancesupport.online/logo.png'],
+    datePublished = '2025-01-01T08:00:00+08:00',
+    dateModified = new Date().toISOString(),
+    authorName = 'Hari Kotian'
+}: {
+    title: string;
+    description: string;
+    url: string;
+    images?: string[];
+    datePublished?: string;
+    dateModified?: string;
+    authorName?: string;
+}) {
+    const articleLd: any = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        headline: title,
+        description: description,
+        image: images,
+        datePublished: datePublished,
+        dateModified: dateModified,
+        author: {
+            '@type': 'Person',
+            name: authorName,
+            url: 'https://insurancesupport.online/about-hari-kotian',
+            jobTitle: 'Certified Insurance Advisor',
+            worksFor: {
+                '@type': 'Organization',
+                name: 'Insurance Support'
+            },
+            sameAs: []
+        },
+        publisher: {
+            '@type': 'Organization',
+            name: 'Insurance Support',
+            logo: {
+                '@type': 'ImageObject',
+                url: 'https://insurancesupport.online/logo.png'
+            }
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': url
+        }
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }}
+        />
+    )
+}
+// Dynamic LocalBusiness injected on Programmatic Location Pages
+export function DynamicLocalBusinessJsonLd({
+    city,
+    state,
+    serviceName
+}: {
+    city: string;
+    state: string;
+    serviceName: string;
+}) {
+    const jsonLd: any = {
+        '@context': 'https://schema.org',
+        '@type': 'ProfessionalService',
+        '@id': `https://insurancesupport.online/locations/${state}/${city}/${serviceName.toLowerCase().replace(/ /g, '-')}/#local-business`,
+        name: `Insurance Support - ${city}`,
+        url: `https://insurancesupport.online/locations/${state}/${city}/${serviceName.toLowerCase().replace(/ /g, '-')}`,
+        image: 'https://insurancesupport.online/logo.png',
+        priceRange: '₹₹',
+        address: {
+            '@type': 'PostalAddress',
+            streetAddress: 'Bahubali Nagar, Jalahalli',
+            addressLocality: 'Bengaluru',
+            addressRegion: 'KA',
+            postalCode: '560013',
+            addressCountry: 'IN'
+        },
+        geo: {
+            '@type': 'GeoCoordinates',
+            latitude: 13.0600,
+            longitude: 77.5350
+        },
+        openingHoursSpecification: {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+            opens: '09:00',
+            closes: '18:00'
+        },
+        aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: '4.9',
+            reviewCount: '150'
+        },
+        contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: contactConfig.phoneFull,
+            contactType: 'customer service'
+        },
+        parentOrganization: {
+            '@id': 'https://insurancesupport.online/#organization'
+        },
+        mainEntityOfPage: {
+            '@type': 'WebPage',
+            '@id': `https://insurancesupport.online/locations/${state}/${city}/${serviceName.toLowerCase().replace(/ /g, '-')}`
+        }
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+    )
+}
