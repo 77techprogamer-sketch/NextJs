@@ -9,7 +9,6 @@ const nextConfig = {
     },
     compress: true,
     trailingSlash: false,
-    webpack: (config) => config,
     async headers() {
         return [
             {
