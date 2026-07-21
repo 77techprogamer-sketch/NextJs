@@ -9,6 +9,7 @@ const nextConfig = {
     },
     compress: true,
     trailingSlash: false,
+    webpack: (config) => config,
     async headers() {
         return [
             {
@@ -51,7 +52,7 @@ const nextConfig = {
         ],
     },
     experimental: {
-        optimizeCss: true, // Requires 'critters' package
+        optimizeCss: true,
         optimizePackageImports: ['lucide-react', 'date-fns', 'lodash']
     },
     async redirects() {
