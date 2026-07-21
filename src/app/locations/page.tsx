@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { INDIAN_LOCATIONS } from '@/data/indianCities'
 import { MapPin, ChevronRight, Shield, ArrowRight, Target } from 'lucide-react'
-import { getStaticTranslation, getLocalizedName } from '@/lib/i18n-server'
+import { getStaticTranslation, getLocalizedName } from '@/lib/static-i18n'
 
 
 

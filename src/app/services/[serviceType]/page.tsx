@@ -6,7 +6,7 @@ import { CityLinksForService } from "@/components/KeywordLinkBlocks"
 import Link from "next/link"
 import { ArrowRight, BookOpen } from "lucide-react"
 
-import { getStaticTranslation } from "@/lib/i18n-server"
+import { getStaticTranslation } from "@/lib/static-i18n"
 import { services, serviceLabels, serviceDescriptions } from "@/data/services"
 
 

@@ -5,7 +5,7 @@ import { Phone, MessageCircle, FileText, ShieldCheck, RefreshCw, Search, AlertTr
 import { Button } from '@/components/ui/button';
 import QuoteForm from '@/components/QuoteForm';
 import { contactConfig } from '@/data/contact';
-import { getStaticTranslation } from "@/lib/i18n-server";
+import { getStaticTranslation } from "@/lib/static-i18n";
 import EscalationRoadmap from '@/components/lead-magnets/EscalationRoadmap';
 import LeadMagnetCTA from '@/components/lead-magnets/LeadMagnetCTA';
 import ClaimStressTest from '@/components/lead-magnets/ClaimStressTest';

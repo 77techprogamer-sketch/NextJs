@@ -5,7 +5,7 @@ import Link from 'next/link';
 import blogs from '@/data/blogs.json';
 import { Calendar, ChevronLeft, Share2, Tag, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { getStaticTranslation } from '@/lib/i18n-server';
+import { getStaticTranslation } from '@/lib/static-i18n';
 import ReactMarkdown from 'react-markdown';
 import ShareButtons from '@/components/ShareButtons';
 

@@ -5,7 +5,7 @@ import blogs from '@/data/blogs.json';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FileText, Calendar, ArrowRight, Tag } from 'lucide-react';
-import { getStaticTranslation } from '@/lib/i18n-server';
+import { getStaticTranslation } from '@/lib/static-i18n';
 
 
 

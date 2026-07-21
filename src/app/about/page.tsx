@@ -2,7 +2,7 @@
 import { Metadata } from 'next';
 import AboutContent from '@/components/AboutContent';
 import { contactConfig } from '@/data/contact';
-import { getStaticTranslation } from "@/lib/i18n-server";
+import { getStaticTranslation } from "@/lib/static-i18n";
 
 
 

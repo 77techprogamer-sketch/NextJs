@@ -1,5 +1,5 @@
 ﻿import { Metadata } from 'next';
-import { getStaticTranslation } from "@/lib/i18n-server";
+import { getStaticTranslation } from "@/lib/static-i18n";
 import { LocalBusinessJsonLd } from '@/components/ServerJsonLd';
 import HomeClient from '@/components/HomeClient';
 

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { contactConfig } from '@/data/contact';
 import QuoteForm from '@/components/QuoteForm';
-import { getStaticTranslation } from '@/lib/i18n-server';
+import { getStaticTranslation } from '@/lib/static-i18n';
 
 
 

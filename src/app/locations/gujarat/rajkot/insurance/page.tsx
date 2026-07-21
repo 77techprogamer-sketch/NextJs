@@ -1,5 +1,5 @@
 import React from "react";
-import { getStaticTranslation } from "@/lib/i18n-server";
+import { getStaticTranslation } from "@/lib/static-i18n";
 import { Metadata } from "next";
 import { Phone, MessageCircle, CheckCircle, MapPin, Star, Clock, Award, Shield } from "lucide-react";
 

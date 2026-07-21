@@ -1,4 +1,4 @@
-﻿import { getStaticTranslation } from '@/lib/i18n-server';
+﻿import { getStaticTranslation } from '@/lib/static-i18n';
 import PolicyRecoveryClient from '@/components/tools/PolicyRecoveryClient';
 
 

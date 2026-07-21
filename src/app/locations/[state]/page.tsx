@@ -1,4 +1,4 @@
-import { getStaticTranslation, getLocalizedName } from '@/lib/i18n-server'
+import { getStaticTranslation, getLocalizedName } from '@/lib/static-i18n'
 import { serviceLabels } from '@/data/services'
 import { INDIAN_LOCATIONS, PRIORITY_CITY_SLUGS } from '@/data/indianCities'
 import Link from 'next/link'

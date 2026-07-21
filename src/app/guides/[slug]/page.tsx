@@ -8,7 +8,7 @@ import Link from 'next/link'
 import React from 'react'
 import { ChevronRight, ShieldCheck, Clock, Award, Phone, Hospital, Car, Heart, AlertTriangle, CheckCircle, MapPin, Building2, FileText, Users } from 'lucide-react'
 import ShortLeadForm from '@/components/ShortLeadForm'
-import { getStaticTranslation, getLocalizedName } from '@/lib/i18n-server'
+import { getStaticTranslation, getLocalizedName } from '@/lib/static-i18n'
 
 // Top 10 cities for SEO Guides
 const TOP_10_CITIES = ['mumbai', 'delhi', 'bangalore', 'hyderabad', 'chennai', 'kolkata', 'pune', 'ahmedabad', 'jaipur', 'lucknow']
