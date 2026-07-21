@@ -1,0 +1,8 @@
+# Force Cloudflare Pages to use npm install instead of npm ci
+# by overriding the default build command via environment variables.
+
+# Set the build command
+NPM_FLAGS="--legacy-peer-deps"
+
+# You can also specify a Node.js version if needed
+# NODE_VERSION="18"
