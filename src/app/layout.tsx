@@ -5,27 +5,31 @@ import { Inter, Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import dynamic from 'next/dynamic'
 import PageTransitionProvider from '@/components/PageTransitionProvider';
-const ChatbotWidget = dynamic(() => import('@/components/ChatbotWidget'), { ssr: false });
 import Analytics from '@/components/Analytics'
-
-const SmartLanguageSelector = dynamic(() => import('@/components/SmartLanguageSelector'), { ssr: false });
-const QuickDialSidebar = dynamic(() => import('@/components/QuickDialSidebar'), { ssr: false });
 import { Toaster } from '@/components/ui/sonner'
 import I18nProvider from '@/components/I18nProvider'
 import { GlobalJsonLd } from '@/components/ServerJsonLd'
 import HoneypotTrap from '@/components/HoneypotTrap'
-const WhatsAppWidget = dynamic(() => import('@/components/WhatsAppWidget'), { ssr: false });
-import DelayedLoader from '@/components/DelayedLoader';
-const StickyMobileContactBar = dynamic(() => import('@/components/StickyMobileContactBar'), { ssr: false });
-const QuestionForm = dynamic(() => import('@/components/QuestionForm'), { ssr: false });
-const VisitorTracker = dynamic(() => import('@/components/VisitorTracker'), { ssr: false });
-const LeadSyncManager = dynamic(() => import('@/components/LeadSyncManager').then(mod => mod.LeadSyncManager), { ssr: false });
-const BroadcastListener = dynamic(() => import('@/components/BroadcastListener'), { ssr: false });
-const ExitIntentPopup = dynamic(() => import('@/components/ExitIntentPopup'), { ssr: false });
 import NewsletterSection from '@/components/sections/NewsletterSection';
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import DelayedLoader from '@/components/DelayedLoader';
+import { ThemeProvider } from '@/components/theme-provider'
+import {
+    ChatbotWidget,
+    SmartLanguageSelector,
+    QuickDialSidebar,
+    WhatsAppWidget,
+    StickyMobileContactBar,
+    QuestionForm,
+    VisitorTracker,
+    LeadSyncManager,
+    BroadcastListener,
+    ExitIntentPopup,
+    CollapsibleToolsFooter,
+    GlobalForms,
+} from '@/components/ClientWidgets'
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' })
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ['latin'], variable: '--font-jakarta', display: 'swap' })
@@ -139,14 +143,7 @@ export const metadata: Metadata = {
     },
 }
 
-import Script from 'next/script';
 const GTM_ID = 'GTM-P8DZ6MRQ';
-
-
-const CollapsibleToolsFooter = dynamic(() => import('@/components/CollapsibleToolsFooter'), { ssr: false });
-const GlobalForms = dynamic(() => import('@/components/GlobalForms'), { ssr: false });
-
-import { ThemeProvider } from '@/components/theme-provider'
 
 export default function RootLayout({
     children,
@@ -159,7 +156,7 @@ export default function RootLayout({
     
     // Consistent detection logic with getStaticTranslation and client switchers
     let lang = headersList.get('x-next-locale') || 
-               cookieStore.get('NEXT_LOCALE')?.value || 
+               cookieStore.get('NEXT_LOCALE')?.value ||
                cookieStore.get('i18next')?.value ||
                cookieStore.get('i18nextLng')?.value || 
                'en';
